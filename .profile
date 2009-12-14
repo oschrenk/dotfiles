@@ -18,7 +18,7 @@ shopt -s histappend #append to the samme history file when using multiple termin
 shopt -s cdspell #minor errors in the spelling of a directory component in a cd command will be corrected
 shopt -s nocaseglob #when typing part of a filename and press Tab to autocomplete, Bash does a case-insensitive search.	
 
-# Setup SSH-agent
+# Setup SSH-agent found at http://www.cygwin.com/ml/cygwin/2001-06/msg00537.html
 SSH_ENV="$HOME/.ssh/environment"
 
 function start_agent {
