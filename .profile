@@ -1,14 +1,10 @@
+export PATH=/opt/local/bin:$PATH
+export PATH=/opt/local/sbin:$PATH
+export PATH=~/Development/scripts/:$PATH
 
-# MacPorts Installer addition on 2009-09-30_at_06:17:48: adding an appropriate PATH variable for use with MacPorts.
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
-# Finished adapting your PATH environment variable for use with MacPorts.
-
-# MacPorts Installer addition on 2009-01-29_at_10:02:33: adding an appropriate MANPATH variable for use with MacPorts.
 export MANPATH=/opt/local/share/man:$MANPATH
-# Finished adapting your MANPATH environment variable for use with MacPorts.
 
 export SVN_EDITOR=vi
-export JAVA_HOME=/System/Library/Frameworks/JavaVM.framework/Versions/1.6.0/Home/
 
 # bigger history	
 export HISTFILESIZE=1000000000
@@ -125,6 +121,3 @@ pickjdk()
     hash -r
     unset JDKS
 }
-
-
-
