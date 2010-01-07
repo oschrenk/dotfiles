@@ -1,0 +1,9 @@
+[color]
+	ui = auto
+[user]
+	name = Oliver Schrenk
+	email = oliver.schrenk@gmx.net
+[core]
+	excludesfile = /Users/Oliver/.gitignore
+[svn]
+	authorsfile = /Users/Oliver/.git-svn.authorsfile
