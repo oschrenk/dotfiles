@@ -4,6 +4,6 @@
 	name = Oliver Schrenk
 	email = oliver.schrenk@gmx.net
 [core]
-	excludesfile = /Users/Oliver/.gitignore
+	excludesfile = ~/.global-gitignore
 [svn]
-	authorsfile = /Users/Oliver/.git-svn.authorsfile
+	authorsfile = ~/.git-svn.authorsfile

@@ -1,1 +1,9 @@
-.DS_Store
+*
+!.git-svn.authorsfile
+!.gitconfig
+!.gitignore
+!.global-gitignore
+!.inputrc
+!.profile
+
+
