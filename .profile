@@ -7,14 +7,17 @@ export MANPATH=/opt/local/share/man:$MANPATH
 export SVN_EDITOR=vi
 
 # bigger history	
-export HISTFILESIZE=1000000000
-export HISTSIZE=1000000
+export HISTFILESIZE=10000
+export HISTSIZE=10000
 
-# ignore identical commands
+# any lines matching the previous history entry will not be saved
 export HISTCONTROL=ignoreboth
-export HISTIGNORE="ls"
 
-shopt -s histappend #append to the samme history file when using multiple terminals
+# patterns of commands that will be ignored and NOT added to history
+# [ \t]* NEAT trick: ignores commands with leading space
+export HISTIGNORE="ls:ls -lA:[ \t]*"
+
+shopt -s histappend #append to the same history file when using multiple terminals
 shopt -s cdspell #minor errors in the spelling of a directory component in a cd command will be corrected
 shopt -s nocaseglob #when typing part of a filename and press Tab to autocomplete, Bash does a case-insensitive search.	
 
