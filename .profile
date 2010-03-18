@@ -14,8 +14,7 @@ export HISTSIZE=10000
 export HISTCONTROL=ignoreboth
 
 # patterns of commands that will be ignored and NOT added to history
-# [ \t]* NEAT trick: ignores commands with leading space
-export HISTIGNORE="ls:ls -lA:[ \t]*"
+# export HISTIGNORE="ls:ls -lA"
 
 shopt -s histappend #append to the same history file when using multiple terminals
 shopt -s cdspell #minor errors in the spelling of a directory component in a cd command will be corrected
