@@ -1,4 +1,6 @@
 *
+!.m2
+!.m2/settings.xml
 !.git-svn.authorsfile
 !.gitconfig
 !.gitignore
