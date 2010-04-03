@@ -4,6 +4,7 @@ export PATH=~/Development/scripts/:$PATH
 
 export MANPATH=/opt/local/share/man:$MANPATH
 
+export EDITOR=vi
 export SVN_EDITOR=vi
 
 # bigger history	
