@@ -2,7 +2,7 @@
 	ui = auto
 [user]
 	name = Oliver Schrenk
-	email = oliver.schrenk@gmx.net
+	email = oliver.schrenk@gmail.com
 [core]
 	excludesfile = ~/.global-gitignore
 [svn]
