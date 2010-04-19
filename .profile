@@ -6,7 +6,7 @@ export MANPATH=/opt/local/share/man:$MANPATH
 
 # LEJOS
 export NXJ_HOME=~/Development/sdk/lejos_nxj
-export PATH=~/Development/sdk/lejos_nxj/:$PATH
+export PATH=~/Development/sdk/lejos_nxj/bin:$PATH
 # optional for use with Eclipse plugin
 # export DYLD_LIBRARY_PATH=$NXJ_HOME/bin;
 
