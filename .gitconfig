@@ -5,5 +5,3 @@
 	email = oliver.schrenk@gmail.com
 [core]
 	excludesfile = ~/.global-gitignore
-[svn]
-	authorsfile = ~/.git-svn.authorsfile
