@@ -31,6 +31,7 @@ shopt -s nocaseglob #when typing part of a filename and press Tab to autocomplet
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
+alias grace='sudo /opt/local/apache2/bin/apachectl graceful'
 
 # Setup SSH-agent found at http://www.cygwin.com/ml/cygwin/2001-06/msg00537.html
 SSH_ENV="$HOME/.ssh/environment"
@@ -56,7 +57,6 @@ else
      start_agent;
 fi 
 
-#!/bin/sh
 # Provides a function that allows you to choose a JDK.  Just set the environment 
 # variable JDKS_ROOT to the directory containing multiple versions of the JDK
 # and the function will prompt you to select one.  JAVA_HOME and PATH will be cleaned
