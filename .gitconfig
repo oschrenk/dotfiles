@@ -5,3 +5,5 @@
 	email = oliver.schrenk@gmail.com
 [core]
 	excludesfile = ~/.global-gitignore
+[alias]
+	history = !git log --reverse --pretty=oneline | cut -c41- | nl | sort -nr
