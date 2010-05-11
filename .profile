@@ -28,10 +28,16 @@ shopt -s cdspell #minor errors in the spelling of a directory component in a cd 
 shopt -s nocaseglob #when typing part of a filename and press Tab to autocomplete, Bash does a case-insensitive search.	
 
 # useful alias
+alias ..="cd .."
+alias ...="cd ../.."
+alias --="cd -"
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
+
 alias grace='sudo /opt/local/apache2/bin/apachectl graceful'
+
+md() { mkdir -p "$1" && cd "$1"; }
 
 # Setup SSH-agent found at http://www.cygwin.com/ml/cygwin/2001-06/msg00537.html
 SSH_ENV="$HOME/.ssh/environment"
