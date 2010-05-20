@@ -1,4 +1,4 @@
-export SCRIPTS=~/Development/scripts/
+export SCRIPTS=~/Development/scripts
 
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/local/sbin:$PATH
@@ -67,6 +67,6 @@ else
 fi 
 
 # include pickjdk script
-if [ -f $SCRIPTS.pickjdk ]; then
-    . $SCRIPTS.pickjdk
+if [ -f $SCRIPTS/pickjdk ]; then
+    . $SCRIPTS/pickjdk
 fi
