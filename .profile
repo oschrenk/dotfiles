@@ -14,8 +14,8 @@ export EDITOR=vi
 export SVN_EDITOR=vi
 
 # bigger history	
-export HISTFILESIZE=10000
 export HISTSIZE=10000
+export HISTFILESIZE=${HISTSIZE}
 
 # any lines matching the previous history entry will not be saved
 export HISTCONTROL=ignoreboth
@@ -25,7 +25,8 @@ export HISTCONTROL=ignoreboth
 
 shopt -s histappend #append to the same history file when using multiple terminals
 shopt -s cdspell #minor errors in the spelling of a directory component in a cd command will be corrected
-shopt -s nocaseglob #when typing part of a filename and press Tab to autocomplete, Bash does a case-insensitive search.	
+shopt -s nocaseglob #when typing part of a filename and press Tab to autocomplete, Bash does a case-insensitive search.
+shopt -s cmdhist # Save multi-line commands in history as single line
 
 # useful alias
 alias ..='cd ..'
