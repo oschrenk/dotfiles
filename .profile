@@ -1,4 +1,5 @@
 export SCRIPTS=~/Development/scripts
+export SDKS=~/Development/sdk
 
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/local/sbin:$PATH
@@ -7,10 +8,8 @@ export PATH=$SCRIPTS:$PATH
 export MANPATH=/opt/local/share/man:$MANPATH
 
 # LEJOS
-export NXJ_HOME=~/Development/sdk/lejos_nxj
-export PATH=~/Development/sdk/lejos_nxj/bin:$PATH
-# optional for use with Eclipse plugin
-# export DYLD_LIBRARY_PATH=$NXJ_HOME/bin;
+export NXJ_HOME=$SDKS/lejos_nxj
+export PATH=$SDKS/lejos_nxj/bin:$PATH
 
 export EDITOR=vi
 export SVN_EDITOR=vi
