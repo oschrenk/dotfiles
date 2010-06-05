@@ -37,6 +37,7 @@ alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
 alias ttop='top -ocpu -R -F -s 2 -n30'
+alias psef='ps -ef | grep $1'
 
 alias grace='sudo /opt/local/apache2/bin/apachectl graceful'
 
