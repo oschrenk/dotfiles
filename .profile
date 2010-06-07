@@ -1,3 +1,6 @@
+GREP_OPTIONS="--exclude-dir=\.svn"
+export GREP_OPTIONS
+
 export SCRIPTS=~/Development/scripts
 export SDKS=~/Development/sdk
 
@@ -14,7 +17,7 @@ export PATH=$SDKS/lejos_nxj/bin:$PATH
 export EDITOR=vi
 export SVN_EDITOR=vi
 
-export GREP_OPTIONS="--exclude-dir=\.svn --exclude-dir=\.git"
+
 
 # bigger history	
 export HISTSIZE=10000
