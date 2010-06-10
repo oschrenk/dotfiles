@@ -1,11 +1,10 @@
 *
-!.m2
-!.m2/settings.xml
+!.ackrc
 !.git-svn.authorsfile
 !.gitconfig
 !.gitignore
 !.global-gitignore
 !.inputrc
+!.m2
+!.m2/settings.xml
 !.profile
-
-

@@ -1,0 +1,4 @@
+--type-add
+markdown=.markdown,.md
+--type-add
+textile=.textile
