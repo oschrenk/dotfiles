@@ -11,6 +11,9 @@ export MANPATH=/opt/local/share/man:$MANPATH
 export NXJ_HOME=$SDKS/lejos_nxj
 export PATH=$SDKS/lejos_nxj/bin:$PATH
 
+# PLAY
+export PATH=$SDKS/play:$PATH
+
 export EDITOR=vi
 export SVN_EDITOR=vi
 
