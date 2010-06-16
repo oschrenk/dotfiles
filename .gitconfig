@@ -14,3 +14,10 @@
     b = branch
 	
 	history = !git log --reverse --pretty=oneline | cut -c41- | nl | sort -nr
+	
+[difftool "Kaleidoscope"]	
+	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+[diff]
+	tool = Kaleidoscope
