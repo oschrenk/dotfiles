@@ -6,15 +6,16 @@
 [core]
 	excludesfile = ~/.global-gitignore
 [alias]
-	s = status
-    d = diff
+	b = branch
+	c = commit
+    cv = commit -v
+    cva = commit -v -a
+	co = checkout
+	d = diff
 	dt = difftool
-    ci = commit -v
-    cia = commit -v -a
-    b = branch
-	
 	history = !git log --reverse --pretty=oneline | cut -c41- | nl | sort -nr
-	
+	s = status
+
 [difftool "Kaleidoscope"]	
 	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]
