@@ -1,5 +1,5 @@
 export SCRIPTS=~/Development/scripts
-export SDKS=~/Development/sdk
+export SDKS=~/Development/sdks
 
 export PATH=/opt/local/bin:$PATH
 export PATH=/opt/local/sbin:$PATH
@@ -35,6 +35,7 @@ alias ...='cd ../..'
 alias ll='ls -l'
 alias la='ls -a'
 alias lla='ls -la'
+
 alias ttop='top -ocpu -R -F -s 2 -n30'
 alias psef='ps -ef | grep $1'
 
