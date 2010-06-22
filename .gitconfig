@@ -8,6 +8,7 @@
 [alias]
 	b = branch
 	c = commit
+	cam = commit -amend
     cv = commit -v
     cva = commit -v -a
 	co = checkout
@@ -15,7 +16,7 @@
 	dt = difftool
 	history = !git log --reverse --pretty=oneline | cut -c41- | nl | sort -nr
 	s = status
-
+	
 [difftool "Kaleidoscope"]	
 	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]
