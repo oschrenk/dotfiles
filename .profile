@@ -7,6 +7,10 @@ export PATH=$SCRIPTS:$PATH
 
 export MANPATH=/opt/local/share/man:$MANPATH
 
+# WD http://github.com/karlin/working-directory/
+export WDHOME=$HOME/.wd
+source $WDHOME/wdaliases.sh
+
 # LEJOS
 export NXJ_HOME=$SDKS/lejos_nxj
 export PATH=$SDKS/lejos_nxj/bin:$PATH
