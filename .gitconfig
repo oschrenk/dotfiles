@@ -15,6 +15,7 @@
 	d = diff
 	dt = difftool
 	history = !git log --reverse --pretty=oneline | cut -c41- | nl | sort -nr
+	ignore = update-index --assume-unchanged
 	s = status
 	
 [difftool "Kaleidoscope"]	
