@@ -18,6 +18,9 @@ export PATH=$SDKS/lejos_nxj/bin:$PATH
 # PLAY
 export PATH=$SDKS/play:$PATH
 
+# local Apache2
+export PATH=/opt/local/apache2/bin:$PATH
+
 export EDITOR=vi
 export SVN_EDITOR=vi
 
@@ -46,8 +49,7 @@ alias lla='ls -la'
 alias ttop='top -ocpu -R -F -s 2 -n30'
 alias psef='ps -ef | grep $1'
 
-alias grace='sudo /opt/local/apache2/bin/apachectl graceful'
-
+# create a new directory and change into it
 md() { mkdir -p "$1" && cd "$1"; }
 
 # include sshagent script
