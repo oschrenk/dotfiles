@@ -16,7 +16,12 @@ export NXJ_HOME=$SDKS/lejos_nxj
 export PATH=$SDKS/lejos_nxj/bin:$PATH
 
 # PLAY
-export PATH=$SDKS/play:$PATH
+export PLAY_HOME=$SDKS/play
+export PATH=$PLAY_HOME:$PATH
+
+# GAE
+export GAE_HOME=$SDKS/gae
+export PATH=$GAE_HOME/bin:$PATH
 
 # local Apache2
 export PATH=/opt/local/apache2/bin:$PATH
