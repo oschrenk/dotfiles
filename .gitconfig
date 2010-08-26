@@ -15,8 +15,9 @@
 	co = checkout
 	d = diff
 	dt = difftool
+	forget = update-index --assume-unchanged
 	history = !git log --reverse --pretty=oneline | cut -c41- | nl | sort -nr
-	ignore = update-index --assume-unchanged
+	ignore = !echo $1 >> .gitignore
 	s = status
 	
 [difftool "Kaleidoscope"]	
