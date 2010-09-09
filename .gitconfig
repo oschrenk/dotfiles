@@ -9,7 +9,7 @@
 	a = add
 	b = branch
 	c = commit
-	cam = commit -amend
+	cam = commit --amend
     cv = commit -v
     cva = commit -v -a
 	co = checkout
