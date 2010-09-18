@@ -1,11 +1,7 @@
 export SCRIPTS=~/Development/scripts
 export SDKS=~/Development/sdks
 
-export PATH=/opt/local/bin:$PATH
-export PATH=/opt/local/sbin:$PATH
 export PATH=$SCRIPTS:$PATH
-
-export MANPATH=/opt/local/share/man:$MANPATH
 
 # WD http://github.com/karlin/working-directory/
 export WDHOME=$HOME/.wd
@@ -22,9 +18,6 @@ export PATH=$PLAY_HOME:$PATH
 # GAE
 export GAE_HOME=$SDKS/gae
 export PATH=$GAE_HOME/bin:$PATH
-
-# local Apache2
-export PATH=/opt/local/apache2/bin:$PATH
 
 export EDITOR=vi
 export SVN_EDITOR=vi
