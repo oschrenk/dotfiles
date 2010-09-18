@@ -40,12 +40,13 @@ shopt -s cmdhist # Save multi-line commands in history as single line
 # useful alias
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ll='ls -l'
+alias l='ls -l'
 alias la='ls -a'
-alias lla='ls -la'
 
 #typical typos
-alias öl=ll
+alias ö=l
+alias ll=l
+alias öl=l
 
 alias ttop='top -ocpu -R -F -s 2 -n30'
 alias psef='ps -ef | grep $1'
