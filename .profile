@@ -47,6 +47,7 @@ alias la='ls -a'
 alias ö=l
 alias ll=l
 alias öl=l
+alias ,,=..
 
 alias ttop='top -ocpu -R -F -s 2 -n30'
 alias psef='ps -ef | grep $1'
