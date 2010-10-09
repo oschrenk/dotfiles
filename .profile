@@ -40,20 +40,14 @@ shopt -s cmdhist # Save multi-line commands in history as single line
 # useful alias
 alias ..='cd ..'
 alias ...='cd ../..'
-alias l='ls -l'
-alias la='ls -a'
+alias ~='cd ~'
 
-#typical typos
-alias ö=l
-alias ll=l
-alias öl=l
-alias ,,=..
+alias ll='ls -l'
+alias la='ls -la'
+
 
 alias ttop='top -ocpu -R -F -s 2 -n30'
 alias psef='ps -ef | grep $1'
-
-# create a new directory and change into it
-md() { mkdir -p "$1" && cd "$1"; }
 
 # include sshagent script
 if [ -f $SCRIPTS/sshagent ]; then
