@@ -40,7 +40,6 @@ shopt -s cmdhist # Save multi-line commands in history as single line
 # useful alias
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ~='cd ~'
 
 alias ll='ls -l'
 alias la='ls -la'
