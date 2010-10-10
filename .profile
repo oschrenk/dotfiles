@@ -46,7 +46,7 @@ alias la='ls -la'
 
 
 alias ttop='top -ocpu -R -F -s 2 -n30'
-alias psef='ps -ef | grep $1'
+alias psef='ps -ef | grep -i $1'
 
 # include sshagent script
 if [ -f $SCRIPTS/sshagent ]; then
