@@ -1,7 +1,7 @@
 export SCRIPTS=~/Development/scripts
 export SDKS=~/Development/sdks
 
-export PATH=$SCRIPTS:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$SCRIPTS:$PATH
 
 # WD http://github.com/karlin/working-directory/
 export WDHOME=$HOME/.wd
