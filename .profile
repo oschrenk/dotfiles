@@ -42,12 +42,22 @@ if [ -f $SCRIPTS/sshagent ]; then
     . $SCRIPTS/sshagent
 fi
 
+# bash completion
+if [ -f `brew --prefix`/etc/bash_completion ]; then
+  . `brew --prefix`/etc/bash_completion
+fi
+
+# bash completion scripts
+if [ -f ~/.bash_completion.d/git ]; then
+  . ~/.bash_completion.d/git
+fi
+
 # include pickjdk script
 if [ -f $SCRIPTS/pickjdk ]; then
     . $SCRIPTS/pickjdk
 fi
 
 # Get the aliases and functions
-   if [ -f ~/.bashrc ]; then
-     . ~/.bashrc
-   fi
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi

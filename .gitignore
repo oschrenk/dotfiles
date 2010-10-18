@@ -1,6 +1,8 @@
 *
 !.ackrc
 !.bashrc
+!.bash_completion.d
+!.bash_completion.d/git
 !.git-svn.authorsfile
 !.gitconfig
 !.gitignore
