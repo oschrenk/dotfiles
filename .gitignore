@@ -1,5 +1,6 @@
 *
 !.ackrc
+!.bashrc
 !.git-svn.authorsfile
 !.gitconfig
 !.gitignore

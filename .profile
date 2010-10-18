@@ -37,17 +37,6 @@ shopt -s cdspell #minor errors in the spelling of a directory component in a cd 
 shopt -s nocaseglob #when typing part of a filename and press Tab to autocomplete, Bash does a case-insensitive search.
 shopt -s cmdhist # Save multi-line commands in history as single line
 
-# useful alias
-alias ..='cd ..'
-alias ...='cd ../..'
-
-alias ll='ls -l'
-alias la='ls -la'
-
-
-alias ttop='top -ocpu -R -F -s 2 -n30'
-alias psef='ps -ef | grep -i $1'
-
 # include sshagent script
 if [ -f $SCRIPTS/sshagent ]; then
     . $SCRIPTS/sshagent
@@ -57,3 +46,8 @@ fi
 if [ -f $SCRIPTS/pickjdk ]; then
     . $SCRIPTS/pickjdk
 fi
+
+# Get the aliases and functions
+   if [ -f ~/.bashrc ]; then
+     . ~/.bashrc
+   fi
