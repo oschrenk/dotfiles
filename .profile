@@ -51,6 +51,9 @@ fi
 if [ -f ~/.bash_completion.d/git ]; then
   . ~/.bash_completion.d/git
 fi
+if [ -f ~/.bash_completion.d/git-flow-completion ]; then
+  . ~/.bash_completion.d/git-flow-completion
+fi
 
 # include pickjdk script
 if [ -f $SCRIPTS/pickjdk ]; then
