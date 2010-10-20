@@ -20,7 +20,7 @@
 	hub = !ghr $1
 	ignore = !echo $1 >> .gitignore
 	s = status
-	undo = !git reset --hard HEAD~$1
+	undo = checkout HEAD
 	up = pull --rebase
 	
 [difftool "Kaleidoscope"]	
