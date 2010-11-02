@@ -7,6 +7,7 @@
 	excludesfile = ~/.global-gitignore
 [alias]
 	a = add
+	au = add -u
 	b = branch
 	c = commit
 	cam = commit --amend
