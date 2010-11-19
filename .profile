@@ -3,10 +3,6 @@ export SDKS=~/Development/sdks
 
 export PATH=/usr/local/bin:/usr/local/sbin:$SCRIPTS:$PATH
 
-# WD http://github.com/karlin/working-directory/
-export WDHOME=$HOME/.wd
-source $WDHOME/wdaliases.sh
-
 # LEJOS
 export NXJ_HOME=$SDKS/lejos_nxj
 export PATH=$SDKS/lejos_nxj/bin:$PATH
