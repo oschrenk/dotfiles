@@ -16,6 +16,10 @@
 	co = checkout
 	d = diff
 	dt = difftool
+	ffs = flow feature start
+	fff = flow feature finish
+	frs = flow release start
+	frf = flow release finish
 	forget = update-index --assume-unchanged
 	history = !git log --reverse --pretty=oneline | cut -c41- | nl
 	hub = !ghr $1
