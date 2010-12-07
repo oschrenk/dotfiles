@@ -19,9 +19,9 @@
 	ff = flow feature finish
 	forget = update-index --assume-unchanged
 	fs = flow feature start
-	hf = flow hotfix start
+	hf = flow hotfix finish
 	history = !git log --reverse --pretty=oneline | cut -c41- | nl
-	hs = flow hotfix finish
+	hs = flow hotfix start
 	hub = !ghr $1
 	ignore = !echo $1 >> .gitignore
 	rf = flow release finish
