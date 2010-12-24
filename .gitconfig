@@ -14,6 +14,7 @@
     cv = commit -v
     cva = commit -v -a
 	co = checkout
+	cob = checkout -b
 	d = diff
 	dt = difftool
 	ff = flow feature finish
