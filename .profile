@@ -1,22 +1,7 @@
-export SCRIPTS=~/Development/scripts
-export SDKS=~/Development/sdks
-
-export PATH=/usr/local/bin:/usr/local/sbin:$SCRIPTS:$PATH
-
-# LEJOS
-export NXJ_HOME=$SDKS/lejos_nxj
-export PATH=$SDKS/lejos_nxj/bin:$PATH
-
-# PLAY
-export PLAY_HOME=$SDKS/play
-export PATH=$PLAY_HOME:$PATH
-
-# GAE
-export GAE_HOME=$SDKS/gae
-export PATH=$GAE_HOME/bin:$PATH
-
-# GOOGLE CLOSURE
-export CLOSURE_COMPILER_HOME=$SDKS/closure-compiler
+# my paths
+if [ -f ~/.paths ]; then
+  . ~/.paths
+fi
 
 export EDITOR=vi
 export SVN_EDITOR=vi
