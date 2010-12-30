@@ -15,6 +15,9 @@ export PATH=$PLAY_HOME:$PATH
 export GAE_HOME=$SDKS/gae
 export PATH=$GAE_HOME/bin:$PATH
 
+# GOOGLE CLOSURE
+export CLOSURE_COMPILER_HOME=$SDKS/closure-compiler
+
 export EDITOR=vi
 export SVN_EDITOR=vi
 
