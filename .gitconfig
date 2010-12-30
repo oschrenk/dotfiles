@@ -10,6 +10,7 @@
 	aa = add -A
 	au = add -u
 	b = branch
+	bd = branch -d
 	c = commit
 	cam = commit --amend
     cv = commit -v
