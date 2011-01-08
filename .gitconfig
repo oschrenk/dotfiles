@@ -27,8 +27,9 @@
 	hs = flow hotfix start
 	ignore = !echo $1 >> .gitignore
 	p = push
-	pom = push origin master
 	pod = push origin develop
+	pog = push origin gh-pages
+	pom = push origin master
 	rf = flow release finish
 	rs = flow release start
 	s = status
