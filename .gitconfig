@@ -1,5 +1,12 @@
 [color]
-	ui = auto
+    branch = auto
+    diff = auto
+    status = auto
+    interactive = auto
+[color "branch"]
+    current = red
+    local = green
+    remote = yellow
 [user]
 	name = Oliver Schrenk
 	email = oliver.schrenk@gmail.com
