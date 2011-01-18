@@ -39,6 +39,7 @@
 	pom = push origin master
 	pop = stash pop
 	pov = push origin vendor
+	pum = pull origin master
 	put = push --tags
 	rf = flow release finish
 	rs = flow release start
