@@ -30,7 +30,7 @@
 	forget = update-index --assume-unchanged
 	fs = flow feature start
 	hf = flow hotfix finish
-	history = !git log --reverse --pretty=oneline | cut -c41- | nl
+	history = log --reverse --format="%ai: %s"
 	hs = flow hotfix start
 	ignore = !echo $1 >> .gitignore
 	p = push
