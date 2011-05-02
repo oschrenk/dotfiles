@@ -12,5 +12,5 @@ export CLOSURE_COMPILER_HOME=$SDKS/closure-compiler
 export NODE_PATH=/usr/local/lib/node
 
 # PLAY
-export PLAY_HOME=$SDKS/plays
-export PATH=$PLAY_HOME/bin:$PATH
+export PLAY_HOME=$SDKS/play
+export PATH=$PLAY_HOME:$PATH
