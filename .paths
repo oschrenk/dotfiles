@@ -1,8 +1,6 @@
 export SCRIPTS=~/Development/scripts
 export SDKS=~/Development/sdks
 
-export PATH=/usr/local/bin:/usr/local/sbin:$SCRIPTS:$PATH
-
 # GAE
 export GAE_HOME=$SDKS/gae
 export PATH=$GAE_HOME/bin:$PATH
@@ -12,3 +10,7 @@ export CLOSURE_COMPILER_HOME=$SDKS/closure-compiler
 
 # NODE
 export NODE_PATH=/usr/local/lib/node
+
+# PLAY
+export PLAY_HOME=$SDKS/plays
+export PATH=$PLAY_HOME/bin:$PATH
