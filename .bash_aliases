@@ -7,5 +7,8 @@ alias l='ls -CF'
 alias ..='cd ..'
 alias ...='cd ../..'
 
+alias g='git'
+alias m='mate'
+
 alias ttop='top -ocpu -R -F -s 2 -n30'
 alias psef='ps -ef | grep -i $1'
