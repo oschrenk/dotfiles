@@ -39,6 +39,8 @@
 	pod = push origin develop
 	pog = push origin gh-pages
 	pom = push origin master
+	pomd = !git pom && git pod
+	pomdt = !git pom && git pod && git put
 	pop = stash pop
 	pov = push origin vendor
 	pum = pull origin master
