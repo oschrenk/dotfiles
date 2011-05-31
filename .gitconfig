@@ -27,6 +27,8 @@
 	cob = checkout -b
 	d = diff
 	dt = difftool
+	fi = flow init
+	fid = flow init -d
 	ff = flow feature finish
 	forget = update-index --assume-unchanged
 	fs = flow feature start
