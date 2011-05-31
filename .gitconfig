@@ -33,7 +33,6 @@
 	hf = flow hotfix finish
 	history = log --reverse --format="%ai: %s"
 	hs = flow hotfix start
-	ignore = !echo $1 >> .gitignore
 	p = push
 	pod = push origin develop
 	pog = push origin gh-pages
