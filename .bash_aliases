@@ -8,6 +8,7 @@ alias ..='cd ..'
 alias ...='cd ../..'
 
 alias g='git'
+alias o='open'
 alias m='mate'
 
 alias ttop='top -ocpu -R -F -s 2 -n30'
