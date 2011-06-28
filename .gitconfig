@@ -21,8 +21,8 @@
 	bd = branch -d
 	c = commit
 	cam = commit --amend
-    cv = commit -v
-    cva = commit -v -a
+	cv = commit -v
+	cva = commit -v -a
 	co = checkout
 	cob = checkout -b
 	d = diff
@@ -50,8 +50,8 @@
 	s = status
 	undo = checkout HEAD
 	up = pull --rebase
-	
-[difftool "Kaleidoscope"]	
+
+[difftool "Kaleidoscope"]
 	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
