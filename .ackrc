@@ -2,3 +2,5 @@
 markdown=.markdown,.md
 --type-add
 textile=.textile
+--type-add
+opencl=.cl
