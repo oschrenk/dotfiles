@@ -57,3 +57,6 @@
 	prompt = false
 [diff]
 	tool = Kaleidoscope
+[color "sh"]
+	branch = green
+	workdir = white
