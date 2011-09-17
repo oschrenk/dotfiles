@@ -1,4 +1,11 @@
+# put homebrew bin before system bin
+export PATH=/usr/local/share/python:/usr/local/bin:$PATH
+
+# SCRIPTS
 export SCRIPTS=~/Development/scripts
+export PATH=$SCRIPTS:$PATH
+
+# SDKs
 export SDKS=~/Development/sdks
 
 # GAE
