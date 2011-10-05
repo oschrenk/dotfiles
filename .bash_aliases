@@ -7,7 +7,9 @@ alias l='ls -CF'
 alias ..='cd ..'
 alias ...='cd ../..'
 
-alias open='xdg-open'
+if [ "${OS}" = "linux" ] ; then
+	alias open='xdg-open'
+fi
 
 alias g='git'
 alias o='open'
