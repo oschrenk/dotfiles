@@ -7,6 +7,8 @@ alias l='ls -CF'
 alias ..='cd ..'
 alias ...='cd ../..'
 
+alias open='xdg-open'
+
 alias g='git'
 alias o='open'
 alias m='mate'
