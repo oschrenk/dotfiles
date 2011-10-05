@@ -21,6 +21,12 @@ shopt -s cdspell #minor errors in the spelling of a directory component in a cd 
 shopt -s nocaseglob #when typing part of a filename and press Tab to autocomplete, Bash does a case-insensitive search.
 shopt -s cmdhist # Save multi-line commands in history as single line
 
+
+# set os, dist, rev, kernel, mach environment variables
+if [ -f $SCRIPTS/setos ]; then
+    . $SCRIPTS/setos
+fi
+
 # include sshagent script
 if [ -f $SCRIPTS/sshagent ]; then
     . $SCRIPTS/sshagent
