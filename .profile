@@ -48,6 +48,11 @@ if [ -f ~/.bash_completion.d/m2 ]; then
   . ~/.bash_completion.d/m2
 fi
 
+# autojump
+if [ -f `brew --prefix`/etc/autojump ]; then
+  . `brew --prefix`/etc/autojump
+fi
+
 # include pickjdk script
 if [ -f $SCRIPTS/pickjdk ]; then
     . $SCRIPTS/pickjdk
