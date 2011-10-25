@@ -12,6 +12,9 @@ defaults write com.apple.dock autohide -bool true
 # Take screenshots as png
 defaults write com.apple.screencapture type png
 
+# Disable Dashboard
+defaults write com.apple.dashboard mcx-disabled -boolean yes
+
 # save screenshots to downloads
 defaults write com.apple.screencapture location ~/~Downloads
 
