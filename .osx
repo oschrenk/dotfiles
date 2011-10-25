@@ -12,17 +12,42 @@ defaults write com.apple.dock autohide -bool true
 # Show all filename extensions in Finder
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
-# Disable the Ping sidebar in iTunes
+# Take screenshots as png
+defaults write com.apple.screencapture type png
+
+# save screenshots to downloads
+defaults write com.apple.screencapture location ~/~Downloads
+
+
+# Desktop
+
+## change wallpaper
+# sudo defaults write /Library/Preferences/com.apple.loginwindow DesktopPicture /Users/Shared/mynewbackground.jpg
+
+# Mail
+
+## Forces messages in Mail to be displayed as plain text instead of formatted (0 to reverse)
+defaults write com.apple.mail PreferPlainText 1
+
+# iTUnes
+
+## Disable the Ping sidebar in iTunes
 defaults write com.apple.iTunes disablePingSidebar -bool true
 
 # Disable all the other Ping stuff in iTunes
 defaults write com.apple.iTunes disablePing -bool true
 
-# Disable Spotlight indexing
-sudo mdutil -a -i off
+# Changes arrows next to artists and albums to search your library instead of iTunes Store (0 to revert)
+defaults write com.apple.iTunes invertStoreLinks 1
 
-# Remove Spotlight icon
+# Spotlight
+
+## Disable Spotlight indexing
+# sudo mdutil -a -i on
+
+## Remove Spotlight icon
 sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
+
 
 # Kill/Restart applications
 killall SystemUIServer 
