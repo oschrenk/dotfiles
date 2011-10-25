@@ -3,6 +3,11 @@ if [ -f ~/.paths ]; then
   . ~/.paths
 fi
 
+# defunkt/hub github environment variables
+if [ -f ~/.paths ]; then
+  . ~/.github
+fi
+
 export EDITOR=vi
 export SVN_EDITOR=vi
 
