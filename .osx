@@ -9,15 +9,23 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 # Automatically hide and show the Dock
 defaults write com.apple.dock autohide -bool true
 
-# Show all filename extensions in Finder
-defaults write NSGlobalDomain AppleShowAllExtensions -bool true
-
 # Take screenshots as png
 defaults write com.apple.screencapture type png
 
 # save screenshots to downloads
 defaults write com.apple.screencapture location ~/~Downloads
 
+
+# Finder
+
+## Force expanded dialogs
+## These commands force expanded dialog boxes for saving (top) and printing (bottom), 
+## if an app doesn't already have a custom setting. Use 'false' to reverse the commands.
+# defaults write -g NSNavPanelExpandedStateForSaveMode -boolean true
+# defaults write -g PMPrintingExpandedStateForPrint -boolean true
+
+# Show all filename extensions in Finder
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 
 # Desktop
 
