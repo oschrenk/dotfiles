@@ -16,7 +16,7 @@ export PATH=$GAE_HOME/bin:$PATH
 export CLOSURE_COMPILER_HOME=$SDKS/closure-compiler
 
 # NODE
-export NODE_PATH=/usr/local/lib/node;/usr/local/lib/node_modules
+export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
 
 # PLAY
 export PLAY_HOME=$SDKS/play
