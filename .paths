@@ -21,3 +21,6 @@ export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
 # PLAY
 export PLAY_HOME=$SDKS/play
 export PATH=$PLAY_HOME:$PATH
+
+# TEX
+export PATH=/usr/texbin:$PATH
