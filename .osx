@@ -18,6 +18,8 @@ defaults write com.apple.dashboard mcx-disabled -boolean yes
 # save screenshots to downloads
 defaults write com.apple.screencapture location ~/~Downloads
 
+# set clock in login screen to 24h schema
+defaults write /Library/Preferences/.GlobalPreferences AppleLocale "de_DE"
 
 # Finder
 
