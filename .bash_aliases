@@ -14,6 +14,7 @@ fi
 alias g='git'
 alias o='open'
 alias m='mate'
+alias j='z'
 
 alias ttop='top -ocpu -R -F -s 2 -n30'
 alias psef='ps -ef | grep -i $1'

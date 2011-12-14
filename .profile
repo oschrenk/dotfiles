@@ -53,9 +53,9 @@ if [ -f ~/.bash_completion.d/m2 ]; then
   . ~/.bash_completion.d/m2
 fi
 
-# autojump
-if [ -f `brew --prefix`/etc/autojump ]; then
-  . `brew --prefix`/etc/autojump
+# z s the new j, https://github.com/rupa/z
+if [ -f `brew --prefix`/etc/profile.d/z.sh ]; then
+  . `brew --prefix`/etc/profile.d/z.sh
 fi
 
 # include pickjdk script
