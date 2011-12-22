@@ -2,6 +2,7 @@
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias lsd='ls -l | grep "^d"'
 
 # useful alias
 alias ..='cd ..'
