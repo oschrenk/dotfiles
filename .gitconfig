@@ -20,7 +20,7 @@
 	b = branch
 	bd = branch -d
 	c = commit
-	c1 = commit --file=1
+	c1 = !git commit --file=1 && rm 1
 	cam = commit --amend
 	cv = commit -v
 	cva = commit -v -a
