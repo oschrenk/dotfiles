@@ -1,5 +1,5 @@
 # put homebrew bin before system bin
-export PATH=/usr/local/share/python:/usr/local/bin:$PATH
+export PATH=/usr/local/share/python:/usr/local/bin:/usr/local/sbin:$PATH
 
 # SCRIPTS
 export SCRIPTS=~/Development/scripts
