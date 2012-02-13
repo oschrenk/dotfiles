@@ -21,6 +21,14 @@ defaults write com.apple.screencapture location ~/~Downloads
 # set clock in login screen to 24h schema
 defaults write /Library/Preferences/.GlobalPreferences AppleLocale "de_DE"
 
+# Network
+
+# Avoid creating .DS_Store files on network volumes
+defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
+
+# Enable AirDrop over Ethernet and on unsupported Macs running Lion
+defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
+
 # Finder
 
 ## Force expanded dialogs
@@ -31,6 +39,9 @@ defaults write /Library/Preferences/.GlobalPreferences AppleLocale "de_DE"
 
 # Show all filename extensions in Finder
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+# Disable the warning when changing a file extension
+defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
 # Desktop
 
@@ -52,6 +63,9 @@ defaults write com.apple.iTunes disablePing -bool true
 
 # Changes arrows next to artists and albums to search your library instead of iTunes Store (0 to revert)
 defaults write com.apple.iTunes invertStoreLinks 1
+
+# Make ⌘ + F focus the search input in iTunes
+defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
 
 # Spotlight
 
