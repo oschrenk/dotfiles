@@ -1,13 +1,15 @@
 # Mainly taken from https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 
+## System
+
+# Disable menu bar transparency
+defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+
 # Enable non-natural scrolling
 defaults write ~/Library/Preferences/.GlobalPreferences com.apple.swipescrolldirection -bool false
 
 # Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
-
-# Automatically hide and show the Dock
-defaults write com.apple.dock autohide -bool true
 
 # Take screenshots as png
 defaults write com.apple.screencapture type png
@@ -43,10 +45,55 @@ defaults write NSGlobalDomain AppleShowAllExtensions -bool true
 # Disable the warning when changing a file extension
 defaults write com.apple.finder FXEnableExtensionChangeWarning -bool false
 
+# Sidebar icon size: Small
+defaults write -g 'NSTableViewDefaultSizeMode' -int 1
+
+# Number of recent items: Applications: None
+/usr/bin/osascript -e 'tell application "System Events" to tell appearance preferences to set recent applications limit to 0'
+
+# Number of recent items: Documents: None
+/usr/bin/osascript -e 'tell application "System Events" to tell appearance preferences to set recent documents limit to 0'
+
+# Number of recent items: Servers: None
+/usr/bin/osascript -e 'tell application "System Events" to tell appearance preferences to set recent servers limit to 0'
+
+# Show scroll bars: Always
+defaults write -g 'AppleShowScrollBars' -string 'Always'
+
+# Statusbar
+defaults write com.apple.finder 'ShowStatusBar' -bool false
+
+# Sounds
+/usr/bin/defaults write com.apple.finder 'FinderSounds' -bool false
+
+# Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
+defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
+
+
+# Dock
+
+# Size: 56 pixels
+defaults write com.apple.dock 'tilesize' -int 56
+
+# Disable magnification
+defaults write com.apple.dock 'magnification' -bool false
+
+### Position on screen: bottom
+defaults write com.apple.dock 'orientation' -string 'bottom'
+
+### Autohide
+defaults write com.apple.dock 'autohide' -bool yes
+
 # Desktop
 
 ## change wallpaper
 # sudo defaults write /Library/Preferences/com.apple.loginwindow DesktopPicture /Users/Shared/mynewbackground.jpg
+
+
+# Dashboard
+
+# disable dashboard
+# defaults write com.apple.dashboard mcx-disabled -boolean YES 
 
 # Mail
 
@@ -77,4 +124,5 @@ sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 
 
 # Kill/Restart applications
-killall SystemUIServer 
+killall SystemUIServer
+#killall Dock
