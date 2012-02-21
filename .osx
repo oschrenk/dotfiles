@@ -2,6 +2,9 @@
 
 ## System
 
+# Enable fast user switching 
+defaults write /Library/Preferences/.GlobalPreferences MultipleSessionEnabled -bool YES
+
 # Disable menu bar transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
 
