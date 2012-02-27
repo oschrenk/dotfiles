@@ -25,7 +25,9 @@ shopt -s histappend #append to the same history file when using multiple termina
 shopt -s cdspell #minor errors in the spelling of a directory component in a cd command will be corrected
 shopt -s nocaseglob #when typing part of a filename and press Tab to autocomplete, Bash does a case-insensitive search.
 shopt -s cmdhist # Save multi-line commands in history as single line
-
+shopt -s dirspell # Since 4.0-alpha. Bash will perform spelling corrections on directory names to match a glob.
+shopt -s globstar # Since 4.0-alpha. Recursive globbing with `**` is enabled
+shopt -s autocd # Since 4.0-alpha. If set, a command name that is the name of a directory is executed as if it were the argument to the cd command.
 
 # set os, dist, rev, kernel, mach environment variables
 if [ -f $SCRIPTS/setos ]; then
