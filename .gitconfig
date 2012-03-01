@@ -16,6 +16,7 @@
 	a = add
 	aa = add -A
 	ai = add -i
+	ap = add -p
 	au = add -u
 	b = branch
 	bd = branch -d
