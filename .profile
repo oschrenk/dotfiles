@@ -28,6 +28,7 @@ shopt -s cmdhist # Save multi-line commands in history as single line
 shopt -s dirspell # Since 4.0-alpha. Bash will perform spelling corrections on directory names to match a glob.
 shopt -s globstar # Since 4.0-alpha. Recursive globbing with `**` is enabled
 shopt -s autocd # Since 4.0-alpha. If set, a command name that is the name of a directory is executed as if it were the argument to the cd command.
+shopt -s no_empty_cmd_completion # Bash will not attempt to search the PATH for possible completions when completion is attempted on an empty line.
 
 # set os, dist, rev, kernel, mach environment variables
 if [ -f $SCRIPTS/setos ]; then
