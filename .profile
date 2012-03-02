@@ -3,8 +3,11 @@ if [ -f ~/.paths ]; then
   . ~/.paths
 fi
 
-# defunkt/hub github environment variables
-if [ -f ~/.paths ]; then
+# set defunkt/hub environment variables
+# not included in dotfiles repo because of security reasons
+# export GITHUB_USER=<username>
+# export GITHUB_TOKEN=<token>
+if [ -f ~/.github ]; then
   . ~/.github
 fi
 
