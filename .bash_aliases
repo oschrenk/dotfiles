@@ -7,6 +7,9 @@ alias lsd='ls -l | grep "^d"'
 # useful alias
 alias ..='cd ..'
 alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
 
 if [ "${OS}" = "linux" ] ; then
 	alias open='xdg-open'
