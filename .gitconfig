@@ -3,6 +3,7 @@
     diff = auto
     status = auto
     interactive = auto
+	sh = auto
 [color "branch"]
     current = red
     local = green
@@ -62,5 +63,6 @@
 [diff]
 	tool = Kaleidoscope
 [color "sh"]
-	branch = green
+	branch = yellow
 	workdir = white
+	dirty = red
