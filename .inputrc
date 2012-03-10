@@ -15,5 +15,11 @@
 "\e\e[C": forward-word
 "\e\e[D": backward-word
 
-# case insensitivity for tab-completion
+# If set to `on', Readline performs filename matching and completion in a 
+# case-insensitive fashion. The default value is `off'. 
 set completion-ignore-case On
+
+# If set to `on', and completion-ignore-case is enabled, 
+# Readline treats hyphens (`-') and underscores (`_') as equivalent 
+# when performing case-insensitive filename matching and completion.
+set completion-map-case on
