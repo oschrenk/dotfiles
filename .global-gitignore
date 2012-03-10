@@ -16,3 +16,8 @@ Thumbs.db
 
 # SVN
 .svn/
+
+# Textmate
+*.tmproj
+*.tmproject
+tmtags
