@@ -13,3 +13,6 @@ target
 # Windows
 Desktop.ini
 Thumbs.db
+
+# SVN
+.svn/
