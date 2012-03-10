@@ -1,11 +1,15 @@
+# OS X
 .DS_Store
+._*
+.Spotlight-V100
+.Trashes
+
+# Eclipse
 .classpath
 .project
 .settings
 target
 
+# Windows
 Desktop.ini
-._*
 Thumbs.db
-.Spotlight-V100
-.Trashes
