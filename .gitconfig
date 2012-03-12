@@ -58,6 +58,7 @@
 	sr = svn rebase
 	undo = checkout HEAD
 	up = pull --rebase
+	us = reset HEAD
 
 [difftool "Kaleidoscope"]
 	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
