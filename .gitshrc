@@ -1,0 +1,4 @@
+unalias mv
+unalias rm
+alias gmv='git mv'
+alias grm='git rm'
