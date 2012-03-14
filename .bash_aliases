@@ -15,9 +15,13 @@ if [ "${OS}" = "linux" ] ; then
 	alias open='xdg-open'
 fi
 
+if [ "${OS}" = "mac" ] ; then
+	alias m='mate'
+fi
+
+
 alias g='git'
 alias o='open'
-alias m='mate'
 alias j='z'
 
 alias ttop='top -ocpu -R -F -s 2 -n30'
