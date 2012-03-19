@@ -95,12 +95,6 @@ defaults write com.apple.dock 'autohide' -bool yes
 ## change wallpaper
 # sudo defaults write /Library/Preferences/com.apple.loginwindow DesktopPicture /Users/Shared/mynewbackground.jpg
 
-
-# Dashboard
-
-# disable dashboard
-# defaults write com.apple.dashboard mcx-disabled -boolean YES 
-
 # Mail
 
 ## Forces messages in Mail to be displayed as plain text instead of formatted (0 to reverse)
