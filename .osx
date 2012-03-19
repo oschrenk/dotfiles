@@ -85,6 +85,15 @@ defaults write com.apple.finder 'ShowStatusBar' -bool false
 # Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
+# active corner top left: All Windows
+defaults write com.apple.dock wvous-tl-corner -int 2
+# active corner top right: All Windows
+defaults write com.apple.dock wvous-tr-corner -int 2
+# active corner bottom left: Aplications Windows
+defaults write com.apple.dock wvous-bl-corner -int 3
+# active corner bottom right: Desktop
+defaults write com.apple.dock wvous-br-corner -int 4
+
 ## --------------------------------------------------------------------------
 # Dock
 ## --------------------------------------------------------------------------
