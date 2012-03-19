@@ -1,6 +1,8 @@
 # Mainly taken from https://github.com/mathiasbynens/dotfiles/blob/master/.osx
 
+## --------------------------------------------------------------------------
 ## System
+## --------------------------------------------------------------------------
 
 # Enable fast user switching 
 defaults write /Library/Preferences/.GlobalPreferences MultipleSessionEnabled -bool YES
@@ -26,7 +28,9 @@ defaults write com.apple.screencapture location ~/~Downloads
 # set clock in login screen to 24h schema
 sudo defaults write /Library/Preferences/.GlobalPreferences AppleLocale "de_DE"
 
+## --------------------------------------------------------------------------
 # Network
+## --------------------------------------------------------------------------
 
 # Avoid creating .DS_Store files on network volumes
 defaults write com.apple.desktopservices DSDontWriteNetworkStores -bool true
@@ -37,11 +41,13 @@ defaults write com.apple.NetworkBrowser BrowseAllInterfaces -bool true
 # Increase TCP's initial window (IW) to 10 segments
 sudo sysctl -w net.inet.tcp.slowstart_flightsize=10
 
+## --------------------------------------------------------------------------
 # Finder
+## --------------------------------------------------------------------------
 
-## Force expanded dialogs
-## These commands force expanded dialog boxes for saving (top) and printing (bottom), 
-## if an app doesn't already have a custom setting. Use 'false' to reverse the commands.
+# Force expanded dialogs
+# These commands force expanded dialog boxes for saving (top) and printing (bottom), 
+# if an app doesn't already have a custom setting. Use 'false' to reverse the commands.
 # defaults write -g NSNavPanelExpandedStateForSaveMode -boolean true
 # defaults write -g PMPrintingExpandedStateForPrint -boolean true
 
@@ -72,11 +78,16 @@ defaults write com.apple.finder 'ShowStatusBar' -bool false
 # Sounds
 /usr/bin/defaults write com.apple.finder 'FinderSounds' -bool false
 
+## --------------------------------------------------------------------------
+# Access and Input
+## --------------------------------------------------------------------------
+
 # Enable full keyboard access for all controls (e.g. enable Tab in modal dialogs)
 defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 
-
+## --------------------------------------------------------------------------
 # Dock
+## --------------------------------------------------------------------------
 
 # Size: 56 pixels
 defaults write com.apple.dock 'tilesize' -int 56
@@ -90,17 +101,23 @@ defaults write com.apple.dock 'orientation' -string 'bottom'
 ### Autohide
 defaults write com.apple.dock 'autohide' -bool yes
 
+## --------------------------------------------------------------------------
 # Desktop
+## --------------------------------------------------------------------------
 
 ## change wallpaper
 # sudo defaults write /Library/Preferences/com.apple.loginwindow DesktopPicture /Users/Shared/mynewbackground.jpg
 
+## --------------------------------------------------------------------------
 # Mail
+## --------------------------------------------------------------------------
 
 ## Forces messages in Mail to be displayed as plain text instead of formatted (0 to reverse)
 defaults write com.apple.mail PreferPlainText 1
 
+## --------------------------------------------------------------------------
 # iTUnes
+## --------------------------------------------------------------------------
 
 ## Disable the Ping sidebar in iTunes
 defaults write com.apple.iTunes disablePingSidebar -bool true
@@ -114,7 +131,9 @@ defaults write com.apple.iTunes invertStoreLinks 1
 # Make ⌘ + F focus the search input in iTunes
 defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Field" "@F"
 
+## --------------------------------------------------------------------------
 # Spotlight
+## --------------------------------------------------------------------------
 
 ## Disable Spotlight indexing
 # sudo mdutil -a -i on
@@ -122,7 +141,9 @@ defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Fi
 ## Remove Spotlight icon
 sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 
-
+## --------------------------------------------------------------------------
 # Kill/Restart applications
+## --------------------------------------------------------------------------
+
 killall SystemUIServer
 #killall Dock
