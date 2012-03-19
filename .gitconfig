@@ -56,7 +56,6 @@
 	s = status
 	sd = svn dcommit
 	sr = svn rebase
-	undo = checkout HEAD
 	up = pull --rebase
 	us = reset HEAD
 
