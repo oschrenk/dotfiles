@@ -24,7 +24,7 @@ fi
 alias g='git'
 alias o='open'
 alias j='z'
-alias gsh='git sh'
+alias s='git sh'
 
 # other aliases
 alias ttop='top -ocpu -R -F -s 2 -n30'
