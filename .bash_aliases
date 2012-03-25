@@ -17,6 +17,7 @@ fi
 
 if [ "${OS}" = "mac" ] ; then
 	alias m='mate'
+	alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
 fi
 
 # application shorthands
