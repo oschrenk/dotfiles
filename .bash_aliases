@@ -24,6 +24,7 @@ fi
 alias g='git'
 alias j='z'
 alias o='open'
+alias r='rake'
 alias s='git sh'
 
 # other aliases
