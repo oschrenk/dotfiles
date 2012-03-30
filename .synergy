@@ -1,0 +1,24 @@
+section: screens
+schmendrick:
+molly:
+end
+
+section: aliases
+schmendrick:
+schmendrick.local
+192.168.0.188
+molly:
+192.168.0.216
+dwslocalWS02
+end
+
+section: links
+schmendrick:
+left = molly
+molly:
+right = schmendrick
+end
+
+section: options
+screenSaverSync = false
+end
