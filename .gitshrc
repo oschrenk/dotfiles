@@ -2,4 +2,5 @@ unalias mv
 unalias rm
 alias gmv='git mv'
 alias grm='git rm'
+alias e='exit'
 alias m='mate'
