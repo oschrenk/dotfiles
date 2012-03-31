@@ -167,8 +167,7 @@ defaults write com.apple.iTunes NSUserKeyEquivalents -dict-add "Target Search Fi
 sudo chmod 600 /System/Library/CoreServices/Search.bundle/Contents/MacOS/Search
 
 ## --------------------------------------------------------------------------
-# Kill/Restart applications
+# Kill affected applications
 ## --------------------------------------------------------------------------
 
-killall SystemUIServer
-killall Dock
+for app in Finder Dock Mail SystemUIServer; do killall "$app" >/dev/null 2>&1; done
