@@ -85,7 +85,7 @@ defaults write com.apple.finder ShowPathbar -bool true
 # Hide Statusbar
 defaults write com.apple.finder 'ShowStatusBar' -bool false
 
-# Sounds
+# Disable Sounds
 /usr/bin/defaults write com.apple.finder 'FinderSounds' -bool false
 
 ## --------------------------------------------------------------------------
