@@ -52,8 +52,8 @@ sudo sysctl -w net.inet.tcp.slowstart_flightsize=10
 # Force expanded dialogs
 # These commands force expanded dialog boxes for saving (top) and printing (bottom), 
 # if an app doesn't already have a custom setting. Use 'false' to reverse the commands.
-#defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -boolean true
-#defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -boolean true
+defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -boolean true
+defaults write NSGlobalDomain PMPrintingExpandedStateForPrint -boolean true
 
 # Show all filename extensions in Finder
 defaults write NSGlobalDomain AppleShowAllExtensions -bool true
