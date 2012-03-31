@@ -151,8 +151,12 @@ defaults write com.apple.mail PreferPlainText -bool TRUE
 ## Add invitations to iCal automatically
 defaults write com.apple.mail AddInvitationsToICalAutomatically -bool true
 
+# Disable send and reply animations in Mail.app
+defaults write com.apple.Mail DisableReplyAnimations -bool true
+defaults write com.apple.Mail DisableSendAnimations -bool true
+
 ## --------------------------------------------------------------------------
-# iTUnes
+# iTunes
 ## --------------------------------------------------------------------------
 
 ## Disable the Ping sidebar in iTunes
