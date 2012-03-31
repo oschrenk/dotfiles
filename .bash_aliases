@@ -22,8 +22,9 @@ fi
 
 # application shorthands
 alias g='git'
-alias o='open'
 alias j='z'
+alias o='open'
+alias r='rake'
 alias s='git sh'
 
 # other aliases
