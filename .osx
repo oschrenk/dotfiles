@@ -29,6 +29,9 @@ defaults write com.apple.screencapture location ~/~Downloads
 # set clock in login screen to 24h schema
 sudo defaults write /Library/Preferences/.GlobalPreferences AppleLocale "de_DE"
 
+# Disable local Time Machine backups
+hash tmutil &> /dev/null && sudo tmutil disablelocal
+
 ## --------------------------------------------------------------------------
 # Network
 ## --------------------------------------------------------------------------
