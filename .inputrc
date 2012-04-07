@@ -17,6 +17,7 @@
 
 # If set to `on', Readline performs filename matching and completion in a 
 # case-insensitive fashion. The default value is `off'. 
+# Make Tab autocompletion case-insensitive (cd ~/dow<Tab> => cd ~/Downloads/).
 set completion-ignore-case On
 
 # If set to `on', and completion-ignore-case is enabled, 
