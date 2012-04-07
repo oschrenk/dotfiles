@@ -18,6 +18,8 @@ fi
 if [ "${OS}" = "mac" ] ; then
 	alias m='mate'
 	alias vlc='/Applications/VLC.app/Contents/MacOS/VLC'
+	alias update='brew update'
+	alias upgrade='brew upgrade && npm -g update'
 fi
 
 # application shorthands
