@@ -8,9 +8,6 @@
 # Enable fast user switching 
 defaults write /Library/Preferences/.GlobalPreferences MultipleSessionEnabled -bool YES
 
-# Disable menu bar transparency
-defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
-
 # Enable non-natural scrolling 
 defaults write -g com.apple.swipescrolldirection -bool false
 
@@ -95,6 +92,14 @@ defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
 # Allow quitting Finder via ⌘ + Q; doing so will also hide desktop icons
 defaults write com.apple.finder QuitMenuItem -bool true
+
+## --------------------------------------------------------------------------
+# Menubar
+## --------------------------------------------------------------------------
+
+# Disable menu bar transparency
+defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+
 
 ## --------------------------------------------------------------------------
 # Access and Input
