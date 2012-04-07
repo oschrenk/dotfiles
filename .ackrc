@@ -1,3 +1,6 @@
+# Flush output immediately, even when piped.
+--flush
+
 --type-add=markdown=.markdown,.md
 --type-add=textile=.textile
 --type-add=opencl=.cl
