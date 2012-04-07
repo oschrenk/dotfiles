@@ -61,6 +61,11 @@ set skip-completed-text on
 
 # Line editing
 # ----------------------------------------------------------------------------
+# Allow UTF-8 input and output, instead of showing them like $'\0123\0456'.
+set input-meta on
+set output-meta on
+set convert-meta off
+
 # Use Ctrl+← and Ctrl+→ (or Alt/Meta, or Esc) to move between words.
 "\e[1;5D": backward-word
 "\e[1;3D": backward-word
