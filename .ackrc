@@ -1,6 +1,3 @@
---type-add
-markdown=.markdown,.md
---type-add
-textile=.textile
---type-add
-opencl=.cl
+--type-add=markdown=.markdown,.md
+--type-add=textile=.textile
+--type-add=opencl=.cl
