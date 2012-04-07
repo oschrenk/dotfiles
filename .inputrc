@@ -66,6 +66,9 @@ set input-meta on
 set output-meta on
 set convert-meta off
 
+# Use Alt/Meta+Delete to delete the preceding word.
+"\e[3;3~": kill-word
+
 # Use Ctrl+← and Ctrl+→ (or Alt/Meta, or Esc) to move between words.
 "\e[1;5D": backward-word
 "\e[1;3D": backward-word
