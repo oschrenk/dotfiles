@@ -1,3 +1,5 @@
+# History
+# ----------------------------------------------------------------------------
 # By default up/down are bound to previous-history
 # and next-history respectively. The following does the
 # same but gives the extra functionality where if you
@@ -8,12 +10,6 @@
 # Note to get rid of a line just Ctrl-C
 "\e[A": history-search-backward
 "\e[B": history-search-forward
-
-# move arround word for word with Strg + arrow keys
-"\e[5C": forward-word
-"\e[5D": backward-word
-"\e\e[C": forward-word
-"\e\e[D": backward-word
 
 # Autocompletion
 # ----------------------------------------------------------------------------
@@ -57,3 +53,11 @@ set visible-stats on
 # ~/src/mozillail", but to "cd ~/src/mozilla". (This is supported by the
 # Readline used by Bash 4.)
 set skip-completed-text on
+
+# Line editing
+# ----------------------------------------------------------------------------
+# move arround word for word with Strg + arrow keys
+"\e[5C": forward-word
+"\e[5D": backward-word
+"\e\e[C": forward-word
+"\e\e[D": backward-word
