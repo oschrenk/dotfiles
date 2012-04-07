@@ -32,7 +32,3 @@ alias s='git sh'
 # other aliases
 alias ttop='top -ocpu -R -F -s 2 -n30'
 alias psef='ps -ef | grep -i $1'
-
-if [ "${OS}" = "linux" ] ; then
-	alias open='xdg-open'
-fi
