@@ -1,4 +1,4 @@
-# ls aliases
+g# ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
@@ -27,7 +27,7 @@ alias g='git'
 alias j='z'
 alias o='open'
 alias r='rake'
-alias s='git sh'
+alias g='git sh'
 
 # other aliases
 alias ttop='top -ocpu -R -F -s 2 -n30'

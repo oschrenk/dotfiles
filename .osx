@@ -83,7 +83,7 @@ defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder 'ShowStatusBar' -bool false
 
 # Disable Sounds
-/usr/bin/defaults write com.apple.finder 'FinderSounds' -bool false
+# /usr/bin/defaults write com.apple.finder 'FinderSounds' -bool false
 
 # Automatically open a new Finder window when a volum	e is mounted
 defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
