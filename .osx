@@ -26,6 +26,9 @@ defaults write com.apple.screencapture location ~/Downloads
 # set clock in login screen to 24h schema
 sudo defaults write /Library/Preferences/.GlobalPreferences AppleLocale "de_DE"
 
+# Disable InfraredController
+sudo defaults write /Library/Preferences/com.apple.driver.AppleIRController DeviceEnabled -bool false
+
 ## --------------------------------------------------------------------------
 # Time Machine
 ## --------------------------------------------------------------------------
@@ -112,6 +115,8 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE
 
 # Disable menu bar transparency
 defaults write NSGlobalDomain AppleEnableMenuBarTransparency -bool false
+
+defaults write com.apple.menuextra.clock DateFormat -string "E MMM d  h:mm a"
 
 # Show fast user switching menu as: 0: Full Name, 1: Short Name, 2: Icon
 defaults write -g userMenuExtraStyle -int 1
