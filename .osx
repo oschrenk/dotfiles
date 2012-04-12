@@ -26,6 +26,10 @@ defaults write com.apple.screencapture location ~/Downloads
 # set clock in login screen to 24h schema
 sudo defaults write /Library/Preferences/.GlobalPreferences AppleLocale "de_DE"
 
+## --------------------------------------------------------------------------
+# Hardware
+## --------------------------------------------------------------------------
+
 # Disable InfraredController
 sudo defaults write /Library/Preferences/com.apple.driver.AppleIRController DeviceEnabled -bool false
 
