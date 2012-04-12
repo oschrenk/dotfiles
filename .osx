@@ -49,6 +49,9 @@ sudo pmset -a hibernatemode 0
 # Once you turn off hibernation you can remove the sleep image
 # sudo rm /var/vm/sleepimage
 
+# Don't put hard disks to sleep. x is time in minute
+sudo pmset disksleep 0
+
 ## --------------------------------------------------------------------------
 # Time Machine
 ## --------------------------------------------------------------------------
