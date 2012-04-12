@@ -33,6 +33,9 @@ sudo defaults write /Library/Preferences/.GlobalPreferences AppleLocale "de_DE"
 # Disable InfraredController
 sudo defaults write /Library/Preferences/com.apple.driver.AppleIRController DeviceEnabled -bool false
 
+# Disable motion sensor (I have an SSD disk)
+sudo pmset -a sms 0
+
 ## --------------------------------------------------------------------------
 # Time Machine
 ## --------------------------------------------------------------------------
