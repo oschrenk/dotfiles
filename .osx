@@ -36,6 +36,19 @@ sudo defaults write /Library/Preferences/com.apple.driver.AppleIRController Devi
 # Disable motion sensor (I have an SSD disk)
 sudo pmset -a sms 0
 
+# Only use RAM to hibernate
+# hibernatemode = 0 (binary 0000) by default on supported desktops. 
+# The system will not back memory up to persistent storage.
+# hibernatemode = 3 (binary 0011) by default on supported portables.
+# The system will store a copy of memory to persistent storage (the disk), and will power memory during sleep.
+# hibernatemode = 25 (binary 0001 1001) is only settable via pmset. 
+# The system will store a copy of memory to persistent storage (the disk), and will remove power to memory. 
+# The system will restore from disk image. If you want “hibernation” – slower sleeps, slower wakes, and better battery life, you should use this setting.
+sudo pmset -a hibernatemode 0
+
+# Once you turn off hibernation you can remove the sleep image
+# sudo rm /var/vm/sleepimage
+
 ## --------------------------------------------------------------------------
 # Time Machine
 ## --------------------------------------------------------------------------
