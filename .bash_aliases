@@ -5,7 +5,6 @@ alias l='ls -GCF'
 alias lsd='ls -Gl | grep "^d"'
 
 # cd aliases
-alias --='cd -'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
