@@ -1,8 +1,8 @@
 # ls aliases
-alias ll='ls -alF'
-alias la='ls -A'
-alias l='ls -CF'
-alias lsd='ls -l | grep "^d"'
+alias ll='ls -GalF'
+alias la='ls -GA'
+alias l='ls -GCF'
+alias lsd='ls -Gl | grep "^d"'
 
 # cd aliases
 alias --='cd -'
