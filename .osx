@@ -164,6 +164,9 @@ defaults write com.apple.Dock autohide-delay -float 0
 ## change wallpaper
 # sudo defaults write /Library/Preferences/com.apple.loginwindow DesktopPicture /Users/Shared/mynewbackground.jpg
 
+# Show item info below desktop icons
+# /usr/libexec/PlistBuddy -c "Set :DesktopViewSettings:IconViewSettings:showItemInfo true" ~/Library/Preferences/com.apple.finder.plist
+
 ## --------------------------------------------------------------------------
 # Mail
 ## --------------------------------------------------------------------------
