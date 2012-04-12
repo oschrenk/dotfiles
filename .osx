@@ -90,6 +90,9 @@ defaults write com.apple.frameworks.diskimages auto-open-ro-root -bool true
 defaults write com.apple.frameworks.diskimages auto-open-rw-root -bool true
 defaults write com.apple.finder OpenWindowForNewRemovableDisk -bool true
 
+# Enable the ability to highlight text in QuickLook
+defaults write com.apple.finder QLEnableTextSelection -bool TRUE
+
 # Allow quitting Finder via ⌘ + Q; doing so will also hide desktop icons
 # defaults write com.apple.finder QuitMenuItem -bool true
 
