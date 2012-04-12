@@ -103,6 +103,8 @@ defaults write com.apple.finder QLEnableTextSelection -bool TRUE
 # Allow quitting Finder via ⌘ + Q; doing so will also hide desktop icons
 # defaults write com.apple.finder QuitMenuItem -bool true
 
+# Disable the animation for showing and hiding information panels in Finder
+# defaults write com.apple.finder AnimateInfoPanes -bool false
 
 ## --------------------------------------------------------------------------
 # Menubar
