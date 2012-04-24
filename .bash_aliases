@@ -24,7 +24,6 @@ if [ "${OS}" = "mac" ] ; then
 fi
 
 # application shorthands
-alias j='z'
 alias o='open'
 alias oo='open .'
 alias g='git sh'
