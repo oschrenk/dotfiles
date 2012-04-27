@@ -4,5 +4,8 @@ unalias r
 alias gmv='git mv'
 alias grm='git rm'
 alias e='exit'
+alias o='open'
+alias oo='open .'
 alias m='mate'
+alias mm='mate .'
 alias r='rake'
