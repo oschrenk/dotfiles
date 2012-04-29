@@ -5,6 +5,9 @@ export PATH=/usr/local/share/python:/usr/local/bin:/usr/local/sbin:$PATH
 export SCRIPTS=~/Development/scripts
 export PATH=$SCRIPTS:$PATH
 
+# INKSCAPE
+export PATH=/Applications/Inkscape.app/Contents/Resources/bin:$PATH
+
 # NODE
 export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
 
