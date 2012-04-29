@@ -18,6 +18,8 @@ fi
 if [ "${OS}" = "mac" ] ; then
 	alias m='mate'
 	alias mm='mate .'
+	alias s='subl'
+	alias ss='subl'
 fi
 
 # application shorthands
