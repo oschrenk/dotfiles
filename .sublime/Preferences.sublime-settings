@@ -2,6 +2,9 @@
 // are overridden in turn by file type specific settings.
 {
 	
+	// The theme controls the look of Sublime Text's UI (buttons, tabs, scroll bars, etc)
+    "theme": "Soda Dark.sublime-theme",
+
 	// Determines what character(s) are used to terminate each line in new files.
     // Valid values are 'system' (whatever the OS uses), 'windows' (CRLF) and
     // 'unix' (LF only).
