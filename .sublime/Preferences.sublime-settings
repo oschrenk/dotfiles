@@ -1,0 +1,15 @@
+// Settings in here override those in "Default/Preferences.sublime-settings", and
+// are overridden in turn by file type specific settings.
+{
+	
+	// The theme controls the look of Sublime Text's UI (buttons, tabs, scroll bars, etc)
+    "theme": "Soda Dark.sublime-theme",
+
+    // Sets the colors used within the text area
+    "color_scheme": "Packages/Color Scheme - Monokai TimmFin/Monokai-timmfin.tmTheme",
+
+	// Determines what character(s) are used to terminate each line in new files.
+    // Valid values are 'system' (whatever the OS uses), 'windows' (CRLF) and
+    // 'unix' (LF only).
+    "default_line_ending": "unix"
+}
