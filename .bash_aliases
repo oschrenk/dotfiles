@@ -17,8 +17,6 @@ fi
 
 if [ "${OS}" = "mac" ] ; then
 	alias loc='location' 
-	alias m='subl'
-	alias mm='subl .'
 	alias s='subl'
 	alias ss='subl'
 fi
