@@ -28,6 +28,9 @@
 	cva = commit -v -a
 	co = checkout
 	cob = checkout -b
+	# Credit an author on the latest commit
+	## Usage: git credit "John Doe" jdoe@domain.tld
+	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 	d = diff
 	dt = difftool
 	fi = flow init
