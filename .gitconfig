@@ -49,8 +49,9 @@
 	pomd = !git pom && git pod
 	pomdt = !git pom && git pod && git put
 	pop = stash pop
-	pov = push origin vendor
+	pud = pull origin develop
 	pum = pull origin master
+	puv = push origin vendor
 	put = push --tags
 	rf = flow release finish
 	rs = flow release start
