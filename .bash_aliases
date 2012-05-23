@@ -28,6 +28,6 @@ alias o='open'
 alias oo='open .'
 alias g='git sh'
 
-# other aliases
+# process managment
 alias ttop='top -ocpu -R -F -s 2 -n30'
 alias psef='ps -ef | grep -i $1'
