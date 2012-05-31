@@ -17,11 +17,16 @@ defaults write NSGlobalDomain AppleKeyboardUIMode -int 3
 # Take screenshots as png
 defaults write com.apple.screencapture type png
 
+# Save screenshots to ...
+defaults write com.apple.screencapture location ~/Downloads
+
+# Disable shadow in screenshots
+# defaults write com.apple.screencapture disable-shadow -bool true
+
 # Disable Dashboard
 defaults write com.apple.dashboard mcx-disabled -boolean yes
 
-# save screenshots to downloads
-defaults write com.apple.screencapture location ~/Downloads
+
 
 # set clock in login screen to 24h schema
 sudo defaults write /Library/Preferences/.GlobalPreferences AppleLocale "de_DE"
