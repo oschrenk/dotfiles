@@ -19,31 +19,39 @@
 	ai = add -i
 	ap = add -p
 	au = add -u
+
 	b = branch
-	bd = branch -d
+
 	c = commit
 	c1 = !git commit --file=1 && rm 1
 	cam = commit --amend
 	cv = commit -v
 	cva = commit -v -a
+
 	co = checkout
 	cob = checkout -b
+
 	# Credit an author on the latest commit
 	## Usage: git credit "John Doe" jdoe@domain.tld
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
+
 	d = diff
 	dt = difftool
+
 	fi = flow init
 	fid = flow init -d
-	ff = flow feature finish
-	forget = update-index --assume-unchanged
-	fs = flow feature start
-	hf = flow hotfix finish
+	fff = flow feature finish
+	ffs = flow feature start
+	fhf = flow hotfix finish
+	fhs = flow hotfix start
+	frf = flow release finish
+	frs = flow release start
+
 	history = log --reverse --format="%ai: %s"
-	hs = flow hotfix start
 	lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%cr)%C(reset) %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
     lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%cD%C(reset) %C(bold green)(%cr)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)' --abbrev-commit
     lg = !"git lg1"
+
 	p = push
 	phm = push origin heroku
 	pod = push origin develop
@@ -51,17 +59,22 @@
 	pom = push origin master
 	pomd = !git pom && git pod
 	pomdt = !git pom && git pod && git put
-	pop = stash pop
+	
 	pud = pull origin develop
 	pum = pull origin master
 	puv = push origin vendor
 	put = push --tags
-	rf = flow release finish
-	rs = flow release start
+
+	pop = stash pop
+
 	s = status
+
 	sd = svn dcommit
 	sr = svn rebase
 	up = pull --rebase
+
+	forget = update-index --assume-unchanged
+	unstage = reset HEAD
 	us = reset HEAD
 
 [difftool "Kaleidoscope"]
