@@ -5,10 +5,14 @@ unalias r
 alias gmv='git mv'
 alias grm='git rm'
 
-alias e='subl'
-alias ee='subl .'
+alias e='exit'
+alias sl='subl'
+alias sll='subl .'
+
 alias o='open'
 alias oo='open .'
 
-alias top='cd $(git rev-parse --show-cdup)'
+alias m='make'
 alias r='rake'
+
+alias top='cd $(git rev-parse --show-cdup)'
