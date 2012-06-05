@@ -1,18 +1,10 @@
-[color]
-    branch = auto
-    diff = auto
-    status = auto
-    interactive = auto
-	sh = auto
-[color "branch"]
-    current = red
-    local = green
-    remote = yellow
 [user]
 	name = Oliver Schrenk
 	email = oliver.schrenk@gmail.com
+
 [core]
 	excludesfile = ~/.global-gitignore
+
 [alias]
 	a = add
 	aa = add -A
@@ -87,6 +79,19 @@
 	prompt = false
 [diff]
 	tool = Kaleidoscope
+
+[color]
+    branch = auto
+    diff = auto
+    status = auto
+    interactive = auto
+	sh = auto
+	
+[color "branch"]
+    current = red
+    local = green
+    remote = yellow
+
 [color "sh"]
 	branch = yellow
 	workdir = white
