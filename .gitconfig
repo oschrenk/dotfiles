@@ -21,6 +21,7 @@
 	au = add -u
 
 	b = branch
+	branches = branch -a
 
 	c = commit
 	c1 = !git commit --file=1 && rm 1
@@ -67,10 +68,13 @@
 
 	pop = stash pop
 
+	remotes = remote -v
 	s = status
 
 	sd = svn dcommit
 	sr = svn rebase
+
+	tags = tag -l
 	up = pull --rebase
 
 	forget = update-index --assume-unchanged
