@@ -50,12 +50,13 @@
 	pod = push origin develop
 	pog = push origin gh-pages
 	pom = push origin master
+	pov = push origin vendor
 	pomd = !git pom && git pod
 	pomdt = !git pom && git pod && git put
 	
 	pud = pull origin develop
 	pum = pull origin master
-	puv = push origin vendor
+	
 	put = push --tags
 
 	pop = stash pop
