@@ -35,3 +35,4 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+
 # process managment
 alias ttop='top -ocpu -R -F -s 2 -n30'
 alias psef='ps -ef | grep -i $1'
+alias ram='ps aux | awk '"'"'{print $2, $4, $11}'"'"' | sort -k2rn | head -n 20'
