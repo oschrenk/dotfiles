@@ -1,7 +1,7 @@
 // Settings in here override those in "Default/Preferences.sublime-settings", and
 // are overridden in turn by file type specific settings.
 {
-	
+
 	// The theme controls the look of Sublime Text's UI (buttons, tabs, scroll bars, etc)
     "theme": "Soda Dark.sublime-theme",
 
@@ -12,6 +12,9 @@
     // Valid values are 'system' (whatever the OS uses), 'windows' (CRLF) and
     // 'unix' (LF only).
     "default_line_ending": "unix",
+
+    // Set to true to insert spaces when tab is pressed
+    "translate_tabs_to_spaces": false,
 
     // Set to true to removing trailing white space on save
     "trim_trailing_white_space_on_save": true,
