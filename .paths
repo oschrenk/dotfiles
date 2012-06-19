@@ -2,7 +2,7 @@
 export PATH=/usr/local/share/python:/usr/local/bin:/usr/local/sbin:$PATH
 
 # SCRIPTS
-export SCRIPTS=~/Development/scripts
+export SCRIPTS=~/.scripts
 export PATH=$SCRIPTS:$PATH
 
 # INKSCAPE
