@@ -64,10 +64,10 @@
 	pov = push origin vendor
 	pomd = !git pom && git pod
 	pomdt = !git pom && git pod && git put
-	
+
 	pud = pull origin develop
 	pum = pull origin master
-	
+
 	put = push --tags
 
 	pop = stash pop
@@ -92,13 +92,19 @@
 [diff]
 	tool = Kaleidoscope
 
+[merge]
+	tool = p4merge
+
+[mergetool]
+	prompt = false
+
 [color]
     branch = auto
     diff = auto
     status = auto
     interactive = auto
 	sh = auto
-	
+
 [color "branch"]
     current = red
     local = green
