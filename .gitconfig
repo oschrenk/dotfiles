@@ -74,7 +74,9 @@
 	pop = stash pop
 
 	remotes = remote -v
+
 	s = status
+	ss = status -s
 
 	sd = svn dcommit
 	sr = svn rebase
