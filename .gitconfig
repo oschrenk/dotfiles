@@ -57,8 +57,6 @@
     lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%cD%C(reset) %C(bold green)(%cr)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)' --abbrev-commit
     lg = !"git lg1"
 
-	p = push
-	phm = push origin heroku
 	pod = push origin develop
 	pog = push origin gh-pages
 	pom = push origin master
@@ -84,9 +82,7 @@
 	tags = tag -l
 	up = pull --rebase
 
-	forget = update-index --assume-unchanged
 	unstage = reset HEAD
-	us = reset HEAD
 
 [difftool "Kaleidoscope"]
 	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
