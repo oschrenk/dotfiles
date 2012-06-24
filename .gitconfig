@@ -82,6 +82,7 @@
 	tags = tag -l
 	up = pull --rebase
 
+	# unstage is the opposite of git add. It removes items from the staging area.
 	unstage = reset HEAD
 
 [difftool "Kaleidoscope"]
