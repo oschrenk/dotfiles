@@ -96,6 +96,10 @@
 	tool = Kaleidoscope
 
 [merge]
+	# By default, when you merge a branch in git, you get a fairly meaningless
+	# message like merge #branch 'master' of git@github.com:name/project.
+	# To get a summary of the changes you're merging, turn this option on:
+	summary=true
 	tool = p4merge
 
 [mergetool]
