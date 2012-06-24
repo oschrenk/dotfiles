@@ -24,7 +24,7 @@
 	ap = add -p
 	au = add -u
 
-	b = branch
+	b = branch -v
 	branches = branch -a
 
 	c = commit
