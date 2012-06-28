@@ -5,6 +5,8 @@
 [core]
 	excludesfile = ~/.global-gitignore
 	editor = vim
+	autocrlf = input
+	safecrlf = true
 
 
 [push]
