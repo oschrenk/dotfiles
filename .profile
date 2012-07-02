@@ -51,6 +51,11 @@ if [ -f $SCRIPTS/sshagent ]; then
     . $SCRIPTS/sshagent
 fi
 
+# include pickjdk script
+if [ -f $SCRIPTS/pickjdk ]; then
+    . $SCRIPTS/pickjdk
+fi
+
 # bash completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
@@ -70,11 +75,6 @@ fi
 # z s the new j, https://github.com/rupa/z
 if [ -f `brew --prefix`/etc/profile.d/z.sh ]; then
   . `brew --prefix`/etc/profile.d/z.sh
-fi
-
-# include pickjdk script
-if [ -f $SCRIPTS/pickjdk ]; then
-    . $SCRIPTS/pickjdk
 fi
 
 # Get the aliases and functions
