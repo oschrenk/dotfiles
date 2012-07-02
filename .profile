@@ -14,7 +14,7 @@ fi
 export EDITOR=vi
 export SVN_EDITOR=vi
 
-# bigger history	
+# bigger history
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 
@@ -28,10 +28,18 @@ shopt -s histappend #append to the same history file when using multiple termina
 shopt -s cdspell #minor errors in the spelling of a directory component in a cd command will be corrected
 shopt -s nocaseglob #when typing part of a filename and press Tab to autocomplete, Bash does a case-insensitive search.
 shopt -s cmdhist # Save multi-line commands in history as single line
-shopt -s dirspell # Since 4.0-alpha. Bash will perform spelling corrections on directory names to match a glob.
-shopt -s globstar # Since 4.0-alpha. Recursive globbing with `**` is enabled
-shopt -s autocd # Since 4.0-alpha. If set, a command name that is the name of a directory is executed as if it were the argument to the cd command.
 shopt -s no_empty_cmd_completion # Bash will not attempt to search the PATH for possible completions when completion is attempted on an empty line.
+
+# Enable some Bash 4 features when possible:
+# `autocd`. Since 4.0-alpha. e.g. `**/qux` will enter `./foo/bar/baz/qux`
+# `dirspell` Since 4.0-alpha. Bash will perform spelling corrections on directory names to match a glob.
+# `globstar`.Since 4.0-alpha. Recursive globbing with `**` is enabled
+for option in autocd dirspell globstar; do
+  tmp="$(shopt -q "$option" 2>&1 > /dev/null | grep "invalid shell option name")"
+  if [ '' == "$tmp" ]; then
+    shopt -s "$option"
+  fi
+done
 
 # set os, dist, rev, kernel, mach environment variables
 if [ -f $SCRIPTS/setos ]; then
