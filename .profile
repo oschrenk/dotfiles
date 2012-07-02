@@ -72,6 +72,12 @@ if [ -f ~/.bash_completion.d/m2 ]; then
   . ~/.bash_completion.d/m2
 fi
 
+# rmv ruby environment manager
+if [ -f ~/.rvm/scripts/rvm ]; then
+  source ~/.rvm/scripts/rvm
+fi
+
+
 # z s the new j, https://github.com/rupa/z
 if [ -f `brew --prefix`/etc/profile.d/z.sh ]; then
   . `brew --prefix`/etc/profile.d/z.sh
