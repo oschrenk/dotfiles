@@ -4,8 +4,7 @@ alias ...="cd ../.."
 alias -- -="cd -"
 
 # Detect which `ls` flavor is in use
-tmp="$(ls --color 2>&1 > /dev/null | grep "illegal option")"
-if [ '' == "$tmp" ]; then # GNU `ls`
+if ls --color > /dev/null 2>&1; then # GNU `ls`
 	colorflag="--color"
 else # OS X `ls`
 	colorflag="-G"
