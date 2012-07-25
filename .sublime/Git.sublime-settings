@@ -1,0 +1,13 @@
+{
+
+	// if present, use this command instead of plain "git"
+	// e.g. "/Users/kemayo/bin/git" or "C:\bin\git.exe"
+	"git_command": "/usr/local/bin/git"
+
+	// point this the installation location of git-flow
+	,"git_flow_command": "/usr/local/bin/git-flow"
+
+	// Show git flow commands
+	,"flow": true
+
+}
