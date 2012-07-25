@@ -4,11 +4,9 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 GREP_OPTIONS=
-if grep --help | grep -- --exclude-dir &>/dev/null; then
-    for PATTERN in .cvs .git .hg .svn; do
-        GREP_OPTIONS="$GREP_OPTIONS --exclude-dir=$PATTERN"
-    done
-fi
+for PATTERN in .cvs .git .hg .svn; do
+    GREP_OPTIONS="$GREP_OPTIONS --exclude-dir=$PATTERN"
+done
 export GREP_OPTIONS
 
 # show current git branch in prompt
