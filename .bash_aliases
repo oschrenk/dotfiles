@@ -31,6 +31,7 @@ if [ "${OS}" = "mac" ] ; then
 	alias loc='location'
 	alias sl='subl'
 	alias sll='subl .'
+	alias pdf-concat='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 fi
 
 # application shorthands
