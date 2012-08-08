@@ -78,6 +78,9 @@
 	s = status
 	ss = status -s
 
+	sum=log --pretty=format:"%s" --since="yesterday"
+
+
 	sd = svn dcommit
 	sr = svn rebase
 
