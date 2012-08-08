@@ -16,13 +16,7 @@ let g:vundle_default_git_proto = 'git'
  " original repos on github
  Bundle 'tpope/vim-fugitive'
  Bundle 'Lokaltog/vim-easymotion'
- Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
- Bundle 'tpope/vim-rails.git'
- " vim-scripts repos
- Bundle 'L9'
- Bundle 'FuzzyFinder'
- " non github repos
- Bundle 'git://git.wincent.com/command-t.git'
+ Bundle 'tpope/vim-markdown'
  " ...
 
  filetype plugin indent on     " required!
