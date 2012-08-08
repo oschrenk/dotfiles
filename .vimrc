@@ -4,6 +4,9 @@ set nocompatible               " be iMproved
  set rtp+=~/.vim/bundle/vundle/
  call vundle#rc()
 
+ " use native git protocol
+let g:vundle_default_git_proto = 'git'  
+
  " let Vundle manage Vundle
  " required!
  Bundle 'gmarik/vundle'
