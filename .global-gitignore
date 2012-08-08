@@ -47,3 +47,6 @@ Thumbs.db
 *.tmproj
 *.tmproject
 tmtags
+
+# Editors with AutoBackup
+*~
