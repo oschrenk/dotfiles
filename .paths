@@ -13,3 +13,7 @@ export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
 
 # TEX
 export PATH=/usr/texbin:$PATH
+
+# CABAL
+export PATH=~/.cabal/bin:$PATH
+
