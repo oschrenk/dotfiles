@@ -1,8 +1,3 @@
-# set os, dist, rev, kernel, mach environment variables
-if [ -f $SCRIPTS/setos ]; then
-    . $SCRIPTS/setos
-fi
-
 # include sshagent script
 if [ -f $SCRIPTS/sshagent ]; then
     . $SCRIPTS/sshagent
@@ -33,7 +28,6 @@ fi
 if [ -f ~/.rvm/scripts/rvm ]; then
   source ~/.rvm/scripts/rvm
 fi
-
 
 # z s the new j, https://github.com/rupa/z
 if [ -f `brew --prefix`/etc/profile.d/z.sh ]; then
