@@ -1,6 +1,6 @@
 # Alias definitions.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+if [ -f ~/.aliases ]; then
+    . ~/.aliases
 fi
 
 GREP_OPTIONS=
@@ -9,7 +9,7 @@ for PATTERN in .cvs .git .hg .svn; do
 done
 export GREP_OPTIONS
 
-export LESS="-F -X -R" 
+export LESS="-F -X -R"
 
 # Prefer US English and use UTF-8
 export LC_ALL="en_US.UTF-8"
