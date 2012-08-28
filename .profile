@@ -1,8 +1,3 @@
-# include sshagent script
-if [ -f $SCRIPTS/sshagent ]; then
-    . $SCRIPTS/sshagent
-fi
-
 # include pickjdk script
 if [ -f $SCRIPTS/pickjdk ]; then
     . $SCRIPTS/pickjdk
