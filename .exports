@@ -4,6 +4,9 @@ export SVN_EDITOR=vim
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
 
+# Highlight section titles in manual pages
+export LESS_TERMCAP_md="$ORANGE"
+
 # bigger history
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
