@@ -11,23 +11,6 @@ export HISTCONTROL=ignoreboth
 # patterns of commands that will be ignored and NOT added to history
 # export HISTIGNORE="ls:ls -lA"
 
-shopt -s histappend #append to the same history file when using multiple terminals
-shopt -s cdspell #minor errors in the spelling of a directory component in a cd command will be corrected
-shopt -s nocaseglob #when typing part of a filename and press Tab to autocomplete, Bash does a case-insensitive search.
-shopt -s cmdhist # Save multi-line commands in history as single line
-shopt -s no_empty_cmd_completion # Bash will not attempt to search the PATH for possible completions when completion is attempted on an empty line.
-
-# Enable some Bash 4 features when possible:
-# `autocd`. Since 4.0-alpha. e.g. `**/qux` will enter `./foo/bar/baz/qux`
-# `dirspell` Since 4.0-alpha. Bash will perform spelling corrections on directory names to match a glob.
-# `globstar`.Since 4.0-alpha. Recursive globbing with `**` is enabled
-for option in autocd dirspell globstar; do
-  tmp="$(shopt -q "$option" 2>&1 > /dev/null | grep "invalid shell option name")"
-  if [ '' == "$tmp" ]; then
-    shopt -s "$option"
-  fi
-done
-
 # set os, dist, rev, kernel, mach environment variables
 if [ -f $SCRIPTS/setos ]; then
     . $SCRIPTS/setos
