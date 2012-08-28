@@ -1,20 +1,9 @@
-# my paths
-if [ -f ~/.path ]; then
-  . ~/.path
-fi
-
-# set defunkt/hub environment variables
-# not included in dotfiles repo because of security reasons
-# export GITHUB_USER=<username>
-# export GITHUB_TOKEN=<token>
-if [ -f ~/.github ]; then
-  . ~/.github
-fi
-
-# Alias definitions.
-if [ -f ~/.aliases ]; then
-    . ~/.aliases
-fi
+# Load the shell dotfiles, and then some:
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for file in ~/.{path,aliases,github}; do
+    [ -r "$file" ] && source "$file"
+done
 
 GREP_OPTIONS=
 for PATTERN in .cvs .git .hg .svn; do
