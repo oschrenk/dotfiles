@@ -1,3 +1,16 @@
+# my paths
+if [ -f ~/.paths ]; then
+  . ~/.paths
+fi
+
+# set defunkt/hub environment variables
+# not included in dotfiles repo because of security reasons
+# export GITHUB_USER=<username>
+# export GITHUB_TOKEN=<token>
+if [ -f ~/.github ]; then
+  . ~/.github
+fi
+
 # Alias definitions.
 if [ -f ~/.aliases ]; then
     . ~/.aliases
@@ -39,3 +52,4 @@ cdf ()
     echo "cd to "$currFolderPath""
     cd "$currFolderPath"
 }
+
