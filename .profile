@@ -1,8 +1,3 @@
-# include pickjdk script
-if [ -f $SCRIPTS/pickjdk ]; then
-    . $SCRIPTS/pickjdk
-fi
-
 # bash completion
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
