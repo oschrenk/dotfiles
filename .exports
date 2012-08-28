@@ -1,5 +1,5 @@
-export EDITOR=vi
-export SVN_EDITOR=vi
+export EDITOR=vim
+export SVN_EDITOR=vim
 
 # Don’t clear the screen after quitting a manual page
 export MANPAGER="less -X"
