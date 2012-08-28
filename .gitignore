@@ -1,5 +1,5 @@
 .github
-.subversion/auth
+.subversion
 .vim/bundle/*
 !.vim/bundle/vundle
 .vim/bundle/vundle/doc/tags
