@@ -1,16 +1,3 @@
-export EDITOR=vi
-export SVN_EDITOR=vi
-
-# bigger history
-export HISTSIZE=10000
-export HISTFILESIZE=${HISTSIZE}
-
-# any lines matching the previous history entry will not be saved
-export HISTCONTROL=ignoreboth
-
-# patterns of commands that will be ignored and NOT added to history
-# export HISTIGNORE="ls:ls -lA"
-
 # set os, dist, rev, kernel, mach environment variables
 if [ -f $SCRIPTS/setos ]; then
     . $SCRIPTS/setos

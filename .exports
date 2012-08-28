@@ -1,0 +1,20 @@
+export EDITOR=vi
+export SVN_EDITOR=vi
+
+# bigger history
+export HISTSIZE=10000
+export HISTFILESIZE=${HISTSIZE}
+
+# any lines matching the previous history entry will not be saved
+export HISTCONTROL=ignoreboth
+
+# patterns of commands that will be ignored and NOT added to history
+# export HISTIGNORE="ls:ls -lA"
+
+GREP_OPTIONS=
+for PATTERN in .cvs .git .hg .svn; do
+    GREP_OPTIONS="$GREP_OPTIONS --exclude-dir=$PATTERN"
+done
+export GREP_OPTIONS
+
+export LESS="-F -X -R"
