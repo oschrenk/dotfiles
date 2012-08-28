@@ -4,6 +4,7 @@
 for file in ~/.{path,aliases,functions,github}; do
     [ -r "$file" ] && source "$file"
 done
+unset file
 
 GREP_OPTIONS=
 for PATTERN in .cvs .git .hg .svn; do
