@@ -1,6 +1,6 @@
 # my paths
-if [ -f ~/.paths ]; then
-  . ~/.paths
+if [ -f ~/.path ]; then
+  . ~/.path
 fi
 
 # set defunkt/hub environment variables
