@@ -1,6 +1,9 @@
 export EDITOR=vi
 export SVN_EDITOR=vi
 
+# Don’t clear the screen after quitting a manual page
+export MANPAGER="less -X"
+
 # bigger history
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
