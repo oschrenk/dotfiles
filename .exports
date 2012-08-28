@@ -9,7 +9,7 @@ export HISTFILESIZE=${HISTSIZE}
 export HISTCONTROL=ignoreboth
 
 # patterns of commands that will be ignored and NOT added to history
-# export HISTIGNORE="ls:ls -lA"
+export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
 
 GREP_OPTIONS=
 for PATTERN in .cvs .git .hg .svn; do
