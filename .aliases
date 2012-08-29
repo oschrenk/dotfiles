@@ -33,6 +33,9 @@ alias o='open'
 alias oo='open .'
 alias g='git sh'
 
+# move to root-directory of git project
+alias ..g='cd $(git rev-parse --show-cdup)'
+
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
 alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET \/.*\""
@@ -49,3 +52,4 @@ alias flush="dscacheutil -flushcache"
 alias ttop='top -ocpu -R -F -s 2 -n30'
 alias psef='ps -ef | grep -i $1'
 alias ram='ps aux | awk '"'"'{print $2, $4, $11}'"'"' | sort -k2rn | head -n 20'
+
