@@ -8,6 +8,9 @@ export PATH=$SCRIPTS:$PATH
 # INKSCAPE
 export PATH=/Applications/Inkscape.app/Contents/Resources/bin:$PATH
 
+# MAVEN
+export PATH=~/Applications/Maven/bin:$PATH
+
 # NODE
 export NODE_PATH=/usr/local/lib/node:/usr/local/lib/node_modules
 

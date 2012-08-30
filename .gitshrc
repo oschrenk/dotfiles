@@ -12,10 +12,7 @@ alias sll='subl .'
 alias o='open'
 alias oo='open .'
 
-alias m='make'
-alias r='rake'
-
-alias top='cd $(git rev-parse --show-cdup)'
+alias ..g='cd $(git rev-parse --show-cdup)'
 
 shopt -s histappend #append to the same history file when using multiple terminals
 shopt -s cdspell #minor errors in the spelling of a directory component in a cd command will be corrected
@@ -26,3 +23,4 @@ shopt -s no_empty_cmd_completion # Bash will not attempt to search the PATH for 
 shopt -s autocd # Since 4.0-alpha. e.g. `**/qux` will enter `./foo/bar/baz/qux`
 shopt -s dirspell # Since 4.0-alpha. Bash will perform spelling corrections on directory names to match a glob.
 shopt -s globstar # Since 4.0-alpha. Recursive globbing with `**` is enabled for option in autocd dirspell globstar; do
+
