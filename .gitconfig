@@ -3,8 +3,11 @@
 	email = oliver.schrenk@gmail.com
 
 [core]
+	attributesfile = ~/.gitattributes-global
 	excludesfile = ~/.gitignore-global
+
 	editor = vim
+
 	autocrlf = input
 	safecrlf = true
 
