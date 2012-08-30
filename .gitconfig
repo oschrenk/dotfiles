@@ -3,7 +3,7 @@
 	email = oliver.schrenk@gmail.com
 
 [core]
-	excludesfile = ~/.global-gitignore
+	excludesfile = ~/.gitignore-global
 	editor = vim
 	autocrlf = input
 	safecrlf = true
@@ -79,7 +79,6 @@
 	ss = status -s
 
 	sum=log --pretty=format:"%s" --since="yesterday"
-
 
 	sd = svn dcommit
 	sr = svn rebase
