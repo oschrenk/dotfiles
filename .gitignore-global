@@ -35,6 +35,10 @@ nb-configuration.xml
 
 # Maven
 target
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+release.properties
 
 # Windows
 Desktop.ini
@@ -50,3 +54,4 @@ tmtags
 
 # Editors with AutoBackup
 *~
+
