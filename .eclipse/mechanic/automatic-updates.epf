@@ -1,0 +1,12 @@
+# @title Automatic Updates
+# @description Install/Update > Automatic Updates
+# @task_type LASTMOD
+
+file_export_version=3.0
+
+# Enable automatic updates
+/instance/org.eclipse.equinox.p2.ui.sdk.scheduler/enabled=true
+
+# Look for updates each time Eclipse is started (empty value is correct)
+/instance/org.eclipse.equinox.p2.ui.sdk.scheduler/schedule=
+

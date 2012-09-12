@@ -1,0 +1,10 @@
+# @title Maven
+# @description Maven > User Interface
+# @task_type LASTMOD
+#
+# Created by the Workspace Mechanic Preference Recorder
+#Tue Sep 11 19:33:41 CEST 2012
+file_export_version=3.0
+
+# Open XML page in the POM editor by default
+/instance/org.eclipse.m2e.core/eclipse.m2.defaultPomEditorPage=true

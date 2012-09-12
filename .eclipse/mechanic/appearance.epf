@@ -1,0 +1,13 @@
+# @title Appearance
+# @description General > Appearance
+# @task_type LASTMOD
+#
+# Created by the Workspace Mechanic Preference Recorder
+#Wed Sep 12 19:32:22 CEST 2012
+file_export_version=3.0
+
+# Animations
+/instance/org.eclipse.ui/ENABLE_ANIMATIONS=false
+
+# Theme
+/instance/org.eclipse.e4.ui.css.swt.theme/themeid=org.eclipse.e4.ui.css.theme.e4_classic

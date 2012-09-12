@@ -1,0 +1,16 @@
+# @title Workspace
+# @description General > Workspace
+# @task_type LASTMOD
+#
+# Created by the Workspace Mechanic Preference Recorder
+file_export_version=3.0
+
+# Access
+/instance/org.eclipse.core.resources/refresh.enabled=true
+/instance/org.eclipse.core.resources/refresh.lightweight.enabled=true
+
+# Text file encoding
+/instance/org.eclipse.core.resources/encoding=UTF-8
+
+# New text file line delimiter
+/instance/org.eclipse.core.runtime/line.separator=\n
