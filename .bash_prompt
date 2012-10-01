@@ -3,4 +3,7 @@ function _update_ps1()
    export PS1="$($SCRIPTS/powerline-bash.py $?)"
 }
 
-export PROMPT_COMMAND="_update_ps1"
+if [ -f $SCRIPTS/powerline-bash.py ]; then
+	export PROMPT_COMMAND="_update_ps1"
+fi
+
