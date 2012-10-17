@@ -32,6 +32,8 @@ alias pdf-concat='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/
 alias o='open'
 alias oo='open .'
 alias g='git sh'
+alias mark='open -a Marked.app'
+alias mou='open -a Mou.app'
 
 # Move to root-directory of git project
 alias ..g='git rev-parse && cd "$(git rev-parse --show-cdup)"'
