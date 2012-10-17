@@ -4,6 +4,12 @@
 .Spotlight-V100
 .Trashes
 
+# Windows
+Desktop.ini
+Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
+
 # Eclipse
 *.pydevproject
 .project
@@ -39,12 +45,6 @@ pom.xml.tag
 pom.xml.releaseBackup
 pom.xml.next
 release.properties
-
-# Windows
-Desktop.ini
-Thumbs.db
-ehthumbs.db
-$RECYCLE.BIN/
 
 # SVN
 .svn/
