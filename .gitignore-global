@@ -47,6 +47,14 @@ Thumbs.db
 # SVN
 .svn/
 
+# Compiled sources
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
 # Textmate
 *.tmproj
 *.tmproject
