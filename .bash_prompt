@@ -1,9 +1,9 @@
 function _update_ps1()
 {
-   export PS1="$($SCRIPTS/powerline-bash.py $?)"
+   export PS1="$($HOME/.bash_powerline.py $?)"
 }
 
-if [ -f $SCRIPTS/powerline-bash.py ]; then
+if [ -f $HOME/.bash_powerline.py ]; then
 	export PROMPT_COMMAND="_update_ps1"
 fi
 
