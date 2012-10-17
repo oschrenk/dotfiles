@@ -59,12 +59,21 @@ $RECYCLE.BIN/
 
 # Archives
 *.7z
+*.bz2
+*.bzip
+*.deb
 *.dmg
+*.egg
+*.gem
 *.gz
 *.iso
 *.jar
+*.lzma
 *.rar
+*.rpm
 *.tar
+*.xpi
+*.xz
 *.zip
 
 # SublimeText project files
