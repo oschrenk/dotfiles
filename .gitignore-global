@@ -43,6 +43,8 @@ release.properties
 # Windows
 Desktop.ini
 Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
 
 # SVN
 .svn/
