@@ -65,6 +65,9 @@ Thumbs.db
 *.tar
 *.zip
 
+# SublimeText project files
+*.sublime-workspace
+
 # Textmate
 *.tmproj
 *.tmproject
