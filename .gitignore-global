@@ -4,6 +4,12 @@
 .Spotlight-V100
 .Trashes
 
+# Windows
+Desktop.ini
+Thumbs.db
+ehthumbs.db
+$RECYCLE.BIN/
+
 # Eclipse
 *.pydevproject
 .project
@@ -40,12 +46,67 @@ pom.xml.releaseBackup
 pom.xml.next
 release.properties
 
-# Windows
-Desktop.ini
-Thumbs.db
-
 # SVN
 .svn/
+
+# Autotools
+Makefile.in
+/autom4te.cache
+/aclocal.m4
+/compile
+/configure
+/depcomp
+/install-sh
+/missing
+
+# Java
+*.class
+*.ear
+*.jar
+*.war
+
+# C
+*.o
+*.lib
+*.a
+*.dll
+*.so
+*.so.*
+*.dylib
+*.exe
+*.out
+*.app
+
+# C++
+*.slo
+*.lo
+*.o
+*.so
+*.dylib
+*.lai
+*.la
+*.a
+
+# Archives
+*.7z
+*.bz2
+*.bzip
+*.deb
+*.dmg
+*.egg
+*.gem
+*.gz
+*.iso
+*.lzma
+*.rar
+*.rpm
+*.tar
+*.xpi
+*.xz
+*.zip
+
+# SublimeText project files
+*.sublime-workspace
 
 # Textmate
 *.tmproj

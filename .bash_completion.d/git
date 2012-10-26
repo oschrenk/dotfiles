@@ -875,11 +875,15 @@ _git_branch ()
 	done
 
 	case "$cur" in
+	--set-upstream-to=*)
+		__gitcomp "$(__git_refs)" "" "${cur##--set-upstream-to=}"
+		;;
 	--*)
 		__gitcomp "
 			--color --no-color --verbose --abbrev= --no-abbrev
 			--track --no-track --contains --merged --no-merged
-			--set-upstream --edit-description --list
+			--set-upstream-to= --edit-description --list
+			--unset-upstream
 			"
 		;;
 	*)
@@ -1014,7 +1018,8 @@ _git_commit ()
 	--*)
 		__gitcomp "
 			--all --author= --signoff --verify --no-verify
-			--edit --amend --include --only --interactive
+			--edit --no-edit
+			--amend --include --only --interactive
 			--dry-run --reuse-message= --reedit-message=
 			--reset-author --file= --message= --template=
 			--cleanup= --untracked-files --untracked-files=
@@ -1071,7 +1076,7 @@ _git_diff ()
 }
 
 __git_mergetools_common="diffuse ecmerge emerge kdiff3 meld opendiff
-			tkdiff vimdiff gvimdiff xxdiff araxis p4merge bc3
+			tkdiff vimdiff gvimdiff xxdiff araxis p4merge bc3 codecompare
 "
 
 _git_difftool ()
@@ -2032,7 +2037,7 @@ _git_config ()
 
 _git_remote ()
 {
-	local subcommands="add rename rm set-head set-branches set-url show prune update"
+	local subcommands="add rename remove set-head set-branches set-url show prune update"
 	local subcommand="$(__git_find_on_cmdline "$subcommands")"
 	if [ -z "$subcommand" ]; then
 		__gitcomp "$subcommands"
@@ -2040,7 +2045,7 @@ _git_remote ()
 	fi
 
 	case "$subcommand" in
-	rename|rm|set-url|show|prune)
+	rename|remove|set-url|show|prune)
 		__gitcomp_nl "$(__git_remotes)"
 		;;
 	set-head|set-branches)
@@ -2476,4 +2481,3 @@ __git_complete gitk __gitk_main
 if [ Cygwin = "$(uname -o 2>/dev/null)" ]; then
 __git_complete git.exe __git_main
 fi
-
