@@ -3,7 +3,7 @@
 
 # from
 # https://raw.github.com/milkbikis/powerline-bash/
-# 2f3424403f91f325e7c12518239360ff8e2eb868/powerline-bash.py
+# b3620d5612482d841416f4337f3393c23636ff1d/powerline-bash.py
 
 import os
 import subprocess
@@ -11,9 +11,6 @@ import sys
 import re
 
 MAX_DEPTH = 3
-
-GREEN = 148
-RED = 161
 
 class Powerline:
     symbols = {
@@ -97,13 +94,15 @@ def is_hg_clean():
     return len(output) == 0
 
 def add_hg_segment(powerline, cwd):
+    green = 148
+    red = 161
     branch = os.popen('hg branch 2> /dev/null').read().rstrip()
     if len(branch) == 0:
         return False
-    bg = RED
+    bg = red
     fg = 15
     if is_hg_clean():
-        bg = GREEN
+        bg = green
         fg = 0
     powerline.append(Segment(powerline, ' %s ' % branch, fg, bg))
     return True
@@ -122,14 +121,15 @@ def get_git_status():
             if origin_status[0][0] == 'ahead':
                 origin_position += u'\u21E1'
 
-        if line.find('nothing to commit (working directory clean)') >= 0:
+        if line.find('nothing to commit') >= 0:
             has_pending_commits = False
         if line.find('Untracked files') >= 0:
             has_untracked_files = True
     return has_pending_commits, has_untracked_files, origin_position
 
 def add_git_segment(powerline, cwd):
-
+    green = 148
+    red = 161
     #cmd = "git branch 2> /dev/null | grep -e '\\*'"
     p1 = subprocess.Popen(['git', 'branch'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     p2 = subprocess.Popen(['grep', '-e', '\\*'], stdin=p1.stdout, stdout=subprocess.PIPE)
@@ -141,10 +141,10 @@ def add_git_segment(powerline, cwd):
     branch += origin_position
     if has_untracked_files:
         branch += ' +'
-    bg = GREEN
+    bg = green
     fg = 0
     if has_pending_commits:
-        bg = RED
+        bg = red
         fg = 15
     powerline.append(Segment(powerline, ' %s ' % branch, fg, bg))
     return True
@@ -158,7 +158,7 @@ def add_svn_segment(powerline, cwd):
         'A' Added
         'C' Conflicted
         'D' Deleted
-        'I' IgnoRED
+        'I' Ignored
         'M' Modified
         'R' Replaced
         'X' an unversioned directory created by an externals definition
@@ -174,7 +174,7 @@ def add_svn_segment(powerline, cwd):
         output = p2.communicate()[0].strip()
         if len(output) > 0 and int(output) > 0:
             changes = output.strip()
-            powerline.append(Segment(powerline, ' %s ' % changes, 22, GREEN))
+            powerline.append(Segment(powerline, ' %s ' % changes, 22, 148))
     except OSError:
         return False
     except subprocess.CalledProcessError:
@@ -206,7 +206,7 @@ def add_root_indicator(powerline, error):
     fg = 15
     if int(error) != 0:
         fg = 15
-        bg = RED
+        bg = 161
     powerline.append(Segment(powerline, ' \\$ ', fg, bg))
 
 if __name__ == '__main__':
@@ -219,5 +219,3 @@ if __name__ == '__main__':
     add_repo_segment(p, cwd)
     add_root_indicator(p, sys.argv[1] if len(sys.argv) > 1 else 0)
     sys.stdout.write(p.draw())
-
-# vim: set expandtab:
