@@ -126,3 +126,5 @@
 	workdir = white
 	dirty = red
 
+[credential]
+	helper = osxkeychain
