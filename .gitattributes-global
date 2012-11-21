@@ -24,3 +24,14 @@ configure       text eol=lf
 
 # XCode
 *.pbxproj binary
+
+# These files are text and should be normalized (Convert crlf => lf)
+*.java text
+*.xml text
+*.txt text
+
+# These files are binary and should be left untouched
+# (binary is a macro for -text -diff)
+*.jar binary
+*.so binary
+*.dll binary
