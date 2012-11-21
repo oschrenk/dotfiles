@@ -13,6 +13,9 @@
     // 'unix' (LF only).
     "default_line_ending": "unix",
 
+    // If enabled, will highlight any line with a caret
+    "highlight_line": true,
+
     // Set to true to insert spaces when tab is pressed
     "translate_tabs_to_spaces": false,
 
