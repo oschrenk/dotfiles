@@ -93,7 +93,7 @@
 	unstage = reset HEAD
 
 [difftool "Kaleidoscope"]
-	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
 	prompt = false
 [diff]
@@ -104,10 +104,11 @@
 	# message like merge #branch 'master' of git@github.com:name/project.
 	# To get a summary of the changes you're merging, turn this option on:
 	summary=true
-	tool = p4merge
+	tool = Kaleidoscope
 
-[mergetool]
-	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+
 
 [color]
     branch = auto
