@@ -8,10 +8,6 @@
 
 	editor = vim
 
-	autocrlf = input
-	safecrlf = true
-
-
 [push]
 # nothing: do not push anything.
 # matching: push all matching branches. All branches having the same name in both
