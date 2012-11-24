@@ -3,7 +3,7 @@
 
 # from
 # https://raw.github.com/milkbikis/powerline-bash/
-# b3620d5612482d841416f4337f3393c23636ff1d/powerline-bash.py
+# f5e978e06e2ed0f6b511705f9ad12dffeb07fdfb/powerline-bash.py
 
 import os
 import subprocess
@@ -111,7 +111,7 @@ def get_git_status():
     has_pending_commits = True
     has_untracked_files = False
     origin_position = ""
-    output = subprocess.Popen(['git', 'status'], stdout=subprocess.PIPE).communicate()[0]
+    output = subprocess.Popen(['git', 'status', '--ignore-submodules'], stdout=subprocess.PIPE).communicate()[0]
     for line in output.split('\n'):
         origin_status = re.findall("Your branch is (ahead|behind).*?(\d+) comm", line)
         if len(origin_status) > 0:
