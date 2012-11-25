@@ -44,6 +44,9 @@
 	d = diff
 	dt = difftool
 
+	# Find a file path in codebase:
+	f = "!git ls-files | grep -i"
+
 	fi = flow init
 	fid = flow init -d
 	fff = flow feature finish
