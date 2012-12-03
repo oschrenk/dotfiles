@@ -1,0 +1,11 @@
+# List of Uniform Type Identifiers in OS X:
+https://developer.apple.com/library/mac/#documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html
+
+# Format:
+# [Bundle ID] [UTI or `.extension`] [role]
+
+org.niltsh.MPlayerX .avi all
+org.niltsh.MPlayerX .mkv all
+
+com.sublimetext.2 public.plain-text all
+com.sublimetext.2 public.source-code all
