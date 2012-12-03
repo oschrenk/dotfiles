@@ -1,11 +1,21 @@
+# duti is a command-line tool written by Andrew Mortensen, designed to set
+# default applications for document types and URL schemes on Mac OS X.
+
+# To load this file :
+# $ duti .duti
+
+# blank lines and lines beginning with a '#' are ignored
+#
+# bundle id				UTI/ext/MIME type	role
+
+org.niltsh.MPlayerX 	.avi 				all
+org.niltsh.MPlayerX 	.mkv 				all
+org.niltsh.MPlayerX 	.mp4 				all
+
+com.sublimetext.2 		public.plain-text 	all
+com.sublimetext.2 		public.source-code 	all
+
 # List of Uniform Type Identifiers in OS X:
-https://developer.apple.com/library/mac/#documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html
+# https://developer.apple.com/library/mac/#documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html
 
-# Format:
-# [Bundle ID] [UTI or `.extension`] [role]
-
-org.niltsh.MPlayerX .avi all
-org.niltsh.MPlayerX .mkv all
-
-com.sublimetext.2 public.plain-text all
-com.sublimetext.2 public.source-code all
+# Last line must be blank
