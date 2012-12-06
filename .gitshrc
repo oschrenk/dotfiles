@@ -2,6 +2,7 @@ unalias mv
 unalias rm
 unalias r
 
+alias g='echo ""'
 alias gmv='git mv'
 alias grm='git rm'
 
