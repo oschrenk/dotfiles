@@ -88,6 +88,9 @@ Makefile.in
 *.la
 *.a
 
+# Python
+*.pyc
+
 # Archives
 *.7z
 *.bz2
