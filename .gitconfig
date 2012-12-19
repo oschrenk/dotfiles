@@ -9,12 +9,12 @@
 	editor = vim
 
 [push]
-# nothing: do not push anything.
-# matching: push all matching branches. All branches having the same name in both
-#   ends are considered to be matching. This is the default.
-# upstream: push the current branch to its upstream branch.
-# tracking: deprecated synonym for upstream.
-# current: push the current branch to a branch of the same name.
+	# nothing: do not push anything.
+	# matching: push all matching branches. All branches having the same
+	#   name in both ends are considered to be matching. This is default.
+	# upstream: push the current branch to its upstream branch.
+	# tracking: deprecated synonym for upstream.
+	# current: push the current branch to a branch of the same name.
 
 	default = current
 
@@ -91,23 +91,34 @@
 	# unstage is the opposite of git add. It removes items from the staging area.
 	unstage = reset HEAD
 
-[difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[difftool]
-	prompt = false
+
+
 [diff]
 	tool = Kaleidoscope
+
+[difftool]
+	prompt = false
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+
 
 [merge]
 	# By default, when you merge a branch in git, you get a fairly meaningless
 	# message like merge #branch 'master' of git@github.com:name/project.
 	# To get a summary of the changes you're merging, turn this option on:
 	summary=true
+
 	tool = Kaleidoscope
+
+[mergetool]
+	prompt = false
 
 [mergetool "Kaleidoscope"]
 	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
+
 
 
 [color]
@@ -129,5 +140,3 @@
 
 [credential]
 	helper = osxkeychain
-[mergetool]
-	prompt = false
