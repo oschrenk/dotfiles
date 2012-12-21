@@ -10,17 +10,19 @@ Thumbs.db
 ehthumbs.db
 $RECYCLE.BIN/
 
+# Files
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+
 # Eclipse
 *.pydevproject
 .project
 .metadata
 bin
 bin/**
-tmp/**
-tmp/**/*
-*.tmp
-*.bak
-*.swp
 *~.nib
 local.properties
 .classpath
