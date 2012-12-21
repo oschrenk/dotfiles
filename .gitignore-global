@@ -16,6 +16,7 @@ tmp/**/*
 *.tmp
 *.bak
 *.swp
+*.log
 
 # Eclipse
 *.pydevproject
