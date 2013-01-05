@@ -7,3 +7,7 @@
 --type-add=markdown=.markdown,.md
 --type-add=textile=.textile
 --type-add=opencl=.cl
+
+# Don't search
+--ignore-dir=log
+--ignore-dir=tmp
