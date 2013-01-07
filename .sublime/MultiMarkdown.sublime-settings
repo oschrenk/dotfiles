@@ -1,5 +1,6 @@
 {
 	"trim_trailing_white_space_on_save": true,
 	"color_scheme": "Packages/Color Scheme - Monokai TimmFin/Monokai-timmfin.tmTheme",
+	"translate_tabs_to_spaces": false,
 	"wrap_width": 78
 }
