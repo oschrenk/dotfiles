@@ -22,6 +22,11 @@ else
      start_agent;
 fi
 
+# Create a new directory and enter it
+function mkd() {
+    mkdir -p "$@" && cd "$@"
+}
+
 # cdf: cd's to frontmost window of Finder
 # source: http://asktherelic.com/2009/01/31/osx-terminal-and-finder-integration/
 cdf ()
