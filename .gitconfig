@@ -75,8 +75,8 @@
 
 	remotes = remote -v
 
-	s = status
-	ss = status -s
+	s = status -s
+	ss = status
 
 	sum=log --pretty=format:"%s" --since="yesterday"
 
