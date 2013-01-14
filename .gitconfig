@@ -18,6 +18,9 @@
 
 	default = current
 
+[rerere]
+	enabled = true
+
 [alias]
 	a = add
 	aa = add -A
@@ -138,3 +141,4 @@
 
 [credential]
 	helper = osxkeychain
+
