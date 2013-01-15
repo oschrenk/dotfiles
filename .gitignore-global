@@ -18,36 +18,23 @@ tmp/**/*
 *.swp
 *.log
 
-# Eclipse
-*.pydevproject
-.project
-.metadata
-bin
-bin/**
-*~.nib
-local.properties
-.classpath
-.settings/
-.loadpath
-.externalToolBuilders/
-*.launch
-.cproject
-.buildpath
-
-# Netbeans
-nbproject/private/
-build/
-nbbuild/
-dist/
-nbdist/
-nbactions.xml
-nb-configuration.xml
-
-# IntelliJ IDEA
-*.iml
-*.ipr
-*.iws
-.idea/
+# Archives
+*.7z
+*.bz2
+*.bzip
+*.deb
+*.dmg
+*.egg
+*.gem
+*.gz
+*.iso
+*.lzma
+*.rar
+*.rpm
+*.tar
+*.xpi
+*.xz
+*.zip
 
 # Maven
 target
@@ -105,23 +92,36 @@ Makefile.in
 # Python
 *.pyc
 
-# Archives
-*.7z
-*.bz2
-*.bzip
-*.deb
-*.dmg
-*.egg
-*.gem
-*.gz
-*.iso
-*.lzma
-*.rar
-*.rpm
-*.tar
-*.xpi
-*.xz
-*.zip
+# Eclipse
+*.pydevproject
+.project
+.metadata
+bin
+bin/**
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+.externalToolBuilders/
+*.launch
+.cproject
+.buildpath
+
+# Netbeans
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+nbactions.xml
+nb-configuration.xml
+
+# IntelliJ IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
 
 # Notepad++
 nppBackup
@@ -142,4 +142,3 @@ Session.vim
 
 # Editors with AutoBackup
 *~
-
