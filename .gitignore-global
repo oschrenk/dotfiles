@@ -123,6 +123,9 @@ Makefile.in
 *.xz
 *.zip
 
+# Notepad++
+nppBackup
+
 # SublimeText project files
 *.sublime-workspace
 
