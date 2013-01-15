@@ -43,6 +43,12 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 
+# IntelliJ IDEA
+*.iml
+*.ipr
+*.iws
+.idea/
+
 # Maven
 target
 pom.xml.tag
