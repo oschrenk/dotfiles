@@ -131,6 +131,12 @@ Makefile.in
 *.tmproject
 tmtags
 
+# vim
+.*.sw[a-z]
+*.un~
+Session.vim
+.netrwhist
+
 # Editors with AutoBackup
 *~
 
