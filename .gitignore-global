@@ -36,6 +36,10 @@ tmp/**/*
 *.xz
 *.zip
 
+# waf
+.waf-*
+.lock-*
+
 # Maven
 target
 pom.xml.tag
