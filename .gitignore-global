@@ -1,3 +1,7 @@
+#######################################
+# Operating Systems
+#######################################
+
 # OS X
 .DS_Store
 ._*
@@ -9,6 +13,10 @@ Desktop.ini
 Thumbs.db
 ehthumbs.db
 $RECYCLE.BIN/
+
+#######################################
+# General
+#######################################
 
 # Files
 tmp/**
@@ -36,65 +44,9 @@ tmp/**/*
 *.xz
 *.zip
 
-# waf
-.waf-*
-.lock-*
-
-# Maven
-target
-pom.xml.tag
-pom.xml.releaseBackup
-pom.xml.next
-release.properties
-
-# Mercurial
-/.hg/*
-*/.hg/*
-.hgignore
-
-# SVN
-.svn/
-
-# Autotools
-Makefile.in
-/autom4te.cache
-/aclocal.m4
-/compile
-/configure
-/depcomp
-/install-sh
-/missing
-
-# Java
-*.class
-*.ear
-*.jar
-*.war
-
-# C
-*.o
-*.lib
-*.a
-*.dll
-*.so
-*.so.*
-*.dylib
-*.exe
-*.out
-*.app
-
-# C++
-*.slo
-*.lo
-*.o
-*.so
-*.dylib
-*.lai
-*.la
-*.a
-
-# Python
-*.pyc
+#######################################
+# IDE and Editors
+#######################################
 
 # Eclipse
 *.pydevproject
@@ -146,3 +98,75 @@ Session.vim
 
 # Editors with AutoBackup
 *~
+
+#######################################
+# Build Systems
+#######################################
+
+# Autotools
+Makefile.in
+/autom4te.cache
+/aclocal.m4
+/compile
+/configure
+/depcomp
+/install-sh
+/missing
+
+# waf
+.waf-*
+.lock-*
+
+# Maven
+target
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.next
+release.properties
+
+#######################################
+# Version Control Systems
+#######################################
+
+# Mercurial
+/.hg/*
+*/.hg/*
+.hgignore
+
+# SVN
+.svn/
+
+#######################################
+# Languages
+#######################################
+
+# Java
+*.class
+*.ear
+*.jar
+*.war
+
+# C
+*.o
+*.lib
+*.a
+*.dll
+*.so
+*.so.*
+*.dylib
+*.exe
+*.out
+*.app
+
+# C++
+*.slo
+*.lo
+*.o
+*.so
+*.dylib
+*.lai
+*.la
+*.a
+
+# Python
+*.pyc
