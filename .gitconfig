@@ -31,11 +31,8 @@
 	b = branch -v
 	branches = branch -a
 
-	c = commit
-	c1 = !git commit --file=1 && rm 1
+	c = commit -v
 	cam = commit --amend
-	cv = commit -v
-	cva = commit -v -a
 
 	co = checkout
 	cob = checkout -b
@@ -45,7 +42,9 @@
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 
 	d = diff
+	dc = diff --cached
 	dt = difftool
+	dtc = difftool --cached
 
 	# Find a file path in codebase:
 	f = "!git ls-files | grep -i"
@@ -59,8 +58,8 @@
 	frf = flow release finish
 	frs = flow release start
 
-	lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%cr)%C(reset) %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-    lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%cD%C(reset) %C(bold green)(%cr)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)' --abbrev-commit
+	lls = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%cr)%C(reset) %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+    lll = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%cD%C(reset) %C(bold green)(%cr)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)' --abbrev-commit
 
 	pod = push origin develop
 	pog = push origin gh-pages
@@ -81,8 +80,6 @@
 	s = status -s
 	ss = status
 
-	sum=log --pretty=format:"%s" --since="yesterday"
-
 	sd = svn dcommit
 	sr = svn rebase
 
@@ -91,6 +88,7 @@
 
 	# unstage is the opposite of git add. It removes items from the staging area.
 	unstage = reset HEAD
+	un = reset HEAD
 
 
 
