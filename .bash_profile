@@ -18,8 +18,9 @@ export LANG="en_US"
 # `globstar`.Since 4.0-alpha. Recursive globbing with `**` is enabled
 # `histappend` Append to the same history file when using multiple terminals
 # `nocaseglob` When typing filename and Tab to autocomplete, do a case-insensitive search.
-# `no_empty_cmd_completion` Attempt to search the PATH for possible completions when completion is attempted on an empty lin.
-for option in autocd cdspell cmdhist dirspell globstar histappend nocaseglob no_empty_cmd_completion; do
+# `no_empty_cmd_completion` Attempt to search the PATH for possible completions when completion is attempted on an empty line.
+# `checkwinsize` checks the window size after each command and, if necessary, updates the values of LINES and COLUMNS
+for option in autocd cdspell cmdhist dirspell globstar histappend nocaseglob no_empty_cmd_completion checkwinsize; do
   tmp="$(shopt -q "$option" 2>&1 > /dev/null | grep "invalid shell option name")"
   if [ '' == "$tmp" ]; then
     shopt -s "$option"
