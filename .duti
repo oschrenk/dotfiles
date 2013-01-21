@@ -1,0 +1,70 @@
+# duti is a command-line tool written by Andrew Mortensen, designed to set
+# default applications for document types and URL schemes on Mac OS X.
+#
+# Usage:
+#
+# For a more complete documentation on use `man duti` or visit
+# http://duti.org/documentation.html
+#
+# A settings file is made up of lines with the following format:
+#
+#     app_id    UTI    role
+#
+# to set the default handler for the documents associated with this UTI or
+#
+#     app_id    url_scheme
+#
+# to set the default handler the given url scheme
+#
+# List of Uniform Type Identifiers in OS X:
+# https://developer.apple.com/library/mac/#documentation/Miscellaneous/Reference/UTIRef/Articles/System-DeclaredUniformTypeIdentifiers.html
+#
+# valid roles are
+#
+# all		app handles all roles for the given UTI.
+# viewer	app handles reading and displaying documents with given UTI.
+# editor	app can manipulate and save the item. Implies viewer.
+# shell		app can execute the item.
+# none		app cannot open the item, but provides an icon for the given UTI.
+#
+# Execute
+#
+# `duti <path>.duti` to load a duti file
+# `duti -x <ext>` to print information about the default handler for extension
+# `duti -l <uti>` to display all handlers for uti
+
+
+
+# bundle id				UTI/ext/MIME type	role
+
+com.sublimetext.2 		public.plain-text 	all
+com.sublimetext.2 		public.source-code 	all
+
+cx.c3.theunarchiver		.7z					all
+cx.c3.theunarchiver		.cab				all
+cx.c3.theunarchiver		.gtar				all
+cx.c3.theunarchiver		.gz					all
+cx.c3.theunarchiver		.hqx				all
+cx.c3.theunarchiver		.jar				all
+cx.c3.theunarchiver		.msi				all
+cx.c3.theunarchiver		.rar				all
+cx.c3.theunarchiver		.sit				all
+cx.c3.theunarchiver		.sit				all
+cx.c3.theunarchiver		.tar				all
+cx.c3.theunarchiver		.tar.gz				all
+cx.c3.theunarchiver		.tgz				all
+cx.c3.theunarchiver		.zip				all
+
+org.m0k.transmission	.torrent			all
+
+org.niltsh.MPlayerX 	.avi 				all
+org.niltsh.MPlayerX 	.mkv 				all
+org.niltsh.MPlayerX 	.mp4 				all
+
+
+
+# bundle id				URL scheme
+
+com.reederapp.mac		feed
+
+# Last line must be blank

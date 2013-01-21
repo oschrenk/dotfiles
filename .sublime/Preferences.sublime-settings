@@ -13,11 +13,17 @@
     // 'unix' (LF only).
     "default_line_ending": "unix",
 
+    // If enabled, will highlight any line with a caret
+    "highlight_line": true,
+
     // Set to true to insert spaces when tab is pressed
     "translate_tabs_to_spaces": false,
 
     // Set to true to removing trailing white space on save
     "trim_trailing_white_space_on_save": true,
+
+    // Set to true to turn spell checking on by default
+    "spell_check": true,
 
     // show wrap rulers at 80 and 120 chars
     "rulers": [74, 80, 120],

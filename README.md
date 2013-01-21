@@ -10,3 +10,7 @@ Inspired by many other dotfiles:
 - [janmoesen / tilde](https://github.com/janmoesen/tilde)
 - [holman / dotfiles](https://github.com/holman/dotfiles)
 - [skwp / dotfiles](https://github.com/skwp/dotfiles)
+
+Other tools
+
+- [milkbikis / powerline-bash](https://github.com/milkbikis/powerline-bash)

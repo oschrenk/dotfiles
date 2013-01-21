@@ -1,9 +1,13 @@
+# Unix
 *.sh            text eol=lf
 *.ac            text eol=lf
 *.am            text eol=lf
 *.in            text eol=lf
 Makefile        text eol=lf
 configure       text eol=lf
+
+# Windows
+*.bat           text eol=crlf
 
 # Visual Studio
 *.csproj        text eol=crlf
@@ -18,4 +22,28 @@ configure       text eol=lf
 *.dsw           text eol=crlf
 *.dsp           text eol=crlf
 
-*.bat           text eol=crlf
+# Office documents
+# Standard to msysgit
+*.doc	 diff=astextplain
+*.DOC	 diff=astextplain
+*.docx   diff=astextplain
+*.DOCX   diff=astextplain
+*.dot    diff=astextplain
+*.DOT    diff=astextplain
+*.pdf    diff=astextplain
+*.PDF	 diff=astextplain
+*.rtf	 diff=astextplain
+
+# XCode
+*.pbxproj binary
+
+# These files are text and should be normalized (Convert crlf => lf)
+*.java text
+*.xml text
+*.txt text
+
+# These files are binary and should be left untouched
+# (binary is a macro for -text -diff)
+*.jar binary
+*.so binary
+*.dll binary

@@ -8,19 +8,18 @@
 
 	editor = vim
 
-	autocrlf = input
-	safecrlf = true
-
-
 [push]
-# nothing: do not push anything.
-# matching: push all matching branches. All branches having the same name in both
-#   ends are considered to be matching. This is the default.
-# upstream: push the current branch to its upstream branch.
-# tracking: deprecated synonym for upstream.
-# current: push the current branch to a branch of the same name.
+	# nothing: do not push anything.
+	# matching: push all matching branches. All branches having the same
+	#   name in both ends are considered to be matching. This is default.
+	# upstream: push the current branch to its upstream branch.
+	# tracking: deprecated synonym for upstream.
+	# current: push the current branch to a branch of the same name.
 
 	default = current
+
+[rerere]
+	enabled = true
 
 [alias]
 	a = add
@@ -32,11 +31,8 @@
 	b = branch -v
 	branches = branch -a
 
-	c = commit
-	c1 = !git commit --file=1 && rm 1
+	c = commit -v
 	cam = commit --amend
-	cv = commit -v
-	cva = commit -v -a
 
 	co = checkout
 	cob = checkout -b
@@ -46,7 +42,12 @@
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 
 	d = diff
+	dc = diff --cached
 	dt = difftool
+	dtc = difftool --cached
+
+	# Find a file path in codebase:
+	f = "!git ls-files | grep -i"
 
 	fi = flow init
 	fid = flow init -d
@@ -57,10 +58,8 @@
 	frf = flow release finish
 	frs = flow release start
 
-	history = log --reverse --format="%ai: %s"
-	lg1 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%cr)%C(reset) %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-    lg2 = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%cD%C(reset) %C(bold green)(%cr)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)' --abbrev-commit
-    lg = !"git lg1"
+	lls = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%cr)%C(reset) %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
+    lll = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%cD%C(reset) %C(bold green)(%cr)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)' --abbrev-commit
 
 	pod = push origin develop
 	pog = push origin gh-pages
@@ -78,10 +77,8 @@
 
 	remotes = remote -v
 
-	s = status
-	ss = status -s
-
-	sum=log --pretty=format:"%s" --since="yesterday"
+	s = status -s
+	ss = status
 
 	sd = svn dcommit
 	sr = svn rebase
@@ -91,23 +88,37 @@
 
 	# unstage is the opposite of git add. It removes items from the staging area.
 	unstage = reset HEAD
+	un = reset HEAD
 
-[difftool "Kaleidoscope"]
-	cmd = ksdiff-wrapper git \"$LOCAL\" \"$REMOTE\"
-[difftool]
-	prompt = false
+
+
 [diff]
 	tool = Kaleidoscope
+
+[difftool]
+	prompt = false
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+
 
 [merge]
 	# By default, when you merge a branch in git, you get a fairly meaningless
 	# message like merge #branch 'master' of git@github.com:name/project.
 	# To get a summary of the changes you're merging, turn this option on:
 	summary=true
-	tool = p4merge
+
+	tool = Kaleidoscope
 
 [mergetool]
 	prompt = false
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+
+
 
 [color]
     branch = auto
@@ -125,4 +136,7 @@
 	branch = yellow
 	workdir = white
 	dirty = red
+
+[credential]
+	helper = osxkeychain
 
