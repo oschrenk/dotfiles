@@ -13,4 +13,5 @@ Inspired by many other dotfiles:
 
 Other tools
 
-- [milkbikis / powerline-bash](https://github.com/milkbikis/powerline-bash)
+- [Localtog / powerline](https://github.com/Lokaltog/powerline)
+- [milkbikis / powerline-shell](https://github.com/milkbikis/powerline-shell)
