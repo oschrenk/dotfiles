@@ -15,3 +15,9 @@ Other tools
 
 - [Localtog / powerline](https://github.com/Lokaltog/powerline)
 - [milkbikis / powerline-shell](https://github.com/milkbikis/powerline-shell)
+
+## Bash Completion ##
+
+- [Git Bash Completion](https://github.com/git/git/blob/master/contrib/completion/git-completion.bash)
+- [Git Flow Bash Completion](https://github.com/bobthecow/git-flow-completion)
+- [Maven Bash Completion](https://github.com/juven/maven-bash-completion)
