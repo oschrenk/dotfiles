@@ -11,7 +11,7 @@ Inspired by many other dotfiles:
 - [holman / dotfiles](https://github.com/holman/dotfiles)
 - [skwp / dotfiles](https://github.com/skwp/dotfiles)
 
-Other tools
+## Shell ##
 
 - [Localtog / powerline](https://github.com/Lokaltog/powerline)
 - [milkbikis / powerline-shell](https://github.com/milkbikis/powerline-shell)
