@@ -1,0 +1,4 @@
+#!/bin/sh
+
+# Mount external disks
+/usr/sbin/diskutil list | awk '/Apple_HFS/ {print $NF}' | xargs -I{} /usr/sbin/diskutil mount {}

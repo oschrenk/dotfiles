@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Eject external disks
+osascript -e 'tell application "Finder" to eject disks'
+
+# Mute
+osascript -e 'set volume 0'
+
