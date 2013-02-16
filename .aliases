@@ -42,10 +42,14 @@ alias mou='open -a Mou.app'
 # Utils
 alias pdf-concat='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 
-# application shorthands
-alias o='open'
-alias oo='open .'
-alias g='git sh'
+# Open with default file handler in Linux, OSX
+if command -v open >/dev/null; then
+	alias o='open'
+	alias oo='open .'
+elif command -v xdg-open >/dev/null; then
+	alias o='xdg-open'
+	alias oo='xdg-open .'
+fi;
 
 # Clipboard access in Cygwin, Linux and OS X.
 if command -v pbpaste >/dev/null; then
@@ -55,6 +59,9 @@ elif command -v xclip >/dev/null; then
 	alias getclip='xclip --out';
 	alias putclip='xclip --in';
 fi;
+
+# Git
+alias g='git sh'
 
 # Move to root-directory of git project
 alias ..g='git rev-parse && cd "$(git rev-parse --show-cdup)"'
