@@ -47,7 +47,14 @@ alias o='open'
 alias oo='open .'
 alias g='git sh'
 
-
+# Clipboard access in Cygwin, Linux and OS X.
+if command -v pbpaste >/dev/null; then
+	alias getclip='pbpaste';
+	alias putclip='pbcopy';
+elif command -v xclip >/dev/null; then
+	alias getclip='xclip --out';
+	alias putclip='xclip --in';
+fi;
 
 # Move to root-directory of git project
 alias ..g='git rev-parse && cd "$(git rev-parse --show-cdup)"'
