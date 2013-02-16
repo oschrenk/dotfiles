@@ -79,6 +79,10 @@ nb-configuration.xml
 *.iws
 .idea/
 
+#XCode
+xcuserdata
+project.xcworkspace
+
 # Notepad++
 nppBackup
 
