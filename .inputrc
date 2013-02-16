@@ -19,13 +19,13 @@ set history-preserve-point on
 # Autocompletion
 # ----------------------------------------------------------------------------
 
-# If set to `on', Readline performs filename matching and completion in a 
-# case-insensitive fashion. The default value is `off'. 
+# If set to `on', Readline performs filename matching and completion in a
+# case-insensitive fashion. The default value is `off'.
 # Make Tab autocompletion case-insensitive (cd ~/dow<Tab> => cd ~/Downloads/).
 set completion-ignore-case On
 
-# If set to `on', and completion-ignore-case is enabled, 
-# Readline treats hyphens (`-') and underscores (`_') as equivalent 
+# If set to `on', and completion-ignore-case is enabled,
+# Readline treats hyphens (`-') and underscores (`_') as equivalent
 # when performing case-insensitive filename matching and completion.
 set completion-map-case on
 
