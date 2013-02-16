@@ -28,9 +28,9 @@ for option in autocd cdspell cmdhist dirspell globstar histappend nocaseglob no_
 done
 
 # bash completion
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
+if command -v brew >/dev/null && [ -f $(brew --prefix)/etc/bash_completion ]; then
+  . $(brew --prefix)/etc/bash_completion
+fi;
 
 [ -d ~/.bash_completion.d ] && for file in ~/.bash_completion.d/*; do
   [ -f "$file" ] && source "$file";
@@ -43,6 +43,6 @@ if [ -f ~/.rvm/scripts/rvm ]; then
 fi
 
 # z s the new j, https://github.com/rupa/z
-if [ -f `brew --prefix`/etc/profile.d/z.sh ]; then
-  . `brew --prefix`/etc/profile.d/z.sh
+if command -v brew >/dev/null && [ -f  $(brew --prefix)/etc/profile.d/z.sh ]; then
+  .  $(brew --prefix)/etc/profile.d/z.sh
 fi
