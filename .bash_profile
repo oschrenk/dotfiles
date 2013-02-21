@@ -42,3 +42,6 @@ unset file;
 if command -v brew >/dev/null && [ -f  $(brew --prefix)/etc/profile.d/z.sh ]; then
   .  $(brew --prefix)/etc/profile.d/z.sh
 fi
+
+# enable jenv shims
+eval "$(jenv init -)"

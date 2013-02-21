@@ -18,6 +18,9 @@ export PATH=/usr/texbin:$PATH
 # RUBY, rbenv
 export PATH=~/.rbenv/shims:$PATH
 
+# JAVA, jenv
+export PATH=$HOME/.jenv/bin:$PATH
+
 # CABAL
 export PATH=~/.cabal/bin:$PATH
 
