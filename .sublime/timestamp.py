@@ -5,17 +5,14 @@ import sublime_plugin
 
 
 class TimestampCommand(sublime_plugin.EventListener):
-    """Expand `isoD`, `now`, `datetime`, `utcnow`, `utcdatetime`,
-       `date` and `time`
+    """Expand `utc`, `date`, `tod`, `today `,`time`, `tim` and `now`
     """
     def on_query_completions(self, view, prefix, locations):
-        if prefix in ('isoD', 'now', 'datetime'):
-            val = datetime.now().strftime('%Y-%m-%dT%H:%M')
-        elif prefix in ('utcnow', 'utcdatetime'):
+        if prefix == 'utc':
             val = datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%S')
-        elif prefix == 'date':
+        elif prefix in ('date', 'today', 'tod'):
             val = datetime.now().strftime('%Y-%m-%d')
-        elif prefix == 'time':
+        elif prefix in ('time', 'tim', 'now'):
             val = datetime.now().strftime('%H:%M:%S')
         else:
             val = None
