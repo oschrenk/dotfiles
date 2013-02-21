@@ -15,6 +15,9 @@ export PATH=/usr/local/share/npm/bin:$PATH
 # TEX
 export PATH=/usr/texbin:$PATH
 
+# RUBY, rbenv
+export PATH=~/.rbenv/shims:$PATH
+
 # CABAL
 export PATH=~/.cabal/bin:$PATH
 
