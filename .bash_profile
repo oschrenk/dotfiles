@@ -1,3 +1,4 @@
+
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 # * ~/.extra can be used for other settings you don’t want to commit.
@@ -36,11 +37,6 @@ fi;
   [ -f "$file" ] && source "$file";
 done;
 unset file;
-
-# rmv ruby environment manager
-if [ -f ~/.rvm/scripts/rvm ]; then
-  source ~/.rvm/scripts/rvm
-fi
 
 # z s the new j, https://github.com/rupa/z
 if command -v brew >/dev/null && [ -f  $(brew --prefix)/etc/profile.d/z.sh ]; then
