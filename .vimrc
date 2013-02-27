@@ -1,3 +1,4 @@
+set encoding=latin1
 set nocompatible               " be iMproved
  filetype off                   " required!
 
@@ -5,7 +6,7 @@ set nocompatible               " be iMproved
  call vundle#rc()
 
  " use native git protocol
-let g:vundle_default_git_proto = 'git'  
+let g:vundle_default_git_proto = 'git'
 
  " let Vundle manage Vundle
  " required!
