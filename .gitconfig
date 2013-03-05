@@ -41,6 +41,12 @@
 	## Usage: git credit "John Doe" jdoe@domain.tld
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 
+	# Run `git serve`, get your ip and tell your buffy to:
+	# - `git fetch git://192.168.1.123/`
+	# - `git clone git://192.168.1.123/ local-repo-name`
+	# - `git pull git://192.168.1.123/ branchname`
+	serve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
+
 	d = diff
 	dc = diff --cached
 	dt = difftool
@@ -91,8 +97,6 @@
 	# unstage is the opposite of git add. It removes items from the staging area.
 	unstage = reset HEAD
 	un = reset HEAD
-
-
 
 [diff]
 	tool = Kaleidoscope
