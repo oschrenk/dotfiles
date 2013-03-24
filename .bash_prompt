@@ -7,3 +7,5 @@ if [ -f $HOME/.bash_powerline.py ]; then
 	export PROMPT_COMMAND="_update_ps1"
 fi
 
+# After each command, save and reload history
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
