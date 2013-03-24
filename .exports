@@ -11,8 +11,9 @@ export LESS_TERMCAP_md="$ORANGE"
 export HISTSIZE=10000
 export HISTFILESIZE=${HISTSIZE}
 
-# any lines matching the previous history entry will not be saved
-export HISTCONTROL=ignoreboth
+# ignorespace ignore commands that start with spaces.
+# ignoredups ignore duplicates
+export HISTCONTROL=ignorespace:ignoredups
 
 # patterns of commands that will be ignored and NOT added to history
 export HISTIGNORE="ls:cd:cd -:pwd:exit:date:* --help"
