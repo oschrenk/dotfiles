@@ -1,0 +1,18 @@
+\begin{document}
+% Anlagentext (Doppelpunkt wird automatisch gesetzt)
+\setkomavar*{enclseparator}{Anlage}
+% Betreff, Datum, Ort:
+\setkomavar{subject}{\mytitle}
+\setkomavar{date}{\mydate}
+\setkomavar{place}{\place}
+
+
+% Definiere Brief und Empfaenger 1:
+\begin{letter}{
+    \recipientname \\
+    \recipientcompany \\
+    \recipientstreet \\
+    \recipientcity
+}
+
+\opening{\salutation}
