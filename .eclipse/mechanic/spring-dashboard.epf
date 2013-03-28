@@ -1,0 +1,10 @@
+# @title Spring Dasboard
+# @description Dashboard UI
+# @task_type LASTMOD
+#
+# Created by the Workspace Mechanic Preference Recorder
+#Thu Feb 21 11:23:16 CET 2013
+file_export_version=3.0
+
+# Don't show Spring dashboard on startup
+/instance/org.springsource.ide.eclipse.dashboard.ui/org.springsource.ide.eclipse.dashboard.uidashboard.startup=false
