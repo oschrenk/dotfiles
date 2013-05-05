@@ -24,3 +24,5 @@ export PATH=$HOME/.jenv/bin:$PATH
 # CABAL
 export PATH=~/.cabal/bin:$PATH
 
+# ANDROID
+export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
