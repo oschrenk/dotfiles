@@ -26,6 +26,11 @@ tmp/**/*
 *.swp
 *.log
 
+# Directories
+log/
+logs/
+tmp/
+
 # Archives
 *.7z
 *.bz2
