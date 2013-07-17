@@ -39,6 +39,9 @@ alias sll='subl .'
 alias mark='open -a Marked.app'
 alias mou='open -a Mou.app'
 
+# Media
+alias tube='youtube-dl'
+
 # Utils
 alias pdf-concat='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 
