@@ -1,33 +1,16 @@
-// Settings in here override those in "Default/Preferences.sublime-settings", and
-// are overridden in turn by file type specific settings.
 {
-
-	// The theme controls the look of Sublime Text's UI (buttons, tabs, scroll bars, etc)
-    "theme": "Soda Dark.sublime-theme",
-
-    // Sets the colors used within the text area
-    "color_scheme": "Packages/Color Scheme - Monokai TimmFin/Monokai-timmfin.tmTheme",
-
-	// Determines what character(s) are used to terminate each line in new files.
-    // Valid values are 'system' (whatever the OS uses), 'windows' (CRLF) and
-    // 'unix' (LF only).
-    "default_line_ending": "unix",
-
-    // If enabled, will highlight any line with a caret
-    "highlight_line": true,
-
-    // Set to true to insert spaces when tab is pressed
-    "translate_tabs_to_spaces": false,
-
-    // Set to true to removing trailing white space on save
-    "trim_trailing_white_space_on_save": true,
-
-    // Set to true to turn spell checking on by default
-    "spell_check": true,
-
-    // show wrap rulers at 80 and 120 chars
-    "rulers": [74, 80, 120],
-
-    // Set to true to turn spell checking on by default
-    "spell_check": true
+	"color_scheme": "Packages/Color Scheme - Monokai TimmFin/Monokai-timmfin.tmTheme",
+	"default_line_ending": "unix",
+	"font_size": 15,
+	"highlight_line": true,
+	"rulers":
+	[
+		74,
+		80,
+		120
+	],
+	"spell_check": true,
+	"theme": "Soda Dark.sublime-theme",
+	"translate_tabs_to_spaces": false,
+	"trim_trailing_white_space_on_save": true
 }
