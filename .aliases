@@ -46,12 +46,12 @@ alias tube='youtube-dl'
 alias pdf-concat='/System/Library/Automator/Combine\ PDF\ Pages.action/Contents/Resources/join.py'
 
 # Open with default file handler in Linux, OSX
-if command -v open >/dev/null; then
-	alias o='open'
-	alias oo='open .'
-elif command -v xdg-open >/dev/null; then
+if command -v xdg-open >/dev/null; then
 	alias o='xdg-open'
 	alias oo='xdg-open .'
+elif command -v open >/dev/null; then
+	alias o='open'
+	alias oo='open .'
 fi;
 
 # Clipboard access in Cygwin, Linux and OS X.
