@@ -59,8 +59,8 @@ if command -v pbpaste >/dev/null; then
 	alias getclip='pbpaste';
 	alias putclip='pbcopy';
 elif command -v xclip >/dev/null; then
-	alias getclip='xclip --out';
-	alias putclip='xclip --in';
+	alias getclip='xclip -selection clipboard';
+	alias putclip='xclip -selection clipboard -o';
 fi;
 
 # Git
