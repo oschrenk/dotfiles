@@ -35,10 +35,6 @@ alias cux='chmod u+x'
 # find * -name models.py | map dirname
 alias map="xargs -n1"
 
-# Editors
-alias sl='subl'
-alias sll='subl .'
-
 # Viewers
 alias mark='open -a Marked.app'
 alias mou='open -a Mou.app'

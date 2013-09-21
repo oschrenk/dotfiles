@@ -101,3 +101,13 @@ extract () {
          echo "'$1' is not a valid file"
      fi
 }
+
+# `sl` with no arguments opens the current directory in Sublime, otherwise opens
+# the given location
+function sl() {
+  if [ $# -eq 0 ]; then
+    subl .
+  else
+    subl "$@"
+  fi
+}
