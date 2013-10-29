@@ -185,6 +185,50 @@ dependency-reduced-pom.xml
 *.a
 
 #######################################
+# Languages, Latex
+#######################################
+
+*.acn
+*.acr
+*.alg
+*.aux
+*.bcf
+*.bbl
+*.blg
+*.brf
+*.dvi
+*.fdb_latexmk
+*.fls
+*.glg
+*.glo
+*.gls
+*.idx
+*.ilg
+*.ind
+*.ist
+*.lof
+*.log
+*.lol
+*.lot
+*.maf
+*.mtc
+*.mtc0
+*.nav
+*.nlo
+*.out
+*.pdfsync
+*.pdftex
+*.ps
+*.pyg
+*.snm
+*.synctex.gz
+*.thm
+*.toc
+*.vrb
+*.xdy
+*.tdo
+
+#######################################
 # Languages, Python
 #######################################
 
