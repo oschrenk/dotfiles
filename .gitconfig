@@ -28,17 +28,31 @@
 	ap = add -p
 	au = add -u
 
-	b = branch -v
-	branches = branch -a
+	# -v/--verbose
+	# When in list mode, show sha1 and commit subject line for each head,
+	# along with relationship to upstream branch
+	b = branch --verbose
 
-	c = commit -v
+	# -a/--all
+	# List both remote-tracking branches and local branches.
+	branches = branch -all
+
+	# -v/--verbose
+	# Show unified diff between the HEAD commit and what would be
+	# committed at the bottom of the commit message template.
+	c = commit --verbose
+
+
 	cam = commit --amend
 
 	co = checkout
+
+	# -b <new_branch>
+	# Create a new branch named <new_branch>
 	cob = checkout -b
 
 	# Credit an author on the latest commit
-	## Usage: git credit "John Doe" jdoe@domain.tld
+	# Usage: git credit "John Doe" jdoe@domain.tld
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 
 	# Run `git serve`, get your ip and tell your buffy to:
@@ -82,12 +96,16 @@
 
 	remotes = remote -v
 
-	s = status -s
+	# -s/--short
+	# Give the output in the short-format.
+	s = status --short
 	ss = status
 
 	sd = svn dcommit
 	sr = svn rebase
 
+	# -l/--list <pattern>
+	# List tags with names that match the given pattern (or all if no pattern is given)
 	tags = tag -l
 	up = pull --rebase
 
