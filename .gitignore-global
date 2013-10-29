@@ -163,6 +163,7 @@ dependency-reduced-pom.xml
 *.lib
 *.a
 *.dll
+*.ko
 *.so
 *.so.*
 *.dylib
