@@ -27,15 +27,10 @@ for option in autocd cdspell cmdhist dirspell globstar histappend nocaseglob no_
   fi
 done
 
-# bash completion
+# load bash completion
 if command -v brew >/dev/null && [ -f $(brew --prefix)/etc/bash_completion ]; then
   . $(brew --prefix)/etc/bash_completion
 fi;
-
-[ -d ~/.bash_completion.d ] && for file in ~/.bash_completion.d/*; do
-  [ -f "$file" ] && source "$file";
-done;
-unset file;
 
 # z s the new j, https://github.com/rupa/z
 if command -v brew >/dev/null && [ -f  $(brew --prefix)/etc/profile.d/z.sh ]; then
