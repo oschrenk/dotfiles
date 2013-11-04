@@ -25,3 +25,6 @@ done
 export GREP_OPTIONS
 
 export LESS="-F -X -R"
+
+# Always install to /Applications with brew cask
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
