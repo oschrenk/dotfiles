@@ -27,10 +27,12 @@ for option in autocd cdspell cmdhist dirspell globstar histappend nocaseglob no_
   fi
 done
 
-# load bash completion
-if command -v brew >/dev/null && [ -f $(brew --prefix)/etc/bash_completion ]; then
-  . $(brew --prefix)/etc/bash_completion
-fi;
+# If possible, add tab completion for many more commands
+if [ -f /etc/bash_completion ]; then
+    source /etc/bash_completion
+elif [ -f $(brew --prefix)/etc/bash_completion ]; then
+    source $(brew --prefix)/etc/bash_completion
+fi
 
 # z s the new j, https://github.com/rupa/z
 if command -v brew >/dev/null && [ -f  $(brew --prefix)/etc/profile.d/z.sh ]; then
