@@ -7,5 +7,6 @@ LineEndings => SublimeText/LineEndings#st3
 MarkdownEditing => SublimeText-Markdown/MarkdownEditing
 PEGjs => alexstrat/PEGjs.tmbundle
 PlainTasks => aziz/PlainTasks
+SublimeGit => https://release.sublimegit.net/SublimeGit.zip
 SublimeLinter => SublimeLinter/SublimeLinter#sublime-text-3
 Theme - Soda => buymeasoda/soda-theme
