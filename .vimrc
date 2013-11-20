@@ -1,3 +1,4 @@
+syntax on
 set encoding=latin1
 set nocompatible               " be iMproved
  filetype off                   " required!
@@ -18,6 +19,7 @@ let g:vundle_default_git_proto = 'git'
  Bundle 'tpope/vim-fugitive'
  Bundle 'Lokaltog/vim-easymotion'
  Bundle 'tpope/vim-markdown'
+ Bundle 'tpope/vim-git'
  " ...
 
  filetype plugin indent on     " required!
