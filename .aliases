@@ -81,6 +81,9 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+
 # Flush Directory Service cache
 alias flush="dscacheutil -flushcache"
 
+# Mount all Apple HFS drives, including the Nifty Minidrive
+alias nifty="/usr/sbin/diskutil list | awk '/Apple_HFS/ {print $NF}' | xargs -I{} /usr/sbin/diskutil mount {}"
+
 # process managment
 alias ttop='top -ocpu -R -F -s 2 -n30'
 alias psg='ps aux | grep -v grep | grep -i'
