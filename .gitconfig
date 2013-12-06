@@ -92,9 +92,6 @@
 	s = status --short
 	ss = status
 
-	sd = svn dcommit
-	sr = svn rebase
-
 	# -l/--list <pattern>
 	# List tags with names that match the given pattern (or all if no pattern is given)
 	tags = tag -l
