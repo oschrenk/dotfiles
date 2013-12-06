@@ -69,15 +69,6 @@
 	# Find a file path in codebase:
 	f = "!git ls-files | grep -i"
 
-	fi = flow init
-	fid = flow init -d
-	fff = flow feature finish
-	ffs = flow feature start
-	fhf = flow hotfix finish
-	fhs = flow hotfix start
-	frf = flow release finish
-	frs = flow release start
-
 	lls = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%cr)%C(reset) %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
     lll = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%cD%C(reset) %C(bold green)(%cr)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)' --abbrev-commit
 
