@@ -111,3 +111,35 @@ function sl() {
     subl "$@"
   fi
 }
+
+# find and list processes matching a case-insensitive partial-match string
+fp () {
+  if [ -z "$1" ] ; then
+    echo "Usage: fp [partial name]"
+    return 1
+  fi
+  ps Ao pid,comm | awk '{match($0,/[^\/]+$/); print substr($0,RSTART,RLENGTH)": "$1}' | grep -i $1 | grep -v grep
+}
+
+# build menu to kill process
+fk () {
+  if [ -z "$1" ] ; then
+    echo "usage: fk [partial name]"
+    return 1
+  fi
+
+  IFS=$'\n'
+  PS3='Kill which process? '
+  RESULTS=$(fp $1)
+  if [ -z "$RESULTS" ] ; then
+    echo "No processes found"
+    return 1
+  fi
+  select OPT in "Cancel" $RESULTS ; do
+    if [ $OPT != "Cancel" ]; then
+      kill $(echo $OPT | awk '{print $NF}')
+    fi
+    break
+  done
+  unset IFS
+}
