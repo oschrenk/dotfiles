@@ -63,6 +63,9 @@ elif command -v xclip >/dev/null; then
 	alias putclip='xclip -selection clipboard -o';
 fi;
 
+# list TODO/FIX lines from the current project
+alias todos="ack -n --nogroup '(TODO|FIX(ME)?):'"
+
 # Git
 alias g='git sh'
 
