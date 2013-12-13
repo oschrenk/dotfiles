@@ -12,16 +12,19 @@ class Powerline:
     symbols = {
         'compatible': {
             'lock': 'RO',
+            'network': 'SSH',
             'separator': u'\u25B6',
             'separator_thin': u'\u276F'
         },
         'patched': {
             'lock': u'\uE0A2',
+            'network': u'\uE0A2',
             'separator': u'\uE0B0',
             'separator_thin': u'\uE0B1'
         },
         'flat': {
             'lock': '',
+            'network': '',
             'separator': '',
             'separator_thin': ''
         },
@@ -40,6 +43,7 @@ class Powerline:
         self.color_template = self.color_templates[shell]
         self.reset = self.color_template % '[0m'
         self.lock = Powerline.symbols[mode]['lock']
+        self.network = Powerline.symbols[mode]['network']
         self.separator = Powerline.symbols[mode]['separator']
         self.separator_thin = Powerline.symbols[mode]['separator_thin']
         self.segments = []
@@ -140,6 +144,9 @@ class DefaultColor:
     READONLY_BG = 124
     READONLY_FG = 254
 
+    SSH_BG = 166 # medium orange
+    SSH_FG = 254
+
     REPO_CLEAN_BG = 148  # a light green color
     REPO_CLEAN_FG = 0  # black
     REPO_DIRTY_BG = 161  # pink/red
@@ -189,6 +196,9 @@ class DefaultColor:
     READONLY_BG = 124
     READONLY_FG = 254
 
+    SSH_BG = 166 # medium orange
+    SSH_FG = 254
+
     REPO_CLEAN_BG = 148  # a light green color
     REPO_CLEAN_FG = 0  # black
     REPO_DIRTY_BG = 161  # pink/red
@@ -218,17 +228,12 @@ class Color(DefaultColor):
 
 import os
 
-def add_virtual_env_segment():
-    env = os.getenv('VIRTUAL_ENV')
-    if env is None:
-        return
+def add_ssh_segment():
 
-    env_name = os.path.basename(env)
-    bg = Color.VIRTUAL_ENV_BG
-    fg = Color.VIRTUAL_ENV_FG
-    powerline.append(' %s ' % env_name, fg, bg)
+    if os.getenv('SSH_CLIENT'):
+        powerline.append(' %s ' % powerline.network, Color.SSH_FG, Color.SSH_BG)
 
-add_virtual_env_segment()
+add_ssh_segment()
 
 
 import os
@@ -268,6 +273,17 @@ def add_cwd_segment():
         powerline.append(' %s ' % names[-1], Color.CWD_FG, Color.PATH_BG)
 
 add_cwd_segment()
+
+
+import os
+
+def add_read_only_segment():
+    cwd = powerline.cwd or os.getenv('PWD')
+
+    if not os.access(cwd, os.W_OK):
+        powerline.append(' %s ' % powerline.lock, Color.READONLY_FG, Color.READONLY_BG)
+
+add_read_only_segment()
 
 
 import re
