@@ -1,27 +1,42 @@
+#######################
+# Homebrew
+#######################
+
 # put homebrew bin before system bin
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
+#######################
 # SCRIPTS
+#######################
+
 export PATH=~/.scripts:$PATH
+
+#######################
+# Applications
+#######################
 
 # INKSCAPE
 export PATH=/Applications/Inkscape.app/Contents/Resources/bin:$PATH
+
+#######################
+# Programming Languages
+#######################
+
+## ANDROID
+export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
+
+## CABAL
+export PATH=~/.cabal/bin:$PATH
+
+# JAVA, jenv
+export PATH=$HOME/.jenv/bin:$PATH
 
 # NODE
 export NODE_PATH=/usr/local/share/npm/lib/node_modules
 export PATH=/usr/local/share/npm/bin:$PATH
 
-# TEX
-export PATH=/usr/texbin:$PATH
-
 # RUBY, rbenv
 export PATH=~/.rbenv/shims:$PATH
 
-# JAVA, jenv
-export PATH=$HOME/.jenv/bin:$PATH
-
-# CABAL
-export PATH=~/.cabal/bin:$PATH
-
-# ANDROID
-export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
+# TEX
+export PATH=/usr/texbin:$PATH
