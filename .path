@@ -35,6 +35,10 @@ export PATH=$HOME/.jenv/bin:$PATH
 export NODE_PATH=/usr/local/share/npm/lib/node_modules
 export PATH=/usr/local/share/npm/bin:$PATH
 
+# PYTHON
+export PYTHONPATH=$(brew --prefix)/lib/python2.7/site-packages
+export PATH=$PATH:$(brew --prefix)/share/python
+
 # RUBY, rbenv
 export PATH=~/.rbenv/shims:$PATH
 
