@@ -21,6 +21,11 @@ else
      start_agent;
 fi
 
+#echo and run
+function ear() {
+    echo "$@" ; "$@" ;
+}
+
 # Create a new directory and enter it
 function mkd() {
     mkdir -p "$@" && cd "$@"
