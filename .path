@@ -29,7 +29,7 @@ export ANDROID_SDK_ROOT=/usr/local/opt/android-sdk
 export PATH=~/.cabal/bin:$PATH
 
 # JAVA, jenv
-export PATH=$HOME/.jenv/bin:$PATH
+export JENV_ROOT=/usr/local/opt/jenv
 
 # NODE
 export NODE_PATH=/usr/local/share/npm/lib/node_modules

@@ -40,4 +40,4 @@ if command -v brew >/dev/null && [ -f  $(brew --prefix)/etc/profile.d/z.sh ]; th
 fi
 
 # enable jenv shims
-eval "$(jenv init -)"
+if which jenv > /dev/null; then eval "$(jenv init -)"; fi
