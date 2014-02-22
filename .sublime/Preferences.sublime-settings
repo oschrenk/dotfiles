@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/Color Scheme - Monokai TimmFin/Monokai-timmfin.tmTheme",
+	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
 	"default_line_ending": "unix",
 	"font_size": 15,
 	"highlight_line": true,
@@ -15,7 +15,7 @@
 		120
 	],
 	"spell_check": true,
-	"theme": "Soda Dark.sublime-theme",
+	"theme": "Spacegray.sublime-theme",
 	"translate_tabs_to_spaces": false,
 	"trim_trailing_white_space_on_save": true
 }
