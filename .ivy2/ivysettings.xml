@@ -1,3 +1,16 @@
 <ivysettings>
     <caches defaultCacheDir="/Users/Shared/Local/.ivy2/cache" />
+
+    <resolvers>
+		<filesystem name="local-maven-2" m2compatible="true" force="false" local="true">
+			<artifact pattern="${defaultCacheDir}/[organisation]/[module]/[revision]/[module]-[revision].[ext]"/>
+			<ivy pattern="${defaultCacheDir}/[organisation]/[module]/[revision]/[module]-[revision].pom"/>
+    	</filesystem>
+
+		<chain name="internal" dual="true">
+      		<resolver ref="local-maven-2"/>
+      		<resolver ref="apache-snapshot"/> 
+      		<resolver ref="maven2"/>
+    	</chain>
+    </resolvers>	
 </ivysettings>

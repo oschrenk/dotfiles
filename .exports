@@ -26,5 +26,7 @@ export GREP_OPTIONS
 
 export LESS="-F -X -R"
 
+export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
+
 # Always install to /Applications with brew cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
