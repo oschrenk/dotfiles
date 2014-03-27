@@ -33,3 +33,6 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 
 # Always install to /Applications with brew cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
+# Docker Daemon
+export DOCKER_HOST=tcp://localhost:4243
