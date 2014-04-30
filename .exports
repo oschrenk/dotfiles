@@ -27,7 +27,7 @@ export GREP_OPTIONS
 export LESS="-F -X -R"
 
 # Java
-export MAVEN_OPTS="-Xmx512m -XX:MaxPermSize=128m"
+export MAVEN_OPTS="-Xmx512m"
 
 export JAVA_HOME=$(/usr/libexec/java_home)
 
