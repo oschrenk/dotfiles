@@ -30,8 +30,8 @@ done
 # If possible, add tab completion for many more commands
 if [ -f /etc/bash_completion ]; then
     source /etc/bash_completion
-elif [ -f $(brew --prefix)/etc/bash_completion ]; then
-    source $(brew --prefix)/etc/bash_completion
+elif [ -f $(brew --prefix)/share/bash-completion/bash_completion ]; then
+    source $(brew --prefix)/share/bash-completion/bash_completion
 fi
 
 # z s the new j, https://github.com/rupa/z
