@@ -1,7 +1,7 @@
 {
 	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
 	"default_line_ending": "unix",
-	"font_size": 15,
+	"font_size": 17,
 	"highlight_line": true,
 	"ignored_packages":
 	[
@@ -15,8 +15,8 @@
 		120
 	],
 	"spell_check": true,
-	"theme": "Spacegray.sublime-theme",
 	"tab_size": 2,
+	"theme": "Spacegray.sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
