@@ -14,6 +14,10 @@
 # Remember the cursor position for each history line. Note that this only works
 # for previous-history and next-history, and apparently not (or not so well)
 # with my Up/Down key bindings history-search-{back,for}ward.
+## arrow up
+"\e[A":history-search-backward
+## arrow down
+"\e[B":history-search-forward
 set history-preserve-point on
 
 # Autocompletion
