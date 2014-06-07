@@ -137,16 +137,8 @@
 	prompt = false
 
 [color]
-    branch = auto
-    diff = auto
-    status = auto
-    interactive = auto
+  ui = auto
 	sh = auto
-
-[color "branch"]
-    current = red
-    local = green
-    remote = yellow
 
 [color "sh"]
 	branch = yellow
