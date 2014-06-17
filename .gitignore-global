@@ -18,6 +18,9 @@ $RECYCLE.BIN/
 # General
 #######################################
 
+# RSync
+.rsync_cache/
+
 # Files
 tmp/**
 tmp/**/*
