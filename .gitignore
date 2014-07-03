@@ -3,5 +3,4 @@
 .vim/bundle/vundle/doc/tags
 .m2/mvnsh.history
 *.lock
-.ivy2/cache
 .ivy2/exclude_classifiers
