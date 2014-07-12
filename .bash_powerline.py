@@ -49,7 +49,10 @@ class Powerline:
         self.segments = []
 
     def color(self, prefix, code):
-        return self.color_template % ('[%s;5;%sm' % (prefix, code))
+        if code is None:
+            return ''
+        else:
+            return self.color_template % ('[%s;5;%sm' % (prefix, code))
 
     def fgcolor(self, code):
         return self.color('38', code)
@@ -58,12 +61,13 @@ class Powerline:
         return self.color('48', code)
 
     def append(self, content, fg, bg, separator=None, separator_fg=None):
-        self.segments.append((content, fg, bg, separator or self.separator,
-            separator_fg or bg))
+        self.segments.append((content, fg, bg, 
+            separator if separator is not None else self.separator,
+            separator_fg if separator_fg is not None else bg))
 
     def draw(self):
         return (''.join(self.draw_segment(i) for i in range(len(self.segments)))
-                + self.reset).encode('utf-8')
+                + self.reset).encode('utf-8') + ' '
 
     def draw_segment(self, idx):
         segment = self.segments[idx]
@@ -129,6 +133,7 @@ class DefaultColor:
     """
     USERNAME_FG = 250
     USERNAME_BG = 240
+    USERNAME_ROOT_BG = 124
 
     HOSTNAME_FG = 250
     HOSTNAME_BG = 238
@@ -181,6 +186,7 @@ class DefaultColor:
     """
     USERNAME_FG = 250
     USERNAME_BG = 240
+    USERNAME_ROOT_BG = 124
 
     HOSTNAME_FG = 250
     HOSTNAME_BG = 238
@@ -224,6 +230,60 @@ class Color(DefaultColor):
     Because the segments require a 'Color' class for every theme.
     """
     pass
+
+
+def add_term_title_segment():
+    term = os.getenv('TERM')
+    if not (('xterm' in term) or ('rxvt' in term)):
+        return
+
+    if powerline.args.shell == 'bash':
+        set_title = '\\[\\e]0;\\u@\\h: \\w\\a\\]'
+    elif powerline.args.shell == 'zsh':
+        set_title = '\\e]0;%n@%m: %~\\a'
+    else:
+        import socket
+        set_title = '\\e]0;%s@%s: %s\\a' % (os.getenv('USER'), socket.gethostname().split('.')[0], powerline.cwd or os.getenv('PWD'))
+
+    powerline.append(set_title, None, None, '')
+
+
+add_term_title_segment()
+
+
+import os
+
+def add_virtual_env_segment():
+    env = os.getenv('VIRTUAL_ENV')
+    if env is None:
+        return
+
+    env_name = os.path.basename(env)
+    bg = Color.VIRTUAL_ENV_BG
+    fg = Color.VIRTUAL_ENV_FG
+    powerline.append(' %s ' % env_name, fg, bg)
+
+add_virtual_env_segment()
+
+
+
+def add_username_segment():
+    import os
+    if powerline.args.shell == 'bash':
+        user_prompt = ' \\u '
+    elif powerline.args.shell == 'zsh':
+        user_prompt = ' %n '
+    else:
+        user_prompt = ' %s ' % os.getenv('USER')
+
+    if os.getenv('USER') == 'root':
+        bgcolor = Color.USERNAME_ROOT_BG
+    else:
+        bgcolor = Color.USERNAME_BG
+
+    powerline.append(user_prompt, Color.USERNAME_FG, bgcolor)
+
+add_username_segment()
 
 
 import os
@@ -294,10 +354,10 @@ def get_git_status():
     has_untracked_files = False
     origin_position = ""
     output = subprocess.Popen(['git', 'status', '--ignore-submodules'],
-            stdout=subprocess.PIPE).communicate()[0]
+            env={"LANG": "C", "HOME": os.getenv("HOME")}, stdout=subprocess.PIPE).communicate()[0]
     for line in output.split('\n'):
         origin_status = re.findall(
-                r"Your branch is (ahead|behind).*?(\d+) comm", line)
+            r"Your branch is (ahead|behind).*?(\d+) comm", line)
         if origin_status:
             origin_position = " %d" % int(origin_status[0][1])
             if origin_status[0][0] == 'behind':
@@ -313,14 +373,18 @@ def get_git_status():
 
 
 def add_git_segment():
-    #cmd = "git branch 2> /dev/null | grep -e '\\*'"
-    p1 = subprocess.Popen(['git', 'branch', '--no-color'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
-    p2 = subprocess.Popen(['grep', '-e', '\\*'], stdin=p1.stdout, stdout=subprocess.PIPE)
-    output = p2.communicate()[0].strip()
-    if not output:
+    # See http://git-blame.blogspot.com/2013/06/checking-current-branch-programatically.html
+    p = subprocess.Popen(['git', 'symbolic-ref', '-q', 'HEAD'], stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+    out, err = p.communicate()
+
+    if 'Not a git repo' in err:
         return
 
-    branch = output.rstrip()[2:]
+    if out:
+        branch = out[len('refs/heads/'):].rstrip()
+    else:
+        branch = '(Detached)'
+
     has_pending_commits, has_untracked_files, origin_position = get_git_status()
     branch += origin_position
     if has_untracked_files:
