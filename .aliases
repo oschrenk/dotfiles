@@ -66,9 +66,6 @@ fi;
 # Open Quick Look from the command line
 alias ql="qlmanage -p &>/dev/null"
 
-# list TODO/FIX lines from the current project
-alias todos="ack -n --nogroup '(TODO|FIX(ME)?):'"
-
 # Git
 alias g='git sh'
 
