@@ -94,3 +94,6 @@ alias ram='ps aux | awk '"'"'{print $2, $4, $11}'"'"' | sort -k2rn | head -n 20'
 
 # HDFS
 alias hdfs="hadoop fs"
+
+# new journal entry
+alias log="touch $(date +"%Y%m%d").md"
