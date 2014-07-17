@@ -8,14 +8,16 @@
 	editor = vim
 
 [push]
-	# nothing: do not push anything.
+	# nothing:  do not push anything.
 	# matching: push all matching branches. All branches having the same
-	#   name in both ends are considered to be matching. This is default.
+	#           name in both ends are considered to be matching.
 	# upstream: push the current branch to its upstream branch.
 	# tracking: deprecated synonym for upstream.
-	# current: push the current branch to a branch of the same name.
+	# current:  push the current branch to a branch of the same name.
+	# simple:   like upstream, but refuses to push if upstream branch’s name
+	#           is different from the local one
 
-	default = current
+	default = simple
 
 [rerere]
 	enabled = true
