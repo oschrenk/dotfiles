@@ -98,3 +98,7 @@ alias hdfs="hadoop fs"
 # new journal entry
 alias today="date +"%Y%m%d""
 alias log="touch $(date +"%Y%m%d").md"
+
+# javascript
+alias node="node -e \"require('repl').start({ignoreUndefined: true})\""
+
