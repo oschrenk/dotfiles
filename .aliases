@@ -6,6 +6,7 @@ alias -- -="cd -"
 alias d="cd $HOME/Downloads"
 alias p="cd $HOME/Projects"
 alias n="cd $HOME/Documents/Notes"
+alias l="cd $HOME/Documents/logs"
 
 # Detect which `ls` flavor is in use
 if ls --color > /dev/null 2>&1; then # GNU `ls`
@@ -95,6 +96,6 @@ alias ram='ps aux | awk '"'"'{print $2, $4, $11}'"'"' | sort -k2rn | head -n 20'
 # HDFS
 alias hdfs="hadoop fs"
 
-# new journal entry
+# new log entry
 alias today="date +"%Y%m%d""
-alias log="touch $(date +"%Y%m%d").md"
+alias log="touch $HOME/Documents/logs/$(today).md && sl $HOME/Documents/logs/$(today).md"
