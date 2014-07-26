@@ -148,3 +148,13 @@ fk () {
   done
   unset IFS
 }
+
+# open dash
+function dash() {
+  if [ -z "$1" ] ; then
+    echo "Usage: dash [query]"
+    return 1
+  fi
+  QUERY="$@"
+  open "dash://$QUERY"
+}
