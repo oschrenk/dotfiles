@@ -1,6 +1,6 @@
 function _update_ps1()
 {
-   export PS1="$($HOME/.bash_powerline.py --cwd-max-depth 3 $? 2> /dev/null)"
+   export PS1="$($HOME/.powerline-shell.py --cwd-max-depth 3 $? 2> /dev/null)"
 }
 
 if [ -f $HOME/.bash_powerline.py ]; then
