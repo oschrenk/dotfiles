@@ -99,3 +99,6 @@ alias hdfs="hadoop fs"
 # new log entry
 alias today="date +"%Y%m%d""
 alias log="touch $HOME/Documents/logs/$(today).md && sl $HOME/Documents/logs/$(today).md"
+
+# javascript
+alias node="node -e \"require('repl').start({ignoreUndefined: true})\""
