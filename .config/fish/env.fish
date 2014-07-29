@@ -18,7 +18,13 @@ prepend-to-path $HOME/.rbenv/shims
 append-to-path ~/.scripts
 
 # editor
-set EDITOR vim
+set -x EDITOR vim
+
+# Java Options
+set -x MAVEN_OPTS "-Xmx512m"
+set -x JAVA_HOME (/usr/libexec/java_home -v 1.7)
+set -x SCALA_HOME /usr/local/opt/scala/
+set -x SPARK_HOME $HOME/Frameworks/spark
 
 # Set locale
 set -gx LC_ALL en_US.UTF-8
