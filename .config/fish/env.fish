@@ -10,6 +10,10 @@ append-to-path /usr/sbin
 prepend-to-path /usr/local/sbin
 prepend-to-path /usr/local/bin
 
+# rbenv
+prepend-to-path $HOME/.rbenv/bin
+prepend-to-path $HOME/.rbenv/shims
+
 # local scripts
 append-to-path ~/.scripts
 
