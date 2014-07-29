@@ -19,7 +19,7 @@ Inspired by many other dotfiles:
 	- [shared functions](https://github.com/fish-shell/fish-shell/tree/master/share/functions)
 	- [shared completions](https://github.com/fish-shell/fish-shell/tree/master/share/completions)
 
-**Other peoples configs'
+**Other peoples configs**
 
 - [zmalltalker / fish-nuggets](https://github.com/zmalltalker/fish-nuggets)
 - [yangchenyun / fish-config](https://github.com/yangchenyun/fish-config)
