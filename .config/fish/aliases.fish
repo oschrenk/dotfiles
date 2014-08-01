@@ -24,6 +24,3 @@ alias cuts 'cut -d\ '
 
 # Make user executable
 alias cux  'chmod u+x'
-
-# Media
-alias tube 'youtube-dl'
