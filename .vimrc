@@ -37,3 +37,30 @@ NeoBundleCheck
 
 " my stuff
 syntax on
+=======
+execute pathogen#infect()
+filetype plugin indent on
+
+" ============================
+" Config
+" ============================
+"
+syntax on                          " syntax highlighting
+syntax enable
+
+set title                          " show title in console title bar.
+set cursorline                     " highlights line
+set cursorcolumn                   " highlights column
+set guitablabel=%t                 " Tab headings
+set guitabtooltip=%F               " Tab headings
+set number relativenumber          " read number_relativenumber
+set lsp=0                          " space it out a little more (easier to read)
+set cmdheight=1                    " the command bar is 2 high.
+
+set autoindent
+set smartindent
+set showmode                       " show current-mode
+set showcmd                        " show partially-typed commands
+set wildmenu                       " visual autocomplete for command menu
+set lazyredraw                     " redraw only when we need to
+set showmatch                      " show matching brackets
