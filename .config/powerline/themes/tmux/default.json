@@ -3,22 +3,16 @@
 	"segments": {
 		"right": [
 			{
-				"name": "uptime",
-				"priority": 50
-			},
-			{
-				"name": "system_load",
-				"priority": 50
-			},
-			{
-				"name": "date",
-				"before": ""
+			    "name": "battery",
+			    "args": {
+			        "gamify": true,
+			        "steps": 7
+			    }
 			},
 			{
 				"name": "date",
 				"args": {
-					"format": "%H:%M",
-					"istime": true
+					"format": "%d.%b. %H:%M"
 				}
 			},
 			{
