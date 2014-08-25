@@ -15,6 +15,7 @@
 		80,
 		120
 	],
+	"save_on_focus_lost": true,
 	"spell_check": true,
 	"tab_size": 2,
 	"theme": "Spacegray.sublime-theme",
