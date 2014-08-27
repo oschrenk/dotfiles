@@ -27,6 +27,12 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'sjl/gundo.vim'
 
+" Navigation
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'jistr/vim-nerdtree-tabs'
+nnoremap <leader>n :NERDTreeTabsToggle<CR>
+
 " Git
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
