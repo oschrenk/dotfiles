@@ -22,7 +22,6 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'Shougo/vimshell', { 'rev' : '3787e5' }
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'sjl/gundo.vim'
