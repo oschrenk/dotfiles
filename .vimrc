@@ -29,6 +29,7 @@ NeoBundle 'Townk/vim-autoclose'
 let g:AutoClosePairs_add = "<> |"
 
 " Navigation
+NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
