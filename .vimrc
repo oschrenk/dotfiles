@@ -38,6 +38,7 @@ NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 
 " Syntax
+NeoBundle 'dag/vim-fish'
 NeoBundle 'derekwyatt/vim-scala'
 
 NeoBundle 'jtratner/vim-flavored-markdown'
@@ -73,31 +74,31 @@ NeoBundleCheck
 " Config
 " ============================
 "
-syntax on                          " syntax highlighting
+syntax on                     " syntax highlighting
 syntax enable
 
-set title                          " show title in console title bar.
-set cursorline                     " highlights line
-set cursorcolumn                   " highlights column
-set guitablabel=%t                 " Tab headings
-set guitabtooltip=%F               " Tab headings
-set number relativenumber          " read number_relativenumber
-set lsp=0                          " space it out a little more (easier to read)
-set cmdheight=1                    " the command bar is 2 high.
+set title                     " show title in console title bar.
+set cursorline                " highlights line
+set cursorcolumn              " highlights column
+set guitablabel=%t            " Tab headings
+set guitabtooltip=%F          " Tab headings
+set number relativenumber     " read number_relativenumber
+set lsp=0                     " space it out a little more (easier to read)
+set cmdheight=1               " the command bar is 2 high.
 
 set autoindent
 set smartindent
-set showmode                       " show current-mode
-set showcmd                        " show partially-typed commands
-set wildmenu                       " visual autocomplete for command menu
-set lazyredraw                     " redraw only when we need to
-set showmatch                      " show matching brackets
+set expandtab                 " <TAB> will insert 'softtabstop' spaces
+set tabstop=2
+set shiftwidth=2              
+set softtabstop=2
 
-set guifont=Meslo\ LG\ S\ DZ\ Regular\ for\ Powerline  " For powerline font in MacVim
-set encoding=utf-8                 " Necessary to show Unicode glyphs
-set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
-set termencoding=utf-8
+set showmode                  " show current-mode
+set showcmd                   " show partially-typed commands
+set wildmenu                  " visual autocomplete for command menu
+set lazyredraw                " redraw only when we need to
+set showmatch                 " show matching brackets
+
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
-set laststatus=2                   " Always show statusline
-set t_Co=256                       " Use 256 colours (Use this setting only if your terminal supports 256 colours)
+set fillchars+=stl:\ ,stlnc:\
+set laststatus=2              " Always show statusline
