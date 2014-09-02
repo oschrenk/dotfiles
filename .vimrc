@@ -26,7 +26,7 @@ NeoBundle 'godlygeek/tabular'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'Townk/vim-autoclose'
-let g:AutoClosePairs_add = "<> |"
+let g:AutoClosePairs_add = "<> | \' \""
 
 " Navigation
 NeoBundle 'Lokaltog/vim-easymotion'
