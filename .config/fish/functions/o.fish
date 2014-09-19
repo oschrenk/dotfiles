@@ -7,21 +7,3 @@ function o --description "Open file"
     command open $argv
   end
 end
-
-  function oo --description "Open current directory"
-
-  end
-
-else
-
-  if command which open 1>/dev/null 2>/dev/null
-    function o --description "Open file"
-
-    end
-
-    function oo --description "Open current directory"
-      command open .
-    end
-
-  end
-end
