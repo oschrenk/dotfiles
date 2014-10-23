@@ -27,9 +27,12 @@
 		"virtcol_current_gradient": { "fg": "dark_GREEN_Orange_red", "bg": "gray10", "attr": [] },
 		"col_current":              { "fg": "gray6", "bg": "gray10", "attr": [] },
 		"modified_buffers":         { "fg": "brightyellow", "bg": "gray2", "attr": [] },
+		"attached_clients":         { "fg": "gray8", "bg": "gray2", "attr": [] },
 		"error":                    { "fg": "brightestred", "bg": "darkred", "attr": ["bold"] },
 		"warning":                  { "fg": "brightyellow", "bg": "darkorange", "attr": ["bold"] },
-		"current_tag":              { "fg": "gray9", "bg": "gray2", "attr": [] }
+		"current_tag":              { "fg": "gray9", "bg": "gray2", "attr": [] },
+
+		"tab_nc:modified_indicator": { "fg": "brightyellow", "bg": "gray2", "attr": ["bold"] }
 	},
 	"mode_translations": {
 		"nc": {
