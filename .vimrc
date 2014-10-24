@@ -39,9 +39,10 @@ nnoremap <leader>n :NERDTreeTabsToggle<CR>
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'airblade/vim-gitgutter'
 
-" Syntax
+" Languages
 NeoBundle 'dag/vim-fish'
 NeoBundle 'derekwyatt/vim-scala'
+NeoBundle 'guns/vim-clojure-static' 
 
 NeoBundle 'jtratner/vim-flavored-markdown'
 augroup markdown
@@ -104,3 +105,8 @@ set showmatch                 " show matching brackets
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
 set fillchars+=stl:\ ,stlnc:\
 set laststatus=2              " Always show statusline
+
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces

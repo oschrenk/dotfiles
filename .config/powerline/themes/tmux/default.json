@@ -1,22 +1,27 @@
 {
-	"default_module": "powerline.segments.common",
 	"segments": {
 		"right": [
 			{
-			    "name": "battery",
-			    "args": {
-			        "gamify": true,
-			        "steps": 7
-			    }
+				"function": "powerline.segments.common.sys.uptime",
+				"priority": 50
 			},
 			{
-				"name": "date",
+				"function": "powerline.segments.common.sys.system_load",
+				"priority": 50
+			},
+			{
+				"function": "powerline.segments.common.time.date"
+			},
+			{
+				"function": "powerline.segments.common.time.date",
+				"name": "time",
 				"args": {
-					"format": "%d.%b. %H:%M"
+					"format": "%H:%M",
+					"istime": true
 				}
 			},
 			{
-				"name": "hostname"
+				"function": "powerline.segments.common.net.hostname"
 			}
 		]
 	}

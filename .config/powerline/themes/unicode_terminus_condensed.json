@@ -14,24 +14,17 @@
 		"branch": {
 			"before": "B "
 		},
-
-		"line_current_symbol": {
-			"contents": "␤"
-		},
-
-		"powerline.segments.common.cwd": {
+		"cwd": {
 			"args": {
 				"use_path_separator": true,
 				"ellipsis": "…"
 			}
 		},
-		"powerline.segments.common.network_load": {
-			"args": {
-				"recv_format": "⇓{value:>8}",
-				"sent_format": "⇑{value:>8}"
-			}
+
+		"line_current_symbol": {
+			"contents": "␤"
 		},
-		"powerline.segments.common.now_playing": {
+		"player": {
 			"args": {
 				"state_symbols": {
 					"fallback": "♫",
@@ -41,26 +34,67 @@
 				}
 			}
 		},
-		"powerline.segments.common.battery": {
+
+		"time": {
+			"before": ""
+		},
+
+		"powerline.segments.common.net.network_load": {
+			"args": {
+				"recv_format": "⇓{value:>8}",
+				"sent_format": "⇑{value:>8}"
+			}
+		},
+		"powerline.segments.common.net.hostname": {
+			"before": "⌂"
+		},
+		"powerline.segments.common.players.now_playing": {
+			"args": {
+				"state_symbols": {
+					"fallback": "♫",
+					"play":     "▶",
+					"pause":    "▮▮",
+					"stop":     "■"
+				}
+			}
+		},
+		"powerline.segments.common.bat.battery": {
 			"args": {
 				"full_heart": "♥",
 				"empty_heart": "♥"
 			}
 		},
-		"powerline.segments.common.uptime": {
+		"powerline.segments.common.sys.uptime": {
 			"before": "↑"
 		},
-		"powerline.segments.common.date": {
-			"before": ""
-		},
-		"powerline.segments.common.email_imap_alert": {
+		"powerline.segments.common.mail.email_imap_alert": {
 			"before": "M "
 		},
-		"powerline.segments.common.virtualenv": {
+		"powerline.segments.common.env.virtualenv": {
 			"before": "E "
 		},
-		"powerline.segments.common.hostname": {
-			"before": "⌂"
+		"powerline.segments.common.wthr.weather": {
+			"args": {
+				"icons": {
+					"day":           "D",
+					"blustery":      "W",
+					"rainy":         "R",
+					"cloudy":        "c",
+					"snowy":         "*",
+					"stormy":        "S",
+					"foggy":         "f",
+					"sunny":         "s",
+					"night":         "N",
+					"windy":         "w",
+					"not_available": "-",
+					"unknown":       "!"
+				}
+			}
+		},
+		"powerline.segments.common.time.fuzzy_time": {
+			"args": {
+				"unicode_text": true
+			}
 		},
 
 		"powerline.segments.vim.mode": {

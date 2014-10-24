@@ -1,35 +1,32 @@
 {
-	"default_module": "powerline.segments.common",
 	"segments": {
 		"left": [
 			{
-				"name": "hostname",
+				"function": "powerline.segments.common.net.hostname",
 				"priority": 10
 			},
 			{
-				"name": "user",
+				"function": "powerline.segments.common.env.user",
 				"priority": 30
 			},
 			{
-				"name": "virtualenv",
+				"function": "powerline.segments.common.env.virtualenv",
 				"priority": 50
 			},
 			{
-				"name": "branch",
+				"function": "powerline.segments.common.vcs.branch",
 				"priority": 40
 			},
 			{
-				"name": "cwd",
+				"function": "powerline.segments.shell.cwd",
 				"priority": 10
 			},
 			{
-				"module": "powerline.segments.shell",
-				"name": "jobnum",
+				"function": "powerline.segments.shell.jobnum",
 				"priority": 20
 			},
 			{
-				"module": "powerline.segments.shell",
-				"name": "last_status",
+				"function": "powerline.segments.shell.last_status",
 				"priority": 10
 			}
 		]
