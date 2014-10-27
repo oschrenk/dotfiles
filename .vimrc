@@ -34,6 +34,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'jistr/vim-nerdtree-tabs'
 nnoremap <leader>n :NERDTreeTabsToggle<CR>
+NeoBundle 'tpope/vim-vinegar'
 
 " Git
 NeoBundle 'tpope/vim-fugitive'
