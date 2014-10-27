@@ -24,7 +24,7 @@ NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'godlygeek/tabular'
 NeoBundle 'ervandew/supertab'
-NeoBundle 'sjl/gundo.vim'
+NeoBundle 'vim-scripts/paredit.vim' 
 NeoBundle 'Townk/vim-autoclose'
 let g:AutoClosePairs_add = "<> | \' \""
 
