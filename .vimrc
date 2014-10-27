@@ -43,7 +43,7 @@ NeoBundle 'airblade/vim-gitgutter'
 " Languages
 NeoBundle 'dag/vim-fish'
 NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'guns/vim-clojure-static' 
+NeoBundle 'guns/vim-clojure-static'
 
 NeoBundle 'jtratner/vim-flavored-markdown'
 augroup markdown
@@ -56,6 +56,8 @@ NeoBundle 'dag/vim2hs'
 NeoBundle 'scrooloose/syntastic'
 
 " Look and feel
+set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
+NeoBundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
 NeoBundle 'kien/rainbow_parentheses.vim'
 
 NeoBundle 'morhetz/gruvbox'
@@ -94,7 +96,7 @@ set autoindent
 set smartindent
 set expandtab                 " <TAB> will insert 'softtabstop' spaces
 set tabstop=2
-set shiftwidth=2              
+set shiftwidth=2
 set softtabstop=2
 
 set showmode                  " show current-mode
@@ -103,7 +105,8 @@ set wildmenu                  " visual autocomplete for command menu
 set lazyredraw                " redraw only when we need to
 set showmatch                 " show matching brackets
 
-set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
+""" Powerline """
+source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 set fillchars+=stl:\ ,stlnc:\
 set laststatus=2              " Always show statusline
 
