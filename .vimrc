@@ -150,3 +150,7 @@ au VimEnter * RainbowParenthesesActivate
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
+
+""" Commands
+" Delete trailing whitspace
+autocmd BufWritePre *.* :%s/\s\+$//e
