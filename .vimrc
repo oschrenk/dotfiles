@@ -107,9 +107,9 @@ syntax enable
 set title                     " show title in console title bar.
 set cursorline                " highlights line
 set cursorcolumn              " highlights column
+set number
 set guitablabel=%t            " Tab headings
 set guitabtooltip=%F          " Tab headings
-set number relativenumber     " read number_relativenumber
 set lsp=0                     " space it out a little more (easier to read)
 set cmdheight=1               " the command bar is 2 high.
 
