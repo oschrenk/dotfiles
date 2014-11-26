@@ -51,10 +51,8 @@ let g:AutoClosePairs_add = "<> | \' \""
 " Navigation
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'scrooloose/nerdtree'
-NeoBundle 'jistr/vim-nerdtree-tabs'
-nnoremap <leader>n :NERDTreeTabsToggle<CR>
 NeoBundle 'tpope/vim-vinegar'
+NeoBundle 'terryma/vim-expand-region'
 
 " Git
 NeoBundle 'tpope/vim-fugitive'
