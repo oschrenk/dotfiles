@@ -126,6 +126,11 @@ set wildmenu                  " visual autocomplete for command menu
 set lazyredraw                " redraw only when we need to
 set showmatch                 " show matching brackets
 
+set hlsearch                  " Highlight search matches
+set incsearch                 " Highlight search matches as you type
+set ignorecase                " Ignore case when searching
+set smartcase                 " Ignore case if pattern is lowercase, case-sensitive otherwise
+
 """ Powerline """
 source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 set fillchars+=stl:\ ,stlnc:\
