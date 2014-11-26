@@ -19,6 +19,26 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 " My Bundles here:
 "
 " Control
+" Resize vim
+map <c-J> :resize -5<cr>
+map <c-K> :resize +5<cr>
+map <c-H> :vertical resize -5<cr>
+map <c-L> :vertical resize +5<cr>
+
+" Use jk to exit insert mode
+set timeout timeoutlen=400 ttimeoutlen=100
+set <f13>=jk
+imap <F13> <esc>
+
+" Disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'tpope/vim-surround'
