@@ -131,6 +131,10 @@ set incsearch                 " Highlight search matches as you type
 set ignorecase                " Ignore case when searching
 set smartcase                 " Ignore case if pattern is lowercase, case-sensitive otherwise
 
+" Quickly edit and source your .vimrc
+nmap <silent> <leader>ev :tabnew $MYVIMRC<CR>
+nmap <silent> <leader>es :so $MYVIMRC<CR>
+
 """ Powerline """
 source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 set fillchars+=stl:\ ,stlnc:\
