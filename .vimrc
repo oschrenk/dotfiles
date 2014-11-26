@@ -138,6 +138,9 @@ nmap <silent> <leader>es :so $MYVIMRC<CR>
 " Reload when entering buffer or gaining focus
 au FocusGained,BufEnter * :silent! !
 "
+" " Autosave on focus lost or when exiting the buffer
+au FocusLost,WinLeave * :silent! w
+
 """ Powerline """
 source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 set fillchars+=stl:\ ,stlnc:\
