@@ -69,6 +69,9 @@ augroup markdown
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
+" Search
+NeoBundle 'rking/ag.vim'
+
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'dag/vim2hs'
 NeoBundle 'scrooloose/syntastic'
