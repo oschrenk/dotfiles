@@ -146,7 +146,7 @@ source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powe
 set fillchars+=stl:\ ,stlnc:\
 set laststatus=2              " Always show statusline
 
-au VimEnter * RainbowParenthesesToggle
+au VimEnter * RainbowParenthesesActivate
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
