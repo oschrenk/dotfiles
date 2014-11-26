@@ -135,6 +135,9 @@ set smartcase                 " Ignore case if pattern is lowercase, case-sensit
 nmap <silent> <leader>ev :tabnew $MYVIMRC<CR>
 nmap <silent> <leader>es :so $MYVIMRC<CR>
 
+" Reload when entering buffer or gaining focus
+au FocusGained,BufEnter * :silent! !
+"
 """ Powerline """
 source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
 set fillchars+=stl:\ ,stlnc:\
