@@ -17,6 +17,9 @@ prepend-to-path $HOME/.rbenv/shims
 # local scripts
 append-to-path ~/.scripts
 
+# mac applications
+append-to-path /Applications/Karabiner.app/Contents/Library/bin/
+
 # editor
 set -x EDITOR vim
 
