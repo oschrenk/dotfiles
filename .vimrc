@@ -63,6 +63,8 @@ NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'dag/vim-fish'
 NeoBundle 'derekwyatt/vim-scala'
 NeoBundle 'guns/vim-clojure-static'
+NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'dag/vim2hs'
 
 NeoBundle 'jtratner/vim-flavored-markdown'
 augroup markdown
@@ -73,8 +75,6 @@ augroup END
 " Search
 NeoBundle 'rking/ag.vim'
 
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'dag/vim2hs'
 NeoBundle 'scrooloose/syntastic'
 
 " Look and feel
