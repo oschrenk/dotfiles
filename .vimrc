@@ -78,9 +78,7 @@ NeoBundle 'rking/ag.vim'
 NeoBundle 'scrooloose/syntastic'
 
 " Look and feel
-set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim/
-NeoBundle 'Lokaltog/powerline', {'rtp': 'powerline/bindings/vim/'}
-NeoBundle 'kien/rainbow_parentheses.vim'
+NeoBundle 'bling/vim-airline'
 
 NeoBundle 'morhetz/gruvbox'
 call pathogen#infect()
@@ -142,10 +140,9 @@ au FocusGained,BufEnter * :silent! !
 " " Autosave on focus lost or when exiting the buffer
 au FocusLost,WinLeave * :silent! w
 
-""" Powerline """
-source /usr/local/lib/python2.7/site-packages/powerline/bindings/vim/plugin/powerline.vim
-set fillchars+=stl:\ ,stlnc:\
-set laststatus=2              " Always show statusline
+" Airline
+let g:airline_powerline_fonts = 1
+set laststatus=2
 
 au VimEnter * RainbowParenthesesActivate
 au Syntax * RainbowParenthesesLoadRound
