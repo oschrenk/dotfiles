@@ -40,6 +40,8 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+" Base Bundles
+NeoBundle 'chrisbra/Recover.vim'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'godlygeek/tabular'
