@@ -44,7 +44,6 @@ imap <right> <nop>
 NeoBundle 'chrisbra/Recover.vim'
 NeoBundle 'kien/ctrlp.vim'
 NeoBundle 'tpope/vim-surround'
-NeoBundle 'godlygeek/tabular'
 NeoBundle 'ervandew/supertab'
 NeoBundle 'vim-scripts/paredit.vim'
 NeoBundle 'Townk/vim-autoclose'
