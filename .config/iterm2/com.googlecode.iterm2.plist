@@ -1000,11 +1000,13 @@
 	<key>NSTableView Sort Ordering KeyBingingTable</key>
 	<array/>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>1235 135 445 270 0 0 1680 1028 </string>
+	<string>943 235 445 136 0 0 1440 900 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>205 239 924 485 0 0 1440 877 </string>
+	<string>205 253 924 485 0 0 1440 900 </string>
+	<key>NSWindow Frame UKCrashReporter</key>
+	<string>309 241 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>636 37 730 701 0 0 1440 900 </string>
+	<string>720 251 650 626 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>229 0 730 701 0 0 1680 1050 </string>
 	<key>New Bookmarks</key>
@@ -1568,11 +1570,11 @@
 			<key>Name</key>
 			<string>Default</string>
 			<key>Non Ascii Font</key>
-			<string>MesloLGL-RegularForPowerline 21</string>
+			<string>MesloLGL-RegularForPowerline 17</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>mplus-1mn-light 18</string>
+			<string>mplus-1mn-light 16</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1747,6 +1749,8 @@
 			<string>/Users/oliver</string>
 		</dict>
 	</array>
+	<key>NoSyncNeverRemindPrefsChangesCopy</key>
+	<true/>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1809,7 +1813,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2014-10-23T15:19:48Z</date>
+	<date>2015-01-09T13:34:51Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1834,6 +1838,8 @@
 	<integer>10</integer>
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
+	<key>UKCrashReporterLastCrashReportDate</key>
+	<real>1417109632</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -1853,6 +1859,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>2.0</string>
+	<string>2.0.0.20141103</string>
 </dict>
 </plist>

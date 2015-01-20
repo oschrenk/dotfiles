@@ -4,3 +4,4 @@
 .m2/mvnsh.history
 *.lock
 .ivy2/exclude_classifiers
+.rbenv/version
