@@ -2,6 +2,8 @@
 
 cli=/Applications/Karabiner.app/Contents/Library/bin/karabiner
 
+$cli set user.iterm.cmdw 1
+/bin/echo -n .
 $cli set repeat.initial_wait 250
 /bin/echo -n .
 $cli set remap.programmer.shifts_parens 1
@@ -17,6 +19,8 @@ $cli set repeat.wait 25
 $cli set private.correct_shift_keys 1
 /bin/echo -n .
 $cli set remap.escape2backquote 1
+/bin/echo -n .
+$cli set user.iterm.cmdq 1
 /bin/echo -n .
 $cli set parameter.keyoverlaidmodifier_timeout 500
 /bin/echo -n .
