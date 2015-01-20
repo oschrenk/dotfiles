@@ -14,6 +14,8 @@ $cli set remap.hjkl_arrow 1
 /bin/echo -n .
 $cli set space_cadet.left_control_to_hyper 1
 /bin/echo -n .
+$cli set remap.euro_in_us 1
+/bin/echo -n .
 $cli set repeat.wait 25
 /bin/echo -n .
 $cli set private.correct_shift_keys 1
