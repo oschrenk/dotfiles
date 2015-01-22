@@ -132,6 +132,8 @@ set incsearch                 " Highlight search matches as you type
 set ignorecase                " Ignore case when searching
 set smartcase                 " Ignore case if pattern is lowercase, case-sensitive otherwise
 
+set clipboard=unnamed         " gain access to clipboard in OS X
+
 " Quickly edit and source your .vimrc
 nmap <silent> <leader>ev :tabnew $MYVIMRC<CR>
 nmap <silent> <leader>es :so $MYVIMRC<CR>
