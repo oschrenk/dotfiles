@@ -13,11 +13,10 @@ alias bottomright corner bottom-right resize:screenSizeX/2;screenSizeY/2
 
 alias full move screenOriginX;screenOriginY screenSizeX;screenSizeY
 
-# Push Bindings
-bind right:shift;ctrl;alt;cmd  push right bar-resize:screenSizeX/2
-bind left:shift;ctrl;alt;cmd   push left  bar-resize:screenSizeX/2
-# bind up:ctrl;alt;cmd     push up    bar-resize:screenSizeY/2
-# bind down:ctrl;alt;cmd   push down  bar-resize:screenSizeY/2
+alias hyper ctrl;shift;alt;cmd
 
-bind up:shift;ctrl;alt;cmd     ${full}
+# Push Bindings
+bind right:${hyper}  push right bar-resize:screenSizeX/2
+bind left:${hyper}  push left  bar-resize:screenSizeX/2
+bind up:${hyper} ${full}
 
