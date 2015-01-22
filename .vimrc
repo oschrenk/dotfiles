@@ -119,6 +119,8 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 
+set backspace=2               " make backspace work like most other app
+
 set showmode                  " show current-mode
 set showcmd                   " show partially-typed commands
 set wildmenu                  " visual autocomplete for command menu
