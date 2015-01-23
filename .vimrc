@@ -16,15 +16,6 @@ call neobundle#begin(expand('~/.vim/bundle'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" My Bundles here:
-"
-" Control
-" Resize vim
-map <c-J> :resize -5<cr>
-map <c-K> :resize +5<cr>
-map <c-H> :vertical resize -5<cr>
-map <c-L> :vertical resize +5<cr>
-
 " Use jk to exit insert mode
 set timeout timeoutlen=400 ttimeoutlen=100
 set <f13>=jk
@@ -54,6 +45,7 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'tpope/vim-vinegar'
 NeoBundle 'terryma/vim-expand-region'
+NeoBundle 'christoomey/vim-tmux-navigator'
 
 " Git
 NeoBundle 'tpope/vim-fugitive'
