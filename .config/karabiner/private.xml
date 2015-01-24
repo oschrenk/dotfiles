@@ -83,4 +83,34 @@
     </item>
   </item>
 
+  <item>
+    <name>Ignore keys for The Hit List</name>
+
+    <appdef>
+      <appname>HITLIST</appname>
+      <equal>com.potionfactory.TheHitList</equal>
+    </appdef>
+
+    <item>
+      <name>Disable CMD-W in The Hit List</name>
+      <identifier>user.hitlist.cmdw</identifier>
+      <only>HITLIST</only>
+      <autogen>
+        __KeyToKey__
+        KeyCode::W, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
+        KeyCode::VK_NONE,
+      </autogen>
+    </item>
+    <item>
+      <name>Disable CMD-Q in The Hit List</name>
+      <identifier>user.hitlist.cmdq</identifier>
+      <only>HITLIST</only>
+      <autogen>
+        __KeyToKey__
+        KeyCode::Q, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
+        KeyCode::VK_NONE,
+      </autogen>
+    </item>
+  </item>
+
 </root>

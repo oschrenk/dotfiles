@@ -26,9 +26,13 @@ $cli set user.iterm.cmdq 1
 /bin/echo -n .
 $cli set parameter.keyoverlaidmodifier_timeout 500
 /bin/echo -n .
+$cli set remap.shiftEscape2tilde 1
+/bin/echo -n .
 $cli set remap.controlL2controlL_escape 1
 /bin/echo -n .
-$cli set remap.shiftEscape2tilde 1
+$cli set user.hitlist.cmdw 1
+/bin/echo -n .
+$cli set user.hitlist.cmdq 1
 /bin/echo -n .
 $cli set remap.org.openhort.german_umlaute_on_en_US 1
 /bin/echo -n .
