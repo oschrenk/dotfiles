@@ -89,6 +89,13 @@ NeoBundleCheck
 "End NeoBundle Scripts-------------------------
 
 " ============================
+" Keyboard
+" ============================
+
+" im too lazy to press shift
+nnoremap ; :
+
+" ============================
 " Config
 " ============================
 "
