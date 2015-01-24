@@ -16,21 +16,6 @@ call neobundle#begin(expand('~/.vim/bundle'))
 " Required:
 NeoBundleFetch 'Shougo/neobundle.vim'
 
-" Use jk to exit insert mode
-set timeout timeoutlen=400 ttimeoutlen=100
-set <f13>=jk
-imap <F13> <esc>
-
-" Disable arrow keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
-
 " Base Bundles
 NeoBundle 'chrisbra/Recover.vim'
 NeoBundle 'kien/ctrlp.vim'
@@ -102,6 +87,21 @@ nnoremap k gk
 " quickly move to beginning/end of line
 nnoremap H 0
 nnoremap L $
+
+" Use jk to exit insert mode
+set timeout timeoutlen=400 ttimeoutlen=100
+set <f13>=jk
+imap <F13> <esc>
+
+" Disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 
 " ============================
 " Config
