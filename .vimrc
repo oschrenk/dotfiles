@@ -99,6 +99,10 @@ nnoremap ; :
 nnoremap j gj
 nnoremap k gk
 
+" quickly move to beginning/end of line
+nnoremap H 0
+nnoremap L $
+
 " ============================
 " Config
 " ============================
