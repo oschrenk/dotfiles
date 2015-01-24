@@ -95,6 +95,10 @@ NeoBundleCheck
 " im too lazy to press shift
 nnoremap ; :
 
+" move cursors naturally
+nnoremap j gj
+nnoremap k gk
+
 " ============================
 " Config
 " ============================
