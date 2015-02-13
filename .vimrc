@@ -1,78 +1,57 @@
 set shell=bash\ --norc
 set termencoding=
 
-"NeoBundle Scripts-----------------------------
-if has('vim_starting')
-  set nocompatible               " Be iMproved
-
-  " Required:
-  set runtimepath+=~/.vim/bundle/neobundle.vim/
-endif
-
-" Required:
-call neobundle#begin(expand('~/.vim/bundle'))
-
-" Let NeoBundle manage NeoBundle
-" Required:
-NeoBundleFetch 'Shougo/neobundle.vim'
+" vim-plug
+call plug#begin('~/.vim/plugged')
 
 " Base Bundles
-NeoBundle 'chrisbra/Recover.vim'
-NeoBundle 'kien/ctrlp.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'ervandew/supertab'
-NeoBundle 'vim-scripts/paredit.vim'
-NeoBundle 'Townk/vim-autoclose'
+Plug 'chrisbra/Recover.vim'
+Plug 'kien/ctrlp.vim'
+Plug 'tpope/vim-surround'
+Plug 'ervandew/supertab'
+Plug 'vim-scripts/paredit.vim'
+Plug 'Townk/vim-autoclose'
 let g:AutoClosePairs_add = "<> | \' \""
 
 " Navigation
-NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'tpope/vim-vinegar'
-NeoBundle 'terryma/vim-expand-region'
-NeoBundle 'christoomey/vim-tmux-navigator'
+Plug 'Lokaltog/vim-easymotion'
+Plug 'Shougo/unite.vim'
+Plug 'tpope/vim-vinegar'
+Plug 'terryma/vim-expand-region'
+Plug 'christoomey/vim-tmux-navigator'
 
 " Git
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
 
 " Languages
-NeoBundle 'dag/vim-fish'
-NeoBundle 'derekwyatt/vim-scala'
-NeoBundle 'guns/vim-clojure-static'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'dag/vim2hs'
+Plug 'dag/vim-fish'
+Plug 'derekwyatt/vim-scala'
+Plug 'guns/vim-clojure-static'
+Plug 'vim-ruby/vim-ruby'
+Plug 'dag/vim2hs'
 
-NeoBundle 'jtratner/vim-flavored-markdown'
+Plug 'jtratner/vim-flavored-markdown'
 augroup markdown
     au!
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
 augroup END
 
 " Search
-NeoBundle 'rking/ag.vim'
-
-NeoBundle 'scrooloose/syntastic'
+Plug 'rking/ag.vim'
+Plug 'scrooloose/syntastic'
 
 " Look and feel
-NeoBundle 'bling/vim-airline'
+Plug 'bling/vim-airline'
+Plug 'morhetz/gruvbox'
+Plug 'kien/rainbow_parentheses.vim'
 
-NeoBundle 'morhetz/gruvbox'
-call pathogen#infect()
+
+call plug#end()
+"End Plug -------------------------
+
 set background=dark
 colorscheme gruvbox
-
-" Required:
-call neobundle#end()
-
-" Required:
-filetype plugin indent on
-
-" If there are uninstalled bundles found on startup,
-" this will conveniently prompt you to install them.
-NeoBundleCheck
-"End NeoBundle Scripts-------------------------
-
 " ============================
 " Keyboard
 " ============================

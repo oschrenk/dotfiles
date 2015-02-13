@@ -5,3 +5,6 @@
 *.lock
 .ivy2/exclude_classifiers
 .rbenv/version
+.config/fontforge
+.config/ranger/
+.vim/plugged/
