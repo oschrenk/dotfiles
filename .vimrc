@@ -83,6 +83,12 @@ imap <left> <nop>
 imap <right> <nop>
 
 " ============================
+" Plugin configuration
+" ============================
+
+nnoremap <C-p> :Unite file_rec/async<cr>
+
+" ============================
 " Config
 " ============================
 "
