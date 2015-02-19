@@ -24,14 +24,13 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'tpope/vim-fugitive'
 Plug 'airblade/vim-gitgutter'
 
-" Languages
-Plug 'dag/vim-fish'
-Plug 'derekwyatt/vim-scala'
-Plug 'guns/vim-clojure-static'
-Plug 'vim-ruby/vim-ruby'
-Plug 'dag/vim2hs'
-
-Plug 'jtratner/vim-flavored-markdown'
+" file types
+Plug 'dag/vim-fish'                   " fish shell
+Plug 'derekwyatt/vim-scala'           " scala
+Plug 'guns/vim-clojure-static'        " clojure
+Plug 'vim-ruby/vim-ruby'              " ruby
+Plug 'dag/vim2hs'                     " haskell
+Plug 'jtratner/vim-flavored-markdown' " markdown
 augroup markdown
     au!
     au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
@@ -42,10 +41,9 @@ Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
 
 " Look and feel
-Plug 'bling/vim-airline'
-Plug 'morhetz/gruvbox'
-Plug 'kien/rainbow_parentheses.vim'
-
+Plug 'bling/vim-airline'             " powerline statusline
+Plug 'morhetz/gruvbox'               " theme
+Plug 'kien/rainbow_parentheses.vim'  " colored parentheses
 
 call plug#end()
 "End Plug -------------------------
