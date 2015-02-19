@@ -71,6 +71,9 @@ nnoremap W :w<cr>
 " U: Redos since 'u' undos
 nnoremap U :redo<cr>
 
+" N: Find next occurrence backward
+nnoremap N Nzzzv
+
 " Insert Mode settings
 " ----------------------------
 
