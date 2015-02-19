@@ -13,7 +13,6 @@ alias n    'cd $HOME/Documents/Notes'
 alias g    git
 alias c    clear
 alias v    vim
-alias s    subl
 
 alias a    'ag --smart-case'
 
