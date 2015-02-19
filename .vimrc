@@ -18,8 +18,8 @@ Plug 'Shougo/unite.vim'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Git
-Plug 'tpope/vim-fugitive'
-Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive'             " git client for vim
+Plug 'airblade/vim-gitgutter'         " mark modified, changed, deleted lines
 
 " file types
 Plug 'dag/vim-fish'                   " fish shell
