@@ -124,6 +124,11 @@ au FocusLost,WinLeave * :silent! w
 " Auto-Delete trailing whitspace
 autocmd BufWritePre *.* :%s/\s\+$//e
 
+" Source the vimrc file after saving it
+if has("autocmd")
+  autocmd bufwritepost .vimrc source $MYVIMRC
+endif
+
 " ============================
 " Plugin configuration
 " ============================
