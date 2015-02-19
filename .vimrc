@@ -104,21 +104,20 @@ set tabstop=2
 set shiftwidth=2
 set softtabstop=2
 set backspace=2               " make backspace work like most other app
+
 set showmode                  " show current-mode
 set showcmd                   " show partially-typed commands
 set wildmenu                  " visual autocomplete for command menu
 set lazyredraw                " redraw only when we need to
 set showmatch                 " show matching brackets
+
 set hlsearch                  " Highlight search matches
 set incsearch                 " Highlight search matches as you type
 set ignorecase                " Ignore case when searching
 set smartcase                 " Ignore case if pattern is lowercase, case-sensitive otherwise
 
+set autoread                  " Set to auto read when a file is changed from the outside
 set clipboard=unnamed         " gain access to clipboard in OS X
-
-" Quickly edit and source your .vimrc
-nmap <silent> <leader>ev :tabnew $MYVIMRC<CR>
-nmap <silent> <leader>es :so $MYVIMRC<CR>
 
 " Reload when entering buffer or gaining focus
 au FocusGained,BufEnter * :silent! !
