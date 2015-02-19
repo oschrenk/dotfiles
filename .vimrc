@@ -14,8 +14,8 @@ Plug 'Townk/vim-autoclose'
 let g:AutoClosePairs_add = "<> | \' \""
 
 " Navigation
-Plug 'Shougo/unite.vim'
-Plug 'christoomey/vim-tmux-navigator'
+Plug 'Shougo/unite.vim'               " unified source to display search results
+Plug 'christoomey/vim-tmux-navigator' " Navigate over tmux panes and vim splits
 
 " Git
 Plug 'tpope/vim-fugitive'             " git client for vim
@@ -43,10 +43,11 @@ Plug 'morhetz/gruvbox'               " theme
 Plug 'kien/rainbow_parentheses.vim'  " colored parentheses
 
 call plug#end()
-"End Plug -------------------------
+"End Plug --------------------
 
 set background=dark
 colorscheme gruvbox
+
 " ============================
 " Keyboard
 " ============================
@@ -78,17 +79,11 @@ imap <left> <nop>
 imap <right> <nop>
 
 " ============================
-" Plugin configuration
-" ============================
-
-nnoremap <C-p> :Unite file_rec/async<cr>
-
-" ============================
 " Config
 " ============================
 "
 syntax on                     " syntax highlighting
-syntax enable
+syntax enable                 " syntac highlighting
 
 set title                     " show title in console title bar.
 set cursorline                " highlights line
@@ -98,22 +93,18 @@ set guitablabel=%t            " Tab headings
 set guitabtooltip=%F          " Tab headings
 set lsp=0                     " space it out a little more (easier to read)
 set cmdheight=1               " the command bar is 2 high.
-
 set autoindent
 set smartindent
 set expandtab                 " <TAB> will insert 'softtabstop' spaces
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
-
 set backspace=2               " make backspace work like most other app
-
 set showmode                  " show current-mode
 set showcmd                   " show partially-typed commands
 set wildmenu                  " visual autocomplete for command menu
 set lazyredraw                " redraw only when we need to
 set showmatch                 " show matching brackets
-
 set hlsearch                  " Highlight search matches
 set incsearch                 " Highlight search matches as you type
 set ignorecase                " Ignore case when searching
@@ -131,15 +122,24 @@ au FocusGained,BufEnter * :silent! !
 " " Autosave on focus lost or when exiting the buffer
 au FocusLost,WinLeave * :silent! w
 
+" Auto-Delete trailing whitspace
+autocmd BufWritePre *.* :%s/\s\+$//e
+
+" ============================
+" Plugin configuration
+" ============================
+
+" Unite
+" ---------------------------
+nnoremap <C-p> :Unite file_rec/async<cr>
+
 " Airline
 let g:airline_powerline_fonts = 1
 set laststatus=2
 
+" RainbowParentheses
 au VimEnter * RainbowParenthesesActivate
 au Syntax * RainbowParenthesesLoadRound
 au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
-""" Commands
-" Delete trailing whitspace
-autocmd BufWritePre *.* :%s/\s\+$//e
