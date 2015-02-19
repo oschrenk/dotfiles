@@ -14,10 +14,7 @@ Plug 'Townk/vim-autoclose'
 let g:AutoClosePairs_add = "<> | \' \""
 
 " Navigation
-Plug 'Lokaltog/vim-easymotion'
 Plug 'Shougo/unite.vim'
-Plug 'tpope/vim-vinegar'
-Plug 'terryma/vim-expand-region'
 Plug 'christoomey/vim-tmux-navigator'
 
 " Git
