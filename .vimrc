@@ -49,7 +49,7 @@ colorscheme gruvbox
 " ============================
 
 " Normal Mode Mappings
-" ---------------------------
+" ----------------------------
 
 " im too lazy to press shift
 nnoremap ; :
@@ -62,7 +62,17 @@ nnoremap k gk
 nnoremap H 0
 nnoremap L $
 
+" Q: Closes the window
+nnoremap Q :q<cr>
+
+" W: Save
+nnoremap W :w<cr>
+
+" U: Redos since 'u' undos
+nnoremap U :redo<cr>
+
 " Insert Mode settings
+" ----------------------------
 
 " Use jk to exit insert mode
 set timeout timeoutlen=400 ttimeoutlen=100
