@@ -48,6 +48,9 @@ colorscheme gruvbox
 " Keyboard
 " ============================
 
+" Normal Mode Mappings
+" ---------------------------
+
 " im too lazy to press shift
 nnoremap ; :
 
@@ -58,6 +61,8 @@ nnoremap k gk
 " quickly move to beginning/end of line
 nnoremap H 0
 nnoremap L $
+
+" Insert Mode settings
 
 " Use jk to exit insert mode
 set timeout timeoutlen=400 ttimeoutlen=100
@@ -95,6 +100,7 @@ set lsp=0                     " space it out a little more (easier to read)
 set cmdheight=1               " the command bar is 2 high.
 set autoindent
 set smartindent
+
 set expandtab                 " <TAB> will insert 'softtabstop' spaces
 set tabstop=2
 set shiftwidth=2
