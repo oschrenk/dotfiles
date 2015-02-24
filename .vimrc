@@ -14,8 +14,9 @@ Plug 'Townk/vim-autoclose'
 let g:AutoClosePairs_add = "<> | \' \""
 
 " Navigation
-Plug 'Shougo/unite.vim'               " unified source to display search results
-Plug 'christoomey/vim-tmux-navigator' " Navigate over tmux panes and vim splits
+Plug 'Shougo/unite.vim'                      " unified source to display search results
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }  " Interactive command execution
+Plug 'christoomey/vim-tmux-navigator'        " Navigate over tmux panes and vim splits
 
 " Git
 Plug 'tpope/vim-fugitive'             " git client for vim
@@ -154,7 +155,41 @@ endif
 
 " Unite
 " ---------------------------
-nnoremap <C-p> :Unite file_rec/async<cr>
+" space as prefix for unite
+nmap <space> [unite]
+nnoremap [unite] <nop>
+let g:unite_data_directory = '~/.unite'
+
+call unite#filters#matcher_default#use(['matcher_fuzzy'])
+call unite#filters#sorter_default#use(['sorter_rank'])
+
+" File searching using <space>f
+" -no-split to open as model dialog
+nnoremap <silent> [unite]f :<C-u>Unite -no-split -buffer-name=files -profile-name=buffer -auto-preview file_rec/async:!<cr>
+
+" Grepping using <space>/
+nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
+
+" Yank history using <space>y
+let g:unite_source_history_yank_enable = 1
+nnoremap <silent> [unite]y :<C-u>Unite -no-split -buffer-name=yank history/yank:<cr>
+
+" ag > ack > grep
+if executable('ag')
+  let g:unite_source_grep_command='ag'
+  let g:unite_source_grep_default_opts =
+        \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
+        \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' ' .
+        \ '--ignore ''**/*.pyc''' .
+        \ '--ignore ''**/*.iso'''
+  let g:unite_source_grep_recursive_opt = ''
+  let g:unite_source_grep_recursive_opt=''
+  let g:unite_source_rec_async_command= 'ag --nocolor --nogroup -g ""'
+elseif executable('ack')
+  let g:unite_source_grep_command='ack'
+  let g:unite_source_grep_default_opts='--no-heading --no-color -C4'
+  let g:unite_source_grep_recursive_opt=''
+endif
 
 " Airline
 let g:airline_powerline_fonts = 1
