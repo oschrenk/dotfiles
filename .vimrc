@@ -14,7 +14,6 @@ Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/paredit.vim'
 Plug 'Townk/vim-autoclose'
-let g:AutoClosePairs_add = "<> | \' \""
 
 " Navigation
 Plug 'Shougo/unite.vim'                      " unified source to display search results
@@ -155,6 +154,9 @@ endif
 " ============================
 " Plugin configuration
 " ============================
+
+" Townk/vim-autoclose
+let g:AutoClosePairs_add = "<> | \' \""
 
 " vim-hardtime
 let g:hardtime_default_on = 1
