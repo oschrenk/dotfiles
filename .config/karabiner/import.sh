@@ -2,11 +2,11 @@
 
 cli=/Applications/Karabiner.app/Contents/Library/bin/karabiner
 
-$cli set remap.hjkl_arrow 1
+$cli set remap.fkeys_to_consumer_f7 1
 /bin/echo -n .
 $cli set remap.org.openhort.german_umlaute_on_en_US 1
 /bin/echo -n .
-$cli set remap.fkeys_to_consumer_f7 1
+$cli set repeat.initial_wait 250
 /bin/echo -n .
 $cli set repeat.wait 25
 /bin/echo -n .
@@ -40,6 +40,8 @@ $cli set parameter.keyoverlaidmodifier_timeout 500
 /bin/echo -n .
 $cli set user.hitlist.cmdw 1
 /bin/echo -n .
-$cli set repeat.initial_wait 250
+$cli set remap.altbrackets 1
+/bin/echo -n .
+$cli set remap.hjkl_arrow 1
 /bin/echo -n .
 /bin/echo

@@ -114,4 +114,16 @@
     </item>
   </item>
 
+  <item>
+    <name>Change Alt Keys</name>
+    <item>
+      <name>Alt to Alt</name>
+      <appendix>(+ When you type Alt only, send the appropriate bracket []</appendix>
+      <identifier>remap.altbrackets</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_L, ModifierFlag::OPTION_L | ModifierFlag::NONE, KeyCode::OPTION_L, KeyCode::BRACKET_LEFT</autogen>
+      <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_R, ModifierFlag::OPTION_R | ModifierFlag::NONE, KeyCode::OPTION_R, KeyCode::BRACKET_RIGHT</autogen>
+    </item>
+  </item>
+
 </root>
+
