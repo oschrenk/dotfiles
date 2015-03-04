@@ -31,7 +31,7 @@ Plug 'guns/vim-clojure-static'        " clojure
 Plug 'vim-ruby/vim-ruby'              " ruby
 Plug 'dag/vim2hs'                     " haskell
 Plug 'jtratner/vim-flavored-markdown' " markdown
-
+Plug 'itspriddle/vim-marked'          " open markdown in Marked.app
 " Search
 Plug 'rking/ag.vim'
 Plug 'scrooloose/syntastic'
