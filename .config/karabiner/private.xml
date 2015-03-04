@@ -125,5 +125,16 @@
     </item>
   </item>
 
+  <item>
+    <name>Change Command Keys</name>
+    <item>
+      <name>Command to Command</name>
+      <appendix>(+ When you type Command only, send the appropriate curly {}</appendix>
+      <identifier>remap.cmdcurlies</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_L, ModifierFlag::COMMAND_L | ModifierFlag::NONE, KeyCode::COMMAND_L, KeyCode::BRACKET_LEFT, ModifierFlag::SHIFT_L</autogen>
+      <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_R, ModifierFlag::COMMAND_R | ModifierFlag::NONE, KeyCode::COMMAND_R, KeyCode::BRACKET_RIGHT, ModifierFlag::SHIFT_L</autogen>
+    </item>
+  </item>
+
 </root>
 
