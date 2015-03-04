@@ -17,6 +17,7 @@
 
   <item>
     <name>Use the correct shift keys.</name>
+    <appendix>Enforce good typing behaviour by only allowing use of correct shift key to modify</appendix>
     <identifier>private.correct_shift_keys</identifier>
 
     <autogen>--KeyToKey-- KeyCode::Q, ModifierFlag::SHIFT_L, KeyCode::VK_NONE</autogen>
