@@ -30,7 +30,7 @@ Plug 'derekwyatt/vim-scala'           " scala
 Plug 'guns/vim-clojure-static'        " clojure
 Plug 'vim-ruby/vim-ruby'              " ruby
 Plug 'dag/vim2hs'                     " haskell
-Plug 'jtratner/vim-flavored-markdown' " markdown
+Plug 'tpope/vim-markdown'             " markdown
 Plug 'itspriddle/vim-marked'          " open markdown in Marked.app
 
 " Search
@@ -210,10 +210,9 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " Markdown
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
+let g:markdown_fenced_languages = ['clojure', 'javascript', 'scala', 'vim']
 
 " configure Marked.app
 let g:marked_app = "Marked"
+
