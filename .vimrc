@@ -189,6 +189,7 @@ if executable('ag')
         \ '--ignore ''.git'' ' .
         \ '--ignore ''.bzr'' ' .
         \ '--ignore ''**/*.pyc''  ' .
+        \ '--ignore ''**/*.js.map'' ' .
         \ '--ignore ''**/*.iso'''
   let g:unite_source_grep_recursive_opt = ''
   let g:unite_source_grep_recursive_opt=''
