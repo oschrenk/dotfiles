@@ -186,9 +186,12 @@ nnoremap <silent> [unite]y :<C-u>Unite -no-split -buffer-name=yank history/yank:
 if executable('ag')
   let g:unite_source_grep_command='ag'
   let g:unite_source_grep_default_opts =
-        \ '--line-numbers --nocolor --nogroup --hidden --ignore ' .
-        \ '''.hg'' --ignore ''.svn'' --ignore ''.git'' --ignore ''.bzr'' ' .
-        \ '--ignore ''**/*.pyc''' .
+        \ '--line-numbers --nocolor --nogroup --hidden ' .
+        \ '--ignore ''.hg'' ' .
+        \ '--ignore ''.svn'' ' .
+        \ '--ignore ''.git'' ' .
+        \ '--ignore ''.bzr'' ' .
+        \ '--ignore ''**/*.pyc''  ' .
         \ '--ignore ''**/*.iso'''
   let g:unite_source_grep_recursive_opt = ''
   let g:unite_source_grep_recursive_opt=''
