@@ -173,7 +173,7 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 nnoremap <silent> [unite]f :<C-u>Unite -no-split -buffer-name=files -profile-name=buffer file_rec/async:!<cr>
 
 " Grepping using <space>/
-nnoremap <silent> [unite]/ :<C-u>Unite -no-quit -buffer-name=search grep:.<cr>
+nnoremap <silent> [unite]/ :<C-u>Unite -buffer-name=search grep:.<cr>
 
 " Yank history using <space>y
 let g:unite_source_history_yank_enable = 1
