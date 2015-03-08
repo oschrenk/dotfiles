@@ -5,7 +5,7 @@ set termencoding=
 call plug#begin('~/.vim/plugged')
 
 " Learning
-Plug 'takac/vim-hardtime'
+" Plug 'takac/vim-hardtime'
 
 " Base Bundles
 Plug 'chrisbra/Recover.vim'
