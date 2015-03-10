@@ -5,7 +5,7 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
     set upperport (sysctl net.inet.ip.portrange.last | cut -d " " -f 2)
     set localport (jot -r 1 $lowerport $upperport)
 
-    set remote_ip_before (curl -s "http://curlmyip.com")
+    set remote_ip_before (curl -s "ifconfig.me/ip")
 
     echo "Listening on localhost:$localport."
     echo "Modifying network settings..."
@@ -21,7 +21,7 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
     echo "Starting SSH session. Will run in background for 1 day."
     ssh -f tunnel -N -D localhost:$localport sleep 1d
 
-    set remote_ip_after (curl -s -S --socks5 127.0.0.1:$localport "http://curlmyip.com/")
+    set remote_ip_after (curl -s -S --socks5 127.0.0.1:$localport "ifconfig.me/ip")
     echo "Your remote ip before connecting through the proxy is $remote_ip_before"
     echo "Your remote ip after  connecting through the proxy is $remote_ip_after"
     echo "The http_proxy for the terminal has NOT been set."
