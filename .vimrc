@@ -155,7 +155,7 @@ endif
 " ============================
 
 " Townk/vim-autoclose
-let g:AutoClosePairs_add = "<> | \' \""
+let g:AutoClosePairs_add = "<> | \'"
 
 " vim-hardtime
 let g:hardtime_default_on = 1
