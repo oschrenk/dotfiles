@@ -5,7 +5,7 @@ set termencoding=
 call plug#begin('~/.vim/plugged')
 
 " Learning
-Plug 'takac/vim-hardtime'
+" Plug 'takac/vim-hardtime'
 
 " Base Bundles
 Plug 'chrisbra/Recover.vim'
@@ -19,6 +19,7 @@ Plug 'Townk/vim-autoclose'
 Plug 'Shougo/unite.vim'                      " unified source to display search results
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }  " Interactive command execution
 Plug 'christoomey/vim-tmux-navigator'        " Navigate over tmux panes and vim splits
+Plug 'justinmk/vim-sneak'                    " jump to any location with two chars
 
 " Git
 Plug 'tpope/vim-fugitive'             " git client for vim
@@ -154,7 +155,7 @@ endif
 " ============================
 
 " Townk/vim-autoclose
-let g:AutoClosePairs_add = "<> | \' \""
+let g:AutoClosePairs_add = "<> | \'"
 
 " vim-hardtime
 let g:hardtime_default_on = 1
