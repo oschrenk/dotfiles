@@ -1,0 +1,8 @@
+[repositories]
+  local
+  activator-launcher-local: file://${activator.local.repository-${activator.home-/doesnotexist}/repository}, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+  activator-local: file://${activator.local.repository-/usr/local/Cellar/typesafe-activator/1.3.2/libexec/repository}, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+  maven-central
+  typesafe-releases: http://repo.typesafe.com/typesafe/releases
+  typesafe-ivy-releasez: http://repo.typesafe.com/typesafe/ivy-releases, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
+
