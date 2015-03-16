@@ -50,11 +50,18 @@ set background=dark
 colorscheme gruvbox
 
 " ============================
-" Keyboard
+" Keyboard mappings
 " ============================
 
-" Normal Mode Mappings
-" ----------------------------
+" Disable arrow keys
+map <up> <nop>
+map <down> <nop>
+map <left> <nop>
+map <right> <nop>
+imap <up> <nop>
+imap <down> <nop>
+imap <left> <nop>
+imap <right> <nop>
 
 " move cursors naturally
 nnoremap j gj
@@ -75,19 +82,6 @@ nnoremap U :redo<cr>
 
 " N: Find next occurrence backward
 nnoremap N Nzzzv
-
-" Insert Mode settings
-" ----------------------------
-
-" Disable arrow keys
-map <up> <nop>
-map <down> <nop>
-map <left> <nop>
-map <right> <nop>
-imap <up> <nop>
-imap <down> <nop>
-imap <left> <nop>
-imap <right> <nop>
 
 " ============================
 " Config
@@ -149,9 +143,8 @@ endif
 " Plugin configuration
 " ============================
 
-" vim-clojure-conceal
-let g:clojure_conceal_extras=1   " fn, defn-, letfn, and #() to unicode symbols
-
+" ---------------------------
+" Unite
 " ---------------------------
 " space as prefix for unite
 nmap <space> [unite]
@@ -191,6 +184,13 @@ elseif executable('ack')
   let g:unite_source_grep_default_opts='--no-heading --no-color -C4'
   let g:unite_source_grep_recursive_opt=''
 endif
+
+" ---------------------------
+" Other
+" ---------------------------
+"
+" vim-clojure-conceal
+let g:clojure_conceal_extras=1   " fn, defn-, letfn, and #() to unicode symbols
 
 " Airline
 let g:airline_powerline_fonts = 1
