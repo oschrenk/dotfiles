@@ -6,6 +6,7 @@ call plug#begin('~/.vim/plugged')
 
 " Base
 Plug 'chrisbra/Recover.vim'
+Plug 'tpope/vim-repeat'                      " enable repeating for some plugins eg vim-gitgutter
 
 " Navigation
 Plug 'Shougo/unite.vim'                      " unified source to display search results
