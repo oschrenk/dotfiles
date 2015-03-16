@@ -26,6 +26,7 @@ Plug 'airblade/vim-gitgutter'         " mark modified, changed, deleted lines
 Plug 'dag/vim-fish'                   " fish shell
 Plug 'derekwyatt/vim-scala'           " scala
 Plug 'guns/vim-clojure-static'        " clojure
+Plug 'fwolanski/vim-clojure-conceal'  " clojure after syntax
 Plug 'vim-ruby/vim-ruby'              " ruby
 Plug 'dag/vim2hs'                     " haskell
 Plug 'tpope/vim-markdown'             " markdown
@@ -154,6 +155,8 @@ endif
 " Townk/vim-autoclose
 let g:AutoClosePairs_add = "<> | \'"
 
+" vim-clojure-conceal
+let g:clojure_conceal_extras=1   " fn, defn-, letfn, and #() to unicode symbols
 
 " ---------------------------
 " space as prefix for unite
