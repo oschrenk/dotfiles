@@ -6,7 +6,6 @@ call plug#begin('~/.vim/plugged')
 
 " Base Bundles
 Plug 'chrisbra/Recover.vim'
-Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/paredit.vim'
