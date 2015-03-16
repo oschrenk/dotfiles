@@ -77,11 +77,6 @@ nnoremap N Nzzzv
 " Insert Mode settings
 " ----------------------------
 
-" Use jk to exit insert mode
-set timeout timeoutlen=400 ttimeoutlen=100
-set <f13>=jk
-imap <F13> <esc>
-
 " Disable arrow keys
 map <up> <nop>
 map <down> <nop>
