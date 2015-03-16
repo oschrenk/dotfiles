@@ -4,9 +4,6 @@ set termencoding=
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
-" Learning
-" Plug 'takac/vim-hardtime'
-
 " Base Bundles
 Plug 'chrisbra/Recover.vim'
 Plug 'kien/ctrlp.vim'
@@ -157,8 +154,6 @@ endif
 " Townk/vim-autoclose
 let g:AutoClosePairs_add = "<> | \'"
 
-" vim-hardtime
-let g:hardtime_default_on = 1
 
 " ---------------------------
 " space as prefix for unite
