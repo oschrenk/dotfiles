@@ -4,11 +4,8 @@ set termencoding=
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
-" Base Bundles
+" Base
 Plug 'chrisbra/Recover.vim'
-Plug 'tpope/vim-surround'
-Plug 'ervandew/supertab'
-Plug 'vim-scripts/paredit.vim'
 
 " Navigation
 Plug 'Shougo/unite.vim'                      " unified source to display search results
@@ -18,11 +15,17 @@ Plug 'christoomey/vim-tmux-navigator'        " Navigate over tmux panes and vim 
 " Motion
 Plug 'justinmk/vim-sneak'                    " jump to any location with two chars
 
+" Control & Completion
+Plug 'tpope/vim-surround'
+Plug 'ervandew/supertab'
+Plug 'vim-scripts/paredit.vim'
+Plug 'scrooloose/syntastic'
+
 " Git
 Plug 'tpope/vim-fugitive'             " git client for vim
 Plug 'airblade/vim-gitgutter'         " mark modified, changed, deleted lines
 
-" file types
+" File types
 Plug 'dag/vim-fish'                   " fish shell
 Plug 'derekwyatt/vim-scala'           " scala
 Plug 'guns/vim-clojure-static'        " clojure
@@ -34,7 +37,6 @@ Plug 'itspriddle/vim-marked'          " open markdown in Marked.app
 
 " Search
 Plug 'rking/ag.vim'
-Plug 'scrooloose/syntastic'
 
 " Look and feel
 Plug 'bling/vim-airline'             " powerline statusline
