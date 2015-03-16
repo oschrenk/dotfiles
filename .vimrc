@@ -186,18 +186,34 @@ nnoremap <silent> [unite]y :<C-u>Unite -no-split -buffer-name=yank history/yank:
 
 " ag > ack > grep
 if executable('ag')
-  let g:unite_source_grep_command='ag'
-  let g:unite_source_grep_default_opts =
-        \ '--line-numbers --nocolor --nogroup --hidden ' .
-        \ '--ignore ''.hg'' ' .
-        \ '--ignore ''.svn'' ' .
-        \ '--ignore ''.git'' ' .
-        \ '--ignore ''.bzr'' ' .
-        \ '--ignore ''**/*.pyc''  ' .
-        \ '--ignore ''**/*.js.map'' ' .
-        \ '--ignore ''**/*.iso'''
-  let g:unite_source_grep_recursive_opt=''
-  let g:unite_source_rec_async_command= 'ag --nocolor --nogroup -g ""'
+
+" The silver searcher. Ignore .gitignore and search everything.
+" Smart case, ignore vcs ignore files, and search hidden.
+let s:ag_opts = '--smart-case --skip-vcs-ignores --hidden --depth 15 --nocolor --nogroup '.
+		\ '--ignore ".git" '.
+    \ '--ignore ''.hg'' ' .
+    \ '--ignore ''.svn'' ' .
+    \ '--ignore ''.bzr'' ' .
+		\ '--ignore ".idea" '.
+		\ '--ignore ".bundle" '.
+		\ '--ignore "bin" '.
+		\ '--ignore "externs" '.
+		\ '--ignore "log" '.
+		\ '--ignore "target" '.
+		\ '--ignore "tmp" '.
+		\ '--ignore "vendor" '.
+		\ '--ignore "*.gif" '.
+		\ '--ignore "*.ico" '.
+		\ '--ignore "*.jpg" '.
+		\ '--ignore "*.log" '.
+		\ '--ignore "*.png" '.
+		\ '--ignore "*.ttf"'
+
+  let g:unite_source_rec_async_command = 'ag --follow '.s:ag_opts.' -g ""'
+  let g:unite_source_grep_command = 'ag'
+	let g:unite_source_grep_default_opts = '--ignore-case --line-numbers '.s:ag_opts
+	let g:unite_source_grep_recursive_opt = ''
+
 elseif executable('ack')
   let g:unite_source_grep_command='ack'
   let g:unite_source_grep_default_opts='--no-heading --no-color -C4'
