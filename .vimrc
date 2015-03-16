@@ -14,6 +14,8 @@ Plug 'vim-scripts/paredit.vim'
 Plug 'Shougo/unite.vim'                      " unified source to display search results
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }  " Interactive command execution
 Plug 'christoomey/vim-tmux-navigator'        " Navigate over tmux panes and vim splits
+
+" Motion
 Plug 'justinmk/vim-sneak'                    " jump to any location with two chars
 
 " Git
