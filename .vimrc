@@ -10,7 +10,6 @@ Plug 'kien/ctrlp.vim'
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/paredit.vim'
-Plug 'Townk/vim-autoclose'
 
 " Navigation
 Plug 'Shougo/unite.vim'                      " unified source to display search results
@@ -146,9 +145,6 @@ endif
 " ============================
 " Plugin configuration
 " ============================
-
-" Townk/vim-autoclose
-let g:AutoClosePairs_add = "<> | \'"
 
 " vim-clojure-conceal
 let g:clojure_conceal_extras=1   " fn, defn-, letfn, and #() to unicode symbols
