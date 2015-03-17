@@ -15,8 +15,8 @@ alias c    clear
 alias g    git
 alias v    vim
 
-alias tlp  tmuxp load personal
-alias tlw  tmuxp load work
+alias tlp  'tmuxp load personal'
+alias tlw  'tmuxp load work'
 
 alias shiftr "sed -Ee 's/^/    /'"
 alias shiftl "sed -Ee 's/^([ ]{4}|[\t])//'"
