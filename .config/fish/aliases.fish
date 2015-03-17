@@ -10,11 +10,11 @@ alias d    'cd $HOME/Downloads'
 alias p    'cd $HOME/Projects'
 alias n    'cd $HOME/Documents/Notes'
 
-alias g    git
+alias a    'ag --smart-case'
 alias c    clear
+alias g    git
 alias v    vim
 
-alias a    'ag --smart-case'
 
 alias shiftr "sed -Ee 's/^/    /'"
 alias shiftl "sed -Ee 's/^([ ]{4}|[\t])//'"
