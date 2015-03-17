@@ -3,7 +3,7 @@
   "windows": [
     {
       "window_name": "devops",
-      "layout": "even-vertical",
+      "layout": "even-horizontal",
       "options": { "automatic-rename": "off" },
       "panes": [
         {
@@ -15,7 +15,7 @@
     },
     {
       "window_name": "downloads",
-      "layout": "even-vertical",
+      "layout": "even-horizontal",
       "start_directory": "$HOME/Downloads",
       "options": { "automatic-rename": "off" },
       "panes": [
