@@ -13,6 +13,9 @@ Plug 'Shougo/unite.vim'                      " unified source to display search 
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }  " Interactive command execution
 Plug 'christoomey/vim-tmux-navigator'        " Navigate over tmux panes and vim splits
 
+" Comments
+Plug 'tpope/vim-commentary'                  " Comment stuff.Use gcc on line,gc on visual block
+
 " Motion
 Plug 'justinmk/vim-sneak'                    " jump to any location with two chars
 
