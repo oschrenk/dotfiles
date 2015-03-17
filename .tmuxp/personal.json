@@ -1,0 +1,30 @@
+{
+  "session_name": "personal",
+  "windows": [
+    {
+      "window_name": "devops",
+      "layout": "main-vertical",
+      "options": { "automatic-rename": "off" },
+      "panes": [
+        {
+          "start_directory": "$HOME/.deja/dotfiles",
+          "focus": "true"
+        },
+        { "start_directory":  "$HOME/Projects/devops/machines" }
+      ]
+    },
+    {
+      "window_name": "downloads",
+      "layout": "main-vertical",
+      "start_directory": "$HOME/Downloads",
+      "options": { "automatic-rename": "off" },
+      "panes": [
+        { "start_directory":  "$HOME/Downloas" },
+        {
+          "shell_command": null,
+          "focus": "true"
+        }
+      ]
+    }
+  ]
+}
