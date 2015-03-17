@@ -176,7 +176,7 @@ call unite#filters#sorter_default#use(['sorter_rank'])
 
 " File searching using <space>f
 " -no-split to open as model dialog
-nnoremap <silent> [unite]f :<C-u>Unite -no-split -buffer-name=files -profile-name=buffer file_rec/async:!<cr>
+nnoremap <silent> [unite]f :<C-u>Unite -no-split -start-insert -buffer-name=files -profile-name=buffer file_rec/async:!<cr>
 
 " Grepping using <space>/
 nnoremap <silent> [unite]/ :<C-u>Unite -buffer-name=search grep:.<cr>
