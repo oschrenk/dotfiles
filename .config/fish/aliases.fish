@@ -11,6 +11,7 @@ alias p    'cd $HOME/Projects'
 alias n    'cd $HOME/Documents/Notes'
 
 alias a    'ag --smart-case'
+alias be   'bundle exec'
 alias c    clear
 alias g    git
 alias v    vim
