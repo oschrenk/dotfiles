@@ -203,6 +203,7 @@ let s:ag_opts = '--smart-case --skip-vcs-ignores --hidden --depth 15 --nocolor -
 		\ '--ignore "bin" '.
 		\ '--ignore "externs" '.
 		\ '--ignore "javascripts" '.
+		\ '--ignore "hicv" '.
 		\ '--ignore "log" '.
 		\ '--ignore "target" '.
 		\ '--ignore "tmp" '.
