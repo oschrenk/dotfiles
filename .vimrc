@@ -144,6 +144,9 @@ if has("autocmd")
   autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
+" when commiting  add new line and enter insert mode
+au FileType gitcommit execute "normal! O" | startinsert
+
 " ============================
 " Plugin configuration
 " ============================
