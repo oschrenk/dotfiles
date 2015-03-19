@@ -16,6 +16,7 @@
 #     set -g theme_display_hg yes
 #     set -g theme_display_virtualenv no
 #     set -g theme_display_ruby no
+#     set -g theme_display_vi no
 #     set -g theme_display_user yes
 #     set -g default_user your_normal_user
 
@@ -46,11 +47,14 @@ set __bobthefish_pypy_glyph              \u1D56
 set __bobthefish_lt_green   addc10
 set __bobthefish_med_green  189303
 set __bobthefish_dk_green   0c4801
+set __bobthefish_hl_green   98bcbe
 
 set __bobthefish_lt_red     C99
 set __bobthefish_med_red    ce000f
 set __bobthefish_dk_red     600
 set __bobthefish_ruby_red   af0000
+
+set __bobthefish_med_orange  ff9a00
 
 set __bobthefish_slate_blue 255e87
 set __bobthefish_med_blue   005faf
@@ -59,7 +63,7 @@ set __bobthefish_lt_orange  f6b117
 set __bobthefish_dk_orange  3a2a03
 
 set __bobthefish_dk_grey    333
-set __bobthefish_med_grey   999
+set __bobthefish_med_grey   a5a5a5
 set __bobthefish_lt_grey    ccc
 
 set __bobthefish_dk_brown   4d2600
@@ -363,6 +367,22 @@ function __bobthefish_prompt_rubies -d 'Display current Ruby (rvm/rbenv)'
   set_color normal
 end
 
+function __bobthefish_prompt_vi -d 'Display vi mode'
+  [ "$theme_display_vi" = 'no' ]; and return
+  set -l vi_mode
+  switch $fish_bind_mode
+  case default
+    __bobthefish_start_segment $__bobthefish_med_grey $__bobthefish_dk_grey --bold
+    echo -n -s 'N'
+  case insert
+    __bobthefish_start_segment $__bobthefish_hl_green $__bobthefish_dk_grey --bold
+    echo -n -s 'I'
+  case visual
+    __bobthefish_start_segment $__bobthefish_med_orange $__bobthefish_dk_grey --bold
+    echo -n -s 'V'
+  end
+  set_color normal
+end
 
 # ===========================
 # Apply theme
@@ -383,6 +403,7 @@ function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
   else
     __bobthefish_prompt_dir
   end
+  __bobthefish_prompt_vi
   __bobthefish_finish_segments
 end
 
