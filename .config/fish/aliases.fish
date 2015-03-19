@@ -16,10 +16,8 @@ alias c    clear
 alias g    git
 alias v    vim
 
-alias tlp  'tmuxp load personal.json'
-alias tlw  'tmuxp load work.json'
-alias tkp  'tmuxp kill-session personal'
-alias tkw  'tmuxp kill-session work'
+alias tk   'tmux kill-session -t'
+alias tl   'tmuxp load'
 
 alias shiftr "sed -Ee 's/^/    /'"
 alias shiftl "sed -Ee 's/^([ ]{4}|[\t])//'"
