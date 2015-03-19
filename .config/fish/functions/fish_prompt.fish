@@ -351,9 +351,7 @@ end
 function __bobthefish_prompt_rubies -d 'Display current Ruby (rvm/rbenv)'
   [ "$theme_display_ruby" = 'no' ]; and return
   set -l ruby_version
-  if type rvm-prompt >/dev/null
-    set ruby_version (rvm-prompt i v g)
-  else if type rbenv >/dev/null
+  if type rbenv >/dev/null
     set ruby_version (rbenv version-name)
     # Don't show global ruby version...
     [ "$ruby_version" = (rbenv global) ]; and return
