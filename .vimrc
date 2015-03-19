@@ -38,6 +38,7 @@ Plug 'vim-ruby/vim-ruby'              " ruby
 Plug 'dag/vim2hs'                     " haskell
 Plug 'tpope/vim-markdown',            { 'for': 'markdown' }
 Plug 'itspriddle/vim-marked',         { 'for': 'markdown' } " open markdown in Marked.app
+Plug 'timcharper/textile.vim',        { 'for': 'textile' }
 
 " Search
 Plug 'rking/ag.vim'
