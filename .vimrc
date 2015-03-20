@@ -12,6 +12,7 @@ Plug 'tpope/vim-repeat'                      " enable repeating for some plugins
 Plug 'Shougo/unite.vim'                      " unified source to display search results
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }  " Interactive command execution
 Plug 'christoomey/vim-tmux-navigator'        " Navigate over tmux panes and vim splits
+Plug 'tpope/vim-vinegar'                     " netrw enhancements
 
 " Comments
 Plug 'tpope/vim-commentary'                  " Comment stuff.Use gcc on line,gc on visual block
