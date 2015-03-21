@@ -254,4 +254,3 @@ let g:markdown_fenced_languages = ['clojure', 'javascript', 'scala', 'vim']
 " configure Marked.app
 let g:marked_app = "Marked"
 
-
