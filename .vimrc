@@ -107,12 +107,12 @@ set guitabtooltip=%F          " Tab headings
 
 set lsp=0                     " space it out a little more (easier to read)
 set cmdheight=1               " the command bar is 2 high.
-set autoindent
-set smartindent
+set autoindent                " copy indentation form last line
+set smartindent               " automatically inserts one extra level in some cases
 
 set expandtab                 " <TAB> will insert 'softtabstop' spaces
-set tabstop=2
-set shiftwidth=2
+set tabstop=2                 " width of the <TAB> character
+set shiftwidth=2              " affects >>, <<, ==
 set softtabstop=2
 set backspace=2               " make backspace work like most other app
 
