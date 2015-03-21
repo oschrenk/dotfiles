@@ -24,7 +24,6 @@ Plug 'justinmk/vim-sneak'                    " jump to any location with two cha
 Plug 'tpope/vim-surround'
 Plug 'ervandew/supertab'
 Plug 'vim-scripts/paredit.vim'
-Plug 'scrooloose/syntastic'
 
 " Git
 Plug 'tpope/vim-fugitive'             " git client for vim
