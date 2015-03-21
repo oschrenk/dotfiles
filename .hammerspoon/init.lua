@@ -1,10 +1,13 @@
 require "pomodoro"
 
+local wifiWatcher = nil
+local workSSIDToken = "elmar"
+local lastSSID = hs.wifi.currentNetwork()
+
 -- disable animation
 hs.window.animationDuration = 0
 
 -- hotkey hyper
-
 local hyper = {"ctrl", "alt", "shift", "cmd"}
 
 -- Send Window Left
@@ -101,6 +104,22 @@ hs.hotkey.bind(hyper, "o", function()
   win:moveToScreen(nextScreen)
 end)
 
+function atWork(ssid)
+    return ssid ~= nil and string.find(string.lower(ssid), workSSIDToken)
+end
+
+function ssidChangedCallback()
+    newSSID = hs.wifi.currentNetwork()
+    if (atWork(newSSID) and (not atWork(lastSSID))) then
+      hs.alert.show("Arrived at work ")
+    end
+
+    lastSSID = newSSID
+end
+
+wifiWatcher = hs.wifi.watcher.new(ssidChangedCallback)
+wifiWatcher:start()
+
 -- Launch applications
 hs.hotkey.bind(hyper, '1', function () hs.application.launchOrFocus("iTerm2") end)
 hs.hotkey.bind(hyper, '2', function () hs.application.launchOrFocus("Google Chrome") end)
@@ -111,7 +130,8 @@ hs.hotkey.bind(hyper, '0', function() pom_disable() end)
 
 -- RELOAD
 function reload_config(files)
-    hs.reload()
+  wifiWatcher:stop()
+  hs.reload()
 end
 
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reload_config):start()
