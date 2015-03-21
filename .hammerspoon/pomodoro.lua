@@ -1,3 +1,13 @@
+-- usage examples:
+
+-- init pomodoro -- show menu immediately
+-- pom_create_menu()
+-- pom_update_menu()
+
+-- show menu only on first pom_enable
+--hs.hotkey.bind(mash, '9', function() pom_enable() end)
+--hs.hotkey.bind(mash, '0', function() pom_disable() end)
+
 -- Pomodoro module
 local pom_work_period_sec  = 25 * 60
 local pom_rest_period_sec  = 5 * 60
@@ -29,7 +39,7 @@ function pom_disable()
     pom_time_left     = pom_work_period_sec
     pom_update_display()
   elseif (pom_disable_count >= 2) then
-    if pom_menu == nil then 
+    if pom_menu == nil then
       pom_disable_count = 2
       return
     end
@@ -40,7 +50,7 @@ function pom_disable()
   end
 
   pom_disable_count = pom_disable_count + 1
- 
+
 end
 
 -- update pomodoro timer
@@ -52,15 +62,15 @@ local function pom_update_time()
 
     if (pom_time_left <= 0 ) then
       pom_disable()
-      if pom_curr_active_type == "work" then 
+      if pom_curr_active_type == "work" then
         hs.alert.show("Work Complete!", 2)
-        pom_work_count        =  pom_work_count + 1 
+        pom_work_count        =  pom_work_count + 1
         pom_curr_active_type  = "rest"
         pom_time_left         = pom_rest_period_sec
-      else 
+      else
           hs.alert.show("Done resting",2)
           pom_curr_active_type  = "work"
-          pom_time_left         = pom_work_period_sec   
+          pom_time_left         = pom_work_period_sec
       end
     end
   end
@@ -91,12 +101,3 @@ function pom_enable()
   pom_timer:start()
 end
 
--- Usage examples:
-
--- init pomodoro -- show menu immediately
--- pom_create_menu()
--- pom_update_menu()
-
--- show menu only on first pom_enable
---hs.hotkey.bind(mash, '9', function() pom_enable() end)
---hs.hotkey.bind(mash, '0', function() pom_disable() end)

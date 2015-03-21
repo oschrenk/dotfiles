@@ -1,69 +1,105 @@
-require "pomodoor"
+require "pomodoro"
 
 -- disable animation
 hs.window.animationDuration = 0
 
------ HELPER FUNCTIONS -----
-local half = function(n) return n / 2 end
-local zero = function(n) return 0     end
-local full = function(n) return n     end
-local centerX = function(s, f) return s.w/2 - f.w / 2 + s.x end
-local centerY = function(s, f) return s.h/2 - f.h/2 + s.y end
-
-local currentWindow = function()
-  return hs.window.focusedWindow()
-end
-
-local newFrame = function(containerSizes, transformations)
-  return { x = transformations.x(containerSizes.width),
-           w = transformations.w(containerSizes.width),
-           y = transformations.y(containerSizes.height),
-           h = transformations.h(containerSizes.height),
-         }
-end
-
-local windowTopLeft    = function(containerSizes) return newFrame(containerSizes, {x=zero, y=zero, w=half, h=half}) end
-local windowTopRight   = function(containerSizes) return newFrame(containerSizes, {x=half, y=zero, w=half, h=half}) end
-local windowBotLeft    = function(containerSizes) return newFrame(containerSizes, {x=zero, y=half, w=half, h=half}) end
-local windowBotRight   = function(containerSizes) return newFrame(containerSizes, {x=half, y=half, w=half, h=half}) end
-local windowFullScreen = function(containerSizes) return newFrame(containerSizes, {x=zero, y=zero, w=full, h=full}) end
-local windowLeft       = function(containerSizes) return newFrame(containerSizes, {x=zero, y=zero, w=half, h=full}) end
-local windowRight      = function(containerSizes) return newFrame(containerSizes, {x=half, y=zero, w=half, h=full}) end
-local windowTop        = function(containerSizes) return newFrame(containerSizes, {x=zero, y=zero, w=full, h=half}) end
-local windowBot        = function(containerSizes) return newFrame(containerSizes, {x=zero, y=half, w=full, h=half}) end
-
-local updateWindow = function(getWindow, frameFor)
-  return function()
-    local window      = getWindow()
-    local screenFrame = window:screen():frame()
-    local sizes       = {width=(screenFrame.x + screenFrame.w), height=(screenFrame.y + screenFrame.h)}
-    local newFrame    = frameFor(sizes)
-    window:setFrame(newFrame)
-  end
-end
-
 -- hotkey hyper
-local mash       = {"ctrl", "alt", "shift", "cmd"}
 
---------------------------------------------------------------------------------
+local hyper = {"ctrl", "alt", "shift", "cmd"}
 
--- window hints
-hs.hints.style = "vimperator"
-hs.hotkey.bind(mash, '.', hs.hints.windowHints)
+-- Send Window Left
+hs.hotkey.bind(hyper, "h", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.x
+  f.y = max.y
+  f.w = max.w / 2
+  f.h = max.h
+  win:setFrame(f)
+end)
+
+-- Send Window Right
+hs.hotkey.bind(hyper, "l", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.x + (max.w / 2)
+  f.y = max.y
+  f.w = max.w / 2
+  f.h = max.h
+  win:setFrame(f)
+end)
+
+-- Send Window Up
+hs.hotkey.bind(hyper, "k", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.x
+  f.y = 0
+  f.w = max.w
+  f.h = max.h / 2
+  win:setFrame(f)
+end)
+
+-- Send Window Down
+hs.hotkey.bind(hyper, "j", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = max.x
+  f.y = max.y + (max.h / 2)
+  f.w = max.w
+  f.h = max.h / 2
+  win:setFrame(f)
+end)
+
+-- Make Window Full Screen
+hs.hotkey.bind(hyper, "i", function()
+  local win = hs.window.focusedWindow()
+  local f = win:frame()
+  local screen = win:screen()
+  local max = screen:frame()
+
+  f.x = 0
+  f.y = 0
+  f.w = max.w
+  f.h = max.h
+  win:setFrame(f)
+end)
+
+-- Send Window Prev Monitor
+hs.hotkey.bind(hyper, "y", function()
+  hs.alert.show("Prev Monitor")
+  local win = hs.window.focusedWindow()
+  local previousScreen = win:screen():previous()
+  win:moveToScreen(previousScreen)
+end)
+
+-- Send Window Next Monitor
+hs.hotkey.bind(hyper, "o", function()
+  hs.alert.show("Next Monitor")
+  local win = hs.window.focusedWindow()
+  local nextScreen = win:screen():next()
+  win:moveToScreen(nextScreen)
+end)
 
 -- Launch applications
-hs.hotkey.bind(mash, '1', function () hs.application.launchOrFocus("iTerm2") end)
-hs.hotkey.bind(mash, '2', function () hs.application.launchOrFocus("Google Chrome") end)
-
--- move windows
-hs.hotkey.bind(mash, "h", updateWindow(currentWindow, windowLeft))
-hs.hotkey.bind(mash, "l", updateWindow(currentWindow, windowRight))
-hs.hotkey.bind(mash, "k", updateWindow(currentWindow, windowTop))
-hs.hotkey.bind(mash, "j", updateWindow(currentWindow, windowBot))
+hs.hotkey.bind(hyper, '1', function () hs.application.launchOrFocus("iTerm2") end)
+hs.hotkey.bind(hyper, '2', function () hs.application.launchOrFocus("Google Chrome") end)
 
 -- pomodoro key binding
-hs.hotkey.bind(mash, '9', function() pom_enable() end)
-hs.hotkey.bind(mash, '0', function() pom_disable() end)
+hs.hotkey.bind(hyper, '9', function() pom_enable() end)
+hs.hotkey.bind(hyper, '0', function() pom_disable() end)
 
 -- RELOAD
 function reload_config(files)
