@@ -81,7 +81,7 @@ hs.hotkey.bind(hyper, "i", function()
 end)
 
 -- Full screen
-hs.hotkey.bind(hyper, "f", function()
+hs.hotkey.bind(hyper, "u", function()
   local win = hs.window.focusedWindow()
   if win ~= nil then
     win:setFullScreen(not win:isFullScreen())
