@@ -116,6 +116,14 @@ set shiftwidth=2              " affects >>, <<, ==
 set softtabstop=2
 set backspace=2               " make backspace work like most other app
 
+if !&scrolloff
+  set scrolloff=1             " ensure number of visible lines above/below cursor
+endif
+if !&sidescrolloff
+  set sidescrolloff=5         " ensure number of visible columns left/right to cursor
+endif
+set display+=lastline         " show as much as possible from last line
+
 set showmode                  " show current-mode
 set showcmd                   " show partially-typed commands
 set wildmenu                  " visual autocomplete for command menu
