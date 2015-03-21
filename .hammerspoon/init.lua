@@ -63,7 +63,7 @@ hs.hotkey.bind(hyper, "j", function()
   win:setFrame(f)
 end)
 
--- Make Window Full Screen
+-- Maximize window
 hs.hotkey.bind(hyper, "i", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
@@ -75,6 +75,14 @@ hs.hotkey.bind(hyper, "i", function()
   f.w = max.w
   f.h = max.h
   win:setFrame(f)
+end)
+
+-- Full screen
+hs.hotkey.bind(hyper, "f", function()
+  local win = hs.window.focusedWindow()
+  if win ~= nil then
+    win:setFullScreen(not win:isFullScreen())
+  end
 end)
 
 -- Send Window Prev Monitor
