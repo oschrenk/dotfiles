@@ -52,7 +52,7 @@ function __tilde_link
   end
 end
 
-function tilde --description  "deja in fish"
+function tilde --description  "node-deja implemented in fish"
   set -l tilde_home $HOME/.tilde
   if not test -d $tilde_home
     echo "No $tilde_home directory found. Exiting."
