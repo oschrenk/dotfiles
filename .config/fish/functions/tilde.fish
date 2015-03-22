@@ -14,17 +14,18 @@ function __tilde_ignore_patterns
 end
 
 function __tilde_linkable_files
-  set -l repo $argv[1]
-  set -l ignore_patterns (__tilde_ignore_patterns $repo)
-  set -l search_patterns "\\( -name '*'$ignore_patterns \\)"
+  set -l tilde_repo $argv[1]
+  set -l default_ignore_patterns '! -name ".git" ! -name ".tilde" ! -name ".tildeignore"'
+  set -l dynamic_ignore_patterns (__tilde_ignore_patterns $tilde_repo)
+  set -l search_patterns "-depth 1 \\( -name '*' $default_ignore_patterns $dynamic_ignore_patterns \\)"
 
-  eval find $repo -depth 1 "$search_patterns" | grep -v ".tildeignore"
+  eval find $tilde_repo "$search_patterns"
 end
 
 function __tilde_link
   set -l symlink_dir $HOME
   set -l tilde_home $HOME/.tilde
-  set -l tilde_repo $HOME/.tilde/$argv[1]
+  set -l tilde_repo $tilde_home/$argv[1]
 
   if not test -d $tilde_repo
     echo "No $tilde_repo directory found. Exiting."
