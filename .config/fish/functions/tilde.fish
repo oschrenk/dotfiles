@@ -9,7 +9,7 @@ function __tilde_ignore_patterns
   if test -e $ignore_file
     paste -s -d" " (sed '/^[[:space:]]*$/d' $tilde_ignore_file | awk '{print " ! -name \""$0"\""}' | psub)
   else
-    ""
+    return
   end
 end
 
