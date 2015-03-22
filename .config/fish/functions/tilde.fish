@@ -24,8 +24,8 @@ end
 
 function __tilde_link
   set -l symlink_dir $HOME
-  set -l tilde_home $HOME/.tilde
-  set -l tilde_repo $tilde_home/$argv[1]
+  set -l tilde_home $argv[1]
+  set -l tilde_repo $tilde_home/$argv[2]
 
   if not test -d $tilde_repo
     echo "No $tilde_repo directory found. Exiting."
@@ -47,13 +47,13 @@ function __tilde_link
       echo "Skipped $source_path: Already exists as regular file"
     else
       echo "Symlinking $target_path to $source_path"
-      ln -s $source_path $target_path
+      # ln -s $source_path $target_path
     end
   end
 end
 
 function tilde --description  "node-deja implemented in fish"
-  set -l tilde_home $HOME/.tilde
+  set -l tilde_home $HOME/.deja
 
   if not test -d $tilde_home
     echo "No $tilde_home directory found. Exiting."
