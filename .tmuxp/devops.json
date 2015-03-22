@@ -2,27 +2,26 @@
   "session_name": "devops",
   "windows": [
     {
-      "window_name": "desk",
-      "layout": "even-horizontal",
+      "window_name": "dotfiles",
+      "layout": "main-horizontal",
+      "start_directory": "$HOME/.deja/dotfiles",
       "options": { "automatic-rename": "off" },
-      "start_directory": "$HOME/Documents/notes",
       "panes": [
-        { "start_directory": "$HOME/Documents/notes" },
-        { "start_directory": "$HOME/Documents/logs", "focus": "true" }
+        { "shell_command": "vim .",
+          "focus": "true" },
+        { }
       ]
     },
     {
-      "window_name": "code",
+      "window_name": "machines",
       "layout": "main-horizontal",
       "options": { "automatic-rename": "off" },
-      "start_directory": "$HOME/.deja/dotfiles",
+      "start_directory":  "$HOME/Projects/devops/machines",
       "panes": [
-        { "start_directory": "$HOME/.deja/dotfiles",
-          "shell_command": "vim ." ,
+        {
           "focus": "true"
         },
-        { "start_directory": "$HOME/Projects/devops/machines" },
-        { "start_directory": "$HOME/.ssh" }
+        { }
       ]
     }
   ]

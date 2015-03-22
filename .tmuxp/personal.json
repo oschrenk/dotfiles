@@ -2,28 +2,23 @@
   "session_name": "personal",
   "windows": [
     {
-      "window_name": "devops",
-      "layout": "even-horizontal",
+      "window_name": "notes",
+      "layout": "main-horizontal",
       "options": { "automatic-rename": "off" },
+      "start_directory": "$HOME/Documents/notes",
       "panes": [
-        {
-          "start_directory": "$HOME/.deja/dotfiles",
-          "focus": "true"
-        },
-        { "start_directory":  "$HOME/Projects/devops/machines" }
+        { },
+        { }
       ]
     },
     {
       "window_name": "downloads",
-      "layout": "even-horizontal",
-      "start_directory": "$HOME/Downloads",
+      "layout": "main-horizontal",
       "options": { "automatic-rename": "off" },
+      "start_directory": "$HOME/Downloads",
       "panes": [
-        { "start_directory":  "$HOME/Downloas" },
-        {
-          "shell_command": null,
-          "focus": "true"
-        }
+        { },
+        { }
       ]
     }
   ]
