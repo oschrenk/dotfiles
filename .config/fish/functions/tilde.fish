@@ -3,11 +3,11 @@ function __tilde_help
 end
 
 function __tilde_ignore_patterns
-  set -l repo $argv[1]
-  set -l ignore_file $repo/.tildeignore
+  set -l tilde_repo $argv[1]
+  set -l tilde_ignore_file $tilde_repo/.tildeignore
 
   if test -e $ignore_file
-    paste -s -d" " (sed '/^[[:space:]]*$/d' $repo/.tildeignore | awk '{print " ! -name \""$0"\""}' | psub)
+    paste -s -d" " (sed '/^[[:space:]]*$/d' $tilde_ignore_file | awk '{print " ! -name \""$0"\""}' | psub)
   else
     ""
   end
