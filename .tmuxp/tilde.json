@@ -1,0 +1,30 @@
+{
+  "session_name": "tilde",
+  "windows": [
+    {
+      "window_name": "code",
+      "layout": "main-horizontal",
+      "options": { "automatic-rename": "off" },
+      "start_directory": "$HOME/Projects/personal/tilde",
+      "panes": [
+        { "start_directory": "$HOME/Projects/personal/tilde",
+          "shell_command": "vim -O tilde.fish README.md" ,
+          "focus": "true"
+        },
+        { },
+        { }
+      ]
+    },
+    {
+      "window_name": "desk",
+      "layout": "main-horizontal",
+      "options": { "automatic-rename": "off" },
+      "start_directory": "$HOME/Documents/notes",
+      "panes": [
+        { "start_directory": "$HOME/Documents/notes",
+          "shell_command": "vim fish.md" },
+        { }
+      ]
+    }
+  ]
+}
