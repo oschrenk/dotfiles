@@ -33,6 +33,7 @@ function __tilde_link
   end
 
   echo "Syncing $tilde_repo with $symlink_dir"
+  echo ""
 
   for file in (__tilde_linkable_files $tilde_repo)
     set -l base_name (basename $file)
