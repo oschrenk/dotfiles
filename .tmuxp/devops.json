@@ -6,10 +6,11 @@
       "layout": "main-horizontal",
       "start_directory": "$HOME/.deja/dotfiles",
       "options": { "automatic-rename": "off" },
+      "focus": "true",
       "panes": [
-        { "shell_command": "vim .",
+        { "shell_command": "vim -O .tmuxp/devops.json .",
           "focus": "true" },
-        { }
+        { "shell_command": "git status" }
       ]
     },
     {
@@ -18,10 +19,9 @@
       "options": { "automatic-rename": "off" },
       "start_directory":  "$HOME/Projects/devops/machines",
       "panes": [
-        {
-          "focus": "true"
-        },
-        { }
+        { "shell_command": "vim -O osx osx",
+          "focus": "true" },
+        { "shell_command": "git status" }
       ]
     }
   ]
