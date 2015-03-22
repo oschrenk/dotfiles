@@ -1,5 +1,7 @@
 function __tilde_help
   echo "Unrecognized command."
+  echo ""
+  echo Usage: tilde <COMMAND> [OPTIONS]
 end
 
 function __tilde_ignore_patterns
@@ -66,8 +68,9 @@ function tilde --description  "node-deja implemented in fish"
   end
 
   set -l subcommand $argv[1]
+  set -l argument $argv[2]
 
   if [ "$subcommand" = "link" ]
-    __tilde_link $argv[2]
+    __tilde_link $tilde_home $argument
   end
 end
