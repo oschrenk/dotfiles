@@ -64,12 +64,7 @@ end
 hs.hotkey.bind(hyper, 's', toggle_window_maximized)
 
 -- Full screen
-hs.hotkey.bind(hyper, "f", function()
-  local win = hs.window.focusedWindow()
-  if win ~= nil then
-    win:setFullScreen(not win:isFullScreen())
-  end
-end)
+hs.hotkey.bind(hyper, 'f', function() hs.window.focusedWindow():toggleFullScreen() end)
 
 -- Send Window Prev Monitor
 hs.hotkey.bind(hyper, "p", function()
