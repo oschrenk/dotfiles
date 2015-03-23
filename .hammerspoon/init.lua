@@ -11,8 +11,8 @@ hs.window.animationDuration = 0.3
 -- hotkey hyper
 local hyper = {"ctrl", "alt", "shift", "cmd"}
 
--- Send Window Left
-hs.hotkey.bind(hyper, "h", function()
+-- Half Left
+hs.hotkey.bind(hyper, "a", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -25,8 +25,8 @@ hs.hotkey.bind(hyper, "h", function()
   win:setFrame(f)
 end)
 
--- Send Window Right
-hs.hotkey.bind(hyper, "l", function()
+-- Half Right
+hs.hotkey.bind(hyper, "d", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -39,8 +39,8 @@ hs.hotkey.bind(hyper, "l", function()
   win:setFrame(f)
 end)
 
--- Send Window Up
-hs.hotkey.bind(hyper, "k", function()
+-- Half Up
+hs.hotkey.bind(hyper, "w", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -53,8 +53,8 @@ hs.hotkey.bind(hyper, "k", function()
   win:setFrame(f)
 end)
 
--- Send Window Down
-hs.hotkey.bind(hyper, "j", function()
+-- Half Down
+hs.hotkey.bind(hyper, "x", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -67,8 +67,8 @@ hs.hotkey.bind(hyper, "j", function()
   win:setFrame(f)
 end)
 
--- Maximize window
-hs.hotkey.bind(hyper, "i", function()
+-- Maximize
+hs.hotkey.bind(hyper, "s", function()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -82,7 +82,7 @@ hs.hotkey.bind(hyper, "i", function()
 end)
 
 -- Full screen
-hs.hotkey.bind(hyper, "u", function()
+hs.hotkey.bind(hyper, "f", function()
   local win = hs.window.focusedWindow()
   if win ~= nil then
     win:setFullScreen(not win:isFullScreen())
@@ -90,7 +90,7 @@ hs.hotkey.bind(hyper, "u", function()
 end)
 
 -- Send Window Prev Monitor
-hs.hotkey.bind(hyper, "y", function()
+hs.hotkey.bind(hyper, "p", function()
   hs.alert.show("Prev Monitor")
   local win = hs.window.focusedWindow()
   local previousScreen = win:screen():previous()
@@ -98,7 +98,7 @@ hs.hotkey.bind(hyper, "y", function()
 end)
 
 -- Send Window Next Monitor
-hs.hotkey.bind(hyper, "o", function()
+hs.hotkey.bind(hyper, "n", function()
   hs.alert.show("Next Monitor")
   local win = hs.window.focusedWindow()
   local nextScreen = win:screen():next()
