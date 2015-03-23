@@ -12,32 +12,10 @@ hs.window.animationDuration = 0.3
 local hyper = {"ctrl", "alt", "shift", "cmd"}
 
 -- Half Left
-hs.hotkey.bind(hyper, "a", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
-
-  f.x = max.x
-  f.y = max.y
-  f.w = max.w / 2
-  f.h = max.h
-  win:setFrame(f)
-end)
+hs.hotkey.bind(hyper, 'a', function() hs.window.focusedWindow():moveToUnit(hs.layout.left50) end)
 
 -- Half Right
-hs.hotkey.bind(hyper, "d", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
-
-  f.x = max.x + (max.w / 2)
-  f.y = max.y
-  f.w = max.w / 2
-  f.h = max.h
-  win:setFrame(f)
-end)
+hs.hotkey.bind(hyper, 'd', function() hs.window.focusedWindow():moveToUnit(hs.layout.right50) end)
 
 -- Half Up
 hs.hotkey.bind(hyper, "w", function()
