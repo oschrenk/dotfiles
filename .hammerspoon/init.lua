@@ -6,7 +6,7 @@ local homeSSIDToken = "SitecomC4934C"
 local lastSSID = hs.wifi.currentNetwork()
 
 -- disable animation
-hs.window.animationDuration = 0
+hs.window.animationDuration = 0.3
 
 -- hotkey hyper
 local hyper = {"ctrl", "alt", "shift", "cmd"}
