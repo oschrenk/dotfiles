@@ -149,8 +149,8 @@ hs.hotkey.bind(hyper, '0', function() pom_disable() end)
 function reload_config(files)
   wifiWatcher:stop()
   hs.reload()
+  hs.alert.show("Config reloaded")
 end
 
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reload_config):start()
-hs.alert.show("Config reloaded")
 
