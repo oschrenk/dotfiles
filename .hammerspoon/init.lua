@@ -2,6 +2,7 @@ require "pomodoro"
 
 local wifiWatcher = nil
 local workSSIDToken = "elmar"
+local homeSSIDToken = "SitecomC4934C"
 local lastSSID = hs.wifi.currentNetwork()
 
 -- disable animation
@@ -104,14 +105,41 @@ hs.hotkey.bind(hyper, "o", function()
   win:moveToScreen(nextScreen)
 end)
 
-function atWork(ssid)
-    return ssid ~= nil and string.find(string.lower(ssid), workSSIDToken)
+
+function enteredNetwork(old_ssid, new_ssid, token)
+  -- activated wifi
+  if (old_ssid == nil and new_ssid ~= nil) then
+    return string.find (string.lower(new_ssid), string.lower(token))
+  end
+
+  -- disabled wifi
+  if (old_ssid ~= nil and new_ssid == nil) then
+    return false
+  end
+
+  -- significantly change wifi
+  -- checking if we more than changed network suffix within the company
+  if (old_ssid ~= nil and new_ssid ~= nil) then
+    return (not string.find(string.lower(old_ssid), string.lower(token)) and
+                string.find(string.lower(new_ssid), string.lower(token)))
+  end
+
+  return false
 end
 
 function ssidChangedCallback()
     newSSID = hs.wifi.currentNetwork()
-    if (atWork(newSSID) and (not atWork(lastSSID))) then
-      hs.alert.show("Arrived at work ")
+
+    if (newSSID ~= nil) then
+      if (enteredNetwork(lastSSID, newSSID, workSSIDToken)) then
+        hs.alert.show("Arrived at work ")
+        os.execute("/usr/local/bin/blueutil power 1")
+      end
+
+      if (enteredNetwork(old_ssid, new_ssid, homeSSIDToken)) then
+        hs.alert.show("Arrived at home ")
+        os.execute("/usr/local/bin/blueutil power 0")
+      end
     end
 
     lastSSID = newSSID
