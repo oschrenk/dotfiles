@@ -86,6 +86,9 @@ hs.hotkey.bind(hyper, "n", function()
   end
 end)
 
+-- Show window hints
+hs.hotkey.bind(hyper, "i", function() hs.hints.windowHints() end)
+
 function enteredNetwork(old_ssid, new_ssid, token)
   -- activated wifi
   if (old_ssid == nil and new_ssid ~= nil) then
