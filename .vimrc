@@ -213,6 +213,7 @@ let s:ag_opts = '--smart-case --skip-vcs-ignores --hidden --depth 15 --nocolor -
 		\ '--ignore ".idea" '.
 		\ '--ignore ".bundle" '.
 		\ '--ignore "bin" '.
+		\ '--ignore "coverage" '.
 		\ '--ignore "externs" '.
 		\ '--ignore "javascripts" '.
 		\ '--ignore "hicv" '.
