@@ -89,6 +89,12 @@ end)
 -- Show window hints
 hs.hotkey.bind(hyper, "i", function() hs.hints.windowHints() end)
 
+-- Focus Windows
+hs.hotkey.bind(hyper, 'k', function() hs.window.focusedWindow():focusWindowNorth() end)
+hs.hotkey.bind(hyper, 'j', function() hs.window.focusedWindow():focusWindowSouth() end)
+hs.hotkey.bind(hyper, 'l', function() hs.window.focusedWindow():focusWindowEast() end)
+hs.hotkey.bind(hyper, 'h', function() hs.window.focusedWindow():focusWindowWest() end)
+
 function enteredNetwork(old_ssid, new_ssid, token)
   -- activated wifi
   if (old_ssid == nil and new_ssid ~= nil) then
