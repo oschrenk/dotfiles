@@ -5,6 +5,9 @@ local workSSIDToken = "elmar"
 local homeSSIDToken = "SitecomC4934C"
 local lastSSID = hs.wifi.currentNetwork()
 
+-- Defines for window maximize toggler
+local frameCache = {}
+
 -- disable animation
 hs.window.animationDuration = 0.3
 
@@ -45,19 +48,20 @@ hs.hotkey.bind(hyper, "x", function()
   win:setFrame(f)
 end)
 
--- Maximize
-hs.hotkey.bind(hyper, "s", function()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
+-- Toggle a window between its normal size, and being maximized
+function toggle_window_maximized()
+    local win = hs.window.focusedWindow()
+    if frameCache[win:id()] then
+        win:setFrame(frameCache[win:id()])
+        frameCache[win:id()] = nil
+    else
+        frameCache[win:id()] = win:frame()
+        win:maximize()
+    end
+end
 
-  f.x = 0
-  f.y = 0
-  f.w = max.w
-  f.h = max.h
-  win:setFrame(f)
-end)
+-- Maximize
+hs.hotkey.bind(hyper, 's', toggle_window_maximized)
 
 -- Full screen
 hs.hotkey.bind(hyper, "f", function()
