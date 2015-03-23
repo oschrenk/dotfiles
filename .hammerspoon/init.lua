@@ -68,20 +68,23 @@ hs.hotkey.bind(hyper, 'f', function() hs.window.focusedWindow():toggleFullScreen
 
 -- Send Window Prev Monitor
 hs.hotkey.bind(hyper, "p", function()
-  hs.alert.show("Prev Monitor")
-  local win = hs.window.focusedWindow()
-  local previousScreen = win:screen():previous()
-  win:moveToScreen(previousScreen)
+  if (#hs.screen.allScreens() > 1) then
+    local win = hs.window.focusedWindow()
+    local previousScreen = win:screen():previous()
+    win:moveToScreen(previousScreen)
+    hs.alert.show("Prev Monitor", 5)
+  end
 end)
 
 -- Send Window Next Monitor
 hs.hotkey.bind(hyper, "n", function()
-  hs.alert.show("Next Monitor")
-  local win = hs.window.focusedWindow()
-  local nextScreen = win:screen():next()
-  win:moveToScreen(nextScreen)
+  if (#hs.screen.allScreens() > 1) then
+    local win = hs.window.focusedWindow()
+    local nextScreen = win:screen():next()
+    win:moveToScreen(nextScreen)
+    hs.alert.show("Next Monitor", 5)
+  end
 end)
-
 
 function enteredNetwork(old_ssid, new_ssid, token)
   -- activated wifi
