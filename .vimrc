@@ -69,6 +69,12 @@ imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
 
+" Use arrow keys resize viewports
+nnoremap <Left> :vertical resize -1<CR>
+nnoremap <Right> :vertical resize +1<CR>
+nnoremap <Up> :resize -1<CR>
+noremap <Down> :resize +1<CR>
+
 " move cursors naturally
 nnoremap j gj
 nnoremap k gk
