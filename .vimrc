@@ -16,6 +16,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events'    " restore autocommand events within
 Plug 'Shougo/unite.vim'                      " unified source to display search results
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }  " Interactive command execution
 Plug 'tpope/vim-vinegar'                     " netrw enhancements
+Plug 'rking/ag.vim'                          " front for ag, A.K.A. the_silver_searcher
 
 " Comments
 Plug 'tpope/vim-commentary'                  " Comment stuff.Use gcc on line,gc on visual block
@@ -24,32 +25,29 @@ Plug 'tpope/vim-commentary'                  " Comment stuff.Use gcc on line,gc 
 Plug 'justinmk/vim-sneak'                    " jump to any location with two chars
 
 " Control & Completion
-Plug 'tpope/vim-surround'
-Plug 'ervandew/supertab'
-Plug 'vim-scripts/paredit.vim'
+Plug 'tpope/vim-surround'                    " quote/parenthesize the surrounded code
+Plug 'ervandew/supertab'                     " tab autocompletion in insert mode
+Plug 'vim-scripts/paredit.vim'               " maintain the balanced state of matched parentheses
 
 " Git
-Plug 'tpope/vim-fugitive'             " git client for vim
-Plug 'airblade/vim-gitgutter'         " mark modified, changed, deleted lines
+Plug 'tpope/vim-fugitive'                    " git client for vim
+Plug 'airblade/vim-gitgutter'                " mark modified, changed, deleted lines
 
 " File types
-Plug 'dag/vim-fish'                   " fish shell
-Plug 'derekwyatt/vim-scala'           " scala
-Plug 'guns/vim-clojure-static'        " clojure
-Plug 'fwolanski/vim-clojure-conceal'  " clojure after syntax
-Plug 'vim-ruby/vim-ruby'              " ruby
-Plug 'dag/vim2hs'                     " haskell
+Plug 'dag/vim-fish'                          " fish shell
+Plug 'derekwyatt/vim-scala'                  " scala
+Plug 'guns/vim-clojure-static'               " clojure
+Plug 'fwolanski/vim-clojure-conceal'         " clojure after syntax
+Plug 'vim-ruby/vim-ruby'                     " ruby
+Plug 'dag/vim2hs'                            " haskell
 Plug 'tpope/vim-markdown',            { 'for': 'markdown' }
 Plug 'itspriddle/vim-marked',         { 'for': 'markdown' } " open markdown in Marked.app
 Plug 'timcharper/textile.vim',        { 'for': 'textile' }
 
-" Search
-Plug 'rking/ag.vim'
-Plug 'rizzatti/dash.vim'             " search for terms using Dash.app
-
 " Tools & Externals
 Plug 'xolox/vim-notes'               " manage notes
 Plug 'xolox/vim-misc'                " dependency of vim-notes
+Plug 'rizzatti/dash.vim'             " search for terms using Dash.app
 
 " Look and feel
 Plug 'bling/vim-airline'             " powerline statusline
