@@ -110,6 +110,8 @@ nmap <Tab> <Plug>VinegarUp
 syntax on                     " syntax highlighting
 syntax enable                 " syntac highlighting
 
+set autoread
+
 set title                     " show title in console title bar.
 set cursorline                " highlights line
 set cursorcolumn              " highlights column
