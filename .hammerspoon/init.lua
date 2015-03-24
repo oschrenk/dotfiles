@@ -1,5 +1,10 @@
 require "pomodoro"
 
+------------------------
+-- Settings
+------------------------
+
+-- Wifi Watcher
 local wifiWatcher = nil
 local workSSIDToken = "elmar"
 local homeSSIDToken = "SitecomC4934C"
@@ -13,6 +18,22 @@ hs.window.animationDuration = 0
 
 -- hotkey hyper
 local hyper = {"ctrl", "alt", "shift", "cmd"}
+
+------------------------
+-- Launcher
+------------------------
+
+-- Launch applications
+hs.hotkey.bind(hyper, '1', function () hs.application.launchOrFocus("iTerm2") end)
+hs.hotkey.bind(hyper, '2', function () hs.application.launchOrFocus("Google Chrome") end)
+
+-- pomodoro key binding
+hs.hotkey.bind(hyper, '9', function() pom_enable() end)
+hs.hotkey.bind(hyper, '0', function() pom_disable() end)
+
+------------------------
+-- Window Managment
+------------------------
 
 -- Half Windows
 hs.hotkey.bind(hyper, 'a', function() hs.window.focusedWindow():moveToUnit(hs.layout.left50) end)
@@ -89,6 +110,10 @@ hs.hotkey.bind(hyper, 'j', function() hs.window.focusedWindow():focusWindowSouth
 hs.hotkey.bind(hyper, 'l', function() hs.window.focusedWindow():focusWindowEast() end)
 hs.hotkey.bind(hyper, 'h', function() hs.window.focusedWindow():focusWindowWest() end)
 
+------------------------
+-- Logic
+------------------------
+
 function enteredNetwork(old_ssid, new_ssid, token)
   -- activated wifi
   if (old_ssid == nil and new_ssid ~= nil) then
@@ -131,15 +156,10 @@ end
 wifiWatcher = hs.wifi.watcher.new(ssidChangedCallback)
 wifiWatcher:start()
 
--- Launch applications
-hs.hotkey.bind(hyper, '1', function () hs.application.launchOrFocus("iTerm2") end)
-hs.hotkey.bind(hyper, '2', function () hs.application.launchOrFocus("Google Chrome") end)
+------------------------
+-- Reload
+------------------------
 
--- pomodoro key binding
-hs.hotkey.bind(hyper, '9', function() pom_enable() end)
-hs.hotkey.bind(hyper, '0', function() pom_disable() end)
-
--- RELOAD
 function reload_config(files)
   wifiWatcher:stop()
   hs.reload()
