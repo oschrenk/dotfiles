@@ -47,7 +47,6 @@ Plug 'rizzatti/dash.vim'             " search for terms using Dash.app
 " Tools & Externals
 Plug 'xolox/vim-notes'               " manage notes
 Plug 'xolox/vim-misc'                " dependency of vim-notes
-Plug 'glidenote/newdayone.vim'       " write dayone entries
 
 " Look and feel
 Plug 'bling/vim-airline'             " powerline statusline
