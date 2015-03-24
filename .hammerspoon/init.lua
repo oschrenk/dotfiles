@@ -9,7 +9,7 @@ local lastSSID = hs.wifi.currentNetwork()
 local frameCache = {}
 
 -- disable animation
-hs.window.animationDuration = 0.3
+hs.window.animationDuration = 0
 
 -- hotkey hyper
 local hyper = {"ctrl", "alt", "shift", "cmd"}
