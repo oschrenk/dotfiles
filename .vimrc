@@ -268,3 +268,9 @@ let g:markdown_fenced_languages = ['clojure', 'javascript', 'scala', 'vim']
 " configure Marked.app
 let g:marked_app = "Marked"
 
+" Spellcheck
+set spelllang=en
+set spellfile=$HOME/.vim/spell/en.utf-8.add " spellcheck dictionary location
+autocmd FileType gitcommit setlocal spell   " spellcheck git commit messages
+autocmd FileType markdown  setlocal spell   " spelllcheck markdown files
+
