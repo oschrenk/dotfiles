@@ -1,5 +1,6 @@
 set shell=bash\ --norc
-set termencoding=
+set encoding=utf8         " how vim represents characters internally
+set termencoding=utf-8    " used to display
 
 " vim-plug
 call plug#begin('~/.vim/plugged')
