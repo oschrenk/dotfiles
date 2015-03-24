@@ -44,6 +44,10 @@ Plug 'timcharper/textile.vim',        { 'for': 'textile' }
 Plug 'rking/ag.vim'
 Plug 'rizzatti/dash.vim'             " search for terms using Dash.app
 
+" Tools
+Plug 'xolox/vim-notes'               " manage notes
+Plug 'xolox/vim-misc'                " dependency of vim-notes
+
 " Look and feel
 Plug 'bling/vim-airline'             " powerline statusline
 Plug 'morhetz/gruvbox'               " theme
@@ -147,6 +151,8 @@ set smartcase                 " Ignore case if pattern is lowercase, case-sensit
 
 set autoread                  " Set to auto read when a file is changed from the outside
 set clipboard=unnamed         " gain access to clipboard in OS X
+set visualbell                " don't beep
+set noerrorbells              " don't beep
 
 set nobackup                  " do not create backup files
 set noswapfile                " do not create swap files
@@ -171,7 +177,13 @@ au FileType gitcommit execute "normal! O" | startinsert
 " ============================
 " Plugin configuration
 " ============================
-"
+
+" vim-notes
+let g:notes_directories = ['~/Documents/Notes']
+let g:notes_title_sync = 'no'
+let g:notes_suffix = '.md'
+let g:notes_smart_quotes = 0
+
 " ---------------------------
 " netrw
 " ---------------------------
