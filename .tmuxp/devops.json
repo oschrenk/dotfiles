@@ -2,13 +2,35 @@
   "session_name": "devops",
   "windows": [
     {
-      "window_name": "dotfiles",
+      "window_name": "vimrc",
       "layout": "main-horizontal",
       "start_directory": "$HOME/.deja/dotfiles",
       "options": { "automatic-rename": "off" },
       "focus": "true",
       "panes": [
-        { "shell_command": "vim -O .tmuxp/devops.json .",
+        { "shell_command": "vim -O .vimrc .vimrc",
+          "focus": "true" },
+        { "shell_command": "git status" }
+      ]
+    },
+    {
+      "window_name": "tmuxp",
+      "layout": "main-horizontal",
+      "start_directory": "$HOME/.deja/dotfiles/.tmuxp",
+      "options": { "automatic-rename": "off" },
+      "panes": [
+        { "shell_command": "vim -O devops.json personal.json",
+          "focus": "true" },
+        { "shell_command": "git status" }
+      ]
+    },
+    {
+      "window_name": "dotfiles",
+      "layout": "main-horizontal",
+      "start_directory": "$HOME/.deja/dotfiles",
+      "options": { "automatic-rename": "off" },
+      "panes": [
+        { "shell_command": "vim .",
           "focus": "true" },
         { "shell_command": "git status" }
       ]
