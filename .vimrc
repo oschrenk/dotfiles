@@ -197,7 +197,7 @@ nnoremap [unite] <nop>
 let g:unite_data_directory = '~/.unite'
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_rank'])
+call unite#filters#sorter_default#use(['sorter_selecta'])
 
 " File searching using <space>f
 " -no-split to open as modal dialog
