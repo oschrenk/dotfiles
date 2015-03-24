@@ -6,7 +6,6 @@ set termencoding=utf-8    " used to display
 call plug#begin('~/.vim/plugged')
 
 " Base
-Plug 'chrisbra/Recover.vim'
 Plug 'tpope/vim-repeat'                      " enable repeating for some plugins eg vim-gitgutter
 
 " Navigation
@@ -148,6 +147,9 @@ set smartcase                 " Ignore case if pattern is lowercase, case-sensit
 
 set autoread                  " Set to auto read when a file is changed from the outside
 set clipboard=unnamed         " gain access to clipboard in OS X
+
+set nobackup                  " do not create backup files
+set noswapfile                " do not create swap files
 
 " Reload when entering buffer or gaining focus
 au FocusGained,BufEnter * :silent! !
