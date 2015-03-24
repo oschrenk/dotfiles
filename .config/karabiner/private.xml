@@ -16,6 +16,14 @@
   </item>
 
   <item>
+    <name>Remap Section(§) to Circumflex(^),Shift+Section(§) to Degree(°).</name>
+    <identifier>remap.circumflex_in_us</identifier>
+
+    <autogen>--KeyToKey-- KeyCode::DANISH_DOLLAR, ModifierFlag::NONE, KeyCode::KEY_6, ModifierFlag::SHIFT_L</autogen>
+    <autogen>--KeyToKey-- KeyCode::DANISH_DOLLAR, ModifierFlag::SHIFT_R, KeyCode::KEY_8, ModifierFlag::SHIFT_R | ModifierFlag::OPTION_R</autogen>
+  </item>
+
+  <item>
     <name>Use the correct shift keys.</name>
     <appendix>Enforce good typing behaviour by only allowing use of correct shift key to modify</appendix>
     <identifier>private.correct_shift_keys</identifier>

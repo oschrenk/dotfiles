@@ -225,6 +225,7 @@ let s:ag_opts = '--smart-case --skip-vcs-ignores --hidden --depth 15 --nocolor -
 		\ '--ignore ".idea" '.
 		\ '--ignore ".bundle" '.
 		\ '--ignore "bin" '.
+		\ '--ignore "cache" '.
 		\ '--ignore "coverage" '.
 		\ '--ignore "externs" '.
 		\ '--ignore "javascripts" '.
@@ -235,6 +236,7 @@ let s:ag_opts = '--smart-case --skip-vcs-ignores --hidden --depth 15 --nocolor -
 		\ '--ignore "vendor" '.
 		\ '--ignore "*.gif" '.
 		\ '--ignore "*.ico" '.
+		\ '--ignore "*.jar" '.
 		\ '--ignore "*.jpg" '.
 		\ '--ignore "*.log" '.
 		\ '--ignore "*.png" '.
