@@ -18,7 +18,7 @@ Plug 'tpope/vim-vinegar'                     " netrw enhancements
 Plug 'tpope/vim-commentary'                  " Comment stuff.Use gcc on line,gc on visual block
 
 " Motion
-Plug 'justinmk/vim-sneak'                    " jump to any location with two chars
+Plug 'justinmk/vim-sneak'                    " jump to any location eg `sab` jumps to next ab
 
 " Control & Completion
 Plug 'tpope/vim-surround'
