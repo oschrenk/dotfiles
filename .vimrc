@@ -47,7 +47,7 @@ Plug 'rizzatti/dash.vim'             " search for terms using Dash.app
 " Look and feel
 Plug 'bling/vim-airline'             " powerline statusline
 Plug 'morhetz/gruvbox'               " theme
-Plug 'kien/rainbow_parentheses.vim'  " colored parentheses
+Plug 'amdt/vim-niji'                 " colored parentheses
 
 call plug#end()
 "End Plug --------------------
@@ -257,12 +257,6 @@ let g:clojure_conceal_extras=1   " fn, defn-, letfn, and #() to unicode symbols
 " Airline
 let g:airline_powerline_fonts = 1
 set laststatus=2
-
-" RainbowParentheses
-au VimEnter * RainbowParenthesesActivate
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
 
 " Markdown
 au BufRead,BufNewFile *.md set filetype=markdown
