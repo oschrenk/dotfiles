@@ -95,6 +95,9 @@ nnoremap U :redo<cr>
 " N: Find next occurrence backward
 nnoremap N Nzzzv
 
+" Use tab in normal mode to open vinegar
+nmap <Tab> <Plug>VinegarUp
+
 " ============================
 " Config
 " ============================
