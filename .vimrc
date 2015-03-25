@@ -1,18 +1,22 @@
 set shell=bash\ --norc
-set termencoding=
+set encoding=utf8         " how vim represents characters internally
+set termencoding=utf-8    " used to display
 
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
 " Base
-Plug 'chrisbra/Recover.vim'
 Plug 'tpope/vim-repeat'                      " enable repeating for some plugins eg vim-gitgutter
+
+" Integration
+Plug 'christoomey/vim-tmux-navigator'        " Navigate over tmux panes and vim splits
+Plug 'tmux-plugins/vim-tmux-focus-events'    " restore autocommand events within tmux eg. gitgutter refreshs
 
 " Navigation
 Plug 'Shougo/unite.vim'                      " unified source to display search results
 Plug 'Shougo/vimproc.vim', { 'do': 'make' }  " Interactive command execution
-Plug 'christoomey/vim-tmux-navigator'        " Navigate over tmux panes and vim splits
 Plug 'tpope/vim-vinegar'                     " netrw enhancements
+Plug 'rking/ag.vim'                          " front for ag, A.K.A. the_silver_searcher
 
 " Comments
 Plug 'tpope/vim-commentary'                  " Comment stuff.Use gcc on line,gc on visual block
@@ -21,27 +25,29 @@ Plug 'tpope/vim-commentary'                  " Comment stuff.Use gcc on line,gc 
 Plug 'justinmk/vim-sneak'                    " jump to any location eg `sab` jumps to next ab
 
 " Control & Completion
-Plug 'tpope/vim-surround'
-Plug 'ervandew/supertab'
-Plug 'vim-scripts/paredit.vim'
+Plug 'tpope/vim-surround'                    " quote/parenthesize the surrounded code
+Plug 'ervandew/supertab'                     " tab autocompletion in insert mode
+Plug 'vim-scripts/paredit.vim'               " maintain the balanced state of matched parentheses
+Plug 'tpope/vim-endwise',              { 'for': 'markdown' } " end things automatically, like end after if, do, def in Ruby
 
 " Git
-Plug 'tpope/vim-fugitive'             " git client for vim
-Plug 'airblade/vim-gitgutter'         " mark modified, changed, deleted lines
+Plug 'tpope/vim-fugitive'                    " git client for vim
+Plug 'airblade/vim-gitgutter'                " mark modified, changed, deleted lines
 
 " File types
-Plug 'dag/vim-fish'                   " fish shell
-Plug 'derekwyatt/vim-scala'           " scala
-Plug 'guns/vim-clojure-static'        " clojure
-Plug 'fwolanski/vim-clojure-conceal'  " clojure after syntax
-Plug 'vim-ruby/vim-ruby'              " ruby
-Plug 'dag/vim2hs'                     " haskell
+Plug 'dag/vim-fish'                          " fish shell
+Plug 'derekwyatt/vim-scala'                  " scala
+Plug 'guns/vim-clojure-static'               " clojure
+Plug 'fwolanski/vim-clojure-conceal'         " clojure after syntax
+Plug 'vim-ruby/vim-ruby'                     " ruby
+Plug 'dag/vim2hs'                            " haskell
 Plug 'tpope/vim-markdown',            { 'for': 'markdown' }
 Plug 'itspriddle/vim-marked',         { 'for': 'markdown' } " open markdown in Marked.app
 Plug 'timcharper/textile.vim',        { 'for': 'textile' }
 
-" Search
-Plug 'rking/ag.vim'
+" Tools & Externals
+Plug 'xolox/vim-notes'               " manage notes
+Plug 'xolox/vim-misc'                " dependency of vim-notes
 Plug 'rizzatti/dash.vim'             " search for terms using Dash.app
 
 " Look and feel
@@ -98,12 +104,18 @@ nnoremap N Nzzzv
 " Use tab in normal mode to open vinegar
 nmap <Tab> <Plug>VinegarUp
 
+" Use enter, shift enter to create empty lines
+nnoremap <CR> o<Esc>k
+nnoremap <s-CR> O<Esc>j
+
 " ============================
 " Config
 " ============================
 "
 syntax on                     " syntax highlighting
 syntax enable                 " syntac highlighting
+
+set autoread
 
 set title                     " show title in console title bar.
 set cursorline                " highlights line
@@ -147,6 +159,11 @@ set smartcase                 " Ignore case if pattern is lowercase, case-sensit
 
 set autoread                  " Set to auto read when a file is changed from the outside
 set clipboard=unnamed         " gain access to clipboard in OS X
+set visualbell                " don't beep
+set noerrorbells              " don't beep
+
+set nobackup                  " do not create backup files
+set noswapfile                " do not create swap files
 
 " Reload when entering buffer or gaining focus
 au FocusGained,BufEnter * :silent! !
@@ -168,7 +185,13 @@ au FileType gitcommit execute "normal! O" | startinsert
 " ============================
 " Plugin configuration
 " ============================
-"
+
+" vim-notes
+let g:notes_directories = ['~/Documents/Notes']
+let g:notes_title_sync = 'no'
+let g:notes_suffix = '.md'
+let g:notes_smart_quotes = 0
+
 " ---------------------------
 " netrw
 " ---------------------------
@@ -269,4 +292,10 @@ let g:markdown_fenced_languages = ['clojure', 'javascript', 'scala', 'vim']
 
 " configure Marked.app
 let g:marked_app = "Marked"
+
+" Spellcheck
+set spelllang=en
+set spellfile=$HOME/.vim/spell/en.utf-8.add " spellcheck dictionary location
+autocmd FileType gitcommit setlocal spell   " spellcheck git commit messages
+autocmd FileType markdown  setlocal spell   " spelllcheck markdown files
 
