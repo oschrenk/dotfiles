@@ -28,6 +28,7 @@ Plug 'justinmk/vim-sneak'                    " jump to any location with two cha
 Plug 'tpope/vim-surround'                    " quote/parenthesize the surrounded code
 Plug 'ervandew/supertab'                     " tab autocompletion in insert mode
 Plug 'vim-scripts/paredit.vim'               " maintain the balanced state of matched parentheses
+Plug 'tpope/vim-endwise',              { 'for': 'markdown' } " end things automatically, like end after if, do, def in Ruby
 
 " Git
 Plug 'tpope/vim-fugitive'                    " git client for vim
