@@ -246,6 +246,7 @@ let s:ag_opts = '--smart-case --skip-vcs-ignores --hidden --depth 15 --nocolor -
     \ '--ignore ''.bzr'' ' .
 		\ '--ignore ".idea" '.
 		\ '--ignore ".bundle" '.
+		\ '--ignore ".m2" '.
 		\ '--ignore "bin" '.
 		\ '--ignore "cache" '.
 		\ '--ignore "coverage" '.
