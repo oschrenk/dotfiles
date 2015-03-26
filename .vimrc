@@ -6,54 +6,54 @@ set termencoding=utf-8    " used to display
 call plug#begin('~/.vim/plugged')
 
 " Base
-Plug 'tpope/vim-repeat'                      " enable repeating for some plugins eg vim-gitgutter
+Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg vim-gitgutter
 
 " Integration
-Plug 'christoomey/vim-tmux-navigator'        " Navigate over tmux panes and vim splits
-Plug 'tmux-plugins/vim-tmux-focus-events'    " restore autocommand events within tmux eg. gitgutter refreshs
+Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim splits
+Plug 'tmux-plugins/vim-tmux-focus-events' " restore autocommand events within tmux eg. gitgutter refreshs
 
 " Navigation
-Plug 'Shougo/unite.vim'                      " unified source to display search results
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }  " Interactive command execution
-Plug 'tpope/vim-vinegar'                     " netrw enhancements
-Plug 'rking/ag.vim'                          " front for ag, A.K.A. the_silver_searcher
+Plug 'Shougo/unite.vim'                   " unified source to display search results
+Plug 'Shougo/vimproc.vim', { 'do': 'make' } " Interactive command execution
+Plug 'tpope/vim-vinegar'                  " netrw enhancements
+Plug 'rking/ag.vim'                       " front for ag, A.K.A. the_silver_searcher
 
 " Comments
-Plug 'tpope/vim-commentary'                  " Comment stuff.Use gcc on line,gc on visual block
+Plug 'tpope/vim-commentary'               " Comment stuff.Use gcc on line,gc on visual block
 
 " Motion
-Plug 'justinmk/vim-sneak'                    " jump to any location eg `sab` jumps to next ab
+Plug 'justinmk/vim-sneak'                 " jump to any location eg `sab` jumps to next ab
 
 " Control & Completion
-Plug 'tpope/vim-surround'                    " quote/parenthesize the surrounded code
-Plug 'ervandew/supertab'                     " tab autocompletion in insert mode
-Plug 'vim-scripts/paredit.vim'               " maintain the balanced state of matched parentheses
-Plug 'tpope/vim-endwise',              { 'for': 'markdown' } " end things automatically, like end after if, do, def in Ruby
+Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
+Plug 'ervandew/supertab'                  " tab autocompletion in insert mode
+Plug 'vim-scripts/paredit.vim',           { 'for': 'clojure' } " maintain the balanced state of matched parentheses
+Plug 'tpope/vim-endwise',                 { 'for': 'ruby' }    " end things automatically, like end after if, do, def in Ruby
 
 " Git
-Plug 'tpope/vim-fugitive'                    " git client for vim
-Plug 'airblade/vim-gitgutter'                " mark modified, changed, deleted lines
+Plug 'tpope/vim-fugitive'                 " git client for vim
+Plug 'airblade/vim-gitgutter'             " mark modified, changed, deleted lines
 
 " File types
-Plug 'dag/vim-fish'                          " fish shell
-Plug 'derekwyatt/vim-scala'                  " scala
-Plug 'guns/vim-clojure-static'               " clojure
-Plug 'fwolanski/vim-clojure-conceal'         " clojure after syntax
-Plug 'vim-ruby/vim-ruby'                     " ruby
-Plug 'dag/vim2hs'                            " haskell
-Plug 'tpope/vim-markdown',            { 'for': 'markdown' }
-Plug 'itspriddle/vim-marked',         { 'for': 'markdown' } " open markdown in Marked.app
-Plug 'timcharper/textile.vim',        { 'for': 'textile' }
+Plug 'dag/vim-fish',                      { 'for': 'ruby' }
+Plug 'derekwyatt/vim-scala',              { 'for': 'scala' }
+Plug 'guns/vim-clojure-static',           { 'for': 'clojure' }
+Plug 'fwolanski/vim-clojure-conceal',     { 'for': 'clojure' }
+Plug 'vim-ruby/vim-ruby',                 { 'for': 'ruby' }
+Plug 'dag/vim2hs',                        { 'for': 'haskell' }
+Plug 'tpope/vim-markdown',                { 'for': 'markdown' }
+Plug 'itspriddle/vim-marked',             { 'for': 'markdown' } " open in Marked.app
+Plug 'timcharper/textile.vim',            { 'for': 'textile' }
 
 " Tools & Externals
-Plug 'xolox/vim-notes'               " manage notes
-Plug 'xolox/vim-misc'                " dependency of vim-notes
-Plug 'rizzatti/dash.vim'             " search for terms using Dash.app
+Plug 'xolox/vim-notes'                    " manage notes
+Plug 'xolox/vim-misc'                     " dependency of vim-notes
+Plug 'rizzatti/dash.vim'                  " search for terms using Dash.app
 
 " Look and feel
-Plug 'bling/vim-airline'             " powerline statusline
-Plug 'morhetz/gruvbox'               " theme
-Plug 'amdt/vim-niji'                 " colored parentheses
+Plug 'bling/vim-airline'                  " powerline statusline
+Plug 'morhetz/gruvbox'                    " theme
+Plug 'amdt/vim-niji'                      " colored parentheses
 
 call plug#end()
 "End Plug --------------------
@@ -91,11 +91,11 @@ nnoremap k gk
 nnoremap H 0
 nnoremap L $
 
-" Q: Closes the window
-nnoremap Q :q<cr>
+" Ctrl+q: Closes the window
+nnoremap <c-q> :q<cr>
 
-" W: Save
-nnoremap W :w<cr>
+" Ctrl+s: Save the file
+nnoremap <c-s> :w<cr>
 
 " U: Redos since 'u' undos
 nnoremap U :redo<cr>
@@ -243,6 +243,7 @@ let s:ag_opts = '--smart-case --skip-vcs-ignores --hidden --depth 15 --nocolor -
     \ '--ignore ''.bzr'' ' .
 		\ '--ignore ".idea" '.
 		\ '--ignore ".bundle" '.
+		\ '--ignore ".m2" '.
 		\ '--ignore "bin" '.
 		\ '--ignore "cache" '.
 		\ '--ignore "coverage" '.
