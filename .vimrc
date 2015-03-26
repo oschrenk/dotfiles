@@ -94,8 +94,8 @@ nnoremap L $
 " Ctrl+q: Closes the window
 nnoremap <c-q> :q<cr>
 
-" W: Save
-nnoremap W :w<cr>
+" Ctrl+s: Save the file
+nnoremap <c-s> :w<cr>
 
 " U: Redos since 'u' undos
 nnoremap U :redo<cr>
