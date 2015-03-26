@@ -91,8 +91,8 @@ nnoremap k gk
 nnoremap H 0
 nnoremap L $
 
-" Q: Closes the window
-nnoremap Q :q<cr>
+" Ctrl+q: Closes the window
+nnoremap <c-q> :q<cr>
 
 " W: Save
 nnoremap W :w<cr>
