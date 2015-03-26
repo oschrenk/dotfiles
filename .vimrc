@@ -46,8 +46,6 @@ Plug 'itspriddle/vim-marked',             { 'for': 'markdown' } " open in Marked
 Plug 'timcharper/textile.vim',            { 'for': 'textile' }
 
 " Tools & Externals
-Plug 'xolox/vim-notes'                    " manage notes
-Plug 'xolox/vim-misc'                     " dependency of vim-notes
 Plug 'rizzatti/dash.vim'                  " search for terms using Dash.app
 
 " Look and feel
