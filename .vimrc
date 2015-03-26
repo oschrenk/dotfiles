@@ -64,6 +64,8 @@ colorscheme gruvbox
 " ============================
 " Keyboard mappings
 " ============================
+" map leader to <space>
+let mapleader = " "
 
 " Disable arrow keys
 map <up> <nop>
