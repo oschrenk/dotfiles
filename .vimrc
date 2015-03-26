@@ -176,11 +176,6 @@ au FocusLost,WinLeave * :silent! w
 " Auto-Delete trailing whitspace
 autocmd BufWritePre *.* :%s/\s\+$//e
 
-" Source the vimrc file after saving it
-if has("autocmd")
-  autocmd bufwritepost .vimrc source $MYVIMRC
-endif
-
 " when commiting  add new line and enter insert mode
 au FileType gitcommit execute "normal! O" | startinsert
 
