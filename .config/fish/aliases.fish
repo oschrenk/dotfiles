@@ -17,7 +17,7 @@ alias g    git
 alias v    vim
 
 alias tk   'tmux kill-session -t'
-alias tl   'tmuxp load'
+alias tl   'tmuxp load -y'
 
 alias shiftr "sed -Ee 's/^/    /'"
 alias shiftl "sed -Ee 's/^([ ]{4}|[\t])//'"
