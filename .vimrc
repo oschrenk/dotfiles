@@ -53,6 +53,7 @@ Plug 'rizzatti/dash.vim'                  " search for terms using Dash.app
 Plug 'bling/vim-airline'                  " powerline statusline
 Plug 'morhetz/gruvbox'                    " theme
 Plug 'amdt/vim-niji'                      " colored parentheses
+Plug 'junegunn/goyo.vim'                  " distraction free editing
 
 call plug#end()
 "End Plug --------------------
