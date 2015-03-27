@@ -29,6 +29,7 @@ Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded co
 Plug 'ervandew/supertab'                  " tab autocompletion in insert mode
 Plug 'vim-scripts/paredit.vim',           { 'for': 'clojure' } " maintain the balanced state of matched parentheses
 Plug 'tpope/vim-endwise',                 { 'for': 'ruby' }    " end things automatically, like end after if, do, def in Ruby
+Plug 'godlygeek/tabular',                 " align text
 
 " Git
 Plug 'tpope/vim-fugitive'                 " git client for vim
