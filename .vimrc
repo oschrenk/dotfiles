@@ -54,6 +54,7 @@ Plug 'bling/vim-airline'                  " powerline statusline
 Plug 'morhetz/gruvbox'                    " theme
 Plug 'amdt/vim-niji'                      " colored parentheses
 Plug 'junegunn/goyo.vim'                  " distraction free editing
+Plug 'edkolev/tmuxline.vim'               " tmux statusline generator, share colors, settings
 
 call plug#end()
 "End Plug --------------------
