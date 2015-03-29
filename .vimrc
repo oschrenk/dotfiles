@@ -90,6 +90,10 @@ nnoremap <silent> <S-j> :move+<CR>==
 xnoremap <silent> <S-k>   :move-2<CR>gv=gv
 xnoremap <silent> <S-j> :move'>+<CR>gv=gv
 
+" Jump back to last edited buffer
+nnoremap <C-p> :e#<CR>
+inoremap <C-p> <esc>:e#<CR>
+
 " move cursors naturally
 nnoremap j gj
 nnoremap k gk
