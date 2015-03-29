@@ -165,8 +165,17 @@ set clipboard=unnamed         " gain access to clipboard in OS X
 set visualbell                " don't beep
 set noerrorbells              " don't beep
 
-set nobackup                  " do not create backup files
-set noswapfile                " do not create swap files
+" Centralize backups, swap files, and persistent undo
+set directory=~/.vim/tmp      " Set temp directory (don't litter local dir with swp/tmp files)
+set nobackup                  " Get rid of backups, I don't use them
+set nowb                      " Get rid of backups on write
+set noswapfile                " Get rid of swp files, I have never used them
+if exists("&undodir")
+    set undofile              " Persistent undo! Pure money.
+    let &undodir=&directory
+    set undolevels=500
+    set undoreload=500
+endif
 
 " Reload when entering buffer or gaining focus
 au FocusGained,BufEnter * :silent! !
