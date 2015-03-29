@@ -25,11 +25,6 @@ Inspired by many other dotfiles:
 - [yangchenyun / fish-config](https://github.com/yangchenyun/fish-config)
 - [guilhermepontes / fish](https://github.com/guilhermepontes/fish)
 
-## Shell ##
-
-- [Localtog / powerline](https://github.com/Lokaltog/powerline)
-- [milkbikis / powerline-shell](https://github.com/milkbikis/powerline-shell)
-
 ## Bash Completion ##
 
 - [Git Bash Completion](https://github.com/git/git/blob/master/contrib/completion/git-completion.bash)
