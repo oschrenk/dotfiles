@@ -10,6 +10,7 @@ Inspired by many other dotfiles:
 - [janmoesen / tilde](https://github.com/janmoesen/tilde)
 - [holman / dotfiles](https://github.com/holman/dotfiles)
 - [skwp / dotfiles](https://github.com/skwp/dotfiles)
+- [nathanlong / dotfiles](https://github.com/nathanlong/dotfiles)
 
 ## Fish ##
 
@@ -25,7 +26,7 @@ Inspired by many other dotfiles:
 - [yangchenyun / fish-config](https://github.com/yangchenyun/fish-config)
 - [guilhermepontes / fish](https://github.com/guilhermepontes/fish)
 
-## Bash Completion ##
+## Bash ##
 
 - [Git Bash Completion](https://github.com/git/git/blob/master/contrib/completion/git-completion.bash)
 - [Git Flow Bash Completion](https://github.com/bobthecow/git-flow-completion)
