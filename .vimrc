@@ -199,6 +199,17 @@ autocmd BufWritePre *.* :%s/\s\+$//e
 " when commiting  add new line and enter insert mode
 au FileType gitcommit execute "normal! O" | startinsert
 
+" Jump to last cursor position when opening a file
+autocmd BufReadPost * call s:SetCursorPosition()
+function! s:SetCursorPosition()
+    if &filetype !~ 'svn\|commit\c'
+        if line("'\"") > 0 && line("'\"") <= line("$")
+            exe "normal! g`\""
+            normal! zz
+        endif
+    end
+endfunction
+
 " ============================
 " Plugin configuration
 " ============================
