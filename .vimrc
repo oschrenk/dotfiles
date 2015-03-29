@@ -84,6 +84,12 @@ nnoremap <Right> :vertical resize +1<CR>
 nnoremap <Up> :resize -1<CR>
 noremap <Down> :resize +1<CR>
 
+" Bubble lines
+nnoremap <silent> <S-k>   :move-2<CR>==
+nnoremap <silent> <S-j> :move+<CR>==
+xnoremap <silent> <S-k>   :move-2<CR>gv=gv
+xnoremap <silent> <S-j> :move'>+<CR>gv=gv
+
 " move cursors naturally
 nnoremap j gj
 nnoremap k gk
