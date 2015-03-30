@@ -260,24 +260,6 @@ if executable('ag')
 " Smart case, ignore vcs ignore files, and search hidden.
 let s:ag_opts = '--smart-case --skip-vcs-ignores --hidden --depth 15 --nocolor --nogroup '.
 		\ '--ignore ".git" '.
-    \ '--ignore ''.hg'' ' .
-    \ '--ignore ''.svn'' ' .
-    \ '--ignore ''.bzr'' ' .
-		\ '--ignore ".idea" '.
-		\ '--ignore ".idea_modules" '.
-		\ '--ignore ".bundle" '.
-		\ '--ignore ".rbenv" '.
-		\ '--ignore ".m2" '.
-		\ '--ignore "bin" '.
-		\ '--ignore "cache" '.
-		\ '--ignore "coverage" '.
-		\ '--ignore "externs" '.
-		\ '--ignore "javascripts" '.
-		\ '--ignore "hicv" '.
-		\ '--ignore "log" '.
-		\ '--ignore "target" '.
-		\ '--ignore "tmp" '.
-		\ '--ignore "vendor" '.
 		\ '--ignore "*.gif" '.
 		\ '--ignore "*.ico" '.
 		\ '--ignore "*.jar" '.
@@ -301,7 +283,7 @@ endif
 " Other
 " ---------------------------
 "
-" vim-clojure-conceal
+" vim-clojure-conceab
 let g:clojure_conceal_extras=1   " fn, defn-, letfn, and #() to unicode symbols
 
 " Airline
