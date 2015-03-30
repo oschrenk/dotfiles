@@ -81,4 +81,8 @@ function fzf_key_bindings
   bind \ct '__fzf_ctrl_t'
   bind \cr '__fzf_ctrl_r'
   bind \ec '__fzf_alt_c'
+
+  bind -M insert \ct '__fzf_ctrl_t'
+  bind -M insert \cr '__fzf_ctrl_r'
+  bind -M insert \ec '__fzf_alt_c'
 end
