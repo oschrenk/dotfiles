@@ -241,15 +241,15 @@ let g:unite_data_directory = '~/.unite'
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
 call unite#filters#sorter_default#use(['sorter_selecta'])
 
-" File searching using <space>f
+" File searching using <leader>f
 " -no-split to open as modal dialog
 "  -start-insert to start in insert mode
 nnoremap <silent> [unite]f :<C-u>Unite -no-split -start-insert -buffer-name=files -profile-name=buffer file_rec/async:!<cr>
 
-" Grepping using <space>/
+" Grepping using <leader>/
 nnoremap <silent> [unite]/ :<C-u>Unite -buffer-name=search grep:.<cr>
 
-" Yank history using <space>y
+" Yank history using <leader>y
 let g:unite_source_history_yank_enable = 1
 nnoremap <silent> [unite]y :<C-u>Unite -no-split -buffer-name=yank history/yank:<cr>
 
