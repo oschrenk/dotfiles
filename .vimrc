@@ -273,6 +273,7 @@ let s:ag_opts = '--smart-case --skip-vcs-ignores --hidden --depth 15 --nocolor -
     \ '--ignore ''.svn'' ' .
     \ '--ignore ''.bzr'' ' .
 		\ '--ignore ".idea" '.
+		\ '--ignore ".idea_modules" '.
 		\ '--ignore ".bundle" '.
 		\ '--ignore ".rbenv" '.
 		\ '--ignore ".m2" '.
