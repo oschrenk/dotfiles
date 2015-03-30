@@ -111,10 +111,6 @@ nnoremap N Nzzzv
 " Use tab in normal mode to open vinegar
 nmap <Tab> <Plug>VinegarUp
 
-" Use enter, shift enter to create empty lines
-nnoremap <CR> o<Esc>k
-nnoremap <s-CR> O<Esc>j
-
 " ============================
 " Config
 " ============================
