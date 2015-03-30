@@ -61,6 +61,7 @@ tmp/
 .project
 .metadata
 bin
+bin/
 bin/**
 *~.nib
 local.properties
@@ -86,6 +87,7 @@ nb-configuration.xml
 *.ipr
 *.iws
 .idea/
+.idea_modules/
 
 #XCode
 xcuserdata
@@ -130,12 +132,30 @@ Makefile.in
 .lock-*
 
 # Maven
-target
+.m2/
+target/
 pom.xml.tag
 pom.xml.releaseBackup
+pom.xml.versionsBackup
 pom.xml.next
 release.properties
 dependency-reduced-pom.xml
+
+# ivy
+.ivy2/
+
+# Leiningen
+.lein/
+
+#######################################
+# Dev Env Managers
+#######################################
+
+# rbenv
+.rbenv/
+
+# jenv
+.jenv/
 
 #######################################
 # Version Control Systems
@@ -241,7 +261,8 @@ dependency-reduced-pom.xml
 # Languages, Ruby
 #######################################
 
-.bundle
+.bundle/
+.rbenv/
 vendor/bundle
 
 #######################################
@@ -260,3 +281,14 @@ project/target
 # Scala-IDE specific
 .scala_dependencies
 .worksheet
+
+#######################################
+# Various
+#######################################
+cache/
+coverage/
+externs/
+javascripts/
+log/
+vendor/
+
