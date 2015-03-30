@@ -27,7 +27,7 @@ Plug 'justinmk/vim-sneak'                 " jump to any location eg `sab` jumps 
 " Control & Completion
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
 Plug 'ervandew/supertab'                  " tab autocompletion in insert mode
-Plug 'vim-scripts/paredit.vim',           { 'for': 'clojure' } " maintain the balanced state of matched parentheses
+Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
 Plug 'tpope/vim-endwise',                 { 'for': 'ruby' }    " end things automatically, like end after if, do, def in Ruby
 Plug 'godlygeek/tabular',                 " align text
 
@@ -83,12 +83,6 @@ nnoremap <Left> :vertical resize -1<CR>
 nnoremap <Right> :vertical resize +1<CR>
 nnoremap <Up> :resize -1<CR>
 noremap <Down> :resize +1<CR>
-
-" Bubble lines
-nnoremap <silent> <S-k>   :move-2<CR>==
-nnoremap <silent> <S-j> :move+<CR>==
-xnoremap <silent> <S-k>   :move-2<CR>gv=gv
-xnoremap <silent> <S-j> :move'>+<CR>gv=gv
 
 " Jump back to last edited buffer
 nnoremap <C-p> :e#<CR>
