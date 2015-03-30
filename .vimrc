@@ -206,6 +206,12 @@ endfunction
 
 
 " ---------------------------
+" paredit.vim
+" ---------------------------
+let g:paredit_leader=','                    " set the leader
+let g:paredit_shortmaps=0                   " force disabling the shortmaps
+
+" ---------------------------
 " netrw
 " ---------------------------
 let g:netrw_list_hide='\.o,\.obj,*~,\.pyc,' "stuff to ignore when tab completing
