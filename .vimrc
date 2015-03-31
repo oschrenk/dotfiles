@@ -14,6 +14,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events' " restore autocommand events within tm
 
 " Navigation
 Plug 'Shougo/unite.vim'                   " unified source to display search results
+Plug 'Shougo/neomru.vim'                  " include unite.vim MRU sources
 Plug 'Shougo/vimproc.vim', { 'do': 'make' } " Interactive command execution
 Plug 'tpope/vim-vinegar'                  " netrw enhancements
 Plug 'rking/ag.vim'                       " front for ag, A.K.A. the_silver_searcher
