@@ -255,6 +255,9 @@ nnoremap <silent> [unite]/ :<C-u>Unite -buffer-name=search grep:.<cr>
 let g:unite_source_history_yank_enable = 1
 nnoremap <silent> [unite]y :<C-u>Unite -no-split -buffer-name=yank history/yank:<cr>
 
+" MRU files using <leader>r
+nnoremap <silent> [unite]r :<C-u>Unite -no-split -buffer-name=mru -start-insert neomru/file<cr>
+
 " ag > ack > grep
 if executable('ag')
 
