@@ -237,6 +237,7 @@ let g:netrw_list_hide.='*/\.nx/**,*\.app'
 " space as prefix for unite
 nmap <space> [unite]
 nnoremap [unite] <nop>
+
 let g:unite_data_directory = '~/.unite'
 
 call unite#filters#matcher_default#use(['matcher_fuzzy'])
@@ -244,7 +245,7 @@ call unite#filters#sorter_default#use(['sorter_selecta'])
 
 " File searching using <leader>f
 " -no-split to open as modal dialog
-"  -start-insert to start in insert mode
+" -start-insert to start in insert mode
 nnoremap <silent> [unite]f :<C-u>Unite -no-split -start-insert -buffer-name=files -profile-name=buffer file_rec/async:!<cr>
 
 " Grepping using <leader>/
@@ -284,7 +285,7 @@ endif
 " Other
 " ---------------------------
 "
-" vim-clojure-conceab
+" vim-clojure-conceal
 let g:clojure_conceal_extras=1   " fn, defn-, letfn, and #() to unicode symbols
 
 " Airline
