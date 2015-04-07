@@ -54,7 +54,8 @@ Plug 'rizzatti/dash.vim'                  " search for terms using Dash.app
 Plug 'bling/vim-airline'                  " powerline statusline
 Plug 'edkolev/tmuxline.vim'               " tmux statusline generator, share colors, settings
 Plug 'amdt/vim-niji'                      " colored parentheses
-Plug 'junegunn/goyo.vim'                  " distraction free editing
+Plug 'junegunn/goyo.vim', {'on': 'Goyo'}  " distraction free editing
+Plug 'junegunn/limelight.vim', {'on': 'Limelight'} " focus on paragraps
 
 " Themes
 
@@ -217,7 +218,6 @@ endfunction
 " Plugin configuration
 " ============================
 
-
 " ---------------------------
 " paredit.vim
 " ---------------------------
@@ -317,7 +317,38 @@ let g:markdown_fenced_languages = ['clojure', 'javascript', 'scala', 'vim']
 " configure Marked.app
 let g:marked_app = "Marked"
 
+" goyo.vim
+function! s:goyo_enter()
+  silent !tmux set status off
+  set noshowmode
+  set noshowcmd
+  set scrolloff=999
+  set cursorline!
+  set cursorcolumn!
+  Limelight
+endfunction
+
+function! s:goyo_leave()
+  silent !tmux set status on
+  set showmode
+  set showcmd
+  set scrolloff=1
+  set cursorline
+  set cursorcolumn
+  Limelight!
+endfunction
+
+autocmd! User GoyoEnter
+autocmd! User GoyoLeave
+autocmd  User GoyoEnter nested call <SID>goyo_enter()
+autocmd  User GoyoLeave nested call <SID>goyo_leave()
+
+" limelight.vim
+let g:limelight_conceal_ctermfg = 'DarkGray'  " help limelight to dim
+
+" ===========================
 " Spellcheck
+" ===========================
 set spelllang=en
 set spellfile=$HOME/.vim/spell/en.utf-8.add " spellcheck dictionary location
 autocmd FileType gitcommit setlocal spell   " spellcheck git commit messages
