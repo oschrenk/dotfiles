@@ -52,10 +52,22 @@ Plug 'rizzatti/dash.vim'                  " search for terms using Dash.app
 
 " Look and feel
 Plug 'bling/vim-airline'                  " powerline statusline
-Plug 'morhetz/gruvbox'                    " theme
+Plug 'edkolev/tmuxline.vim'               " tmux statusline generator, share colors, settings
 Plug 'amdt/vim-niji'                      " colored parentheses
 Plug 'junegunn/goyo.vim'                  " distraction free editing
-Plug 'edkolev/tmuxline.vim'               " tmux statusline generator, share colors, settings
+
+" Themes
+
+" gruvbox
+" retro groove colors
+Plug 'morhetz/gruvbox'                    " theme
+
+" ia-writer
+"  colorscheme iawriter
+"  set linespace=5
+"  set background=light
+"  set guifont=Cousine:h12 " http://www.google.com/webfonts/specimen/Cousine
+Plug 'jacekd/vim-iawriter'
 
 call plug#end()
 "End Plug --------------------
