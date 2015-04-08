@@ -1,4 +1,7 @@
 log
 tags
 tmp
+target
 **.js.map
+.idea/
+
