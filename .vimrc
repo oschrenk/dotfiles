@@ -275,7 +275,7 @@ if executable('ag')
 
 " The silver searcher. Ignore .gitignore and search everything.
 " Smart case, ignore vcs ignore files, and search hidden.
-let s:ag_opts = '--smart-case --skip-vcs-ignores --hidden --depth 15 --nocolor --nogroup '.
+let s:ag_opts = '--smart-case --hidden --depth 15 --nocolor --nogroup '.
 		\ '--ignore ".git" '.
 		\ '--ignore ".ivy2" '.
 		\ '--ignore ".m2" '.
