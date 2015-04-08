@@ -5,7 +5,7 @@
 	<key>AdjustWindowForFontSizeChange</key>
 	<true/>
 	<key>AllowClipboardAccess</key>
-	<false/>
+	<true/>
 	<key>AnimateDimming</key>
 	<false/>
 	<key>AppleAntiAliasingThreshold</key>
@@ -1007,7 +1007,7 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>364 137 750 307 0 0 1440 900 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>195 282 796 475 0 0 1440 877 </string>
+	<string>195 245 918 512 0 0 1440 877 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>309 241 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
