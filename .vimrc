@@ -12,9 +12,6 @@ endif
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
-" Base
-Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg vim-gitgutter
-
 " Integration
 Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim splits
 Plug 'tmux-plugins/vim-tmux-focus-events' " restore autocommand events within tmux eg. gitgutter refreshs
@@ -42,6 +39,7 @@ Plug 'godlygeek/tabular'                  " align text
 " Git
 Plug 'tpope/vim-fugitive'                 " git client for vim
 Plug 'airblade/vim-gitgutter'             " mark modified, changed, deleted lines
+Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg. vim-gitgutter
 
 " File types
 Plug 'dag/vim-fish',                      { 'for': 'ruby' }
