@@ -9,3 +9,4 @@
 .config/ranger/
 .vim/plugged/
 **.old
+.vim/autoload
