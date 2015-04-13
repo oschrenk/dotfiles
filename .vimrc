@@ -1,7 +1,7 @@
 set shell=bash\ --norc
 set encoding=utf8         " how vim represents characters internally
 set termencoding=utf-8    " used to display
-"
+
 " Automatic installation:
 if empty(glob('~/.vim/autoload/plug.vim'))
 		silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
@@ -24,10 +24,10 @@ Plug 'Shougo/unite.vim'                   " unified source to display search res
 Plug 'Shougo/neomru.vim'                  " include unite.vim MRU sources
 Plug 'Shougo/vimproc.vim', { 'do': 'make' } " Interactive command execution
 Plug 'tpope/vim-vinegar'                  " netrw enhancements
-Plug 'rking/ag.vim'                       " front for ag, A.K.A. the_silver_searcher
+Plug 'rking/ag.vim'                       " front for ag, a.k.a. the_silver_searcher
 
 " Comments
-Plug 'tpope/vim-commentary'               " Comment stuff.Use gcc on line,gc on visual block
+Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
 
 " Motion
 Plug 'justinmk/vim-sneak'                 " jump to any location eg `sab` jumps to next ab
@@ -36,8 +36,8 @@ Plug 'justinmk/vim-sneak'                 " jump to any location eg `sab` jumps 
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
 Plug 'ervandew/supertab'                  " tab autocompletion in insert mode
 Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
-Plug 'tpope/vim-endwise',                 { 'for': 'ruby' }    " end things automatically, like end after if, do, def in Ruby
-Plug 'godlygeek/tabular',                 " align text
+Plug 'tpope/vim-endwise',                 { 'for': 'ruby' } " end things automatically, like end after `if, do, def` in Ruby
+Plug 'godlygeek/tabular'                  " align text
 
 " Git
 Plug 'tpope/vim-fugitive'                 " git client for vim
@@ -68,7 +68,7 @@ Plug 'junegunn/limelight.vim', {'on': 'Limelight'} " focus on paragraps
 
 " gruvbox
 " retro groove colors
-Plug 'morhetz/gruvbox'                    " theme
+Plug 'morhetz/gruvbox'
 
 " ia-writer
 "  colorscheme iawriter
