@@ -12,6 +12,7 @@ endif
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
+" Base
 Plug 'mhinz/vim-startify'                 " A fancy start screen for vim
 
 " Integration
