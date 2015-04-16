@@ -146,6 +146,11 @@ dependency-reduced-pom.xml
 
 # Leiningen
 .lein/
+.lein-deps-sum
+.lein-repl-history
+.lein-plugins/
+.lein-failures
+.nrepl-port
 
 #######################################
 # Dev Env Managers
@@ -206,6 +211,12 @@ dependency-reduced-pom.xml
 *.lai
 *.la
 *.a
+
+#######################################
+# Languages, Clojure
+#######################################
+
+# see Build Systems, Leiningen
 
 #######################################
 # Languages, Latex
