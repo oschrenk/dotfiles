@@ -111,7 +111,27 @@ hs.hotkey.bind(hyper, 'l', function() hs.window.focusedWindow():focusWindowEast(
 hs.hotkey.bind(hyper, 'h', function() hs.window.focusedWindow():focusWindowWest() end)
 
 ------------------------
--- Logic
+-- Bluetooth
+------------------------
+
+-- Toggle bluetooth
+hs.hotkey.bind(hyper, "b", function()
+  local file = assert(io.popen('/usr/local/bin/blueutil power', 'r'))
+  local output = file:read('*all')
+  file:close()
+  state = output:gsub("%s+", "") == "1"
+
+  if (state) then
+    hs.alert.show("Disabling Bluetooth")
+    os.execute("/usr/local/bin/blueutil power 0")
+  else
+    hs.alert.show("Enabling Bluetooth")
+    os.execute("/usr/local/bin/blueutil power 1")
+  end
+end)
+
+------------------------
+-- WiFi
 ------------------------
 
 function enteredNetwork(old_ssid, new_ssid, token)
