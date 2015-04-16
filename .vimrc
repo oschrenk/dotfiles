@@ -34,7 +34,7 @@ Plug 'justinmk/vim-sneak'                 " jump to any location eg `sab` jumps 
 
 " Control & Completion
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
-Plug 'ervandew/supertab'                  " tab autocompletion in insert mode
+Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
 Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
 Plug 'tpope/vim-endwise',                 { 'for': 'ruby' } " end things automatically, like end after `if, do, def` in Ruby
 Plug 'godlygeek/tabular'                  " align text
