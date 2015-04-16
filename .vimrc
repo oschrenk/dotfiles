@@ -87,8 +87,12 @@ colorscheme gruvbox
 " ============================
 " Keyboard mappings
 " ============================
+
 " map leader to <space>
 let mapleader = " "
+
+" escape with jk
+inoremap jk <Esc>
 
 " Disable arrow keys
 map <up> <nop>
