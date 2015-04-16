@@ -110,6 +110,33 @@ hs.hotkey.bind(hyper, 'j', function() hs.window.focusedWindow():focusWindowSouth
 hs.hotkey.bind(hyper, 'l', function() hs.window.focusedWindow():focusWindowEast() end)
 hs.hotkey.bind(hyper, 'h', function() hs.window.focusedWindow():focusWindowWest() end)
 
+
+-- Close notifications
+script = [[
+my closeNotif()
+on closeNotif()
+
+    tell application "System Events"
+        tell process "Notification Center"
+            set theWindows to every window
+            repeat with i from 1 to number of items in theWindows
+                set this_item to item i of theWindows
+                try
+                    click button 1 of this_item
+                on error
+                    my closeNotif()
+                end try
+            end repeat
+        end tell
+    end tell
+end closeNotif ]]
+function clearNotifications()
+  ok, result = hs.applescript(script)
+end
+hs.hotkey.bind(hyper, "c", function()
+  hs.alert.show("Closing notifications")
+  hs.timer.doAfter(1, clearNotifications)
+end)
 ------------------------
 -- Bluetooth
 ------------------------
