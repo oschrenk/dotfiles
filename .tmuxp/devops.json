@@ -25,6 +25,17 @@
       ]
     },
     {
+      "window_name": "hammerspoon",
+      "layout": "main-horizontal",
+      "start_directory": "$HOME/.deja/dotfiles/.hammerspoon/",
+      "options": { "automatic-rename": "off" },
+      "panes": [
+        { "shell_command": "vim init.lua",
+          "focus": "true" },
+        { "shell_command": "git status" }
+      ]
+    },
+    {
       "window_name": "dotfiles",
       "layout": "main-horizontal",
       "start_directory": "$HOME/.deja/dotfiles",
