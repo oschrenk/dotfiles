@@ -23,6 +23,10 @@ set -x EDITOR vim
 set -gx LC_ALL en_US.UTF-8
 set -gx LANG en_US.UTF-8
 
+# Go
+set -x GOPATH $HOME/Frameworks/go
+prepend-to-path $GOPATH/bin
+
 # Ruby
 prepend-to-path $HOME/.rbenv/bin
 prepend-to-path $HOME/.rbenv/shims
