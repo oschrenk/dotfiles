@@ -59,6 +59,7 @@ Plug 'timcharper/textile.vim',            { 'for': 'textile' }
 
 " Tools & Externals
 Plug 'rizzatti/dash.vim'                  " search for terms using Dash.app
+Plug 'ryanss/vim-hackernews'              " hackernews
 
 " Look and feel
 Plug 'bling/vim-airline'                  " powerline statusline
