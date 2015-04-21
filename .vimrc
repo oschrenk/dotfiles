@@ -49,6 +49,8 @@ Plug 'dag/vim-fish',                      { 'for': 'ruby' }
 Plug 'derekwyatt/vim-scala',              { 'for': ['scala', 'markdown'] }
 Plug 'guns/vim-clojure-static',           { 'for': 'clojure' }
 Plug 'fwolanski/vim-clojure-conceal',     { 'for': 'clojure' }
+Plug 'tpope/vim-fireplace',               { 'for': 'clojure' }
+
 Plug 'vim-ruby/vim-ruby',                 { 'for': 'ruby' }
 Plug 'dag/vim2hs',                        { 'for': 'haskell' }
 Plug 'tpope/vim-markdown',                { 'for': 'markdown' }
