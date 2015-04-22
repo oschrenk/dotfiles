@@ -2,20 +2,20 @@
   "session_name": "personal",
   "windows": [
     {
-      "window_name": "notes",
+      "window_name": "downloads",
       "layout": "main-horizontal",
       "options": { "automatic-rename": "off" },
-      "start_directory": "$HOME/Documents/notes",
+      "start_directory": "$HOME/Downloads",
       "panes": [
         { },
         { }
       ]
     },
     {
-      "window_name": "downloads",
+      "window_name": "notes",
       "layout": "main-horizontal",
       "options": { "automatic-rename": "off" },
-      "start_directory": "$HOME/Downloads",
+      "start_directory": "$HOME/Documents/notes",
       "panes": [
         { },
         { }
