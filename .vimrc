@@ -45,7 +45,7 @@ Plug 'airblade/vim-gitgutter'             " mark modified, changed, deleted line
 Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg. vim-gitgutter
 
 " File types
-Plug 'dag/vim-fish',                      { 'for': 'ruby' }
+Plug 'dag/vim-fish',                      { 'for': 'fish' }
 Plug 'derekwyatt/vim-scala',              { 'for': ['scala', 'markdown'] }
 Plug 'guns/vim-clojure-static',           { 'for': 'clojure' }
 Plug 'fwolanski/vim-clojure-conceal',     { 'for': 'clojure' }
