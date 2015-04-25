@@ -73,7 +73,7 @@ function __tilde_link
   end
 end
 
-function tilde --description  "node-deja implemented in fish"
+function tilde --description  "minimal dotfiles managment with fish"
 
   # tilde default settings
   # ----------------------------------------
@@ -101,11 +101,9 @@ function tilde --description  "node-deja implemented in fish"
   end
 
   switch $subcommand
-    case "link"
-      __tilde_link  $dotfiles_home $tilde_home $argument_1
-    case "ls"
-      __tilde_ls    $dotfiles_home $tilde_home $argument_1
     case "clone"
       __tilde_clone $tilde_home $argument_1 $argument_2
+    case "link"
+      __tilde_link  $dotfiles_home $tilde_home $argument_1
   end
 end
