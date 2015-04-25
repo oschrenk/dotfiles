@@ -2,20 +2,30 @@
   "session_name": "personal",
   "windows": [
     {
-      "window_name": "notes",
+      "window_name": "downloads",
       "layout": "main-horizontal",
       "options": { "automatic-rename": "off" },
-      "start_directory": "$HOME/Documents/notes",
+      "start_directory": "$HOME/Downloads",
       "panes": [
         { },
         { }
       ]
     },
     {
-      "window_name": "downloads",
-      "layout": "main-horizontal",
+      "window_name": "news",
+      "layout": "main-vertical",
       "options": { "automatic-rename": "off" },
       "start_directory": "$HOME/Downloads",
+      "panes": [
+        { "shell_command": "vim +HackerNews" },
+        { "shell_command": "t timeline" }
+      ]
+    },
+    {
+      "window_name": "notes",
+      "layout": "main-horizontal",
+      "options": { "automatic-rename": "off" },
+      "start_directory": "$HOME/Documents/notes",
       "panes": [
         { },
         { }
