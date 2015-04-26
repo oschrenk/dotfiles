@@ -14,6 +14,17 @@
       ]
     },
     {
+      "window_name": "fish",
+      "layout": "main-horizontal",
+      "start_directory": "$HOME/.deja/dotfiles/.config/fish",
+      "options": { "automatic-rename": "off" },
+      "panes": [
+        { "shell_command": "vim -O functions .",
+          "focus": "true" },
+        { "shell_command": "git status" }
+      ]
+    },
+    {
       "window_name": "tmuxp",
       "layout": "main-horizontal",
       "start_directory": "$HOME/.deja/dotfiles/.tmuxp",
