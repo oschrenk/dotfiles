@@ -12,9 +12,6 @@ endif
 " vim-plug
 call plug#begin('~/.vim/plugged')
 
-" Base
-Plug 'mhinz/vim-startify'                 " A fancy start screen for vim
-
 " Integration
 Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim splits
 Plug 'tmux-plugins/vim-tmux-focus-events' " restore autocommand events within tmux eg. gitgutter refreshs
