@@ -182,6 +182,7 @@ function enteredNetwork(old_ssid, new_ssid, token)
   return false
 end
 
+-- not used for now
 function ssidChangedCallback()
     newSSID = hs.wifi.currentNetwork()
 
@@ -200,15 +201,11 @@ function ssidChangedCallback()
     lastSSID = newSSID
 end
 
-wifiWatcher = hs.wifi.watcher.new(ssidChangedCallback)
-wifiWatcher:start()
-
 ------------------------
 -- Reload
 ------------------------
 
 function reload_config(files)
-  wifiWatcher:stop()
   hs.reload()
 end
 
