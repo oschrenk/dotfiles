@@ -982,6 +982,8 @@
 	<string></string>
 	<key>NSScrollAnimationEnabled</key>
 	<false/>
+	<key>NSScrollViewShouldScrollUnderTitlebar</key>
+	<false/>
 	<key>NSTableView Columns KeyBingingTable</key>
 	<array>
 		<data>
@@ -1007,11 +1009,11 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>364 137 750 307 0 0 1440 900 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>195 245 918 512 0 0 1440 877 </string>
+	<string>448 308 796 475 0 0 1440 900 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>309 241 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>708 347 570 530 0 0 1440 877 </string>
+	<string>870 0 570 877 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 15 1438 425 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
@@ -1789,6 +1791,8 @@
 					<string>\btelnet:([a-z0-9A-Z_]+@)?([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\b</string>
 				</dict>
 			</array>
+			<key>Space</key>
+			<integer>0</integer>
 			<key>Sync Title</key>
 			<false/>
 			<key>Tags</key>
@@ -1891,7 +1895,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-04-08T21:27:38Z</date>
+	<date>2015-05-03T11:00:35Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1937,6 +1941,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>2.9.20150408</string>
+	<string>2.9.20150503</string>
 </dict>
 </plist>
