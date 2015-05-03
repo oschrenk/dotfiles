@@ -31,6 +31,7 @@ function woman --description  "a companion for man, showing examples"
   set -l file $woman_home/$topic.md
   if test -e $file
     cat $file
-  else echo "No womanual entry for $topic"
+  else
+    echo "No womanual entry for $topic"
   end
 end
