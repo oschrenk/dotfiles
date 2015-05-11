@@ -25,6 +25,7 @@ set -gx LANG en_US.UTF-8
 
 # Go
 set -x GOPATH $HOME/Frameworks/go
+set -x GOBIN $GOPATH/bin
 prepend-to-path $GOPATH/bin
 
 # Ruby
