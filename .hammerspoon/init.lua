@@ -138,6 +138,12 @@ hs.hotkey.bind(hyper, "c", function()
   hs.timer.doAfter(1, clearNotifications)
 end)
 
+
+-- Clean trash
+hs.hotkey.bind(hyper, "t", function()
+    os.execute("/bin/rm -rf ~/.Trash/*")
+end)
+
 ------------------------
 -- Bluetooth
 ------------------------
