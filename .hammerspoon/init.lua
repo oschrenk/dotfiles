@@ -137,6 +137,7 @@ hs.hotkey.bind(hyper, "c", function()
   hs.alert.show("Closing notifications")
   hs.timer.doAfter(1, clearNotifications)
 end)
+
 ------------------------
 -- Bluetooth
 ------------------------
@@ -160,6 +161,22 @@ end)
 ------------------------
 -- WiFi
 ------------------------
+
+-- Toggle wifi
+hs.hotkey.bind(hyper, "v", function()
+  local file = assert(io.popen('/usr/sbin/networksetup -getairportpower en0 | cut -d ":" -f2', 'r'))
+  local output = file:read('*all')
+  file:close()
+  active = output:gsub("%s+", "") == "On"
+
+  if (active) then
+    hs.alert.show("Disabling Wifi")
+    os.execute("/usr/sbin/networksetup -setairportpower en0 off")
+  else
+    hs.alert.show("Enabling Wifi")
+    os.execute("/usr/sbin/networksetup -setairportpower en0 on")
+  end
+end)
 
 function enteredNetwork(old_ssid, new_ssid, token)
   -- activated wifi
