@@ -26,9 +26,6 @@ Plug 'rking/ag.vim'                       " front for ag, a.k.a. the_silver_sear
 " Comments
 Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
 
-" Motion
-Plug 'justinmk/vim-sneak'                 " jump to any location eg `sab` jumps to next ab
-
 " Control & Completion
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
 Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
