@@ -1009,11 +1009,13 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>364 137 750 307 0 0 1440 900 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>448 308 796 475 0 0 1440 900 </string>
+	<string>448 395 918 381 0 0 1440 877 </string>
+	<key>NSWindow Frame SUUpdateAlert</key>
+	<string>650 607 620 392 0 0 1920 1200 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>309 241 592 584 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>870 0 570 877 0 0 1440 877 </string>
+	<string>70 0 570 900 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 15 1438 425 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
@@ -1190,13 +1192,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.11764705882352941</real>
+				<real>0.090196078431372548</real>
 				<key>Color Space</key>
 				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.11764705882352941</real>
+				<real>0.090196078431372548</real>
 				<key>Red Component</key>
-				<real>0.11764705882352941</real>
+				<real>0.090196078431372548</real>
 			</dict>
 			<key>Background Image Is Tiled</key>
 			<false/>
@@ -1891,11 +1893,11 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>http://iterm2.com/appcasts/testing.xml</string>
+	<string>https://iterm2.com/appcasts/nightly.xml</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-05-03T11:00:35Z</date>
+	<date>2015-05-31T19:59:58Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1941,6 +1943,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>2.9.20150503</string>
+	<string>2.9.20150523-nightly</string>
 </dict>
 </plist>
