@@ -52,10 +52,6 @@ Plug 'itspriddle/vim-marked',             { 'for': 'markdown' } " open in Marked
 Plug 'timcharper/textile.vim',            { 'for': 'textile' }
 Plug 'Tyilo/applescript.vim',             { 'for': 'applescript' }
 
-" Tools & Externals
-Plug 'rizzatti/dash.vim'                  " search for terms using Dash.app
-Plug 'ryanss/vim-hackernews'              " hackernews
-
 " Look and feel
 Plug 'bling/vim-airline'                  " powerline statusline
 Plug 'edkolev/tmuxline.vim'               " tmux statusline generator, share colors, settings
