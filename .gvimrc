@@ -1,6 +1,6 @@
 " font
-set guifont=M+\ 1mn\ regular:h20
-set background=light
+set guifont=M+\ 1mn\ light\ for\ Powerline:h20
+set background=dark
 set shortmess+=I
 
 let s:hidden_all = 0
