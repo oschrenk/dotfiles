@@ -61,8 +61,7 @@ Plug 'junegunn/limelight.vim', {'on': 'Limelight'} " focus on paragraps
 
 " Themes
 
-" gruvbox
-" retro groove colors
+" gruvbox, retro groove colors
 Plug 'morhetz/gruvbox'
 
 " ia-writer
@@ -74,6 +73,10 @@ Plug 'jacekd/vim-iawriter'
 
 call plug#end()
 "End Plug --------------------
+
+" ============================
+" Look and Feel
+" ============================
 
 set background=dark
 colorscheme gruvbox
