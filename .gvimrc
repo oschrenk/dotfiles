@@ -1,5 +1,5 @@
 " font
-set guifont=M+\ 1mn\ light\ for\ Powerline:h16
+set guifont=M+\ 1mn\ light\ for\ Powerline:h20
 set background=dark
 set shortmess+=I
 
