@@ -57,7 +57,7 @@ Plug 'bling/vim-airline'                  " powerline statusline
 Plug 'edkolev/tmuxline.vim'               " tmux statusline generator, share colors, settings
 Plug 'raymond-w-ko/vim-niji'              " colored parentheses
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}  " distraction free editing
-Plug 'junegunn/limelight.vim', {'on': 'Limelight'} " focus on paragraps
+Plug 'junegunn/limelight.vim', {'on': 'Limelight'} " focus on paragraphs
 
 " Themes
 
