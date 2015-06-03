@@ -28,7 +28,13 @@ Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc o
 
 " Control & Completion
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
-Plug 'Valloric/YouCompleteMe', { 'do': './install.sh --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.sh --clang-completer' }
+" lazy load ycm when entering insert mode
+augroup load_ycm
+  autocmd!
+  autocmd InsertEnter * call plug#load('YouCompleteMe')
+                     \| call youcompleteme#Enable() | autocmd! load_ycm
+augroup END
 Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
 Plug 'tpope/vim-endwise',                 { 'for': 'ruby' } " end things automatically, like end after `if, do, def` in Ruby
 Plug 'godlygeek/tabular'                  " align text
