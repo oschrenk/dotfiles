@@ -3,6 +3,8 @@ set guifont=M+\ 1mn\ light\ for\ Powerline:h20
 set background=dark
 set shortmess+=I
 
+set guioptions-=r
+
 let s:hidden_all = 0
 function! ToggleHiddenAll()
     if s:hidden_all  == 0

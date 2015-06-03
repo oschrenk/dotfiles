@@ -39,5 +39,5 @@ set -x SCALA_HOME /usr/local/opt/scala/
 set -x SPARK_HOME $HOME/Frameworks/spark
 
 # Color scheme
-source gruvbox_256palette_osx.fish
+source $HOME/.config/fish/gruvbox_256palette_osx.fish
 
