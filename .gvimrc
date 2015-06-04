@@ -13,6 +13,8 @@ function! s:goyo_enter()
   set noshowmode
   set noshowcmd
   set noruler
+  set cursorline!
+  set cursorcolumn!
   set scrolloff=999
   set laststatus=0
   Limelight
@@ -23,6 +25,8 @@ function! s:goyo_leave()
   set showmode
   set showcmd
   set ruler
+  set cursorline!
+  set cursorcolumn!
   set scrolloff=5
   set laststatus=2
   Limelight!
