@@ -1,8 +1,11 @@
-" font
-set guifont=M+\ 1mn\ light\ for\ Powerline:h20
-set background=dark
+" ============================
+" Look and Feel
+" ============================
+colorscheme iawriter
+set linespace=5
+set background=light
+set guifont=Cousine:h16 " http://www.google.com/webfonts/specimen/Cousine
 set shortmess+=I
-
 set guioptions-=r
 
 function! s:goyo_enter()
