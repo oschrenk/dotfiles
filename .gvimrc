@@ -23,4 +23,3 @@ function! ToggleHiddenAll()
 endfunction
 
 nnoremap <S-h> :call ToggleHiddenAll()<CR>
-nnoremap <S-h> :call ToggleHiddenAll()<CR>et g:airline_powerline_fonts=1
