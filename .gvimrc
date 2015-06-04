@@ -5,21 +5,31 @@ set shortmess+=I
 
 set guioptions-=r
 
-let s:hidden_all = 0
-function! ToggleHiddenAll()
-    if s:hidden_all  == 0
-        let s:hidden_all = 1
-        set noshowmode
-        set noruler
-        set laststatus=0
-        set noshowcmd
-    else
-        let s:hidden_all = 0
-        set showmode
-        set ruler
-        set laststatus=2
-        set showcmd
-    endif
+function! s:goyo_enter()
+  silent !tmux set status off
+  set noshowmode
+  set noshowcmd
+  set noruler
+  set scrolloff=999
+  set laststatus=0
+  Limelight
 endfunction
 
-nnoremap <S-h> :call ToggleHiddenAll()<CR>
+function! s:goyo_leave()
+  silent !tmux set status on
+  set showmode
+  set showcmd
+  set ruler
+  set scrolloff=5
+  set laststatus=2
+  Limelight!
+endfunction
+
+autocmd! User GoyoEnter
+autocmd! User GoyoLeave
+autocmd  User GoyoEnter nested call <SID>goyo_enter()
+autocmd  User GoyoLeave nested call <SID>goyo_leave()
+
+autocmd VimEnter * Goyo
+autocmd VimEnter BufRead,BufNewFile startinsert
+
