@@ -71,10 +71,6 @@ Plug 'junegunn/limelight.vim', {'on': 'Limelight'} " focus on paragraphs
 Plug 'morhetz/gruvbox'
 
 " ia-writer
-"  colorscheme iawriter
-"  set linespace=5
-"  set background=light
-"  set guifont=Cousine:h12 " http://www.google.com/webfonts/specimen/Cousine
 Plug 'jacekd/vim-iawriter'
 
 call plug#end()
@@ -324,38 +320,6 @@ set laststatus=2
 " Markdown
 au BufRead,BufNewFile *.md set filetype=markdown
 let g:markdown_fenced_languages = ['clojure', 'javascript', 'scala', 'vim']
-
-" configure Marked.app
-let g:marked_app = "Marked"
-
-" goyo.vim
-function! s:goyo_enter()
-  silent !tmux set status off
-  set noshowmode
-  set noshowcmd
-  set scrolloff=999
-  set cursorline!
-  set cursorcolumn!
-  Limelight
-endfunction
-
-function! s:goyo_leave()
-  silent !tmux set status on
-  set showmode
-  set showcmd
-  set scrolloff=1
-  set cursorline
-  set cursorcolumn
-  Limelight!
-endfunction
-
-autocmd! User GoyoEnter
-autocmd! User GoyoLeave
-autocmd  User GoyoEnter nested call <SID>goyo_enter()
-autocmd  User GoyoLeave nested call <SID>goyo_leave()
-
-" limelight.vim
-let g:limelight_conceal_ctermfg = 'DarkGray'  " help limelight to dim
 
 " ===========================
 " Spellcheck
