@@ -149,8 +149,6 @@ set number                    " show line number
 
 set splitright                " always split to the right
 set splitbelow                " always split to the bottom
-set guitablabel=%t            " Tab headings
-set guitabtooltip=%F          " Tab headings
 
 set lsp=0                     " space it out a little more (easier to read)
 set cmdheight=1               " the command bar is 2 high.
