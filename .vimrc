@@ -67,10 +67,7 @@ Plug 'junegunn/limelight.vim', {'on': 'Limelight'} " focus on paragraphs
 
 " Themes
 
-" gruvbox, retro groove colors
 Plug 'morhetz/gruvbox'
-
-" ia-writer
 Plug 'jacekd/vim-iawriter'
 
 call plug#end()
