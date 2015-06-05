@@ -207,7 +207,7 @@ au FocusLost,WinLeave * :silent! w
 autocmd BufWritePre *.* :%s/\s\+$//e
 
 " when commiting  add new line and enter insert mode
-au FileType gitcommit execute "normal! O" | startinsert
+au FileType gitcommit startinsert
 
 " Jump to last cursor position when opening a file
 autocmd BufReadPost * call s:SetCursorPosition()
