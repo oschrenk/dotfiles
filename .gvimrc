@@ -9,7 +9,6 @@ set shortmess+=I
 set guioptions-=r
 
 function! s:goyo_enter()
-  silent !tmux set status off
   set noshowmode
   set noshowcmd
   set noruler
@@ -21,7 +20,6 @@ function! s:goyo_enter()
 endfunction
 
 function! s:goyo_leave()
-  silent !tmux set status on
   set showmode
   set showcmd
   set ruler
