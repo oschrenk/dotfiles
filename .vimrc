@@ -29,6 +29,9 @@ Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc o
 " Completion
 Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.sh --clang-completer' }
 
+" Snippets
+Plug 'SirVer/ultisnips', { 'on': [] }
+
 " Control
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
 Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
@@ -38,7 +41,7 @@ Plug 'godlygeek/tabular'                  " align text
 " lazy load ycm/ultisnips when entering insert mode
 augroup load_ycm
   autocmd!
-  autocmd InsertEnter * call plug#load('YouCompleteMe')
+  autocmd InsertEnter * call plug#load('ultisnips','YouCompleteMe')
                      \| call youcompleteme#Enable() | autocmd! load_ycm
 augroup END
 
