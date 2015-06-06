@@ -26,18 +26,21 @@ Plug 'rking/ag.vim'                       " front for ag, a.k.a. the_silver_sear
 " Comments
 Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
 
-" Control & Completion
-Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
+" Completion
 Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.sh --clang-completer' }
-" lazy load ycm when entering insert mode
+
+" Control
+Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
+Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
+Plug 'tpope/vim-endwise',                 { 'for': 'ruby' } " end things automatically, like end after `if, do, def` in Ruby
+Plug 'godlygeek/tabular'                  " align text
+
+" lazy load ycm/ultisnips when entering insert mode
 augroup load_ycm
   autocmd!
   autocmd InsertEnter * call plug#load('YouCompleteMe')
                      \| call youcompleteme#Enable() | autocmd! load_ycm
 augroup END
-Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
-Plug 'tpope/vim-endwise',                 { 'for': 'ruby' } " end things automatically, like end after `if, do, def` in Ruby
-Plug 'godlygeek/tabular'                  " align text
 
 " Git
 Plug 'tpope/vim-fugitive'                 " git client for vim
