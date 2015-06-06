@@ -30,7 +30,7 @@ Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc o
 Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.sh --clang-completer' }
 
 " Snippets
-Plug 'SirVer/ultisnips', { 'on': [] }
+Plug 'SirVer/ultisnips', { 'on': [] } | Plug 'spiroid/vim-ultisnip-scala'
 
 " Control
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
