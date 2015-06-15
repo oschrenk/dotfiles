@@ -1,1 +1,1 @@
-{:user {:plugins [[lein-kibit "0.0.8"]]}}
+{:user {:plugins [[lein-kibit "0.1.2"]]}}
