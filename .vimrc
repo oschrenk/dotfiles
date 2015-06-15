@@ -75,7 +75,6 @@ Plug 'junegunn/goyo.vim', {'on': 'Goyo'}  " distraction free editing
 Plug 'junegunn/limelight.vim', {'on': 'Limelight'} " focus on paragraphs
 
 " Themes
-
 Plug 'morhetz/gruvbox'
 Plug 'jacekd/vim-iawriter'
 
