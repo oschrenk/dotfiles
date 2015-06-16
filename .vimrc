@@ -20,6 +20,9 @@ Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim spl
 Plug 'tmux-plugins/vim-tmux-focus-events' " restore autocommand events within tmux eg. gitgutter refreshs
 Plug 'epeli/slimux'                       " interact with tmux panes from within vim
 
+" External Tools
+Plug 'rizzatti/dash.vim'                  " Search Dash.app from Vim
+
 " Navigation
 Plug 'Shougo/unite.vim'                   " unified source to display search results
 Plug 'Shougo/neomru.vim'                  " include unite.vim MRU sources
@@ -232,6 +235,11 @@ endfunction
 " ============================
 " Plugin configuration
 " ============================
+
+" ---------------------------
+" dash.vim
+" ---------------------------
+:nmap <silent> <leader>d <Plug>DashSearch
 
 " ---------------------------
 " paredit.vim
