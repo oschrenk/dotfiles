@@ -35,6 +35,3 @@ set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 set -x SCALA_HOME /usr/local/opt/scala/
 set -x SPARK_HOME $HOME/Frameworks/spark
 
-# Color scheme
-source $HOME/.config/fish/gruvbox_256palette_osx.fish
-

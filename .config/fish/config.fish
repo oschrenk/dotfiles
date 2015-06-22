@@ -11,3 +11,7 @@ end
 
 # vi mode, start in insert mode
 set fish_bind_mode insert
+
+# Color scheme
+source $HOME/.config/fish/gruvbox_256palette_osx.fish
+
