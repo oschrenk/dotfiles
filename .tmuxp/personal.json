@@ -12,6 +12,16 @@
       ]
     },
     {
+      "window_name": "blog",
+      "layout": "main-horizontal",
+      "options": { "automatic-rename": "off" },
+      "start_directory": "$HOME/Projects/personal/oschrenk.github.io",
+      "panes": [
+        { },
+        { }
+      ]
+    },
+    {
       "window_name": "notes",
       "layout": "main-horizontal",
       "options": { "automatic-rename": "off" },
