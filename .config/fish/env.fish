@@ -26,7 +26,6 @@ set -x GOBIN $GOPATH/bin
 prepend-to-path $GOPATH/bin
 
 # Ruby
-prepend-to-path $HOME/.rbenv/bin
 prepend-to-path $HOME/.rbenv/shims
 
 # JVM
