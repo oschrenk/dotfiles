@@ -10,9 +10,6 @@ append-to-path /usr/sbin
 prepend-to-path /usr/local/sbin
 prepend-to-path /usr/local/bin
 
-# local scripts
-append-to-path ~/.scripts
-
 # mac applications
 append-to-path /Applications/Karabiner.app/Contents/Library/bin/
 
