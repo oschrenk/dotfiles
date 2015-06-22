@@ -10,9 +10,6 @@ append-to-path /usr/sbin
 prepend-to-path /usr/local/sbin
 prepend-to-path /usr/local/bin
 
-# local scripts
-append-to-path ~/.scripts
-
 # mac applications
 append-to-path /Applications/Karabiner.app/Contents/Library/bin/
 
@@ -29,15 +26,11 @@ set -x GOBIN $GOPATH/bin
 prepend-to-path $GOPATH/bin
 
 # Ruby
-prepend-to-path $HOME/.rbenv/bin
 prepend-to-path $HOME/.rbenv/shims
 
-# Java
+# JVM
 set -x MAVEN_OPTS "-Xmx512m"
 set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 set -x SCALA_HOME /usr/local/opt/scala/
 set -x SPARK_HOME $HOME/Frameworks/spark
-
-# Color scheme
-source $HOME/.config/fish/gruvbox_256palette_osx.fish
 
