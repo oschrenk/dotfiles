@@ -32,7 +32,7 @@ prepend-to-path $GOPATH/bin
 prepend-to-path $HOME/.rbenv/bin
 prepend-to-path $HOME/.rbenv/shims
 
-# Java
+# JVM
 set -x MAVEN_OPTS "-Xmx512m"
 set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 set -x SCALA_HOME /usr/local/opt/scala/
