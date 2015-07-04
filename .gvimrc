@@ -36,5 +36,6 @@ autocmd  User GoyoEnter nested call <SID>goyo_enter()
 autocmd  User GoyoLeave nested call <SID>goyo_leave()
 
 autocmd VimEnter * Goyo
+autocmd VimEnter * setlocal spell
 autocmd VimEnter BufRead,BufNewFile startinsert
 
