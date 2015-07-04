@@ -8,7 +8,7 @@
       "start_directory": "$HOME/Projects/personal/tilde",
       "panes": [
         { "start_directory": "$HOME/Projects/personal/tilde",
-          "shell_command": "vim -O tilde.fish README.md" ,
+          "shell_command": "vim tilde.fish" ,
           "focus": "true"
         },
         { },
