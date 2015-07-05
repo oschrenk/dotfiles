@@ -5,8 +5,9 @@ colorscheme iawriter
 set linespace=8
 set background=light
 set guifont=Cousine:h16 " http://www.google.com/webfonts/specimen/Cousine
-set shortmess+=I
-set guioptions-=r
+
+set shortmess+=I         " don't give the intro message when starting Vim
+set guioptions-=r        " Remove right-hand scrollbar
 
 function! s:goyo_enter()
   set noshowmode
