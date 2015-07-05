@@ -8,6 +8,7 @@ set guifont=Cousine:h16 " http://www.google.com/webfonts/specimen/Cousine
 
 set shortmess+=I         " don't give the intro message when starting Vim
 set guioptions-=r        " Remove right-hand scrollbar
+set guicursor=n:blinkon0 " Don’t blink cursor in normal mode
 
 function! s:goyo_enter()
   set noshowmode
