@@ -2,7 +2,7 @@
 " Look and Feel
 " ============================
 colorscheme iawriter
-set linespace=5
+set linespace=8
 set background=light
 set guifont=Cousine:h16 " http://www.google.com/webfonts/specimen/Cousine
 set shortmess+=I
