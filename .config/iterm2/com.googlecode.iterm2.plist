@@ -1009,13 +1009,13 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>364 137 750 307 0 0 1440 900 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>865 703 606 456 0 0 1920 1177 </string>
+	<string>448 411 606 456 0 0 1440 877 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 382 620 392 0 0 1440 900 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
-	<string>309 241 592 584 0 0 1440 877 </string>
+	<string>484 488 592 584 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>1350 0 570 1177 0 0 1920 1177 </string>
+	<string>720 4 717 873 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 15 1438 425 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
@@ -1830,14 +1830,24 @@
 	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
 	<integer>0</integer>
 	<key>NoSyncLastTipTime</key>
-	<real>457215864.261473</real>
+	<real>457853341.15882498</real>
 	<key>NoSyncNeverRemindPrefsChangesCopy</key>
 	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>1</integer>
 	<key>NoSyncSuppressAnnyoingBellOffer</key>
+	<true/>
+	<key>NoSyncTipsDisabled</key>
 	<true/>
 	<key>NoSyncTipsToNotShow</key>
 	<array>
 		<string>0000</string>
+		<string>0001</string>
+		<string>0002</string>
+		<string>0003</string>
+		<string>0004</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -1903,7 +1913,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-06-28T20:24:24Z</date>
+	<date>2015-07-05T21:18:47Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1929,7 +1939,7 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1425140096</real>
+	<real>1435910400</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
