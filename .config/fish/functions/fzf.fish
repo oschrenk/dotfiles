@@ -1,3 +1,3 @@
 function fzf
-  /usr/local/Cellar/fzf/0.9.12/bin/fzf $argv
+  (brew --prefix fzf)/bin/fzf $argv
 end
