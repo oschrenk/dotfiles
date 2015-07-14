@@ -18,14 +18,6 @@ hs.window.animationDuration = 0
 local hyper = {"ctrl", "alt", "shift", "cmd"}
 
 ------------------------
--- Launcher
-------------------------
-
--- Launch applications
-hs.hotkey.bind(hyper, '1', function () hs.application.launchOrFocus("iTerm2") end)
-hs.hotkey.bind(hyper, '2', function () hs.application.launchOrFocus("Google Chrome") end)
-
-------------------------
 -- Window Managment
 ------------------------
 
