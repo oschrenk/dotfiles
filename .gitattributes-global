@@ -9,19 +9,6 @@ configure       text eol=lf
 # Windows
 *.bat           text eol=crlf
 
-# Visual Studio
-*.csproj        text eol=crlf
-*.vbproj        text eol=crlf
-*.fsproj        text eol=crlf
-*.dbproj        text eol=crlf
-*.vcproj        text eol=crlf
-*.vcxproj       text eol=crlfs
-*.filter        text eol=crlf
-*.vsprops       text eol=crlf
-*.sln           text eol=crlf
-*.dsw           text eol=crlf
-*.dsp           text eol=crlf
-
 # Office documents
 # Standard to msysgit
 *.doc	 diff=astextplain
