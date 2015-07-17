@@ -1,5 +1,3 @@
-require "pomodoro"
-
 ------------------------
 -- Settings
 ------------------------
@@ -18,18 +16,6 @@ hs.window.animationDuration = 0
 
 -- hotkey hyper
 local hyper = {"ctrl", "alt", "shift", "cmd"}
-
-------------------------
--- Launcher
-------------------------
-
--- Launch applications
-hs.hotkey.bind(hyper, '1', function () hs.application.launchOrFocus("iTerm2") end)
-hs.hotkey.bind(hyper, '2', function () hs.application.launchOrFocus("Google Chrome") end)
-
--- pomodoro key binding
-hs.hotkey.bind(hyper, '9', function() pom_enable() end)
-hs.hotkey.bind(hyper, '0', function() pom_disable() end)
 
 ------------------------
 -- Window Managment

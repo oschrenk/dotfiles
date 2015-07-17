@@ -1,11 +1,26 @@
 function tunnel --description "SSH SOCKS proxy script for Mac OS X"
 
+  # service like this, die like flies and are mostly slow
+  # enable one of these
+  function _remote_ip_before
+    # curl -s "icanhazip.com"
+    # curl -s "ifconfig.me/ip"
+    dig +short myip.opendns.com @resolver1.opendns.com
+  end
+
+  # service like this, die like flies and are mostly slow
+  # enable one of these
+  function _remote_ip_after
+    # curl -s -S --socks5 127.0.0.1:$localport "ifconfig.me/ip"
+    curl -s -S --socks5 127.0.0.1:$localport "ifconfig.me/ip"
+  end
+
   function proxy_on
     set lowerport (sysctl net.inet.ip.portrange.first | cut -d " " -f 2)
     set upperport (sysctl net.inet.ip.portrange.last | cut -d " " -f 2)
     set localport (jot -r 1 $lowerport $upperport)
 
-    set remote_ip_before (curl -s "ifconfig.me/ip")
+    set remote_ip_before (_remote_ip_before)
 
     echo "Listening on localhost:$localport."
     echo "Modifying network settings..."
