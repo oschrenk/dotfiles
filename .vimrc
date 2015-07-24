@@ -57,6 +57,7 @@ Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg
 " File types
 Plug 'dag/vim-fish',                      { 'for': 'fish' }
 Plug 'derekwyatt/vim-scala',              { 'for': ['scala', 'markdown'] }
+Plug 'mpollmeier/vim-scalaConceal',       { 'for': 'scala' }
 Plug 'guns/vim-clojure-static',           { 'for': 'clojure' }
 Plug 'fwolanski/vim-clojure-conceal',     { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace',               { 'for': 'clojure' }
