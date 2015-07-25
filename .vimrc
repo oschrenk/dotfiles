@@ -37,6 +37,7 @@ Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc o
 Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.sh --clang-completer' }
 
 " Control
+Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg. vim-gitgutter
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
 Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
 Plug 'tpope/vim-endwise',                 { 'for': 'ruby' } " end things automatically, like end after `if, do, def` in Ruby
@@ -52,7 +53,6 @@ augroup END
 " Git
 Plug 'tpope/vim-fugitive'                 " git client for vim
 Plug 'airblade/vim-gitgutter'             " mark modified, changed, deleted lines
-Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg. vim-gitgutter
 
 " File types
 Plug 'dag/vim-fish',                      { 'for': 'fish' }
