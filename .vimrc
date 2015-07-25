@@ -30,15 +30,13 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' } " Interactive command execution
 Plug 'tpope/vim-vinegar'                  " netrw enhancements
 Plug 'rking/ag.vim'                       " front for ag, a.k.a. the_silver_searcher
 
-" Comments
-Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
-
 " Completion
 Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.sh --clang-completer' }
 
 " Control
 Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg. vim-gitgutter
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
+Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
 Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
 Plug 'tpope/vim-endwise',                 { 'for': 'ruby' } " end things automatically, like end after `if, do, def` in Ruby
 Plug 'godlygeek/tabular'                  " align text
