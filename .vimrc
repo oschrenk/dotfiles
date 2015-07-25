@@ -51,7 +51,6 @@ augroup load_ycm
 augroup END
 
 " Git
-Plug 'tpope/vim-fugitive'                 " git client for vim
 Plug 'airblade/vim-gitgutter'             " mark modified, changed, deleted lines
 
 " File types
