@@ -40,6 +40,15 @@ Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc o
 Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
 Plug 'godlygeek/tabular'                  " align text
 
+" Text objects
+Plug 'kana/vim-textobj-user'              " creste your own text-objects
+Plug 'gilligan/textobj-gitgutter'         " ih for change-hunk text object
+Plug 'kana/vim-textobj-indent'            " ai/ii/aI/iI for block of indented lines
+Plug 'kana/vim-textobj-line'              " al/il for current line
+Plug 'sgur/vim-textobj-parameter'         " i,/a, for function parameter
+Plug 'Julian/vim-textobj-variable-segment' " iv/av change variable segments
+Plug 'reedes/vim-textobj-sentence',  { 'for': 'markdown' }  " as/is for a sentence of prose
+
 " lazy load ycm/ultisnips when entering insert mode
 augroup load_ycm
   autocmd!
