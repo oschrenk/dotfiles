@@ -38,7 +38,6 @@ Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
 Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
 Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
-Plug 'tpope/vim-endwise',                 { 'for': 'ruby' } " end things automatically, like end after `if, do, def` in Ruby
 Plug 'godlygeek/tabular'                  " align text
 
 " lazy load ycm/ultisnips when entering insert mode
@@ -60,6 +59,7 @@ Plug 'fwolanski/vim-clojure-conceal',     { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace',               { 'for': 'clojure' }
 Plug 'rodjek/vim-puppet',                 { 'for': 'puppet' }
 Plug 'vim-ruby/vim-ruby',                 { 'for': 'ruby' }
+Plug 'tpope/vim-endwise',                 { 'for': 'ruby' } " end things automatically, like end after `if, do, def` in Ruby
 Plug 'dag/vim2hs',                        { 'for': 'haskell' }
 Plug 'tpope/vim-markdown',                { 'for': 'markdown' }
 Plug 'itspriddle/vim-marked',             { 'for': 'markdown' } " open in Marked.app
