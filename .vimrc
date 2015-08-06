@@ -49,6 +49,7 @@ Plug 'sgur/vim-textobj-parameter'         " i,/a, for function parameter
 Plug 'Julian/vim-textobj-variable-segment' " iv/av change variable segments
 Plug 'saihoooooooo/vim-textobj-space'     " aS/iS for space regions
 Plug 'reedes/vim-textobj-sentence',  { 'for': 'markdown' }  " as/is for a sentence of prose
+Plug 'mattn/vim-textobj-url'              " au/iu for url
 
 " lazy load ycm/ultisnips when entering insert mode
 augroup load_ycm
