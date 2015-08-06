@@ -2,7 +2,7 @@ set shell=bash\ --norc
 set encoding=utf8         " how vim represents characters internally
 set termencoding=utf-8    " used to display
 
-" Automatic installation:
+" Automatic plug installation:
 if empty(glob('~/.vim/autoload/plug.vim'))
 		silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -30,17 +30,25 @@ Plug 'Shougo/vimproc.vim', { 'do': 'make' } " Interactive command execution
 Plug 'tpope/vim-vinegar'                  " netrw enhancements
 Plug 'rking/ag.vim'                       " front for ag, a.k.a. the_silver_searcher
 
-" Comments
-Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
-
 " Completion
 Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.sh --clang-completer' }
 
 " Control
+Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg. vim-gitgutter
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
+Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
 Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
-Plug 'tpope/vim-endwise',                 { 'for': 'ruby' } " end things automatically, like end after `if, do, def` in Ruby
 Plug 'godlygeek/tabular'                  " align text
+
+" Text objects
+Plug 'kana/vim-textobj-user'              " creste your own text-objects
+Plug 'gilligan/textobj-gitgutter'         " ih for change-hunk text object
+Plug 'kana/vim-textobj-indent'            " ai/ii/aI/iI for block of indented lines
+Plug 'kana/vim-textobj-line'              " al/il for current line
+Plug 'sgur/vim-textobj-parameter'         " i,/a, for function parameter
+Plug 'Julian/vim-textobj-variable-segment' " iv/av change variable segments
+Plug 'saihoooooooo/vim-textobj-space'     " aS/iS for space regions
+Plug 'reedes/vim-textobj-sentence',  { 'for': 'markdown' }  " as/is for a sentence of prose
 
 " lazy load ycm/ultisnips when entering insert mode
 augroup load_ycm
@@ -50,19 +58,18 @@ augroup load_ycm
 augroup END
 
 " Git
-Plug 'tpope/vim-fugitive'                 " git client for vim
 Plug 'airblade/vim-gitgutter'             " mark modified, changed, deleted lines
-Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg. vim-gitgutter
 
 " File types
 Plug 'dag/vim-fish',                      { 'for': 'fish' }
 Plug 'derekwyatt/vim-scala',              { 'for': ['scala', 'markdown'] }
+Plug 'mpollmeier/vim-scalaConceal',       { 'for': 'scala' }
 Plug 'guns/vim-clojure-static',           { 'for': 'clojure' }
 Plug 'fwolanski/vim-clojure-conceal',     { 'for': 'clojure' }
 Plug 'tpope/vim-fireplace',               { 'for': 'clojure' }
-Plug 'tpope/vim-fireplace',               { 'for': 'clojure' }
 Plug 'rodjek/vim-puppet',                 { 'for': 'puppet' }
 Plug 'vim-ruby/vim-ruby',                 { 'for': 'ruby' }
+Plug 'tpope/vim-endwise',                 { 'for': 'ruby' } " end things automatically, like end after `if, do, def` in Ruby
 Plug 'dag/vim2hs',                        { 'for': 'haskell' }
 Plug 'tpope/vim-markdown',                { 'for': 'markdown' }
 Plug 'itspriddle/vim-marked',             { 'for': 'markdown' } " open in Marked.app
