@@ -10,3 +10,4 @@
 .vim/plugged/
 **.old
 .vim/autoload
+.config/netfabb/
