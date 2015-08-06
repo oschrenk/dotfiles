@@ -975,7 +975,9 @@
 	<key>NSFontPanelAttributes</key>
 	<string>1, 4</string>
 	<key>NSNavLastRootDirectory</key>
-	<string>~/Downloads</string>
+	<string>~/.deja/dotfiles/.config/iterm2</string>
+	<key>NSNavPanelExpandedSizeForOpenMode</key>
+	<string>{712, 448}</string>
 	<key>NSQuotedKeystrokeBinding</key>
 	<string></string>
 	<key>NSRepeatCountBinding</key>
@@ -1007,17 +1009,17 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>364 137 750 307 0 0 1440 900 </string>
+	<string>176 269 635 474 0 0 1440 877 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>448 411 606 456 0 0 1440 877 </string>
+	<string>519 725 606 456 0 0 1920 1200 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>410 382 620 392 0 0 1440 900 </string>
+	<string>650 607 620 392 0 0 1920 1200 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
-	<string>484 488 592 584 0 0 1920 1177 </string>
+	<string>99 293 592 584 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>720 4 717 873 0 0 1440 877 </string>
+	<string>960 18 955 1159 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 15 1438 425 0 0 1440 877 </string>
+	<string>176 70 570 452 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1245,7 +1247,7 @@
 			<key>Close Sessions On End</key>
 			<true/>
 			<key>Columns</key>
-			<integer>80</integer>
+			<integer>100</integer>
 			<key>Command</key>
 			<string></string>
 			<key>Cursor Boost</key>
@@ -1825,20 +1827,12 @@
 			<string>/Users/oliver</string>
 		</dict>
 	</array>
-	<key>NoSyncDoNotWarnBeforeMultilinePaste</key>
-	<true/>
-	<key>NoSyncDoNotWarnBeforeMultilinePaste_selection</key>
-	<integer>0</integer>
 	<key>NoSyncLastTipTime</key>
-	<real>457853341.15882498</real>
-	<key>NoSyncNeverRemindPrefsChangesCopy</key>
-	<true/>
+	<real>459071866.86748898</real>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
-	<integer>1</integer>
-	<key>NoSyncSuppressAnnyoingBellOffer</key>
-	<true/>
+	<integer>0</integer>
 	<key>NoSyncTipsDisabled</key>
 	<true/>
 	<key>NoSyncTipsToNotShow</key>
@@ -1848,6 +1842,12 @@
 		<string>0002</string>
 		<string>0003</string>
 		<string>0004</string>
+		<string>0005</string>
+		<string>0006</string>
+		<string>0007</string>
+		<string>0008</string>
+		<string>000</string>
+		<string>0009</string>
 	</array>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
@@ -1895,7 +1895,7 @@
 		</dict>
 	</dict>
 	<key>PrefsCustomFolder</key>
-	<string>/Users/oliver/.deja/dotfiles/.config/iterm2</string>
+	<string>~/.deja/dotfiles/.config/iterm2</string>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -1909,11 +1909,13 @@
 	<key>SUFeedAlternateAppNameKey</key>
 	<string>iTerm</string>
 	<key>SUFeedURL</key>
-	<string>http://iterm2.com/appcasts/testing.xml</string>
+	<string>https://iterm2.com/appcasts/nightly.xml</string>
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-07-05T21:18:47Z</date>
+	<date>2015-08-05T09:46:01Z</date>
+	<key>SUSendProfileInfo</key>
+	<false/>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1939,7 +1941,7 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1435910400</real>
+	<real>1436479872</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -1959,6 +1961,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>2.9.git.a9e655b9a4</string>
+	<string>2.9.20150805-nightly</string>
 </dict>
 </plist>

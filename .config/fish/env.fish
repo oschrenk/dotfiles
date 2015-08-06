@@ -1,7 +1,8 @@
 # This file is sourced on login shells only
 # (responsible for setting up initial environment)
 
-set -gx PATH "/bin:/sbin/:/usr/bin:/usr/sbin"
+# set default PATH
+set -gx PATH /bin:/sbin/:/usr/bin:/usr/sbin
 
 # put homebrew bin before system bin
 prepend-to-path /usr/local/sbin
