@@ -8,6 +8,11 @@ configure       text eol=lf
 
 # Windows
 *.bat           text eol=crlf
+*.csproj -text merge=union
+*.vbproj -text merge=union
+*.fsproj -text merge=union
+*.dbproj -text merge=union
+*.sln -text merge=union
 
 # Office documents
 # Standard to msysgit
