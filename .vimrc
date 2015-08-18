@@ -1,3 +1,4 @@
+" would love to change to fish but gigutter needs POSIX shell
 set shell=bash\ --norc
 set encoding=utf8         " how vim represents characters internally
 set termencoding=utf-8    " used to display
