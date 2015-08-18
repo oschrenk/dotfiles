@@ -347,3 +347,10 @@ set complete+=kspell                        " word comletion via ctrl n/p
 autocmd FileType gitcommit setlocal spell   " spellcheck git commit messages
 autocmd FileType markdown  setlocal spell   " spelllcheck markdown files
 
+" ===========================
+" Auto corrections
+" ===========================
+
+iab xtoday <c-r>=strftime("%Y%m%d")<cr>
+iab xtime <c-r>=strftime("%H:%M")<cr>
+iab xnow <c-r>=strftime("%Y%m%d %H:%M")<cr>
