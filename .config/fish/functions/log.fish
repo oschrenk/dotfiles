@@ -1,4 +1,4 @@
-function log --description "Create and/or show todays log entry in Sublime"
+function log --description "Create and/or show todays log entry in $EDITOR"
   touch $HOME/Documents/logs/(today).md
 
   if not test -z (echo $argv)
@@ -7,7 +7,7 @@ function log --description "Create and/or show todays log entry in Sublime"
     echo -e "-----" >> $HOME/Documents/logs/(today).md
     echo $argv >> $HOME/Documents/logs/(today).md
   else
-    sl $HOME/Documents/logs/(today).md
+    eval $EDITOR $HOME/Documents/logs/(today).md
   end
 
 end
