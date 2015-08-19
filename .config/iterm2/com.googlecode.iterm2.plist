@@ -1011,13 +1011,13 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>176 269 635 474 0 0 1440 877 </string>
 	<key>NSWindow Frame Preferences</key>
-	<string>519 725 606 456 0 0 1920 1200 </string>
+	<string>269 433 606 456 0 0 1440 900 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>650 607 620 392 0 0 1920 1200 </string>
+	<string>650 589 620 392 0 0 1920 1177 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>99 293 592 584 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>960 18 955 1159 0 0 1920 1177 </string>
+	<string>730 7 710 886 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>176 70 570 452 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
@@ -1861,6 +1861,8 @@
 	<false/>
 	<key>PasteFromClipboard</key>
 	<false/>
+	<key>PasteTabToStringTabStopSize</key>
+	<integer>4</integer>
 	<key>PointerActions</key>
 	<dict>
 		<key>Button,1,1,,</key>
@@ -1913,7 +1915,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2015-08-05T09:46:01Z</date>
+	<date>2015-08-10T15:44:36Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SavePasteHistory</key>
@@ -1961,6 +1963,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>2.9.20150805-nightly</string>
+	<string>2.9.20150810-nightly</string>
 </dict>
 </plist>
