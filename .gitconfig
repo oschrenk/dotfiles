@@ -47,6 +47,8 @@
 
 	co = checkout
 
+  conflicts = diff --name-only --diff-filter=U
+
 	# -b <new_branch>
 	# Create a new branch named <new_branch>
 	cob = checkout -b
