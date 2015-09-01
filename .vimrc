@@ -101,7 +101,7 @@ colorscheme gruvbox
 " ============================
 
 " map leader to <space>
-let mapleader = " "
+let mapleader = "\<Space>"
 
 " escape with jk
 inoremap jk <Esc>
