@@ -134,8 +134,8 @@ nnoremap k gk
 nnoremap H 0
 nnoremap L $
 
-" Ctrl+s: Save the file
-nnoremap <c-s> :w<cr>
+" <space>+s: Save the file
+nnoremap <Leader>w :w<cr>
 
 " U: Redos since 'u' undos
 nnoremap U :redo<cr>
