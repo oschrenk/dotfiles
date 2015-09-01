@@ -24,7 +24,7 @@ Plug 'epeli/slimux'                       " interact with tmux panes from within
 Plug 'Shougo/unite.vim'                   " unified source to display search results
 Plug 'Shougo/neomru.vim'                  " include unite.vim MRU sources
 Plug 'Shougo/vimproc.vim', { 'do': 'make' } " Interactive command execution
-Plug 'tpope/vim-vinegar'                  " netrw enhancements
+Plug 'glittershark/vim-vinegar', { 'branch': 'q-to-quit' } " netrw enhancements
 Plug 'rking/ag.vim'                       " front for ag, a.k.a. the_silver_searcher
 
 " Completion
