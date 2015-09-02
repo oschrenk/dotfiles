@@ -26,6 +26,7 @@ Plug 'Shougo/neomru.vim'                  " include unite.vim MRU sources
 Plug 'Shougo/vimproc.vim', { 'do': 'make' } " Interactive command execution
 Plug 'glittershark/vim-vinegar', { 'branch': 'q-to-quit' } " netrw enhancements
 Plug 'rking/ag.vim'                       " front for ag, a.k.a. the_silver_searcher
+Plug 'airblade/vim-rooter'                " auto sets workign directory
 
 " Completion
 Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.sh --clang-completer' }
