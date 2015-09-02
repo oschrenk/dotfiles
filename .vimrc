@@ -36,8 +36,6 @@ Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
 Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
 Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
-Plug 'godlygeek/tabular'                  " align text
-
 
 " Motions
 Plug 'terryma/vim-expand-region'          " expand/shrink selection
@@ -80,6 +78,7 @@ Plug 'tpope/vim-markdown',                { 'for': 'markdown' }
 Plug 'itspriddle/vim-marked',             { 'for': 'markdown' } " open in Marked.app
 Plug 'timcharper/textile.vim',            { 'for': 'textile' }
 Plug 'Tyilo/applescript.vim',             { 'for': 'applescript' }
+Plug 'tmux-plugins/vim-tmux'
 
 " Look and feel
 Plug 'bling/vim-airline'                  " powerline statusline
