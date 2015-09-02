@@ -38,6 +38,10 @@ Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc o
 Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
 Plug 'godlygeek/tabular'                  " align text
 
+
+" Motions
+Plug 'terryma/vim-expand-region'          " expand/shrink selection
+
 " Text objects
 Plug 'kana/vim-textobj-user'              " creste your own text-objects
 Plug 'gilligan/textobj-gitgutter'         " ih for change-hunk text object
