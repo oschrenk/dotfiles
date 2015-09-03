@@ -130,6 +130,25 @@ hs.hotkey.bind(hyper, "t", function()
     os.execute("/bin/rm -rf ~/.Trash/*")
 end)
 
+
+------------------------
+-- Fast user switching
+------------------------
+hs.hotkey.bind(hyper, "u", function()
+  local file = assert(io.popen('/usr/bin/whoami', 'r'))
+  local output = file:read('*all')
+  file:close()
+  is_personal_account = output:gsub("%s+", "") == "oliver"
+
+  if (is_personal_account) then
+    hs.alert.show("Switch to work")
+    os.execute('/System/Library/CoreServices/Menu\\ Extras/User.menu/Contents/Resources/CGSession -switchToUserID 503')
+  else
+    hs.alert.show("Switch to fun")
+    os.execute('/System/Library/CoreServices/Menu\\ Extras/User.menu/Contents/Resources/CGSession -switchToUserID 502')
+  end
+end)
+
 ------------------------
 -- Bluetooth
 ------------------------
