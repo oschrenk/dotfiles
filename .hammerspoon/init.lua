@@ -121,7 +121,7 @@ function clearNotifications()
 end
 hs.hotkey.bind(hyper, "c", function()
   hs.alert.show("Closing notifications")
-  hs.timer.doAfter(1, clearNotifications)
+  hs.timer.doAfter(0.3, clearNotifications)
 end)
 
 
