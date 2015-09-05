@@ -234,7 +234,7 @@ function! s:SetCursorPosition()
         endif
     end
 endfunction
-"
+
 " vp doesn't replace paste buffer
 function! RestoreRegister()
   let @" = s:restore_reg
@@ -245,6 +245,17 @@ function! s:Repl()
   return "p@=RestoreRegister()\<cr>"
 endfunction
 vmap <silent> <expr> p <sid>Repl()
+
+" Jump to first character or column
+noremap <silent> H :call FirstCharOrFirstCol()<cr>
+function! FirstCharOrFirstCol()
+  let current_col = virtcol('.')
+  normal ^
+  let first_char = virtcol('.')
+  if current_col == first_char
+    normal 0
+  endif
+endfunction
 
 " ============================
 " Plugin configuration
