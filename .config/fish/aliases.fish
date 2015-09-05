@@ -6,6 +6,7 @@ alias -     'cd -'
 
 alias md   'mkdir -p'
 
+alias b    'cd $HOME/Projects/personal/oschrenk.github.io/_drafts'
 alias d    'cd $HOME/Downloads'
 alias p    'cd $HOME/Projects'
 alias n    'cd $HOME/Documents/Notes'
