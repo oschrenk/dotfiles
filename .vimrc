@@ -48,7 +48,7 @@ Plug 'kana/vim-textobj-line'              " al/il for current line
 Plug 'sgur/vim-textobj-parameter'         " i,/a, for function parameter
 Plug 'Julian/vim-textobj-variable-segment' " iv/av change variable segments
 Plug 'saihoooooooo/vim-textobj-space'     " aS/iS for space regions
-Plug 'reedes/vim-textobj-sentence',  { 'for': 'markdown' }  " as/is for a sentence of prose
+Plug 'reedes/vim-textobj-sentence',  { 'for': 'markdown' } " as/is for a sentence of prose
 Plug 'mattn/vim-textobj-url'              " au/iu for url
 Plug 'kana/vim-textobj-entire'            " ae/ie for entire buffer
 
