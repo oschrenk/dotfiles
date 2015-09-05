@@ -135,8 +135,7 @@ inoremap <C-p> <esc>:e#<CR>
 nnoremap j gj
 nnoremap k gk
 
-" quickly move to beginning/end of line
-nnoremap H 0
+" quickly move to end of line
 nnoremap L $
 
 " <space>+s: Save the file
