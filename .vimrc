@@ -15,6 +15,9 @@ call plug#begin('~/.vim/plugged')
 " Startup
 Plug 'EinfachToll/DidYouMean'             "  asks for the right file to open if ambigous
 
+" Externals
+Plug 'rizzatti/dash.vim'                  " open Dash
+
 " tmux
 Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim splits
 Plug 'tmux-plugins/vim-tmux-focus-events' " restore autocommand events within tmux eg. gitgutter refreshs
