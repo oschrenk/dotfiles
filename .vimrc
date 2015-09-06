@@ -203,8 +203,7 @@ set clipboard=unnamed         " gain access to clipboard in OS X
 set visualbell                " don't beep
 set noerrorbells              " don't beep
 
-" Centralize backups, swap files, and persistent undo
-set directory=~/.vim/tmp      " Set temp directory (don't litter local dir with swp/tmp files)
+" Disable backups, swaps
 set nobackup                  " Get rid of backups, I don't use them
 set nowb                      " Get rid of backups on write
 set noswapfile                " Get rid of swp files, I have never used them
