@@ -11,3 +11,4 @@
 **.old
 .vim/autoload
 .config/netfabb/
+.vim/undo

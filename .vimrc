@@ -207,11 +207,20 @@ set noerrorbells              " don't beep
 set nobackup                  " Get rid of backups, I don't use them
 set nowb                      " Get rid of backups on write
 set noswapfile                " Get rid of swp files, I have never used them
-if exists("&undodir")
-    set undofile              " Persistent undo! Pure money.
-    let &undodir=&directory
-    set undolevels=500
-    set undoreload=500
+
+" Keep undo history across sessions
+" :help undo-persistence
+if exists("+undofile")
+  " create dir if it doesn't exist
+  if isdirectory($HOME . '/.vim/undo') == 0
+    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+  endif
+  " if path ends in two slashes, file name will use complete path
+  " :help dir
+  set undodir=~/.vim/undo//
+  set undofile
+  set undolevels=500
+  set undoreload=500
 endif
 
 " Reload when entering buffer or gaining focus
