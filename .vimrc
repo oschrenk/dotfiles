@@ -332,24 +332,25 @@ nnoremap <silent> [unite]r :<C-u>Unite -no-split -buffer-name=mru -start-insert 
 " ag > ack > grep
 if executable('ag')
 
-" The silver searcher. Ignore .gitignore and search everything.
-" Smart case, ignore vcs ignore files, and search hidden.
-let s:ag_opts = '--smart-case --hidden --depth 15 --nocolor --nogroup '.
-		\ '--ignore ".git" '.
-		\ '--ignore ".ivy2" '.
-		\ '--ignore ".m2" '.
-		\ '--ignore ".rbenv" '.
-		\ '--ignore "*.gif" '.
-		\ '--ignore "*.ico" '.
-		\ '--ignore "*.jar" '.
-		\ '--ignore "*.jpg" '.
-		\ '--ignore "*.log" '.
-		\ '--ignore "*.png" '.
-		\ '--ignore "*.ttf"'
+	let g:unite_source_grep_max_candidates = 50
 
-  let g:unite_source_rec_async_command = 'ag --follow '.s:ag_opts.' -g ""'
+  let g:unite_source_rec_async_command =
+        \ ['ag', '--follow ', '--nocolor', '--nogroup',
+        \ '--hidden', '-g', '']
   let g:unite_source_grep_command = 'ag'
-	let g:unite_source_grep_default_opts = '--ignore-case --line-numbers '.s:ag_opts
+	let g:unite_source_grep_default_opts =
+        \ '-i --vimgrep --smart-case --line-numbers --hidden ' .
+        \ '--ignore ".git" '.
+        \ '--ignore ".ivy2" '.
+        \ '--ignore ".m2" '.
+        \ '--ignore ".rbenv" '.
+        \ '--ignore "*.gif" '.
+        \ '--ignore "*.ico" '.
+        \ '--ignore "*.jar" '.
+        \ '--ignore "*.jpg" '.
+        \ '--ignore "*.log" '.
+        \ '--ignore "*.png" '.
+        \ '--ignore "*.ttf"'
 	let g:unite_source_grep_recursive_opt = ''
 
 endif
