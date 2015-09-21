@@ -1,11 +1,8 @@
 function tunnel --description "SSH SOCKS proxy script for Mac OS X"
 
-  # service like this, die like flies and are mostly slow
-  # enable one of these
+  # Fetching ip address before the thunnel is easy, just use dns service for that
   function _remote_ip_before
-    # curl -s "icanhazip.com"
-    # curl -s "ifconfig.me/ip"
-    dig +short myip.opendns.com @resolver1.opendns.com
+    dig -4 @resolver1.opendns.com -t a myip.opendns.com +short
   end
 
   # service like this, die like flies and are mostly slow
