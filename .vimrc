@@ -370,7 +370,7 @@ set laststatus=2
 
 " Markdown
 au BufRead,BufNewFile *.md set filetype=markdown
-let g:markdown_fenced_languages = ['clojure', 'javascript', 'scala', 'vim', 'ruby']
+let g:markdown_fenced_languages = ['clojure', 'html', 'javascript', 'ruby', 'scala', 'vim']
 
 " ===========================
 " Spellcheck
