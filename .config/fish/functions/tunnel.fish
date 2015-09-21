@@ -5,11 +5,17 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
     dig -4 @resolver1.opendns.com -t a myip.opendns.com +short
   end
 
-  # service like this, die like flies and are mostly slow
-  # enable one of these
+  # Fetching public ip is harder. I didn't find a way to make dig
+  # work with Socks5 proxy, so I'm using a public service
+  # But..., services like this die like flies and are mostly slow
+  #
+  # If one is too slow, or does not respond, try onme of those
+  #
+  # curl -s "icanhazip.com"
+  # curl -s "ifconfig.me/ip"
+  # curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'
   function _remote_ip_after
-    # curl -s -S --socks5 127.0.0.1:$localport "ifconfig.me/ip"
-    curl -s -S --socks5 127.0.0.1:$localport "ifconfig.me/ip"
+    curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'
   end
 
   function proxy_on
