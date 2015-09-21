@@ -1,3 +1,10 @@
 function today --description "Show todays date is ISO-8601 format"
-  date +"%Y%m%d"
+  echo $argv | read -l arg
+
+  switch $arg
+    case "--dash"
+      date +"%Y-%m-%d"
+    case ""
+      date +"%Y%m%d"
+  end
 end
