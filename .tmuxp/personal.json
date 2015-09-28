@@ -2,7 +2,7 @@
   "session_name": "personal",
   "windows": [
     {
-      "window_name": "downloads",
+      "window_name": "home",
       "layout": "main-horizontal",
       "options": { "automatic-rename": "off" },
       "start_directory": "$HOME/Downloads",
@@ -16,16 +16,6 @@
       "layout": "main-horizontal",
       "options": { "automatic-rename": "off" },
       "start_directory": "$HOME/Projects/personal/oschrenk.github.io",
-      "panes": [
-        { },
-        { }
-      ]
-    },
-    {
-      "window_name": "notes",
-      "layout": "main-horizontal",
-      "options": { "automatic-rename": "off" },
-      "start_directory": "$HOME/Documents/notes",
       "panes": [
         { },
         { }
