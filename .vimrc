@@ -18,7 +18,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'EinfachToll/DidYouMean'             "  asks for the right file to open if ambigous
 
 " Externals
-Plug 'rizzatti/dash.vim'                  " open Dash
+Plug 'rizzatti/dash.vim'                  " Dash
+Plug 'glidenote/newdayone.vim'            " DayOne
 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim splits
