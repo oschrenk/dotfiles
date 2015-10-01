@@ -388,3 +388,9 @@ autocmd FileType markdown  setlocal spell   " spelllcheck markdown files
 iab xtoday <c-r>=strftime("%Y%m%d")<cr>
 iab xtime <c-r>=strftime("%H:%M")<cr>
 iab xnow <c-r>=strftime("%Y%m%d %H:%M")<cr>
+
+iab soem some
+iab teh the
+iab tommorow tomorrow
+iab tommorrow tomorrow
+
