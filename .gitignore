@@ -12,3 +12,5 @@
 .vim/autoload
 .config/netfabb/
 .vim/undo
+.jira.d/cookies.js
+.jira.d/tmp
