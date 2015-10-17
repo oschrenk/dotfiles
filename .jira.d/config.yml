@@ -1,5 +1,24 @@
 #!/bin/sh
 
-# Defaults
-echo "user: oschrenk"
+DEFAULT_PROJECT=acme
+DEFAULT_USER=oschrenk
 
+# Defaults
+echo "endpoint: https://acme.atlassian.net"
+echo "user: $DEFAULT_USER"
+echo "project: $DEFAULT_PROJECT"
+
+# We need to sort only on `created`, as go-jira defaults to `priority`, `created`
+# which fails as we don't have `priority` field
+echo "sort: created"
+
+case $JIRA_OPERATION in
+  sprint)
+    echo "command: list"
+    echo "query: sprint in openSprints() and project=$DEFAULT_PROJECT"
+    ;;
+  mine)
+    echo "command: list"
+    echo "query: status not in ('CLOSED', 'RESOLVED') and assignee=$DEFAULT_USER ORDER BY created"
+    ;;
+esac
