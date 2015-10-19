@@ -160,6 +160,7 @@ nnoremap N Nzzzv
 syntax on                     " syntax highlighting
 syntax enable                 " syntac highlighting
 
+
 set title                     " show title in console title bar.
 set cursorline                " highlights line
 set cursorcolumn              " highlights column
@@ -222,6 +223,17 @@ if exists("+undofile")
   set undolevels=500
   set undoreload=500
 endif
+
+" change formatting behaviour
+" I don't like vim autoinserting comments for me
+" I would love to just use `set formatoptions-=ro` but since C file plugin is
+" loaded after loading .vimrc, the behaviour is overwritten, so resorting to
+" autocmd is necessary
+" default is tcq
+" r automatically insert comment leader after <enter> in INSERT
+" o automatically insert comment loeader after o or O in NORMAL
+" -= removes these options
+autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
 
 " Reload when entering buffer or gaining focus
 au FocusGained,BufEnter * :silent! !
