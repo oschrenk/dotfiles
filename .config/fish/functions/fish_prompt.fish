@@ -13,11 +13,16 @@
 # You can override some default options in your config.fish:
 #
 #     set -g theme_display_git no
+#     set -g theme_display_git_untracked no
+#     set -g theme_display_git_ahead_verbose yes
 #     set -g theme_display_hg yes
 #     set -g theme_display_virtualenv no
 #     set -g theme_display_ruby no
-#     set -g theme_display_vi no
 #     set -g theme_display_user yes
+#     set -g theme_title_display_process yes
+#     set -g theme_title_display_path no
+#     set -g theme_date_format "+%a %H:%M"
+#     set -g theme_avoid_ambiguous_glyphs yes
 #     set -g default_user your_normal_user
 
 set -g __bobthefish_current_bg NONE
@@ -47,14 +52,11 @@ set __bobthefish_pypy_glyph              \u1D56
 set __bobthefish_lt_green   addc10
 set __bobthefish_med_green  189303
 set __bobthefish_dk_green   0c4801
-set __bobthefish_hl_green   98bcbe
 
 set __bobthefish_lt_red     C99
 set __bobthefish_med_red    ce000f
 set __bobthefish_dk_red     600
 set __bobthefish_ruby_red   af0000
-
-set __bobthefish_med_orange  ff9a00
 
 set __bobthefish_slate_blue 255e87
 set __bobthefish_med_blue   005faf
@@ -63,7 +65,7 @@ set __bobthefish_lt_orange  f6b117
 set __bobthefish_dk_orange  3a2a03
 
 set __bobthefish_dk_grey    333
-set __bobthefish_med_grey   a5a5a5
+set __bobthefish_med_grey   999
 set __bobthefish_lt_grey    ccc
 
 set __bobthefish_dk_brown   4d2600
@@ -94,12 +96,12 @@ end
 
 function __bobthefish_hg_branch -d 'Get the current hg branch'
   set -l branch (command hg branch ^/dev/null)
-  set -l book " @ "(command hg book | grep \* | cut -d\  -f3)
-  echo "$__bobthefish_branch_glyph $branch$book"
+  set -l book (command hg book | grep \* | cut -d\  -f3)
+  echo "$__bobthefish_branch_glyph $branch @ $book"
 end
 
-function __bobthefish_pretty_parent -d 'Print a parent directory, shortened to fit the prompt'
-  echo -n (dirname $argv[1]) | sed -e 's#/private##' -e "s#^$HOME#~#" -e 's#/\(\.\{0,1\}[^/]\)\([^/]*\)#/\1#g' -e 's#/$##'
+function __bobthefish_pretty_parent -a current_dir -d 'Print a parent directory, shortened to fit the prompt'
+  echo -n (dirname $current_dir) | sed -e 's#/private##' -e "s#^$HOME#~#" -e 's#/\(\.\{0,1\}[^/]\)\([^/]*\)#/\1#g' -e 's#/$##'
 end
 
 function __bobthefish_git_project_dir -d 'Print the current git project base directory'
@@ -119,10 +121,40 @@ function __bobthefish_hg_project_dir -d 'Print the current hg project base direc
   end
 end
 
-function __bobthefish_project_pwd -d 'Print the working directory relative to project root'
-  echo "$PWD" | sed -e "s#$argv[1]##g" -e 's#^/##'
+function __bobthefish_project_pwd -a current_dir -d 'Print the working directory relative to project root'
+  echo "$PWD" | sed -e "s#$current_dir##g" -e 's#^/##'
 end
 
+function __bobthefish_git_ahead -d 'Print the ahead/behind state for the current branch'
+  if [ "$theme_display_git_ahead_verbose" = 'yes' ]
+    __bobthefish_git_ahead_verbose
+    return
+  end
+
+  command git rev-list --left-right '@{upstream}...HEAD' ^/dev/null | awk '/>/ {a += 1} /</ {b += 1} {if (a > 0 && b > 0) nextfile} END {if (a > 0 && b > 0) print "±"; else if (a > 0) print "+"; else if (b > 0) print "-"}'
+end
+
+function __bobthefish_git_ahead_verbose -d 'Print a more verbose ahead/behind state for the current branch'
+  set -l commits (command git rev-list --left-right '@{upstream}...HEAD' ^/dev/null)
+  if [ $status != 0 ]
+    return
+  end
+
+  set -l behind (count (for arg in $commits; echo $arg; end | grep '^<'))
+  set -l ahead (count (for arg in $commits; echo $arg; end | grep -v '^<'))
+
+  switch "$ahead $behind"
+    case '' # no upstream
+    case '0 0' # equal to upstream
+      return
+    case '* 0' # ahead of upstream
+      echo "↑$ahead"
+    case '0 *' # behind upstream
+      echo "↓$behind"
+    case '*' # diverged from upstream
+      echo "↑$ahead↓$behind"
+  end
+end
 
 # ===========================
 # Segment functions
@@ -155,8 +187,8 @@ function __bobthefish_start_segment -d 'Start a prompt segment'
   set __bobthefish_current_bg $bg
 end
 
-function __bobthefish_path_segment -d 'Display a shortened form of a directory'
-  if [ -w "$argv[1]" ]
+function __bobthefish_path_segment -a current_dir -d 'Display a shortened form of a directory'
+  if [ -w "$current_dir" ]
     __bobthefish_start_segment $__bobthefish_dk_grey $__bobthefish_med_grey
   else
     __bobthefish_start_segment $__bobthefish_dk_red $__bobthefish_lt_red
@@ -165,15 +197,15 @@ function __bobthefish_path_segment -d 'Display a shortened form of a directory'
   set -l directory
   set -l parent
 
-  switch "$argv[1]"
+  switch "$current_dir"
     case /
       set directory '/'
     case "$HOME"
       set directory '~'
     case '*'
-      set parent    (__bobthefish_pretty_parent "$argv[1]")
+      set parent    (__bobthefish_pretty_parent "$current_dir")
       set parent    "$parent/"
-      set directory (basename "$argv[1]")
+      set directory (basename "$current_dir")
   end
 
   [ "$parent" ]; and echo -n -s "$parent"
@@ -208,8 +240,7 @@ function __bobthefish_prompt_status -d 'Display symbols for a non zero exit stat
   end
 
   # if superuser (uid == 0)
-  set -l uid (id -u $USER)
-  if [ $uid -eq 0 ]
+  if [ (id -u $USER) -eq 0 ]
     set superuser $__bobthefish_superuser_glyph
   end
 
@@ -217,8 +248,6 @@ function __bobthefish_prompt_status -d 'Display symbols for a non zero exit stat
   if [ (jobs -l | wc -l) -gt 0 ]
     set bg_jobs $__bobthefish_bg_job_glyph
   end
-
-  set -l status_flags "$nonzero$superuser$bg_jobs"
 
   if [ "$nonzero" -o "$superuser" -o "$bg_jobs" ]
     __bobthefish_start_segment fff 000
@@ -250,7 +279,7 @@ function __bobthefish_prompt_user -d 'Display actual user if different from $def
   end
 end
 
-function __bobthefish_prompt_hg -d 'Display the actual hg state'
+function __bobthefish_prompt_hg -a current_dir -d 'Display the actual hg state'
   set -l dirty (command hg stat; or echo -n '*')
 
   set -l flags "$dirty"
@@ -263,7 +292,7 @@ function __bobthefish_prompt_hg -d 'Display the actual hg state'
     set flag_fg fff
   end
 
-  __bobthefish_path_segment $argv[1]
+  __bobthefish_path_segment $current_dir
 
   __bobthefish_start_segment $flag_bg $flag_fg
   echo -n -s $__bobthefish_hg_glyph ' '
@@ -272,7 +301,7 @@ function __bobthefish_prompt_hg -d 'Display the actual hg state'
   echo -n -s (__bobthefish_hg_branch) $flags ' '
   set_color normal
 
-  set -l project_pwd  (__bobthefish_project_pwd $argv[1])
+  set -l project_pwd  (__bobthefish_project_pwd $current_dir)
   if [ "$project_pwd" ]
     if [ -w "$PWD" ]
       __bobthefish_start_segment 333 999
@@ -284,16 +313,26 @@ function __bobthefish_prompt_hg -d 'Display the actual hg state'
   end
 end
 
-function __bobthefish_prompt_git -d 'Display the actual git state'
+function __bobthefish_prompt_git -a current_dir -d 'Display the actual git state'
   set -l dirty   (command git diff --no-ext-diff --quiet --exit-code; or echo -n '*')
   set -l staged  (command git diff --cached --no-ext-diff --quiet --exit-code; or echo -n '~')
   set -l stashed (command git rev-parse --verify --quiet refs/stash >/dev/null; and echo -n '$')
-  set -l ahead   (command git rev-list --left-right '@{upstream}...HEAD' ^/dev/null | awk '/>/ {a += 1} /</ {b += 1} {if (a > 0) nextfile} END {if (a > 0 && b > 0) print "±"; else if (a > 0) print "+"; else if (b > 0) print "-"}')
+  set -l ahead   (__bobthefish_git_ahead)
 
-  set -l new (command git ls-files --other --exclude-standard);
-  [ "$new" ]; and set new '…'
+  set -l new ''
+  set -l show_untracked (git config --bool bash.showUntrackedFiles)
+  if [ "$theme_display_git_untracked" != 'no' -a "$show_untracked" != 'false' ]
+    set new (command git ls-files --other --exclude-standard --directory --no-empty-directory)
+    if [ "$new" ]
+      if [ "$theme_avoid_ambiguous_glyphs" = 'yes' ]
+        set new '...'
+      else
+        set new '…'
+      end
+    end
+  end
 
-  set -l flags   "$dirty$staged$stashed$ahead$new"
+  set -l flags "$dirty$staged$stashed$ahead$new"
   [ "$flags" ]; and set flags " $flags"
 
   set -l flag_bg $__bobthefish_lt_green
@@ -306,13 +345,13 @@ function __bobthefish_prompt_git -d 'Display the actual git state'
     set flag_fg $__bobthefish_dk_orange
   end
 
-  __bobthefish_path_segment $argv[1]
+  __bobthefish_path_segment $current_dir
 
   __bobthefish_start_segment $flag_bg $flag_fg --bold
   echo -n -s (__bobthefish_git_branch) $flags ' '
   set_color normal
 
-  set -l project_pwd  (__bobthefish_project_pwd $argv[1])
+  set -l project_pwd (__bobthefish_project_pwd $current_dir)
   if [ "$project_pwd" ]
     if [ -w "$PWD" ]
       __bobthefish_start_segment 333 999
@@ -354,35 +393,20 @@ end
 
 function __bobthefish_prompt_rubies -d 'Display current Ruby (rvm/rbenv)'
   [ "$theme_display_ruby" = 'no' ]; and return
-  set -l ruby_version
-  if type rbenv >/dev/null
+  if which rvm-prompt >/dev/null 2>&1
+    set ruby_version (rvm-prompt i v g)
+  else if which rbenv >/dev/null 2>&1
     set ruby_version (rbenv version-name)
     # Don't show global ruby version...
-    [ "$ruby_version" = (rbenv global) ]; and return
+    set -q RBENV_ROOT; and set rbenv_root $RBENV_ROOT; or set rbenv_root ~/.rbenv
+    [ "$ruby_version" = (cat $rbenv_root/version 2>/dev/null; or echo 'system') ]; and return
   end
   [ -z "$ruby_version" ]; and return
-
   __bobthefish_start_segment $__bobthefish_ruby_red $__bobthefish_lt_grey --bold
   echo -n -s $ruby_version ' '
   set_color normal
 end
 
-function __bobthefish_prompt_vi -d 'Display vi mode'
-  [ "$theme_display_vi" = 'no' ]; and return
-  set -l vi_mode
-  switch $fish_bind_mode
-  case default
-    __bobthefish_start_segment $__bobthefish_med_grey $__bobthefish_dk_grey --bold
-    echo -n -s 'N'
-  case insert
-    __bobthefish_start_segment $__bobthefish_hl_green $__bobthefish_dk_grey --bold
-    echo -n -s 'I'
-  case visual
-    __bobthefish_start_segment $__bobthefish_med_orange $__bobthefish_dk_grey --bold
-    echo -n -s 'V'
-  end
-  set_color normal
-end
 
 # ===========================
 # Apply theme
@@ -403,7 +427,5 @@ function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
   else
     __bobthefish_prompt_dir
   end
-  __bobthefish_prompt_vi
   __bobthefish_finish_segments
 end
-
