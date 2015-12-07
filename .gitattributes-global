@@ -7,7 +7,7 @@ Makefile        text eol=lf
 configure       text eol=lf
 
 # Windows
-*.bat           text eol=crlf
+#*.bat           text eol=crlf
 *.csproj -text merge=union
 *.vbproj -text merge=union
 *.fsproj -text merge=union
