@@ -15,3 +15,4 @@ set fish_bind_mode insert
 # Color scheme
 source $HOME/.config/fish/gruvbox_256palette_osx.fish
 
+set -g theme_display_vi yes
