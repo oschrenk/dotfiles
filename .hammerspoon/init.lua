@@ -145,7 +145,7 @@ hs.hotkey.bind(hyper, "u", function()
     hs.alert.show("Switch to work")
     os.execute('/System/Library/CoreServices/Menu\\ Extras/User.menu/Contents/Resources/CGSession -switchToUserID 503')
   else
-    hs.alert.show("Switch to fun")
+    hs.alert.show("Switch to personal")
     os.execute('/System/Library/CoreServices/Menu\\ Extras/User.menu/Contents/Resources/CGSession -switchToUserID 502')
   end
 end)
