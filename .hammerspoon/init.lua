@@ -2,7 +2,8 @@
 -- Settings
 ------------------------
 
--- Wifi Watcher
+-- Network
+local wifiInterface = "en0"
 local wifiWatcher = nil
 local workSSIDToken = "elmar"
 local homeSSIDToken = "SitecomC4934C"
@@ -183,17 +184,17 @@ end)
 
 function enableWifi()
   hs.alert.show("Enabling Wifi")
-  os.execute("/usr/sbin/networksetup -setairportpower en0 on")
+  os.execute("/usr/sbin/networksetup -setairportpower " .. wifiInterface .. " on")
 end
 
 function disableWifi()
   hs.alert.show("Disabling Wifi")
-  os.execute("/usr/sbin/networksetup -setairportpower en0 off")
+  os.execute("/usr/sbin/networksetup -setairportpower " .. wifiInterface .. " off")
 end
 
 -- Toggle wifi
 hs.hotkey.bind(hyper, "v", function()
-  local file = assert(io.popen('/usr/sbin/networksetup -getairportpower en0 | cut -d ":" -f2', 'r'))
+  local file = assert(io.popen('/usr/sbin/networksetup -getairportpower '.. wifiInterface ..' | cut -d ":" -f2', 'r'))
   local output = file:read('*all')
   file:close()
   active = output:gsub("%s+", "") == "On"
