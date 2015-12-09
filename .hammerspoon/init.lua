@@ -253,16 +253,14 @@ function enteredNetwork(old_ssid, new_ssid, token)
   return false
 end
 
--- not used for now
-
 function enteredHome()
-  hs.alert.show("Arrived at home ")
+  hs.alert.show("Arrived at " .. homeLocation)
   disableBluetooth()
   switchNetworkLocation(homeLocation)
 end
 
 function enteredWork()
-  hs.alert.show("Arrived at work ")
+  hs.alert.show("Arrived at " .. workLocation)
   enableBluetooth()
   switchNetworkLocation(workLocation)
 end
