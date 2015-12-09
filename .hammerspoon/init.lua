@@ -181,6 +181,16 @@ end)
 -- WiFi
 ------------------------
 
+function enableWifi()
+  hs.alert.show("Enabling Wifi")
+  os.execute("/usr/sbin/networksetup -setairportpower en0 on")
+end
+
+function disableWifi()
+  hs.alert.show("Disabling Wifi")
+  os.execute("/usr/sbin/networksetup -setairportpower en0 off")
+end
+
 -- Toggle wifi
 hs.hotkey.bind(hyper, "v", function()
   local file = assert(io.popen('/usr/sbin/networksetup -getairportpower en0 | cut -d ":" -f2', 'r'))
@@ -189,11 +199,9 @@ hs.hotkey.bind(hyper, "v", function()
   active = output:gsub("%s+", "") == "On"
 
   if (active) then
-    hs.alert.show("Disabling Wifi")
-    os.execute("/usr/sbin/networksetup -setairportpower en0 off")
+    disableWifi()
   else
-    hs.alert.show("Enabling Wifi")
-    os.execute("/usr/sbin/networksetup -setairportpower en0 on")
+    enableWifi()
   end
 end)
 
