@@ -209,42 +209,57 @@ end)
 function enteredNetwork(old_ssid, new_ssid, token)
   -- activated wifi
   if (old_ssid == nil and new_ssid ~= nil) then
+    hs.alert.show("Activated Wifi")
     return string.find (string.lower(new_ssid), string.lower(token))
   end
 
   -- disabled wifi
   if (old_ssid ~= nil and new_ssid == nil) then
+    hs.alert.show("Disabled Wifi")
     return false
   end
 
   -- significantly change wifi
   -- checking if we more than changed network suffix within the company
   if (old_ssid ~= nil and new_ssid ~= nil) then
-    return (not string.find(string.lower(old_ssid), string.lower(token)) and
-                string.find(string.lower(new_ssid), string.lower(token)))
+    hs.alert.show("Changed Wifi")
+    return (not (string.find(string.lower(old_ssid), string.lower(token)) and
+                string.find(string.lower(new_ssid), string.lower(token))))
   end
 
   return false
 end
 
 -- not used for now
+
+function enteredHome()
+  hs.alert.show("Arrived at home ")
+  disableBluetooth()
+end
+
+function enteredWork()
+  hs.alert.show("Arrived at work ")
+  enableBluetooth()
+end
+
 function ssidChangedCallback()
     newSSID = hs.wifi.currentNetwork()
 
     if (newSSID ~= nil) then
       if (enteredNetwork(lastSSID, newSSID, workSSIDToken)) then
-        hs.alert.show("Arrived at work ")
-        os.execute("/usr/local/bin/blueutil power 1")
+        enteredWork()
       end
 
-      if (enteredNetwork(old_ssid, new_ssid, homeSSIDToken)) then
-        hs.alert.show("Arrived at home ")
-        os.execute("/usr/local/bin/blueutil power 0")
+      if (enteredNetwork(lastSSID, newSSID, homeSSIDToken)) then
+        enteredHome()
       end
     end
 
     lastSSID = newSSID
 end
+
+wifiWatcher = hs.wifi.watcher.new(ssidChangedCallback)
+wifiWatcher:start()
 
 ------------------------
 -- Reload
