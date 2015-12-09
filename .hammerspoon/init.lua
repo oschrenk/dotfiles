@@ -8,6 +8,8 @@ local wifiWatcher = nil
 local workSSIDToken = "elmar"
 local homeSSIDToken = "SitecomC4934C"
 local lastSSID = hs.wifi.currentNetwork()
+local homeLocation = "Home"
+local workLocation = "Work"
 
 -- Defines for window maximize toggler
 local frameCache = {}
@@ -192,6 +194,27 @@ function disableWifi()
   os.execute("/usr/sbin/networksetup -setairportpower " .. wifiInterface .. " off")
 end
 
+function currentNetworkLocation()
+  local file = assert(io.popen('/usr/sbin/networksetup -getcurrentlocation', 'r'))
+  local output = file:read('*all')
+  file:close()
+  location = output:gsub("%s+", "")
+
+  return location
+end
+
+-- this function relies on a sudoers.d entry like
+-- %Local  ALL=NOPASSWD: /usr/sbin/networksetup -switchtolocation "name"
+function switchNetworkLocation(name)
+  location = currentNetworkLocation()
+  if (location == name) then
+     hs.alert.show("Already at location")
+  else
+    hs.alert.show("Switching location to " .. name)
+    os.execute("sudo /usr/sbin/networksetup -switchtolocation \"" .. name .. "\"")
+  end
+end
+
 -- Toggle wifi
 hs.hotkey.bind(hyper, "v", function()
   local file = assert(io.popen('/usr/sbin/networksetup -getairportpower '.. wifiInterface ..' | cut -d ":" -f2', 'r'))
@@ -235,11 +258,13 @@ end
 function enteredHome()
   hs.alert.show("Arrived at home ")
   disableBluetooth()
+  switchNetworkLocation(homeLocation)
 end
 
 function enteredWork()
   hs.alert.show("Arrived at work ")
   enableBluetooth()
+  switchNetworkLocation(workLocation)
 end
 
 function ssidChangedCallback()
