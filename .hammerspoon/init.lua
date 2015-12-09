@@ -153,6 +153,16 @@ end)
 -- Bluetooth
 ------------------------
 
+function enableBluetooth()
+  hs.alert.show("Enabling Bluetooth")
+  os.execute("/usr/local/bin/blueutil power 1")
+end
+
+function disableBluetooth()
+  hs.alert.show("Disabling Bluetooth")
+  os.execute("/usr/local/bin/blueutil power 0")
+end
+
 -- Toggle bluetooth
 hs.hotkey.bind(hyper, "b", function()
   local file = assert(io.popen('/usr/local/bin/blueutil power', 'r'))
@@ -161,11 +171,9 @@ hs.hotkey.bind(hyper, "b", function()
   state = output:gsub("%s+", "") == "1"
 
   if (state) then
-    hs.alert.show("Disabling Bluetooth")
-    os.execute("/usr/local/bin/blueutil power 0")
+    disableBluetooth()
   else
-    hs.alert.show("Enabling Bluetooth")
-    os.execute("/usr/local/bin/blueutil power 1")
+    enableBluetooth()
   end
 end)
 
