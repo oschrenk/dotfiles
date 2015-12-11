@@ -20,8 +20,7 @@
      ;; auto-completion
      ;; better-defaults
      emacs-lisp
-     (git :variables
-       git-gutter-use-fringe t)
+     git 
      markdown
      org
      ;; shell
