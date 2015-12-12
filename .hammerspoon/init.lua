@@ -29,6 +29,9 @@ local frameCache = {}
 -- store state of spotify
 local spotify_was_playing = false
 
+-- state of power source
+local powerSource = hs.battery.powerSource()
+
 -- disable animation
 hs.window.animationDuration = 0
 
@@ -340,6 +343,25 @@ end
 hs.audiodevice.current()['device']:watcherCallback(audiodevwatch):watcherStart()
 
 ------------------------
+-- Power settings
+------------------------
+
+function powerChanged()
+  local current = hs.battery.powerSource()
+
+  if (current ~= powerSource) then
+    powerSource = current
+    if (powerSource == "AC Power") then
+      switchedToCharger()
+    else
+      switchedToBattery()
+    end
+  end
+end
+
+hs.battery.watcher.new(powerChanged):start()
+
+------------------------
 -- Environment settings
 ------------------------
 
@@ -358,6 +380,15 @@ function enteredWork()
 
   switchNetworkLocation(workLocation)
   mute()
+end
+
+function switchedToBattery()
+  hs.alert.show("Battery")
+  disableBluetooth()
+end
+
+function switchedToCharger()
+  hs.alert.show("Charging")
 end
 
 ------------------------
