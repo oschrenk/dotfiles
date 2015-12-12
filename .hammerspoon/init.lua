@@ -277,6 +277,7 @@ end
 function ssidChangedCallback()
     newSSID = hs.wifi.currentNetwork()
 
+    print("ssidChangedCallback: old:"..(lastSSID or "nil").." new:"..(newSSID or "nil"))
     if (newSSID ~= nil) then
       if (enteredNetwork(lastSSID, newSSID, workSSIDToken)) then
         enteredWork()
