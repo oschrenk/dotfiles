@@ -181,14 +181,16 @@ function disableBluetooth()
   os.execute("/usr/local/bin/blueutil power 0")
 end
 
--- Toggle bluetooth
-hs.hotkey.bind(hyper, "b", function()
+function bluetoothEnabled()
   local file = assert(io.popen('/usr/local/bin/blueutil power', 'r'))
   local output = file:read('*all')
   file:close()
-  state = output:gsub("%s+", "") == "1"
 
-  if (state) then
+  return output:gsub("%s+", "") == "1"
+end
+
+hs.hotkey.bind(hyper, "b", function()
+  if (bluetoothEnabled()) then
     disableBluetooth()
   else
     enableBluetooth()
