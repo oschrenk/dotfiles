@@ -16,14 +16,19 @@ local workLocation = "Work"
 local personalUserId = "502"
 local workUserId     = "503"
 
+-- hotkey hyper
+local hyper = {"ctrl", "alt", "shift", "cmd"}
+
+------------------------
+-- Internal state
+------------------------
+
 -- Defines for window maximize toggler
 local frameCache = {}
 
 -- disable animation
-hs.window.animationDuration = 0
 
--- hotkey hyper
-local hyper = {"ctrl", "alt", "shift", "cmd"}
+hs.window.animationDuration = 0
 
 ------------------------
 -- Window Managment
