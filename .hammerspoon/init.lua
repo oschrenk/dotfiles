@@ -26,6 +26,9 @@ local hyper = {"ctrl", "alt", "shift", "cmd"}
 -- Defines for window maximize toggler
 local frameCache = {}
 
+-- store state of spotify
+local spotify_was_playing = false
+
 -- disable animation
 hs.window.animationDuration = 0
 
@@ -295,6 +298,48 @@ wifiWatcher = hs.wifi.watcher.new(ssidChangedCallback)
 wifiWatcher:start()
 
 ------------------------
+-- Audio settings
+------------------------
+
+function spotify_pause()
+   hs.alert.show("Pausing Spotify")
+   hs.spotify.pause()
+end
+
+function spotify_play()
+   hs.alert.show("Playing Spotify")
+   hs.spotify.play()
+end
+
+function mute()
+  local dev = hs.audiodevice.defaultOutputDevice()
+  hs.alert.show("Mute")
+  dev:setMuted(true)
+end
+
+hs.hotkey.bind(hyper, 'm', mute)
+
+-- Per-device watcher to detect headphones in/out
+function audiodevwatch(dev_uid, event_name, event_scope, event_element)
+  print(string.format("dev_uid %s, event_name %s, event_scope %s, event_element %s", dev_uid, event_name, event_scope, event_element))
+  dev = hs.audiodevice.findDeviceByUID(dev_uid)
+  if event_name == 'jack' then
+    if dev:jackConnected() then
+      if spotify_was_playing then
+        spotify_play()
+      end
+    else
+      spotify_was_playing = hs.spotify.isPlaying()
+      if spotify_was_playing then
+        spotify_pause()
+      end
+    end
+  end
+end
+
+hs.audiodevice.current()['device']:watcherCallback(audiodevwatch):watcherStart()
+
+------------------------
 -- Environment settings
 ------------------------
 
@@ -310,7 +355,9 @@ function enteredWork()
   if (not bluetoothEnabled()) then
     enableBluetooth()
   end
+
   switchNetworkLocation(workLocation)
+  mute()
 end
 
 ------------------------
