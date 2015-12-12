@@ -11,6 +11,11 @@ local lastSSID = hs.wifi.currentNetwork()
 local homeLocation = "Home"
 local workLocation = "Work"
 
+-- Fast User Switching
+-- `id -u` to find curent id
+local personalUserId = "502"
+local workUserId     = "503"
+
 -- Defines for window maximize toggler
 local frameCache = {}
 
@@ -127,28 +132,33 @@ hs.hotkey.bind(hyper, "c", function()
   hs.timer.doAfter(0.3, clearNotifications)
 end)
 
-
 -- Clean trash
 hs.hotkey.bind(hyper, "t", function()
     os.execute("/bin/rm -rf ~/.Trash/*")
 end)
 
-
 ------------------------
 -- Fast user switching
 ------------------------
-hs.hotkey.bind(hyper, "u", function()
-  local file = assert(io.popen('/usr/bin/whoami', 'r'))
+
+function currentAccountId()
+  local file = assert(io.popen('/usr/bin/id -u', 'r'))
   local output = file:read('*all')
   file:close()
-  is_personal_account = output:gsub("%s+", "") == "oliver"
 
-  if (is_personal_account) then
-    hs.alert.show("Switch to work")
-    os.execute('/System/Library/CoreServices/Menu\\ Extras/User.menu/Contents/Resources/CGSession -switchToUserID 503')
+  return output:gsub("%s+", ""):gsub("%s+$", "")
+end
+
+function switchUser(id, name)
+  hs.alert.show("Switch to " .. name)
+  os.execute('/System/Library/CoreServices/Menu\\ Extras/User.menu/Contents/Resources/CGSession -switchToUserID ' .. id)
+end
+
+hs.hotkey.bind(hyper, "u", function()
+  if (currentAccountId() == personalUserId ) then
+    switchUser(workUserId, "work")
   else
-    hs.alert.show("Switch to personal")
-    os.execute('/System/Library/CoreServices/Menu\\ Extras/User.menu/Contents/Resources/CGSession -switchToUserID 502')
+    switchUser(personalUserId, "personal")
   end
 end)
 
