@@ -274,18 +274,6 @@ function enteredNetwork(old_ssid, new_ssid, token)
   return false
 end
 
-function enteredHome()
-  hs.alert.show("Arrived at " .. homeLocation)
-  disableBluetooth()
-  switchNetworkLocation(homeLocation)
-end
-
-function enteredWork()
-  hs.alert.show("Arrived at " .. workLocation)
-  enableBluetooth()
-  switchNetworkLocation(workLocation)
-end
-
 function ssidChangedCallback()
     newSSID = hs.wifi.currentNetwork()
 
@@ -304,6 +292,25 @@ end
 
 wifiWatcher = hs.wifi.watcher.new(ssidChangedCallback)
 wifiWatcher:start()
+
+------------------------
+-- Environment settings
+------------------------
+
+function enteredHome()
+  if (bluetoothEnabled()) then
+    disableBluetooth()
+  end
+
+  switchNetworkLocation(homeLocation)
+end
+
+function enteredWork()
+  if (not bluetoothEnabled()) then
+    enableBluetooth()
+  end
+  switchNetworkLocation(workLocation)
+end
 
 ------------------------
 -- Reload
