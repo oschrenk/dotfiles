@@ -27,7 +27,6 @@ local hyper = {"ctrl", "alt", "shift", "cmd"}
 local frameCache = {}
 
 -- disable animation
-
 hs.window.animationDuration = 0
 
 ------------------------
@@ -108,7 +107,6 @@ hs.hotkey.bind(hyper, 'k', function() hs.window.focusedWindow():focusWindowNorth
 hs.hotkey.bind(hyper, 'j', function() hs.window.focusedWindow():focusWindowSouth() end)
 hs.hotkey.bind(hyper, 'l', function() hs.window.focusedWindow():focusWindowEast() end)
 hs.hotkey.bind(hyper, 'h', function() hs.window.focusedWindow():focusWindowWest() end)
-
 
 -- Close notifications
 script = [[
