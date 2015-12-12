@@ -168,6 +168,8 @@ end)
 ------------------------
 -- Bluetooth
 ------------------------
+-- relies on https://github.com/toy/blueutil
+-- installable via `brew install blueutil`
 
 function enableBluetooth()
   hs.alert.show("Enabling Bluetooth")
