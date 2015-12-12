@@ -19,21 +19,16 @@ local workUserId     = "503"
 -- hotkey hyper
 local hyper = {"ctrl", "alt", "shift", "cmd"}
 
+-- disable animation
+hs.window.animationDuration = 0
+
 ------------------------
 -- Internal state
 ------------------------
 
--- Defines for window maximize toggler
-local frameCache = {}
-
--- store state of spotify
-local spotify_was_playing = false
-
--- state of power source
+local windowSizeCache = {}
+local spotifyWasPlaying = false
 local powerSource = hs.battery.powerSource()
-
--- disable animation
-hs.window.animationDuration = 0
 
 ------------------------
 -- Window Managment
@@ -70,11 +65,11 @@ end)
 -- Toggle a window between its normal size, and being maximized
 function toggle_window_maximized()
     local win = hs.window.focusedWindow()
-    if frameCache[win:id()] then
-        win:setFrame(frameCache[win:id()])
-        frameCache[win:id()] = nil
+    if windowSizeCache[win:id()] then
+        win:setFrame(windowSizeCache[win:id()])
+        windowSizeCache[win:id()] = nil
     else
-        frameCache[win:id()] = win:frame()
+        windowSizeCache[win:id()] = win:frame()
         win:maximize()
     end
 end
@@ -328,12 +323,12 @@ function audiodevwatch(dev_uid, event_name, event_scope, event_element)
   dev = hs.audiodevice.findDeviceByUID(dev_uid)
   if event_name == 'jack' then
     if dev:jackConnected() then
-      if spotify_was_playing then
+      if spotifyWasPlaying then
         spotify_play()
       end
     else
-      spotify_was_playing = hs.spotify.isPlaying()
-      if spotify_was_playing then
+      spotifyWasPlaying = hs.spotify.isPlaying()
+      if spotifyWasPlaying then
         spotify_pause()
       end
     end
