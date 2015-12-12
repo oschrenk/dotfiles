@@ -201,66 +201,70 @@ end)
 -- WiFi
 ------------------------
 
+function wifiEnabled()
+  local file = assert(io.popen('/usr/sbin/networksetup -getairportpower ' .. wifiInterface, 'r'))
+  local output = file:read('*all')
+  file:close()
+
+  return string.match(output, ":%s(%a+)") == "On"
+end
+
 function enableWifi()
-  hs.alert.show("Enabling Wifi")
   os.execute("/usr/sbin/networksetup -setairportpower " .. wifiInterface .. " on")
+  hs.alert.show("Enabled Wifi")
 end
 
 function disableWifi()
-  hs.alert.show("Disabling Wifi")
+  hs.alert.show("Disabled Wifi")
   os.execute("/usr/sbin/networksetup -setairportpower " .. wifiInterface .. " off")
-end
-
-function currentNetworkLocation()
-  local file = assert(io.popen('/usr/sbin/networksetup -getcurrentlocation', 'r'))
-  local output = file:read('*all')
-  file:close()
-  location = output:gsub("%s+", "")
-
-  return location
-end
-
--- this function relies on a sudoers.d entry like
--- %Local  ALL=NOPASSWD: /usr/sbin/networksetup -switchtolocation "name"
-function switchNetworkLocation(name)
-  location = currentNetworkLocation()
-  if (location == name) then
-     hs.alert.show("Already at location")
-  else
-    hs.alert.show("Switching location to " .. name)
-    os.execute("sudo /usr/sbin/networksetup -switchtolocation \"" .. name .. "\"")
-  end
 end
 
 -- Toggle wifi
 hs.hotkey.bind(hyper, "v", function()
-  local file = assert(io.popen('/usr/sbin/networksetup -getairportpower '.. wifiInterface ..' | cut -d ":" -f2', 'r'))
-  local output = file:read('*all')
-  file:close()
-  active = output:gsub("%s+", "") == "On"
-
-  if (active) then
+  if (wifiEnabled()) then
     disableWifi()
   else
     enableWifi()
   end
 end)
 
+------------------------
+-- Network location
+------------------------
+
+function currentNetworkLocation()
+  local file = assert(io.popen('/usr/sbin/networksetup -getcurrentlocation', 'r'))
+  local output = file:read('*all')
+  file:close()
+
+  return output:gsub("%s+", "")
+end
+
+-- this function relies on a sudoers.d entry like
+-- %Local  ALL=NOPASSWD: /usr/sbin/networksetup -switchtolocation "name"
+function switchNetworkLocation(name)
+  local location = currentNetworkLocation()
+  if (location ~= name) then
+    hs.alert.show("Switching location to " .. name)
+    os.execute("sudo /usr/sbin/networksetup -switchtolocation \"" .. name .. "\"")
+  end
+end
+
+------------------------
+-- Watch network changes
+------------------------
+
 function enteredNetwork(old_ssid, new_ssid, token)
-  -- activated wifi
   if (old_ssid == nil and new_ssid ~= nil) then
-    hs.alert.show("Activated Wifi")
     return string.find (string.lower(new_ssid), string.lower(token))
   end
 
-  -- disabled wifi
   if (old_ssid ~= nil and new_ssid == nil) then
-    hs.alert.show("Disabled Wifi")
     return false
   end
 
   -- significantly change wifi
-  -- checking if we more than changed network suffix within the company
+  -- checking if we more than changed network within environment
   if (old_ssid ~= nil and new_ssid ~= nil) then
     hs.alert.show("Changed Wifi")
     return (not (string.find(string.lower(old_ssid), string.lower(token)) and
