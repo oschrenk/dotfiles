@@ -14,3 +14,4 @@
 .vim/undo
 .jira.d/cookies.js
 .jira.d/tmp
+.config/classpath_project_ensime
