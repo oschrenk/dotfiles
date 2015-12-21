@@ -90,6 +90,16 @@
         KeyCode::VK_NONE,
       </autogen>
     </item>
+    <item>
+      <name>Disable Cursor Guides, ALT-CMD-; in iTerm</name>
+      <identifier>user.iterm.cmdaltsemicolon</identifier>
+      <only>ITERM</only>
+      <autogen>
+        __KeyToKey__
+        KeyCode::SEMICOLON, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
+        KeyCode::VK_NONE,
+      </autogen>
+    </item>
   </item>
 
   <item>
