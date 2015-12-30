@@ -11,11 +11,13 @@ alias d    'cd $HOME/Downloads'
 alias p    'cd $HOME/Projects'
 alias n    'cd $HOME/Documents/Notes'
 
+# Applications
 alias a    'ag --smart-case'
 alias be   'bundle exec'
 alias c    clear
 alias g    git
 alias v    vim
+alias marked 'open -a "Marked 2"'
 
 alias tk   'tmux kill-session -t'
 alias tl   'tmuxp load -y'
