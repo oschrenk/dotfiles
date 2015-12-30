@@ -3,7 +3,7 @@
   "windows": [
     {
       "window_name": "home",
-      "layout": "main-horizontal",
+      "layout": "main-vertical",
       "options": { "automatic-rename": "off" },
       "start_directory": "$HOME/Downloads",
       "panes": [
@@ -13,7 +13,7 @@
     },
     {
       "window_name": "blog",
-      "layout": "main-horizontal",
+      "layout": "main-vertical",
       "options": { "automatic-rename": "off" },
       "start_directory": "$HOME/Projects/personal/oschrenk.github.io",
       "panes": [
