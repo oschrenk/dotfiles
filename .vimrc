@@ -34,7 +34,7 @@ Plug 'glittershark/vim-vinegar', { 'branch': 'q-to-quit' } " netrw enhancements
 Plug 'airblade/vim-rooter'                " auto sets workign directory
 
 " Completion
-Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.sh --clang-completer' }
+Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py --clang-completer' }
 
 " Control
 Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg. vim-gitgutter
