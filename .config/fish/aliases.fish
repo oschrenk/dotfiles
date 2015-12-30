@@ -12,7 +12,7 @@ alias p    'cd $HOME/Projects'
 alias n    'cd $HOME/Documents/Notes'
 
 # Applications
-alias a    'ag --smart-case'
+alias a    'ag'
 alias be   'bundle exec'
 alias c    clear
 alias g    git
