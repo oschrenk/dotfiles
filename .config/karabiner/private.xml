@@ -133,6 +133,36 @@
   </item>
 
   <item>
+    <name>Ignore keys for Day One</name>
+
+    <appdef>
+      <appname>DAYONE</appname>
+      <equal>com.dayoneapp.dayone</equal>
+    </appdef>
+
+    <item>
+      <name>Disable CMD-W in DayOne</name>
+      <identifier>user.dayone.cmdw</identifier>
+      <only>DAYONE</only>
+      <autogen>
+        __KeyToKey__
+        KeyCode::W, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
+        KeyCode::VK_NONE,
+      </autogen>
+    </item>
+    <item>
+      <name>Disable CMD-Q in DayOne</name>
+      <identifier>user.dayone.cmdq</identifier>
+      <only>DAYONE</only>
+      <autogen>
+        __KeyToKey__
+        KeyCode::Q, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
+        KeyCode::VK_NONE,
+      </autogen>
+    </item>
+  </item>
+
+  <item>
     <name>Change Alt Keys</name>
     <item>
       <name>Alt to Alt</name>

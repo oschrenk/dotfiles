@@ -24,6 +24,8 @@ $cli set user.hitlist.cmdq 1
 /bin/echo -n .
 $cli set remap.controlL2controlL_escape 1
 /bin/echo -n .
+$cli set user.dayone.cmdw 1
+/bin/echo -n .
 $cli set private.correct_shift_keys 1
 /bin/echo -n .
 $cli set remap.fn_fkey_f1_consumer 1
@@ -33,6 +35,8 @@ $cli set user.iterm.cmdw 1
 $cli set remap.shiftEscape2tilde 1
 /bin/echo -n .
 $cli set space_cadet.left_control_to_hyper 1
+/bin/echo -n .
+$cli set user.dayone.cmdq 1
 /bin/echo -n .
 $cli set parameter.keyoverlaidmodifier_timeout 500
 /bin/echo -n .
