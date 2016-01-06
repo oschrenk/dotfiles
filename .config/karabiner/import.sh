@@ -12,11 +12,15 @@ $cli set repeat.wait 25
 /bin/echo -n .
 $cli set remap.escape2backquote 1
 /bin/echo -n .
+$cli set user.iterm.cmdaltsemicolon 1
+/bin/echo -n .
 $cli set remap.euro_in_us 1
 /bin/echo -n .
-$cli set general.disable_internal_keyboard_if_external_keyboard_exsits 1
-/bin/echo -n .
 $cli set user.iterm.cmdq 1
+/bin/echo -n .
+$cli set remap.circumflex_in_us 1
+/bin/echo -n .
+$cli set general.disable_internal_keyboard_if_external_keyboard_exsits 1
 /bin/echo -n .
 $cli set remap.fkeys_to_consumer_f1 1
 /bin/echo -n .
