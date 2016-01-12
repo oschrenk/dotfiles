@@ -27,6 +27,8 @@ Plug 'tmux-plugins/vim-tmux-focus-events' " restore autocommand events within tm
 Plug 'epeli/slimux'                       " interact with tmux panes from within vim
 
 " Navigation
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 Plug 'Shougo/unite.vim'                   " unified source to display search results
 Plug 'Shougo/neomru.vim'                  " include unite.vim MRU sources
 Plug 'Shougo/vimproc.vim', { 'do': 'make' } " Interactive command execution
