@@ -1,0 +1,2 @@
+- `#!/bin/sh` start with Bourne shell, or compatible
+- `#!/usr/bin/env ruby` search for correct ruby in env
