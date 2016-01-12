@@ -32,3 +32,6 @@ set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 set -x SCALA_HOME /usr/local/opt/scala/
 set -x SPARK_HOME $HOME/Frameworks/spark
 
+# Docker
+eval (docker-machine env default)
+
