@@ -80,7 +80,6 @@ Plug 'mpollmeier/vim-scalaConceal',       { 'for': 'scala' }               " sca
 Plug 'ensime/ensime-vim',                 { 'for': 'scala' }
 Plug 'guns/vim-clojure-static',           { 'for': 'clojure' }
 Plug 'fwolanski/vim-clojure-conceal',     { 'for': 'clojure' }
-Plug 'tpope/vim-fireplace',               { 'for': 'clojure' }
 Plug 'rodjek/vim-puppet',                 { 'for': 'puppet' }
 Plug 'vim-ruby/vim-ruby',                 { 'for': 'ruby' }
 Plug 'tpope/vim-endwise',                 { 'for': 'ruby' } " end things automatically, like end after `if, do, def` in Ruby
