@@ -1,7 +1,0 @@
-#!/bin/bash
-
-# Eject external disks
-/usr/sbin/diskutil list | grep -e 'disk[3-9].*' | sed 's/.*\(disk[0-9].*\)/\1/' | uniq | xargs -I= /usr/sbin/diskutil unmount =
-
-# Mute
-/usr/bin/osascript -e 'set volume output muted 1'
