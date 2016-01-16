@@ -74,9 +74,9 @@ Plug 'airblade/vim-gitgutter'             " mark modified, changed, deleted line
 
 " File types
 Plug 'dag/vim-fish',                      { 'for': 'fish' }
-Plug 'derekwyatt/vim-sbt',                { 'for': 'sbt.scala' }
-Plug 'derekwyatt/vim-scala',              { 'for': ['scala', 'markdown'] }
-Plug 'mpollmeier/vim-scalaConceal',       { 'for': 'scala' }
+Plug 'derekwyatt/vim-sbt',                { 'for': 'sbt.scala' }           " sbt syntax
+Plug 'derekwyatt/vim-scala',              { 'for': ['scala', 'markdown'] } " scala syntax
+Plug 'mpollmeier/vim-scalaConceal',       { 'for': 'scala' }               " scala
 Plug 'ensime/ensime-vim',                 { 'for': 'scala' }
 Plug 'guns/vim-clojure-static',           { 'for': 'clojure' }
 Plug 'fwolanski/vim-clojure-conceal',     { 'for': 'clojure' }
