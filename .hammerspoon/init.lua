@@ -337,6 +337,14 @@ end
 
 hs.audiodevice.current()['device']:watcherCallback(audiodevwatch):watcherStart()
 
+-- Mute sounds on suspend, or if shutting down
+-- to stop the startup chime or just embarrassing moments
+hs.caffeinate.watcher.new(function(event)
+  if event == hs.caffeinate.watcher.systemWillSleep or event == hs.caffeinate.watcher.systemWillPowerOff or event == hs.caffeinate.watcher.systemDidWake then
+    hs.audiodevice.defaultOutputDevice():setVolume(0)
+  end
+end):start()
+
 ------------------------
 -- Power settings
 ------------------------
