@@ -46,6 +46,7 @@ Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of match
 
 " Motions
 Plug 'terryma/vim-expand-region'          " expand/shrink selection
+Plug 'bkad/CamelCaseMotion'               " came case movement
 
 " Text objects
 Plug 'kana/vim-textobj-user'              " creste your own text-objects
@@ -156,6 +157,14 @@ nnoremap U :redo<cr>
 
 " N: Find next occurrence backward
 nnoremap N Nzzzv
+
+" CamelCase and under_score motion with w/b/e
+map <silent> w <Plug>CamelCaseMotion_w
+map <silent> b <Plug>CamelCaseMotion_b
+map <silent> e <Plug>CamelCaseMotion_e
+sunmap w
+sunmap b
+sunmap e
 
 " ============================
 " Config
