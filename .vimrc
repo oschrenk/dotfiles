@@ -49,7 +49,7 @@ Plug 'terryma/vim-expand-region'          " expand/shrink selection
 Plug 'bkad/CamelCaseMotion'               " came case movement
 
 " Text objects
-Plug 'kana/vim-textobj-user'              " creste your own text-objects
+Plug 'kana/vim-textobj-user'              " create your own text-objects
 Plug 'gilligan/textobj-gitgutter'         " ih for change-hunk text object
 Plug 'kana/vim-textobj-indent'            " ai/ii/aI/iI for block of indented lines
 Plug 'kana/vim-textobj-line'              " al/il for current line
