@@ -167,6 +167,26 @@ hs.hotkey.bind(hyper, "u", function()
 end)
 
 ------------------------
+-- Drives
+------------------------
+
+function unmountExternalDrives()
+  print("unmount called")
+  hs.alert.show("Unmounting Drives")
+  -- escape single quotes like \'
+  -- escape backslashes in sed with extra backslash
+  os.execute("/usr/sbin/diskutil list | grep -i windows | sed \'s/.*\\(disk[0-9].*\\)/\\1/\' | uniq | xargs -I= /usr/sbin/diskutil unmount =")
+end
+
+function mountExternalDrives()
+  print("mount called")
+  hs.alert.show("Mounting Drives")
+  -- escape single quotes like \'
+  -- escape backslashes in sed with extra backslash
+  os.execute("/usr/sbin/diskutil list | grep -i windows | sed \'s/.*\\(disk[0-9].*\\)/\\1/\' | uniq | xargs -I= /usr/sbin/diskutil mount =")
+end
+
+------------------------
 -- Bluetooth
 ------------------------
 -- relies on https://github.com/toy/blueutil
@@ -337,14 +357,6 @@ end
 
 hs.audiodevice.current()['device']:watcherCallback(audiodevwatch):watcherStart()
 
--- Mute sounds on suspend, or if shutting down
--- to stop the startup chime or just embarrassing moments
-hs.caffeinate.watcher.new(function(event)
-  if event == hs.caffeinate.watcher.systemWillSleep or event == hs.caffeinate.watcher.systemWillPowerOff or event == hs.caffeinate.watcher.systemDidWake then
-    hs.audiodevice.defaultOutputDevice():setVolume(0)
-  end
-end):start()
-
 ------------------------
 -- Power settings
 ------------------------
@@ -393,6 +405,19 @@ end
 function switchedToCharger()
   hs.alert.show("Charging")
 end
+
+hs.caffeinate.watcher.new(function(event)
+  if event == hs.caffeinate.watcher.systemWillSleep or event == hs.caffeinate.watcher.systemWillPowerOff  then
+    print("sleeping")
+    hs.audiodevice.defaultOutputDevice():setVolume(0)
+    unmountExternalDrives()
+  end
+  if event == hs.caffeinate.watcher.systemDidWake then
+    print("waking up")
+    hs.audiodevice.defaultOutputDevice():setVolume(0)
+    mountExternalDrives()
+  end
+end):start()
 
 ------------------------
 -- Reload
