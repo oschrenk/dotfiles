@@ -33,7 +33,7 @@ Plug 'Shougo/unite.vim'                   " unified source to display search res
 Plug 'Shougo/neomru.vim'                  " include unite.vim MRU sources
 Plug 'Shougo/vimproc.vim', { 'do': 'make' } " Interactive command execution
 Plug 'glittershark/vim-vinegar', { 'branch': 'q-to-quit' } " netrw enhancements
-Plug 'airblade/vim-rooter'                " auto sets workign directory
+Plug 'airblade/vim-rooter'                " auto sets working directory
 
 " Completion
 Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py --clang-completer' }
