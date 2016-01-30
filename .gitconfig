@@ -78,19 +78,7 @@
 	# Find a file path in codebase:
 	f = "!git ls-files | grep -i"
 
-	lls = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%cr)%C(reset) %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)%C(bold yellow)%d%C(reset)' --abbrev-commit --date=relative
-    lll = log --graph --all --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%cD%C(reset) %C(bold green)(%cr)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(bold white)— %cn%C(reset)' --abbrev-commit
-
-    standup = !clear && git log --since '1 day ago' --no-merges --pretty=format':%C(yellow)%h %aN%n %B%n' --author $(git config --global --get user.email)
-
-	pod = push origin develop
-	pog = push origin gh-pages
-	pom = push origin master
-	pov = push origin vendor
-	pomd = !git pom && git pod
-	pomdt = !git pom && git pod && git put
-
-	put = push --tags
+  standup = !clear && git log --since '1 day ago' --no-merges --pretty=format':%C(yellow)%h %aN%n %B%n' --author $(git config --global --get user.email)
 
 	pop = stash pop
 
