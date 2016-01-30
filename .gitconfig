@@ -57,6 +57,9 @@
 	# Usage: git credit "John Doe" jdoe@domain.tld
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 
+  # run ctags on the project
+	ctags = !.git/hooks/ctags
+
 	# Remove branches that have already been merged with master
   # a.k.a. ‘delete merged’
   dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
@@ -153,3 +156,5 @@
 	path = ~/.gitconfig_user
 	path = ~/.gitconfig_system
 
+[init]
+	templatedir = ~/.git_template
