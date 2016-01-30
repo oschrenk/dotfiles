@@ -9,5 +9,6 @@ Text objects:
 - `ib/ab` for Quotes, Parenthesis and braces
 Ctags:
 - `^]` first match
+- `^t` jump back
 - `:tn` next match
 - `:tp` previous match
