@@ -1,3 +1,4 @@
+Text objects:
 - `ih` for git hunk
 - `ai/ii/aI/iI for` block of indented lines
 - `al/il` for current line
@@ -6,3 +7,7 @@
 - `au/iu` for url
 - `ae/ie` for entire buffer
 - `ib/ab` for Quotes, Parenthesis and braces
+Ctags:
+- `^]` first match
+- `:tn` next match
+- `:tp` previous match
