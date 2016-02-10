@@ -5,7 +5,7 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
     dig -4 @resolver1.opendns.com -t a myip.opendns.com +short
   end
 
-  # Fetching public ip is harder. I didn't find a way to make dig
+  # Fetching public ip is hard. I didn't find a way to make dig
   # work with Socks5 proxy, so I'm using a public service
   # But..., services like this die like flies and are mostly slow
   #
@@ -43,6 +43,16 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
     echo "Your remote ip before connecting through the proxy is $remote_ip_before"
     echo "Your remote ip after  connecting through the proxy is $remote_ip_after"
     echo "The http_proxy for the terminal has NOT been set."
+  end
+
+  function proxy_status
+    echo "Querying network settings..."
+
+    for device in (networksetup -listallnetworkservices | sed '1d' | grep -v "Bluetooth")
+      echo " - proxy status for $device"
+      networksetup -getsocksfirewallproxy "$device"
+    end
+    echo "... done!"
   end
 
   function proxy_off
@@ -96,6 +106,8 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
       kill_all
     case shutdown
       shutdown
+    case status
+      proxy_status
     case usage
       usage
     case ''
