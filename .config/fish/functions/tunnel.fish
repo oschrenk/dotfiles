@@ -31,7 +31,7 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
     # Ask for the administrator password upfront
     sudo -v
 
-    for device in (networksetup -listallnetworkservices | sed '1d' | grep -v "Bluetooth")
+    for device in (__devices)
       echo " - enabling proxy for $device"
       sudo networksetup -setsocksfirewallproxy "$device" 127.0.0.1 $localport off
     end
@@ -45,10 +45,14 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
     echo "The http_proxy for the terminal has NOT been set."
   end
 
+  function __devices
+    networksetup -listallnetworkservices | sed '1d' | grep -v "Bluetooth" | grep -v "Multifunction"
+  end
+
   function proxy_status -d 'Status of proxy'
     echo "Querying network settings..."
 
-    for device in (networksetup -listallnetworkservices | sed '1d' | grep -v "Bluetooth")
+    for device in (__devices)
       echo " - proxy status for $device"
       networksetup -getsocksfirewallproxy "$device"
     end
@@ -61,7 +65,7 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
     # Ask for the administrator password upfront
     sudo -v
 
-    for device in (networksetup -listallnetworkservices | sed '1d' | grep -v "Bluetooth")
+    for device in (__devices)
       echo " - disabling proxy for $device"
       sudo networksetup -setsocksfirewallproxystate "$device" off
     end
