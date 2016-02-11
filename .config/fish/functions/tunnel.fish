@@ -1,7 +1,7 @@
 function tunnel --description "SSH SOCKS proxy script for Mac OS X"
 
   # Fetching ip address before the thunnel is easy, just use dns service for that
-  function _remote_ip_before
+  function __public_ip_via_dig -d 'Get public IP through via dig w/o proxy'
     dig -4 @resolver1.opendns.com -t a myip.opendns.com +short
   end
 
@@ -9,23 +9,23 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
   # work with Socks5 proxy, so I'm using a public service
   # But..., services like this die like flies and are mostly slow
   #
-  # If one is too slow, or does not respond, try onme of those
+  # If one is too slow, or does not respond, try another service
   #
   # curl -s "icanhazip.com"
   # curl -s "ifconfig.me/ip"
   # curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'
-  function _remote_ip_after
-    curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'
+  function __public_ip_via_socks -a localport -d 'Get public IP through via socks5 proxy'
+    curl -s --proxy socks5h://localhost:$localport checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'
   end
 
-  function proxy_on
+  function __proxy_on -d 'Enable socks5 proxy'
     set lowerport (sysctl net.inet.ip.portrange.first | cut -d " " -f 2)
     set upperport (sysctl net.inet.ip.portrange.last | cut -d " " -f 2)
     set localport (jot -r 1 $lowerport $upperport)
 
-    set remote_ip_before (_remote_ip_before)
+    set remote_ip_before (__public_ip_via_dig)
 
-    echo "Listening on localhost:$localport."
+    echo "Listening on localhost:$localport"
     echo "Modifying network settings..."
 
     # Ask for the administrator password upfront
@@ -39,13 +39,13 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
     echo "Starting SSH session. Will run in background for 1 day."
     ssh -f tunnel -N -D localhost:$localport sleep 1d
 
-    set remote_ip_after (_remote_ip_after $localport)
+    set remote_ip_after (__public_ip_via_socks $localport)
     echo "Your remote ip before connecting through the proxy is $remote_ip_before"
     echo "Your remote ip after  connecting through the proxy is $remote_ip_after"
     echo "The http_proxy for the terminal has NOT been set."
   end
 
-  function proxy_status
+  function proxy_status -d 'Status of proxy'
     echo "Querying network settings..."
 
     for device in (networksetup -listallnetworkservices | sed '1d' | grep -v "Bluetooth")
@@ -86,20 +86,20 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
       shutdown
       echo "OFF"
     else
-      proxy_on
+      __proxy_on
       echo "ON"
     end
   end
 
   function usage
-    echo "Usage: tunnel [on|off|killall|shutdown|no_args]"
+    echo "Usage: tunnel [on|off|killall|shutdown|status]"
     echo "tunnel is fish script to toggle proxy settings in OSX"
     echo "tunnel initiates an SSH tunnel and then enables a Socks proxy"
   end
 
   switch (echo $argv)
     case on
-      proxy_on
+      __proxy_on
     case off
       proxy_off
     case killall
