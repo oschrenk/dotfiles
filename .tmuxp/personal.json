@@ -7,7 +7,6 @@
       "options": { "automatic-rename": "off" },
       "start_directory": "$HOME/Downloads",
       "panes": [
-        { },
         { }
       ]
     },
@@ -17,7 +16,6 @@
       "options": { "automatic-rename": "off" },
       "start_directory": "$HOME/Projects/personal/oschrenk.github.io",
       "panes": [
-        { },
         { }
       ]
     }
