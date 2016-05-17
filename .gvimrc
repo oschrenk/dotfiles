@@ -3,9 +3,9 @@
 " ============================
 colorscheme iawriter
 
-set linespace=8
+set linespace=10
 set background=light
-set guifont=Cousine:h18 " http://www.google.com/webfonts/specimen/Cousine
+set guifont=Cousine:h20 " http://www.google.com/webfonts/specimen/Cousine
 
 set fullscreen           " set fullscreen on startup
 set shortmess+=I         " don't give the intro message when starting Vim
@@ -39,7 +39,7 @@ autocmd! User GoyoLeave
 autocmd  User GoyoEnter nested call <SID>goyo_enter()
 autocmd  User GoyoLeave nested call <SID>goyo_leave()
 
-autocmd VimEnter * Goyo
+autocmd VimEnter * Goyo 45%x65%+5%
 autocmd VimEnter * setlocal spell
 autocmd VimEnter * set nolist wrap linebreak
 autocmd VimEnter BufRead,BufNewFile startinsert
