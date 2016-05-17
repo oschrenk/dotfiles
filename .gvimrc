@@ -7,7 +7,7 @@ set linespace=8
 set background=light
 set guifont=Cousine:h18 " http://www.google.com/webfonts/specimen/Cousine
 
-set fu                   " set fullscreen on startup
+set fullscreen           " set fullscreen on startup
 set shortmess+=I         " don't give the intro message when starting Vim
 set guioptions-=r        " Remove right-hand scrollbar
 set guicursor=n:blinkon0 " Don’t blink cursor in normal mode
