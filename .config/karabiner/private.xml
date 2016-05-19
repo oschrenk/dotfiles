@@ -60,123 +60,125 @@
     <autogen>--KeyToKey-- KeyCode::QUOTE,     ModifierFlag::SHIFT_R | ModifierFlag::NONE, KeyCode::VK_NONE</autogen>
   </item>
 
-  <item>
-    <name>Ignore keys for iTerm2</name>
-
-    <appdef>
-      <appname>ITERM</appname>
-      <equal>iTerm</equal>
-      <equal>net.sourceforge.iTerm</equal>
-      <equal>com.googlecode.iterm2</equal>
-    </appdef>
+    <item>
+      <name>Ignore common keystrokes</name>
 
     <item>
-      <name>Disable CMD-W in iTerm</name>
-      <identifier>user.iterm.cmdw</identifier>
-      <only>ITERM</only>
-      <autogen>
-        __KeyToKey__
-        KeyCode::W, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
-        KeyCode::VK_NONE,
-      </autogen>
+      <name>Ignore keys for iTerm2</name>
+
+      <appdef>
+        <appname>ITERM</appname>
+        <equal>iTerm</equal>
+        <equal>net.sourceforge.iTerm</equal>
+        <equal>com.googlecode.iterm2</equal>
+      </appdef>
+
+      <item>
+        <name>Disable CMD-W in iTerm</name>
+        <identifier>user.iterm.cmdw</identifier>
+        <only>ITERM</only>
+        <autogen>
+          __KeyToKey__
+          KeyCode::W, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
+          KeyCode::VK_NONE,
+        </autogen>
+      </item>
+      <item>
+        <name>Disable CMD-Q in iTerm</name>
+        <identifier>user.iterm.cmdq</identifier>
+        <only>ITERM</only>
+        <autogen>
+          __KeyToKey__
+          KeyCode::Q, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
+          KeyCode::VK_NONE,
+        </autogen>
+      </item>
+      <item>
+        <name>Disable Cursor Guides, ALT-CMD-; in iTerm</name>
+        <identifier>user.iterm.cmdaltsemicolon</identifier>
+        <only>ITERM</only>
+        <autogen>
+          __KeyToKey__
+          KeyCode::SEMICOLON, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
+          KeyCode::VK_NONE,
+        </autogen>
+      </item>
     </item>
+
     <item>
-      <name>Disable CMD-Q in iTerm</name>
-      <identifier>user.iterm.cmdq</identifier>
-      <only>ITERM</only>
-      <autogen>
-        __KeyToKey__
-        KeyCode::Q, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
-        KeyCode::VK_NONE,
-      </autogen>
+      <name>Ignore keys for The Hit List</name>
+
+      <appdef>
+        <appname>HITLIST</appname>
+        <equal>com.potionfactory.TheHitList</equal>
+      </appdef>
+
+      <item>
+        <name>Disable CMD-W in The Hit List</name>
+        <identifier>user.hitlist.cmdw</identifier>
+        <only>HITLIST</only>
+        <autogen>
+          __KeyToKey__
+          KeyCode::W, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
+          KeyCode::VK_NONE,
+        </autogen>
+      </item>
+      <item>
+        <name>Disable CMD-Q in The Hit List</name>
+        <identifier>user.hitlist.cmdq</identifier>
+        <only>HITLIST</only>
+        <autogen>
+          __KeyToKey__
+          KeyCode::Q, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
+          KeyCode::VK_NONE,
+        </autogen>
+      </item>
     </item>
+
     <item>
-      <name>Disable Cursor Guides, ALT-CMD-; in iTerm</name>
-      <identifier>user.iterm.cmdaltsemicolon</identifier>
-      <only>ITERM</only>
-      <autogen>
-        __KeyToKey__
-        KeyCode::SEMICOLON, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_OPTION | ModifierFlag::NONE,
-        KeyCode::VK_NONE,
-      </autogen>
+      <name>Ignore keys for Day One</name>
+
+      <appdef>
+        <appname>DAYONE</appname>
+        <equal>com.dayoneapp.dayone</equal>
+      </appdef>
+
+      <item>
+        <name>Disable CMD-W in DayOne</name>
+        <identifier>user.dayone.cmdw</identifier>
+        <only>DAYONE</only>
+        <autogen>
+          __KeyToKey__
+          KeyCode::W, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
+          KeyCode::VK_NONE,
+        </autogen>
+      </item>
+      <item>
+        <name>Disable CMD-Q in DayOne</name>
+        <identifier>user.dayone.cmdq</identifier>
+        <only>DAYONE</only>
+        <autogen>
+          __KeyToKey__
+          KeyCode::Q, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
+          KeyCode::VK_NONE,
+        </autogen>
+      </item>
     </item>
   </item>
 
   <item>
-    <name>Ignore keys for The Hit List</name>
-
-    <appdef>
-      <appname>HITLIST</appname>
-      <equal>com.potionfactory.TheHitList</equal>
-    </appdef>
+    <name>Modifier keys as parenthesis/brackets/braces</name>
 
     <item>
-      <name>Disable CMD-W in The Hit List</name>
-      <identifier>user.hitlist.cmdw</identifier>
-      <only>HITLIST</only>
-      <autogen>
-        __KeyToKey__
-        KeyCode::W, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
-        KeyCode::VK_NONE,
-      </autogen>
-    </item>
-    <item>
-      <name>Disable CMD-Q in The Hit List</name>
-      <identifier>user.hitlist.cmdq</identifier>
-      <only>HITLIST</only>
-      <autogen>
-        __KeyToKey__
-        KeyCode::Q, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
-        KeyCode::VK_NONE,
-      </autogen>
-    </item>
-  </item>
-
-  <item>
-    <name>Ignore keys for Day One</name>
-
-    <appdef>
-      <appname>DAYONE</appname>
-      <equal>com.dayoneapp.dayone</equal>
-    </appdef>
-
-    <item>
-      <name>Disable CMD-W in DayOne</name>
-      <identifier>user.dayone.cmdw</identifier>
-      <only>DAYONE</only>
-      <autogen>
-        __KeyToKey__
-        KeyCode::W, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
-        KeyCode::VK_NONE,
-      </autogen>
-    </item>
-    <item>
-      <name>Disable CMD-Q in DayOne</name>
-      <identifier>user.dayone.cmdq</identifier>
-      <only>DAYONE</only>
-      <autogen>
-        __KeyToKey__
-        KeyCode::Q, MODIFIERFLAG_EITHER_LEFT_OR_RIGHT_COMMAND | ModifierFlag::NONE,
-        KeyCode::VK_NONE,
-      </autogen>
-    </item>
-  </item>
-
-  <item>
-    <name>Change Alt Keys</name>
-    <item>
-      <name>Alt to Alt</name>
+      <name>Alt Keys as brackets</name>
       <appendix>(+ When you type Alt only, send the appropriate bracket []</appendix>
       <identifier>remap.altbrackets</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_L, ModifierFlag::OPTION_L | ModifierFlag::NONE, KeyCode::OPTION_L, KeyCode::BRACKET_LEFT</autogen>
       <autogen>__KeyOverlaidModifier__ KeyCode::OPTION_R, ModifierFlag::OPTION_R | ModifierFlag::NONE, KeyCode::OPTION_R, KeyCode::BRACKET_RIGHT</autogen>
     </item>
-  </item>
 
-  <item>
-    <name>Change Command Keys</name>
     <item>
-      <name>Command to Command</name>
+      <name>Command Keys as braces</name>
       <appendix>(+ When you type Command only, send the appropriate curly {}</appendix>
       <identifier>remap.cmdcurlies</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_L, ModifierFlag::COMMAND_L | ModifierFlag::NONE, KeyCode::COMMAND_L, KeyCode::BRACKET_LEFT, ModifierFlag::SHIFT_L</autogen>
