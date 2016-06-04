@@ -13,7 +13,6 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
   #
   # curl -s "icanhazip.com"
   # curl -s "ifconfig.me/ip"
-  # curl -s checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'
   function __public_ip_via_socks -a localport -d 'Get public IP through via socks5 proxy'
     curl -s --proxy socks5h://localhost:$localport checkip.dyndns.org | sed -e 's/.*Current IP Address: //' -e 's/<.*$//'
   end
