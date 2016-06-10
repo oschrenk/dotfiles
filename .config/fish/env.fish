@@ -34,7 +34,7 @@ set -x MAVEN_OPTS "-Xmx512m"
 set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 set -x SCALA_HOME /usr/local/opt/scala/
 set -x SPARK_HOME $HOME/Frameworks/spark
-set -x SBT_OPTS "-Xms3G -Xmx3G"
+set -x SBT_OPTS "-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled"
 
 # Latex
 append-to-path /Library/TeX/texbin
