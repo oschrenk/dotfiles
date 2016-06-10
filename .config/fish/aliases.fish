@@ -16,8 +16,6 @@ alias a    'ag'
 alias be   'bundle exec'
 alias c    clear
 alias g    git
-alias v    nvim
-alias vim    nvim
 alias marked 'open -a "Marked 2"'
 
 alias tk   'tmux kill-session -t'
