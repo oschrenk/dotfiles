@@ -1,13 +1,16 @@
 function log --description "Create and/or show todays log entry in $EDITOR"
-  touch $HOME/Documents/logs/(today).md
+  set -l logfile $LOG_DIR/(today).md
+  if test -f $logfile
+  else
+    set -l date (today --long)
+    echo "# $date" >> $logfile
+  end
 
   if not test -z (echo $argv)
-    echo -e "" >> $HOME/Documents/logs/(today).md
-    echo (time) >> $HOME/Documents/logs/(today).md
-    echo -e "-----" >> $HOME/Documents/logs/(today).md
-    echo $argv >> $HOME/Documents/logs/(today).md
+    set -l time (time)
+    echo "* `$time`: $argv" >> $logfile
   else
-    eval $EDITOR $HOME/Documents/logs/(today).md
+    eval $EDITOR $logfile
   end
 
 end
