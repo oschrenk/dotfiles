@@ -32,7 +32,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'Shougo/unite.vim'                   " unified source to display search results
 Plug 'Shougo/neomru.vim'                  " include unite.vim MRU sources
 Plug 'Shougo/vimproc.vim', { 'do': 'make' } " Interactive command execution
-Plug 'glittershark/vim-vinegar', { 'branch': 'q-to-quit' } " netrw enhancements
+Plug 'oschrenk/vim-vinegar'               " netrw enhancements
 Plug 'airblade/vim-rooter'                " auto sets working directory
 
 " Completion
