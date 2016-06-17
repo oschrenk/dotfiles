@@ -40,10 +40,7 @@
 	#   List both remote-tracking branches and local branches.
 	branches = branch --all
 
-	# -v/--verbose
-	# Show unified diff between the HEAD commit and what would be
-	# committed at the bottom of the commit message template.
-	c = commit --verbose
+	c = commit
 
   # --amend
   #   Replace the tip of the current branch by creating a new commit.
@@ -112,6 +109,11 @@
 	unstage = reset HEAD
 	un = reset HEAD
 
+[commit]
+	# since git 2.9 as option
+	# Show unified diff between the HEAD commit and what would be
+	# committed at the bottom of the commit message template.
+	verbose = true
 
 [merge]
 	# By default, when you merge a branch in git, you get a fairly meaningless
