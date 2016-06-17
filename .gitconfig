@@ -86,7 +86,8 @@
 	dtc = difftool --cached
 
 	# Find a file path in codebase:
-	f = "!git ls-files | grep -i"
+  find = "!git ls-files | grep -i"
+	f = !git find
 
   standup = !clear && git log --since '1 day ago' --no-merges --pretty=format':%C(yellow)%h %aN%n %B%n' --author $(git config --global --includes --get user.email)
 
