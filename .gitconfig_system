@@ -1,3 +1,25 @@
+[alias]
+	# Use Kaleidoscope as a tool for feature branch review
+	# Taken from https://github.com/rustle/KaleidoscopeVCSTidbits
+	#
+	# To review HEAD with master as your mainline branch
+	# 	git review
+	#
+	# To review a branch or sha when master is your mainline branch
+	#	git review some-feature-branch-or-sha
+	#
+	# To review a branch (or sha) by name with a custom mainline branch
+	#	git review some-feature-branch-or-sha mainline-branch
+	review = "!sh -c 'SHA=${1:-HEAD}; BRANCH=${2:-develop}; if [ $SHA == $BRANCH ] ; then SHA=HEAD; fi; git diff $BRANCH...$SHA;' -"
+	reviewtool = "!sh -c 'SHA=${1:-HEAD}; BRANCH=${2:-develop}; if [ $SHA == $BRANCH ] ; then SHA=HEAD; fi; git difftool -y -t Kaleidoscope $BRANCH...$SHA;' -"
+	rt = reviewtool
+
+[diff]
+	tool = Kaleidoscope
+
+[difftool]
+	prompt = false
+
 [difftool "Kaleidoscope"]
   cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 
@@ -5,6 +27,7 @@
   tool = Kaleidoscope
 
 [mergetool "Kaleidoscope"]
+	prompt = false
   cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
   trustExitCode = true
 
