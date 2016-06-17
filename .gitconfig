@@ -74,7 +74,7 @@
   # a.k.a. ‘delete merged’
   dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
-	# Run `git serve`, get your ip and tell your buffy to:
+	# Run `git serve`, get your ip and tell your buddy to:
 	# - `git fetch git://192.168.1.123/`
 	# - `git clone git://192.168.1.123/ local-repo-name`
 	# - `git pull git://192.168.1.123/ branchname`
