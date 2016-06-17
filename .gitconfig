@@ -146,11 +146,6 @@
   ui = auto
 	sh = auto
 
-[color "sh"]
-	branch = yellow
-	workdir = white
-	dirty = red
-
 [include]
 	path = ~/.gitconfig_user
 	path = ~/.gitconfig_system
