@@ -17,7 +17,7 @@
 	# current:  push the current branch to a branch of the same name.
 	# simple:   like upstream, but refuses to push if upstream branch’s name
 	#           is different from the local one
-	default = simple
+	default = current
 
 [rerere]
   # reuse recorded resolution
