@@ -16,10 +16,12 @@
 	# current:  push the current branch to a branch of the same name.
 	# simple:   like upstream, but refuses to push if upstream branch’s name
 	#           is different from the local one
-
 	default = simple
 
 [rerere]
+  # reuse recorded resolution
+  # tells git to remember how you resolved hunk conflicts, so that next time
+  # the same conflict arises it is resolved automatically
 	enabled = true
 
 [alias]
@@ -30,12 +32,12 @@
 	au = add -u
 
 	# -v/--verbose
-	# When in list mode, show sha1 and commit subject line for each head,
-	# along with relationship to upstream branch
+	#   When in list mode, show sha1 and commit subject line for each head,
+	#   along with relationship to upstream branch
 	b = branch --verbose
 
 	# -a/--all
-	# List both remote-tracking branches and local branches.
+	#   List both remote-tracking branches and local branches.
 	branches = branch --all
 
 	# -v/--verbose
@@ -43,10 +45,20 @@
 	# committed at the bottom of the commit message template.
 	c = commit --verbose
 
+  # --amend
+  #   Replace the tip of the current branch by creating a new commit.
+  #   Can thus be used to fix up the last commianging commit message
+  #   and/or adding more hunk
 	cam = commit --amend
 
 	co = checkout
 
+  # --name-only
+  #   Show only names of changed files.
+  # --diff-filter=[(A|C|D|M|R|T|U|X|B)...[*]]
+  #   Added (A), Copied (C), Deleted (D), Modified (M), Renamed (R),
+  #   have their type (i.e. regular file, symlink, submodule, ...) changed (T),
+  #   are Unmerged (U), are Unknown (X), or have had their pairing Broken (B)
   conflicts = diff --name-only --diff-filter=U
 
 	# -b <new_branch>
@@ -82,15 +94,17 @@
 
 	pop = stash pop
 
+  # -v/--verbose
+  #   show remote url after name
 	remotes = remote -v
 
 	# -s/--short
-	# Give the output in the short-format.
+	#   Give the output in the short-format.
 	s = status --short
 	ss = status
 
 	# -l/--list <pattern>
-	# List tags with names that match the given pattern (or all if no pattern is given)
+	#   List tags with names that match the given pattern (or all if no pattern is given)
 	tags = tag -l
 	up = pull --rebase
 
@@ -109,12 +123,9 @@
 	#
 	# To review a branch (or sha) by name with a custom mainline branch
 	#	git review some-feature-branch-or-sha mainline-branch
-
 	review = "!sh -c 'SHA=${1:-HEAD}; BRANCH=${2:-develop}; if [ $SHA == $BRANCH ] ; then SHA=HEAD; fi; git diff $BRANCH...$SHA;' -"
 	reviewtool = "!sh -c 'SHA=${1:-HEAD}; BRANCH=${2:-develop}; if [ $SHA == $BRANCH ] ; then SHA=HEAD; fi; git difftool -y -t Kaleidoscope $BRANCH...$SHA;' -"
 	rt = reviewtool
-
-
 
 [diff]
 	tool = Kaleidoscope
