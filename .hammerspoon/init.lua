@@ -3,9 +3,8 @@
 ------------------------
 
 -- Network
-local wifiInterface = "en0"
 local wifiWatcher = nil
-local workSSIDToken = "elmar"
+local workSSIDToken = "Vandebron"
 local homeSSIDToken = "SitecomC4934C"
 local lastSSID = hs.wifi.currentNetwork()
 local homeLocation = "Home"
@@ -14,7 +13,7 @@ local workLocation = "Work"
 -- Fast User Switching
 -- `id -u` to find curent id
 local personalUserId = "502"
-local workUserId     = "503"
+local workUserId     = "505"
 
 -- hotkey hyper
 local hyper = {"ctrl", "alt", "shift", "cmd"}
@@ -222,27 +221,19 @@ end)
 -- WiFi
 ------------------------
 
-function wifiEnabled()
-  local file = assert(io.popen('/usr/sbin/networksetup -getairportpower ' .. wifiInterface, 'r'))
-  local output = file:read('*all')
-  file:close()
-
-  return string.match(output, ":%s(%a+)") == "On"
-end
-
 function enableWifi()
-  os.execute("/usr/sbin/networksetup -setairportpower " .. wifiInterface .. " on")
+  hs.wifi.setPower(true)
   hs.alert.show("Enabled Wifi")
 end
 
 function disableWifi()
+  hs.wifi.setPower(false)
   hs.alert.show("Disabled Wifi")
-  os.execute("/usr/sbin/networksetup -setairportpower " .. wifiInterface .. " off")
 end
 
 -- Toggle wifi
 hs.hotkey.bind(hyper, "v", function()
-  if (wifiEnabled()) then
+  if (hs.wifi.interfaceDetails()["power"]) then
     disableWifi()
   else
     enableWifi()
