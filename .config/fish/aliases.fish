@@ -18,6 +18,7 @@ alias c    clear
 alias g    git
 alias marked 'open -a "Marked 2"'
 
+# tmux sessions
 alias tk   'tmux kill-session -t'
 alias tl   'tmuxp load -y'
 
