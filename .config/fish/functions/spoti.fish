@@ -91,6 +91,44 @@ function __spoti_prev
   __spoti_status
 end
 
+function __spoti_volume
+  __spoti_tell "sound volume as integer"
+end
+
+function __spoti_vol
+  echo $argv | read -l subcommand
+  set -l volume (__spoti_volume)
+  switch $subcommand
+    case "show"
+      __spoti_cecho "Current Spotify volume level is $volume."
+    case "up"
+      if [ $volume -le 90 ]
+        # FIXME should be +10 but then does actually +9
+        set -l volume (math -s0 "$volume+11")
+        __spoti_cecho "Increasing Spotify volume to $volume."
+        __spoti_tell "set sound volume to $volume"
+      else
+        set -l volume 100
+        __spoti_cecho "Spotify volume level is at max."
+        __spoti_tell "set sound volume to $volume"
+      end
+    case "down"
+      if [ $volume -ge 10 ]
+        # FIXME should be -10 but then does actually -11
+        set -l volume (math -s0 "$volume - 9")
+        __spoti_cecho "Decreasing Spotify volume to $volume."
+        __spoti_tell "set sound volume to $volume"
+      else
+        set -l volume 0
+        __spoti_cecho "Spotify volume level is at min"
+        __spoti_tell "set sound volume to $volume"
+      end
+    case ""
+      set -l volume (__spoti_volume)
+      __spoti_cecho "Current Spotify volume level is $volume."
+  end
+end
+
 function spotifish --description  "control spotify from your fish shell"
 
   # default settings
@@ -115,5 +153,7 @@ function spotifish --description  "control spotify from your fish shell"
       __spoti_next
     case "prev"
       __spoti_prev
+    case "vol"
+      __spoti_vol $arg1
   end
 end
