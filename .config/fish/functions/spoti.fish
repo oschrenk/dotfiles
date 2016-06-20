@@ -156,24 +156,83 @@ function __spoti_toggle
   end
 end
 
+function __spoti_fetch_play_uri
+  set -l spotify_search_api "https://api.spotify.com/v1/search"
+  set -l type $argv[1]
+  set -l query (echo $argv[2..-1])
+
+  curl -s -G $spotify_search_api --data-urlencode "q=$query" -d "type=$type&limit=1&offset=0" -H "Accept: application/json" | grep -E -o "spotify:$type:[a-zA-Z0-9]+" -m 1
+end
+
+function __spoti_play_uri
+  __spoti_tell "play track \"$argv\""
+end
+
+function __spoti_play_track
+  set -l query (echo $argv)
+
+  set -l uri (__spoti_fetch_play_uri track $query)
+  __spoti_cecho "Searching track for $query"
+
+  __spoti_play_uri $uri
+  __spoti_cecho "Playing ($query Search) -> Spotify URL: $uri"
+end
+
+function __spoti_play_album
+  set -l query (echo $argv)
+
+  set -l uri (__spoti_fetch_play_uri album $query)
+  __spoti_cecho "Searching album for $query"
+
+  __spoti_play_uri $uri
+  __spoti_cecho "Playing ($query Search) -> Spotify URL: $uri"
+end
+
+function __spoti_play_artist
+  set -l query (echo $argv)
+
+  set -l uri (__spoti_fetch_play_uri artist $query)
+  __spoti_cecho "Searching artist for $query"
+
+  __spoti_play_uri $uri
+  __spoti_cecho "Playing ($query Search) -> Spotify URL: $uri"
+end
+
+function __spoti_play_list
+  __spoti_cecho "Not yet supported"
+end
+
 function spotifish --description  "control spotify from your fish shell"
 
   # default settings
   # ----------------------------------------
 
-  ## no more than 3, no less than 1 args
-  if test \( (count $argv) -ge 3 -o  (count $argv) -lt 1 \)
+  ## no less than 1 args
+  if test (count $argv) -lt 1
     __spoti_usage
     return
   end
 
-  echo $argv | read -l subcommand arg1 arg2
+  echo $argv | read -l subcommand arg1 args
 
   switch $subcommand
     case "status"
       __spoti_status
     case "play"
-      __spoti_play $arg1 $arg2
+      switch $arg1
+        case "track"
+          __spoti_play_track $args
+        case "album"
+          __spoti_play_album $args
+        case "artist"
+          __spoti_play_artist $args
+        case "list"
+          __spoti_play_list $args
+        case ""
+          __spoti_play
+        case '*'
+          __spoti_play_track $argv[2..-1]
+      end
     case "pause"
       __spoti_pause
     case "next"
@@ -186,5 +245,7 @@ function spotifish --description  "control spotify from your fish shell"
       __spoti_share
     case "toggle"
       __spoti_toggle $arg1
+    case '*'
+      __spoti_usage
   end
 end
