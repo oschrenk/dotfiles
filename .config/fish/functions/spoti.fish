@@ -160,7 +160,7 @@ function __spoti_fetch_pattern
   echo $argv | read -l type
   switch $type
     case "playlist"
-      echo 'spotify:user:[a-zA-Z0-9]+:playlist:[a-zA-Z0-9]+'
+      echo 'spotify:user:[a-zA-Z0-9_]+:playlist:[a-zA-Z0-9]+'
     case '*'
       echo "spotify:$type:[a-zA-Z0-9]+"
   end
