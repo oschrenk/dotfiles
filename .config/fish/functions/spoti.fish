@@ -142,6 +142,20 @@ function __spoti_share
   echo -n "$url" | pbcopy
 end
 
+function __spoti_toggle
+  echo $argv | read -l target
+  switch $target
+    case "shuffle"
+      __spoti_tell "set shuffling to not shuffling"
+      set -l current  (__spoti_tell "shuffling")
+      __spoti_cecho "Spotify shuffling set to: $current"
+    case "repeat"
+      __spoti_tell "set repeating to not repeating"
+      set -l current  (__spoti_tell "repeating")
+      __spoti_cecho "Spotify repeating set to: $current"
+  end
+end
+
 function spotifish --description  "control spotify from your fish shell"
 
   # default settings
@@ -170,5 +184,7 @@ function spotifish --description  "control spotify from your fish shell"
       __spoti_vol $arg1
     case "share"
       __spoti_share
+    case "toggle"
+      __spoti_toggle $arg1
   end
 end
