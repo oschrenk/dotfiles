@@ -156,12 +156,22 @@ function __spoti_toggle
   end
 end
 
+function __spoti_fetch_pattern
+  echo $argv | read -l type
+  switch $type
+    case "playlist"
+      echo 'spotify:user:[a-zA-Z0-9]+:playlist:[a-zA-Z0-9]+'
+    case '*'
+      echo "spotify:$type:[a-zA-Z0-9]+"
+  end
+end
+
 function __spoti_fetch_play_uri
   set -l spotify_search_api "https://api.spotify.com/v1/search"
-  set -l type $argv[1]
-  set -l query (echo $argv[2..-1])
+  echo $argv | read -l count type query
+  set -l pattern (__spoti_fetch_pattern $type)
 
-  curl -s -G $spotify_search_api --data-urlencode "q=$query" -d "type=$type&limit=1&offset=0" -H "Accept: application/json" | grep -E -o "spotify:$type:[a-zA-Z0-9]+" -m 1
+  curl -s -G $spotify_search_api --data-urlencode "q=$query" -d "type=$type&limit=1&offset=0" -H "Accept: application/json" | grep -E -o "$pattern" -m 1
 end
 
 function __spoti_play_uri
@@ -171,7 +181,7 @@ end
 function __spoti_play_track
   set -l query (echo $argv)
 
-  set -l uri (__spoti_fetch_play_uri track $query)
+  set -l uri (__spoti_fetch_play_uri 1 track $query)
   __spoti_cecho "Searching track for $query"
 
   __spoti_play_uri $uri
@@ -181,7 +191,8 @@ end
 function __spoti_play_album
   set -l query (echo $argv)
 
-  set -l uri (__spoti_fetch_play_uri album $query)
+  set -l uri (__spoti_fetch_play_uri 1 album $query)
+
   __spoti_cecho "Searching album for $query"
 
   __spoti_play_uri $uri
@@ -191,7 +202,7 @@ end
 function __spoti_play_artist
   set -l query (echo $argv)
 
-  set -l uri (__spoti_fetch_play_uri artist $query)
+  set -l uri (__spoti_fetch_play_uri 1 artist $query)
   __spoti_cecho "Searching artist for $query"
 
   __spoti_play_uri $uri
@@ -199,7 +210,13 @@ function __spoti_play_artist
 end
 
 function __spoti_play_list
-  __spoti_cecho "Not yet supported"
+  set -l query (echo $argv)
+
+  set -l uri (__spoti_fetch_play_uri 1 playlist $query)
+  __spoti_cecho "Searching list for $query"
+
+  __spoti_play_uri $uri
+  __spoti_cecho "Playing ($query Search) -> Spotify URL: $uri"
 end
 
 function spotifish --description  "control spotify from your fish shell"
