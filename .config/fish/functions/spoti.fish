@@ -134,6 +134,14 @@ function __spoti_vol
   end
 end
 
+function __spoti_share
+  # extract id from spotify:track:123456789abcdef
+  set -l spotify_id (__spoti_tell "spotify url of current track" | cut -d: -f3)
+  set -l url (echo "http://open.spotify.com/track/$spotify_id")
+  __spoti_cecho "Share URL: $url"
+  echo -n "$url" | pbcopy
+end
+
 function spotifish --description  "control spotify from your fish shell"
 
   # default settings
@@ -160,5 +168,7 @@ function spotifish --description  "control spotify from your fish shell"
       __spoti_prev
     case "vol"
       __spoti_vol $arg1
+    case "share"
+      __spoti_share
   end
 end
