@@ -126,6 +126,11 @@ function __spoti_vol
     case ""
       set -l volume (__spoti_volume)
       __spoti_cecho "Current Spotify volume level is $volume."
+    case '*'
+      if [ $subcommand -ge 0 ]
+        __spoti_cecho "Setting Spotify volume to $subcommand"
+        __spoti_tell "set sound volume to $subcommand"
+      end
   end
 end
 
