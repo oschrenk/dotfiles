@@ -29,6 +29,7 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
 
     # Ask for the administrator password upfront
     sudo -v
+    networksetup -setv6off Wi-Fi
 
     for device in (__devices)
       echo " - enabling proxy for $device"
@@ -64,6 +65,7 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
     # Ask for the administrator password upfront
     sudo -v
 
+    networksetup -setv6automatic Wi-Fi
     for device in (__devices)
       echo " - disabling proxy for $device"
       sudo networksetup -setsocksfirewallproxystate "$device" off
