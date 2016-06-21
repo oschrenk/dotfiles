@@ -391,7 +391,9 @@ end
 
 function switchedToBattery()
   hs.alert.show("Battery")
-  disableBluetooth()
+  if (bluetoothEnabled()) then
+     disableBluetooth()
+   end
 end
 
 function switchedToCharger()
