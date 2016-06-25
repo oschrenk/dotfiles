@@ -97,8 +97,7 @@ function spotifish --description  "control spotify from your fish shell"
     __spoti_tell "sound volume as integer"
   end
 
-  function __spoti_vol
-    echo $argv | read -l subcommand
+  function __spoti_vol -a subcommand
     set -l volume (__spoti_volume)
     switch $subcommand
       case "show"
@@ -144,8 +143,7 @@ function spotifish --description  "control spotify from your fish shell"
     echo -n "$url" | pbcopy
   end
 
-  function __spoti_toggle
-    echo $argv | read -l target
+  function __spoti_toggle -a target
     switch $target
     case "shuffle"
       __spoti_tell "set shuffling to not shuffling"
@@ -158,8 +156,7 @@ function spotifish --description  "control spotify from your fish shell"
     end
   end
 
-  function __spoti_fetch_pattern
-    echo $argv | read -l type
+  function __spoti_fetch_pattern -a type
     switch $type
     case "playlist"
       echo 'spotify:user:[a-zA-Z0-9_]+:playlist:[a-zA-Z0-9]+'
@@ -168,9 +165,8 @@ function spotifish --description  "control spotify from your fish shell"
     end
   end
 
-  function __spoti_fetch_play_uri
+  function __spoti_fetch_play_uri -a count type query
     set -l spotify_search_api "https://api.spotify.com/v1/search"
-    echo $argv | read -l count type query
     set -l pattern (__spoti_fetch_pattern $type)
 
     curl -s -G $spotify_search_api --data-urlencode "q=$query" -d "type=$type&limit=1&offset=0" -H "Accept: application/json" | grep -E -o "$pattern" -m 1
