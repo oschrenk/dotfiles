@@ -3,7 +3,7 @@ function spotifish --description  "control spotify from your fish shell"
   function __spoti_usage
     echo "Usage:"
     echo ""
-    echo "  tilde <COMMAND> [OPTIONS]"
+    echo "  spotifish <COMMAND> [OPTIONS]"
     echo ""
     echo "Commands:"
     echo ""
