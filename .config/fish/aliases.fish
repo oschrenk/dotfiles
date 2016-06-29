@@ -16,6 +16,7 @@ alias a    'ag'
 alias be   'bundle exec'
 alias c    clear
 alias g    git
+alias s    spotifish
 
 
 # tmux sessions
