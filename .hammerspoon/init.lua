@@ -322,9 +322,8 @@ function spotify_play()
 end
 
 function mute()
-  local dev = hs.audiodevice.defaultOutputDevice()
+  hs.audiodevice.defaultOutputDevice():setMuted(true)
   hs.alert.show("Mute")
-  dev:setMuted(true)
 end
 
 hs.hotkey.bind(hyper, 'm', mute)
@@ -403,12 +402,12 @@ end
 hs.caffeinate.watcher.new(function(event)
   if event == hs.caffeinate.watcher.systemWillSleep or event == hs.caffeinate.watcher.systemWillPowerOff  then
     print("sleeping")
-    hs.audiodevice.defaultOutputDevice():setVolume(0)
+    mute()
     unmountExternalDrives()
   end
   if event == hs.caffeinate.watcher.systemDidWake then
     print("waking up")
-    hs.audiodevice.defaultOutputDevice():setVolume(0)
+    mute()
     mountExternalDrives()
   end
 end):start()
