@@ -39,3 +39,5 @@ set -x SBT_OPTS "-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled"
 # Latex
 append-to-path /Library/TeX/texbin
 
+# Fix tmux on macOS sierra
+set -x EVENT_NOKQUEUE 1
