@@ -88,7 +88,7 @@ Plug 'tmux-plugins/vim-tmux'              " for .tmux.conf
 " Look and feel
 Plug 'bling/vim-airline'                  " powerline statusline
 Plug 'FilipBB/tmuxline.vim'               " tmux statusline generator, share colors, settings
-Plug 'raymond-w-ko/vim-niji'              " colored parentheses
+Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}  " distraction free editing
 Plug 'junegunn/limelight.vim', {'on': 'Limelight'} " focus on paragraphs
 
@@ -282,6 +282,14 @@ endfunction
 " ============================
 " Plugin configuration
 " ============================
+j
+" ---------------------------
+" rainbow_parentheses.vim
+" ---------------------------
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 " ---------------------------
 " dash.vim
