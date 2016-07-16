@@ -1,3 +1,10 @@
+# For ease of use it is recommended to add your user/group to sudoers
+# Like so:
+# %Local  ALL=NOPASSWD: /usr/sbin/networksetup -setsocksfirewallproxy *
+# %Local  ALL=NOPASSWD: /usr/sbin/networksetup -setsocksfirewallproxystate *
+# %Local  ALL=NOPASSWD: /usr/sbin/networksetup -setv6off *
+# %Local  ALL=NOPASSWD: /usr/sbin/networksetup -setv6automatic *
+
 function tunnel --description "SSH SOCKS proxy script for Mac OS X"
 
   # Fetching ip address before the thunnel is easy, just use dns service for that
@@ -27,13 +34,11 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
     echo "Listening on localhost:$localport"
     echo "Modifying network settings..."
 
-    # Ask for the administrator password upfront
-    sudo -v
-    networksetup -setv6off Wi-Fi
-
     for device in (__devices)
+      echo " - disabling ipv6 for $device"
+      sudo /usr/sbin/networksetup -setv6off Wi-Fi
       echo " - enabling proxy for $device"
-      sudo networksetup -setsocksfirewallproxy "$device" 127.0.0.1 $localport off
+      sudo /usr/sbin/networksetup -setsocksfirewallproxy "$device" 127.0.0.1 $localport off
     end
     echo "...done"
     echo "Starting SSH session. Will run in background for 1 day."
@@ -62,13 +67,11 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
   function proxy_off
     echo "Modifying network settings..."
 
-    # Ask for the administrator password upfront
-    sudo -v
-
-    networksetup -setv6automatic Wi-Fi
     for device in (__devices)
+      echo " - enabling ipv6 for $device"
+      sudo /usr/sbin/networksetup -setv6automatic Wi-Fi
       echo " - disabling proxy for $device"
-      sudo networksetup -setsocksfirewallproxystate "$device" off
+      sudo /usr/sbin/networksetup -setsocksfirewallproxystate "$device" off
     end
     echo "... done!"
   end
