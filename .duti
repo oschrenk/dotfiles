@@ -33,13 +33,7 @@
 # `duti -x <ext>` to print information about the default handler for extension
 # `duti -l <uti>` to display all handlers for uti
 
-
-
 # bundle id				UTI/ext/MIME type	role
-
-com.sublimetext.2 		public.plain-text 	all
-com.sublimetext.2 		public.source-code 	all
-
 cx.c3.theunarchiver		.7z					all
 cx.c3.theunarchiver		.cab				all
 cx.c3.theunarchiver		.gtar				all
