@@ -5,7 +5,7 @@ set encoding=utf8         " how vim represents characters internally
 set termencoding=utf-8    " used to display
 
 " gui colors if running iTerm
-if $TERM_PROGRAM =~ "iTerm"
+if $TERM_PROGRAM =~ "iTerm" && has('nvim')
   set termguicolors
 endif
 
