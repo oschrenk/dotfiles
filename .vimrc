@@ -241,14 +241,14 @@ autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
 
 " Reload when entering buffer or gaining focus
 au FocusGained,BufEnter * :silent! !
-"
-" " Autosave on focus lost or when exiting the buffer
+
+" Autosave on focus lost or when exiting the buffer
 au FocusLost,WinLeave * :silent! w
 
 " Auto-Delete trailing whitspace
 autocmd BufWritePre *.* :%s/\s\+$//e
 
-" when commiting  add new line and enter insert mode
+" when commiting add new line and enter insert mode
 au FileType gitcommit startinsert
 
 " Jump to last cursor position when opening a file
@@ -287,7 +287,7 @@ endfunction
 " ============================
 " Plugin configuration
 " ============================
-j
+
 " ---------------------------
 " rainbow_parentheses.vim
 " ---------------------------
