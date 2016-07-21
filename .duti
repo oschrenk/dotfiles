@@ -51,14 +51,12 @@ cx.c3.theunarchiver		.zip				all
 
 org.m0k.transmission	.torrent			all
 
-org.niltsh.MPlayerX 	.avi 				all
-org.niltsh.MPlayerX 	.mkv 				all
-org.niltsh.MPlayerX 	.mp4 				all
-
-
+# org.niltsh.MPlayerX
+io.mpv 	.avi 				all
+io.mpv 	.mkv 				all
+io.mpv 	.mp4 				all
 
 # bundle id				URL scheme
-
 com.reederapp.mac		feed
 
 # Last line must be blank
