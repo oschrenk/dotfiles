@@ -4,4 +4,5 @@ tmp
 target
 **.js.map
 .idea/
-
+*.log
+node_modules
