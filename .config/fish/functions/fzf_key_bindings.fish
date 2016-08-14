@@ -1,1 +1,1 @@
-/usr/local/Cellar/fzf/0.13.3/shell/key-bindings.fish
+/usr/local/opt/fzf/shell/key-bindings.fish
