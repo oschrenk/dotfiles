@@ -31,11 +31,7 @@ Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim spl
 Plug 'tmux-plugins/vim-tmux-focus-events' " restore autocommand events within tmux eg. gitgutter refreshs
 
 " Navigation
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
-Plug 'junegunn/fzf.vim'
-Plug 'Shougo/unite.vim'                   " unified source to display search results
-Plug 'Shougo/neomru.vim'                  " include unite.vim MRU sources
-Plug 'Shougo/vimproc.vim', { 'do': 'make' } " Interactive command execution
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'oschrenk/vim-vinegar'               " netrw enhancements
 Plug 'airblade/vim-rooter'                " auto sets working directory
 
@@ -163,7 +159,6 @@ nnoremap N Nzzzv
 syntax on                     " syntax highlighting
 syntax enable                 " syntac highlighting
 
-
 set title                     " show title in console title bar.
 set cursorline                " highlights line
 set cursorcolumn              " highlights column
@@ -288,6 +283,19 @@ endfunction
 " ============================
 
 " ---------------------------
+" fzf
+" ---------------------------
+
+nnoremap <silent> <leader>/ :execute 'Ag ' . input('Ag/')<CR>
+noremap <Leader>f :GFiles<CR>
+noremap <Leader>F :Files<CR>
+noremap <Leader>t :Tags<CR>
+noremap <Leader>h :History<CR>
+noremap <Leader>m :Marks<CR>
+noremap <Leader>c :BCommits<CR>
+noremap <Leader>C :Commits<CR>
+
+" ---------------------------
 " rainbow_parentheses.vim
 " ---------------------------
 au VimEnter * RainbowParenthesesToggle
@@ -324,59 +332,6 @@ let g:netrw_list_hide.='\.idea/,'
 let g:netrw_list_hide.='\.ico,\.png,\.jpg,\.gif,'
 let g:netrw_list_hide.='\.so,\.swp,\.zip,/\.Trash/,\.pdf,\.dmg,/Library/,/\.rbenv/,'
 let g:netrw_list_hide.='*/\.nx/**,*\.app'
-
-" ---------------------------
-" Unite
-" ---------------------------
-" space as prefix for unite
-nmap <space> [unite]
-nnoremap [unite] <nop>
-
-let g:unite_data_directory = '~/.unite'
-
-call unite#filters#matcher_default#use(['matcher_fuzzy'])
-call unite#filters#sorter_default#use(['sorter_selecta'])
-
-" File searching using <leader>f
-" -no-split to open as modal dialog
-" -start-insert to start in insert mode
-nnoremap <silent> [unite]f :<C-u>Unite -no-split -start-insert -buffer-name=files -profile-name=buffer file_rec/async:!<cr>
-
-" Grepping using <leader>/
-nnoremap <silent> [unite]/ :<C-u>Unite -buffer-name=search grep:.<cr>
-
-" Yank history using <leader>y
-let g:unite_source_history_yank_enable = 1
-nnoremap <silent> [unite]y :<C-u>Unite -no-split -buffer-name=yank history/yank:<cr>
-
-" MRU files using <leader>r
-nnoremap <silent> [unite]r :<C-u>Unite -no-split -buffer-name=mru -start-insert neomru/file<cr>
-
-" ag > ack > grep
-if executable('ag')
-
-	let g:unite_source_grep_max_candidates = 50
-
-  let g:unite_source_rec_async_command =
-        \ ['ag', '--follow', '--nocolor', '--nogroup',
-        \ '--hidden', '-g', '']
-  let g:unite_source_grep_command = 'ag'
-	let g:unite_source_grep_default_opts =
-        \ '-i --vimgrep --smart-case --line-numbers --hidden ' .
-        \ '--ignore ".git" '.
-        \ '--ignore ".ivy2" '.
-        \ '--ignore ".m2" '.
-        \ '--ignore ".rbenv" '.
-        \ '--ignore "*.gif" '.
-        \ '--ignore "*.ico" '.
-        \ '--ignore "*.jar" '.
-        \ '--ignore "*.jpg" '.
-        \ '--ignore "*.log" '.
-        \ '--ignore "*.png" '.
-        \ '--ignore "*.ttf"'
-	let g:unite_source_grep_recursive_opt = ''
-
-endif
 
 " ---------------------------
 " Other
