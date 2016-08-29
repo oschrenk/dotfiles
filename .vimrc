@@ -82,7 +82,7 @@ Plug 'dag/vim2hs',                        { 'for': 'haskell' }
 Plug 'itspriddle/vim-marked',             { 'for': 'markdown' } " open in Marked.app
 Plug 'timcharper/textile.vim',            { 'for': 'textile' }
 Plug 'Tyilo/applescript.vim',             { 'for': 'applescript' }
-Plug 'tmux-plugins/vim-tmux'              " for .tmux.conf
+Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }    " for .tmux.conf
 
 " Look and feel
 Plug 'bling/vim-airline'                  " powerline statusline
