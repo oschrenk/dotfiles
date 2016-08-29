@@ -37,6 +37,12 @@ Plug 'airblade/vim-rooter'                " auto sets working directory
 
 " Completion
 Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py --clang-completer' }
+" lazy load ycm when entering insert mode
+augroup load_ycm
+  autocmd!
+  autocmd InsertEnter * call plug#load('YouCompleteMe')
+                     \| call youcompleteme#Enable() | autocmd! load_ycm
+augroup END
 
 " Control
 Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg. vim-gitgutter
@@ -57,13 +63,6 @@ Plug 'Julian/vim-textobj-variable-segment' " iv/av change variable segments
 Plug 'mattn/vim-textobj-url'              " au/iu for url
 Plug 'kana/vim-textobj-entire'            " ae/ie for entire buffer
 Plug 'rhysd/vim-textobj-anyblock'         " ib/ab for Quotes, Parenthesis and braces
-
-" lazy load ycm when entering insert mode
-augroup load_ycm
-  autocmd!
-  autocmd InsertEnter * call plug#load('YouCompleteMe')
-                     \| call youcompleteme#Enable() | autocmd! load_ycm
-augroup END
 
 " Git
 Plug 'tpope/vim-fugitive'                 " git client in vim
