@@ -77,7 +77,7 @@ Plug 'guns/vim-clojure-static',           { 'for': 'clojure' }
 Plug 'fwolanski/vim-clojure-conceal',     { 'for': 'clojure' }
 Plug 'rodjek/vim-puppet',                 { 'for': 'puppet' }
 Plug 'vim-ruby/vim-ruby',                 { 'for': 'ruby' }
-Plug 'tpope/vim-endwise',                 { 'for': 'ruby' } " end things automatically, like end after `if, do, def` in Ruby
+Plug 'tpope/vim-endwise',                 { 'for': 'ruby' }     " end things automatically, like end after `if, do, def` in Ruby
 Plug 'dag/vim2hs',                        { 'for': 'haskell' }
 Plug 'itspriddle/vim-marked',             { 'for': 'markdown' } " open in Marked.app
 Plug 'timcharper/textile.vim',            { 'for': 'textile' }
