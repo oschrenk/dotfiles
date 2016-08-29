@@ -83,6 +83,7 @@ Plug 'itspriddle/vim-marked',             { 'for': 'markdown' } " open in Marked
 Plug 'timcharper/textile.vim',            { 'for': 'textile' }
 Plug 'Tyilo/applescript.vim',             { 'for': 'applescript' }
 Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }    " for .tmux.conf
+Plug 'ekalinin/Dockerfile.vim'
 
 " Look and feel
 Plug 'bling/vim-airline'                  " powerline statusline
