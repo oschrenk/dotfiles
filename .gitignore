@@ -1,6 +1,3 @@
-.vim/bundle/*
-!.vim/bundle/vundle
-.vim/bundle/vundle/doc/tags
 .m2/mvnsh.history
 *.lock
 .ivy2/exclude_classifiers
