@@ -4,15 +4,20 @@ set shell=bash\ --norc
 set encoding=utf8         " how vim represents characters internally
 set termencoding=utf-8    " used to display
 
+" gui colors if running iTerm
+if $TERM_PROGRAM =~ "iTerm"
+  set termguicolors
+endif
+
 " Automatic plug installation:
-if empty(glob('~/.vim/autoload/plug.vim'))
-		silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+if empty(glob('~/.config/nvim/autoload/plug.vim'))
+		silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
 		\ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 		autocmd VimEnter * PlugInstall
 endif
 
 " vim-plug
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " Startup
 Plug 'EinfachToll/DidYouMean'             "  asks for the right file to open if ambigous
@@ -206,12 +211,12 @@ set noswapfile                " Get rid of swp files, I have never used them
 " :help undo-persistence
 if exists("+undofile")
   " create dir if it doesn't exist
-  if isdirectory($HOME . '/.vim/undo') == 0
-    :silent !mkdir -p ~/.vim/undo > /dev/null 2>&1
+  if isdirectory($HOME . '/.config/nvim/undo') == 0
+    :silent !mkdir -p ~/.config/nvim/undo > /dev/null 2>&1
   endif
   " if path ends in two slashes, file name will use complete path
   " :help dir
-  set undodir=~/.vim/undo//
+  set undodir=~/.config/nvim/undo//
   set undofile
   set undolevels=500
   set undoreload=500
@@ -344,7 +349,7 @@ let g:markdown_fenced_languages = ['clojure', 'html', 'javascript', 'ruby', 'sca
 " Spellcheck
 " ===========================
 set spelllang=en
-set spellfile=$HOME/.vim/spell/en.utf-8.add " spellcheck dictionary location
+set spellfile=$HOME/.config/nvim/spell/en.utf-8.add " spellcheck dictionary location
 set complete+=kspell                        " word comletion via ctrl n/p
 autocmd FileType gitcommit setlocal spell   " spellcheck git commit messages
 autocmd FileType markdown  setlocal spell   " spelllcheck markdown files
