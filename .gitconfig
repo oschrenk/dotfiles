@@ -5,7 +5,7 @@
 	attributesfile = ~/.gitattributes-global
 	excludesfile = ~/.gitignore-global
 
-	editor = vim
+	editor = nvim
 	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [push]
