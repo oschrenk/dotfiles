@@ -12,7 +12,7 @@ append-to-path /Applications/Karabiner.app/Contents/Library/bin/
 set -x LOG_DIR ~/Documents/Log
 
 # editor
-set -x EDITOR vim
+set -x EDITOR nvim
 
 # Set locale
 set -gx LC_ALL en_US.UTF-8
