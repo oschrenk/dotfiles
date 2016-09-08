@@ -36,13 +36,9 @@ Plug 'oschrenk/vim-vinegar'               " netrw enhancements
 Plug 'airblade/vim-rooter'                " auto sets working directory
 
 " Completion
-Plug 'Valloric/YouCompleteMe', { 'on': [], 'do': './install.py --clang-completer' }
-" lazy load ycm when entering insert mode
-augroup load_ycm
-  autocmd!
-  autocmd InsertEnter * call plug#load('YouCompleteMe')
-                     \| call youcompleteme#Enable() | autocmd! load_ycm
-augroup END
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'vhakulinen/neovim-intellij-complete-deoplete', {'for': ['java','scala']}
+Plug 'wellle/tmux-complete.vim'           " autocompletion from adjecent tmux panes
 
 " Control
 Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg. vim-gitgutter
@@ -271,6 +267,22 @@ endfunction
 " Plugin configuration
 " ============================
 
+" tmux-complete
+" rely on deoplete for invocations
+let g:tmuxcomplete#trigger = ''
+
+" Use deoplete.
+let g:deoplete#enable_at_startup = 1
+
+" Let <Tab> also do completion
+inoremap <silent><expr> <Tab> pumvisible() ? "\<C-n>" : "\<C-i>"
+
+if !exists('g:deoplete#omni#input_patterns')
+  let g:deoplete#omni#input_patterns = {}
+endif
+let g:deoplete#omni#input_patterns.scala = [
+  \ '[^. *\t]\.\w*', '[:\[,] ?\w*', '^import .*'
+  \]
 " ---------------------------
 " vim-indent-guides
 " ---------------------------
