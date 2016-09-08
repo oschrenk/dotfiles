@@ -15,6 +15,7 @@ alias l    'cd $HOME/Documents/Log'
 alias a    'ag'
 alias be   'bundle exec'
 alias c    clear
+alias e    $EDITOR
 alias g    git
 alias s    spotifish
 
