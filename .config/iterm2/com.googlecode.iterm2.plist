@@ -1017,11 +1017,11 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 382 620 392 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>210 167 796 473 0 0 1440 900 </string>
+	<string>99 487 918 381 0 0 1440 900 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>484 488 592 584 0 0 1920 1177 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1440 900 0 0 1440 900 </string>
+	<string>730 0 710 900 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 15 1438 425 0 0 1440 877 </string>
 	<key>New Bookmarks</key>
@@ -1192,19 +1192,15 @@
 			<key>Automatically Log</key>
 			<false/>
 			<key>BM Growl</key>
-			<false/>
+			<true/>
 			<key>Background Color</key>
 			<dict>
-				<key>Alpha Component</key>
-				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.090196078431372548</real>
-				<key>Color Space</key>
-				<string>Calibrated</string>
+				<real>0.15686274509803899</real>
 				<key>Green Component</key>
-				<real>0.090196078431372548</real>
+				<real>0.15686274509803899</real>
 				<key>Red Component</key>
-				<real>0.090196078431372548</real>
+				<real>0.15686274509803899</real>
 			</dict>
 			<key>Background Image Is Tiled</key>
 			<false/>
@@ -1217,9 +1213,9 @@
 				<key>Blue Component</key>
 				<real>0.0</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.1491314172744751</real>
 				<key>Red Component</key>
 				<real>1</real>
 			</dict>
@@ -1240,11 +1236,11 @@
 				<key>Blue Component</key>
 				<real>1</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
 				<real>1</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.99999600648880005</real>
 			</dict>
 			<key>Character Encoding</key>
 			<integer>4</integer>
@@ -1261,13 +1257,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.73299999999999998</real>
+				<real>0.78076320886611938</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.73299999999999998</real>
+				<real>0.7807731032371521</real>
 				<key>Red Component</key>
-				<real>0.73299999999999998</real>
+				<real>0.7807546854019165</real>
 			</dict>
 			<key>Cursor Guide Color</key>
 			<dict>
@@ -1276,11 +1272,11 @@
 				<key>Blue Component</key>
 				<real>1</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.91000000000000003</real>
+				<real>0.9268307089805603</real>
 				<key>Red Component</key>
-				<real>0.65000000000000002</real>
+				<real>0.70213186740875244</real>
 			</dict>
 			<key>Cursor Text Color</key>
 			<dict>
@@ -1289,11 +1285,11 @@
 				<key>Blue Component</key>
 				<real>1</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
 				<real>1</real>
 				<key>Red Component</key>
-				<real>1</real>
+				<real>0.99999600648880005</real>
 			</dict>
 			<key>Cursor Type</key>
 			<integer>2</integer>
@@ -1625,13 +1621,13 @@
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.67800000000000005</real>
+				<real>0.73423302173614502</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.27000000000000002</real>
+				<real>0.35916060209274292</real>
 				<key>Red Component</key>
-				<real>0.023</real>
+				<real>0.0</real>
 			</dict>
 			<key>Log Directory</key>
 			<string></string>
@@ -1670,7 +1666,7 @@
 				<key>Blue Component</key>
 				<real>0.0</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
 				<real>0.0</real>
 				<key>Red Component</key>
@@ -1683,11 +1679,11 @@
 				<key>Blue Component</key>
 				<real>1</real>
 				<key>Color Space</key>
-				<string>Calibrated</string>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.83499999999999996</real>
+				<real>0.86945539712905884</real>
 				<key>Red Component</key>
-				<real>0.70899999999999996</real>
+				<real>0.75742977857589722</real>
 			</dict>
 			<key>Semantic History</key>
 			<dict>
@@ -1824,7 +1820,7 @@
 			<key>Vertical Spacing</key>
 			<real>1</real>
 			<key>Visual Bell</key>
-			<true/>
+			<false/>
 			<key>Window Type</key>
 			<integer>7</integer>
 			<key>Working Directory</key>
@@ -1931,7 +1927,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-08-10T19:26:51Z</date>
+	<date>2016-09-01T07:08:37Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1977,6 +1973,6 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>3.0.20160808-nightly</string>
+	<string>3.0.20160823-nightly</string>
 </dict>
 </plist>

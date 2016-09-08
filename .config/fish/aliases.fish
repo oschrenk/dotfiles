@@ -18,10 +18,9 @@ alias c    clear
 alias g    git
 alias s    spotifish
 
-
 # tmux sessions
 alias tk   'tmux kill-session -t'
-alias tl   'tmuxp load -y'
+alias tl   'tmuxp load -2 -y'
 
 alias shiftr "sed -Ee 's/^/    /'"
 alias shiftl "sed -Ee 's/^([ ]{4}|[\t])//'"

@@ -62,6 +62,3 @@ set __color_virtualfish              $blue[2] $grey[1] --bold
 
 set -g theme_color_scheme user
 
-# Color scheme
-source $HOME/.config/fish/gruvbox_256palette_osx.fish
-
