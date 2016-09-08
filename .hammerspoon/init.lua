@@ -380,10 +380,6 @@ function enteredHome()
 end
 
 function enteredWork()
-  if (not bluetoothEnabled()) then
-    enableBluetooth()
-  end
-
   switchNetworkLocation(workLocation)
   mute()
 end
