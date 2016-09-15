@@ -126,6 +126,14 @@
 	# To get a summary of the changes you're merging, turn this option on:
 	summary=true
 
+[rebase]
+  # since 2.7
+  # This allows you to rebase on a dirty worktree. It automatically creates
+  # a temporary stash before the operation begins and applies it after the
+  # operation ends. Use with care: final stash application after a successful
+  # rebase might result in non-trivial conflicts.
+	autoStash = true
+
 [color]
   ui = auto
 	sh = auto
