@@ -4,6 +4,10 @@ set shell=bash\ --norc
 set encoding=utf8         " how vim represents characters internally
 set termencoding=utf-8    " used to display
 
+set t_8f=[38;2;%lu;%lu;%lum
+set t_8b=[48;2;%lu;%lu;%lum
+set termguicolors
+
 " Automatic plug installation:
 if empty(glob('~/.vim/autoload/plug.vim'))
 		silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
