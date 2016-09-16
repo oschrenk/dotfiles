@@ -115,6 +115,9 @@ let mapleader = "\<Space>"
 " escape with jk
 inoremap jk <Esc>
 
+" Do not questionable Ex mode by accident
+nnoremap Q <Nop>
+
 " Disable arrow keys
 map <up> <nop>
 map <down> <nop>
