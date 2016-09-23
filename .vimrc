@@ -85,7 +85,6 @@ Plug 'ekalinin/Dockerfile.vim'
 
 " Look and feel
 Plug 'bling/vim-airline'                  " powerline statusline
-Plug 'FilipBB/tmuxline.vim'               " tmux statusline generator, share colors, settings
 Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
 Plug 'nathanaelkane/vim-indent-guides'    " display indent levels
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}  " distraction free editing
