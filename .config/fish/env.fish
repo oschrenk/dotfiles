@@ -5,9 +5,6 @@
 prepend-to-path /usr/local/sbin
 prepend-to-path /usr/local/bin
 
-# mac applications
-append-to-path /Applications/Karabiner.app/Contents/Library/bin/
-
 #
 set -x LOG_DIR ~/Documents/Log
 
