@@ -999,7 +999,7 @@
 		BAtzdHJlYW10eXBlZIHoA4QBQISEhAhOU1N0cmluZwGEhAhOU09iamVjdACF
 		hAErATGG
 		</data>
-		<string>322</string>
+		<string>307</string>
 	</array>
 	<key>NSTableView Hidden Columns KeyBingingTable</key>
 	<array/>
@@ -1017,9 +1017,9 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 382 620 392 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>99 487 918 381 0 0 1440 900 </string>
+	<string>385 67 918 381 0 0 1440 900 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
-	<string>484 488 592 584 0 0 1920 1177 </string>
+	<string>309 260 592 584 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>730 0 710 900 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -1195,12 +1195,16 @@
 			<true/>
 			<key>Background Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.15686274509803899</real>
+				<real>0.14509803921568629</real>
+				<key>Color Space</key>
+				<string>sRGB</string>
 				<key>Green Component</key>
-				<real>0.15686274509803899</real>
+				<real>0.14509803921568629</real>
 				<key>Red Component</key>
-				<real>0.15686274509803899</real>
+				<real>0.14509803921568629</real>
 			</dict>
 			<key>Background Image Is Tiled</key>
 			<false/>
@@ -1927,7 +1931,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-09-01T07:08:37Z</date>
+	<date>2016-09-24T19:17:54Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Show Toolbelt</key>
@@ -1953,7 +1957,7 @@
 	<key>TripleClickSelectsFullWrappedLines</key>
 	<false/>
 	<key>UKCrashReporterLastCrashReportDate</key>
-	<real>1435910400</real>
+	<real>1474744832</real>
 	<key>URLHandlersByGuid</key>
 	<dict/>
 	<key>UseBorder</key>
@@ -1973,6 +1977,10 @@
 	<key>WordCharacters</key>
 	<string>/-+\~_.</string>
 	<key>iTerm Version</key>
-	<string>3.0.20160823-nightly</string>
+	<string>3.0.20160918-nightly</string>
+	<key>kCPKSelectionViewPreferredModeKey</key>
+	<integer>0</integer>
+	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
+	<false/>
 </dict>
 </plist>
