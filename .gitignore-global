@@ -110,6 +110,10 @@ tmtags
 Session.vim
 .netrwhist
 
+# ensime
+.ensime
+.ensime_cache
+
 # Editors with AutoBackup
 *~
 
