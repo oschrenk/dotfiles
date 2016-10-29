@@ -6,7 +6,7 @@
         "f9" : "vk_consumer_next",
         "f5" : "vk_consumer_illumination_down",
         "f10" : "mute",
-        "f1" : "vk_consumer_brightness_up",
+        "f1" : "vk_consumer_brightness_down",
         "f6" : "vk_consumer_illumination_up",
         "f2" : "vk_consumer_brightness_up",
         "f7" : "vk_consumer_previous",
@@ -15,18 +15,18 @@
         "f8" : "vk_consumer_play",
         "f4" : "vk_launchpad"
       },
+      "selected" : true,
       "devices" : [
 
       ],
-      "name" : "Default profile",
-      "selected" : true,
       "simple_modifications" : {
         "caps_lock" : "left_control",
         "left_control" : "hyper"
       },
-      "standalone_modifiers": {
-        "left_control": "escape"
-      }
+      "standalone_modifiers" : {
+        "left_control" : "escape"
+      },
+      "name" : "Default profile"
     }
   ]
 }
