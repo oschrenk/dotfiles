@@ -73,6 +73,7 @@ Plug 'dag/vim-fish',                      { 'for': 'fish' }
 Plug 'derekwyatt/vim-sbt',                { 'for': 'sbt.scala' }           " sbt syntax
 Plug 'derekwyatt/vim-scala',              { 'for': ['scala', 'markdown'] } " scala syntax
 Plug 'mpollmeier/vim-scalaConceal',       { 'for': 'scala' }               " scala
+Plug 'ensime/ensime-vim',                 { 'for': 'scala' }               " scala
 Plug 'guns/vim-clojure-static',           { 'for': 'clojure' }
 Plug 'fwolanski/vim-clojure-conceal',     { 'for': 'clojure' }
 Plug 'rodjek/vim-puppet',                 { 'for': 'puppet' }
@@ -110,8 +111,12 @@ colorscheme gruvbox
 " Keyboard mappings
 " ============================
 
-" map leader to <space>
+" map global leader
 let mapleader = "\<Space>"
+
+" map local leader
+let maplocalleader = "\\"
+
 
 " escape with jk
 inoremap jk <Esc>
@@ -273,6 +278,14 @@ endfunction
 " ============================
 " Plugin configuration
 " ============================
+
+" ---------------------------
+" vim-ensime
+" ---------------------------
+
+autocmd BufWritePost *.scala silent :EnTypeCheck
+au FileType scala nnoremap <localleader>tc :EnTypeCheck<CR>
+au FileType scala nnoremap <localleader>df :EnDeclaration<CR>
 
 " ---------------------------
 " vim-indent-guides

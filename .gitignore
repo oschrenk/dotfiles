@@ -21,3 +21,4 @@
 .config/nvim/spell/en.utf-8.sug
 configstore/
 .config/hub
+.config/ensime-vim/
