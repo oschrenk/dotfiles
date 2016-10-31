@@ -7,7 +7,7 @@ function log --description "Create and/or show todays log entry in $EDITOR"
   end
 
   if not test -z (echo $argv)
-    set -l time (time)
+    set -l time (clock)
     echo "* `$time`: $argv" >> $logfile
   else
     eval $EDITOR $logfile
