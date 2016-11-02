@@ -399,12 +399,10 @@ hs.caffeinate.watcher.new(function(event)
   if event == hs.caffeinate.watcher.systemWillSleep or event == hs.caffeinate.watcher.systemWillPowerOff  then
     print("sleeping")
     mute()
-    unmountExternalDrives()
   end
   if event == hs.caffeinate.watcher.systemDidWake then
     print("waking up")
     mute()
-    mountExternalDrives()
   end
 end):start()
 
