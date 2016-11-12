@@ -27,8 +27,7 @@
 #     set -g theme_display_virtualenv no
 #     set -g theme_display_ruby no
 #     set -g theme_display_user yes
-#     set -g theme_display_vi yes
-#     set -g theme_display_vi_hide_mode default
+#     set -g theme_display_vi no
 #     set -g theme_avoid_ambiguous_glyphs yes
 #     set -g theme_powerline_fonts no
 #     set -g theme_nerd_fonts yes
@@ -52,11 +51,15 @@
 
 function __bobthefish_git_branch -S -d 'Get the current git branch (or commitish)'
   set -l ref (command git symbolic-ref HEAD ^/dev/null)
-  if [ $status -gt 0 ]
-    set -l branch (command git show-ref --head -s --abbrev | head -n1 ^/dev/null)
-    set ref "$__bobthefish_detached_glyph $branch"
-  end
-  echo $ref | sed "s#refs/heads/#$__bobthefish_branch_glyph #"
+    and echo $ref | sed "s#refs/heads/#$__bobthefish_branch_glyph #"
+    and return
+
+  set -l tag (command git describe --tags --exact-match ^/dev/null)
+    and echo "$__bobthefish_tag_glyph $tag"
+    and return
+
+  set -l branch (command git show-ref --head -s --abbrev | head -n1 ^/dev/null)
+  echo "$__bobthefish_detached_glyph $branch"
 end
 
 function __bobthefish_hg_branch -S -d 'Get the current hg branch'
@@ -238,38 +241,40 @@ end
 
 function __bobthefish_prompt_vagrant -S -d 'Display Vagrant status'
   [ "$theme_display_vagrant" = 'yes' -a -f Vagrantfile ]; or return
-  if type -q VBoxManage
-    __bobthefish_prompt_vagrant_vbox
-  else if grep vmware_fusion Vagrantfile >/dev/null ^&1
-    __bobthefish_prompt_vagrant_vmware
-  end
-end
 
-function __bobthefish_vagrant_ids -S -d 'List Vagrant machine ids'
-  for file in .vagrant/machines/**/id
-    read id <$file
-    echo $id
-  end
-end
+  # .vagrant/machines/$machine/$provider/id
+  for file in .vagrant/machines/*/*/id
+    read -l id <$file
 
-function __bobthefish_prompt_vagrant_vbox -S -d 'Display VirtualBox Vagrant status'
-  set -l vagrant_status
-  for id in (__bobthefish_vagrant_ids)
-    set -l vm_status (VBoxManage showvminfo --machinereadable $id ^/dev/null | command grep 'VMState=' | tr -d '"' | cut -d '=' -f 2)
-    switch "$vm_status"
-      case 'running'
-        set vagrant_status "$vagrant_status$__bobthefish_vagrant_running_glyph"
-      case 'poweroff'
-        set vagrant_status "$vagrant_status$__bobthefish_vagrant_poweroff_glyph"
-      case 'aborted'
-        set vagrant_status "$vagrant_status$__bobthefish_vagrant_aborted_glyph"
-      case 'saved'
-        set vagrant_status "$vagrant_status$__bobthefish_vagrant_saved_glyph"
-      case 'stopping'
-        set vagrant_status "$vagrant_status$__bobthefish_vagrant_stopping_glyph"
-      case ''
-        set vagrant_status "$vagrant_status$__bobthefish_vagrant_unknown_glyph"
+    if [ ! -z "$id" ]
+      switch "$file"
+        case '*/virtualbox/id'
+          __bobthefish_prompt_vagrant_vbox $id
+        case '*/vmware_fusion/id'
+          __bobthefish_prompt_vagrant_vmware $id
+        case '*/parallels/id'
+          __bobthefish_prompt_vagrant_parallels $id
+      end
     end
+  end
+end
+
+function __bobthefish_prompt_vagrant_vbox -S -a id -d 'Display VirtualBox Vagrant status'
+  set -l vagrant_status
+  set -l vm_status (VBoxManage showvminfo --machinereadable $id ^/dev/null | command grep 'VMState=' | tr -d '"' | cut -d '=' -f 2)
+  switch "$vm_status"
+    case 'running'
+      set vagrant_status "$vagrant_status$__bobthefish_vagrant_running_glyph"
+    case 'poweroff'
+      set vagrant_status "$vagrant_status$__bobthefish_vagrant_poweroff_glyph"
+    case 'aborted'
+      set vagrant_status "$vagrant_status$__bobthefish_vagrant_aborted_glyph"
+    case 'saved'
+      set vagrant_status "$vagrant_status$__bobthefish_vagrant_saved_glyph"
+    case 'stopping'
+      set vagrant_status "$vagrant_status$__bobthefish_vagrant_stopping_glyph"
+    case ''
+      set vagrant_status "$vagrant_status$__bobthefish_vagrant_unknown_glyph"
   end
   [ -z "$vagrant_status" ]; and return
 
@@ -278,14 +283,36 @@ function __bobthefish_prompt_vagrant_vbox -S -d 'Display VirtualBox Vagrant stat
   set_color normal
 end
 
-function __bobthefish_prompt_vagrant_vmware -S -d 'Display VMWare Vagrant status'
+function __bobthefish_prompt_vagrant_vmware -S -a id -d 'Display VMWare Vagrant status'
   set -l vagrant_status
-  for id in (__bobthefish_vagrant_ids)
-    if [ (pgrep -f "$id") ]
+  if [ (pgrep -f "$id") ]
+    set vagrant_status "$vagrant_status$__bobthefish_vagrant_running_glyph"
+  else
+    set vagrant_status "$vagrant_status$__bobthefish_vagrant_poweroff_glyph"
+  end
+  [ -z "$vagrant_status" ]; and return
+
+  __bobthefish_start_segment $__color_vagrant
+  echo -ns $vagrant_status ' '
+  set_color normal
+end
+
+function __bobthefish_prompt_vagrant_parallels -S -d 'Display Parallels Vagrant status'
+  set -l vagrant_status
+  set -l vm_status (prlctl list $id -o status ^/dev/null | command tail -1)
+  switch "$vm_status"
+    case 'running'
       set vagrant_status "$vagrant_status$__bobthefish_vagrant_running_glyph"
-    else
+    case 'stopped'
       set vagrant_status "$vagrant_status$__bobthefish_vagrant_poweroff_glyph"
-    end
+    case 'paused'
+      set vagrant_status "$vagrant_status$__bobthefish_vagrant_saved_glyph"
+    case 'suspended'
+      set vagrant_status "$vagrant_status$__bobthefish_vagrant_saved_glyph"
+    case 'stopping'
+      set vagrant_status "$vagrant_status$__bobthefish_vagrant_stopping_glyph"
+    case ''
+      set vagrant_status "$vagrant_status$__bobthefish_vagrant_unknown_glyph"
   end
   [ -z "$vagrant_status" ]; and return
 
@@ -492,7 +519,7 @@ function __bobthefish_prompt_dir -S -d 'Display a shortened form of the current 
 end
 
 function __bobthefish_prompt_vi -S -d 'Display vi mode'
-  [ "$theme_display_vi" = 'yes' -a "$fish_bind_mode" != "$theme_display_vi_hide_mode" ]; or return
+  [ "$theme_display_vi" != 'no' -a "$fish_key_bindings" = 'fish_vi_key_bindings' ]; or return
   switch $fish_bind_mode
     case default
       __bobthefish_start_segment $__color_vi_mode_default
@@ -500,6 +527,9 @@ function __bobthefish_prompt_vi -S -d 'Display vi mode'
     case insert
       __bobthefish_start_segment $__color_vi_mode_insert
       echo -n 'I '
+    case replace-one
+      __bobthefish_start_segment $__color_vi_mode_insert
+      echo -n 'R '
     case visual
       __bobthefish_start_segment $__color_vi_mode_visual
       echo -n 'V '
@@ -508,16 +538,15 @@ function __bobthefish_prompt_vi -S -d 'Display vi mode'
 end
 
 function __bobthefish_virtualenv_python_version -S -d 'Get current python version'
-  set -l python_version (readlink (which python))
-  [ -z "$python_version" ]
-    and set python_version (which python)
-  switch (basename "$python_version")
-    case 'python' 'python2*'
-      echo $__bobthefish_superscript_glyph[2]
-    case 'python3*'
-      echo $__bobthefish_superscript_glyph[3]
-    case 'pypy*'
+  switch (python --version ^&1)
+    case 'Python 2*PyPy*'
       echo $__bobthefish_pypy_glyph
+    case 'Python 3*PyPy*'
+      echo -s $__bobthefish_pypy_glyph $__bobthefish_superscript_glyph[3]
+    case 'Python 2*'
+      echo $__bobthefish_superscript_glyph[2]
+    case 'Python 3*'
+      echo $__bobthefish_superscript_glyph[3]
   end
 end
 
@@ -726,25 +755,14 @@ function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
 
   # Powerline glyphs
   set -l __bobthefish_branch_glyph            \uE0A0
-  set -l __bobthefish_ln_glyph                \uE0A1
-  set -l __bobthefish_padlock_glyph           \uE0A2
   set -l __bobthefish_right_black_arrow_glyph \uE0B0
   set -l __bobthefish_right_arrow_glyph       \uE0B1
   set -l __bobthefish_left_black_arrow_glyph  \uE0B2
   set -l __bobthefish_left_arrow_glyph        \uE0B3
 
-  if [ "$theme_powerline_fonts" = "no" ]
-    set __bobthefish_branch_glyph            \u2387
-    set __bobthefish_ln_glyph                ''
-    set __bobthefish_padlock_glyph           ''
-    set __bobthefish_right_black_arrow_glyph ''
-    set __bobthefish_right_arrow_glyph       ''
-    set __bobthefish_left_black_arrow_glyph  ''
-    set __bobthefish_left_arrow_glyph        ''
-  end
-
   # Additional glyphs
   set -l __bobthefish_detached_glyph          \u27A6
+  set -l __bobthefish_tag_glyph               \u2302
   set -l __bobthefish_nonzero_exit_glyph      '! '
   set -l __bobthefish_superuser_glyph         '$ '
   set -l __bobthefish_bg_job_glyph            '% '
@@ -764,6 +782,31 @@ function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
   set -l __bobthefish_vagrant_saved_glyph     \u21E1 # ⇡ 'saved'
   set -l __bobthefish_vagrant_stopping_glyph  \u21E3 # ⇣ 'stopping'
   set -l __bobthefish_vagrant_unknown_glyph   '!'    # strange cases
+
+  # Disable Powerline fonts
+  if [ "$theme_powerline_fonts" = "no" ]
+    set __bobthefish_branch_glyph            \u2387
+    set __bobthefish_right_black_arrow_glyph ''
+    set __bobthefish_right_arrow_glyph       ''
+    set __bobthefish_left_black_arrow_glyph  ''
+    set __bobthefish_left_arrow_glyph        ''
+  end
+
+  # Use prettier Nerd Fonts glyphs
+  if [ "$theme_nerd_fonts" = "yes" ]
+    set __bobthefish_branch_glyph     \uF418
+    set __bobthefish_detached_glyph   \uF417
+    set __bobthefish_tag_glyph        \uF412
+
+    set __bobthefish_virtualenv_glyph \uE73C ' '
+    set __bobthefish_ruby_glyph       \uE791 ' '
+
+    set __bobthefish_vagrant_running_glyph  \uF431 # ↑ 'running'
+    set __bobthefish_vagrant_poweroff_glyph \uF433 # ↓ 'poweroff'
+    set __bobthefish_vagrant_aborted_glyph  \uF468 # ✕ 'aborted'
+    set __bobthefish_vagrant_unknown_glyph  \uF421 # strange cases
+  end
+
 
   # Colors
 
@@ -1152,6 +1195,41 @@ function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
       set __color_rvm                      $ruby_red $grey[1] --bold
       set __color_virtualfish              $blue[2] $grey[1] --bold
 
+    case 'gruvbox'
+      #               light  medium  dark  darkest
+      #               ------ ------ ------ -------
+      set -l red      fb4934 cc241d
+      set -l green    b8bb26 98971a
+      set -l yellow   fabd2f d79921
+      set -l aqua     8ec07c 689d6a
+      set -l blue     83a598 458588
+      set -l grey     cccccc 999999 333333
+      set -l fg       fbf1c7 ebdbb2 d5c4a1 a89984
+      set -l bg       504945 282828
+
+      set -g __color_initial_segment_exit  $fg[1] $red[2] --bold
+      set -g __color_initial_segment_su    $fg[1] $green[2] --bold
+      set -g __color_initial_segment_jobs  $fg[1] $aqua[2] --bold
+
+      set -g __color_path                  $bg[1] $fg[2]
+      set -g __color_path_basename         $bg[1] $fg[2] --bold
+      set -g __color_path_nowrite          $red[1] $fg[2]
+      set -g __color_path_nowrite_basename $red[1] $fg[2] --bold
+
+      set -g __color_repo                  $green[2] $bg[1]
+      set -g __color_repo_work_tree        $green[2] $fg[2] --bold
+      set -g __color_repo_dirty            $red[2] $fg[2]
+      set -g __color_repo_staged           $yellow[1] $bg[1]
+
+      set -g __color_vi_mode_default       $fg[4] $bg[2] --bold
+      set -g __color_vi_mode_insert        $blue[1] $bg[2] --bold
+      set -g __color_vi_mode_visual        $yellow[1] $bg[2] --bold
+
+      set -g __color_vagrant               $blue[2] $fg[2] --bold
+      set -g __color_username              $fg[3] $blue[2]
+      set -g __color_rvm                   $red[2] $fg[2] --bold
+      set -g __color_virtualfish           $blue[2] $fg[2] --bold
+
     case '*' # default dark theme
       #               light  medium dark
       #               ------ ------ ------
@@ -1187,11 +1265,6 @@ function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
       set __color_username                 $grey[1] $blue[3]
       set __color_rvm                      $ruby_red $grey[1] --bold
       set __color_virtualfish              $blue[2] $grey[1] --bold
-  end
-
-  if [ "$theme_nerd_fonts" = "yes" ]
-    set __bobthefish_virtualenv_glyph \uE73C ' '
-    set __bobthefish_ruby_glyph       \uE791 ' '
   end
 
   # Start each line with a blank slate
