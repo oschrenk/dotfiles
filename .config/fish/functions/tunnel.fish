@@ -51,7 +51,7 @@ function tunnel --description "SSH SOCKS proxy script for Mac OS X"
   end
 
   function __devices
-    networksetup -listallnetworkservices | sed '1d' | grep -v "Bluetooth" | grep -v "Multifunction" | grep -v "Feather"
+    networksetup -listallnetworkservices | sed '1d' | grep -v "Bluetooth" | grep -v "*"
   end
 
   function proxy_status -d 'Status of proxy'
