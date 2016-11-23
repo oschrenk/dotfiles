@@ -91,22 +91,6 @@ function send_window_to_next_monitor()
   end
 end
 
-hs.hotkey.bind(hyper, 'a', function() hs.window.focusedWindow():moveToUnit(hs.layout.left50) end)
-hs.hotkey.bind(hyper, 'd', function() hs.window.focusedWindow():moveToUnit(hs.layout.right50) end)
-hs.hotkey.bind(hyper, "w", top_half_window)
-hs.hotkey.bind(hyper, "x", bottom_half_window)
-hs.hotkey.bind(hyper, 's', toggle_window_maximized)
-hs.hotkey.bind(hyper, 'f', function() hs.window.focusedWindow():toggleFullScreen() end)
-
-hs.hotkey.bind(hyper, "p", send_window_to_prev_monitor)
-hs.hotkey.bind(hyper, "n", send_window_to_next_monitor)
-
-hs.hotkey.bind(hyper, "i", function() hs.hints.windowHints() end)
-
-hs.hotkey.bind(hyper, 'k', function() hs.window.focusedWindow():focusWindowNorth() end)
-hs.hotkey.bind(hyper, 'j', function() hs.window.focusedWindow():focusWindowSouth() end)
-hs.hotkey.bind(hyper, 'l', function() hs.window.focusedWindow():focusWindowEast() end)
-hs.hotkey.bind(hyper, 'h', function() hs.window.focusedWindow():focusWindowWest() end)
 
 -- Close notifications
 script = [[
@@ -134,14 +118,11 @@ function closeNotifications()
   hs.alert.show("Closing notifications")
   hs.timer.doAfter(0.3, clearNotifications)
 end
-hs.hotkey.bind(hyper, "c", closeNotifications)
 
 function cleanTrash()
   hs.sound.getByFile("/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/finder/empty trash.aif"):play()
   os.execute("/bin/rm -rf ~/.Trash/*")
 end
-
-hs.hotkey.bind(hyper, "t", cleanTrash)
 
 ------------------------
 -- Fast user switching
@@ -167,7 +148,6 @@ function toggleUser()
     switchUser(personalUserId, "personal")
   end
 end
-hs.hotkey.bind(hyper, "u", toggleUser)
 
 ------------------------
 -- Drives
@@ -221,8 +201,6 @@ function toggleBluetooth()
   end
 end
 
-hs.hotkey.bind(hyper, "b", toggleBluetooth)
-
 ------------------------
 -- WiFi
 ------------------------
@@ -245,7 +223,6 @@ function toggleWifi()
   end
 end
 
-hs.hotkey.bind(hyper, "v", toggleWifi)
 
 ------------------------
 -- Network location
@@ -332,7 +309,6 @@ function mute()
   hs.alert.show("Mute")
 end
 
-hs.hotkey.bind(hyper, 'm', mute)
 
 -- Per-device watcher to detect headphones in/out
 function audiodevwatch(dev_uid, event_name, event_scope, event_element)
@@ -411,6 +387,37 @@ hs.caffeinate.watcher.new(function(event)
     mute()
   end
 end):start()
+
+------------------------
+-- Keyboard Bindings
+------------------------
+
+hs.hotkey.bind(hyper, 'a', function() hs.window.focusedWindow():moveToUnit(hs.layout.left50) end)
+hs.hotkey.bind(hyper, 'd', function() hs.window.focusedWindow():moveToUnit(hs.layout.right50) end)
+hs.hotkey.bind(hyper, "w", top_half_window)
+hs.hotkey.bind(hyper, "x", bottom_half_window)
+hs.hotkey.bind(hyper, 's', toggle_window_maximized)
+hs.hotkey.bind(hyper, 'f', function() hs.window.focusedWindow():toggleFullScreen() end)
+
+hs.hotkey.bind(hyper, "p", send_window_to_prev_monitor)
+hs.hotkey.bind(hyper, "n", send_window_to_next_monitor)
+
+hs.hotkey.bind(hyper, "i", function() hs.hints.windowHints() end)
+
+hs.hotkey.bind(hyper, 'k', function() hs.window.focusedWindow():focusWindowNorth() end)
+hs.hotkey.bind(hyper, 'j', function() hs.window.focusedWindow():focusWindowSouth() end)
+hs.hotkey.bind(hyper, 'l', function() hs.window.focusedWindow():focusWindowEast() end)
+hs.hotkey.bind(hyper, 'h', function() hs.window.focusedWindow():focusWindowWest() end)
+
+hs.hotkey.bind(hyper, "c", closeNotifications)
+hs.hotkey.bind(hyper, "t", cleanTrash)
+
+hs.hotkey.bind(hyper, "u", toggleUser)
+
+hs.hotkey.bind(hyper, "b", toggleBluetooth)
+hs.hotkey.bind(hyper, "v", toggleWifi)
+
+hs.hotkey.bind(hyper, 'm', mute)
 
 ------------------------
 -- Reload
