@@ -237,14 +237,15 @@ function disableWifi()
   hs.alert.show("Disabled Wifi")
 end
 
--- Toggle wifi
-hs.hotkey.bind(hyper, "v", function()
+function toggleWifi()
   if (hs.wifi.interfaceDetails()["power"]) then
     disableWifi()
   else
     enableWifi()
   end
-end)
+end
+
+hs.hotkey.bind(hyper, "v", toggleWifi)
 
 ------------------------
 -- Network location
