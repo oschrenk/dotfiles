@@ -136,11 +136,12 @@ function closeNotifications()
 end
 hs.hotkey.bind(hyper, "c", closeNotifications)
 
--- Clean trash
-hs.hotkey.bind(hyper, "t", function()
+function cleanTrash()
   hs.sound.getByFile("/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/finder/empty trash.aif"):play()
   os.execute("/bin/rm -rf ~/.Trash/*")
-end)
+end
+
+hs.hotkey.bind(hyper, "t", cleanTrash)
 
 ------------------------
 -- Fast user switching
