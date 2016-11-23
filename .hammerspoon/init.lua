@@ -130,10 +130,11 @@ end closeNotif ]]
 function clearNotifications()
   ok, result = hs.applescript(script)
 end
-hs.hotkey.bind(hyper, "c", function()
+function closeNotifications()
   hs.alert.show("Closing notifications")
   hs.timer.doAfter(0.3, clearNotifications)
-end)
+end
+hs.hotkey.bind(hyper, "c", closeNotifications)
 
 -- Clean trash
 hs.hotkey.bind(hyper, "t", function()
