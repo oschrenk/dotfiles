@@ -160,13 +160,14 @@ function switchUser(id, name)
   os.execute('/System/Library/CoreServices/Menu\\ Extras/User.menu/Contents/Resources/CGSession -switchToUserID ' .. id)
 end
 
-hs.hotkey.bind(hyper, "u", function()
+function toggleUser()
   if (currentAccountId() == personalUserId ) then
     switchUser(workUserId, "work")
   else
     switchUser(personalUserId, "personal")
   end
-end)
+end
+hs.hotkey.bind(hyper, "u", toggleUser)
 
 ------------------------
 -- Drives
