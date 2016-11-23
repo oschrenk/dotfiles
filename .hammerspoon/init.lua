@@ -213,13 +213,15 @@ function bluetoothEnabled()
   return output:gsub("%s+", "") == "1"
 end
 
-hs.hotkey.bind(hyper, "b", function()
+function toggleBluetooth()
   if (bluetoothEnabled()) then
     disableBluetooth()
   else
     enableBluetooth()
   end
-end)
+end
+
+hs.hotkey.bind(hyper, "b", toggleBluetooth)
 
 ------------------------
 -- WiFi
