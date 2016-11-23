@@ -33,10 +33,7 @@ local powerSource = hs.battery.powerSource()
 -- Window Managment
 ------------------------
 
--- Half Windows
-hs.hotkey.bind(hyper, 'a', function() hs.window.focusedWindow():moveToUnit(hs.layout.left50) end)
-hs.hotkey.bind(hyper, 'd', function() hs.window.focusedWindow():moveToUnit(hs.layout.right50) end)
-hs.hotkey.bind(hyper, "w", function()
+function top_half_window()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -47,8 +44,9 @@ hs.hotkey.bind(hyper, "w", function()
   f.w = max.w
   f.h = max.h / 2
   win:setFrame(f)
-end)
-hs.hotkey.bind(hyper, "x", function()
+end
+
+function bottom_half_window()
   local win = hs.window.focusedWindow()
   local f = win:frame()
   local screen = win:screen()
@@ -59,7 +57,7 @@ hs.hotkey.bind(hyper, "x", function()
   f.w = max.w
   f.h = max.h / 2
   win:setFrame(f)
-end)
+end
 
 -- Toggle a window between its normal size, and being maximized
 function toggle_window_maximized()
@@ -73,36 +71,38 @@ function toggle_window_maximized()
     end
 end
 
--- Maximize
-hs.hotkey.bind(hyper, 's', toggle_window_maximized)
-
--- Full screen
-hs.hotkey.bind(hyper, 'f', function() hs.window.focusedWindow():toggleFullScreen() end)
-
 -- Send Window Prev Monitor
-hs.hotkey.bind(hyper, "p", function()
+function send_window_to_prev_monitor()
   if (#hs.screen.allScreens() > 1) then
     local win = hs.window.focusedWindow()
     local previousScreen = win:screen():previous()
     win:moveToScreen(previousScreen)
     hs.alert.show("Prev Monitor", 5)
   end
-end)
+end
 
 -- Send Window Next Monitor
-hs.hotkey.bind(hyper, "n", function()
+function send_window_to_next_monitor()
   if (#hs.screen.allScreens() > 1) then
     local win = hs.window.focusedWindow()
     local nextScreen = win:screen():next()
     win:moveToScreen(nextScreen)
     hs.alert.show("Next Monitor", 5)
   end
-end)
+end
 
--- Show window hints
+hs.hotkey.bind(hyper, 'a', function() hs.window.focusedWindow():moveToUnit(hs.layout.left50) end)
+hs.hotkey.bind(hyper, 'd', function() hs.window.focusedWindow():moveToUnit(hs.layout.right50) end)
+hs.hotkey.bind(hyper, "w", top_half_window)
+hs.hotkey.bind(hyper, "x", bottom_half_window)
+hs.hotkey.bind(hyper, 's', toggle_window_maximized)
+hs.hotkey.bind(hyper, 'f', function() hs.window.focusedWindow():toggleFullScreen() end)
+
+hs.hotkey.bind(hyper, "p", send_window_to_prev_monitor)
+hs.hotkey.bind(hyper, "n", send_window_to_next_monitor)
+
 hs.hotkey.bind(hyper, "i", function() hs.hints.windowHints() end)
 
--- Focus Windows
 hs.hotkey.bind(hyper, 'k', function() hs.window.focusedWindow():focusWindowNorth() end)
 hs.hotkey.bind(hyper, 'j', function() hs.window.focusedWindow():focusWindowSouth() end)
 hs.hotkey.bind(hyper, 'l', function() hs.window.focusedWindow():focusWindowEast() end)
