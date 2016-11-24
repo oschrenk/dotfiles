@@ -111,8 +111,8 @@
 	up = pull --rebase
 
 	# unstage is the opposite of git add. It removes items from the staging area.
-	unstage = reset HEAD
-	un = reset HEAD
+  # unstage = reset HEAD
+  # un = reset HEAD
 
 [commit]
 	# since git 2.9 as option
