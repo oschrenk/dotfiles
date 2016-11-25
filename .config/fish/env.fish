@@ -36,3 +36,5 @@ set -x SBT_OPTS "-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled"
 # Latex
 append-to-path /Library/TeX/texbin
 
+# homebrew
+set -x HOMEBREW_NO_ANALYTICS 1
