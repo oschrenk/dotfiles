@@ -7,6 +7,7 @@ DEFAULT_USER=oschrenk
 echo "endpoint: https://acme.atlassian.net"
 echo "user: $DEFAULT_USER"
 echo "project: $DEFAULT_PROJECT"
+echo "password-source: keyring"
 
 # We need to sort only on `created`, as go-jira defaults to `priority`, `created`
 # which fails as we don't have `priority` field
