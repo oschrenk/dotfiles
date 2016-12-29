@@ -1,7 +1,8 @@
 function updates --description "Notifications for homebrew updates"
-  brew list --pinned > /tmp/pinned
-  brew outdated --quiet > /tmp/outdated
-  comm -1 -3 /tmp/pinned /tmp/outdated > /tmp/updated
+  # fish shell does not properly support multiline output in variables
+  # see https://github.com/fish-shell/fish-shell/issues/159
+  # so wrote to file
+  comm -1 -3 (brew list --pinned | psub) (brew outdated --quiet | psub) > /tmp/updated
 
   set -l count (trim (cat /tmp/updated | wc -l))
   set packages (cat /tmp/updated)
