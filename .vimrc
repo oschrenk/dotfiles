@@ -136,10 +136,10 @@ imap <left> <nop>
 imap <right> <nop>
 
 " Use arrow keys resize viewports
-nnoremap <Left> :vertical resize -1<CR>
-nnoremap <Right> :vertical resize +1<CR>
-nnoremap <Up> :resize -1<CR>
-noremap <Down> :resize +1<CR>
+nnoremap <Left> <nop>
+nnoremap <Right> <nop>
+nnoremap <Up> <nop>
+noremap <Down> <nop>
 
 " Jump back to last edited buffer
 nnoremap <C-p> :e#<CR>
