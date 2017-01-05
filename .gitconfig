@@ -93,7 +93,7 @@
 	f = !git find
 
   # simple log
-  l = log --pretty=oneline --abbrev-commit
+  l = log --pretty=format':%C(yellow)%h %aN%n %B%n'
 
 	pop = stash pop
 
@@ -105,9 +105,6 @@
 	#   Give the output in the short-format.
 	s = status --short
 	ss = status
-
-  # what did I do yesterday?
-  standup = !clear && git log --since '1 day ago' --no-merges --pretty=format':%C(yellow)%h %aN%n %B%n' --author $(git config --global --includes --get user.email)
 
 	# -l/--list <pattern>
 	#   List tags with names that match the given pattern (or all if no pattern is given)
