@@ -63,6 +63,9 @@
 	# Create a new branch named <new_branch>
 	cob = checkout -b
 
+  # discard indidual hunks
+  cop = checkout --patch
+
 	# Credit an author on the latest commit
 	# Usage: git credit "John Doe" jdoe@domain.tld
 	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
