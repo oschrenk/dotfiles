@@ -93,7 +93,7 @@
 	f = !git find
 
   # simple log
-  l = log --pretty=format':%C(yellow)%h %aN%n %B%n'
+  l = log  --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
 	pop = stash pop
 
