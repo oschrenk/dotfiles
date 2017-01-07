@@ -131,6 +131,9 @@ Makefile.in
 /install-sh
 /missing
 
+# npm
+node_modules
+
 # waf
 .waf-*
 .lock-*
