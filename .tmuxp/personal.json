@@ -5,9 +5,11 @@
       "window_name": "home",
       "layout": "main-vertical",
       "options": { "automatic-rename": "off" },
-      "start_directory": "$HOME/Downloads",
       "panes": [
-        { }
+        { "shell_command": "sleep 1; doge" ,
+          "width": 30
+        },
+        { "focus": "true" }
       ]
     },
     {
