@@ -23,9 +23,6 @@ prepend-to-path $GOPATH/bin
 # Ruby
 prepend-to-path $HOME/.rbenv/shims
 
-# Rust
-prepend-to-path $HOME/.cargo/bin
-
 # JVM
 set -x MAVEN_OPTS "-Xmx512m"
 set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
