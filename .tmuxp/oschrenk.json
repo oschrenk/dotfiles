@@ -1,0 +1,34 @@
+{
+  "session_name": "oschrenk",
+  "windows": [
+    {
+      "window_name": "home",
+      "layout": "main-vertical",
+      "options": { "automatic-rename": "off" },
+      "panes": [
+        { "shell_command": "sleep 1; doge" ,
+          "width": 30
+        },
+        { "focus": "true" }
+      ]
+    },
+    {
+      "window_name": "blog",
+      "layout": "main-vertical",
+      "options": { "automatic-rename": "off" },
+      "start_directory": "$HOME/Projects/personal/oschrenk.github.io",
+      "panes": [
+        { }
+      ]
+    },
+    {
+      "window_name": "freelance",
+      "layout": "main-vertical",
+      "options": { "automatic-rename": "off" },
+      "start_directory": "$HOME/Projects/personal/freelancing",
+      "panes": [
+        { }
+      ]
+    }
+  ]
+}
