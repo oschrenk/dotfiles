@@ -2,7 +2,7 @@ alias ..    'cd ..'
 alias ...   'cd ../..'
 alias ....  'cd ../../..'
 alias ..... 'cd ../../../..'
-alias -     'cd -'
+abbr -a -- - 'cd -'
 
 alias md   'mkdir -p'
 
