@@ -111,6 +111,15 @@
 	s = status --short
 	ss = status
 
+  # stash only unstaged changes to tracked files
+  stsh  = stash --keep-index
+  # stash any changes to tracked files
+  # stash = stash
+  # stash untracked and tracked files
+  staash = stash --include-untracked
+  # stash ignored, untracked, and tracked files
+  staaash = stash --all
+
 	# -l/--list <pattern>
 	#   List tags with names that match the given pattern (or all if no pattern is given)
 	tags = tag -l
