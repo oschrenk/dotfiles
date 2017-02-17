@@ -25,3 +25,5 @@ firstweekday = 0
   highlight_event_days = True
   timedelta = 7d
 
+[view]
+  agenda_event_format = {calendar-color}{start-end-time-style} {title}{repeat-symbol}{reset}
