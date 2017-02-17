@@ -1,11 +1,11 @@
 [general]
 # A folder where vdirsyncer can store some metadata
-status_path = ~/.vdirsyncer/status/
+status_path = "~/.vdirsyncer/status/"
 
 # CALDAV
 [pair calendars]
-a = cal_local
-b = cal_remote
+a = "cal_local"
+b = "cal_remote"
 
 # Synchronize all collections that can be found.
 # You need to run `vdirsyncer discover` if new calendars/addressbooks are added
@@ -13,13 +13,14 @@ b = cal_remote
 collections = ["from a", "from b"]
 
 [storage cal_local]
-type = filesystem
-path = ~/.calendars/
-fileext = .ics
+type = "filesystem"
+path = "~/.calendars/"
+fileext = ".ics"
 
 [storage cal_remote]
-type = caldav
-url = https://caldav.icloud.com/
-username = oliver.schrenk@gmx.net 
+type = "caldav"
+url = "https://caldav.icloud.com/"
+username = "oliver.schrenk@gmx.net"
+# if you use 2-FA you need to generate a app-specific password
 password.fetch = ["command", "keyring", "get", "icloud.com", "oliver.schrenk@gmx.net"]
 
