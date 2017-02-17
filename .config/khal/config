@@ -9,17 +9,17 @@
     color = dark magenta
 
 [locale]
-local_timezone = Europe/Amsterdam
-default_timezone = Europe/Amsterdam
+  local_timezone = Europe/Amsterdam
+  default_timezone = Europe/Amsterdam
 
-timeformat = %H:%M
-dateformat = %d.%m.
-longdateformat = %d.%m.%Y
-datetimeformat =  %d.%m. %H:%M
-longdatetimeformat = %d.%m.%Y %H:%M
-weeknumbers = left
+  timeformat = %H:%M
+  dateformat = %d.%m.
+  longdateformat = %d.%m.%Y
+  datetimeformat =  %d.%m. %H:%M
+  longdatetimeformat = %d.%m.%Y %H:%M
 
-firstweekday = 0
+  weeknumbers = left
+  firstweekday = 0
 
 [default]
   highlight_event_days = True
