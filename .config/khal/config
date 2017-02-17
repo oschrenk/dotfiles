@@ -20,3 +20,7 @@ longdatetimeformat = %d.%m.%Y %H:%M
 weeknumbers = left
 
 firstweekday = 0
+
+[default]
+  timedelta = 7d
+
