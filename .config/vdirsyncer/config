@@ -6,6 +6,7 @@ status_path = "~/.vdirsyncer/status/"
 [pair calendars]
 a = "cal_local"
 b = "cal_remote"
+conflict_resolution = "b wins"
 
 # Synchronize all collections that can be found.
 # You need to run `vdirsyncer discover` if new calendars/addressbooks are added
