@@ -2,6 +2,7 @@
   [[home]]
     path = ~/.calendars/home/
     readonly = True
+    color = dark green
 
 [locale]
 local_timezone = Europe/Amsterdam
