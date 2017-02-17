@@ -22,5 +22,6 @@ weeknumbers = left
 firstweekday = 0
 
 [default]
+  highlight_event_days = True
   timedelta = 7d
 
