@@ -1,7 +1,6 @@
 [calendars]
   [[home]]
     path = ~/.calendars/home/
-    readonly = True
     color = dark green
   [[work]]
     path = ~/.calendars/43B0F50F-DD19-4562-9D10-A95F8AA48E00
@@ -24,6 +23,7 @@
 [default]
   highlight_event_days = True
   timedelta = 7d
+  default_calendar = home
 
 [view]
   agenda_event_format = {calendar-color}{start-end-time-style} {title}{repeat-symbol}{reset}
