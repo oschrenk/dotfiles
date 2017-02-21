@@ -4,7 +4,6 @@
     color = dark green
   [[work]]
     path = ~/.calendars/43B0F50F-DD19-4562-9D10-A95F8AA48E00
-    readonly = True
     color = dark magenta
 
 [locale]
