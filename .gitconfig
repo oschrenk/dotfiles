@@ -99,6 +99,8 @@
   #   makes sure that nobody else pushed something on top of my old
   #   workon remote, --force alone would ust overwrite
   obi = push --force-with-lease
+  please = push --force-with-lease
+
 
 	pop = stash pop
 
