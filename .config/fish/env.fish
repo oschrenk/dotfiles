@@ -37,4 +37,5 @@ set -x HOMEBREW_NO_ANALYTICS 1
 # Applications
 
 append-to-path $HOME/Projects/language/scala/delight
+append-to-path $HOME/Projects/platzhaltr/datr.scala
 
