@@ -23,5 +23,5 @@ type = "caldav"
 url = "https://caldav.icloud.com/"
 username = "oliver.schrenk@gmx.net"
 # if you use 2-FA you need to generate a app-specific password
-password.fetch = ["command", "keyring", "get", "icloud.com", "oliver.schrenk@gmx.net"]
+password.fetch = ["command", "/usr/local/bin/keyring", "get", "icloud.com", "oliver.schrenk@gmx.net"]
 
