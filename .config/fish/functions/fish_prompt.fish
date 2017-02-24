@@ -34,6 +34,8 @@
 #     set -g theme_show_exit_status yes
 #     set -g default_user your_normal_user
 #     set -g theme_color_scheme dark
+#     set -g fish_prompt_pwd_dir_length 0
+#     set -g theme_project_dir_length 1
 
 # ===========================
 # Helper methods
@@ -51,7 +53,7 @@
 
 function __bobthefish_git_branch -S -d 'Get the current git branch (or commitish)'
   set -l ref (command git symbolic-ref HEAD ^/dev/null)
-    and echo $ref | sed "s#refs/heads/#$__bobthefish_branch_glyph #"
+    and string replace 'refs/heads/' "$__bobthefish_branch_glyph " $ref
     and return
 
   set -l tag (command git describe --tags --exact-match ^/dev/null)
@@ -69,7 +71,24 @@ function __bobthefish_hg_branch -S -d 'Get the current hg branch'
 end
 
 function __bobthefish_pretty_parent -S -a current_dir -d 'Print a parent directory, shortened to fit the prompt'
-  echo -n (dirname $current_dir) | sed -e 's#/private##' -e "s#^$HOME#~#" -e 's#/\(\.\{0,1\}[^/]\)\([^/]*\)#/\1#g' -e 's#/$##'
+  set -q fish_prompt_pwd_dir_length
+    or set -l fish_prompt_pwd_dir_length 1
+
+  # Replace $HOME with ~
+  set -l real_home ~
+  set -l parent_dir (string replace -r '^'"$real_home"'($|/)' '~$1' (dirname $current_dir))
+
+  if [ $parent_dir = "/" ]
+    echo -n /
+    return
+  end
+
+  if [ $fish_prompt_pwd_dir_length -eq 0 ]
+    echo -n "$parent_dir/"
+    return
+  end
+
+  string replace -ar '(\.?[^/]{'"$fish_prompt_pwd_dir_length"'})[^/]*/' '$1/' "$parent_dir/"
 end
 
 function __bobthefish_git_project_dir -S -d 'Print the current git project base directory'
@@ -129,7 +148,17 @@ function __bobthefish_hg_project_dir -S -d 'Print the current hg project base di
 end
 
 function __bobthefish_project_pwd -S -a current_dir -d 'Print the working directory relative to project root'
-  echo "$PWD" | sed -e "s#$current_dir##g" -e 's#^/##'
+  set -q theme_project_dir_length
+    or set -l theme_project_dir_length 0
+
+  set -l project_dir (string replace -r '^'"$current_dir"'($|/)' '' $PWD)
+
+  if [ $theme_project_dir_length -eq 0 ]
+    echo -n $project_dir
+    return
+  end
+
+  string replace -ar '(\.?[^/]{'"$theme_project_dir_length"'})[^/]*/' '$1/' $project_dir
 end
 
 function __bobthefish_git_ahead -S -d 'Print the ahead/behind state for the current branch'
@@ -138,7 +167,30 @@ function __bobthefish_git_ahead -S -d 'Print the ahead/behind state for the curr
     return
   end
 
-  command git rev-list --left-right '@{upstream}...HEAD' ^/dev/null | awk '/>/ {a += 1} /</ {b += 1} {if (a > 0 && b > 0) nextfile} END {if (a > 0 && b > 0) print "±"; else if (a > 0) print "+"; else if (b > 0) print "-"}'
+  set -l ahead 0
+  set -l behind 0
+  for line in (command git rev-list --left-right '@{upstream}...HEAD' ^/dev/null)
+    switch "$line"
+      case '>*'
+        if [ $behind -eq 1 ]
+          echo '±'
+          return
+        end
+        set ahead 1
+      case '<*'
+        if [ $ahead -eq 1 ]
+          echo '±'
+          return
+        end
+        set behind 1
+    end
+  end
+
+  if [ $ahead -eq 1 ]
+    echo '+'
+  else if [ $behind -eq 1 ]
+    echo '-'
+  end
 end
 
 function __bobthefish_git_ahead_verbose -S -d 'Print a more verbose ahead/behind state for the current branch'
@@ -172,8 +224,7 @@ function __bobthefish_start_segment -S -d 'Start a prompt segment'
   set -e argv[1]
 
   set_color normal # clear out anything bold or underline...
-  set_color -b $bg
-  set_color $fg $argv
+  set_color -b $bg $fg $argv
 
   switch "$__bobthefish_current_bg"
     case ''
@@ -213,14 +264,12 @@ function __bobthefish_path_segment -S -a current_dir -d 'Display a shortened for
       set directory '~'
     case '*'
       set parent    (__bobthefish_pretty_parent "$current_dir")
-      set parent    "$parent/"
       set directory (basename "$current_dir")
   end
 
   echo -n $parent
   set_color -b $segment_basename_color
   echo -ns $directory ' '
-  set_color normal
 end
 
 function __bobthefish_finish_segments -S -d 'Close open prompt segments'
@@ -230,8 +279,8 @@ function __bobthefish_finish_segments -S -d 'Close open prompt segments'
     echo -ns $__bobthefish_right_black_arrow_glyph ' '
   end
 
-  set __bobthefish_current_bg
   set_color normal
+  set __bobthefish_current_bg
 end
 
 
@@ -280,7 +329,6 @@ function __bobthefish_prompt_vagrant_vbox -S -a id -d 'Display VirtualBox Vagran
 
   __bobthefish_start_segment $__color_vagrant
   echo -ns $vagrant_status ' '
-  set_color normal
 end
 
 function __bobthefish_prompt_vagrant_vmware -S -a id -d 'Display VMWare Vagrant status'
@@ -294,7 +342,6 @@ function __bobthefish_prompt_vagrant_vmware -S -a id -d 'Display VMWare Vagrant 
 
   __bobthefish_start_segment $__color_vagrant
   echo -ns $vagrant_status ' '
-  set_color normal
 end
 
 function __bobthefish_prompt_vagrant_parallels -S -d 'Display Parallels Vagrant status'
@@ -318,14 +365,12 @@ function __bobthefish_prompt_vagrant_parallels -S -d 'Display Parallels Vagrant 
 
   __bobthefish_start_segment $__color_vagrant
   echo -ns $vagrant_status ' '
-  set_color normal
 end
 
 function __bobthefish_prompt_docker -S -d 'Show docker machine name'
     [ "$theme_display_docker_machine" = 'no' -o -z "$DOCKER_MACHINE_NAME" ]; and return
     __bobthefish_start_segment $__color_vagrant
     echo -ns $DOCKER_MACHINE_NAME ' '
-    set_color normal
 end
 
 function __bobthefish_prompt_status -S -a last_status -d 'Display symbols for a non zero exit status, root and background jobs'
@@ -348,7 +393,8 @@ function __bobthefish_prompt_status -S -a last_status -d 'Display symbols for a 
   if [ "$nonzero" -o "$superuser" -o "$bg_jobs" ]
     __bobthefish_start_segment $__color_initial_segment_exit
     if [ "$nonzero" ]
-       set_color normal; set_color -b $__color_initial_segment_exit
+      set_color normal
+      set_color -b $__color_initial_segment_exit
       if [ "$theme_show_exit_status" = 'yes' ]
       	echo -ns $last_status ' '
       else
@@ -357,20 +403,20 @@ function __bobthefish_prompt_status -S -a last_status -d 'Display symbols for a 
     end
 
     if [ "$superuser" ]
-      set_color normal; set_color -b $__color_initial_segment_su
+      set_color normal
+      set_color -b $__color_initial_segment_su
       echo -n $__bobthefish_superuser_glyph
     end
 
     if [ "$bg_jobs" ]
-      set_color normal; set_color -b $__color_initial_segment_jobs
+      set_color normal
+      set_color -b $__color_initial_segment_jobs
       echo -n $__bobthefish_bg_job_glyph
     end
-
-    set_color normal
   end
 end
 
-function __bobthefish_prompt_user -S -d 'Display actual user if different from $default_user'
+function __bobthefish_prompt_user -S -d 'Display actual user if different from $default_user in a prompt segment'
   if [ "$theme_display_user" = 'yes' ]
     if [ "$USER" != "$default_user" -o -n "$SSH_CLIENT" ]
       __bobthefish_start_segment $__color_username
@@ -464,14 +510,15 @@ function __bobthefish_prompt_git -S -a current_dir -d 'Display the actual git st
     return
   end
 
-  set -l project_pwd (command git rev-parse --show-prefix ^/dev/null | sed -e 's#/$##')
+  set -l project_pwd (command git rev-parse --show-prefix ^/dev/null | string replace -r '/$' '')
   set -l work_dir (command git rev-parse --show-toplevel ^/dev/null)
 
   # only show work dir if it's a parent…
   if [ "$work_dir" ]
     switch $PWD/
       case $work_dir/\*
-        set work_dir (echo $work_dir | sed -e "s#^$current_dir##")
+        string match "$current_dir*" $work_dir
+          and set work_dir (string sub -s (string length $current_dir) $work_dir)
       case \*
         set -e work_dir
     end
@@ -487,20 +534,26 @@ function __bobthefish_prompt_git -S -a current_dir -d 'Display the actual git st
 
     # handle work_dir != project dir
     if [ "$work_dir" ]
-      set -l work_parent (dirname $work_dir | sed -e 's#^/##')
+      set -l work_parent (dirname $work_dir | string replace -r '^/' '')
       if [ "$work_parent" ]
         echo -n "$work_parent/"
       end
-      set_color normal; set_color -b $__color_repo_work_tree
+      set_color normal
+      set_color -b $__color_repo_work_tree
       echo -n (basename $work_dir)
-      set_color normal; set_color --background $colors
+      set_color normal
+      set_color -b $colors
       [ "$project_pwd" ]
         and echo -n '/'
     end
 
     echo -ns $project_pwd ' '
   else
-    set project_pwd (echo $PWD | sed -e "s#^$current_dir##" -e 's#^/##')
+    set project_pwd $PWD
+    string match "$current_dir*" $project_pwd
+      and set project_pwd (string sub -s (string length $current_dir) $current_dir)
+    set project_pwd (string replace -r '^/' '' $project_pwd)
+
     if [ "$project_pwd" ]
       set -l colors $color_path
       if not [ -w "$PWD" ]
@@ -534,11 +587,10 @@ function __bobthefish_prompt_vi -S -d 'Display vi mode'
       __bobthefish_start_segment $__color_vi_mode_visual
       echo -n 'V '
   end
-  set_color normal
 end
 
 function __bobthefish_virtualenv_python_version -S -d 'Get current python version'
-  switch (python --version ^&1)
+  switch (python --version ^| tr '\n' ' ')
     case 'Python 2*PyPy*'
       echo $__bobthefish_pypy_glyph
     case 'Python 3*PyPy*'
@@ -558,7 +610,6 @@ function __bobthefish_prompt_virtualfish -S -d "Display activated virtual enviro
     echo -ns $__bobthefish_virtualenv_glyph $version_glyph ' '
   end
   echo -ns (basename "$VIRTUAL_ENV") ' '
-  set_color normal
 end
 
 function __bobthefish_rvm_parse_ruby -S -a ruby_string scope -d 'Parse RVM Ruby string'
@@ -633,7 +684,6 @@ function __bobthefish_show_ruby -S -d 'Current Ruby (rvm/rbenv)'
   [ -z "$ruby_version" ]; and return
   __bobthefish_start_segment $__color_rvm
   echo -ns $__bobthefish_ruby_glyph $ruby_version ' '
-  set_color normal
 end
 
 function __bobthefish_prompt_rubies -S -d 'Display current Ruby information'

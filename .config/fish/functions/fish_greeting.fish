@@ -4,4 +4,3 @@ function fish_greeting -d "what's up, fish?"
   uptime
   set_color normal
 end
-
