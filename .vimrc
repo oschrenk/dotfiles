@@ -51,6 +51,7 @@ Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded co
 Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
 Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
 Plug 'tpope/vim-abolish'                  " search for, substitute, and abbreviate multiple variants of a word, adds: crs (coerce to snake_case). MixedCase (crm), camelCase (crc), snake_case (crs), and UPPER_CASE (cru)
+Plugin 'editorconfig/editorconfig-vim'    " maintain consistent coding styles between editors
 
 " Motions
 Plug 'terryma/vim-expand-region'          " expand/shrink selection

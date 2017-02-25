@@ -1,0 +1,18 @@
+# top-most EditorConfig file
+root = true
+
+[*]
+# Unix-style newlines with a
+end_of_line = lf
+# newline ending every file
+insert_final_newline = true
+# default charset
+charset = utf-8
+# space > tab
+indent_style = space
+# 2 is enough
+indent_size = 2
+
+[Makefile]
+indent_style = tab
+
