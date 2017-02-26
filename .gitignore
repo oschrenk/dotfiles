@@ -22,3 +22,4 @@
 configstore/
 .config/hub
 .config/ensime-vim/
+.config/gtk-2.0/
