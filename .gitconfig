@@ -6,7 +6,7 @@
 	excludesfile = ~/.gitignore-global
 
 	editor = nvim
-	pager = diff-so-fancy | less --tabs=4 -RFX
+  #pager = diff-so-fancy | less --tabs=4 -RFX
 
 [push]
 	# nothing:  do not push anything.
@@ -146,7 +146,12 @@
 	# By default, when you merge a branch in git, you get a fairly meaningless
 	# message like merge #branch 'master' of git@github.com:name/project.
 	# To get a summary of the changes you're merging, turn this option on:
-	summary=true
+  summary=true
+
+  # Set default conflictstyle to dif3. In addition to the <<<<<<<, =======,
+  # and >>>>>>> markers, it uses another ||||||| marker that is followed by
+  #the original text.
+	conflictstyle = diff3
 
 [rebase]
   # since 2.7
