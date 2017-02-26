@@ -9,7 +9,9 @@
         { "shell_command": "sleep 1; doge" ,
           "width": 30
         },
-        { "focus": "true" }
+        { "shell_command": "ikhal" ,
+          "focus": "true"
+        }
       ]
     },
     {
