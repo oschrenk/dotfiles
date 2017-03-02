@@ -34,7 +34,10 @@ local powerSource = hs.battery.powerSource()
 ------------------------
 
 function notify(message)
-  hs.alert.show(message)
+  hs.notify.new({
+    title='Hammerspoon',
+    informativeText=message
+  }):send()
 end
 
 ------------------------
