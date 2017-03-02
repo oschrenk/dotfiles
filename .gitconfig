@@ -140,7 +140,8 @@
 [diff]
   # since git 2.11 as option
   # try to create more aesthetically pleasing diffs
-	indentHeuristic = true
+  indentHeuristic = true
+
 
 [merge]
 	# By default, when you merge a branch in git, you get a fairly meaningless
