@@ -158,7 +158,8 @@
 
   # Set default conflictstyle to dif3. In addition to the <<<<<<<, =======,
   # and >>>>>>> markers, it uses another ||||||| marker that is followed by
-  #the original text.
+  # the original text.
+  # default is `merge`
 	conflictstyle = diff3
 
 [rebase]
