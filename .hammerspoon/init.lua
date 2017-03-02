@@ -401,10 +401,6 @@ hs.battery.watcher.new(powerChanged):start()
 ------------------------
 
 function enteredHome()
-  if (bluetoothEnabled()) then
-    disableBluetooth()
-  end
-
   switchNetworkLocation(homeLocation)
 end
 
