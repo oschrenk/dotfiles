@@ -30,6 +30,14 @@ local spotifyWasPlaying = false
 local powerSource = hs.battery.powerSource()
 
 ------------------------
+-- Helper functions
+------------------------
+
+function notify(message)
+  hs.alert.show(message)
+end
+
+------------------------
 -- Window Managment
 ------------------------
 
@@ -77,7 +85,7 @@ function send_window_to_prev_monitor()
     local win = hs.window.focusedWindow()
     local previousScreen = win:screen():previous()
     win:moveToScreen(previousScreen)
-    hs.alert.show("Prev Monitor", 5)
+    notify("Prev Monitor", 5)
   end
 end
 
@@ -87,7 +95,7 @@ function send_window_to_next_monitor()
     local win = hs.window.focusedWindow()
     local nextScreen = win:screen():next()
     win:moveToScreen(nextScreen)
-    hs.alert.show("Next Monitor", 5)
+    notify("Next Monitor", 5)
   end
 end
 
@@ -115,7 +123,7 @@ function clearNotifications()
   ok, result = hs.applescript(script)
 end
 function closeNotifications()
-  hs.alert.show("Closing notifications")
+  notify("Closing notifications")
   hs.timer.doAfter(0.3, clearNotifications)
 end
 
@@ -137,7 +145,7 @@ function currentAccountId()
 end
 
 function switchUser(id, name)
-  hs.alert.show("Switch to " .. name)
+  notify("Switch to " .. name)
   os.execute('/System/Library/CoreServices/Menu\\ Extras/User.menu/Contents/Resources/CGSession -switchToUserID ' .. id)
 end
 
@@ -155,7 +163,7 @@ end
 
 function unmountExternalDrives()
   print("unmount called")
-  hs.alert.show("Unmounting Drives")
+  notify("Unmounting Drives")
   -- escape single quotes like \'
   -- escape backslashes in sed with extra backslash
   os.execute("/usr/sbin/diskutil list | grep -i windows | sed \'s/.*\\(disk[0-9].*\\)/\\1/\' | uniq | xargs -I= /usr/sbin/diskutil unmount =")
@@ -163,7 +171,7 @@ end
 
 function mountExternalDrives()
   print("mount called")
-  hs.alert.show("Mounting Drives")
+  notify("Mounting Drives")
   -- escape single quotes like \'
   -- escape backslashes in sed with extra backslash
   os.execute("/usr/sbin/diskutil list | grep -i windows | sed \'s/.*\\(disk[0-9].*\\)/\\1/\' | uniq | xargs -I= /usr/sbin/diskutil mount =")
@@ -176,12 +184,12 @@ end
 -- installable via `brew install blueutil`
 
 function enableBluetooth()
-  hs.alert.show("Enabling Bluetooth")
+  notify("Enabling Bluetooth")
   os.execute("/usr/local/bin/blueutil power 1")
 end
 
 function disableBluetooth()
-  hs.alert.show("Disabling Bluetooth")
+  notify("Disabling Bluetooth")
   os.execute("/usr/local/bin/blueutil power 0")
 end
 
@@ -207,12 +215,12 @@ end
 
 function enableWifi()
   hs.wifi.setPower(true)
-  hs.alert.show("Enabled Wifi")
+  notify("Enabled Wifi")
 end
 
 function disableWifi()
   hs.wifi.setPower(false)
-  hs.alert.show("Disabled Wifi")
+  notify("Disabled Wifi")
 end
 
 function toggleWifi()
@@ -241,7 +249,7 @@ end
 function switchNetworkLocation(name)
   local location = currentNetworkLocation()
   if (location ~= name) then
-    hs.alert.show("Switching location to " .. name)
+    notify("Switching location to " .. name)
     os.execute("sudo /usr/sbin/networksetup -switchtolocation \"" .. name .. "\"")
   end
 end
@@ -262,7 +270,7 @@ function enteredNetwork(old_ssid, new_ssid, token)
   -- significantly change wifi
   -- checking if we more than changed network within environment
   if (old_ssid ~= nil and new_ssid ~= nil) then
-    hs.alert.show("Changed Wifi")
+    notify("Changed Wifi")
     return (not (string.find(string.lower(old_ssid), string.lower(token)) and
                 string.find(string.lower(new_ssid), string.lower(token))))
   end
@@ -295,18 +303,18 @@ wifiWatcher:start()
 ------------------------
 
 function spotify_pause()
-   hs.alert.show("Pausing Spotify")
+   notify("Pausing Spotify")
    hs.spotify.pause()
 end
 
 function spotify_play()
-   hs.alert.show("Playing Spotify")
+   notify("Playing Spotify")
    hs.spotify.play()
 end
 
 function mute()
   hs.audiodevice.defaultOutputDevice():setMuted(true)
-  hs.alert.show("Mute")
+  notify("Mute")
 end
 
 
@@ -367,11 +375,11 @@ function enteredWork()
 end
 
 function switchedToBattery()
-  hs.alert.show("Battery")
+  notify("Battery")
 end
 
 function switchedToCharger()
-  hs.alert.show("Charging")
+  notify("Charging")
 end
 
 hs.caffeinate.watcher.new(function(event)
@@ -425,4 +433,4 @@ function reload_config(files)
 end
 
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reload_config):start()
-hs.alert.show("Config loaded")
+notify("Config loaded")
