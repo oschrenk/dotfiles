@@ -1,0 +1,28 @@
+{
+  "session_name": "gittogreat",
+  "windows": [
+    {
+      "window_name": "slides",
+      "layout": "main-vertical",
+      "options": { "automatic-rename": "off" },
+      "start_directory": "$HOME/Projects/workshops/talk-conflict",
+      "panes": [
+        {
+          "width": 30
+        },
+        { "shell_command": "cd $HOME/Projects/external/marp" ,
+          "focus": "true"
+        }
+      ]
+    },
+    {
+      "window_name": "workshop",
+      "layout": "main-vertical",
+      "options": { "automatic-rename": "off" },
+      "start_directory": "$HOME/Projects/workshops",
+      "panes": [
+        { "focus": "true" }
+      ]
+    }
+  ]
+}
