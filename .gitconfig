@@ -142,6 +142,13 @@
   # try to create more aesthetically pleasing diffs
   indentHeuristic = true
 
+  # Use better, descriptive initials (c, i, w) instead of a/b.
+  # git diff                  compares the (i)ndex and the (w)ork tree;
+  # git diff HEAD             compares a (c)ommit and the (w)ork tree;
+  # git diff --cached         compares a (c)ommit and the (i)ndex;
+  # git diff HEAD:file1 file2 compares an (o)bject and a (w)ork tree entity;
+  # git diff --no-index a b   compares two non-git things (1) and (2).
+  mnemonicPrefix = true
 
 [merge]
 	# By default, when you merge a branch in git, you get a fairly meaningless
