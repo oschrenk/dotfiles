@@ -182,12 +182,6 @@
 	new = green bold
 	whitespace = red reverse
 
-[color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = "red bold 52"
-	newNormal = "green bold"
-	newHighlight = "green bold 22"
-
 [include]
 	path = ~/.gitconfig_user
 	path = ~/.gitconfig_system
