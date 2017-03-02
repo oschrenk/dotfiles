@@ -170,10 +170,6 @@
   # rebase might result in non-trivial conflicts.
 	autoStash = true
 
-[color]
-  ui = auto
-	sh = auto
-
 [color "diff"]
 	meta = yellow bold
 	commit = green bold
