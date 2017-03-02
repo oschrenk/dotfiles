@@ -108,7 +108,7 @@ end
 
 
 -- Close notifications
-script = [[
+closeNotificationsScript = [[
 my closeNotif()
 on closeNotif()
 
@@ -127,7 +127,7 @@ on closeNotif()
     end tell
 end closeNotif ]]
 function clearNotifications()
-  ok, result = hs.applescript(script)
+  ok, result = hs.applescript(closeNotificationsScript)
 end
 function closeNotifications()
   notify("Closing notifications")
@@ -214,6 +214,38 @@ function toggleBluetooth()
   else
     enableBluetooth()
   end
+end
+
+-- Close notifications
+bluetoothScript = [[
+my connectHeadphones()
+on connectHeadphones()
+
+  activate application "SystemUIServer"
+  tell application "System Events"
+    tell process "SystemUIServer"
+    set btMenu to (menu bar item 1 of menu bar 1 where description is "bluetooth")
+    tell btMenu
+      click
+      tell (menu item "MDR-1000X" of menu 1)
+        click
+        if exists menu item "Connect" of menu 1 then
+	        click menu item "Connect" of menu 1
+	        return "Connecting..."
+        else
+	        tell btMenu -- Close main BT drop down if Connect wasn't present
+            click
+          end tell
+	        return "Connect menu was not found, are you already connected?"
+        end if
+      end tell
+    end tell
+    end tell
+  end tell
+end connectHeadphones ]]
+
+function connectHeadphones()
+  ok, result = hs.applescript(bluetoothScript)
 end
 
 ------------------------
@@ -414,6 +446,7 @@ hs.hotkey.bind(hyper, 'f', function() hs.window.focusedWindow():toggleFullScreen
 hs.hotkey.bind(hyper, "p", send_window_to_prev_monitor)
 hs.hotkey.bind(hyper, "n", send_window_to_next_monitor)
 
+hs.hotkey.bind(hyper, "e", connectHeadphones)
 hs.hotkey.bind(hyper, "i", function() hs.hints.windowHints() end)
 
 hs.hotkey.bind(hyper, 'k', function() hs.window.focusedWindow():focusWindowNorth() end)
