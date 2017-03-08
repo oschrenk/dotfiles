@@ -130,7 +130,7 @@ function clearNotifications()
   ok, result = hs.applescript(closeNotificationsScript)
 end
 function closeNotifications()
-  notify("Closing notifications")
+  print("Closing notifications")
   hs.timer.doAfter(0.3, clearNotifications)
 end
 
