@@ -48,7 +48,7 @@ Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc o
 Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
 Plug 'tpope/vim-abolish'                  " search for, substitute, and abbreviate multiple variants of a word, adds: crs (coerce to snake_case). MixedCase (crm), camelCase (crc), snake_case (crs), and UPPER_CASE (cru)
 Plug 'junegunn/vim-easy-align'            " align structures identified by a single character such as <Space>, =, :, ., |, &, #, and ,
-Plug 'editorconfig/editorconfig-vim'      
+Plug 'editorconfig/editorconfig-vim'
 
 " Motions
 Plug 'terryma/vim-expand-region'          " expand/shrink selection
