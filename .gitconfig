@@ -113,6 +113,10 @@
 	s = status --short
 	ss = status
 
+  # initialize repoisotry with empty commit for easier rebasing
+  # later on
+  start = !git init && git commit --allow-empty -m \"Initial commit\"
+
   # stash only unstaged changes to tracked files
   stsh  = stash --keep-index
   # stash any changes to tracked files
