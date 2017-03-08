@@ -24,7 +24,7 @@
             },
             "virtual_hid_keyboard": {
                 "caps_lock_delay_milliseconds": 250,
-                "keyboard_type": "ansi",
+                "keyboard_type": "iso",
                 "standalone_keys_delay_milliseconds": 250
             }
         }
