@@ -429,6 +429,64 @@ hs.caffeinate.watcher.new(function(event)
 end):start()
 
 ------------------------
+-- Concentration
+------------------------
+
+local afplayTask = nil
+local afplayWasPlaying = false
+
+function taskStopped(code, stdout, stderr)
+  print("code: "..code)
+  print("stdout: "..stdout)
+  print("stderr: "..stderr)
+  notify("Stopped afplay")
+  afplayTask = nil
+  afplayWasPlaying = false
+end
+
+function start()
+  print("Starting afplay")
+  task = hs.task.new("/usr/bin/afplay", taskStopped, {"Concentration.mp3"})
+  task:setWorkingDirectory("/Users/oliver/Music")
+  task:start()
+  afplayTask = task
+  notify("Started afplay")
+  hs.alert("Started afplay")
+end
+
+function play()
+  if (afplayTask) then
+    if (afplayWasPlaying) then
+      resume()
+    else
+      pause()
+    end
+  else
+   start()
+  end
+end
+
+function resume()
+  print("Resume afplay")
+  notify("Resume afplay")
+  afplayTask:resume()
+  afplayWasPlaying = false
+end
+
+function pause()
+  print("Pause afplay")
+  notify("Pause afplay")
+  afplayTask:pause()
+  afplayWasPlaying = true
+end
+
+function stop()
+  hs.print("Stop afplay")
+  notify("Stop afplay")
+  afplayTask:interrupt()
+end
+
+------------------------
 -- Keyboard Bindings
 ------------------------
 
@@ -442,6 +500,7 @@ hs.hotkey.bind(hyper, 'f', function() hs.window.focusedWindow():toggleFullScreen
 hs.hotkey.bind(hyper, "p", send_window_to_prev_monitor)
 hs.hotkey.bind(hyper, "n", send_window_to_next_monitor)
 
+hs.hotkey.bind(hyper, "r", play)
 hs.hotkey.bind(hyper, "e", connectHeadphones)
 hs.hotkey.bind(hyper, "i", function() hs.hints.windowHints() end)
 
