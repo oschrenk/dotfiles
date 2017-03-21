@@ -501,7 +501,7 @@ hs.hotkey.bind(hyper, "p", send_window_to_prev_monitor)
 hs.hotkey.bind(hyper, "n", send_window_to_next_monitor)
 
 hs.hotkey.bind(hyper, "r", play)
-hs.hotkey.bind(hyper, "e", connectHeadphones)
+hs.hotkey.bind(hyper, "h", connectHeadphones)
 
 hs.hotkey.bind(hyper, "c", closeNotifications)
 hs.hotkey.bind(hyper, "t", cleanTrash)
