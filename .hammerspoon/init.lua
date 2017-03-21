@@ -497,8 +497,8 @@ hs.hotkey.bind(hyper, "x", bottom_half_window)
 hs.hotkey.bind(hyper, 's', toggle_window_maximized)
 hs.hotkey.bind(hyper, 'f', function() hs.window.focusedWindow():toggleFullScreen() end)
 
-hs.hotkey.bind(hyper, "p", send_window_to_prev_monitor)
-hs.hotkey.bind(hyper, "n", send_window_to_next_monitor)
+hs.hotkey.bind(hyper, "q", send_window_to_prev_monitor)
+hs.hotkey.bind(hyper, "e", send_window_to_next_monitor)
 
 hs.hotkey.bind(hyper, "r", play)
 hs.hotkey.bind(hyper, "h", connectHeadphones)
