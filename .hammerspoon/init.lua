@@ -451,7 +451,6 @@ function start()
   task:start()
   afplayTask = task
   notify("Started afplay")
-  hs.alert("Started afplay")
 end
 
 function play()
