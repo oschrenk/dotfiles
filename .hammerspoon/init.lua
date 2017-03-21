@@ -504,11 +504,6 @@ hs.hotkey.bind(hyper, "r", play)
 hs.hotkey.bind(hyper, "e", connectHeadphones)
 hs.hotkey.bind(hyper, "i", function() hs.hints.windowHints() end)
 
-hs.hotkey.bind(hyper, 'k', function() hs.window.focusedWindow():focusWindowNorth() end)
-hs.hotkey.bind(hyper, 'j', function() hs.window.focusedWindow():focusWindowSouth() end)
-hs.hotkey.bind(hyper, 'l', function() hs.window.focusedWindow():focusWindowEast() end)
-hs.hotkey.bind(hyper, 'h', function() hs.window.focusedWindow():focusWindowWest() end)
-
 hs.hotkey.bind(hyper, "c", closeNotifications)
 hs.hotkey.bind(hyper, "t", cleanTrash)
 
