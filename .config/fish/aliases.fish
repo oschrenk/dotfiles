@@ -24,11 +24,6 @@ alias s    spotifish
 alias tk   'tmux kill-session -t'
 alias tl   'tmuxp load -2 -y'
 
-alias shiftr "sed -Ee 's/^/    /'"
-alias shiftl "sed -Ee 's/^([ ]{4}|[\t])//'"
-alias map 'xargs -n1'
-alias collapse "sed -e 's/  */ /g'"
-alias cuts 'cut -d\ '
-
+# Make user executable
 alias cux  'chmod u+x'
 alias vim  'nvim'
