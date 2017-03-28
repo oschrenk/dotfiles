@@ -29,5 +29,5 @@ alias map 'xargs -n1'
 alias collapse "sed -e 's/  */ /g'"
 alias cuts 'cut -d\ '
 
-# Make user executable
 alias cux  'chmod u+x'
+alias vim  'nvim'
