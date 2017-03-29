@@ -39,7 +39,6 @@ Plug 'airblade/vim-rooter'                " auto sets working directory
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'vhakulinen/neovim-intellij-complete-deoplete', {'for': ['java','scala']}
 Plug 'wellle/tmux-complete.vim'           " autocompletion from adjecent tmux panes
-Plug 'thalesmello/webcomplete.vim'        " autocompletion from current browser window
 
 " Control
 Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg. vim-gitgutter
