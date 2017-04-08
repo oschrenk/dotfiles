@@ -45,7 +45,7 @@ function __tilde_clone
 end
 
 function __tilde_link
-  echo $argv | read -l dotfiles_home tilde_home repo_name
+  echo $argv | read -l dotfiles_home tilde_home repo_name option
 
   set -l tilde_repo $tilde_home/$repo_name
 
@@ -63,9 +63,13 @@ function __tilde_link
     set -l target_path $dotfiles_home/$base_name
 
     if test -L $target_path
-      echo "Skipped $source_path: Already exists as symbolic link"
+      if test $option = '--debug'
+        echo "Skipped $source_path: Already exists as symbolic link"
+      end
     else if test -f $target_path
-      echo "Skipped $source_path: Already exists as regular file"
+      if test $option = '--debug'
+        echo "Skipped $source_path: Already exists as regular file"
+      end
     else
       echo "Symlinking $target_path to $source_path"
       ln -s $source_path $target_path
@@ -104,6 +108,6 @@ function tilde --description  "minimal dotfiles managment with fish"
     case "clone"
       __tilde_clone $tilde_home $argument_1 $argument_2
     case "link"
-      __tilde_link  $dotfiles_home $tilde_home $argument_1
+      __tilde_link  $dotfiles_home $tilde_home $argument_1 $argument_2
   end
 end
