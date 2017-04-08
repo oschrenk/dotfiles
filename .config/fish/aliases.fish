@@ -15,6 +15,7 @@ alias l    'cd $HOME/Documents/Log'
 # Applications
 alias a    'ag'
 alias be   'bundle exec'
+alias chrome 'open /Applications/Google\ Chrome.app/ --args --allow-file-access-from-files --remote-debugging-port=9222'
 alias c    clear
 alias e    nvim
 alias g    git
