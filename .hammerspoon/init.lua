@@ -464,7 +464,7 @@ end
 function start()
   print("Starting afplay")
   task = hs.task.new("/usr/bin/afplay", taskStopped, {"Concentration.mp3"})
-  task:setWorkingDirectory("/Users/oliver/Music")
+  task:setWorkingDirectory("/Users/Shared/Music")
   task:start()
   afplayTask = task
   notify("Started afplay")
