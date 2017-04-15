@@ -13,6 +13,15 @@
   # 0 word difference
   pager = diff-so-fancy | less --tabs=4 -RFX
 
+[pull]
+  # Since 2.0
+  # Corresponds to:
+  #   git fetch
+  #   git merge --ff-only <branch>
+  # It will fail, if there is a commit that can't be fast forwarded
+  # Normally you want to run `pull --rebase` as a response
+	ff = only
+
 [push]
   # nothing:  do not push anything.
 
