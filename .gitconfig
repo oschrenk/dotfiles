@@ -10,11 +10,15 @@
 
 [push]
 	# nothing:  do not push anything.
+
+  # default in 1.x
 	# matching: push all matching branches. All branches having the same
 	#           name in both ends are considered to be matching.
 	# upstream: push the current branch to its upstream branch.
 	# tracking: deprecated synonym for upstream.
 	# current:  push the current branch to a branch of the same name.
+
+  # default since 2.0, new  since 1.7.11
 	# simple:   like upstream, but refuses to push if upstream branch’s name
 	#           is different from the local one
 	default = current
