@@ -5,7 +5,12 @@
 	attributesfile = ~/.gitattributes-global
 	excludesfile = ~/.gitignore-global
 
-	editor = nvim
+  editor = nvim
+
+  # See https://github.com/so-fancy/diff-so-fancy
+  # - NOT patch compatible output
+  # - no +/- beginning of line
+  # 0 word difference
   pager = diff-so-fancy | less --tabs=4 -RFX
 
 [push]
