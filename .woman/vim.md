@@ -7,3 +7,10 @@
 - `au/iu` for url
 - `ae/ie` for entire buffer
 - `ib/ab` for Quotes, Parenthesis and braces
+
+Visualize tabs
+
+```
+:set list!
+:set listchars=tab:>-
+```
