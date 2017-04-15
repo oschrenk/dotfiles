@@ -12,6 +12,7 @@
 	# nothing:  do not push anything.
 
   # default in 1.x
+  # this makes clients before 2.x, using --force really dangerous
 	# matching: push all matching branches. All branches having the same
 	#           name in both ends are considered to be matching.
 	# upstream: push the current branch to its upstream branch.
