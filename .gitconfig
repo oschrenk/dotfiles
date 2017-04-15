@@ -30,8 +30,12 @@
 	enabled = true
 
 [alias]
-	a = add
-	aa = add --all :/
+  a = add
+
+  # `add --all :/` add from root dir, superfluous since 2.0
+  # equivalent to `add .` since 2.0
+  # before it ignored deleted files
+	aa = add --all
 	ai = add -i
 	ap = add -p
 	au = add -u
