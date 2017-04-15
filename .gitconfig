@@ -2,8 +2,8 @@
 # Inclusion of user/system specific files at the bottom
 
 [core]
-	attributesfile = ~/.gitattributes-global
-	excludesfile = ~/.gitignore-global
+  attributesfile = ~/.gitattributes-global
+  excludesfile = ~/.gitignore-global
 
   editor = nvim
 
@@ -14,20 +14,20 @@
   pager = diff-so-fancy | less --tabs=4 -RFX
 
 [push]
-	# nothing:  do not push anything.
+  # nothing:  do not push anything.
 
   # default in 1.x
   # this makes clients before 2.x, using --force really dangerous
-	# matching: push all matching branches. All branches having the same
-	#           name in both ends are considered to be matching.
-	# upstream: push the current branch to its upstream branch.
-	# tracking: deprecated synonym for upstream.
-	# current:  push the current branch to a branch of the same name.
+  # matching: push all matching branches. All branches having the same
+  #           name in both ends are considered to be matching.
+  # upstream: push the current branch to its upstream branch.
+  # tracking: deprecated synonym for upstream.
+  # current:  push the current branch to a branch of the same name.
 
   # default since 2.0, new  since 1.7.11
-	# simple:   like upstream, but refuses to push if upstream branch’s name
-	#           is different from the local one
-	default = current
+  # simple:   like upstream, but refuses to push if upstream branch’s name
+  #           is different from the local one
+  default = current
 
   # since 2.4.1
   # pushes relevant (only referenced by pushed commits) tags by default
@@ -39,7 +39,7 @@
   # reuse recorded resolution
   # tells git to remember how you resolved hunk conflicts, so that next time
   # the same conflict arises it is resolved automatically
-	enabled = true
+  enabled = true
 
 [alias]
   a = add
@@ -56,24 +56,24 @@
 	ap = add -p
 	au = add -u
 
-	# -v/--verbose
-	#   When in list mode, show sha1 and commit subject line for each head,
-	#   along with relationship to upstream branch
-	b = branch --verbose
+  # -v/--verbose
+  #   When in list mode, show sha1 and commit subject line for each head,
+  #   along with relationship to upstream branch
+  b = branch --verbose
 
-	# -a/--all
-	#   List both remote-tracking branches and local branches.
-	branches = branch --all
+  # -a/--all
+  #   List both remote-tracking branches and local branches.
+  branches = branch --all
 
-	c = commit
+  c = commit
 
   # --amend
   #   Replace the tip of the current branch by creating a new commit.
   #   Can thus be used to fix up the last commianging commit message
   #   and/or adding more hunk
-	cam = commit --amend
+  cam = commit --amend
 
-	co = checkout
+  co = checkout
 
   # --name-only
   #   Show only names of changed files.
@@ -83,38 +83,38 @@
   #   are Unmerged (U), are Unknown (X), or have had their pairing Broken (B)
   conflicts = diff --name-only --diff-filter=U
 
-	# -b <new_branch>
-	# Create a new branch named <new_branch>
-	cob = checkout -b
+  # -b <new_branch>
+  # Create a new branch named <new_branch>
+  cob = checkout -b
 
   # discard indidual hunks
   cop = checkout --patch
 
-	# Credit an author on the latest commit
-	# Usage: git credit "John Doe" jdoe@domain.tld
-	credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
+  # Credit an author on the latest commit
+  # Usage: git credit "John Doe" jdoe@domain.tld
+  credit = "!f() { git commit --amend --author \"$1 <$2>\" -C HEAD; }; f"
 
   # run ctags on the project
-	ctags = !.git/hooks/ctags
+  ctags = !.git/hooks/ctags
 
-	# Remove branches that have already been merged with master
+  # Remove branches that have already been merged with master
   # a.k.a. ‘delete merged’
   dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
 
-	# Run `git serve`, get your ip and tell your buddy to:
-	# - `git fetch git://192.168.1.123/`
-	# - `git clone git://192.168.1.123/ local-repo-name`
-	# - `git pull git://192.168.1.123/ branchname`
-	serve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
+  # Run `git serve`, get your ip and tell your buddy to:
+  # - `git fetch git://192.168.1.123/`
+  # - `git clone git://192.168.1.123/ local-repo-name`
+  # - `git pull git://192.168.1.123/ branchname`
+  serve = daemon --verbose --export-all --base-path=.git --reuseaddr --strict-paths .git/
 
-	d = diff
-	dc = diff --cached
-	dt = difftool
-	dtc = difftool --cached
+  d = diff
+  dc = diff --cached
+  dt = difftool
+  dtc = difftool --cached
 
-	# Find a file path in codebase:
+  # Find a file path in codebase:
   find = "!git ls-files | grep -i"
-	f = !git find
+  f = !git find
 
   # simple log
   l = log  --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
@@ -126,16 +126,16 @@
   please = push --force-with-lease
 
 
-	pop = stash pop
+  pop = stash pop
 
   # -v/--verbose
   #   show remote url after name
-	remotes = remote -v
+  remotes = remote -v
 
-	# -s/--short
-	#   Give the output in the short-format.
-	s = status --short
-	ss = status
+  # -s/--short
+  #   Give the output in the short-format.
+  s = status --short
+  ss = status
 
   # initialize repoisotry with empty commit for easier rebasing
   # later on
@@ -150,20 +150,20 @@
   # stash ignored, untracked, and tracked files
   staaash = stash --all
 
-	# -l/--list <pattern>
-	#   List tags with names that match the given pattern (or all if no pattern is given)
-	tags = tag -l
-	up = pull --rebase
+  # -l/--list <pattern>
+  #   List tags with names that match the given pattern (or all if no pattern is given)
+  tags = tag -l
+  up = pull --rebase
 
-	# unstage is the opposite of git add. It removes items from the staging area.
+  # unstage is the opposite of git add. It removes items from the staging area.
   unstage = reset HEAD
   un = reset HEAD
 
 [commit]
-	# since git 2.9 as option
-	# Show unified diff between the HEAD commit and what would be
-	# committed at the bottom of the commit message template.
-	verbose = true
+  # since git 2.9 as option
+  # Show unified diff between the HEAD commit and what would be
+  # committed at the bottom of the commit message template.
+  verbose = true
 
 [diff]
   # since git 2.11 as option
@@ -179,16 +179,16 @@
   mnemonicPrefix = true
 
 [merge]
-	# By default, when you merge a branch in git, you get a fairly meaningless
-	# message like merge #branch 'master' of git@github.com:name/project.
-	# To get a summary of the changes you're merging, turn this option on:
+  # By default, when you merge a branch in git, you get a fairly meaningless
+  # message like merge #branch 'master' of git@github.com:name/project.
+  # To get a summary of the changes you're merging, turn this option on:
   summary=true
 
   # Set default conflictstyle to diff3.
   # In addition to the <<<<<<<, =======, and >>>>>>> markers,
   # it uses another ||||||| marker that is followed by the original text.
   # default is `merge`
-	conflictstyle = diff3
+  conflictstyle = diff3
 
 [rebase]
   # since 2.7
@@ -196,19 +196,19 @@
   # a temporary stash before the operation begins and applies it after the
   # operation ends. Use with care: final stash application after a successful
   # rebase might result in non-trivial conflicts.
-	autoStash = true
+  autoStash = true
 
 [color "diff"]
-	meta = yellow bold
-	commit = green bold
-	frag = magenta bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+  meta = yellow bold
+  commit = green bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
 
 [include]
-	path = ~/.gitconfig_user
-	path = ~/.gitconfig_system
+  path = ~/.gitconfig_user
+  path = ~/.gitconfig_system
 
 [init]
-	templatedir = ~/.git_template
+  templatedir = ~/.git_template
