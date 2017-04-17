@@ -24,6 +24,12 @@
 	#           is different from the local one
 	default = current
 
+  # since 2.4.1
+  # pushes relevant (only referenced by pushed commits) tags by default
+  # This does
+  #   git push --follow-tags, which is available since 1.8.3
+  followTags = true
+
 [rerere]
   # reuse recorded resolution
   # tells git to remember how you resolved hunk conflicts, so that next time
