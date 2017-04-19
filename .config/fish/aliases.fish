@@ -9,6 +9,7 @@ alias md   'mkdir -p'
 alias d    'cd $HOME/Downloads'
 alias h    'cd $HOME'
 alias p    'cd $HOME/Projects'
+alias r    'cd $HOME/Repos'
 alias n    'cd $HOME/Documents/Notes'
 alias l    'cd $HOME/Documents/Log'
 
