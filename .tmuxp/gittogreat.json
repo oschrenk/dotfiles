@@ -5,12 +5,12 @@
       "window_name": "slides",
       "layout": "main-vertical",
       "options": { "automatic-rename": "off" },
-      "start_directory": "$HOME/Projects/workshops/talk-conflict",
+      "start_directory": "$HOME/Projects/git/workshop",
       "panes": [
         {
-          "width": 30
+          "width": 40
         },
-        { "shell_command": "cd $HOME/Projects/external/marp" ,
+        {
           "focus": "true"
         }
       ]
@@ -19,7 +19,7 @@
       "window_name": "workshop",
       "layout": "main-vertical",
       "options": { "automatic-rename": "off" },
-      "start_directory": "$HOME/Projects/workshops",
+      "start_directory": "$HOME/Repos/",
       "panes": [
         { "focus": "true" }
       ]
