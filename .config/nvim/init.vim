@@ -384,6 +384,12 @@ autocmd FileType gitcommit setlocal spell   " spellcheck git commit messages
 autocmd FileType markdown  setlocal spell   " spelllcheck markdown files
 
 " ===========================
+" Templates
+" ===========================
+
+nnoremap ,html :-1read $HOME/.config/nvim/templates/index.html<CR>3jwf>a
+
+" ===========================
 " Auto corrections
 " ===========================
 
