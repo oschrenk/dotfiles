@@ -2,17 +2,6 @@
   "session_name": "oschrenk",
   "windows": [
     {
-      "window_name": "home",
-      "layout": "main-vertical",
-      "options": { "automatic-rename": "off" },
-      "panes": [
-        { "shell_command": "sleep 1; doge" ,
-          "width": 30
-        },
-        { "focus": "true" }
-      ]
-    },
-    {
       "window_name": "blog",
       "layout": "main-vertical",
       "options": { "automatic-rename": "off" },
@@ -22,10 +11,19 @@
       ]
     },
     {
-      "window_name": "freelance",
+      "window_name": "invoice",
       "layout": "main-vertical",
       "options": { "automatic-rename": "off" },
-      "start_directory": "$HOME/Projects/personal/freelancing",
+      "start_directory": "$HOME/Projects/oschrenk/invoices",
+      "panes": [
+        { }
+      ]
+    },
+    {
+      "window_name": "taxes",
+      "layout": "main-vertical",
+      "options": { "automatic-rename": "off" },
+      "start_directory": "$HOME/Projects/oschrenk/taxes",
       "panes": [
         { }
       ]
