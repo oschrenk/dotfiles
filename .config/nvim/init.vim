@@ -1,4 +1,6 @@
-set shell=fish
+" would love to set it to `fish` but at least vim-fugitive's
+" :Gblame doesn't work with it
+set shell=bash\ --norc
 set encoding=utf8         " how vim represents characters internally
 set termencoding=utf-8    " used to display
 
