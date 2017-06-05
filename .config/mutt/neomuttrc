@@ -40,6 +40,10 @@ set imap_keepalive   = 30
 # allow mutt to open new imap connection automatically
 unset imap_passive   
 
+# Basic Options --------------------------------------
+set include                       # include message in reply
+set forward_quote                 # include message in forwards
+
 # Compose View Options -------------------------------
 set realname = "Oliver Schrenk"
 
