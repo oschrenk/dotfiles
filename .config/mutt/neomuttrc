@@ -47,6 +47,10 @@ set sort=threads
 set sort_browser=reverse-date
 set sort_aux=reverse-last-date-received
 
+# Auto View Options ---------------------------------
+auto_view text/html
+alternative_order text/plain text/enriched text/html
+
 # Header Options -------------------------------------
 ignore *                                # ignore all headers
 unignore date: from: to: cc: subject:   # show only these
