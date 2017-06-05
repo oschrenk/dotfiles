@@ -34,7 +34,7 @@ set imap_keepalive   = 30
 unset imap_passive   
 
 # Automatically poll subscribed mailboxes for new mail (new in 1.5.11)
- set imap_check_subscribed
+set imap_check_subscribed
 
 # Compose View Options -------------------------------
 set realname = "Oliver Schrenk"
@@ -59,3 +59,11 @@ alternative_order text/plain text/enriched text/html
 ignore *                                # ignore all headers
 unignore date: from: to: cc: subject:   # show only these
 hdr_order date: from: to: cc: subject:  # and in this order
+
+# Index Key Bindings ---------------------------------
+bind index,pager g noop          # unbind default alias first
+bind index gg       first-entry
+bind index G        last-entry
+
+bind index <tab>    sync-mailbox
+bind index <space>  collapse-thread
