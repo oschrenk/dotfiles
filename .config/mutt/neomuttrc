@@ -81,6 +81,11 @@ bind index,pager g noop          # unbind default alias first
 bind index gg       first-entry
 bind index G        last-entry
 
+# Postpone message
+bind index,compose p noop          # unbind default alias first
+bind compose p postpone-message
+bind index p recall-message
+
 bind index <tab>    sync-mailbox
 bind index <space>  collapse-thread
 
