@@ -1,0 +1,50 @@
+# vim: ft=muttrc
+
+# Paths ----------------------------------------------
+set header_cache     = ~/.config/mutt/cache/headers
+set message_cachedir = ~/.config/mutt/cache/bodies
+set certificate_file = ~/.config/mutt/certificates
+
+# Account -------------------------------------------
+set imap_user = "oliver.schrenk@gmail.com"
+set imap_pass = `security find-generic-password -w -s mutt -a "oliver.schrenk@gmail.com"`
+set folder    = "imaps://imap.gmail.com"
+# If you're using google apps put your full email address in the smtp url
+set smtp_url  = "smtp://oliver.schrenk@smtp.gmail.com:587/"
+
+# Folders -------------------------------------------
+set spoolfile = "imaps://imap.gmail.com:993/INBOX"
+set postponed = "+[Gmail]/Drafts"
+unset move           # don't move read messages to read, Gmail does that already
+unset record         # don't move sent message to sent, Gmail does that already
+
+# Network -------------------------------------------
+# always use SSL when connecting to a server
+ set ssl_force_tls=yes
+
+# Keep IMAP connection alive by polling intermittently (time in seconds).
+# default 900
+set imap_keepalive   = 30 
+
+# allow mutt to open new imap connection automatically
+unset imap_passive   
+
+# Automatically poll subscribed mailboxes for new mail (new in 1.5.11)
+ set imap_check_subscribed
+
+# Compose View Options -------------------------------
+set realname = "Oliver Schrenk"
+
+# Send Options ---------------------------------------
+set from = "oliver.schrenk@gmail.com"
+
+# Index View Options ---------------------------------
+set date_format = "!%Y-%m-%d %H:%M %Z"
+set sort=threads
+set sort_browser=reverse-date
+set sort_aux=reverse-last-date-received
+
+# Header Options -------------------------------------
+ignore *                                # ignore all headers
+unignore date: from: to: cc: subject:   # show only these
+hdr_order date: from: to: cc: subject:  # and in this order
