@@ -15,6 +15,8 @@ set imap_pass = `security find-generic-password -w -s mutt -a "oliver.schrenk@gm
 set folder    = "imaps://imap.gmail.com"
 # If you're using google apps put your full email address in the smtp url
 set smtp_url  = "smtp://oliver.schrenk@smtp.gmail.com:587/"
+mailboxes +INBOX \
+          +[Gmail]/2017 \
 
 # Folders -------------------------------------------
 set spoolfile = "imaps://imap.gmail.com:993/INBOX"
@@ -32,9 +34,6 @@ set imap_keepalive   = 30
 
 # allow mutt to open new imap connection automatically
 unset imap_passive   
-
-# Automatically poll subscribed mailboxes for new mail (new in 1.5.11)
-set imap_check_subscribed
 
 # Compose View Options -------------------------------
 set realname = "Oliver Schrenk"
