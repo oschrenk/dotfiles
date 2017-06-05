@@ -96,4 +96,5 @@ bind pager <down>   next-line
 # Sidebar Navigation ---------------------------------
 bind index,pager \CP sidebar-prev
 bind index,pager \CN sidebar-next
-bind index,pager \CO sidebar-open
+bind index,pager <right> sidebar-open # ctrl o is not working for some reason
+
