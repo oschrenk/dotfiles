@@ -50,6 +50,8 @@ set sort_aux=reverse-last-date-received
 
 # Pager View Options ---------------------------------
 unset markers              # no ugly plus signs
+set pager_index_lines = 6  # number of index lines to show
+set pager_context = 3      # number of context lines to show
 
 # Auto View Options ---------------------------------
 auto_view text/html
