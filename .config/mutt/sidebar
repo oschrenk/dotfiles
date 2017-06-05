@@ -1,0 +1,29 @@
+# vim: ft=muttrc
+
+# show sidebar
+set sidebar_visible
+
+# TODO what does this do?
+set mail_check_stats
+
+# %B Name of the mailbox
+# %S Size of mailbox (total number of messages) †* 
+# %F	* †	Number of Flagged messages in the mailbox
+# %N	* †	Number of New messages in the mailbox
+# %n	*	If there's new mail, display “ N”, otherwise nothing
+# %!	 	“ !”: one flagged message; “ !!”: two flagged messages; “ n!”: n flagged messages (for n > 2). Otherwise prints nothing.
+# %d	* ‡	Number of deleted messages
+# %L	* ‡	Number of messages after limiting
+# %t	* ‡	Number of tagged messages
+# %>X	 	Right justify the rest of the string and pad with “ X”
+# %|X	 	Pad to the end of the line with “ X”
+# %*X	 	Soft-fill with character “ X”as pad
+# 
+#* = Can be optionally printed if nonzero
+#
+# † = To use this expandos, you must first:
+# set mail_check_stats
+# ‡ = Only applicable to the current folder
+#
+# default value is: %B%* %n 
+set sidebar_format = "%B%* %n"
