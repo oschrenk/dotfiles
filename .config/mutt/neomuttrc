@@ -48,6 +48,9 @@ set sort=threads
 set sort_browser=reverse-date
 set sort_aux=reverse-last-date-received
 
+# Pager View Options ---------------------------------
+unset markers              # no ugly plus signs
+
 # Auto View Options ---------------------------------
 auto_view text/html
 alternative_order text/plain text/enriched text/html
