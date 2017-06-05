@@ -17,6 +17,8 @@ set imap_pass = `security find-generic-password -w -s mutt -a "oliver.schrenk@gm
 set folder    = "imaps://imap.gmail.com"
 # If you're using google apps put your full email address in the smtp url
 set smtp_url  = "smtp://oliver.schrenk@smtp.gmail.com:587/"
+set smtp_pass  = `security find-generic-password -w -s mutt -a "oliver.schrenk@gmail.com"`
+set smtp_authenticators = 'gssapi:login'
 mailboxes +INBOX \
           +[Gmail]/2017 \
           +[Gmail]/Drafts
