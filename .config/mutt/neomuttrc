@@ -67,6 +67,11 @@ ignore *                                # ignore all headers
 unignore date: from: to: cc: subject:   # show only these
 hdr_order date: from: to: cc: subject:  # and in this order
 
+# Contacts ------------------------------------------
+set query_command = "contacts '%s' 2> /dev/null"
+bind editor <Tab> complete-query
+bind editor ^T    complete
+
 # Key Bindings ---------------------------------
 bind index,pager g noop          # unbind default alias first
 bind index gg       first-entry
