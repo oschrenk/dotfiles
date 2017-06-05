@@ -7,7 +7,7 @@ set certificate_file = ~/.config/mutt/certificates
 set mailcap_path = ~/.config/mutt/mailcap
 
 # Colors ---------------------------------------------
-source "~/.config/mutt/colors/gruvbox-256"
+source "~/.config/mutt/colors
 
 # Account -------------------------------------------
 set imap_user = "oliver.schrenk@gmail.com"

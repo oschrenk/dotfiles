@@ -1,0 +1,32 @@
+# vim: filetype=muttrc
+#
+# basic colors ---------------------------------------------------------
+color normal        white       default
+color error         default     default # error messages
+color message       white       default  # informational messages
+color markers       red         default  # indicate a wrapped line hen showing messages with looong lines
+color search        white       default  # search matches found with search within the internal pager
+color status        white       default  # status lines in the folder index sed for the mini-help line
+color indicator     default     default  # indicator for the "current message"
+color tree          red         default  # arrow in threads
+
+# index ----------------------------------------------------------------
+
+color index         yellow      default  '~O'  # old messages
+color index         brightgreen default  '~N'  # new messages
+color index         brightred   default  '~F'  # flagged messages
+color index         blue        default  '~D'  # deleted Mails
+
+# message headers ------------------------------------------------------
+
+color hdrdefault    default     default
+color header        cyan        default        "^(From)"
+color header        cyan        default        "^(Subject)"
+
+# body -----------------------------------------------------------------
+
+color quoted        green       default
+color quoted1       cyan        default
+color quoted2       green       default
+color quoted3       cyan        default
+color quoted4       green       default
