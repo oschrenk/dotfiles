@@ -19,6 +19,7 @@ set folder    = "imaps://imap.gmail.com"
 set smtp_url  = "smtp://oliver.schrenk@smtp.gmail.com:587/"
 mailboxes +INBOX \
           +[Gmail]/2017 \
+          +[Gmail]/Drafts
 
 # Folders -------------------------------------------
 set spoolfile = "imaps://imap.gmail.com:993/INBOX"
