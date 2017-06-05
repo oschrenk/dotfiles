@@ -98,3 +98,5 @@ bind index,pager \CP sidebar-prev
 bind index,pager \CN sidebar-next
 bind index,pager <right> sidebar-open # ctrl o is not working for some reason
 
+# Macros ---------------------------------------------
+macro pager \Cu "|urlview<enter>" "call urlview to open links"
