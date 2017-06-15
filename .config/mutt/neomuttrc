@@ -51,7 +51,7 @@ set realname = "Oliver Schrenk"
 set from = "oliver.schrenk@gmail.com"
 
 # Index View Options ---------------------------------
-set date_format = "!%Y-%m-%d %H:%M"
+set date_format = "!%m-%d %H:%M"
 set index_format = "%Z | %D  %-20.20F  %s"
 set sort=threads
 set sort_browser=reverse-date
