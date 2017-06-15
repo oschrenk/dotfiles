@@ -5,29 +5,64 @@
         "show_profile_name_in_menu_bar": false
     },
     "profiles": [
-        {
-            "name": "Default profile",
-            "devices": [],
-            "selected": true,
-            "simple_modifications": {
-                "caps_lock": "left_control"
-            },
-            "standalone_keys": {
-                "caps_lock": "escape"
-            },
-            "one_to_many_mappings": {
-              "left_control": [
-                "left_control",
-                "left_shift",
-                "left_option",
-                "left_command"
+      {
+        "complex_modifications": {
+          "rules": [
+            {
+              "manipulators": [
+                {
+                  "description": "Change control to hyper",
+                  "type": "basic",
+                  "from": {
+                    "key_code": "left_control",
+                    "modifiers": {
+                      "optional": [
+                        "any"
+                      ]
+                    }
+                  },
+                  "to": [
+                    {
+                      "key_code": "left_control",
+                      "modifiers": [
+                        "left_command",
+                        "left_option",
+                        "left_shift"
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "description": "Change caps lock to control/escape",
+                  "type": "basic",
+                  "from": {
+                    "key_code": "caps_lock",
+                    "modifiers": {
+                      "optional": [
+                        "any"
+                      ]
+                    }
+                  },
+                  "to": [
+                    {
+                      "key_code": "left_control",
+                      "modifiers": [
+                      ]
+                    }
+                  ],
+                  "to_if_alone": [
+                    {
+                      "key_code": "escape"
+                    }
+                  ]
+                }
               ]
-            },
-            "virtual_hid_keyboard": {
-                "caps_lock_delay_milliseconds": 250,
-                "keyboard_type": "ansi",
-                "standalone_keys_delay_milliseconds": 250
             }
-        }
+          ]
+        },
+        "name": "Profile",
+        "selected": true
+      }
     ]
 }
+
