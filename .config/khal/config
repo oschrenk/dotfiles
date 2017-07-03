@@ -5,6 +5,9 @@
   [[work]]
     path = ~/.calendars/28ipna82i9boqusr32mthv0s8g@group.calendar.google.com
     color = dark magenta
+  [[plan]]
+    path = ~/.calendars/6de5m8bfd4v1q79l0q39vjtag8@group.calendar.google.com
+    color = light blue
 
 [locale]
   local_timezone = Europe/Amsterdam
