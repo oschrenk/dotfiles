@@ -18,10 +18,24 @@ type = "filesystem"
 path = "~/.calendars/"
 fileext = ".ics"
 
+# Go to https://console.developers.google.com and create a new project under any name.
+# Within that project, enable the “CalDAV” and “CardDAV” APIs. Not the Calendar and 
+# Contacts APIs, those are different and won’t work. There should be a searchbox where
+# you can just enter those terms. In the sidebar, select “Credentials” and create a 
+# new “OAuth Client ID”. The application type is “Other”. You’ll be prompted to create
+# a OAuth consent screen first. Fill out that form however you like. Finally you should have a Client ID and a Client secret. Provide these in your storage config.
+
+# After you created the credentials it might take Google a minute or two to percolate
+# credentials until you are able to authorize 
+
+
+# You need to configure which calendars Google should offer vdirsyncer using a rather
+# hidden settings page at https://calendar.google.com/calendar/syncselect
+
 [storage cal_remote]
-type = "caldav"
-url = "https://caldav.icloud.com/"
-username = "oliver.schrenk@gmx.net"
-# if you use 2-FA you need to generate a app-specific password
-password.fetch = ["command", "/usr/local/bin/keyring", "get", "icloud.com", "oliver.schrenk@gmx.net"]
+type = "google_calendar"
+token_file ="~/.config/vdirsyncer/gmail_token.swp"
+client_id.fetch = ["command", "/usr/local/bin/keyring", "get", "caldav.gmail.com", "client_id"]
+client_secret.fetch = ["command", "/usr/local/bin/keyring", "get", "caldav.gmail.com", "client_secret"]
+read_only=true
 
