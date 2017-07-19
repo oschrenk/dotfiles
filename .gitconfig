@@ -208,13 +208,22 @@
   # rebase might result in non-trivial conflicts.
   autoStash = true
 
+[color]
+  ui = true
+
 [color "diff"]
-  meta = yellow bold
-  commit = green bold
+  meta = 227
+  commit = 227 bold
   frag = magenta bold
   old = red bold
   new = green bold
   whitespace = red reverse
+
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 
 [include]
   path = ~/.gitconfig_user
