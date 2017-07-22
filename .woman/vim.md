@@ -1,4 +1,6 @@
-- Upgrade vim: `vim +PlugUpgrade +PlugClean! +PlugUpdate`
+Upgrade plugins: `nvim +PlugUpgrade +PlugClean! +PlugUpdate`
+
+Text objects
 
 - `ih` for change-hunk text object
 - `al/il` for current line
@@ -7,6 +9,10 @@
 - `au/iu` for url
 - `ae/ie` for entire buffer
 - `ib/ab` for Quotes, Parenthesis and braces
+
+Surround
+
+- `ysiw"` yank-surround text object char
 
 Visualize tabs
 
