@@ -28,6 +28,9 @@ set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
 set -x SCALA_HOME /usr/local/opt/scala/
 set -x SBT_OPTS "-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled"
 
+# Python
+prepend-to-path /usr/local/opt/python/libexec/bin
+
 # Latex
 append-to-path /Library/TeX/texbin
 
