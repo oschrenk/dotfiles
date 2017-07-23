@@ -16,11 +16,13 @@ alias l    'cd $HOME/Documents/Log'
 # Applications
 alias a    'ag'
 alias be   'bundle exec'
-alias chrome 'open /Applications/Google\ Chrome.app/ --args --allow-file-access-from-files --remote-debugging-port=9222'
 alias c    clear
 alias e    nvim
 alias g    git
 alias s    spotifish
+
+alias chrome 'open /Applications/Google\ Chrome.app/ --args --allow-file-access-from-files --remote-debugging-port=9222'
+alias ios 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
 
 # tmux sessions
 alias tk   'tmux kill-session -t'
