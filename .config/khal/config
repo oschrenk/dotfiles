@@ -24,7 +24,7 @@
 
 [default]
   highlight_event_days = True
-  timedelta = 7d
+  timedelta = 3d
   default_calendar = home
 
 [view]
