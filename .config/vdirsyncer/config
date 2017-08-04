@@ -1,6 +1,6 @@
 [general]
 # A folder where vdirsyncer can store some metadata
-status_path = "~/.vdirsyncer/status/"
+status_path = "~/.config/vdirsyncer/status/"
 
 # CALDAV
 [pair calendars]
