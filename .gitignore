@@ -26,3 +26,4 @@ configstore/
 cache
 certificates
 .config/vdirsyncer/status/
+.atom/github.cson
