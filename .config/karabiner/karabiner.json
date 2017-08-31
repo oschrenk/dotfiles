@@ -76,7 +76,7 @@
           "simple_modifications": {}
         },
         {
-          "disable_built_in_keyboard_if_exists": false,
+          "disable_built_in_keyboard_if_exists": true,
           "fn_function_keys": {},
           "identifiers": {
             "is_keyboard": true,
@@ -84,13 +84,27 @@
             "product_id": 0,
             "vendor_id": 13
           },
-          "ignore": true,
+          "ignore": false,
           "simple_modifications": {
             "left_command": "left_option",
             "left_option": "left_command"
           }
         }
       ],
+      "fn_function_keys": {
+        "f1": "display_brightness_decrement",
+        "f10": "mute",
+        "f11": "volume_decrement",
+        "f12": "volume_increment",
+        "f2": "display_brightness_increment",
+        "f3": "mission_control",
+        "f4": "launchpad",
+        "f5": "illumination_decrement",
+        "f6": "illumination_increment",
+        "f7": "rewind",
+        "f8": "play_or_pause",
+        "f9": "fastforward"
+      },
       "name": "Profile",
       "selected": true,
       "simple_modifications": {},
