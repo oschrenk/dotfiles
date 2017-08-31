@@ -1,68 +1,103 @@
 {
-    "global": {
-        "check_for_updates_on_startup": true,
-        "show_in_menu_bar": true,
-        "show_profile_name_in_menu_bar": false
-    },
-    "profiles": [
-      {
-        "complex_modifications": {
-          "rules": [
-            {
-              "manipulators": [
-                {
-                  "description": "Change control to hyper",
-                  "type": "basic",
-                  "from": {
-                    "key_code": "left_control",
-                    "modifiers": {
-                      "optional": [
-                        "any"
-                      ]
-                    }
-                  },
-                  "to": [
-                    {
-                      "key_code": "left_control",
-                      "modifiers": [
-                        "left_command",
-                        "left_option",
-                        "left_shift"
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "description": "Change caps lock to control/escape",
-                  "type": "basic",
-                  "from": {
-                    "key_code": "caps_lock",
-                    "modifiers": {
-                      "optional": [
-                        "any"
-                      ]
-                    }
-                  },
-                  "to": [
-                    {
-                      "key_code": "left_control",
-                      "modifiers": [
-                      ]
-                    }
-                  ],
-                  "to_if_alone": [
-                    {
-                      "key_code": "escape"
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
+  "global": {
+    "check_for_updates_on_startup": true,
+    "show_in_menu_bar": true,
+    "show_profile_name_in_menu_bar": false
+  },
+  "profiles": [
+    {
+      "complex_modifications": {
+        "parameters": {
+          "basic.to_if_alone_timeout_milliseconds": 1000
         },
-        "name": "Profile",
-        "selected": true
+        "rules": [
+          {
+            "manipulators": [
+              {
+                "description": "Change control to hyper",
+                "from": {
+                  "key_code": "left_control",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_control",
+                    "modifiers": [
+                      "left_command",
+                      "left_option",
+                      "left_shift"
+                    ]
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "description": "Change caps lock to control/escape",
+                "from": {
+                  "key_code": "caps_lock",
+                  "modifiers": {
+                    "optional": [
+                      "any"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "key_code": "left_control",
+                    "modifiers": []
+                  }
+                ],
+                "to_if_alone": [
+                  {
+                    "key_code": "escape"
+                  }
+                ],
+                "type": "basic"
+              }
+            ]
+          }
+        ]
+      },
+      "devices": [
+        {
+          "disable_built_in_keyboard_if_exists": false,
+          "fn_function_keys": {},
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": false,
+            "product_id": 611,
+            "vendor_id": 1452
+          },
+          "ignore": false,
+          "simple_modifications": {}
+        },
+        {
+          "disable_built_in_keyboard_if_exists": false,
+          "fn_function_keys": {},
+          "identifiers": {
+            "is_keyboard": true,
+            "is_pointing_device": true,
+            "product_id": 0,
+            "vendor_id": 13
+          },
+          "ignore": true,
+          "simple_modifications": {
+            "left_command": "left_option",
+            "left_option": "left_command"
+          }
+        }
+      ],
+      "name": "Profile",
+      "selected": true,
+      "simple_modifications": {},
+      "virtual_hid_keyboard": {
+        "caps_lock_delay_milliseconds": 0,
+        "keyboard_type": "ansi"
       }
-    ]
+    }
+  ]
 }
-
