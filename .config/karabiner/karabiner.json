@@ -80,7 +80,7 @@
           "fn_function_keys": {},
           "identifiers": {
             "is_keyboard": true,
-            "is_pointing_device": true,
+            "is_pointing_device": false,
             "product_id": 0,
             "vendor_id": 13
           },
