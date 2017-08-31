@@ -995,7 +995,7 @@
 	gAKACoAN0xAJChEVGVdOUy5rZXlzoxITFIADgASABaMWFxiABoAHgAiACVpJZGVudGlm
 	aWVyVVdpZHRoVkhpZGRlblEwI0BowAAAAAAACNIhIiMkWiRjbGFzc25hbWVYJGNsYXNz
 	ZXNcTlNEaWN0aW9uYXJ5oiMlWE5TT2JqZWN00xAJCicrGaMSExSAA4AEgAWjLC0YgAuA
-	DIAIgAlRMSNAdCAAAAAAANIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
+	DIAIgAlRMSNAc7AAAAAAANIhIjM0Xk5TTXV0YWJsZUFycmF5ozM1JVdOU0FycmF5XxAP
 	TlNLZXllZEFyY2hpdmVy0Tg5VUFycmF5gAEACAARABoAIwAtADIANwBGAEwAUQBcAGMA
 	ZgBoAGoAbABzAHsAfwCBAIMAhQCJAIsAjQCPAJEAnACiAKkAqwC0ALUAugDFAM4A2wDe
 	AOcA7gDyAPQA9gD4APwA/gEAAQIBBAEGAQ8BFAEjAScBLwFBAUQBSgAAAAAAAAIBAAAA
@@ -1017,13 +1017,15 @@
 		<integer>1</integer>
 	</dict>
 	<key>NSWindow Frame NSFontPanel</key>
-	<string>204 447 750 173 0 0 1440 900 </string>
+	<string>204 392 750 94 0 0 1440 900 </string>
 	<key>NSWindow Frame Preferences</key>
 	<string>243 429 606 456 0 0 1440 900 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>410 382 620 392 0 0 1440 900 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>269 126 606 469 0 0 1440 900 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>257 311 1018 447 0 0 1440 900 </string>
+	<string>257 299 918 485 0 0 1440 900 </string>
 	<key>NSWindow Frame UKCrashReporter</key>
 	<string>76 137 592 584 0 0 1440 900 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
@@ -1034,6 +1036,8 @@
 	<array>
 		<dict>
 			<key>ASCII Anti Aliased</key>
+			<true/>
+			<key>ASCII Ligatures</key>
 			<true/>
 			<key>AWDS Pane Directory</key>
 			<string></string>
@@ -1648,11 +1652,13 @@
 			<key>Name</key>
 			<string>Default</string>
 			<key>Non Ascii Font</key>
-			<string>mplusForPowerline-1mn-light 14</string>
+			<string>mplusForPowerline-1mn-light 18</string>
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
+			<key>Non-ASCII Ligatures</key>
+			<true/>
 			<key>Normal Font</key>
-			<string>mplusForPowerline-1mn-light 14</string>
+			<string>mplusForPowerline-1mn-light 18</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1822,7 +1828,7 @@
 			<key>Use Bold Font</key>
 			<true/>
 			<key>Use Bright Bold</key>
-			<false/>
+			<true/>
 			<key>Use Canonical Parser</key>
 			<false/>
 			<key>Use Italic Font</key>
@@ -1937,7 +1943,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-03-07T11:51:34Z</date>
+	<date>2017-08-30T12:21:03Z</date>
 	<key>SUSkippedVersion</key>
 	<string>3.1.20170305-nightly</string>
 	<key>SavePasteHistory</key>
@@ -1989,7 +1995,7 @@
 	<key>findMode_iTerm</key>
 	<integer>0</integer>
 	<key>iTerm Version</key>
-	<string>3.1.20170226-nightly</string>
+	<string>3.1.20170727-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
