@@ -1877,6 +1877,8 @@
 		<string>0003</string>
 		<string>0004</string>
 	</array>
+	<key>NoSyncTurnOffBracketedPasteOnHostChange</key>
+	<true/>
 	<key>OnlyWhenMoreTabs</key>
 	<true/>
 	<key>OpenArrangementAtStartup</key>
@@ -1885,6 +1887,8 @@
 	<false/>
 	<key>OpenTmuxWindowsIn</key>
 	<integer>1</integer>
+	<key>PMPrintingExpandedStateForPrint2</key>
+	<false/>
 	<key>PassOnControlClick</key>
 	<false/>
 	<key>PasteFromClipboard</key>
@@ -1926,6 +1930,8 @@
 	</dict>
 	<key>PrefsCustomFolder</key>
 	<string>/Users/oliver/.deja/dotfiles/.config/iterm2</string>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>QuitWhenAllWindowsClosed</key>
@@ -1943,7 +1949,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2017-08-30T12:21:03Z</date>
+	<date>2017-08-31T18:32:19Z</date>
 	<key>SUSkippedVersion</key>
 	<string>3.1.20170305-nightly</string>
 	<key>SavePasteHistory</key>
