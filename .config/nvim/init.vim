@@ -313,8 +313,14 @@ au FileType markdown vmap <Leader><Bslash> :EasyAlign*<Bar><Enter>
 " ---------------------------
 " fzf
 " ---------------------------
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
 
-nnoremap <silent> <leader>/ :execute 'Ag ' . input('Ag/')<CR>
+nnoremap <silent> <leader>/ :execute 'Rg ' . input('Rg/')<CR>
 noremap <Leader>f :GFiles<CR>
 noremap <Leader>F :Files<CR>
 noremap <Leader>t :Tags<CR>
