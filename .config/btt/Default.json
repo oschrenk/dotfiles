@@ -58,6 +58,9 @@
           "BTTTriggerType" : 633,
           "BTTTriggerTypeDescription" : "Date \/ Time Widget",
           "BTTTriggerClass" : "BTTTriggerTypeTouchBar",
+          "BTTPredefinedActionType" : 49,
+          "BTTPredefinedActionName" : "Open Application \/ File \/ Apple Script …",
+          "BTTLaunchPath" : "file:\/\/\/Applications\/Calendar.app",
           "BTTEnabled" : 1,
           "BTTOrder" : 1,
           "BTTTriggerConfig" : {
