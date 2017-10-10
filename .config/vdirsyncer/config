@@ -32,6 +32,13 @@ fileext = ".ics"
 # You need to configure which calendars Google should offer vdirsyncer using a rather
 # hidden settings page at https://calendar.google.com/calendar/syncselect
 
+# To store the client id and secret in the keychain use `keyring`
+# keyring set caldav.gmail.com client_id
+# keyring set caldav.gmail.com client_secret
+
+# On first connection you will redirected to a Sign in page offering
+# you a code. Paste it into the terminal when asked.
+ 
 [storage cal_remote]
 type = "google_calendar"
 token_file ="~/.config/vdirsyncer/gmail_token.swp"
