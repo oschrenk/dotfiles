@@ -34,29 +34,30 @@
 # `duti -l <uti>` to display all handlers for uti
 
 # bundle id				UTI/ext/MIME type	role
-cx.c3.theunarchiver		.7z					all
-cx.c3.theunarchiver		.cab				all
-cx.c3.theunarchiver		.gtar				all
-cx.c3.theunarchiver		.gz					all
-cx.c3.theunarchiver		.hqx				all
-cx.c3.theunarchiver		.jar				all
-cx.c3.theunarchiver		.msi				all
-cx.c3.theunarchiver		.rar				all
-cx.c3.theunarchiver		.sit				all
-cx.c3.theunarchiver		.sit				all
-cx.c3.theunarchiver		.tar				all
-cx.c3.theunarchiver		.tar.gz				all
-cx.c3.theunarchiver		.tgz				all
-cx.c3.theunarchiver		.zip				all
+cx.c3.theunarchiver		7z				all
+cx.c3.theunarchiver		cab				all
+cx.c3.theunarchiver		gtar			all
+cx.c3.theunarchiver		gz				all
+cx.c3.theunarchiver		hqx				all
+cx.c3.theunarchiver		jar				all
+cx.c3.theunarchiver		msi				all
+cx.c3.theunarchiver		rar				all
+cx.c3.theunarchiver		sit				all
+cx.c3.theunarchiver		sit				all
+cx.c3.theunarchiver		tar				all
+cx.c3.theunarchiver		tar.gz		all
+cx.c3.theunarchiver		tgz				all
+cx.c3.theunarchiver		zip				all
 
-org.m0k.transmission	.torrent			all
+org.m0k.transmission	torrent			all
 
 # org.niltsh.MPlayerX
-io.mpv 	.avi 				all
-io.mpv 	.mkv 				all
-io.mpv 	.mp4 				all
+org.niltsh.MPlayerX 	avi 				all
+org.niltsh.MPlayerX 	mkv 				all
+org.niltsh.MPlayerX 	mp4 				all
 
 # bundle id				URL scheme
 com.reederapp.mac		feed
 
 # Last line must be blank
+
