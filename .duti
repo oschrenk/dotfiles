@@ -56,6 +56,11 @@ org.niltsh.MPlayerX 	avi 				all
 org.niltsh.MPlayerX 	mkv 				all
 org.niltsh.MPlayerX 	mp4 				all
 
+
+com.coppertino.Vox    flac       viewer
+com.coppertino.Vox    cue        viewer
+
+
 # bundle id				URL scheme
 com.reederapp.mac		feed
 
