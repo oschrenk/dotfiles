@@ -10,12 +10,6 @@
       },
       "BTTTriggers" : [
         {
-          "BTTTriggerType" : 629,
-          "BTTTriggerClass" : "BTTTriggerTypeTouchBar",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 9
-        },
-        {
           "BTTTouchBarButtonName" : "Apps",
           "BTTTriggerType" : 630,
           "BTTTriggerClass" : "BTTTriggerTypeTouchBar",
