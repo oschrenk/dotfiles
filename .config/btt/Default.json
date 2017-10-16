@@ -195,25 +195,6 @@
           }
         },
         {
-          "BTTWidgetWidth" : "400",
-          "BTTTriggerType" : 632,
-          "BTTTriggerTypeDescription" : "Remaining Battery Time Widget",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchBar",
-          "BTTEnabled" : 1,
-          "BTTOrder" : 7,
-          "BTTTriggerConfig" : {
-            "BTTTouchBarItemIconHeight" : 22,
-            "BTTTouchBarItemIconWidth" : 22,
-            "BTTTouchBarItemPlacement" : 2,
-            "BTTTouchBarItemPadding" : 0,
-            "BTTTouchBarFreeSpaceAfterButton" : "0.000000",
-            "BTTTouchBarShowRemainingBatteryTime" : 1,
-            "BTTTouchBarButtonColor" : "0.000000, 0.000000, 0.000000, 255.000000",
-            "BTTTouchBarAlwaysShowButton" : "0",
-            "BTTTouchBarAlternateBackgroundColor" : "0.000000, 0.000000, 0.000000, 0.000000"
-          }
-        },
-        {
           "BTTWidgetName" : "Git Status",
           "BTTTriggerType" : 639,
           "BTTTriggerTypeDescription" : "Apple Script Widget",
