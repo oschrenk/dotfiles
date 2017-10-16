@@ -294,7 +294,7 @@
             "BTTTouchBarItemIconHeight" : 22,
             "BTTTouchBarItemIconWidth" : 22,
             "BTTTouchBarItemPlacement" : 1,
-            "BTTTouchBarItemPadding" : 0,
+            "BTTTouchBarItemPadding" : 30,
             "BTTTouchBarFreeSpaceAfterButton" : "0.000000",
             "BTTTouchBarButtonColor" : "58.650001, 58.650001, 58.650001, 255.000000",
             "BTTTouchBarAlwaysShowButton" : "0",
