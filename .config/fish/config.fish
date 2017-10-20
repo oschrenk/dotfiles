@@ -1,7 +1,8 @@
-. ~/.config/fish/aliases.fish
+# source aliases
+source ~/.config/fish/aliases.fish
 
 if status --is-login
-    . ~/.config/fish/env.fish
+    source ~/.config/fish/env.fish
 end
 
 # local configurations
