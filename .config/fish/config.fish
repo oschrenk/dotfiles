@@ -1,5 +1,7 @@
 # source aliases
-source ~/.config/fish/aliases.fish
+if test -r ~/.config/fish/aliases.fish
+  source ~/.config/fish/aliases.fish
+end
 
 if status --is-login
     source ~/.config/fish/env.fish
