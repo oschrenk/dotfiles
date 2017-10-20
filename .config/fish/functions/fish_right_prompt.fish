@@ -8,16 +8,13 @@ function __bobthefish_cmd_duration -S -d 'Show command duration'
   if [ "$CMD_DURATION" -lt 5000 ]
     echo -ns $CMD_DURATION 'ms'
   else if [ "$CMD_DURATION" -lt 60000 ]
-    math "scale=1;$CMD_DURATION/1000" | string replace -r '\\.0$' ''
-    echo -n 's'
+    __bobthefish_pretty_ms $CMD_DURATION s
   else if [ "$CMD_DURATION" -lt 3600000 ]
     set_color $fish_color_error
-    math "scale=1;$CMD_DURATION/60000" | string replace -r '\\.0$' ''
-    echo -n 'm'
+    __bobthefish_pretty_ms $CMD_DURATION m
   else
     set_color $fish_color_error
-    math "scale=2;$CMD_DURATION/3600000" | string replace -r '\\.0$' ''
-    echo -n 'h'
+    __bobthefish_pretty_ms $CMD_DURATION h
   end
 
   set_color $fish_color_normal
@@ -25,6 +22,29 @@ function __bobthefish_cmd_duration -S -d 'Show command duration'
 
   [ "$theme_display_date" = "no" ]
     or echo -ns ' ' $__bobthefish_left_arrow_glyph
+end
+
+function __bobthefish_pretty_ms -S -a ms interval -d 'Millisecond formatting for humans'
+  set -l interval_ms
+  set -l scale 1
+
+  switch $interval
+    case s
+      set interval_ms 1000
+    case m
+      set interval_ms 60000
+    case h
+      set interval_ms 3600000
+      set scale 2
+  end
+
+  switch $FISH_VERSION
+    # Fish 2.3 and lower doesn't know about the -s argument to math.
+    case 2.0.\* 2.1.\* 2.2.\* 2.3.\*
+      math "scale=$scale;$ms/$interval_ms" | string replace -r '\\.?0*$' $interval
+    case \*
+      math -s$scale "$ms/$interval_ms" | string replace -r '\\.?0*$' $interval
+  end
 end
 
 function __bobthefish_timestamp -S -d 'Show the current timestamp'
