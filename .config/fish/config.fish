@@ -17,7 +17,6 @@ function fish_mode_prompt
 end function
 
 # vi mode, start in insert mode
-fish_vi_key_bindings
 set -g __fish_vi_mode 1
 
 # enable vi_mode in bob the fish theme
