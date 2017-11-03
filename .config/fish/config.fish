@@ -16,15 +16,8 @@ end
 function fish_mode_prompt
 end function
 
-# vi mode, start in insert mode
-set -g __fish_vi_mode 1
-
-# enable vi_mode in bob the fish theme
-set -g theme_display_vi yes
-
 # Enable direnv
 eval (direnv hook fish)
-
 
 #               light  medium dark
 #               ------ ------ ------
