@@ -56,10 +56,6 @@ set __color_vi_mode_default          $blue[2] $blue[3] --bold
 set __color_vi_mode_insert           $green[2] $grey[3] --bold
 set __color_vi_mode_visual           $orange[1] $orange[3] --bold
 
-# set __color_vi_mode_default          $grey[2] $grey[3] --bold
-# set __color_vi_mode_insert           $green[2] $grey[3] --bold
-# set __color_vi_mode_visual           $orange[1] $orange[3] --bold
-
 set __color_vagrant                  $blue[1] $white --bold
 set __color_username                 $grey[1] $blue[3]
 set __color_rvm                      $ruby_red $grey[1] --bold
