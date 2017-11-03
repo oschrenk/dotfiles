@@ -12,10 +12,6 @@ if test -r ~/.config/fish/local.fish
   source ~/.config/fish/local.fish
 end
 
-# Disable default theme
-function fish_mode_prompt
-end function
-
 # Enable direnv
 eval (direnv hook fish)
 
