@@ -24,7 +24,7 @@ prepend-to-path $GOPATH/bin
 prepend-to-path $HOME/.rbenv/shims
 
 # JVM
-set -x JAVA_HOME (/usr/libexec/java_home -v 1.8)
+set -x JAVA_HOME (/usr/libexec/java_home -v 9)
 set -x SCALA_HOME /usr/local/opt/scala/
 set -x SBT_OPTS "-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled"
 
