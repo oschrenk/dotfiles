@@ -516,7 +516,6 @@ hs.hotkey.bind(hyper, 'f', function() hs.window.focusedWindow():toggleFullScreen
 hs.hotkey.bind(hyper, "q", send_window_to_prev_monitor)
 hs.hotkey.bind(hyper, "e", send_window_to_next_monitor)
 
-hs.hotkey.bind(hyper, "p", play)
 hs.hotkey.bind(hyper, "h", connectHeadphones)
 
 hs.hotkey.bind(hyper, "c", closeNotifications)
