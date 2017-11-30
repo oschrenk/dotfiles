@@ -4,7 +4,7 @@
 
 -- Network
 local wifiWatcher = nil
-local workSSIDToken = "Vandebron"
+local workSSIDToken = "RELX_Guest"
 local homeSSIDToken = "SitecomC4934C"
 local lastSSID = hs.wifi.currentNetwork()
 local homeLocation = "Home"
