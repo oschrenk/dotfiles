@@ -262,6 +262,9 @@ on connectHeadphones()
 end connectHeadphones ]]
 
 function connectHeadphones()
+  if (not bluetoothEnabled()) then
+    enableBluetooth()
+  end
   ok, result = hs.applescript(bluetoothScript)
 end
 
