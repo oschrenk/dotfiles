@@ -12,8 +12,8 @@ local workLocation = "Work"
 
 -- Fast User Switching
 -- `id -u` to find curent id
-local personalUserId = "502"
-local workUserId     = "505"
+local personalUserId = "501"
+local workUserId     = "502"
 
 -- hotkey hyper
 local hyper = {"ctrl", "alt", "shift", "cmd"}
