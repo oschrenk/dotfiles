@@ -122,7 +122,7 @@
                 "BTTTouchBarFreeSpaceAfterButton" : "5.000000",
                 "BTTTouchBarButtonColor" : "0.000000, 0.000000, 0.000000, 255.000000",
                 "BTTTouchBarAlwaysShowButton" : "0",
-                "BTTTouchBarAppleScriptString" : "tell application \"Spotify\"\r\tset tM to round (((duration of current track) \/ 1000) \/ 60) rounding down\r\tset tS to round (((duration of current track) \/ 1000) mod 60) rounding down\r\t\r\tset myTime to ((tM as text) & \":\" & tS as text)\r\tset myTrack to name of current track\r\tset myArtist to artist of current track\r\t\r\tset myInfo to (myTrack & \" by \" & myArtist)\r\treturn myInfo\rend tell",
+                "BTTTouchBarAppleScriptString" : "if application \"Spotify\" is running then\r\ttell application \"Spotify\"\r\t\tif player state = playing then\r\t\t\tset tM to round (((duration of current track) \/ 1000) \/ 60) rounding down\r\t\t\tset tS to round (((duration of current track) \/ 1000) mod 60) rounding down\r\t\t\t\r\t\t\tset myTime to ((tM as text) & \":\" & tS as text)\r\t\t\tset myTrack to name of current track\r\t\t\tset myArtist to artist of current track\r\t\t\t\r\t\t\tset myInfo to (myTrack & \" by \" & myArtist)\r\t\t\treturn myInfo\r\t\telse\r\t\t\treturn \"Spotify not playing\"\r\t\tend if\r\tend tell\relse\r\treturn \"Spotify not running\"\rend if\r\r",
                 "BTTTouchBarAlternateBackgroundColor" : "128.829533, 128.829533, 128.829533, 255.000000",
                 "BTTTouchBarScriptUpdateInterval" : 5
               }
