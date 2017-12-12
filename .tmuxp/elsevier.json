@@ -1,0 +1,31 @@
+{
+  "session_name": "elsevier",
+  "windows": [
+    {
+      "window_name": "home",
+      "layout": "main-vertical",
+      "options": { "automatic-rename": "off" },
+      "panes": [
+        { }
+      ]
+    },
+    {
+      "window_name": "peerful",
+      "layout": "main-vertical",
+      "options": { "automatic-rename": "off" },
+      "start_directory": "$HOME/Projects/elsevier/peerful-next",
+      "panes": [
+        { }
+      ]
+    },
+    {
+      "window_name": "gunter",
+      "layout": "main-vertical",
+      "options": { "automatic-rename": "off" },
+      "start_directory": "$HOME/Projects/elsevier/peerful-next",
+      "panes": [
+        { }
+      ]
+    }
+  ]
+}
