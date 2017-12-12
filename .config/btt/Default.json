@@ -380,7 +380,7 @@
           }
         },
         {
-          "BTTWidgetWidth" : "EEE, MMM d, k:mm",
+          "BTTWidgetWidth" : "EEE, MMM d, HH:mm",
           "BTTTriggerType" : 633,
           "BTTTriggerTypeDescription" : "Date \/ Time Widget",
           "BTTTriggerClass" : "BTTTriggerTypeTouchBar",
