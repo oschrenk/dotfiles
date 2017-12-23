@@ -16,6 +16,14 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 		autocmd VimEnter * PlugInstall
 endif
 
+" Add more contions to conditons for Plug
+" I'm using it not (only) for optimizing startup-time but for managing vim on
+" different machines
+function! If(cond, ...)
+  let l:opts = get(a:000, 0, {})
+  return a:cond ? l:opts : extend(l:opts, { 'on': [], 'for': [] })
+endfunction
+
 " vim-plug
 call plug#begin('~/.config/nvim/plugged')
 
@@ -24,7 +32,7 @@ Plug 'EinfachToll/DidYouMean'             "  asks for the right file to open if 
 
 " Externals
 Plug 'rizzatti/dash.vim'                  " Dash
-Plug 'glidenote/newdayone.vim'            " DayOne
+Plug 'glidenote/newdayone.vim', If(executable('dayone')) " DayOne
 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim splits
