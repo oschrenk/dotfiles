@@ -243,7 +243,7 @@ endif
 " autocmd is necessary
 " default is tcq
 " r automatically insert comment leader after <enter> in INSERT
-" o automatically insert comment loeader after o or O in NORMAL
+" o automatically insert comment leader after o or O in NORMAL
 " -= removes these options
 autocmd BufNewFile,BufRead * setlocal formatoptions-=ro
 
