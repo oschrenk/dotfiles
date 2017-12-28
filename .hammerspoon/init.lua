@@ -87,10 +87,6 @@ function brokenScreenResize()
   win:setFrame(f)
 end
 
-
-
-
-
 -- Toggle a window between its normal size, and being maximized
 function toggle_window_maximized()
     local win = hs.window.focusedWindow()
@@ -123,29 +119,11 @@ function send_window_to_next_monitor()
   end
 end
 
-
 -- Close notifications
-closeNotificationsScript = [[
-my closeNotif()
-on closeNotif()
-
-    tell application "System Events"
-        tell process "Notification Center"
-            set theWindows to every window
-            repeat with i from 1 to number of items in theWindows
-                set this_item to item i of theWindows
-                try
-                    click button 1 of this_item
-                on error
-                    my closeNotif()
-                end try
-            end repeat
-        end tell
-    end tell
-end closeNotif ]]
 function clearNotifications()
-  ok, result = hs.applescript(closeNotificationsScript)
+  ok, result = hs.applescriptFromFile("~/.hammerspoon/closeNotifiations.scpt")
 end
+
 function closeNotifications()
   print("Closing notifications")
   hs.timer.doAfter(0.3, clearNotifications)
