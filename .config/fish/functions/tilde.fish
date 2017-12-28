@@ -81,9 +81,7 @@ function tilde --description  "minimal dotfiles managment with fish"
 
   # tilde default settings
   # ----------------------------------------
-  # make sure dotfiles_home doesn't end in /
   set -l dotfiles_home (dirname $HOME/.)
-  # until production ready,reuse $HOME/.deja
   set -l tilde_home $dotfiles_home/.tilde
 
   if not test -d $tilde_home
