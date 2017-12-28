@@ -30,3 +30,4 @@ certificates
 .delight/logs
 .delight/session
 .delight/schedule.cache
+.aws/credentials
