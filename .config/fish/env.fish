@@ -5,8 +5,9 @@
 prepend-to-path /usr/local/sbin
 prepend-to-path /usr/local/bin
 
-#
+# LOG and JOURNAL
 set -x LOG_DIR ~/Documents/Log
+set -x JOURNAL_DIR ~/Documents/Journal
 
 # editor
 set -x EDITOR nvim
