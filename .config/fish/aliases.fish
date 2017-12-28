@@ -17,7 +17,7 @@ alias a    'ag'
 alias be   'bundle exec'
 alias c    clear
 alias e    nvim
-alias j    'nvim -c "Goyo"'
+alias j    journal
 alias g    git
 alias s    spotifish
 
