@@ -209,6 +209,7 @@
   autoStash = true
 
 [color]
+  # default is `true` since 1.8.4
   ui = true
 
 [color "diff"]
