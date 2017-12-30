@@ -100,7 +100,6 @@ Plug 'junegunn/limelight.vim', {'on': 'Limelight'} " focus on paragraphs
 
 " Themes
 Plug 'morhetz/gruvbox'
-Plug 'jacekd/vim-iawriter'
 
 call plug#end()
 "End Plug --------------------
