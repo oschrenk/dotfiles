@@ -324,6 +324,11 @@ au Syntax * RainbowParenthesesLoadSquare
 au Syntax * RainbowParenthesesLoadBraces
 
 " ---------------------------
+" goyo.vim
+" ---------------------------
+let g:goyo_width=70
+
+" ---------------------------
 " dash.vim
 " ---------------------------
 :nmap <silent> <leader>d <Plug>DashSearch
