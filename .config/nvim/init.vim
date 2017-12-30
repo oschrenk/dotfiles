@@ -86,7 +86,6 @@ Plug 'rodjek/vim-puppet',                 { 'for': 'puppet' }
 Plug 'vim-ruby/vim-ruby',                 { 'for': 'ruby' }
 Plug 'tpope/vim-endwise',                 { 'for': 'ruby' }     " end things automatically, like end after `if, do, def` in Ruby
 Plug 'dag/vim2hs',                        { 'for': 'haskell' }
-Plug 'itspriddle/vim-marked',             { 'for': 'markdown' } " open in Marked.app
 Plug 'timcharper/textile.vim',            { 'for': 'textile' }
 Plug 'Tyilo/applescript.vim',             { 'for': 'applescript' }
 Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }    " for .tmux.conf
