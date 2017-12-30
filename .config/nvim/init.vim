@@ -136,8 +136,6 @@ imap <up> <nop>
 imap <down> <nop>
 imap <left> <nop>
 imap <right> <nop>
-
-" Use arrow keys resize viewports
 nnoremap <Left> <nop>
 nnoremap <Right> <nop>
 nnoremap <Up> <nop>
