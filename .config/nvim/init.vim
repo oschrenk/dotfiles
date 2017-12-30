@@ -329,12 +329,15 @@ au Syntax * RainbowParenthesesLoadBraces
 " ---------------------------
 let g:goyo_width=70
 
-" 1. :q quits even in Goyo mode
 function! s:goyo_enter()
+  " Quit Vim if this is the only remaining buffer
   let b:quitting = 0
   let b:quitting_bang = 0
   autocmd QuitPre <buffer> let b:quitting = 1
   cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
+
+  " dont split words on linebreak
+  set linebreak
 endfunction
 
 function! s:goyo_leave()
