@@ -16,7 +16,7 @@ if empty(glob('~/.config/nvim/autoload/plug.vim'))
 		autocmd VimEnter * PlugInstall
 endif
 
-" Add more contions to conditons for Plug
+" Add conditions for Plug
 " I'm using it not (only) for optimizing startup-time but for managing vim on
 " different machines
 function! If(cond, ...)
@@ -127,7 +127,7 @@ let mapleader = "\<Space>"
 " escape with jk
 inoremap jk <Esc>
 
-" Do not questionable Ex mode by accident
+" Do not enter Ex mode by accident
 nnoremap Q <Nop>
 
 " Disable arrow keys
@@ -171,7 +171,7 @@ nnoremap N Nzzzv
 " ============================
 "
 syntax on                     " syntax highlighting
-syntax enable                 " syntac highlighting
+syntax enable                 " syntax highlighting
 
 set title                     " show title in console title bar.
 set cursorline                " highlights line
@@ -183,7 +183,7 @@ set splitbelow                " always split to the bottom
 
 set lsp=0                     " space it out a little more (easier to read)
 set cmdheight=1               " the command bar is 2 high.
-set autoindent                " copy indentation form last line
+set autoindent                " copy indentation from last line
 set smartindent               " automatically inserts one extra level in some cases
 
 set expandtab                 " <TAB> will insert 'softtabstop' spaces
