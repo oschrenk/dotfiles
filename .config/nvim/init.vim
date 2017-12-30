@@ -85,7 +85,6 @@ Plug 'godlygeek/tabular',                 { 'for': 'markdown' } " to align table
 Plug 'rcmdnk/vim-markdown',               { 'for': 'markdown' } " gx to visit link, ]], [[ to move through  headers
 
 " Look and feel
-Plug 'bling/vim-airline'                  " powerline statusline
 Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
 Plug 'nathanaelkane/vim-indent-guides'    " display indent levels
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}  " distraction free editing
@@ -101,6 +100,8 @@ call plug#end()
 " Look and Feel
 " ============================
 
+" hide statusbar
+set laststatus=0
 set background=dark
 colorscheme gruvbox
 
@@ -366,9 +367,6 @@ let g:EnErrorStyle='SpellBad'
 " vim-clojure-conceal
 let g:clojure_conceal_extras=1   " fn, defn-, letfn, and #() to unicode symbols
 
-" Airline
-let g:airline_powerline_fonts = 1
-set laststatus=2
 
 " Markdown
 au BufRead,BufNewFile *.md set filetype=markdown
