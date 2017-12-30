@@ -338,6 +338,9 @@ function! s:goyo_enter()
 
   " dont split words on linebreak
   set linebreak
+
+  " enter limelight
+  Limelight
 endfunction
 
 function! s:goyo_leave()
