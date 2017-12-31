@@ -289,6 +289,13 @@ endif
 let g:deoplete#omni#input_patterns.scala = [
   \ '[^. *\t]\.\w*', '[:\[,] ?\w*', '^import .*'
   \]
+
+" ---------------------------
+" vim-tasks
+" ---------------------------
+" behave closer to FoldingText.app
+let g:TasksProjectMarker = '.todo'
+
 " ---------------------------
 " vim-indent-guides
 " ---------------------------
