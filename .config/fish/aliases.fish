@@ -19,7 +19,6 @@ alias c    clear
 alias e    nvim
 alias j    journal
 alias g    git
-alias s    spotifish
 
 alias chrome 'open /Applications/Google\ Chrome.app/ --args --allow-file-access-from-files --remote-debugging-port=9222'
 alias ios 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
