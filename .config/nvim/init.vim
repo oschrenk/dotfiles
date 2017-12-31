@@ -81,8 +81,7 @@ Plug 'Tyilo/applescript.vim',             { 'for': 'applescript' }
 Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }    " for .tmux.conf
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'leafgarland/typescript-vim',        { 'for': 'typescript' }
-Plug 'godlygeek/tabular',                 { 'for': 'markdown' } " to align tables in markdown via `:TableFormat`
-Plug 'rcmdnk/vim-markdown',               { 'for': 'markdown' } " gx to visit link, ]], [[ to move through  headers
+Plug 'oschrenk/vim-tasks',                { 'for': ['markdown', 'tasks']}
 
 " Look and feel
 Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
@@ -397,7 +396,7 @@ let g:clojure_conceal_extras=1   " fn, defn-, letfn, and #() to unicode symbols
 
 
 " Markdown
-au BufRead,BufNewFile *.md set filetype=markdown
+au BufRead,BufNewFile *.md set filetype=markdown.tasks
 let g:vim_markdown_fenced_languages = ['clojure', 'html', 'javascript', 'ruby', 'scala', 'vim']
 let g:vim_markdown_folding_disabled = 1
 
