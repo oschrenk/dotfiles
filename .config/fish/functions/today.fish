@@ -1,19 +1,8 @@
 function today --description "Show todays date"
-  echo $argv | read -l arg
+  echo $argv | read -l flag
 
-  switch $arg
-    case "--long"
-      set -l suffix (__daySuffix (date +"%d"))
-      date +"%A, %d$suffix %B %Y"
-    case "--dash"
-      date +"%Y-%m-%d"
-    case ""
-      date +"%Y%m%d"
-  end
-end
-
-function __daySuffix
-  switch $argv[1]
+  function __daySuffix
+    switch $argv[1]
     case "1"
       echo "st"
     case "2"
@@ -31,5 +20,16 @@ function __daySuffix
     case "*"
       echo "th"
     end
+  end
+
+  switch $flag
+    case "--long"
+      set -l suffix (__daySuffix (date +"%d"))
+      date +"%A, %d$suffix %B %Y"
+    case "--dash"
+      date +"%Y-%m-%d"
+    case ""
+      date +"%Y%m%d"
+  end
 end
 
