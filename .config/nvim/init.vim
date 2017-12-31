@@ -294,6 +294,8 @@ let g:deoplete#omni#input_patterns.scala = [
 " ---------------------------
 " behave closer to FoldingText.app
 let g:TasksProjectMarker = '.todo'
+" don't add project tag
+let g:TasksTagProject    = 0
 
 " ---------------------------
 " vim-indent-guides
