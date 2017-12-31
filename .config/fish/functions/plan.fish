@@ -5,9 +5,9 @@ function plan  --description "Create and show tomorrow's journal entry in $EDITO
   if not test -f $logfile
     set -l date (tomorrow --long)
     echo "# $date" >> $logfile
-    # add two empty lines
+    # use template
     echo "" >> $logfile
-    echo "" >> $logfile
+    cat $HOME/.config/journal/template.md >> $logfile
   end
 
   # start with Goyo, in insert mode and at and of file

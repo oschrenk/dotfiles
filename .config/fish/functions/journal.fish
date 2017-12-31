@@ -4,9 +4,9 @@ function journal --description "Create and show todays journal entry in $EDITOR"
   if not test -f $logfile
     set -l date (today --long)
     echo "# $date" >> $logfile
-    # add two empty lines
+    # use template
     echo "" >> $logfile
-    echo "" >> $logfile
+    cat $HOME/.config/journal/template.md >> $logfile
   end
 
   # start with Goyo, in insert mode and at and of file
