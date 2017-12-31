@@ -25,7 +25,7 @@ function today --description "Show todays date"
   switch $flag
     case "--long"
       set -l suffix (__daySuffix (date +"%d"))
-      date +"%A, %d$suffix %B %Y"
+      date +"%A,%e$suffix %B %Y"
     case "--dash"
       date +"%Y-%m-%d"
     case ""
