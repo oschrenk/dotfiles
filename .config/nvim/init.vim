@@ -87,7 +87,6 @@ Plug 'oschrenk/vim-tasks',                { 'for': ['markdown', 'tasks']}
 Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
 Plug 'nathanaelkane/vim-indent-guides'    " display indent levels
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}  " distraction free editing
-Plug 'junegunn/limelight.vim', {'on': 'Limelight'} " focus on paragraphs
 
 " Themes
 Plug 'morhetz/gruvbox'
@@ -344,9 +343,6 @@ function! s:goyo_enter()
 
   " dont split words on linebreak
   set linebreak
-
-  " enter limelight
-  Limelight
 endfunction
 
 function! s:goyo_leave()
