@@ -1,8 +1,8 @@
 function log --description "Create and/or show todays log entry in $EDITOR"
-  set -l logfile $LOG_DIR/(today).md
+  set -l logfile $LOG_DIR/(today --iso-short).md
   if test -f $logfile
   else
-    set -l date (today --long)
+    set -l date (today --pretty)
     echo "# $date" >> $logfile
   end
 
