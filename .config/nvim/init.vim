@@ -81,7 +81,7 @@ Plug 'Tyilo/applescript.vim',             { 'for': 'applescript' }
 Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }    " for .tmux.conf
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'leafgarland/typescript-vim',        { 'for': 'typescript' }
-Plug 'oschrenk/vim-tasks',                { 'for': ['markdown', 'tasks']}
+Plug 'oschrenk/vim-journal',              { 'for': ['markdown', 'tasks']}
 
 " Look and feel
 Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
