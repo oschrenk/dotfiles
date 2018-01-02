@@ -12,9 +12,11 @@ Evening.todo
   ☐ Plan the next 3 days
   ☐ Prepare Breakfast
 
-Bedtime.todo
+Dinner.todo
   ☐ Iron(20mg)+ B12(25mcg) + C(20mg)
   ☐ Magnesium(375mg)
+
+Bedtime.todo
   ☐ Tryptophan 500mg
   ☐ Melatonine 2mg
 
