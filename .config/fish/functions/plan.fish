@@ -10,7 +10,6 @@ function plan  --description "Create and show tomorrow's journal entry in $EDITO
     cat $HOME/.config/journal/template.md >> $logfile
   end
 
-  # start with Goyo, in insert mode and at and of file
-  eval "$EDITOR -c 'Goyo | startinsert' + $logfile"
+  eval "$EDITOR -c 'Goyo' $logfile"
 
 end

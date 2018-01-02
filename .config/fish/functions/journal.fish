@@ -9,7 +9,6 @@ function journal --description "Create and show todays journal entry in $EDITOR"
     cat $HOME/.config/journal/template.md >> $logfile
   end
 
-  # start with Goyo, in insert mode and at and of file
-  eval "$EDITOR -c 'Goyo | startinsert' + $logfile"
+  eval "$EDITOR -c 'Goyo' $logfile"
 
 end
