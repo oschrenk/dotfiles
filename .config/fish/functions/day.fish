@@ -12,6 +12,9 @@ function day --description "Show formatted date"
       case "--iso-long"
         # re-parse date for validation
         gdate --date="$date" "+%Y-%m-%d"
+      case "--khal"
+        # re-parse date for validation
+        gdate --date="$date" "+%d.%m.%Y"
     case "*"
        echo "Unknown flag"
     end
