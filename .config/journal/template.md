@@ -27,7 +27,6 @@ Snack.todo
 *What was for dinner?*
 
 Dinner.todo
-  ☐ Iron(20mg)+ B12(25mcg) + C(20mg)
   ☐ Magnesium(375mg)
 
 Evening.todo
@@ -36,6 +35,7 @@ Evening.todo
   ☐ Prepare Breakfast
 
 Bedtime.todo
+  ☐ Iron(20mg)+ B12(25mcg) + C(20mg)
   ☐ Tryptophan 500mg
   ☐ Melatonine 2mg
 
