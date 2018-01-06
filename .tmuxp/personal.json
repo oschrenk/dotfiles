@@ -3,9 +3,10 @@
   "windows": [
     {
       "window_name": "home",
-      "layout": "main-vertical",
+      "layout": "even-horizontal",
       "options": { "automatic-rename": "off" },
       "panes": [
+        { },
         { }
       ]
     },
