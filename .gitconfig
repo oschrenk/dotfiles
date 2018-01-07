@@ -208,6 +208,17 @@
   # rebase might result in non-trivial conflicts.
   autoStash = true
 
+  # since 2.6
+  # Replaces `oneline` format of instructions with your own format
+  # `oneline` is "<sha1> <title line>"
+  # See https://git-scm.com/docs/git-log (search format:<string>) for all
+  # format placeholder, here is a selection:
+  # %cn: committer name
+  # %ce: committer email
+  # %G?: validity of signature: G=good,B=bad,U=unknown ,
+  # %s: title line
+  instructionFormat = %cn: %s
+
 [color]
   # default is `true` since 1.8.4
   ui = true
