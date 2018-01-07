@@ -26,6 +26,8 @@ Evening.todo
   ☐ Plan the next 3 days
   ☐ Prepare Breakfast
 
+*What are you grateful for?*
+
 Bedtime.todo
   ☐ Magnesium(375mg)
   ☐ Iron(20mg)+ B12(25mcg) + C(20mg)
