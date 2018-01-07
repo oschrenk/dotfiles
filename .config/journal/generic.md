@@ -21,15 +21,13 @@ Snack.todo
 
 *What was for dinner?*
 
-Dinner.todo
-  ☐ Magnesium(375mg)
-
 Evening.todo
   ☐ Diary
   ☐ Plan the next 3 days
   ☐ Prepare Breakfast
 
 Bedtime.todo
+  ☐ Magnesium(375mg)
   ☐ Iron(20mg)+ B12(25mcg) + C(20mg)
   ☐ Tryptophan 500mg
   ☐ Melatonine 2mg
