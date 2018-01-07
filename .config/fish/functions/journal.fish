@@ -20,7 +20,7 @@ function journal --description "Create and show a journal entry in $EDITOR"
     echo "" >> $logfile
     # schedule
     echo "Events.schedule" >> $logfile
-    khal --no-color list (day --khal $date) 1d | sed -e 's/^/  ☐ /' | tail -n +2 >> $logfile
+    schedule $date >> $logfile
     # empty line
     echo "" >> $logfile
     # template
