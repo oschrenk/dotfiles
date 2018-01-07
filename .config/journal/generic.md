@@ -1,5 +1,3 @@
-*What are your goals for today?*
-
 Major Goals.todo
   ☐
   ☐
@@ -20,7 +18,6 @@ Breakfast.todo
 Snack.todo
   ☐ Fruit
   ☐ Snack
-
 
 *What was for dinner?*
 
