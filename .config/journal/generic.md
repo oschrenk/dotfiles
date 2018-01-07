@@ -3,10 +3,8 @@
 Major Goals.todo
   ☐
   ☐
-  ☐
 
 Minor Goals.todo
-  ☐
   ☐
   ☐
 
