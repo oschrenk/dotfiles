@@ -24,7 +24,7 @@ function journal --description "Create and show a journal entry in $EDITOR"
     # empty line
     echo "" >> $logfile
     # template
-    cat $HOME/.config/journal/template.md >> $logfile
+    journal-template >> $logfile
   end
 
   eval "$EDITOR -c 'Goyo' $logfile"
