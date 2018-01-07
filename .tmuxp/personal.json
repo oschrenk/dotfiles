@@ -6,8 +6,11 @@
       "layout": "even-horizontal",
       "options": { "automatic-rename": "off" },
       "panes": [
-        { },
-        { }
+        { "shell_command": [
+          "sleep 0.3",
+          "journal"
+          ]},
+        { "shell_command": "ikhal"}
       ]
     },
     {
