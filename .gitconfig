@@ -131,9 +131,7 @@
   # --force-with-lease
   #   makes sure that nobody else pushed something on top of my old
   #   workon remote, --force alone would ust overwrite
-  obi = push --force-with-lease
   please = push --force-with-lease
-
 
   pop = stash pop
 
@@ -162,6 +160,11 @@
   # -l/--list <pattern>
   #   List tags with names that match the given pattern (or all if no pattern is given)
   tags = tag -l
+
+  # Sets up your branch to track a remote branch. Assumes you mean
+  # `origin/$branch-name`.
+  track = !git branch --set-upstream-to origin/$(git rev-parse --abbrev-ref HEAD)
+
   up = pull --rebase
 
   # unstage is the opposite of git add. It removes items from the staging area.
