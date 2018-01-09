@@ -165,11 +165,8 @@
   # `origin/$branch-name`.
   track = !git branch --set-upstream-to origin/$(git rev-parse --abbrev-ref HEAD)
 
-  up = pull --rebase
-
   # unstage is the opposite of git add. It removes items from the staging area.
   unstage = reset HEAD
-  un = reset HEAD
 	slog = log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --no-merges --invert-grep --grep 'Bumps version'
 
 [commit]
