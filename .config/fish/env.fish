@@ -32,6 +32,9 @@ set -x SBT_OPTS "-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled"
 # Python
 prepend-to-path /usr/local/opt/python/libexec/bin
 
+# Rust
+prepend-to-path $HOME/.cargo/bin
+
 # Latex
 append-to-path /Library/TeX/texbin
 
