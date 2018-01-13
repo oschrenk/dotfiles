@@ -1,8 +1,0 @@
-username="oliver.schrenk@gmail.com"
-password.keychain=true
-
-filter.teacher = [ "Class Cancelled" ]
-filter.experience = [ "Experienced" ]
-filter.name = [ "Class Cancelled", "Discover Yoga & Ayurveda", "Wisdom in Business - Meditation workshop", "Mindfulness training (MBSR)", "Prenatal", "Prenatal Vinyasa", "Introduction to Yoga Program", "Yin Yoga Immersion (50 hours)" ]
-filter.location = [ "Nieuwe Achtergracht" ]
-favourite.teacher = [ "Hanna Paz", "Adela Serrano", "Tianjin Lawless", "Lisanne Lambert-Stoop", "Chantal Soeters" ]
