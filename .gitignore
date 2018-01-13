@@ -27,7 +27,7 @@ cache
 certificates
 .config/vdirsyncer/status/
 .atom/github.cson
-.delight/logs
-.delight/session
-.delight/schedule.cache
+logs
+session
 .aws/credentials
+schedule.cache
