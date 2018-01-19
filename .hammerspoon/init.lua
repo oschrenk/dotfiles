@@ -121,7 +121,7 @@ end
 
 -- Close notifications
 function clearNotifications()
-  ok, result = hs.osascript.applescriptFromFile("/Users/oliver/.hammerspoon/closeNotifiations.scpt")
+  ok, result = hs.osascript.applescriptFromFile("/Users/oliver/.hammerspoon/closeNotifiations.applescript")
 end
 
 function closeNotifications()
