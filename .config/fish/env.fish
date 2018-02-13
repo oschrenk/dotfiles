@@ -68,4 +68,5 @@ set -x TRELLO_TOKEN (keyring get trello.com token)
 append-to-path $HOME/Projects/language/scala/delight
 append-to-path $HOME/Projects/platzhaltr/datr.scala
 append-to-path $HOME/Projects/language/scala/amrotron
+append-to-path $HOME/Projects/language/scala/awair2influx
 
