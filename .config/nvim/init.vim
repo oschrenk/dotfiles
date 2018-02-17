@@ -80,6 +80,7 @@ Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }    " for .tmux.conf
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'leafgarland/typescript-vim',        { 'for': 'typescript' }
 Plug 'oschrenk/vim-journal',              { 'for': ['markdown', 'tasks']}
+Plug 'alunny/pegjs-vim'
 
 " Look and feel
 Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
