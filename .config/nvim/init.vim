@@ -270,11 +270,16 @@ endfunction
 " Plugin configuration
 " ============================
 
+" ---------------------------
 " tmux-complete
+" ---------------------------
 " rely on deoplete for invocations
 let g:tmuxcomplete#trigger = ''
 
-" Use deoplete.
+" ---------------------------
+" deoplete
+" ---------------------------
+
 let g:deoplete#enable_at_startup = 1
 
 " Let <Tab> also do completion
@@ -395,11 +400,15 @@ let g:netrw_list_hide.='*/\.nx/**,*\.app'
 " ---------------------------
 let g:EnErrorStyle='SpellBad'
 "
+
+" ---------------------------
 " vim-clojure-conceal
+" ---------------------------
 let g:clojure_conceal_extras=1   " fn, defn-, letfn, and #() to unicode symbols
 
-
-" Markdown
+" ---------------------------
+" markdown
+" ---------------------------
 au BufRead,BufNewFile *.md set filetype=markdown.tasks
 let g:vim_markdown_fenced_languages = ['clojure', 'html', 'javascript', 'ruby', 'scala', 'vim']
 let g:vim_markdown_folding_disabled = 1
