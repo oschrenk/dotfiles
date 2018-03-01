@@ -61,7 +61,7 @@ Plug 'tpope/vim-fugitive'                 " git client in vim
 Plug 'airblade/vim-gitgutter'             " mark modified, changed, deleted lines
 
 " Ensime
-Plug 'ensime/ensime-vim'
+Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
 
 " File types
 Plug 'dag/vim-fish',                      { 'for': 'fish' }
