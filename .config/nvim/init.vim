@@ -271,6 +271,14 @@ endfunction
 " ============================
 
 " ---------------------------
+" ensime
+" ---------------------------
+" Typechecking after writing
+ autocmd BufWritePost *.scala silent :EnTypeCheck
+ " Easy Type Inspection
+ nnoremap <Leader>i :EnType<CR>
+
+" ---------------------------
 " tmux-complete
 " ---------------------------
 " rely on deoplete for invocations
