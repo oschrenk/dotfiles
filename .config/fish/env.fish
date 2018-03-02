@@ -29,9 +29,6 @@ set -x JAVA_HOME (/usr/libexec/java_home -v 9)
 set -x SCALA_HOME /usr/local/opt/scala/
 set -x SBT_OPTS "-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled"
 
-# Python
-prepend-to-path /usr/local/opt/python/libexec/bin
-
 # Rust
 prepend-to-path $HOME/.cargo/bin
 
