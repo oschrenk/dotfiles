@@ -52,17 +52,6 @@ set -x HOMEBREW_NO_ANALYTICS 1
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules,target}/*"'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-# Setup for https://github.com/qcam/3llo
-# Make sure that you are logged into https://trello.com
-# visit https://trello.com/app-key, copy the key and
-# generate a token
-# To store the client id and secret in the keychain use `keyring`
-# keyring set trello.com key
-# keyring set trello.com token
-set -x TRELLO_USER "oschrenk"
-set -x TRELLO_KEY (keyring get trello.com key)
-set -x TRELLO_TOKEN (keyring get trello.com token)
-
 # Applications
 
 append-to-path $HOME/Projects/language/scala/delight
