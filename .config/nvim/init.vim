@@ -60,9 +60,6 @@ Plug 'rhysd/vim-textobj-anyblock'         " ib/ab for Quotes, Parenthesis and br
 Plug 'tpope/vim-fugitive'                 " git client in vim
 Plug 'airblade/vim-gitgutter'             " mark modified, changed, deleted lines
 
-" Ensime
-Plug 'ensime/ensime-vim', { 'do': ':UpdateRemotePlugins' }
-
 " File types
 Plug 'dag/vim-fish',                      { 'for': 'fish' }
 Plug 'derekwyatt/vim-sbt',                { 'for': 'sbt.scala' }           " sbt syntax
@@ -269,14 +266,6 @@ endfunction
 " ============================
 " Plugin configuration
 " ============================
-
-" ---------------------------
-" ensime
-" ---------------------------
-" Typechecking after writing
- autocmd BufWritePost *.scala silent :EnTypeCheck
- " Easy Type Inspection
- nnoremap <Leader>i :EnType<CR>
 
 " ---------------------------
 " tmux-complete
