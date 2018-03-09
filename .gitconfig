@@ -236,9 +236,16 @@
   newNormal = green bold
   newHighlight = green bold 22
 
-[include]
-  path = ~/.gitconfig_user
-  path = ~/.gitconfig_system
-
 [init]
   templatedir = ~/.git_template
+[user]
+  name = Oliver Schrenk
+  email = oliver.schrenk@gmail.com
+[include]
+  path = ~/.gitconfig_system
+[includeIf "gitdir:~/Projects/elsevier"]
+    path = .gitconfig_work
+[includeIf "gitdir:~/Projects/mendeley"]
+    path = .gitconfig_work
+[includeIf "gitdir:~/Projects/oschrenk"]
+    path = .gitconfig_freelance
