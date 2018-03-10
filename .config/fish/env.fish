@@ -55,4 +55,5 @@ append-to-path $HOME/Projects/language/scala/delight
 append-to-path $HOME/Projects/platzhaltr/datr.scala
 append-to-path $HOME/Projects/language/scala/amrotron
 append-to-path $HOME/Projects/language/scala/awair2influx
+append-to-path $HOME/Projects/language/scala/concertgebouw
 
