@@ -5,7 +5,7 @@ function day --description "Show formatted date"
     switch $flag
       case "--pretty"
         set -l suffix (__daySuffix (gdate --date="$date" "+%e"))
-        gdate --date="$date" "+%A,%e$suffix %B %Y"
+        gdate --date="$date" "+%A, %e$suffix %B %Y"
       case "--iso-short"
         # re-parse date for validation
         gdate --date="$date" "+%Y%m%d"
