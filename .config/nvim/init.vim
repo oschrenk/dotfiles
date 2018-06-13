@@ -74,6 +74,7 @@ Plug 'ekalinin/Dockerfile.vim'
 Plug 'leafgarland/typescript-vim',        { 'for': 'typescript' }
 Plug 'oschrenk/vim-journal',              { 'for': ['markdown', 'tasks']}
 Plug 'alunny/pegjs-vim'
+Plug 'hashivim/vim-terraform'
 
 " Look and feel
 Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
