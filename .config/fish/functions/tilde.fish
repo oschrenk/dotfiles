@@ -82,7 +82,7 @@ function tilde --description  "minimal dotfiles managment with fish"
   # tilde default settings
   # ----------------------------------------
   set -l dotfiles_home (dirname $HOME/.)
-  set -l tilde_home (dirname $HOME/.dotfiles)
+  set -l tilde_home (dirname $HOME/.dotfiles/.)
 
   if not test -d $tilde_home
     echo "No $tilde_home directory found. Exiting."
