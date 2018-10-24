@@ -1,1 +1,3 @@
-Mac Emoji Keyboard Shortcut: ctrl + cmd + space
+# Network
+
+-` networksetup -setv6off Wi-Fi` Disable IPv6
