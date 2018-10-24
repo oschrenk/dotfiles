@@ -72,7 +72,6 @@ Plug 'Tyilo/applescript.vim',             { 'for': 'applescript' }
 Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }    " for .tmux.conf
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'leafgarland/typescript-vim',        { 'for': 'typescript' }
-Plug 'oschrenk/vim-journal',              { 'for': ['markdown', 'tasks']}
 Plug 'alunny/pegjs-vim'
 Plug 'hashivim/vim-terraform'
 
@@ -287,13 +286,6 @@ let g:deoplete#omni#input_patterns.scala = [
   \ '[^. *\t]\.\w*', '[:\[,] ?\w*', '^import .*'
   \]
 
-" ---------------------------
-" vim-tasks
-" ---------------------------
-" behave closer to FoldingText.app
-let g:TasksProjectMarker = '.todo'
-" don't add project tag
-let g:TasksTagProject    = 0
 
 " ---------------------------
 " vim-indent-guides
