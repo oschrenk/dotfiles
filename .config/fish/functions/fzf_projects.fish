@@ -6,7 +6,7 @@ function fzf_projects --description "Browse git projects using fzf"
   set -lx FZF_DEFAULT_OPTS "--height $FZF_TMUX_HEIGHT --reverse $FZF_DEFAULT_OPTS"
 
   set -q FZF_PROJECT_COMMAND; or set -l FZF_PROJECT_COMMAND "
-  find $base_dir -type d -name ".git" -maxdepth 4 | rev | cut -c6- | rev | cut -c$length-"
+  find -L $base_dir -type d -name ".git" -maxdepth 4 | rev | cut -c6- | rev | cut -c$length-"
   # Fish hangs if the command before pipe redirects (2> /dev/null)
   eval "$FZF_PROJECT_COMMAND | "(__fzfcmd)" +m $FZF_PROJECT_OPTS > $TMPDIR/fzf.result"
   [ (cat $TMPDIR/fzf.result | wc -l) -gt 0 ]
