@@ -6,18 +6,17 @@
       "layout": "even-horizontal",
       "options": { "automatic-rename": "off" },
       "panes": [
-        { "shell_command": [
-          ]},
-        { "shell_command": "ikhal"}
+        { "shell_command": [] },
+        { "shell_command": [] }
       ]
     },
     {
       "window_name": "projects",
-      "layout": "main-vertical",
+      "layout": "even-horizontal",
       "options": { "automatic-rename": "off" },
-      "start_directory": "$HOME/Projects",
       "panes": [
-        { }
+        { "start_directory": "$HOME/Projects/personal/little-printer" },
+        { "start_directory": "$HOME/Projects/external/sirius" }
       ]
     }
   ]
