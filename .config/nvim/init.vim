@@ -31,7 +31,7 @@ Plug 'airblade/vim-rooter'                " auto sets working directory
 
 " Completion
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'wellle/tmux-complete.vim'           " autocompletion from adjecent tmux panes
+Plug 'wellle/tmux-complete.vim'    " autocompletion from adjecent tmux panes
 Plug 'thalesmello/webcomplete.vim' " autocompletion from Chrome's current tab
 
 " Control
