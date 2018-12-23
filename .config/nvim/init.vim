@@ -305,8 +305,8 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 
 nnoremap <silent> <leader>/ :execute 'Rg ' . input('Rg/')<CR>
-noremap <Leader>f :GFiles<CR>
-noremap <Leader>F :Files<CR>
+noremap <Leader>o :GFiles<CR>
+noremap <Leader>O :Files<CR>
 noremap <Leader>t :Tags<CR>
 noremap <Leader>h :History<CR>
 noremap <Leader>m :Marks<CR>
