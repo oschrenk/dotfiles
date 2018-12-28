@@ -187,16 +187,16 @@ end
 
 function enableBluetooth()
   notify("Enabling Bluetooth")
-  os.execute("/usr/local/bin/blueutil power 1")
+  os.execute("/usr/local/bin/blueutil -p 1")
 end
 
 function disableBluetooth()
   notify("Disabling Bluetooth")
-  os.execute("/usr/local/bin/blueutil power 0")
+  os.execute("/usr/local/bin/blueutil -p 0")
 end
 
 function bluetoothEnabled()
-  local file = assert(io.popen('/usr/local/bin/blueutil power', 'r'))
+  local file = assert(io.popen('/usr/local/bin/blueutil -p', 'r'))
   local output = file:read('*all')
   file:close()
 
