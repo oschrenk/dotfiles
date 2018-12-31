@@ -31,3 +31,4 @@ logs
 session
 .aws/credentials
 schedule.cache
+fish_variables
