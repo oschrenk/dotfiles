@@ -61,7 +61,7 @@ end
 
   set -l pane_pid (tmux list-panes -F '#{pane_active} #{pane_pid}' | grep "^1" | awk '{print $2}')
   set -l pane_dir (lsof -a -p $pane_pid | head -2 | tail -n +2 | awk '{print $9}')
-  cd $pane_dir
+  cd "$pane_dir"
 
   if set branch_name (git_branch_name)
     set -l project (git rev-parse --show-toplevel | rev | cut -d '/' -f 1 | rev)
