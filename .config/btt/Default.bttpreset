@@ -137,7 +137,7 @@
     "BTTTouchBarVisible" : true,
     "BTTTouchBarUseMonoSpacedFont" : true
   },
-  "BTTPresetUUID" : "B38B552C-DD66-4579-BA51-7A8242211984",
+  "BTTPresetUUID" : "03FEAB68-B92F-4375-A9FC-34A46033A127",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "BT.G",
@@ -584,7 +584,7 @@
           "BTTMergeIntoTouchBarGroups" : 0,
           "BTTTriggerConfig" : {
             "BTTScriptType" : 0,
-            "BTTTouchBarButtonColor" : "75.323769, 75.323769, 75.323769, 255.000000",
+            "BTTTouchBarButtonColor" : "0.000000, 183.509509, 0.000000, 255.000000",
             "BTTTouchBarColorRegex" : "\\([1-4]?[0-9]%\\)",
             "BTTTouchBarItemIconWidth" : 22,
             "BTTTouchBarItemPlacement" : 1,
