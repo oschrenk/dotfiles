@@ -76,7 +76,7 @@
     "BTTForceForceClickPressure2F" : 700,
     "useAppleRemotePlugin" : false,
     "BSTSnapAreaDefaultCornerRadius" : 20,
-    "BTTForcedHidden" : false,
+    "BTTForcedHidden" : true,
     "BSTSnapAreaDefaultAnimationDuration" : 0.30000001192092896,
     "BSTMemorySaver" : false,
     "BTTTpThreeFingerSwipeSensitivity" : 0.29999999999999999,
@@ -120,7 +120,7 @@
     "BSTCornerRoundness" : 40,
     "BTTDismissIfNothingToShow" : false,
     "BSTPreventTopMissionControl" : true,
-    "BTTNumberOfStarts" : 1608,
+    "BTTNumberOfStarts" : 1622,
     "BTTHTTPServerEncrypted" : false,
     "showKeyboardTab" : true,
     "BTTConvertedDevices" : true,
@@ -137,7 +137,7 @@
     "BTTTouchBarVisible" : true,
     "BTTTouchBarUseMonoSpacedFont" : true
   },
-  "BTTPresetUUID" : "9801695A-8831-43A4-8479-6F511B421E8B",
+  "BTTPresetUUID" : "B38B552C-DD66-4579-BA51-7A8242211984",
   "BTTPresetContent" : [
     {
       "BTTAppBundleIdentifier" : "BT.G",
@@ -146,54 +146,6 @@
 
       },
       "BTTTriggers" : [
-        {
-          "BTTTriggerType" : 624,
-          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
-          "BTTPredefinedActionType" : 188,
-          "BTTPredefinedActionName" : "Toggle BetterTouchTool Touch Bar",
-          "BTTEnabled2" : 1,
-          "BTTUUID" : "B6EA6041-069E-4F4D-A7CF-2BFB479BA947",
-          "BTTEnabled" : 1,
-          "BTTModifierMode" : 0,
-          "BTTAlternateModifierKeys" : 0,
-          "BTTShortcutKeyCode" : -1,
-          "BTTShortcutModifierKeys" : -1,
-          "BTTOrder" : 0,
-          "BTTDisplayOrder" : 0,
-          "BTTMergeIntoTouchBarGroups" : 0,
-          "BTTKeySequence" : {
-            "BTTPauseBetween" : 0.29999999999999999,
-            "BTTKeyCount" : 2,
-            "BTTKeySequenceDownKeys" : [
-              {
-                "BTTKEYCode" : 63,
-                "BTTKEYDown" : 1,
-                "BTTKEYOrderRelevant" : 1,
-                "BTTKEYRequired" : 1,
-                "BTTKEYTime" : 528573408
-              }
-            ],
-            "BTTKeySequenceMixedKeys" : [
-              {
-                "BTTKEYCode" : 63,
-                "BTTKEYDown" : 1,
-                "BTTKEYOrderRelevant" : 1,
-                "BTTKEYRequired" : 1,
-                "BTTKEYTime" : 528573408
-              },
-              {
-                "BTTKEYCode" : 63,
-                "BTTKEYTime" : 528573408
-              }
-            ],
-            "BTTKeySequenceUpKeys" : [
-              {
-                "BTTKEYCode" : 63,
-                "BTTKEYTime" : 528573408
-              }
-            ]
-          }
-        },
         {
           "BTTWidgetName" : "Bluetooth Status",
           "BTTTriggerType" : 639,
@@ -585,40 +537,6 @@
           }
         },
         {
-          "BTTWidgetName" : "Timing",
-          "BTTTriggerType" : 639,
-          "BTTTriggerTypeDescription" : "Apple Script Widget",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchBar",
-          "BTTPredefinedActionType" : 49,
-          "BTTPredefinedActionName" : "Launch Application \/ Open File \/ Start Apple Script …",
-          "BTTLaunchPath" : "file:\/\/\/Applications\/Timing.app",
-          "BTTEnabled2" : 1,
-          "BTTUUID" : "27AED2FD-A9CD-4D93-8C39-ECADAFDE2A17",
-          "BTTEnabled" : 1,
-          "BTTModifierMode" : 0,
-          "BTTOrder" : 1,
-          "BTTDisplayOrder" : 0,
-          "BTTMergeIntoTouchBarGroups" : 0,
-          "BTTTriggerConfig" : {
-            "BTTScriptType" : 0,
-            "BTTTouchBarButtonColor" : "75.323769, 75.323769, 75.323769, 255.000000",
-            "BTTTouchBarColorRegex" : "([1-4]?[0-9]%)",
-            "BTTTouchBarItemIconWidth" : 22,
-            "BTTTouchBarItemPlacement" : 1,
-            "BTTTouchBarAlternateBackgroundColor" : "255.000000, 47.363411, 52.194033, 255.000000",
-            "BTTTouchBarButtonCornerRadius" : 6,
-            "BTTTouchBarScriptUpdateInterval" : 30,
-            "BTTTouchBarAppleScriptPath" : "~\/.tilde\/dotfiles\/.hammerspoon\/timingScore.applescript",
-            "BTTTouchBarAppleScriptString" : "tell application \"TimingHelper\"\r\tset usageData to get time summary between (current date) and (current date)\r\tset score to productivity score of usageData\r\tset total to overall total of usageData\r\tdelete usageData -- this is required to avoid accumulating old summaries (and thus leaking memory)\t\r\treturn ((round (score * 100)) as string) & \"% in \" & (round (total \/ 60)) & \"m\"\rend tell\r\r\r\r",
-            "BTTTouchBarAppleScriptStringRunOnInit" : true,
-            "BTTTouchBarButtonName" : "Timing",
-            "BTTTouchBarAppleScriptUsePath" : 1,
-            "BTTTouchBarFreeSpaceAfterButton" : 5,
-            "BTTTouchBarItemIconHeight" : 22,
-            "BTTTouchBarItemPadding" : 0
-          }
-        },
-        {
           "BTTWidgetName" : "Git Status",
           "BTTTriggerType" : 642,
           "BTTTriggerTypeDescription" : "Shell Script \/ Task Widget",
@@ -648,6 +566,88 @@
             "BTTTouchBarItemIconHeight" : 22,
             "BTTTouchBarItemPadding" : 0
           }
+        },
+        {
+          "BTTWidgetName" : "Timing",
+          "BTTTriggerType" : 639,
+          "BTTTriggerTypeDescription" : "Apple Script Widget",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchBar",
+          "BTTPredefinedActionType" : 49,
+          "BTTPredefinedActionName" : "Launch Application \/ Open File \/ Start Apple Script …",
+          "BTTLaunchPath" : "file:\/\/\/Applications\/Timing.app",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "27AED2FD-A9CD-4D93-8C39-ECADAFDE2A17",
+          "BTTEnabled" : 1,
+          "BTTModifierMode" : 0,
+          "BTTOrder" : 1,
+          "BTTDisplayOrder" : 0,
+          "BTTMergeIntoTouchBarGroups" : 0,
+          "BTTTriggerConfig" : {
+            "BTTScriptType" : 0,
+            "BTTTouchBarButtonColor" : "75.323769, 75.323769, 75.323769, 255.000000",
+            "BTTTouchBarColorRegex" : "\\([1-4]?[0-9]%\\)",
+            "BTTTouchBarItemIconWidth" : 22,
+            "BTTTouchBarItemPlacement" : 1,
+            "BTTTouchBarAlternateBackgroundColor" : "255.000000, 47.363411, 52.194033, 255.000000",
+            "BTTTouchBarButtonCornerRadius" : 6,
+            "BTTTouchBarScriptUpdateInterval" : 30,
+            "BTTTouchBarAppleScriptPath" : "~\/.tilde\/dotfiles\/.hammerspoon\/timingScore.applescript",
+            "BTTTouchBarAppleScriptString" : "tell application \"TimingHelper\"\r\tset usageData to get time summary between (current date) and (current date)\r\tset score to productivity score of usageData\r\tset total to overall total of usageData\r\tdelete usageData -- this is required to avoid accumulating old summaries (and thus leaking memory)\t\r\treturn ((round (score * 100)) as string) & \"% in \" & (round (total \/ 60)) & \"m\"\rend tell\r\r\r\r",
+            "BTTTouchBarAppleScriptStringRunOnInit" : true,
+            "BTTTouchBarButtonName" : "Timing",
+            "BTTTouchBarAppleScriptUsePath" : 1,
+            "BTTTouchBarFreeSpaceAfterButton" : 5,
+            "BTTTouchBarItemIconHeight" : 22,
+            "BTTTouchBarItemPadding" : 0
+          }
+        },
+        {
+          "BTTTriggerType" : 624,
+          "BTTTriggerClass" : "BTTTriggerTypeKeyboardShortcut",
+          "BTTPredefinedActionType" : 188,
+          "BTTPredefinedActionName" : "Toggle BetterTouchTool Touch Bar",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "B6EA6041-069E-4F4D-A7CF-2BFB479BA947",
+          "BTTEnabled" : 1,
+          "BTTModifierMode" : 0,
+          "BTTAlternateModifierKeys" : 0,
+          "BTTShortcutKeyCode" : -1,
+          "BTTShortcutModifierKeys" : -1,
+          "BTTOrder" : 0,
+          "BTTDisplayOrder" : 0,
+          "BTTMergeIntoTouchBarGroups" : 0,
+          "BTTKeySequence" : {
+            "BTTPauseBetween" : 0.29999999999999999,
+            "BTTKeyCount" : 2,
+            "BTTKeySequenceDownKeys" : [
+              {
+                "BTTKEYCode" : 63,
+                "BTTKEYDown" : 1,
+                "BTTKEYOrderRelevant" : 1,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 528573408
+              }
+            ],
+            "BTTKeySequenceMixedKeys" : [
+              {
+                "BTTKEYCode" : 63,
+                "BTTKEYDown" : 1,
+                "BTTKEYOrderRelevant" : 1,
+                "BTTKEYRequired" : 1,
+                "BTTKEYTime" : 528573408
+              },
+              {
+                "BTTKEYCode" : 63,
+                "BTTKEYTime" : 528573408
+              }
+            ],
+            "BTTKeySequenceUpKeys" : [
+              {
+                "BTTKEYCode" : 63,
+                "BTTKEYTime" : 528573408
+              }
+            ]
+          }
         }
       ]
     },
@@ -657,22 +657,6 @@
       "BTTAppProcessMatchMode" : 2,
       "BTTAppProcessName" : "Google Chrome",
       "BTTTriggers" : [
-        {
-          "BTTTriggerType" : 100,
-          "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
-          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
-          "BTTPredefinedActionType" : -1,
-          "BTTPredefinedActionName" : "No Action",
-          "BTTShortcutToSend" : "55,50",
-          "BTTEnabled2" : 1,
-          "BTTUUID" : "121A719A-CE96-4CBB-9753-5482919995D4",
-          "BTTEnabled" : 1,
-          "BTTModifierMode" : 0,
-          "BTTAlternateModifierKeys" : 0,
-          "BTTOrder" : 0,
-          "BTTDisplayOrder" : 0,
-          "BTTMergeIntoTouchBarGroups" : 0
-        },
         {
           "BTTTriggerType" : 101,
           "BTTTriggerTypeDescription" : "3 Finger Swipe Right",
@@ -686,6 +670,22 @@
           "BTTModifierMode" : 0,
           "BTTAlternateModifierKeys" : 0,
           "BTTOrder" : 1,
+          "BTTDisplayOrder" : 0,
+          "BTTMergeIntoTouchBarGroups" : 0
+        },
+        {
+          "BTTTriggerType" : 100,
+          "BTTTriggerTypeDescription" : "3 Finger Swipe Left",
+          "BTTTriggerClass" : "BTTTriggerTypeTouchpadAll",
+          "BTTPredefinedActionType" : -1,
+          "BTTPredefinedActionName" : "No Action",
+          "BTTShortcutToSend" : "55,50",
+          "BTTEnabled2" : 1,
+          "BTTUUID" : "121A719A-CE96-4CBB-9753-5482919995D4",
+          "BTTEnabled" : 1,
+          "BTTModifierMode" : 0,
+          "BTTAlternateModifierKeys" : 0,
+          "BTTOrder" : 0,
           "BTTDisplayOrder" : 0,
           "BTTMergeIntoTouchBarGroups" : 0
         }
