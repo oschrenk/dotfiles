@@ -69,9 +69,10 @@ function top_half_window()
   local f = win:frame()
   local screen = win:screen()
   local max = screen:frame()
+  print(max)
 
   f.x = max.x
-  f.y = 0
+  f.y = max.y
   f.w = max.w
   f.h = max.h / 2
   win:setFrame(f)
@@ -87,19 +88,6 @@ function bottom_half_window()
   f.y = max.y + (max.h / 2)
   f.w = max.w
   f.h = max.h / 2
-  win:setFrame(f)
-end
-
-function brokenScreenResize()
-  local win = hs.window.focusedWindow()
-  local f = win:frame()
-  local screen = win:screen()
-  local max = screen:frame()
-
-  f.x = 460
-  f.y = 0
-  f.w = max.w - 460
-  f.h = max.h - 60
   win:setFrame(f)
 end
 
@@ -479,7 +467,7 @@ end
 hs.hotkey.bind(hyper, 'a', function() hs.window.focusedWindow():moveToUnit(hs.layout.left50) end)
 hs.hotkey.bind(hyper, 'd', function() hs.window.focusedWindow():moveToUnit(hs.layout.right50) end)
 hs.hotkey.bind(hyper, "w", top_half_window)
-hs.hotkey.bind(hyper, "x", brokenScreenResize)
+hs.hotkey.bind(hyper, "x", bottom_half_window)
 hs.hotkey.bind(hyper, 's', toggle_window_maximized)
 hs.hotkey.bind(hyper, 'f', function() hs.window.focusedWindow():toggleFullScreen() end)
 
