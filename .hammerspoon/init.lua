@@ -4,16 +4,16 @@
 
 -- Network
 local wifiWatcher = nil
-local workSSIDToken = "RELX_Guest"
-local homeSSIDToken = "Citadel"
+local work_SSID_pool = { 'reedelsevier', 'RELX_Guest' }
+local home_SSID_pool = { 'Citadel' }
 local lastSSID = hs.wifi.currentNetwork()
-local homeLocation = "Home"
-local workLocation = "Work"
+local homeLocation = 'Home'
+local workLocation = 'Work'
 
 -- Fast User Switching
 -- `id -u` to find curent id
 local personalUserId = "501"
-local workUserId     = "502"
+local workUserId     = "504"
 
 -- hotkey hyper
 local hyper = {"ctrl", "alt", "shift", "cmd"}
@@ -28,6 +28,22 @@ hs.window.animationDuration = 0
 local windowSizeCache = {}
 local spotifyWasPlaying = false
 local powerSource = hs.battery.powerSource()
+
+------------------------
+-- Helper functions
+------------------------
+
+local function has_value (tab, val)
+    for index, value in ipairs(tab) do
+        print("comparing: val:"..(val or "nil").." value:"..(value or "nil"))
+        -- We grab the first index of our sub-table instead
+        if value == val then
+          return true
+        end
+    end
+
+    return false
+end
 
 ------------------------
 -- Notifications
@@ -267,21 +283,22 @@ end
 -- Watch network changes
 ------------------------
 
-function enteredNetwork(old_ssid, new_ssid, token)
+function enteredNetwork(old_ssid, new_ssid, ssid_pool)
+  -- activated wifi
   if (old_ssid == nil and new_ssid ~= nil) then
-    return string.find (string.lower(new_ssid), string.lower(token))
+    return has_value(ssid_pool,new_ssid)
   end
 
+  -- deactivated wifi
   if (old_ssid ~= nil and new_ssid == nil) then
     return false
   end
 
-  -- significantly change wifi
+  -- changed wifi
   -- checking if we more than changed network within environment
   if (old_ssid ~= nil and new_ssid ~= nil) then
     notify("Changed Wifi")
-    return (not (string.find(string.lower(old_ssid), string.lower(token)) and
-                string.find(string.lower(new_ssid), string.lower(token))))
+    return (not has_value(ssid_pool, old_ssid)) and has_value(ssid_pool, new_ssid)
   end
 
   return false
@@ -292,11 +309,11 @@ function ssidChangedCallback()
 
     print("ssidChangedCallback: old:"..(lastSSID or "nil").." new:"..(newSSID or "nil"))
     if (newSSID ~= nil) then
-      if (enteredNetwork(lastSSID, newSSID, workSSIDToken)) then
+      if (enteredNetwork(lastSSID, newSSID, work_SSID_pool)) then
         enteredWork()
       end
 
-      if (enteredNetwork(lastSSID, newSSID, homeSSIDToken)) then
+      if (enteredNetwork(lastSSID, newSSID, home_SSID_pool)) then
         enteredHome()
       end
     end
