@@ -9,6 +9,7 @@ local home_SSID_pool = { 'Citadel' }
 local lastSSID = hs.wifi.currentNetwork()
 local homeLocation = 'Home'
 local workLocation = 'Work'
+local brightness = hs.brightness.get()
 
 -- Fast User Switching
 -- `id -u` to find curent id
@@ -384,12 +385,26 @@ function enteredWork()
   mute()
 end
 
+-- this relies on unchecked checkbox
+-- In System Preferences > Energy Saver > Battery,
+-- uncheck “Slightly dim the display while on battery power
+function fullBrightness()
+  brightness = hs.brightness.get()
+  hs.brightness.set(100)
+end
+
+function resetBrightness()
+  hs.brightness.set(brightness)
+end
+
 function switchedToBattery()
   notify("Battery")
+  hs.timer.doAfter(0.2, resetBrightness)
 end
 
 function switchedToCharger()
   notify("Charging")
+  hs.timer.doAfter(0.2, fullBrightness)
 end
 
 hs.caffeinate.watcher.new(function(event)
