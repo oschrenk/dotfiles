@@ -32,3 +32,4 @@ session
 .aws/credentials
 schedule.cache
 fish_variables
+.config/karabiner/automatic_backups/
