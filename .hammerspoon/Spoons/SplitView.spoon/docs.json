@@ -1,0 +1,360 @@
+[
+  {
+    "Constant" : [
+
+    ],
+    "submodules" : [
+
+    ],
+    "Function" : [
+
+    ],
+    "Variable" : [
+      {
+        "doc" : "(Boolean) Whether to show a thumbnail image of the window in the choice selection list.  On by default (which slightly slows the interface).",
+        "name" : "showImage",
+        "def" : "SplitView:showImage",
+        "stripped_doc" : [
+          "(Boolean) Whether to show a thumbnail image of the window in the choice selection list.  On by default (which slightly slows the interface)."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "SplitView:showImage",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "(Boolean) Whether to show a thumbnail image of the window in the choice selection list.  On by default (which slightly slows the interface).",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "(Boolean) Whether to print debug information to the console",
+        "name" : "debug",
+        "def" : "SplitView:debug",
+        "stripped_doc" : [
+          "(Boolean) Whether to print debug information to the console"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "SplitView:debug",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "(Boolean) Whether to print debug information to the console",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "(Boolean) Time in seconds to delay between actions:\n * delayZoomHold: How long to \"hold\" the zoom button down.  Defaults to 0.75s.\n * delayOtherClick: How long to delay until clicking the other window.  Defaults to 0.5s.\n * delayOtherHold: How long to \"hold\" clicking on the other window.  Defaults to 0.25s.\n * delayRestoreWins: How long to delay until restoring window and unhiding apps on the original space.  Defaults to 0.5s.\nOnly set these variables if you are encountering failures achieving split view.",
+        "name" : "delay",
+        "def" : "SplitView:delay*",
+        "stripped_doc" : [
+          "(Boolean) Time in seconds to delay between actions:",
+          " * delayZoomHold: How long to \"hold\" the zoom button down.  Defaults to 0.75s.",
+          " * delayOtherClick: How long to delay until clicking the other window.  Defaults to 0.5s.",
+          " * delayOtherHold: How long to \"hold\" clicking on the other window.  Defaults to 0.25s.",
+          " * delayRestoreWins: How long to delay until restoring window and unhiding apps on the original space.  Defaults to 0.5s.",
+          "Only set these variables if you are encountering failures achieving split view."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "SplitView:delay*",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "(Boolean) Time in seconds to delay between actions:",
+        "parameters" : [
+
+        ]
+      }
+    ],
+    "stripped_doc" : [
+
+    ],
+    "desc" : "*Open two windows side by side in SplitView.*  Select by name and\/or using a popup.  Also provides focus toggling between splitview \"halves\".",
+    "type" : "Module",
+    "Deprecated" : [
+
+    ],
+    "Constructor" : [
+
+    ],
+    "doc" : "*Open two windows side by side in SplitView.*  Select by name and\/or using a popup.  Also provides focus toggling between splitview \"halves\".\nImportant points:\n* `SplitView` Relies on the undocumented `spaces` API, which _must_ be installed separately for it to work; see https:\/\/github.com\/asmagill\/hs._asm.undocumented.spaces\n* This tool works by _simulating_ the split-view user interface: a long green-button click followed by a 2nd window click.  This requires hand tuned time delays to work reliably.  If it is unreliable for you, trying increasing these (see `delay*` variables, below).\n* `SplitView` uses `hw.window.filter` to try to ignore atypical windows (menu panes, etc.), which see.  Unrecognized non-standard windows may interfere with `SplitView`'s operation.\n* If there is only a single space, `SplitView` creates _and does not remove_ a new, empty space for temporarily holding unwanted windows from the same application(s).  This space can safely be deleted, but will recur on future invocations.\nDownload: [https:\/\/github.com\/Hammerspoon\/Spoons\/raw\/master\/Spoons\/SplitView.spoon.zip]\nExample config in you `~\/.hammerspoon\/init.lua`:\n```\nmash =      {\"ctrl\", \"cmd\"}\nspoon.splitView=hs.loadSpoon(\"SplitView\")\nspoon.splitView:bindHotkeys({choose={mash,\"s\"},switchFocus={mash,\"x\"},chooseAppEmacs={mash,\"e\",\"Emacs\"})\n```",
+    "Method" : [
+      {
+        "doc" : "Choose another window to enter split-view with current window\n\nParameters:\n * `winChoices`: (Optional) A table of windows to choose from (as, e.g., provided by `SplitView:byName`).  Defaults to choosing among all other windows on the same screen.  Only standard, non-fullscreen windows are considered.\n\nReturns:\n * None",
+        "name" : "choose",
+        "def" : "SplitView:choose()",
+        "stripped_doc" : [
+          "Choose another window to enter split-view with current window",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "SplitView:choose()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "desc" : "Choose another window to enter split-view with current window",
+        "parameters" : [
+          " * `winChoices`: (Optional) A table of windows to choose from (as, e.g., provided by `SplitView:byName`).  Defaults to choosing among all other windows on the same screen.  Only standard, non-fullscreen windows are considered.",
+          ""
+        ]
+      },
+      {
+        "doc" : "Select an application and window _by name_ to enter split-view along side the currently focused window\nUseful for creating custom key bindings for specific applications and\/or matching window title strings (see `SplitView:bindHotkeys`).  Also useful for calling from the command line (c.f. `hs.ipc.cliInstall`).  E.g., assuming `spoon.splitView` was assigned in your top level as in the example config above:\n  `hs -c \"spoon.splitView.byName(\"Terminal\",\"server1\")`\n\nParameters:\n * `otherapp`: (Optional) The (partial) name of the other window's application, or omitted\/`nil` for no application filtering\n * `otherwin`: (Optional) The (partial) title of the other window, or omitted\/`nil` for no window name filtering\n * `noChoose`: (Optional, Boolean) By default a chooser window is invoked if more than one window matches. To disable this behavior and always take the first match (if any), pass `false` for this parameter.\n\nReturns:\n * None",
+        "name" : "byName",
+        "def" : "SplitView:byName()",
+        "stripped_doc" : [
+          "Select an application and window _by name_ to enter split-view along side the currently focused window",
+          "Useful for creating custom key bindings for specific applications and\/or matching window title strings (see `SplitView:bindHotkeys`).  Also useful for calling from the command line (c.f. `hs.ipc.cliInstall`).  E.g., assuming `spoon.splitView` was assigned in your top level as in the example config above:",
+          "  `hs -c \"spoon.splitView.byName(\"Terminal\",\"server1\")`",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "SplitView:byName()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "desc" : "Select an application and window _by name_ to enter split-view along side the currently focused window",
+        "parameters" : [
+          " * `otherapp`: (Optional) The (partial) name of the other window's application, or omitted\/`nil` for no application filtering",
+          " * `otherwin`: (Optional) The (partial) title of the other window, or omitted\/`nil` for no window name filtering",
+          " * `noChoose`: (Optional, Boolean) By default a chooser window is invoked if more than one window matches. To disable this behavior and always take the first match (if any), pass `false` for this parameter.",
+          ""
+        ]
+      },
+      {
+        "doc" : "Switch focus from one side of a Split View to another, with an animated arrow showing the switch.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name" : "switchFocus",
+        "def" : "SplitView:switchFocus()",
+        "stripped_doc" : [
+          "Switch focus from one side of a Split View to another, with an animated arrow showing the switch.",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "SplitView:switchFocus()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "desc" : "Switch focus from one side of a Split View to another, with an animated arrow showing the switch.",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      },
+      {
+        "doc" : "Binds hotkeys for SplitView\n\nParameters:\n * mapping - A table containing hotkey details for the following items:\n  * choose - Interactively choose another window to enter split-view with\n  * switchFocus - Switch the split view window focus\n  * chooseApp* - Create one or more special `choose` bindings to choose among only those windows matching a given application string.  In this case, give the app string to match as the last table entry.  E.g. `chooseAppEmacs={{\"cmd\",\"ctrl\"},\"e\",\"Emacs\"}`\n  * chooseWin* - Create one or more special `choose` bindings to choose among only those windows matching a given title string.  Give the title string as the last table entry.  E.g. `{chooseWinProj={{\"cmd\",\"ctrl\"},\"p\",\"MyProject\"}}`\n  * chooseAppWin* - Create one or more special `choose` bindings to choose among only those applications matching a given string, and windows of that applicaiton matching a given title string.  Give the application string, then title string as the last two table entries. E.g. `{chooseAppWinEmacsProj={{\"cmd\",\"ctrl\"},\"1\",\"Emacs\",\"MyProject\"}}",
+        "name" : "bindHotkeys",
+        "def" : "SplitView:bindHotkeys(mapping)",
+        "stripped_doc" : [
+          "Binds hotkeys for SplitView",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "SplitView:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Binds hotkeys for SplitView",
+        "parameters" : [
+          " * mapping - A table containing hotkey details for the following items:",
+          "  * choose - Interactively choose another window to enter split-view with",
+          "  * switchFocus - Switch the split view window focus",
+          "  * chooseApp* - Create one or more special `choose` bindings to choose among only those windows matching a given application string.  In this case, give the app string to match as the last table entry.  E.g. `chooseAppEmacs={{\"cmd\",\"ctrl\"},\"e\",\"Emacs\"}`",
+          "  * chooseWin* - Create one or more special `choose` bindings to choose among only those windows matching a given title string.  Give the title string as the last table entry.  E.g. `{chooseWinProj={{\"cmd\",\"ctrl\"},\"p\",\"MyProject\"}}`",
+          "  * chooseAppWin* - Create one or more special `choose` bindings to choose among only those applications matching a given string, and windows of that applicaiton matching a given title string.  Give the application string, then title string as the last two table entries. E.g. `{chooseAppWinEmacsProj={{\"cmd\",\"ctrl\"},\"1\",\"Emacs\",\"MyProject\"}}"
+        ]
+      }
+    ],
+    "Field" : [
+
+    ],
+    "Command" : [
+
+    ],
+    "items" : [
+      {
+        "doc" : "(Boolean) Whether to print debug information to the console",
+        "name" : "debug",
+        "def" : "SplitView:debug",
+        "stripped_doc" : [
+          "(Boolean) Whether to print debug information to the console"
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "SplitView:debug",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "(Boolean) Whether to print debug information to the console",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "(Boolean) Time in seconds to delay between actions:\n * delayZoomHold: How long to \"hold\" the zoom button down.  Defaults to 0.75s.\n * delayOtherClick: How long to delay until clicking the other window.  Defaults to 0.5s.\n * delayOtherHold: How long to \"hold\" clicking on the other window.  Defaults to 0.25s.\n * delayRestoreWins: How long to delay until restoring window and unhiding apps on the original space.  Defaults to 0.5s.\nOnly set these variables if you are encountering failures achieving split view.",
+        "name" : "delay",
+        "def" : "SplitView:delay*",
+        "stripped_doc" : [
+          "(Boolean) Time in seconds to delay between actions:",
+          " * delayZoomHold: How long to \"hold\" the zoom button down.  Defaults to 0.75s.",
+          " * delayOtherClick: How long to delay until clicking the other window.  Defaults to 0.5s.",
+          " * delayOtherHold: How long to \"hold\" clicking on the other window.  Defaults to 0.25s.",
+          " * delayRestoreWins: How long to delay until restoring window and unhiding apps on the original space.  Defaults to 0.5s.",
+          "Only set these variables if you are encountering failures achieving split view."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "SplitView:delay*",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "(Boolean) Time in seconds to delay between actions:",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "(Boolean) Whether to show a thumbnail image of the window in the choice selection list.  On by default (which slightly slows the interface).",
+        "name" : "showImage",
+        "def" : "SplitView:showImage",
+        "stripped_doc" : [
+          "(Boolean) Whether to show a thumbnail image of the window in the choice selection list.  On by default (which slightly slows the interface)."
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "SplitView:showImage",
+        "type" : "Variable",
+        "returns" : [
+
+        ],
+        "desc" : "(Boolean) Whether to show a thumbnail image of the window in the choice selection list.  On by default (which slightly slows the interface).",
+        "parameters" : [
+
+        ]
+      },
+      {
+        "doc" : "Binds hotkeys for SplitView\n\nParameters:\n * mapping - A table containing hotkey details for the following items:\n  * choose - Interactively choose another window to enter split-view with\n  * switchFocus - Switch the split view window focus\n  * chooseApp* - Create one or more special `choose` bindings to choose among only those windows matching a given application string.  In this case, give the app string to match as the last table entry.  E.g. `chooseAppEmacs={{\"cmd\",\"ctrl\"},\"e\",\"Emacs\"}`\n  * chooseWin* - Create one or more special `choose` bindings to choose among only those windows matching a given title string.  Give the title string as the last table entry.  E.g. `{chooseWinProj={{\"cmd\",\"ctrl\"},\"p\",\"MyProject\"}}`\n  * chooseAppWin* - Create one or more special `choose` bindings to choose among only those applications matching a given string, and windows of that applicaiton matching a given title string.  Give the application string, then title string as the last two table entries. E.g. `{chooseAppWinEmacsProj={{\"cmd\",\"ctrl\"},\"1\",\"Emacs\",\"MyProject\"}}",
+        "name" : "bindHotkeys",
+        "def" : "SplitView:bindHotkeys(mapping)",
+        "stripped_doc" : [
+          "Binds hotkeys for SplitView",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "SplitView:bindHotkeys(mapping)",
+        "type" : "Method",
+        "returns" : [
+
+        ],
+        "desc" : "Binds hotkeys for SplitView",
+        "parameters" : [
+          " * mapping - A table containing hotkey details for the following items:",
+          "  * choose - Interactively choose another window to enter split-view with",
+          "  * switchFocus - Switch the split view window focus",
+          "  * chooseApp* - Create one or more special `choose` bindings to choose among only those windows matching a given application string.  In this case, give the app string to match as the last table entry.  E.g. `chooseAppEmacs={{\"cmd\",\"ctrl\"},\"e\",\"Emacs\"}`",
+          "  * chooseWin* - Create one or more special `choose` bindings to choose among only those windows matching a given title string.  Give the title string as the last table entry.  E.g. `{chooseWinProj={{\"cmd\",\"ctrl\"},\"p\",\"MyProject\"}}`",
+          "  * chooseAppWin* - Create one or more special `choose` bindings to choose among only those applications matching a given string, and windows of that applicaiton matching a given title string.  Give the application string, then title string as the last two table entries. E.g. `{chooseAppWinEmacsProj={{\"cmd\",\"ctrl\"},\"1\",\"Emacs\",\"MyProject\"}}"
+        ]
+      },
+      {
+        "doc" : "Select an application and window _by name_ to enter split-view along side the currently focused window\nUseful for creating custom key bindings for specific applications and\/or matching window title strings (see `SplitView:bindHotkeys`).  Also useful for calling from the command line (c.f. `hs.ipc.cliInstall`).  E.g., assuming `spoon.splitView` was assigned in your top level as in the example config above:\n  `hs -c \"spoon.splitView.byName(\"Terminal\",\"server1\")`\n\nParameters:\n * `otherapp`: (Optional) The (partial) name of the other window's application, or omitted\/`nil` for no application filtering\n * `otherwin`: (Optional) The (partial) title of the other window, or omitted\/`nil` for no window name filtering\n * `noChoose`: (Optional, Boolean) By default a chooser window is invoked if more than one window matches. To disable this behavior and always take the first match (if any), pass `false` for this parameter.\n\nReturns:\n * None",
+        "name" : "byName",
+        "def" : "SplitView:byName()",
+        "stripped_doc" : [
+          "Select an application and window _by name_ to enter split-view along side the currently focused window",
+          "Useful for creating custom key bindings for specific applications and\/or matching window title strings (see `SplitView:bindHotkeys`).  Also useful for calling from the command line (c.f. `hs.ipc.cliInstall`).  E.g., assuming `spoon.splitView` was assigned in your top level as in the example config above:",
+          "  `hs -c \"spoon.splitView.byName(\"Terminal\",\"server1\")`",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "SplitView:byName()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "desc" : "Select an application and window _by name_ to enter split-view along side the currently focused window",
+        "parameters" : [
+          " * `otherapp`: (Optional) The (partial) name of the other window's application, or omitted\/`nil` for no application filtering",
+          " * `otherwin`: (Optional) The (partial) title of the other window, or omitted\/`nil` for no window name filtering",
+          " * `noChoose`: (Optional, Boolean) By default a chooser window is invoked if more than one window matches. To disable this behavior and always take the first match (if any), pass `false` for this parameter.",
+          ""
+        ]
+      },
+      {
+        "doc" : "Choose another window to enter split-view with current window\n\nParameters:\n * `winChoices`: (Optional) A table of windows to choose from (as, e.g., provided by `SplitView:byName`).  Defaults to choosing among all other windows on the same screen.  Only standard, non-fullscreen windows are considered.\n\nReturns:\n * None",
+        "name" : "choose",
+        "def" : "SplitView:choose()",
+        "stripped_doc" : [
+          "Choose another window to enter split-view with current window",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "SplitView:choose()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "desc" : "Choose another window to enter split-view with current window",
+        "parameters" : [
+          " * `winChoices`: (Optional) A table of windows to choose from (as, e.g., provided by `SplitView:byName`).  Defaults to choosing among all other windows on the same screen.  Only standard, non-fullscreen windows are considered.",
+          ""
+        ]
+      },
+      {
+        "doc" : "Switch focus from one side of a Split View to another, with an animated arrow showing the switch.\n\nParameters:\n * None\n\nReturns:\n * None",
+        "name" : "switchFocus",
+        "def" : "SplitView:switchFocus()",
+        "stripped_doc" : [
+          "Switch focus from one side of a Split View to another, with an animated arrow showing the switch.",
+          ""
+        ],
+        "notes" : [
+
+        ],
+        "signature" : "SplitView:switchFocus()",
+        "type" : "Method",
+        "returns" : [
+          " * None"
+        ],
+        "desc" : "Switch focus from one side of a Split View to another, with an animated arrow showing the switch.",
+        "parameters" : [
+          " * None",
+          ""
+        ]
+      }
+    ],
+    "name" : "SplitView"
+  }
+]
