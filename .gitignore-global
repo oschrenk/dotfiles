@@ -301,6 +301,10 @@ project/target
 .scala_dependencies
 .worksheet
 
+# Metals
+.bloop
+.metals
+
 #######################################
 # Various
 #######################################
