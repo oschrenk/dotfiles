@@ -359,6 +359,8 @@ shell:
   program: /usr/local/bin/fish
   args:
     - --login
+    - --init-command
+    - "tl personal"
 
 # Windows 10 ConPTY backend (Windows only)
 #
