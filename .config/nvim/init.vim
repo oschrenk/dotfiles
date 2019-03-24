@@ -266,6 +266,20 @@ endfunction
 " ============================
 
 " ---------------------------
+" vim-expand-region
+" ---------------------------
+map K <Plug>(expand_region_expand)
+map J <Plug>(expand_region_shrink)
+
+call expand_region#custom_text_objects({
+      \ 'a]' :1,
+      \ 'ab' :1,
+      \ 'aB' :1,
+      \ 'il' :1,
+      \ 'al' :1,
+      \ })
+
+" ---------------------------
 " tmux-complete
 " ---------------------------
 " rely on deoplete for invocations
