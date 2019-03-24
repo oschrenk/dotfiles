@@ -50,6 +50,7 @@ Plug 'terryma/vim-expand-region'          " expand/shrink selection
 Plug 'kana/vim-textobj-user'              " create your own text-objects
 Plug 'sgur/vim-textobj-parameter'         " i,/a, for function parameter
 Plug 'Julian/vim-textobj-variable-segment' " iv/av change variable segments
+Plug 'kana/vim-textobj-line'              " il/al for lines
 Plug 'mattn/vim-textobj-url'              " au/iu for url
 Plug 'rhysd/vim-textobj-anyblock'         " ib/ab for Quotes, Parenthesis and braces
 
