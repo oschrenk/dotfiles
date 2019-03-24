@@ -18,12 +18,12 @@ eval (direnv hook fish)
 #               light  medium dark
 #               ------ ------ ------
 set -l red      cc9999 ce000f 660000
-set -l green    c2f200 9bbf05 0c4801
+set -l green    C6EF24 9bbf05 0c4801
 set -l blue     48b4fb 005faf 255e87
 set -l orange   f6b117 unused 3a2a03
 set -l brown    bf5e00 803f00 4d2600
 set -l grey     cccccc 999999 333333
-set -l white    ffffff
+set -l white    fff4ee
 set -l black    000000
 set -l ruby_red af0000
 
