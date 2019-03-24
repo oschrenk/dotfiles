@@ -55,8 +55,8 @@ Plug 'mattn/vim-textobj-url'              " au/iu for url
 Plug 'rhysd/vim-textobj-anyblock'         " ib/ab for Quotes, Parenthesis and braces
 
 " Git
-Plug 'tpope/vim-fugitive'                 " git client in vim
 Plug 'airblade/vim-gitgutter'             " mark modified, changed, deleted lines
+Plug 'rhysd/git-messenger.vim'            " reveal commit messages under cursor
 
 " Language Server
 Plug 'natebosch/vim-lsc'
