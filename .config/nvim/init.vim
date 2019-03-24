@@ -58,9 +58,11 @@ Plug 'rhysd/vim-textobj-anyblock'         " ib/ab for Quotes, Parenthesis and br
 Plug 'tpope/vim-fugitive'                 " git client in vim
 Plug 'airblade/vim-gitgutter'             " mark modified, changed, deleted lines
 
+" Language Server
+Plug 'natebosch/vim-lsc'
+
 " File types
 Plug 'dag/vim-fish',                      { 'for': 'fish' }
-Plug 'derekwyatt/vim-sbt',                { 'for': 'sbt.scala' }           " sbt syntax
 Plug 'derekwyatt/vim-scala',              { 'for': ['scala', 'markdown'] } " scala syntax
 Plug 'mpollmeier/vim-scalaConceal',       { 'for': 'scala' }               " scala
 Plug 'guns/vim-clojure-static',           { 'for': 'clojure' }
@@ -264,6 +266,19 @@ endfunction
 " ============================
 " Plugin configuration
 " ============================
+
+" Configuration for vim-lsc
+au BufRead,BufNewFile *.sbt set filetype=scala
+let g:lsc_enable_autocomplete = v:false
+let g:lsc_server_commands = {
+  \  'scala': {
+  \    'command': 'metals-vim',
+  \    'log_level': 'Log'
+  \  }
+  \}
+let g:lsc_auto_map = {
+  \  'GoToDefinition': 'gd',
+  \}
 
 " ---------------------------
 " vim-expand-region
