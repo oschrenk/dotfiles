@@ -9,15 +9,6 @@
         { "shell_command": [] },
         { "shell_command": [] }
       ]
-    },
-    {
-      "window_name": "projects",
-      "layout": "even-horizontal",
-      "options": { "automatic-rename": "off" },
-      "panes": [
-        { "start_directory": "$HOME/Projects/personal/little-printer" },
-        { "start_directory": "$HOME/Projects/external/sirius" }
-      ]
     }
   ]
 }
