@@ -57,5 +57,3 @@ append-to-path $HOME/Projects/language/scala/amrotron
 append-to-path $HOME/Projects/language/scala/awair2influx
 append-to-path $HOME/Projects/language/scala/concertgebouw
 
-# pin terraform@0.11
-prepend-to-path "/usr/local/opt/terraform@0.11/bin"
