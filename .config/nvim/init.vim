@@ -17,9 +17,6 @@ call plug#begin('~/.config/nvim/plugged')
 " Startup
 Plug 'EinfachToll/DidYouMean'             "  asks for the right file to open if ambigous
 
-" Externals
-Plug 'rizzatti/dash.vim'                  " Dash
-
 " tmux
 Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim splits
 Plug 'tmux-plugins/vim-tmux-focus-events' " restore autocommand events within tmux eg. gitgutter refreshs
@@ -387,11 +384,6 @@ endfunction
 
 autocmd! User GoyoEnter call <SID>goyo_enter()
 autocmd! User GoyoLeave call <SID>goyo_leave()
-
-" ---------------------------
-" dash.vim
-" ---------------------------
-:nmap <silent> <leader>d <Plug>DashSearch
 
 " ---------------------------
 " paredit.vim
