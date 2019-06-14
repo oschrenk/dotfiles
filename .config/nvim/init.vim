@@ -286,8 +286,8 @@ let g:lsc_auto_map = {
 " ---------------------------
 " vim-expand-region
 " ---------------------------
-map K <Plug>(expand_region_expand)
-map J <Plug>(expand_region_shrink)
+map <leader>k <Plug>(expand_region_expand)
+map <Leader>j <Plug>(expand_region_shrink)
 
 call expand_region#custom_text_objects({
       \ 'a]' :1,
@@ -341,7 +341,7 @@ nnoremap <silent> <leader>/ :execute 'Rg ' . input('Rg/')<CR>
 noremap <Leader>o :GFiles<CR>
 noremap <Leader>O :Files<CR>
 noremap <Leader>t :Tags<CR>
-noremap <Leader>h :History<CR>
+noremap <Leader>H :History<CR>
 noremap <Leader>m :Marks<CR>
 noremap <Leader>c :BCommits<CR>
 noremap <Leader>C :Commits<CR>
