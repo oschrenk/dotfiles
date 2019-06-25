@@ -511,10 +511,3 @@ end
 hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reload_config):start()
 notify("Config loaded")
 
-
-
-mash = {"shift", "cmd"}
-splitView=hs.loadSpoon("SplitView")
-splitView:bindHotkeys({choose={mash,"s"},
-                            switchFocus={mash,"x"}
-                            })
