@@ -15,7 +15,6 @@ alias n    'cd $HOME/Projects/personal/notes'
 alias a    'ag'
 alias be   'bundle exec'
 alias c    clear
-alias e    nvim
 alias j    journal
 alias g    git
 alias tf    terraform
