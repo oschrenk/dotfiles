@@ -28,5 +28,4 @@ alias tl   'tmuxp load -2 -y'
 
 # Make user executable
 alias cux  'chmod u+x'
-alias vim  'nvim'
 alias meow 'cat'
