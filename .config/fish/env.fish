@@ -49,11 +49,3 @@ set -x HOMEBREW_NO_ANALYTICS 1
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.git,node_modules,target}/*"'
 export FZF_CTRL_T_COMMAND='fd --type f --type d --hidden --follow --exclude .git'
 
-# Applications
-
-append-to-path $HOME/Projects/language/scala/delight
-append-to-path $HOME/Projects/platzhaltr/datr.scala
-append-to-path $HOME/Projects/language/scala/amrotron
-append-to-path $HOME/Projects/language/scala/awair2influx
-append-to-path $HOME/Projects/language/scala/concertgebouw
-
