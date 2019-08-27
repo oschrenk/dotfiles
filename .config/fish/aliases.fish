@@ -4,8 +4,6 @@ alias ....  'cd ../../..'
 alias ..... 'cd ../../../..'
 abbr -a -- - 'cd -'
 
-alias md   'mkdir -p'
-
 alias d    'cd $HOME/Downloads'
 alias p    'cd $HOME/Projects'
 alias n    'cd $HOME/Projects/personal/notes'
@@ -19,7 +17,6 @@ alias k    kubectl
 alias j    journal
 alias t    terraform
 
-alias chrome 'open /Applications/Google\ Chrome.app/ --args --allow-file-access-from-files --remote-debugging-port=9222'
 alias ios 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
 
 # tmux sessions
