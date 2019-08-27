@@ -14,8 +14,9 @@ alias n    'cd $HOME/Projects/personal/notes'
 alias a    'ag'
 alias be   'bundle exec'
 alias c    clear
-alias j    journal
 alias g    git
+alias k    kubectl
+alias j    journal
 alias t    terraform
 
 alias chrome 'open /Applications/Google\ Chrome.app/ --args --allow-file-access-from-files --remote-debugging-port=9222'
