@@ -34,3 +34,4 @@ schedule.cache
 fish_variables
 .config/karabiner/automatic_backups/
 .sbt/1.0/plugins/metals.sbt
+.aws/adfs_cookies
