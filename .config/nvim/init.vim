@@ -73,7 +73,6 @@ Plug 'Tyilo/applescript.vim',             { 'for': 'applescript' }
 Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }    " for .tmux.conf
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'leafgarland/typescript-vim',        { 'for': 'typescript' }
-Plug 'alunny/pegjs-vim'
 Plug 'hashivim/vim-terraform'
 Plug 'mzlogin/vim-markdown-toc'
 
