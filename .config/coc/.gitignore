@@ -1,0 +1,8 @@
+commands
+history.json
+memos.json
+mru
+!extensions
+extensions/*
+!extensions/package.json
+!extensions/yarn.lock
