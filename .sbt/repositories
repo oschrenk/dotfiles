@@ -1,8 +1,0 @@
-[repositories]
-  local
-  maven-central
-  netbeans-releases: http://bits.netbeans.org/maven2
-  activator-local: file://${activator.local.repository-/usr/local/Cellar/typesafe-activator/1.3.2/libexec/repository}, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
-  typesafe-releases: http://repo.typesafe.com/typesafe/releases
-  typesafe-ivy-releasez: http://repo.typesafe.com/typesafe/ivy-releases, [organization]/[module]/(scala_[scalaVersion]/)(sbt_[sbtVersion]/)[revision]/[type]s/[artifact](-[classifier]).[ext]
-
