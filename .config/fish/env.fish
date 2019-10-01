@@ -27,7 +27,7 @@ prepend-to-path $HOME/.rbenv/shims
 # JVM
 set -x JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Home
 set -x SCALA_HOME /usr/local/opt/scala/
-set -x SBT_OPTS "-Xms512M -Xmx1536M -Xss1M -XX:+CMSClassUnloadingEnabled"
+set -x SBT_OPTS "-Xms1024M -Xmx2048M -Xss4M -XX:+CMSClassUnloadingEnabled"
 
 # Rust
 prepend-to-path $HOME/.cargo/bin
