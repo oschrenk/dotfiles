@@ -1,5 +1,6 @@
 {
   "suggest.echodocSupport": true,
+  "suggest.maxCompleteItemCount": 10,
   "languageserver": {
     "metals": {
       "command": "metals-vim",
