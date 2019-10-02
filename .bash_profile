@@ -1,4 +1,3 @@
-
 # Load the shell dotfiles, and then some:
 # * ~/.path can be used to extend `$PATH`.
 for file in ~/.{path,aliases,bash_prompt,exports,functions}; do
