@@ -12,10 +12,12 @@ alias n    'cd $HOME/Projects/personal/notes'
 alias a    'ag'
 alias be   'bundle exec'
 alias c    clear
+alias ci   'open https://circleci.com/dashboard'
 alias g    git
 alias k    kubectl
 alias j    journal
 alias t    terraform
+
 
 alias ios 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
 
