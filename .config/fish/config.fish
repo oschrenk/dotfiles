@@ -15,3 +15,5 @@ end
 # Enable direnv
 eval (direnv hook fish)
 
+set -g theme_newline_cursor yes
+
