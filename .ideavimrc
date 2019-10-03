@@ -1,3 +1,11 @@
 set clipboard=unnamed
 
+" emulate vim-surround
+" Commands: ys, cs, ds, S
+set surround
+
+" emulate commentary.vim
+" Commands: gcc, gc + motion, v_gc
+set commentary
+
 source ~/.vimrc
