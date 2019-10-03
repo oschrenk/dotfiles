@@ -18,6 +18,7 @@ source ~/.config/nvim/plugins.vim
 set laststatus=0
 set background=dark
 colorscheme gruvbox
+let g:gruvbox_sign_column = 'bg0'
 
 " ============================
 " Keyboard mappings
