@@ -73,6 +73,7 @@ Plug 'mzlogin/vim-markdown-toc'
 " Look and feel
 Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
 Plug 'nathanaelkane/vim-indent-guides'    " display indent levels
+Plug 'kshenoy/vim-signature'              " toggle, display, navigate marks
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}  " distraction free editing
 
 " Themes
