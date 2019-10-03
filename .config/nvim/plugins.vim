@@ -63,11 +63,11 @@ Plug 'vim-ruby/vim-ruby',                 { 'for': 'ruby' }
 Plug 'tpope/vim-endwise',                 { 'for': 'ruby' }     " end things automatically, like end after `if, do, def` in Ruby
 Plug 'dag/vim2hs',                        { 'for': 'haskell' }
 Plug 'Tyilo/applescript.vim',             { 'for': 'applescript' }
-Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }    " for .tmux.conf
+Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }
 Plug 'ekalinin/Dockerfile.vim'
 Plug 'leafgarland/typescript-vim',        { 'for': 'typescript' }
-Plug 'hashivim/vim-terraform'
-Plug 'mzlogin/vim-markdown-toc'
+Plug 'hashivim/vim-terraform',            { 'for': 'terraform' }
+Plug 'mzlogin/vim-markdown-toc',          { 'for': 'markdown' }
 
 " Look and feel
 Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
