@@ -1,6 +1,7 @@
 {
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 10,
+  "coc.source.emoji.filetypes": ["gitcommit", "mail", "markdown" ],
   "languageserver": {
     "metals": {
       "command": "metals-vim",
