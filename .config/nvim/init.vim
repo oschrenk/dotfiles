@@ -315,13 +315,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " ---------------------------
-" vim-indent-guides
-" ---------------------------
-
-" Indent lines at l 2
-let g:indent_guides_start_level = 2
-"
-" ---------------------------
 " fzf
 " ---------------------------
 command! -bang -nargs=* Rg
