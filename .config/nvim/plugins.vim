@@ -53,7 +53,6 @@ Plug 'rhysd/git-messenger.vim'            " reveal commit messages under cursor
 " File types
 Plug 'dag/vim-fish',                      { 'for': 'fish' }
 Plug 'derekwyatt/vim-scala',              { 'for': ['scala', 'markdown'] } " scala syntax
-Plug 'mpollmeier/vim-scalaConceal',       { 'for': 'scala' }               " scala
 Plug 'Tyilo/applescript.vim',             { 'for': 'applescript' }
 Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }
 Plug 'ekalinin/Dockerfile.vim'
