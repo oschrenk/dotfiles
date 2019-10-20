@@ -36,6 +36,7 @@ Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of match
 Plug 'junegunn/vim-easy-align'            " align structures identified by a single character such as <Space>, =, :, ., |, &, #, and ,
 Plug 'editorconfig/editorconfig-vim'      " Applies http://editorconfig.org config
 Plug 'mtth/scratch.vim'                   " unobtrusive scratch window
+Plug 'tpope/vim-projectionist'            " project configuration
 
 " Motions
 Plug 'terryma/vim-expand-region'          " expand/shrink selection
