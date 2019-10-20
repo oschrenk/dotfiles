@@ -315,21 +315,6 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
 " ---------------------------
-" vim-expand-region
-" ---------------------------
-map <leader>k <Plug>(expand_region_expand)
-map <Leader>j <Plug>(expand_region_shrink)
-
-call expand_region#custom_text_objects({
-      \ 'a]' :1,
-      \ 'ab' :1,
-      \ 'aB' :1,
-      \ 'il' :1,
-      \ 'al' :1,
-      \ })
-
-
-" ---------------------------
 " vim-indent-guides
 " ---------------------------
 

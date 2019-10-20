@@ -36,9 +36,6 @@ Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of match
 Plug 'editorconfig/editorconfig-vim'      " Applies http://editorconfig.org config
 Plug 'tpope/vim-projectionist'            " project configuration
 
-" Motions
-Plug 'terryma/vim-expand-region'          " expand/shrink selection
-
 " Text objects
 Plug 'kana/vim-textobj-user'              " create your own text-objects
 Plug 'sgur/vim-textobj-parameter'         " i,/a, for function parameter
