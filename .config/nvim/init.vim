@@ -412,8 +412,6 @@ let g:clojure_conceal_extras=1   " fn, defn-, letfn, and #() to unicode symbols
 " markdown
 " ---------------------------
 au BufRead,BufNewFile *.md set filetype=markdown
-let g:vim_markdown_fenced_languages = ['clojure', 'html', 'javascript', 'ruby', 'scala', 'vim']
-let g:vim_markdown_folding_disabled = 1
 
 " ---------------------------
 " vim-projectionist
