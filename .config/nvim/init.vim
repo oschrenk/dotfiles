@@ -437,6 +437,26 @@ au BufRead,BufNewFile *.md set filetype=markdown
 let g:vim_markdown_fenced_languages = ['clojure', 'html', 'javascript', 'ruby', 'scala', 'vim']
 let g:vim_markdown_folding_disabled = 1
 
+" ---------------------------
+" vim-projectionist
+" ---------------------------
+
+if !exists('g:projectionist_heuristics')
+  let g:projectionist_heuristics = {}
+endif
+if !has_key(g:projectionist_heuristics, "build.sbt")
+  let g:projectionist_heuristics["build.sbt"] = {
+      \  "src/main/scala/*.scala": {
+      \    "alternate": "src/test/scala/{}Spec.scala",
+      \    "type": "source"
+      \  },
+      \  "src/test/scala/*Spec.scala": {
+      \    "alternate": "src/main/scala/{}.scala",
+      \    "type": "test"
+      \  }
+      \}
+endif
+
 " ===========================
 " Spellcheck
 " ===========================
