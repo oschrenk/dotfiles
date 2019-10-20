@@ -33,9 +33,7 @@ Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
 Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
 Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
-Plug 'junegunn/vim-easy-align'            " align structures identified by a single character such as <Space>, =, :, ., |, &, #, and ,
 Plug 'editorconfig/editorconfig-vim'      " Applies http://editorconfig.org config
-Plug 'mtth/scratch.vim'                   " unobtrusive scratch window
 Plug 'tpope/vim-projectionist'            " project configuration
 
 " Motions
@@ -47,7 +45,6 @@ Plug 'sgur/vim-textobj-parameter'         " i,/a, for function parameter
 Plug 'Julian/vim-textobj-variable-segment' " iv/av change variable segments
 Plug 'kana/vim-textobj-line'              " il/al for lines
 Plug 'mattn/vim-textobj-url'              " au/iu for url
-Plug 'rhysd/vim-textobj-anyblock'         " ib/ab for Quotes, Parenthesis and braces
 
 " Git
 Plug 'airblade/vim-gitgutter'             " mark modified, changed, deleted lines
@@ -57,12 +54,6 @@ Plug 'rhysd/git-messenger.vim'            " reveal commit messages under cursor
 Plug 'dag/vim-fish',                      { 'for': 'fish' }
 Plug 'derekwyatt/vim-scala',              { 'for': ['scala', 'markdown'] } " scala syntax
 Plug 'mpollmeier/vim-scalaConceal',       { 'for': 'scala' }               " scala
-Plug 'guns/vim-clojure-static',           { 'for': 'clojure' }
-Plug 'fwolanski/vim-clojure-conceal',     { 'for': 'clojure' }
-Plug 'rodjek/vim-puppet',                 { 'for': 'puppet' }
-Plug 'vim-ruby/vim-ruby',                 { 'for': 'ruby' }
-Plug 'tpope/vim-endwise',                 { 'for': 'ruby' }     " end things automatically, like end after `if, do, def` in Ruby
-Plug 'dag/vim2hs',                        { 'for': 'haskell' }
 Plug 'Tyilo/applescript.vim',             { 'for': 'applescript' }
 Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }
 Plug 'ekalinin/Dockerfile.vim'
@@ -72,7 +63,6 @@ Plug 'mzlogin/vim-markdown-toc',          { 'for': 'markdown' }
 
 " Look and feel
 Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
-Plug 'nathanaelkane/vim-indent-guides'    " display indent levels
 Plug 'kshenoy/vim-signature'              " toggle, display, navigate marks
 Plug 'junegunn/goyo.vim', {'on': 'Goyo'}  " distraction free editing
 
