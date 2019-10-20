@@ -27,9 +27,6 @@ let g:gruvbox_sign_column = 'bg0'
 " map leader to <space>
 let mapleader = "\<Space>"
 
-" escape with jk
-inoremap jk <Esc>
-
 " Do not enter Ex mode by accident
 nnoremap Q <Nop>
 
