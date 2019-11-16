@@ -28,5 +28,10 @@ alias tl   'tmuxp load -2 -y'
 # Make user executable
 alias cux  'chmod u+x'
 
+# Sound
+# requires `brew install sox`
+alias noise 'play -q -c 2 --null synth brownnoise band -n 2500 4000 tremolo 20 .1 reverb 50'
+alias tng 'play -c2 -n synth whitenoise band -n 100 24 band -n 300 100 gain +20'
+
 # Fun
 alias meow 'cat'
