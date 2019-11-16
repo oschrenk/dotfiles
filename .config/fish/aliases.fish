@@ -10,7 +10,6 @@ alias n    'cd $HOME/Projects/personal/notes'
 
 # Applications
 alias a    'ag'
-alias be   'bundle exec'
 alias c    clear
 alias ci   'open https://circleci.com/dashboard'
 alias g    git
