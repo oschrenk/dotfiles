@@ -1,3 +1,4 @@
+# Navigation
 alias ..    'cd ..'
 alias ...   'cd ../..'
 alias ....  'cd ../../..'
@@ -26,4 +27,6 @@ alias tl   'tmuxp load -2 -y'
 
 # Make user executable
 alias cux  'chmod u+x'
+
+# Fun
 alias meow 'cat'
