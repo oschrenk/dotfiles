@@ -1,9 +1,9 @@
 {
   "dependencies": {
-    "coc-json": ">=1.2.4",
     "coc-browser": ">=1.1.1",
-    "coc-tsserver": ">=1.4.6",
+    "coc-emoji": ">=1.2.3",
+    "coc-json": ">=1.2.4",
     "coc-todolist": ">=1.0.6",
-    "coc-emoji": ">=1.2.3"
+    "coc-tsserver": ">=1.4.8"
   }
 }
