@@ -29,6 +29,13 @@ set -x JAVA_HOME /Library/Java/JavaVirtualMachines/jdk1.8.0_201.jdk/Contents/Hom
 set -x SCALA_HOME /usr/local/opt/scala/
 set -x SBT_OPTS "-Xms1024M -Xmx2048M -Xss4M -XX:+CMSClassUnloadingEnabled"
 
+# Android
+set -x ANDROID_HOME $HOME/Library/Android/sdk
+append-to-path $ANDROID_HOME/emulator
+append-to-path $ANDROID_HOME/tools
+append-to-path $ANDROID_HOME/tools/bin
+append-to-path $ANDROID_HOME/platform-tools
+
 # Rust
 prepend-to-path $HOME/.cargo/bin
 
