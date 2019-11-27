@@ -36,6 +36,9 @@ append-to-path $ANDROID_HOME/tools
 append-to-path $ANDROID_HOME/tools/bin
 append-to-path $ANDROID_HOME/platform-tools
 
+# Python
+append-to-path $HOME/Library/Python/3.7/bin
+
 # Rust
 prepend-to-path $HOME/.cargo/bin
 
