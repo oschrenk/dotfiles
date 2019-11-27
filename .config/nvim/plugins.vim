@@ -32,27 +32,20 @@ Plug 'Shougo/echodoc.vim'                 " print doc in command line
 Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg. vim-gitgutter
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
 Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
-Plug 'vim-scripts/paredit.vim'            " maintain the balanced state of matched parentheses
-Plug 'editorconfig/editorconfig-vim'      " Applies http://editorconfig.org config
 Plug 'tpope/vim-projectionist'            " project configuration
 
 " Text objects
 Plug 'kana/vim-textobj-user'              " create your own text-objects
-Plug 'sgur/vim-textobj-parameter'         " i,/a, for function parameter
-Plug 'Julian/vim-textobj-variable-segment' " iv/av change variable segments
-Plug 'kana/vim-textobj-line'              " il/al for lines
 Plug 'mattn/vim-textobj-url'              " au/iu for url
 
 " Git
 Plug 'airblade/vim-gitgutter'             " mark modified, changed, deleted lines
-Plug 'rhysd/git-messenger.vim'            " reveal commit messages under cursor
 
 " File types
 Plug 'dag/vim-fish',                      { 'for': 'fish' }
 Plug 'derekwyatt/vim-scala',              { 'for': ['scala', 'markdown'] } " scala syntax
 Plug 'Tyilo/applescript.vim',             { 'for': 'applescript' }
 Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'leafgarland/typescript-vim',        { 'for': 'typescript' }
 Plug 'hashivim/vim-terraform',            { 'for': 'terraform' }
 Plug 'mzlogin/vim-markdown-toc',          { 'for': 'markdown' }
