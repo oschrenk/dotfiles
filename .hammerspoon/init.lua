@@ -400,7 +400,6 @@ hs.caffeinate.watcher.new(function(event)
   end
   if event == hs.caffeinate.watcher.systemDidWake then
     print("waking up")
-    restartKarabiner()
     mute()
   end
 end):start()
@@ -463,16 +462,6 @@ function stop()
 end
 
 ------------------------
--- Keyboard
-------------------------
-
-function restartKarabiner()
-  -- relies on sudoers.d entry
-  notify("Restarting Karabiner")
-  os.execute("sudo /usr/bin/killall karabiner_observer karabiner_grabber")
-end
-
-------------------------
 -- Keyboard Bindings
 ------------------------
 
@@ -495,7 +484,6 @@ hs.hotkey.bind(hyper, "b", toggleBluetooth)
 hs.hotkey.bind(hyper, "v", toggleWifi)
 
 hs.hotkey.bind(hyper, 'm', mute)
-hs.hotkey.bind(hyper, 'k', restartKarabiner)
 
 ------------------------
 -- Reload
