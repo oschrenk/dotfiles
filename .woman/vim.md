@@ -16,3 +16,6 @@ Buffers
 * to edit the next buffer use `:bnext`, or `:bn`
 * to edit the next buffer use `:bprevious`, `:bNext`, or `:bp` or `Ctrl+p`
 
+netrw
+
+- `d` create directory
