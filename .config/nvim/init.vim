@@ -64,6 +64,9 @@ nnoremap U :redo<cr>
 " N: Find next occurrence backward
 nnoremap N Nzzzv
 
+" , repeat the last macro
+nnoremap , @@
+
 " Use <C-c> to clear the highlighting of :set hlsearch.
 if maparg('<C-c>', 'n') ==# ''
   nnoremap <silent> <C-c> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
