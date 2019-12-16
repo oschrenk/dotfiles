@@ -19,3 +19,4 @@ Buffers
 netrw
 
 - `d` create directory
+- `R` rename file
