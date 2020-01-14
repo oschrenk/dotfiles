@@ -33,6 +33,7 @@ Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
 Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
 Plug 'tpope/vim-projectionist'            " project configuration
+Plug 'machakann/vim-highlightedyank'      " highlight yank targets
 
 " Text objects
 Plug 'kana/vim-textobj-user'              " create your own text-objects
