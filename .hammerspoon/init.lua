@@ -71,10 +71,10 @@ function center_window()
   local screen = win:screen()
   local max = screen:frame()
 
-  f.x = max.w / 4
-  f.y = max.h / 4
-  f.w = max.w / 2
-  f.h = max.h / 2
+  f.x = max.w * (15 / 100)
+  f.y = max.h * (5 / 100)
+  f.w = max.w * (70 / 100)
+  f.h = max.h * (90 / 100)
   win:setFrame(f)
 end
 
