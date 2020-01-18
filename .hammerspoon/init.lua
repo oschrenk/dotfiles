@@ -4,7 +4,7 @@
 
 -- Network
 local wifiWatcher = nil
-local work_SSID_pool = { 'reedelsevier', 'RELX_Guest' }
+local work_SSID_pool = {  }
 local home_SSID_pool = { 'Citadel' }
 local lastSSID = hs.wifi.currentNetwork()
 local homeLocation = 'Home'
