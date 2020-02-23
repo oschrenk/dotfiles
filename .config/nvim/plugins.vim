@@ -51,6 +51,9 @@ Plug 'leafgarland/typescript-vim',        { 'for': 'typescript' }
 Plug 'hashivim/vim-terraform',            { 'for': 'terraform' }
 Plug 'mzlogin/vim-markdown-toc',          { 'for': 'markdown' }
 
+" Power
+ Plug 'm1foley/vim-expresso'              " eval math with g=
+
 " Look and feel
 Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
 Plug 'kshenoy/vim-signature'              " toggle, display, navigate marks
