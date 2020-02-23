@@ -1,10 +1,10 @@
 {
   "dependencies": {
-    "coc-browser": ">=1.2.3",
+    "coc-browser": ">=1.2.5",
     "coc-emoji": ">=1.2.3",
     "coc-json": ">=1.2.4",
-    "coc-metals": ">=0.5.3",
-    "coc-todolist": ">=1.1.0",
+    "coc-metals": ">=0.6.0",
+    "coc-todolist": ">=1.2.3",
     "coc-tsserver": ">=1.4.9"
   }
 }
