@@ -82,8 +82,6 @@
   #   and/or adding more hunk
   cam = commit --amend
 
-  co = checkout
-
   # --name-only
   #   Show only names of changed files.
   # --diff-filter=[(A|C|D|M|R|T|U|X|B)...[*]]
@@ -91,13 +89,6 @@
   #   have their type (i.e. regular file, symlink, submodule, ...) changed (T),
   #   are Unmerged (U), are Unknown (X), or have had their pairing Broken (B)
   conflicts = diff --name-only --diff-filter=U
-
-  # -b <new_branch>
-  # Create a new branch named <new_branch>
-  cob = checkout -b
-
-  # discard indidual hunks
-  cop = checkout --patch
 
   # Credit an author on the latest commit
   # Usage: git credit "John Doe" jdoe@domain.tld
