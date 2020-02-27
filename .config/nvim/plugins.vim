@@ -50,6 +50,7 @@ Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }
 Plug 'leafgarland/typescript-vim',        { 'for': 'typescript' }
 Plug 'hashivim/vim-terraform',            { 'for': 'terraform' }
 Plug 'mzlogin/vim-markdown-toc',          { 'for': 'markdown' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 " Power
  Plug 'm1foley/vim-expresso'              " eval math with g=
