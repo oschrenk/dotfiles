@@ -302,8 +302,9 @@ project/target
 .worksheet
 
 # Metals
-.bloop
-.metals
+.metals/
+.bloop/
+project/metals.sbt
 
 #######################################
 # Various
