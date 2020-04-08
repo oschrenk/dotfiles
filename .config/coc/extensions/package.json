@@ -4,8 +4,8 @@
     "coc-emoji": ">=1.2.3",
     "coc-go": ">=0.7.0",
     "coc-json": ">=1.2.5",
-    "coc-metals": ">=0.7.2",
-    "coc-todolist": ">=1.2.4",
-    "coc-tsserver": ">=1.4.11"
+    "coc-metals": ">=0.7.4",
+    "coc-todolist": ">=1.2.6",
+    "coc-tsserver": ">=1.4.12"
   }
 }
