@@ -21,7 +21,7 @@ Plug 'oschrenk/vim-vinegar'               " netrw enhancements
 Plug 'airblade/vim-rooter'                " auto sets working directory
 
 " Completion
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'wellle/tmux-complete.vim'           " complete from tmux
 Plug 'Shougo/echodoc.vim'                 " print doc in command line
 " for Coc extensions go to
