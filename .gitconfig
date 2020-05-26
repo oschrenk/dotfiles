@@ -234,9 +234,5 @@
   email = oliver.schrenk@gmail.com
 [include]
   path = ~/.gitconfig_system
-[includeIf "gitdir:~/Projects/elsevier"]
-    path = .gitconfig_work
-[includeIf "gitdir:~/Projects/mendeley"]
-    path = .gitconfig_work
 [includeIf "gitdir:~/Projects/oschrenk"]
     path = .gitconfig_freelance
