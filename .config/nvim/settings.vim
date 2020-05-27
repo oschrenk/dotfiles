@@ -108,5 +108,11 @@ function! FirstCharOrFirstCol()
   endif
 endfunction
 
-" markdown
+" ----------------------
+" Filetypes
+" ----------------------
+" make .md markdown files
 au BufRead,BufNewFile *.md set filetype=markdown
+
+" when commiting add new line and enter insert mode
+au FileType gitcommit startinsert
