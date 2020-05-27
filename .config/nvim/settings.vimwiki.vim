@@ -1,7 +1,7 @@
 let wiki_1 = {}
 let wiki_1.path = '~/Documents/Wiki/'
 let wiki_1.syntax = 'markdown'
-let wiki_1.ext = '.md'
+let wiki_1.ext = '.wiki'
 
 " Name of wiki-file that holds all links to dated wiki files
 let wiki_1.diary_index = 'journal'
