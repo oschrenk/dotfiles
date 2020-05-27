@@ -120,6 +120,7 @@ nnoremap ,html :-1read $HOME/.config/nvim/templates/index.html<CR>3jwf>a
 " ===========================
 
 iab xtoday <c-r>=strftime("%Y%m%d")<cr>
+iab xToday <c-r>=strftime("%Y-%m-%d")<cr>
 iab xtime <c-r>=strftime("%H:%M")<cr>
 iab xnow <c-r>=strftime("%Y%m%d %H:%M")<cr>
 
