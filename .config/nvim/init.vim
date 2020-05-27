@@ -19,8 +19,29 @@ colorscheme gruvbox
 let g:gruvbox_sign_column = 'bg0'
 
 " ============================
+" Config, Global
+" ============================
+"
+source ~/.config/nvim/settings.vim
+
+" ============================
+" Plugin configuration
+" ============================
+
+source ~/.config/nvim/settings.echo-doc.vim
+source ~/.config/nvim/settings.coc.vim
+source ~/.config/nvim/settings.fzf.vim
+source ~/.config/nvim/settings.rainbow_parentheses.vim
+source ~/.config/nvim/settings.goyo.vim
+source ~/.config/nvim/settings.netrw.vim
+source ~/.config/nvim/settings.projectionist.vim
+
+" ============================
 " Keyboard mappings
 " ============================
+
+" need to source manually
+source ~/.config/nvim/plugged/vim-shortcut/plugin/shortcut.vim
 
 " map leader to <space>
 let mapleader = "\<Space>"
@@ -43,8 +64,9 @@ nnoremap <Up> <nop>
 noremap <Down> <nop>
 
 " Jump back to last edited buffer
-nnoremap <C-p> :e#<CR>
-inoremap <C-p> <esc>:e#<CR>
+Shortcut repeat the last macro
+  \ nnoremap <C-p> :e#<CR>
+  \ inoremap <C-p> <esc>:e#<CR>
 
 " move cursors naturally
 nnoremap j gj
@@ -62,48 +84,67 @@ nnoremap U :redo<cr>
 " N: Find next occurrence backward
 nnoremap N Nzzzv
 
-" , repeat the last macro
-nnoremap , @@
-
-nnoremap <C-o> :GFiles<CR>
+Shortcut repeat the last macro
+  \ nnoremap , @@
 
 " Use <C-c> to clear the highlighting of :set hlsearch.
 if maparg('<C-c>', 'n') ==# ''
   nnoremap <silent> <C-c> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
+Shortcut show shortcut menu and run chosen shortcut
+  \ noremap <silent> <Leader><Leader> :Shortcuts<Return>
+
+Shortcut fallback to shortcut menu on partial entry
+  \ noremap <silent> <Leader> :Shortcuts<Return>
+
 " Aerojump
-nmap <Leader>as <Plug>(AerojumpSpace)
-nmap <Leader>ab <Plug>(AerojumpBolt)
-nmap <Leader>aa <Plug>(AerojumpFromCursorBolt)
-nmap <Leader>ad <Plug>(AerojumpDefault) " Boring mode
+Shortcut Aerojump Space
+  \ nmap <Leader>as <Plug>(AerojumpSpace)
+Shortcut Aerojump Bolt
+  \ nmap <Leader>as <Plug>(AerojumpBolt)
+Shortcut Aerojump From Cursor Bolt
+  \ nmap <Leader>aa <Plug>(AerojumpFromCursorBolt)
+Shortcut Aerojump Default
+  \ nmap <Leader>ad <Plug>(AerojumpDefault)
 
 " FZF
-nnoremap <silent> <leader>/ :execute 'Rg ' . input('Rg/')<CR>
-noremap <Leader>o :GFiles<CR>
-noremap <Leader>O :Files<CR>
-noremap <Leader>t :Tags<CR>
-noremap <Leader>H :History<CR>
-noremap <Leader>m :Marks<CR>
-noremap <Leader>c :BCommits<CR>
-noremap <Leader>C :Commits<CR>
+Shortcut FZF Search text
+  \ nnoremap <silent> <leader>/ :execute 'Rg ' . input('Rg/')<CR>
+Shortcut FZF Search Git files
+  \ noremap <Leader>o :GFiles<CR>
+Shortcut FZF Search files
+  \ noremap <Leader>O :Files<CR>
+Shortcut FZF Search Tags
+  \ noremap <Leader>t :Tags<CR>
+Shortcut FZF Search Old files and buffers
+  \ noremap <Leader>H :History<CR>
+Shortcut FZF Search Marks
+  \ noremap <Leader>m :Marks<CR>
+Shortcut FZF Search Commits for current buffer
+  \ noremap <Leader>c :BCommits<CR>
+Shortcut FZF Search Commits
+  \ noremap <Leader>C :Commits<CR>
+Shortcut FZF Search Lines in current buffer
+  \ noremap <Leader>B :BLines<CR>
 
 " COC
-" Remap for rename current word
-nmap <leader>rn <Plug>(coc-rename)
+Shortcut COC Rename current word
+  \ nmap <leader>rn <Plug>(coc-rename)
 
-" Remap for format selected region
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
+Shortcut COC format selected region
+  \ xmap <leader>f  <Plug>(coc-format-selected)
+  \ nmap <leader>f  <Plug>(coc-format-selected)
 
-" Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
+Shortcut COC do codeAction of selected region, ex: `<leader>aap` for current paragraph
+  \ xmap <leader>a  <Plug>(coc-codeaction-selected)
+  \ nmap <leader>a  <Plug>(coc-codeaction-selected)
 
-" Remap for do codeAction of current line
-nmap <leader>ac  <Plug>(coc-codeaction)
-" Fix autofix problem of current line
-nmap <leader>qf  <Plug>(coc-fix-current)
+Shortcut COC do codeAction of current line
+  \ nmap <leader>ac  <Plug>(coc-codeaction)
+
+Shortcut COC Fix autofix problem of current line
+  \ nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Create mappings for function text object, requires document symbols feature of languageserver.
 xmap if <Plug>(coc-funcobj-i)
@@ -115,12 +156,13 @@ omap af <Plug>(coc-funcobj-a)
 nmap <silent> <C-d> <Plug>(coc-range-select)
 xmap <silent> <C-d> <Plug>(coc-range-select)
 " Using CocList
-" Show all diagnostics
-nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions
-nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-" Show commands
-nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+"
+Shortcut COC Show all diagnostics
+  \ nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+Shortcut COC Manage extensions
+  \ nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+Shortcut COC Show commands
+  \ nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
 " Search workspace symbols
@@ -132,23 +174,41 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-" ============================
-" Config, Global
-" ============================
-"
-source ~/.config/nvim/settings.vim
+Shortcut COC Use <c-space> to trigger completion
+  \ inoremap <silent><expr> <c-space> coc#refresh()
 
-" ============================
-" Plugin configuration
-" ============================
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
-source ~/.config/nvim/settings.echo-doc.vim
-source ~/.config/nvim/settings.coc.vim
-source ~/.config/nvim/settings.fzf.vim
-source ~/.config/nvim/settings.rainbow_parentheses.vim
-source ~/.config/nvim/settings.goyo.vim
-source ~/.config/nvim/settings.netrw.vim
-source ~/.config/nvim/settings.projectionist.vim
+" Use `[g` and `]g` to navigate diagnostics
+Shortcut COC previous diagnostic
+  \ nmap <silent> [g <Plug>(coc-diagnostic-prev)
+Shortcut COC next diagnostic
+  \ nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+Shortcut COC goto definition
+  \ nmap <silent> gd <Plug>(coc-definition)
+Shortcut COC goto type definition
+  \ nmap <silent> gy <Plug>(coc-type-definition)
+Shortcut COC goto implementation
+  \ nmap <silent> gi <Plug>(coc-implementation)
+Shortcut COC goto references
+  \ nmap <silent> gr <Plug>(coc-references)
+
+Shortcut COC show documentation in preview window
+  \ nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
 
 " ===========================
 " Spellcheck
