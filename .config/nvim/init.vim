@@ -13,8 +13,7 @@ source ~/.config/nvim/plugins.vim
 " Look and Feel
 " ============================
 
-" hide statusbar
-set laststatus=0
+set laststatus=0                  " hide statusbar
 set background=dark
 colorscheme gruvbox
 let g:gruvbox_sign_column = 'bg0'
@@ -137,189 +136,19 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 " Config, Global
 " ============================
 "
-source ~/.config/nvim/global.vim
+source ~/.config/nvim/settings.vim
 
 " ============================
 " Plugin configuration
 " ============================
 
-" ---------------------------
-" echodoc
-" ---------------------------
-
-let g:echodoc#enable_at_startup = 1
-let g:echodoc#type = 'echo'
-
-" ---------------------------
-" coc
-" ---------------------------
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
-" Use <c-space> to trigger completion.
-inoremap <silent><expr> <c-space> coc#refresh()
-
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-" inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
-" Use `[g` and `]g` to navigate diagnostics
-nmap <silent> [g <Plug>(coc-diagnostic-prev)
-nmap <silent> ]g <Plug>(coc-diagnostic-next)
-
-" Remap keys for gotos
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gy <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call <SID>show_documentation()<CR>
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-" Highlight symbol under cursor on CursorHold
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup end
-
-
-" Use `:Format` to format current buffer
-command! -nargs=0 Format :call CocAction('format')
-
-" Use `:Fold` to fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" use `:OR` for organize import of current buffer
-command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organizeImport')
-
-" Add status line support, for integration with other plugin, checkout `:h coc-status`
-set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-
-" ---------------------------
-" fzf
-" ---------------------------
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-
-" ---------------------------
-" rainbow_parentheses.vim
-" ---------------------------
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
-" ---------------------------
-" goyo.vim
-" ---------------------------
-let g:goyo_width=70
-let g:goyo_height='100%'
-
-function! s:goyo_enter()
-  " Quit Vim if this is the only remaining buffer
-  let b:quitting = 0
-  let b:quitting_bang = 0
-  autocmd QuitPre <buffer> let b:quitting = 1
-  cabbrev <buffer> q! let b:quitting_bang = 1 <bar> q!
-
-  " dont split words on linebreak
-  set linebreak
-endfunction
-
-function! s:goyo_leave()
-  " Quit Vim if this is the only remaining buffer
-  if b:quitting && len(filter(range(1, bufnr('$')), 'buflisted(v:val)')) == 1
-    if b:quitting_bang
-      qa!
-    else
-      qa
-    endif
-  endif
-endfunction
-
-autocmd! User GoyoEnter call <SID>goyo_enter()
-autocmd! User GoyoLeave call <SID>goyo_leave()
-
-" ---------------------------
-" paredit.vim
-" ---------------------------
-let g:paredit_leader=','                    " set the leader
-let g:paredit_shortmaps=0                   " force disabling the shortmaps
-
-" ---------------------------
-" netrw
-" ---------------------------
-let g:netrw_list_hide='\.o,\.obj,*~,\.pyc,' "stuff to ignore when tab completing
-let g:netrw_list_hide.='\.git,'
-let g:netrw_list_hide.='\.tmp,'
-let g:netrw_list_hide.='\.bundle,'
-let g:netrw_list_hide.='\.DS_Store,'
-let g:netrw_list_hide.='\vendor/,'
-let g:netrw_list_hide.='\.gem,'
-let g:netrw_list_hide.='bin/,'
-let g:netrw_list_hide.='target/,'
-let g:netrw_list_hide.='log/,'
-let g:netrw_list_hide.='tmp/,'
-let g:netrw_list_hide.='\.idea/,'
-let g:netrw_list_hide.='\.ico,\.png,\.jpg,\.gif,'
-let g:netrw_list_hide.='\.so,\.swp,\.zip,/\.Trash/,\.pdf,\.dmg,/Library/,/\.rbenv/,'
-let g:netrw_list_hide.='*/\.nx/**,*\.app'
-
-" ---------------------------
-" vim-clojure-conceal
-" ---------------------------
-let g:clojure_conceal_extras=1   " fn, defn-, letfn, and #() to unicode symbols
-
-" ---------------------------
-" vim-projectionist
-" ---------------------------
-
-if !exists('g:projectionist_heuristics')
-  let g:projectionist_heuristics = {}
-endif
-if !has_key(g:projectionist_heuristics, "build.sbt")
-  let g:projectionist_heuristics["build.sbt"] = {
-      \  "src/main/scala/*.scala": {
-      \    "alternate": "src/test/scala/{}Spec.scala",
-      \    "type": "source"
-      \  },
-      \  "src/test/scala/*Spec.scala": {
-      \    "alternate": "src/main/scala/{}.scala",
-      \    "type": "test"
-      \  }
-      \}
-endif
+source ~/.config/nvim/settings.echo-doc.vim
+source ~/.config/nvim/settings.coc.vim
+source ~/.config/nvim/settings.fzf.vim
+source ~/.config/nvim/settings.rainbow_parentheses.vim
+source ~/.config/nvim/settings.goyo.vim
+source ~/.config/nvim/settings.netrw.vim
+source ~/.config/nvim/settings.projectionist.vim
 
 " ===========================
 " Spellcheck
