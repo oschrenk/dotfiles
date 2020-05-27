@@ -19,6 +19,7 @@ Plug 'tmux-plugins/vim-tmux-focus-events' " restore autocommand events within tm
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'oschrenk/vim-vinegar'               " netrw enhancements
 Plug 'airblade/vim-rooter'                " auto sets working directory
+Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
 
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}

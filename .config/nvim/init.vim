@@ -74,8 +74,13 @@ if maparg('<C-c>', 'n') ==# ''
   nnoremap <silent> <C-c> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
-" FZF
+" Aerojump
+nmap <Leader>as <Plug>(AerojumpSpace)
+nmap <Leader>ab <Plug>(AerojumpBolt)
+nmap <Leader>aa <Plug>(AerojumpFromCursorBolt)
+nmap <Leader>ad <Plug>(AerojumpDefault) " Boring mode
 
+" FZF
 nnoremap <silent> <leader>/ :execute 'Rg ' . input('Rg/')<CR>
 noremap <Leader>o :GFiles<CR>
 noremap <Leader>O :Files<CR>
