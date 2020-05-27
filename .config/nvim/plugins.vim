@@ -20,6 +20,7 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
 Plug 'oschrenk/vim-vinegar'               " netrw enhancements
 Plug 'airblade/vim-rooter'                " auto sets working directory
 Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
+Plug 'tpope/vim-projectionist'            " project configuration
 
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -33,7 +34,6 @@ Plug 'Shougo/echodoc.vim'                 " print doc in command line
 Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg. vim-gitgutter
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
 Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
-Plug 'tpope/vim-projectionist'            " project configuration
 Plug 'machakann/vim-highlightedyank'      " highlight yank targets
 
 " Text objects
