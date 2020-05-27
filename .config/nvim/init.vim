@@ -93,58 +93,55 @@ if maparg('<C-c>', 'n') ==# ''
   nnoremap <silent> <C-c> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
-Shortcut show shortcut menu and run chosen shortcut
+Shortcut shortcut | Show shortcut menu and run chosen shortcut
   \ noremap <silent> <Leader><Leader> :Shortcuts<Return>
 
-Shortcut fallback to shortcut menu on partial entry
-  \ noremap <silent> <Leader> :Shortcuts<Return>
-
 " Aerojump
-Shortcut Aerojump Space
+Shortcut aerojump | Space
   \ nmap <Leader>as <Plug>(AerojumpSpace)
-Shortcut Aerojump Bolt
+Shortcut aerojump | Bolt
   \ nmap <Leader>as <Plug>(AerojumpBolt)
-Shortcut Aerojump From Cursor Bolt
+Shortcut aerojump | From Cursor Bolt
   \ nmap <Leader>aa <Plug>(AerojumpFromCursorBolt)
-Shortcut Aerojump Default
+Shortcut aerojump | Default
   \ nmap <Leader>ad <Plug>(AerojumpDefault)
 
 " FZF
-Shortcut FZF Search text
+Shortcut fzf | Search text
   \ nnoremap <silent> <leader>/ :execute 'Rg ' . input('Rg/')<CR>
-Shortcut FZF Search Git files
+Shortcut fzf | Search Git files
   \ noremap <Leader>o :GFiles<CR>
-Shortcut FZF Search files
+Shortcut fzf | Search files
   \ noremap <Leader>O :Files<CR>
-Shortcut FZF Search Tags
-  \ noremap <Leader>t :Tags<CR>
-Shortcut FZF Search Old files and buffers
+Shortcut fzf | Search Tags
+  \ noremap <Leader>T :Tags<CR>
+Shortcut fzf | Search Old files and buffers
   \ noremap <Leader>H :History<CR>
-Shortcut FZF Search Marks
+Shortcut fzf | Search Marks
   \ noremap <Leader>m :Marks<CR>
-Shortcut FZF Search Commits for current buffer
+Shortcut fzf | Search Commits for current buffer
   \ noremap <Leader>c :BCommits<CR>
-Shortcut FZF Search Commits
+Shortcut fzf | Search Commits
   \ noremap <Leader>C :Commits<CR>
-Shortcut FZF Search Lines in current buffer
+Shortcut fzf | Search Lines in current buffer
   \ noremap <Leader>B :BLines<CR>
 
 " COC
-Shortcut COC Rename current word
+Shortcut coc | Rename current word
   \ nmap <leader>rn <Plug>(coc-rename)
 
-Shortcut COC format selected region
+Shortcut coc | Format selected region
   \ xmap <leader>f  <Plug>(coc-format-selected)
   \ nmap <leader>f  <Plug>(coc-format-selected)
 
-Shortcut COC do codeAction of selected region, ex: `<leader>aap` for current paragraph
+Shortcut coc | Do codeAction of selected region, ex: `<leader>aap` for current paragraph
   \ xmap <leader>a  <Plug>(coc-codeaction-selected)
   \ nmap <leader>a  <Plug>(coc-codeaction-selected)
 
-Shortcut COC do codeAction of current line
+Shortcut coc | Do codeAction of current line
   \ nmap <leader>ac  <Plug>(coc-codeaction)
 
-Shortcut COC Fix autofix problem of current line
+Shortcut coc | Fix autofix problem of current line
   \ nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Create mappings for function text object, requires document symbols feature of languageserver.
@@ -158,11 +155,11 @@ nmap <silent> <C-d> <Plug>(coc-range-select)
 xmap <silent> <C-d> <Plug>(coc-range-select)
 " Using CocList
 "
-Shortcut COC Show all diagnostics
+Shortcut coc | Show all diagnostics
   \ nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
-Shortcut COC Manage extensions
+Shortcut coc | Manage extensions
   \ nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
-Shortcut COC Show commands
+Shortcut coc | Show commands
   \ nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
 " Find symbol of current document
 nnoremap <silent> <space>o  :<C-u>CocList outline<cr>
@@ -175,7 +172,7 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
-Shortcut COC Use <c-space> to trigger completion
+Shortcut coc | Use <c-space> to trigger completion
   \ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
@@ -185,22 +182,22 @@ inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
-Shortcut COC previous diagnostic
+Shortcut coc | previous diagnostic
   \ nmap <silent> [g <Plug>(coc-diagnostic-prev)
-Shortcut COC next diagnostic
+Shortcut coc | next diagnostic
   \ nmap <silent> ]g <Plug>(coc-diagnostic-next)
 
 " Remap keys for gotos
-Shortcut COC goto definition
+Shortcut coc | goto definition
   \ nmap <silent> gd <Plug>(coc-definition)
-Shortcut COC goto type definition
+Shortcut coc | goto type definition
   \ nmap <silent> gy <Plug>(coc-type-definition)
-Shortcut COC goto implementation
+Shortcut coc | goto implementation
   \ nmap <silent> gi <Plug>(coc-implementation)
-Shortcut COC goto references
+Shortcut coc | goto references
   \ nmap <silent> gr <Plug>(coc-references)
 
-Shortcut COC show documentation in preview window
+Shortcut coc | show documentation in preview window
   \ nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
