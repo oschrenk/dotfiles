@@ -16,16 +16,16 @@ Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim spl
 Plug 'tmux-plugins/vim-tmux-focus-events' " restore autocommand events within tmux eg. gitgutter refreshs
 
 " Navigation
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
-Plug 'oschrenk/vim-vinegar'               " netrw enhancements
-Plug 'airblade/vim-rooter'                " auto sets working directory
-Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'tpope/vim-projectionist'            " project configuration
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'             " fuzzy find
+Plug 'oschrenk/vim-vinegar'                                     " netrw enhancements
+Plug 'airblade/vim-rooter'                                      " auto sets working directory
+Plug 'ripxorip/aerojump.nvim', { 'do': ':UpdateRemotePlugins' } " fuzzy jump
+Plug 'tpope/vim-projectionist'                                  " project configuration
 
 " Completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'wellle/tmux-complete.vim'           " complete from tmux
-Plug 'Shougo/echodoc.vim'                 " print doc in command line
+Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocompletion with language server protocol
+Plug 'wellle/tmux-complete.vim'                 " complete from tmux
+Plug 'Shougo/echodoc.vim'                       " print doc in command line
 " for Coc extensions go to
 " ~/.config/coc/extensions/package.json
 " and install via `yarn`
