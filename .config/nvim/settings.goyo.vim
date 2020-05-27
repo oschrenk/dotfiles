@@ -29,3 +29,7 @@ endfunction
 autocmd! User GoyoEnter call <SID>goyo_enter()
 autocmd! User GoyoLeave call <SID>goyo_leave()
 
+source ~/.config/nvim/plugged/vim-shortcut/plugin/shortcut.vim
+
+Shortcut goyo | toggle distraction-free writing mode
+  \ nnoremap <silent> <space>tv :Goyo<CR>
