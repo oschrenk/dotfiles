@@ -91,7 +91,6 @@ noremap <Leader>c :BCommits<CR>
 noremap <Leader>C :Commits<CR>
 
 " COC
-
 " Remap for rename current word
 nmap <leader>rn <Plug>(coc-rename)
 
@@ -255,6 +254,9 @@ function! FirstCharOrFirstCol()
   endif
 endfunction
 
+" markdown
+au BufRead,BufNewFile *.md set filetype=markdown
+
 " ============================
 " Plugin configuration
 " ============================
@@ -338,7 +340,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 
-
 " ---------------------------
 " fzf
 " ---------------------------
@@ -414,21 +415,9 @@ let g:netrw_list_hide.='\.so,\.swp,\.zip,/\.Trash/,\.pdf,\.dmg,/Library/,/\.rben
 let g:netrw_list_hide.='*/\.nx/**,*\.app'
 
 " ---------------------------
-" Other
-" ---------------------------
-let g:EnErrorStyle='SpellBad'
-"
-
-" ---------------------------
 " vim-clojure-conceal
 " ---------------------------
 let g:clojure_conceal_extras=1   " fn, defn-, letfn, and #() to unicode symbols
-
-" ---------------------------
-" markdown
-" ---------------------------
-au BufRead,BufNewFile *.md set filetype=markdown
-
 " ---------------------------
 " vim-projectionist
 " ---------------------------
