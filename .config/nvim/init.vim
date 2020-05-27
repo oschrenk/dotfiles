@@ -35,6 +35,7 @@ source ~/.config/nvim/settings.rainbow_parentheses.vim
 source ~/.config/nvim/settings.goyo.vim
 source ~/.config/nvim/settings.netrw.vim
 source ~/.config/nvim/settings.projectionist.vim
+source ~/.config/nvim/settings.vimwiki.vim
 
 " ============================
 " Keyboard mappings

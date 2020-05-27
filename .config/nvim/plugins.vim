@@ -36,6 +36,7 @@ Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded co
 Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
 Plug 'machakann/vim-highlightedyank'      " highlight yank targets
 Plug 'sunaku/vim-shortcut'                " discoverable & searchable shortcuts for (Neo)Vim
+Plug 'vimwiki/vimwiki'                    " Personal Wiki for Vim
 
 " Text objects
 Plug 'kana/vim-textobj-user'              " create your own text-objects
