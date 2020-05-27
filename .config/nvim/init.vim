@@ -182,7 +182,7 @@ set ignorecase                " Ignore case when searching
 set smartcase                 " Ignore case if pattern is lowercase, case-sensitive otherwise
 
 set autoread                  " Set to auto read when a file is changed from the outside
-set clipboard=unnamed         " gain access to clipboard in OS X
+set clipboard^=unnamed,unnamedplus " cross platform clipboard access
 set visualbell                " don't beep
 set noerrorbells              " don't beep
 
