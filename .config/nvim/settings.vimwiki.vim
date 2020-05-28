@@ -1,3 +1,6 @@
+autocmd FileType vimwiki setlocal spell   " spelllcheck markdown filetypes
+autocmd FileType vimwiki :Goyo
+
 let wiki_1 = {}
 let wiki_1.path = '~/Documents/Wiki/'
 let wiki_1.syntax = 'markdown'
