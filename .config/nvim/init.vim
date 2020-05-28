@@ -45,8 +45,6 @@ source ~/.config/nvim/settings.vimwiki.vim
 " Keyboard mappings
 " ============================
 
-" need to source manually
-source ~/.config/nvim/plugged/vim-shortcut/plugin/shortcut.vim
 
 " map leader to <space>
 let mapleader = "\<Space>"
