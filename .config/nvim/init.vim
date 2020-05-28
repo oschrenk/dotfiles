@@ -98,6 +98,9 @@ endif
 Shortcut shortcut | Show shortcut menu and run chosen shortcut
   \ noremap <silent> <Leader><Leader> :Shortcuts<Return>
 
+Shortcut time | insert current time
+  \ nmap <Leader>xt i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+
 " ===========================
 " Spellcheck
 " ===========================
