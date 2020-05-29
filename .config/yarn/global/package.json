@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "create-react-app": "^1.5.2",
     "ios-deploy": "^1.10.0",
     "prettier": "^2.0.4"
   }
