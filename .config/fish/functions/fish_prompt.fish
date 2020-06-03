@@ -28,17 +28,21 @@
 #     set -g theme_display_vagrant yes
 #     set -g theme_display_docker_machine no
 #     set -g theme_display_k8s_context yes
+#     set -g theme_display_k8s_namespace no
 #     set -g theme_display_hg yes
 #     set -g theme_display_virtualenv no
+#     set -g theme_display_nix no
 #     set -g theme_display_ruby no
 #     set -g theme_display_user ssh
 #     set -g theme_display_hostname ssh
+#     set -g theme_display_sudo_user yes
 #     set -g theme_display_vi no
 #     set -g theme_display_nvm yes
 #     set -g theme_avoid_ambiguous_glyphs yes
 #     set -g theme_powerline_fonts no
 #     set -g theme_nerd_fonts yes
 #     set -g theme_show_exit_status yes
+#     set -g theme_display_jobs_verbose yes
 #     set -g default_user your_normal_user
 #     set -g theme_color_scheme dark
 #     set -g fish_prompt_pwd_dir_length 0
@@ -64,6 +68,13 @@ function __bobthefish_pwd -d 'Get a normalized $PWD'
     or echo $PWD
 end
 
+# Note that for fish < 3.0 this falls back to unescaped, rather than trying to do something clever /shrug
+# After we drop support for older fishies, we can inline this without the fallback.
+function __bobthefish_escape_regex -a str -d 'A backwards-compatible `string escape --style=regex` implementation'
+    string escape --style=regex "$str" 2>/dev/null
+    or echo "$str"
+end
+
 function __bobthefish_git_branch -S -d 'Get the current git branch (or commitish)'
     set -l ref (command git symbolic-ref HEAD 2>/dev/null)
     and begin
@@ -72,7 +83,9 @@ function __bobthefish_git_branch -S -d 'Get the current git branch (or commitish
         and return
 
         # truncate the middle of the branch name, but only if it's 25+ characters
-        set -l truncname (string replace -r '^(.{28}).{3,}(.{5})$' "\$1…\$2" $ref)
+        set -l truncname $ref
+        [ "$theme_use_abbreviated_branch_name" = 'yes' ]
+        and set truncname (string replace -r '^(.{28}).{3,}(.{5})$' "\$1…\$2" $ref)
 
         string replace -r '^refs/heads/' "$branch_glyph " $truncname
         and return
@@ -98,7 +111,7 @@ function __bobthefish_pretty_parent -S -a child_dir -d 'Print a parent directory
 
     # Replace $HOME with ~
     set -l real_home ~
-    set -l parent_dir (string replace -r '^'"$real_home"'($|/)' '~$1' (__bobthefish_dirname $child_dir))
+    set -l parent_dir (string replace -r '^'(__bobthefish_escape_regex "$real_home")'($|/)' '~$1' (__bobthefish_dirname $child_dir))
 
     # Must check whether `$parent_dir = /` if using native dirname
     if [ -z "$parent_dir" ]
@@ -226,7 +239,7 @@ function __bobthefish_project_pwd -S -a project_root_dir -a real_pwd -d 'Print t
     set -q theme_project_dir_length
     or set -l theme_project_dir_length 0
 
-    set -l project_dir (string replace -r '^'"$project_root_dir"'($|/)' '' $real_pwd)
+    set -l project_dir (string replace -r '^'(__bobthefish_escape_regex "$project_root_dir")'($|/)' '' $real_pwd)
 
     if [ $theme_project_dir_length -eq 0 ]
         echo -n $project_dir
@@ -380,7 +393,7 @@ function __bobthefish_finish_segments -S -d 'Close open prompt segments'
 
         if set -q theme_newline_prompt
             echo -ens "$theme_newline_prompt"
-        else if [ "$theme_powerline_fonts" = "no" ]
+        else if [ "$theme_powerline_fonts" = "no" -a "$theme_nerd_fonts" != "yes" ]
             echo -ns '> '
         else
             echo -ns "$right_arrow_glyph "
@@ -395,7 +408,7 @@ end
 
 
 # ==============================
-# Status and input mode segments
+# Status segment
 # ==============================
 
 function __bobthefish_prompt_status -S -a last_status -d 'Display flags for a non-zero exit status, root user, and background jobs'
@@ -413,13 +426,30 @@ function __bobthefish_prompt_status -S -a last_status -d 'Display flags for a no
     # will be wrong. But I can't think of a single reason that would happen, and
     # it is literally 99.5% faster to check it this way, so that's a tradeoff I'm
     # willing to make.
-    [ -w / ]
+    [ -w / -o -w /private/ ]
     and [ (id -u) -eq 0 ]
     and set superuser 1
 
     # Jobs display
-    jobs -p >/dev/null
-    and set bg_jobs 1
+    if set -q AUTOJUMP_SOURCED
+        # Autojump special case: check if there are jobs besides the `autojump`
+        # job, since that one is (briefly) backgrounded every time we `cd`
+        set bg_jobs (jobs -c | string match -v --regex '(Command|autojump)' | wc -l)
+        [ "$bg_jobs" -eq 0 ]
+        and set bg_jobs # clear it out so it doesn't show when `0`
+    else
+        if [ "$theme_display_jobs_verbose" = 'yes' ]
+            set bg_jobs (jobs -p | wc -l)
+            [ "$bg_jobs" -eq 0 ]
+            and set bg_jobs # clear it out so it doesn't show when `0`
+        else
+            # `jobs -p` is faster if we redirect to /dev/null, because it exits
+            # after the first match. We'll use that unless the user wants to
+            # display the actual job count
+            jobs -p >/dev/null
+            and set bg_jobs 1
+        end
+    end
 
     if [ "$nonzero" -o "$superuser" -o "$bg_jobs" ]
         __bobthefish_start_segment $color_initial_segment_exit
@@ -447,34 +477,12 @@ function __bobthefish_prompt_status -S -a last_status -d 'Display flags for a no
         if [ "$bg_jobs" ]
             set_color normal
             set_color -b $color_initial_segment_jobs
-            echo -n $bg_job_glyph
+            if [ "$theme_display_jobs_verbose" = 'yes' ]
+                echo -ns $bg_job_glyph $bg_jobs ' '
+            else
+                echo -n $bg_job_glyph
+            end
         end
-    end
-end
-
-function __bobthefish_prompt_vi -S -d 'Display vi mode'
-    [ "$theme_display_vi" != 'no' ]
-    or return
-
-    [ "$fish_key_bindings" = 'fish_vi_key_bindings' \
-        -o "$fish_key_bindings" = 'hybrid_bindings' \
-        -o "$fish_key_bindings" = 'fish_hybrid_key_bindings' \
-        -o "$theme_display_vi" = 'yes' ]
-    or return
-
-    switch $fish_bind_mode
-        case default
-            __bobthefish_start_segment $color_vi_mode_default
-            echo -n 'N '
-        case insert
-            __bobthefish_start_segment $color_vi_mode_insert
-            echo -n 'I '
-        case replace_one replace-one
-            __bobthefish_start_segment $color_vi_mode_insert
-            echo -n 'R '
-        case visual
-            __bobthefish_start_segment $color_vi_mode_visual
-            echo -n 'V '
     end
 end
 
@@ -614,7 +622,12 @@ function __bobthefish_prompt_k8s_context -S -d 'Show current Kubernetes context'
     set -l context (__bobthefish_k8s_context)
     or return
 
-    set -l namespace (__bobthefish_k8s_namespace)
+    [ "$theme_display_k8s_namespace" = 'yes' ]
+    and set -l namespace (__bobthefish_k8s_namespace)
+
+    [ -z $context -o "$context" = 'default' ]
+    and [ -z $namespace -o "$namespace" = 'default' ]
+    and return
 
     set -l segment $k8s_glyph " " $context
     [ -n "$namespace" ]
@@ -644,6 +657,9 @@ function __bobthefish_prompt_user -S -d 'Display current user and hostname'
     [ "$theme_display_user" = 'yes' -o \( "$theme_display_user" != 'no' -a -n "$SSH_CLIENT" \) -o \( -n "$default_user" -a "$USER" != "$default_user" \) ]
     and set -l display_user
 
+    [ "$theme_display_sudo_user" = 'yes' -a -n "$SUDO_USER" ]
+    and set -l display_sudo_user
+
     [ "$theme_display_hostname" = 'yes' -o \( "$theme_display_hostname" != 'no' -a -n "$SSH_CLIENT" \) ]
     and set -l display_hostname
 
@@ -652,8 +668,18 @@ function __bobthefish_prompt_user -S -d 'Display current user and hostname'
         echo -ns (whoami)
     end
 
+    if set -q display_sudo_user
+        if set -q display_user
+            echo -ns ' '
+        else
+            __bobthefish_start_segment $color_username
+        end
+        echo -ns "($SUDO_USER)"
+    end
+
     if set -q display_hostname
         if set -q display_user
+            or set -q display_sudo_user
             # reset colors without starting a new segment...
             # (so we can have a bold username and non-bold hostname)
             set_color normal
@@ -666,6 +692,7 @@ function __bobthefish_prompt_user -S -d 'Display current user and hostname'
     end
 
     set -q display_user
+    or set -q display_sudo_user
     or set -q display_hostname
     and echo -ns ' '
 end
@@ -755,11 +782,13 @@ function __bobthefish_prompt_rubies -S -d 'Display current Ruby information'
     else if type -q chruby # chruby is implemented as a function, so omitting the -f is intentional
         set ruby_version $RUBY_VERSION
     else if type -fq asdf
-        asdf current ruby 2>/dev/null | read -l asdf_ruby_version asdf_provenance
+        set -l asdf_current_ruby (asdf current ruby 2>/dev/null)
         or return
 
+        echo "$asdf_current_ruby" | read -l asdf_ruby_version asdf_provenance
+
         # If asdf changes their ruby version provenance format, update this to match
-        [ "$asdf_provenance" = "(set by $HOME/.tool-versions)" ]
+        [ (string trim -- "$asdf_provenance") = "(set by $HOME/.tool-versions)" ]
         and return
 
         set ruby_version $asdf_ruby_version
@@ -835,6 +864,15 @@ function __bobthefish_prompt_nvm -S -d 'Display current node version through NVM
     set_color normal
 end
 
+function __bobthefish_prompt_nix -S -d 'Display current nix environment'
+    [ "$theme_display_nix" = 'no' -o -z "$IN_NIX_SHELL" ]
+    and return
+
+    __bobthefish_start_segment $color_nix
+    echo -ns $nix_glyph $IN_NIX_SHELL ' '
+
+    set_color normal
+end
 
 # ==============================
 # VCS segments
@@ -1023,17 +1061,17 @@ function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
 
     # Status flags and input mode
     __bobthefish_prompt_status $last_status
-    __bobthefish_prompt_vi
+
+    # User / hostname info
+    __bobthefish_prompt_user
 
     # Containers and VMs
     __bobthefish_prompt_vagrant
     __bobthefish_prompt_docker
     __bobthefish_prompt_k8s_context
 
-    # User / hostname info
-    __bobthefish_prompt_user
-
     # Virtual environments
+    __bobthefish_prompt_nix
     __bobthefish_prompt_desk
     __bobthefish_prompt_rubies
     __bobthefish_prompt_virtualfish
