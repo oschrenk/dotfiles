@@ -120,8 +120,8 @@
   l = log  --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
   # --force-with-lease
-  #   makes sure that nobody else pushed something on top of my old
-  #   workon remote, --force alone would ust overwrite
+  #   makes sure that nobody else pushed something on top of my old remote,
+  # --force alone would just overwrite
   please = push --force-with-lease
 
   pop = stash pop
