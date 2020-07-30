@@ -44,6 +44,7 @@ Plug 'mattn/vim-textobj-url'              " au/iu for url
 
 " Git
 Plug 'airblade/vim-gitgutter'             " mark modified, changed, deleted lines
+Plug 'tpope/vim-fugitive'
 
 " File types
 Plug 'dag/vim-fish',                      { 'for': 'fish' }
