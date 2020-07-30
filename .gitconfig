@@ -236,3 +236,8 @@
   path = ~/.gitconfig_system
 [includeIf "gitdir:~/Projects/oschrenk"]
     path = .gitconfig_freelance
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
