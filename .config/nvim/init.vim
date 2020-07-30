@@ -39,7 +39,6 @@ source ~/.config/nvim/settings.projectionist.vim
 source ~/.config/nvim/settings.rainbow_parentheses.vim
 source ~/.config/nvim/settings.textobj.vim
 source ~/.config/nvim/settings.textobj.url.vim
-source ~/.config/nvim/settings.vimwiki.vim
 
 " ============================
 " Keyboard mappings
