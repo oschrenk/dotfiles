@@ -50,7 +50,9 @@ Plug 'dag/vim-fish',                      { 'for': 'fish' }
 Plug 'derekwyatt/vim-scala',              { 'for': ['scala', 'markdown'] } " scala syntax
 Plug 'Tyilo/applescript.vim',             { 'for': 'applescript' }
 Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }
-Plug 'leafgarland/typescript-vim',        { 'for': 'typescript' }
+Plug 'leafgarland/typescript-vim',        " typescript
+Plug 'pangloss/vim-javascript',           " typescript
+Plug 'peitalin/vim-jsx-typescript'        " tsx
 Plug 'hashivim/vim-terraform',            { 'for': 'terraform' }
 Plug 'mzlogin/vim-markdown-toc',          { 'for': 'markdown' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
