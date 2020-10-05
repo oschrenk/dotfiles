@@ -306,6 +306,7 @@ project/project/
 .metals/
 .bloop/
 project/metals.sbt
+.bsp
 
 #######################################
 # Various
