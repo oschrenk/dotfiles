@@ -2,6 +2,8 @@
   "suggest.echodocSupport": true,
   "suggest.maxCompleteItemCount": 10,
   "coc.source.emoji.filetypes": ["gitcommit", "mail", "markdown" ],
+  "coc.preferences.formatOnSaveFiletypes": ["scala"],
+  "metals.scalafmtConfigPath": ".scalafmt.conf",
   "languageserver": {
     "metals": {
       "command": "metals-vim",
