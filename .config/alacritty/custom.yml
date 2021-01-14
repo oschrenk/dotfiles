@@ -2,7 +2,9 @@ window:
   padding:
     x: 0
     y: 0
-  decorations: buttonless
+  startup_mode: Fullscreen
+
+
 
 scrolling:
   history: 10000
