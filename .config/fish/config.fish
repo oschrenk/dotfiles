@@ -15,6 +15,6 @@ end
 # Enable direnv
 eval (direnv hook fish)
 
-set -g theme_newline_cursor yes
+set -g theme_newline_cursor clean
 set -g theme_display_k8s_context yes
 set -g theme_display_k8s_namespace yes
