@@ -42,9 +42,6 @@ append-to-path $HOME/Library/Python/3.7/bin
 # Rust
 prepend-to-path $HOME/.cargo/bin
 
-# Latex
-append-to-path /Library/TeX/texbin
-
 # homebrew
 set -x HOMEBREW_NO_ANALYTICS 1
 
