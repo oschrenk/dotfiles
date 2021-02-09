@@ -229,6 +229,7 @@
 
 [init]
   templatedir = ~/.config/git/template
+	defaultBranch = main
 
 [user]
   name = Oliver Schrenk
