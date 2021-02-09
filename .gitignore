@@ -1,5 +1,5 @@
 .m2/mvnsh.history
-*.lock
+**.lock
 .ivy2/exclude_classifiers
 .rbenv/version
 .config/fontforge
@@ -35,3 +35,9 @@ fish_variables
 .config/karabiner/automatic_backups/
 .sbt/1.0/plugins/metals.sbt
 .aws/adfs_cookies
+jgit/
+gcloud/
+list-diagnostics-history.json
+.sbt/1.0/preferences
+.kube
+.sbt/.credentials*
