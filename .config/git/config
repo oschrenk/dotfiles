@@ -2,8 +2,8 @@
 # Inclusion of user/system specific files at the bottom
 
 [core]
-  attributesfile = ~/.gitattributes-global
-  excludesfile = ~/.gitignore-global
+  attributesfile = ~/.config/git/attributes/global
+  excludesfile = ~/.config/git/ignore/global
 
   editor = nvim
 
@@ -228,14 +228,18 @@
   newHighlight = green bold 22
 
 [init]
-  templatedir = ~/.git_template
+  templatedir = ~/.config/git/template
+
 [user]
   name = Oliver Schrenk
   email = oliver.schrenk@gmail.com
 [include]
-  path = ~/.gitconfig_system
+  path = ~/.config/git/config.d/system
+[includeIf "gitdir:~/Projects/qicloud"]
+  path = ~/.config/git/config.d/work
 [includeIf "gitdir:~/Projects/oschrenk"]
-    path = .gitconfig_freelance
+  path = ~/.config/git/config.d/freelance
+
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
