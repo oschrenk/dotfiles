@@ -39,6 +39,9 @@ append-to-path $ANDROID_HOME/platform-tools
 # Rust
 prepend-to-path $HOME/.cargo/bin
 
+# kubectl krew
+append-to-path $HOME/.krew/bin
+
 # homebrew
 set -x HOMEBREW_NO_ANALYTICS 1
 
