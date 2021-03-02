@@ -1,6 +1,5 @@
 my closeNotif()
 on closeNotif()
-
     tell application "System Events"
         tell process "Notification Center"
             set theWindows to every window
