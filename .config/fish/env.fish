@@ -2,8 +2,8 @@
 # (responsible for setting up initial environment)
 
 # put homebrew bin before system bin
-prepend-to-path /usr/local/sbin
-prepend-to-path /usr/local/bin
+fish_add_path --prepend /usr/local/sbin
+fish_add_path --prepend /usr/local/bin
 
 # LOG and JOURNAL
 set -x LOG_DIR ~/Documents/Log
@@ -19,10 +19,10 @@ set -gx LANG en_US.UTF-8
 # Go
 set -x GOPATH $HOME/Frameworks/go
 set -x GOBIN $GOPATH/bin
-prepend-to-path $GOPATH/bin
+fish_add_path --prepend $GOPATH/bin
 
 # Ruby
-prepend-to-path $HOME/.rbenv/shims
+fish_add_path --prepend $HOME/.rbenv/shims
 
 # JVM
 set -x JAVA_HOME (/usr/libexec/java_home -v 11)
@@ -31,16 +31,16 @@ set -x SBT_OPTS "-Xms1024M -Xmx2048M -Xss4M -XX:+CMSClassUnloadingEnabled"
 
 # Android
 set -x ANDROID_HOME $HOME/Library/Android/sdk
-append-to-path $ANDROID_HOME/emulator
-append-to-path $ANDROID_HOME/tools
-append-to-path $ANDROID_HOME/tools/bin
-append-to-path $ANDROID_HOME/platform-tools
+fish_add_path --append $ANDROID_HOME/emulator
+fish_add_path --append $ANDROID_HOME/tools
+fish_add_path --append $ANDROID_HOME/tools/bin
+fish_add_path --append $ANDROID_HOME/platform-tools
 
 # Rust
-prepend-to-path $HOME/.cargo/bin
+fish_add_path --prepend $HOME/.cargo/bin
 
 # kubectl krew
-append-to-path $HOME/.krew/bin
+fish_add_path --prepend $HOME/.krew/bin
 
 # homebrew
 set -x HOMEBREW_NO_ANALYTICS 1
