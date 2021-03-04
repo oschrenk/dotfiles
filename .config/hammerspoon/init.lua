@@ -12,7 +12,6 @@ local home_SSID_pool = { 'Citadel' }
 local lastSSID = hs.wifi.currentNetwork()
 local homeLocation = 'Home'
 local workLocation = 'Work'
-local brightness = hs.brightness.get()
 
 -- Fast User Switching
 -- `id -u` to find curent id
@@ -24,12 +23,6 @@ local hyper = {"ctrl", "alt", "shift", "cmd"}
 
 -- disable animation
 hs.window.animationDuration = 0
-
-------------------------
--- Internal state
-------------------------
-
-local powerSource = hs.battery.powerSource()
 
 ------------------------
 -- Helper functions
@@ -261,25 +254,6 @@ function mute()
 end
 
 ------------------------
--- Power settings
-------------------------
-
-function powerChanged()
-  local current = hs.battery.powerSource()
-
-  if (current ~= powerSource) then
-    powerSource = current
-    if (powerSource == "AC Power") then
-      switchedToCharger()
-    else
-      switchedToBattery()
-    end
-  end
-end
-
-hs.battery.watcher.new(powerChanged):start()
-
-------------------------
 -- Environment settings
 ------------------------
 
@@ -290,28 +264,6 @@ end
 function enteredWork()
   switchNetworkLocation(workLocation)
   mute()
-end
-
--- this relies on unchecked checkbox
--- In System Preferences > Energy Saver > Battery,
--- uncheck “Slightly dim the display while on battery power
-function fullBrightness()
-  brightness = hs.brightness.get()
-  hs.brightness.set(100)
-end
-
-function resetBrightness()
-  hs.brightness.set(brightness)
-end
-
-function switchedToBattery()
-  notify("Battery")
-  hs.timer.doAfter(0.2, resetBrightness)
-end
-
-function switchedToCharger()
-  notify("Charging")
-  hs.timer.doAfter(0.2, fullBrightness)
 end
 
 hs.caffeinate.watcher.new(function(event)
