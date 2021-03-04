@@ -110,27 +110,6 @@ function mountExternalDrives()
   os.execute("/usr/sbin/diskutil list | grep -i windows | sed \'s/.*\\(disk[0-9].*\\)/\\1/\' | uniq | xargs -I= /usr/sbin/diskutil mount =")
 end
 
-------------------------
--- WiFi
-------------------------
-
-function enableWifi()
-  hs.wifi.setPower(true)
-  notify("Enabled Wifi")
-end
-
-function disableWifi()
-  hs.wifi.setPower(false)
-  notify("Disabled Wifi")
-end
-
-function toggleWifi()
-  if (hs.wifi.interfaceDetails()["power"]) then
-    disableWifi()
-  else
-    enableWifi()
-  end
-end
 
 
 ------------------------
@@ -240,9 +219,9 @@ function connectHeadphones()
   ok, result = hs.osascript.applescriptFromFile(SCRIPTS_DIR .. "/connectHeadphones.applescript")
 end
 
-
-require('window')
 require('bluetooth')
+require('wifi')
+require('window')
 
 ------------------------
 -- Keyboard Bindings
