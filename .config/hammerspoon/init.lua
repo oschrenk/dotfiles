@@ -9,24 +9,13 @@ local SCRIPTS_DIR = HAMMERSPOON_DIR .. "/scripts"
 hs.window.animationDuration = 0
 
 ------------------------
--- Notifications
+-- Helpers
 ------------------------
-
 function notify(message)
   hs.notify.new({
     title='Hammerspoon',
     informativeText=message,
   }):send()
-end
-
--- Close notifications
-function clearNotifications()
-  ok, result = hs.osascript.applescriptFromFile(SCRIPTS_DIR .. "/closeNotifiations.applescript")
-end
-
-function closeNotifications()
-  print("Closing notifications")
-  hs.timer.doAfter(0.3, clearNotifications)
 end
 
 ------------------------
@@ -61,6 +50,7 @@ end
 
 require('bluetooth')
 require('network')
+require('notifications')
 require('wifi')
 require('window')
 
