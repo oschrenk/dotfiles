@@ -12,14 +12,10 @@ hs.window.animationDuration = 0
 -- Notifications
 ------------------------
 
--- Set Hammerspoon notifications to Alert in the Notification Center pane of
--- System Preferencese, so that they have a "Close" button
 function notify(message)
   hs.notify.new({
     title='Hammerspoon',
     informativeText=message,
-    -- hide the action button, show only "Close"
-    hasActionButton=false
   }):send()
 end
 
