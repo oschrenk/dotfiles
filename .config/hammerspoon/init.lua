@@ -5,9 +5,6 @@
 local HAMMERSPOON_DIR = os.getenv("HOME") .. "/.config/hammerspoon"
 local SCRIPTS_DIR = HAMMERSPOON_DIR .. "/scripts"
 
--- hotkey hyper
-local hyper = {"ctrl", "alt", "shift", "cmd"}
-
 -- disable animation
 hs.window.animationDuration = 0
 
@@ -109,6 +106,7 @@ require('window')
 ------------------------
 -- Keyboard Bindings
 ------------------------
+local hyper = {"ctrl", "alt", "shift", "cmd"}
 
 hs.hotkey.bind(hyper, 'a', left50)
 hs.hotkey.bind(hyper, 'd', right50)
