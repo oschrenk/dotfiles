@@ -1,6 +1,9 @@
 ------------------------
 -- Settings
 ------------------------
+-- base dirs
+local HAMMERSPOON_DIR = os.getenv("HOME") .. "/.config/hammerspoon"
+local SCRIPTS_DIR = HAMMERSPOON_DIR .. "/scripts"
 
 -- Network
 local wifiWatcher = nil
@@ -112,7 +115,7 @@ end
 
 -- Close notifications
 function clearNotifications()
-  ok, result = hs.osascript.applescriptFromFile(os.getenv ("HOME") .. "/.hammerspoon/closeNotifiations.applescript")
+  ok, result = hs.osascript.applescriptFromFile(SCRIPTS_DIR .. "/closeNotifiations.applescript")
 end
 
 function closeNotifications()
@@ -206,7 +209,7 @@ function connectHeadphones()
   if (not bluetoothEnabled()) then
     enableBluetooth()
   end
-  ok, result = hs.osascript.applescriptFromFile(os.getenv ("HOME") .. "/.hammerspoon/connectHeadphones.applescript")
+  ok, result = hs.osascript.applescriptFromFile(SCRIPTS_DIR .. "/connectHeadphones.applescript")
 end
 
 ------------------------
@@ -436,6 +439,6 @@ function reload_config(files)
   hs.reload()
 end
 
-hs.pathwatcher.new(os.getenv("HOME") .. "/.config/hammerspoon/", reload_config):start()
+hs.pathwatcher.new(HAMMERSPOON_DIR, reload_config):start()
 notify("Config loaded")
 
