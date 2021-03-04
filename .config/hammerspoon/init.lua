@@ -12,22 +12,6 @@ local hyper = {"ctrl", "alt", "shift", "cmd"}
 hs.window.animationDuration = 0
 
 ------------------------
--- Helper functions
-------------------------
-
-local function has_value (tab, val)
-    for index, value in ipairs(tab) do
-        print("comparing: val:"..(val or "nil").." value:"..(value or "nil"))
-        -- We grab the first index of our sub-table instead
-        if value == val then
-          return true
-        end
-    end
-
-    return false
-end
-
-------------------------
 -- Notifications
 ------------------------
 

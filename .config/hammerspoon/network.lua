@@ -8,6 +8,19 @@ local lastSSID = hs.wifi.currentNetwork()
 local homeLocation = 'Home'
 local workLocation = 'Work'
 
+local function has_value (tab, val)
+    for index, value in ipairs(tab) do
+        print("comparing: val:"..(val or "nil").." value:"..(value or "nil"))
+        -- We grab the first index of our sub-table instead
+        if value == val then
+          return true
+        end
+    end
+
+    return false
+end
+
+
 function currentNetworkLocation()
   local file = assert(io.popen('/usr/sbin/networksetup -getcurrentlocation', 'r'))
   local output = file:read('*all')
