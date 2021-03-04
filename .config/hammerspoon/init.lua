@@ -29,7 +29,6 @@ hs.window.animationDuration = 0
 -- Internal state
 ------------------------
 
-local spotifyWasPlaying = false
 local powerSource = hs.battery.powerSource()
 
 ------------------------
@@ -256,41 +255,10 @@ wifiWatcher:start()
 -- Audio settings
 ------------------------
 
-function spotify_pause()
-   notify("Pausing Spotify")
-   hs.spotify.pause()
-end
-
-function spotify_play()
-   notify("Playing Spotify")
-   hs.spotify.play()
-end
-
 function mute()
   hs.audiodevice.defaultOutputDevice():setMuted(true)
   notify("Mute")
 end
-
-
--- Per-device watcher to detect headphones in/out
-function audiodevwatch(dev_uid, event_name, event_scope, event_element)
-  print(string.format("dev_uid %s, event_name %s, event_scope %s, event_element %s", dev_uid, event_name, event_scope, event_element))
-  if event_name == 'jack' then
-    dev = hs.audiodevice.findDeviceByUID(dev_uid)
-    if dev:jackConnected() then
-      if spotifyWasPlaying then
-        spotify_play()
-      end
-    else
-      spotifyWasPlaying = hs.spotify.isPlaying()
-      if spotifyWasPlaying then
-        spotify_pause()
-      end
-    end
-  end
-end
-
-hs.audiodevice.current()['device']:watcherCallback(audiodevwatch):watcherStart()
 
 ------------------------
 -- Power settings
