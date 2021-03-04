@@ -5,11 +5,6 @@
 local HAMMERSPOON_DIR = os.getenv("HOME") .. "/.config/hammerspoon"
 local SCRIPTS_DIR = HAMMERSPOON_DIR .. "/scripts"
 
--- Fast User Switching
--- `id -u` to find curent id
-local personalUserId = "501"
-local workUserId     = "504"
-
 -- hotkey hyper
 local hyper = {"ctrl", "alt", "shift", "cmd"}
 
@@ -55,31 +50,6 @@ end
 function closeNotifications()
   print("Closing notifications")
   hs.timer.doAfter(0.3, clearNotifications)
-end
-
-------------------------
--- Fast user switching
-------------------------
-
-function currentAccountId()
-  local file = assert(io.popen('/usr/bin/id -u', 'r'))
-  local output = file:read('*all')
-  file:close()
-
-  return output:gsub("%s+", ""):gsub("%s+$", "")
-end
-
-function switchUser(id, name)
-  notify("Switch to " .. name)
-  os.execute('/System/Library/CoreServices/Menu\\ Extras/User.menu/Contents/Resources/CGSession -switchToUserID ' .. id)
-end
-
-function toggleUser()
-  if (currentAccountId() == personalUserId ) then
-    switchUser(workUserId, "work")
-  else
-    switchUser(personalUserId, "personal")
-  end
 end
 
 ------------------------
@@ -142,11 +112,15 @@ function connectHeadphones()
   ok, result = hs.osascript.applescriptFromFile(SCRIPTS_DIR .. "/connectHeadphones.applescript")
 end
 
-
 require('bluetooth')
 require('network')
 require('wifi')
 require('window')
+
+-- fast user switching via script is crippled in Big Sur
+-- see also https://apple.stackexchange.com/questions/409820/access-fast-user-switching-from-a-script-in-big-sur
+-- require('userswitching')
+-- hs.hotkey.bind(hyper, "u", toggleUser)
 
 ------------------------
 -- Keyboard Bindings
@@ -165,7 +139,6 @@ hs.hotkey.bind(hyper, "h", connectHeadphones)
 
 hs.hotkey.bind(hyper, "c", closeNotifications)
 
-hs.hotkey.bind(hyper, "u", toggleUser)
 
 hs.hotkey.bind(hyper, "b", toggleBluetooth)
 hs.hotkey.bind(hyper, "v", toggleWifi)
