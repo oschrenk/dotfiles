@@ -130,11 +130,6 @@ hs.hotkey.bind(hyper, 'm', mute)
 ------------------------
 -- Reload
 ------------------------
-
-function reload_config(files)
-  hs.reload()
-end
-
-hs.pathwatcher.new(HAMMERSPOON_DIR, reload_config):start()
+hs.pathwatcher.new(HAMMERSPOON_DIR, function(files) hs.reload() end):start()
 notify("Config loaded")
 
