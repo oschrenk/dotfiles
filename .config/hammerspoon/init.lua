@@ -65,16 +65,6 @@ end
 ------------------------
 -- Environment settings
 ------------------------
-
-function enteredHome()
-  switchNetworkLocation(homeLocation)
-end
-
-function enteredWork()
-  switchNetworkLocation(workLocation)
-  mute()
-end
-
 hs.caffeinate.watcher.new(function(event)
   if event == hs.caffeinate.watcher.systemWillSleep or event == hs.caffeinate.watcher.systemWillPowerOff  then
     print("sleeping")

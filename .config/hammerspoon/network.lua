@@ -64,6 +64,14 @@ function enteredNetwork(old_ssid, new_ssid, ssid_pool)
   return false
 end
 
+function enteredHome()
+  switchNetworkLocation(homeLocation)
+end
+
+function enteredWork()
+  switchNetworkLocation(workLocation)
+end
+
 function ssidChangedCallback()
     newSSID = hs.wifi.currentNetwork()
 
