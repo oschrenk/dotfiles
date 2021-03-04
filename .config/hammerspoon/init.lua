@@ -65,11 +65,6 @@ function closeNotifications()
   hs.timer.doAfter(0.3, clearNotifications)
 end
 
-function cleanTrash()
-  hs.sound.getByFile("/System/Library/Components/CoreAudio.component/Contents/SharedSupport/SystemSounds/finder/empty trash.aif"):play()
-  os.execute("/bin/rm -rf ~/.Trash/*")
-end
-
 ------------------------
 -- Fast user switching
 ------------------------
