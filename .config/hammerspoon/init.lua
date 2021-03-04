@@ -34,26 +34,6 @@ function closeNotifications()
 end
 
 ------------------------
--- Drives
-------------------------
-
-function unmountExternalDrives()
-  print("unmount called")
-  notify("Unmounting Drives")
-  -- escape single quotes like \'
-  -- escape backslashes in sed with extra backslash
-  os.execute("/usr/sbin/diskutil list | grep -i windows | sed \'s/.*\\(disk[0-9].*\\)/\\1/\' | uniq | xargs -I= /usr/sbin/diskutil unmount =")
-end
-
-function mountExternalDrives()
-  print("mount called")
-  notify("Mounting Drives")
-  -- escape single quotes like \'
-  -- escape backslashes in sed with extra backslash
-  os.execute("/usr/sbin/diskutil list | grep -i windows | sed \'s/.*\\(disk[0-9].*\\)/\\1/\' | uniq | xargs -I= /usr/sbin/diskutil mount =")
-end
-
-------------------------
 -- Audio settings
 ------------------------
 
@@ -87,6 +67,9 @@ require('bluetooth')
 require('network')
 require('wifi')
 require('window')
+
+-- mounting/unmounting drives
+-- require('drives')
 
 -- fast user switching via script is crippled in Big Sur
 -- see also https://apple.stackexchange.com/questions/409820/access-fast-user-switching-from-a-script-in-big-sur
