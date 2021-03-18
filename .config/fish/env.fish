@@ -60,7 +60,7 @@ export FZF_CTRL_T_COMMAND='fd --type f --type d --hidden --follow --exclude .git
 
 # yubikey
 # relies on installation of https://github.com/FiloSottile/yubikey-agent
-export SSH_AUTH_SOCK="/usr/local/var/run/yubikey-agent.sock"
+set -x SSH_AUTH_SOCK /Users/oliver/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 
 # k8s
 set -x KUBECONFIG (find $HOME/.kube/config.d -name "*.yml" -o -name '*.yaml' | sort | xargs echo | sed 's/ /:/g')
