@@ -69,9 +69,8 @@ local hyper = {"ctrl", "alt", "shift", "cmd"}
 
 hs.hotkey.bind(hyper, 'a', left50)
 hs.hotkey.bind(hyper, 'd', right50)
-hs.hotkey.bind(hyper, "x", center_window)
 hs.hotkey.bind(hyper, 's', toggle_window_maximized)
-hs.hotkey.bind(hyper, 'f', toggle_full_screen)
+hs.hotkey.bind(hyper, 'x', toggle_full_screen)
 
 hs.hotkey.bind(hyper, "q", send_window_to_prev_monitor)
 hs.hotkey.bind(hyper, "e", send_window_to_next_monitor)
