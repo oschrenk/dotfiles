@@ -12,7 +12,6 @@ alias n    'cd $HOME/Projects/personal/notes'
 # Applications
 alias a    'ag'
 alias c    clear
-alias ci   'open https://circleci.com/dashboard'
 alias g    git
 alias k    kubectl
 alias j    journal
