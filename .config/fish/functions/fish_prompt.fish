@@ -875,6 +875,20 @@ function __bobthefish_prompt_nix -S -d 'Display current nix environment'
 end
 
 # ==============================
+# Custom segments
+# ==============================
+
+function __bobthefish_prompt_jira -S -d 'Display current jira ticket'
+    set -l ticket (command head -n +1 $HOME/.jira.d/.jira.issue 2>/dev/null)
+    if [ "$ticket" ]
+    __bobthefish_start_segment $color_virtualfish
+      echo -ns \ue75c ' ' $ticket
+    end
+
+    set_color normal
+end
+
+# ==============================
 # VCS segments
 # ==============================
 
@@ -1069,6 +1083,9 @@ function fish_prompt -d 'bobthefish, a fish theme optimized for awesome'
     __bobthefish_prompt_vagrant
     __bobthefish_prompt_docker
     __bobthefish_prompt_k8s_context
+
+    # Custom segments
+    __bobthefish_prompt_jira
 
     # Virtual environments
     __bobthefish_prompt_nix
