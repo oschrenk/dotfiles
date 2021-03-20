@@ -11,10 +11,10 @@ scrolling:
 font:
   size: 20.0
   normal:
-    family: "M+ 1mn light for Powerline"
+    family: "mplus Nerd Font"
     style: light
   bold:
-    family: "M+ 1mn"
+    family: "mplus Nerd Font"
     style: regular
   offset:
     x: 0
