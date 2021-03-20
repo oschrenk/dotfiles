@@ -1,0 +1,73 @@
+{{- if .meta.fields.comment }}
+update:
+  comment:
+    - add:
+        body: |~
+          {{ or .overrides.comment "" | indent 10 }}
+{{- end -}}
+fields:
+{{- if .meta.fields.assignee }}
+  {{- if .overrides.assignee }}
+  assignee:
+    emailAddress: {{ .overrides.assignee }}
+  {{- else if .fields.assignee }}
+  assignee: {{if .fields.assignee.name}}
+    name: {{ or .fields.assignee.name}}
+  {{- else }}
+    emailAddress: {{.fields.assignee.emailAddress}}{{end}}{{end}}
+{{- end -}}
+{{if .meta.fields.components}}
+  components: # Values: {{ range .meta.fields.components.allowedValues }}{{.name}}, {{end}}{{if .overrides.components }}{{ range (split "," .overrides.components)}}
+    - name: {{.}}{{end}}{{else}}{{ range .fields.components }}
+    - name: {{ .name }}{{end}}{{end}}
+{{- end -}}
+{{if .meta.fields.description}}
+  description: |~
+    {{ or .fields.description "" | indent 4 }}
+{{- end -}}
+{{if .meta.fields.fixVersions -}}
+  {{if .meta.fields.fixVersions.allowedValues}}
+  fixVersions: # Values: {{ range .meta.fields.fixVersions.allowedValues }}{{.name}}, {{end}}{{if .overrides.fixVersions}}{{ range (split "," .overrides.fixVersions)}}
+    - name: {{.}}{{end}}{{else}}{{range .fields.fixVersions}}
+    - name: {{.name}}{{end}}{{end}}
+  {{- end -}}
+{{- end -}}
+{{if .meta.fields.issuetype}}
+  issuetype: # Values: {{ range .meta.fields.issuetype.allowedValues }}{{.name}}, {{end}}
+    name: {{if .overrides.issuetype}}{{.overrides.issuetype}}{{else}}{{if .fields.issuetype}}{{.fields.issuetype.name}}{{end}}{{end}}
+{{- end -}}
+{{if .meta.fields.labels}}
+  labels: {{range .fields.labels}}
+    - {{.}}{{end}}{{if .overrides.labels}}{{range (split "," .overrides.labels)}}
+    - {{.}}{{end}}{{end}}
+{{- end -}}
+{{if .meta.fields.priority}}
+  priority: # Values: {{ range .meta.fields.priority.allowedValues }}{{.name}}, {{end}}
+    name: {{ or .overrides.priority "unassigned" }}
+{{- end -}}
+{{- if .meta.fields.reporter }}
+  {{- if .overrides.reporter }}
+  reporter:
+    name: {{ .overrides.reporter }}
+  {{- else if .fields.reporter }}
+  reporter: {{if .fields.reporter.name}}
+    name: {{ or .fields.reporter.name}}
+  {{- else }}
+    displayName: {{.fields.reporter.displayName}}{{end}}{{end}}
+{{- end -}}
+{{if .meta.fields.resolution}}
+  resolution: # Values: {{ range .meta.fields.resolution.allowedValues }}{{.name}}, {{end}}
+    name: {{if .overrides.resolution}}{{.overrides.resolution}}{{else if .fields.resolution}}{{.fields.resolution.name}}{{else}}{{or .overrides.defaultResolution "Fixed"}}{{end}}
+{{- end -}}
+{{if .meta.fields.summary}}
+  summary: >-
+    {{or .overrides.summary .fields.summary}}
+{{- end -}}
+{{if .meta.fields.versions.allowedValues}}
+  versions: # Values: {{ range .meta.fields.versions.allowedValues }}{{.name}}, {{end}}{{if .overrides.versions}}{{ range (split "," .overrides.versions)}}
+    - name: {{.}}{{end}}{{else}}{{range .fields.versions}}
+    - name: {{.}}{{end}}{{end}}
+{{- end}}
+transition:
+  id: {{ .transition.id }}
+  name: {{ .transition.name }}
