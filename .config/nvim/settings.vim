@@ -5,7 +5,7 @@ set title                     " show title in console title bar.
 set cursorline                " highlights line
 set cursorcolumn              " highlights column
 set number                    " show line number
-set signcolumn=yes            " always show signcolumns
+set signcolumn=number         " show sign in number column
 
 set splitright                " always split to the right
 set splitbelow                " always split to the bottom
