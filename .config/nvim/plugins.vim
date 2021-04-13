@@ -13,7 +13,6 @@ Plug 'EinfachToll/DidYouMean'             "  asks for the right file to open if 
 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim splits
-Plug 'tmux-plugins/vim-tmux-focus-events' " restore autocommand events within tmux eg. gitgutter refreshs
 
 " Navigation
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'             " fuzzy find
