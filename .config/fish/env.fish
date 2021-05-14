@@ -58,8 +58,6 @@ export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!{.
 # relies on `brew install fd`
 export FZF_CTRL_T_COMMAND='fd --type f --type d --hidden --follow --exclude .git'
 
-# yubikey
-# relies on installation of https://github.com/FiloSottile/yubikey-agent
 set -x SSH_AUTH_SOCK /Users/oliver/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 
 # k8s
