@@ -11,14 +11,14 @@ scrolling:
 font:
   size: 20.0
   normal:
-    family: "mplus Nerd Font"
+    family: "mplus Nerd Font Mono"
     style: light
   bold:
-    family: "mplus Nerd Font"
+    family: "mplus Nerd Font Mono"
     style: regular
   offset:
     x: 0
-    y: -2
+    y: 0
 
 colors:
   primary:
