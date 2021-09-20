@@ -1,4 +1,6 @@
 set clipboard=unnamed
+set visualbell
+set noerrorbells
 
 " emulate vim-surround
 " Commands: ys, cs, ds, S
