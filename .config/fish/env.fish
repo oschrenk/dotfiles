@@ -39,6 +39,9 @@ fish_add_path --append $ANDROID_HOME/platform-tools
 # Rust
 fish_add_path --prepend $HOME/.cargo/bin
 
+# Python
+fish_add_path --prepend $HOME/Library/Python/3.9/bin/
+
 # kubectl krew
 fish_add_path --prepend $HOME/.krew/bin
 
