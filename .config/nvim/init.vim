@@ -29,7 +29,6 @@ source ~/.config/nvim/settings.vim
 " Plugin configuration
 " ============================
 
-source ~/.config/nvim/settings.aerojump.vim
 source ~/.config/nvim/settings.coc.vim
 source ~/.config/nvim/settings.echo-doc.vim
 source ~/.config/nvim/settings.fzf.vim
