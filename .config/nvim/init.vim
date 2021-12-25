@@ -33,8 +33,6 @@ source ~/.config/nvim/settings.aerojump.vim
 source ~/.config/nvim/settings.coc.vim
 source ~/.config/nvim/settings.echo-doc.vim
 source ~/.config/nvim/settings.fzf.vim
-source ~/.config/nvim/settings.goyo.vim
-source ~/.config/nvim/settings.limelight.vim
 source ~/.config/nvim/settings.netrw.vim
 source ~/.config/nvim/settings.projectionist.vim
 source ~/.config/nvim/settings.rainbow_parentheses.vim

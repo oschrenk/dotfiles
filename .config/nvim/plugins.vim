@@ -60,8 +60,6 @@ Plug 'satabin/hocon-vim',
 " Look and feel
 Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
 Plug 'kshenoy/vim-signature'              " toggle, display, navigate marks
-Plug 'junegunn/limelight.vim'             " focus paragraphs
-Plug 'junegunn/goyo.vim', {'on': 'Goyo'}  " distraction free editing
 
 " Themes
 Plug 'morhetz/gruvbox'
