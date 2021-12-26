@@ -32,7 +32,6 @@ Plug 'Shougo/echodoc.vim'                       " print doc in command line
 Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg. vim-gitgutter
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
 Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
-Plug 'machakann/vim-highlightedyank'      " highlight yank targets
 Plug 'sunaku/vim-shortcut'                " discoverable & searchable shortcuts for (Neo)Vim
 
 " Text objects
