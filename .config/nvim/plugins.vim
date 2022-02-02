@@ -29,7 +29,7 @@ Plug 'Shougo/echodoc.vim'                       " print doc in command line
 " and install via `yarn`
 
 " Control
-Plug 'tpope/vim-repeat'                   " enable repeating for some plugins eg. vim-gitgutter
+Plug 'tpope/vim-repeat'                   " enable repeating for some plugins
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
 Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
 Plug 'sunaku/vim-shortcut'                " discoverable & searchable shortcuts for (Neo)Vim
@@ -39,8 +39,8 @@ Plug 'kana/vim-textobj-user'              " create your own text-objects
 Plug 'mattn/vim-textobj-url'              " au/iu for url
 
 " Git
-Plug 'airblade/vim-gitgutter'             " mark modified, changed, deleted lines
-Plug 'tpope/vim-fugitive'
+Plug 'nvim-lua/plenary.nvim'              " lua dependency for gitsigns
+Plug 'lewis6991/gitsigns.nvim'            " # lua Git integration for buffers
 
 " File types
 Plug 'dag/vim-fish',                      { 'for': 'fish' }
@@ -63,4 +63,9 @@ Plug 'kshenoy/vim-signature'              " toggle, display, navigate marks
 Plug 'morhetz/gruvbox'
 
 call plug#end()
+
+lua <<EOF
+require('gitsigns').setup()
+EOF
+
 "End Plug --------------------
