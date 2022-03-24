@@ -135,7 +135,7 @@
   s = status --short
   ss = status
 
-  # initialize repoisotry with empty commit for easier rebasing
+  # initialize repository with empty commit for easier rebasing
   # later on
   start = !git init && git commit --allow-empty -m \"Initial commit\"
 
