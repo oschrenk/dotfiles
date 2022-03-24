@@ -75,9 +75,6 @@ nnoremap k gk
 " quickly move to end of line
 nnoremap L $
 
-" <space>+w: Save the file
-nnoremap <Leader>w :w<cr>
-
 " U: Redos since 'u' undos
 nnoremap U :redo<cr>
 
