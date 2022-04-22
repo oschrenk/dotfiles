@@ -5,10 +5,6 @@
 fish_add_path --prepend /usr/local/sbin
 fish_add_path --prepend /usr/local/bin
 
-# LOG and JOURNAL
-set -x LOG_DIR ~/Documents/Log
-set -x JOURNAL_DIR ~/Documents/Journal
-
 # editor
 set -x EDITOR nvim
 
