@@ -40,8 +40,6 @@ set smartcase                 " Ignore case if pattern is lowercase, case-sensit
 
 set autoread                  " Set to auto read when a file is changed from the outside
 set clipboard^=unnamed,unnamedplus " cross platform clipboard access
-set visualbell                " don't beep
-set noerrorbells              " don't beep
 
 " Disable backups, swaps
 set nobackup                  " Get rid of backups, I don't use them
