@@ -1,6 +1,3 @@
-syntax on                     " syntax highlighting
-syntax enable                 " syntax highlighting
-
 set title                     " show title in console title bar.
 set cursorline                " highlights line
 set cursorcolumn              " highlights column
