@@ -32,7 +32,6 @@ set title              " show title in console title bar.
 set splitright                " always split to the right
 set splitbelow                " always split to the bottom
 
-set lsp=0                     " space it out a little more (easier to read)
 set cmdheight=2               " the command bar is 2 high.
 set autoindent                " copy indentation from last line
 set smartindent               " automatically inserts one extra level in some cases
