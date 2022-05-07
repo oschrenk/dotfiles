@@ -25,40 +25,45 @@ set signcolumn=number  " show sign in number column
 set termguicolors      " emit 24-but colours
 set title              " show title in console title bar.
 
+" command bar
+set cmdheight=2        " the command bar is 2 high.
+set showmode           " show current-mode
+set showcmd            " show partially-typed commands
+
 " ============================
 " Config, Global
 " ============================
-"
+" window management
 set splitright                " always split to the right
 set splitbelow                " always split to the bottom
 
-set cmdheight=2               " the command bar is 2 high.
+" behaviour
+set wildmenu                  " visual autocomplete for command menu
+set showmatch                 " show matching brackets
+
+" performance
+set updatetime=300            " bad experience for diagnostic messages when it's default 4000
+set lazyredraw                " redraw only when we need to
+
+" indentation and whitespace
 set autoindent                " copy indentation from last line
 set smartindent               " automatically inserts one extra level in some cases
-set updatetime=300            " bad experience for diagnostic messages when it's default 4000
-
 set expandtab                 " <TAB> will insert 'softtabstop' spaces
 set tabstop=2                 " width of the <TAB> character
 set shiftwidth=2              " affects >>, <<, ==
 set softtabstop=2
 set backspace=2               " make backspace work like most other app
 
-
-set showmode                  " show current-mode
-set showcmd                   " show partially-typed commands
-set wildmenu                  " visual autocomplete for command menu
-set lazyredraw                " redraw only when we need to
-set showmatch                 " show matching brackets
-
+" searching
 set hlsearch                  " Highlight search matches
 set ignorecase                " Ignore case when searching
 set inccommand=nosplit        " nvim 0.6+ only.live preview for substitute command
 set incsearch                 " Highlight search matches as you type
 set smartcase                 " Ignore case if pattern is lowercase, case-sensitive otherwise
 
+" external files
 set autoread                  " Set to auto read when a file is changed from the outside
 set clipboard^=unnamed,unnamedplus " cross platform clipboard access
-
 " Disable backups, swaps
 set nobackup                  " Get rid of backups, I don't use them
 set nowb                      " Get rid of backups on write
@@ -160,7 +165,6 @@ source ~/.config/nvim/settings.textobj.url.vim
 " ============================
 " Keyboard mappings
 " ============================
-
 
 " map leader to <space>
 let mapleader = "\<Space>"
