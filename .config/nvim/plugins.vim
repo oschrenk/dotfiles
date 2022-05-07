@@ -18,7 +18,7 @@ Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim spl
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'             " fuzzy find
 Plug 'oschrenk/vim-vinegar'                                     " netrw enhancements
 Plug 'airblade/vim-rooter'                                      " auto sets working directory
-Plug 'tpope/vim-projectionist'                                  " project configuration
+
 
 " Completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocompletion with language server protocol
