@@ -41,3 +41,8 @@ list-diagnostics-history.json
 .sbt/1.0/preferences
 .kube
 .sbt/.credentials*
+history.json
+list-commands-history.json
+list-extensions-history.json
+list-outline-history.json
+list-symbols-history.json
