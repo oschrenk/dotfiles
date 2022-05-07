@@ -1,19 +1,6 @@
 {
-  "suggest.echodocSupport": true,
+  "codeLens.enable": true,
   "suggest.maxCompleteItemCount": 10,
-  "coc.source.emoji.filetypes": ["gitcommit", "mail", "markdown" ],
   "coc.preferences.formatOnSaveFiletypes": ["scala"],
-  "metals.scalafmtConfigPath": ".scalafmt.conf",
-  "languageserver": {
-    "metals": {
-      "command": "metals-vim",
-      "rootPatterns": ["build.sbt"],
-      "filetypes": ["scala", "sbt"]
-    },
-    "terraform": {
-      "command": "terraform-lsp",
-      "filetypes": ["terraform"],
-      "initializationOptions": {}
-    }
-  }
+  "metals.scalafmtConfigPath": ".scalafmt.conf"
 }
