@@ -14,13 +14,16 @@ set background=dark
 colorscheme gruvbox
 let g:gruvbox_sign_column = 'bg0'
 
-set cursorcolumn              " highlights column
-set cursorline                " highlights line
-set laststatus=0              " hide statusbar
-set number                    " show line number
-set signcolumn=number         " show sign in number column
-set termguicolors             " emit 24-but colours
-set title                     " show title in console title bar.
+set cursorcolumn       " highlights column
+set cursorline         " highlights line
+set display+=lastline  " show as much as possible from last line
+set laststatus=0       " hide statusbar
+set number             " show line number
+set scrolloff=1        " ensure number of visible lines above/below cursor
+set sidescrolloff=5    " ensure number of visible columns left/right to cursor
+set signcolumn=number  " show sign in number column
+set termguicolors      " emit 24-but colours
+set title              " show title in console title bar.
 
 " ============================
 " Config, Global
@@ -41,13 +44,6 @@ set shiftwidth=2              " affects >>, <<, ==
 set softtabstop=2
 set backspace=2               " make backspace work like most other app
 
-if !&scrolloff
-  set scrolloff=1             " ensure number of visible lines above/below cursor
-endif
-if !&sidescrolloff
-  set sidescrolloff=5         " ensure number of visible columns left/right to cursor
-endif
-set display+=lastline         " show as much as possible from last line
 
 set showmode                  " show current-mode
 set showcmd                   " show partially-typed commands
