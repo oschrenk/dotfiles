@@ -1,5 +1,4 @@
 set shell=fish
-set termencoding=utf-8    " used to display
 set termguicolors
 set inccommand=nosplit    " nvim 0.6+ only.live preview for substitute command
 
