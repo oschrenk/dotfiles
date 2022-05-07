@@ -230,6 +230,9 @@ iab tommorrow tomorrow
 " Shortcut
 " ===========================
 
+" need to source manually
+source ~/.config/nvim/plugged/vim-shortcut/plugin/shortcut.vim
+
 Shortcut shortcut | Show shortcut menu and run chosen shortcut
   \ noremap <silent> <Leader><Leader> :Shortcuts<Return>
 
@@ -316,3 +319,58 @@ Shortcut! vi` (textobj) select inside back quotes
 
 Shortcut! vau (textobj) select around URL
 Shortcut! viu (textobj) select inside URL
+
+
+Shortcut coc | Rename current word
+  \ nmap <leader>rn <Plug>(coc-rename)
+
+Shortcut coc | Format selected region
+  \ xmap <leader>f  <Plug>(coc-format-selected)
+  \ nmap <leader>f  <Plug>(coc-format-selected)
+
+Shortcut coc | Do codeAction of selected region, ex: `<leader>aap` for current paragraph
+  \ xmap <leader>a  <Plug>(coc-codeaction-selected)
+  \ nmap <leader>a  <Plug>(coc-codeaction-selected)
+
+Shortcut coc | Do codeAction of current line
+  \ nmap <leader>ac  <Plug>(coc-codeaction)
+
+Shortcut coc | Fix autofix problem of current line
+  \ nmap <leader>qf  <Plug>(coc-fix-current)
+
+Shortcut coc | Show all diagnostics
+  \ nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
+Shortcut coc | Manage extensions
+  \ nnoremap <silent> <space>e  :<C-u>CocList extensions<cr>
+Shortcut coc | Show commands
+  \ nnoremap <silent> <space>c  :<C-u>CocList commands<cr>
+
+Shortcut coc | Use <c-space> to trigger completion
+  \ inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use `[g` and `]g` to navigate diagnostics
+Shortcut coc | previous diagnostic
+  \ nmap <silent> [g <Plug>(coc-diagnostic-prev)
+Shortcut coc | next diagnostic
+  \ nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" Remap keys for gotos
+Shortcut coc | goto definition
+  \ nmap <silent> gd <Plug>(coc-definition)
+Shortcut coc | goto type definition
+  \ nmap <silent> gy <Plug>(coc-type-definition)
+Shortcut coc | goto implementation
+  \ nmap <silent> gi <Plug>(coc-implementation)
+Shortcut coc | goto references
+  \ nmap <silent> gr <Plug>(coc-references)
+
+Shortcut coc | show documentation in preview window
+  \ nnoremap <silent> K :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
