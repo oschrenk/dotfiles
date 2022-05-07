@@ -185,11 +185,6 @@ nnoremap <Right> <nop>
 nnoremap <Up> <nop>
 noremap <Down> <nop>
 
-" Jump back to last edited buffer
-Shortcut repeat the last macro
-  \ nnoremap <C-p> :e#<CR>
-  \ inoremap <C-p> <esc>:e#<CR>
-
 " move cursors naturally
 nnoremap j gj
 nnoremap k gk
@@ -203,19 +198,11 @@ nnoremap U :redo<cr>
 " N: Find next occurrence backward
 nnoremap N Nzzzv
 
-Shortcut repeat the last macro
-  \ nnoremap , @@
-
 " Use <C-c> to clear the highlighting of :set hlsearch.
 if maparg('<C-c>', 'n') ==# ''
   nnoremap <silent> <C-c> :nohlsearch<C-R>=has('diff')?'<Bar>diffupdate':''<CR><CR><C-L>
 endif
 
-Shortcut shortcut | Show shortcut menu and run chosen shortcut
-  \ noremap <silent> <Leader><Leader> :Shortcuts<Return>
-
-Shortcut time | insert current time
-  \ nmap <Leader>xt i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 
 " ===========================
 " Spellcheck
@@ -240,3 +227,93 @@ iab teh the
 iab tommorow tomorrow
 iab tommorrow tomorrow
 
+" ===========================
+" Shortcut
+" ===========================
+
+Shortcut shortcut | Show shortcut menu and run chosen shortcut
+  \ noremap <silent> <Leader><Leader> :Shortcuts<Return>
+
+Shortcut time | insert current time
+  \ nmap <Space>xt i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+
+" Jump back to last edited buffer
+Shortcut repeat the last macro
+  \ nnoremap <C-p> :e#<CR>
+  \ inoremap <C-p> <esc>:e#<CR>
+
+Shortcut repeat the last macro
+  \ nnoremap , @@
+
+Shortcut fzf | Search text
+  \ nnoremap <silent> <Space>/ :execute 'Rg ' . input('Rg/')<CR>
+Shortcut fzf | Search Git files
+  \ noremap <Space>fo :GFiles<CR>
+Shortcut fzf | Search files
+  \ noremap <Space>fO :Files<CR>
+Shortcut fzf | Search Tags
+  \ noremap <Space>fT :Tags<CR>
+Shortcut fzf | Search Old files and buffers
+  \ noremap <Space>fH :History<CR>
+Shortcut fzf | Search Marks
+  \ noremap <Space>fm :Marks<CR>
+Shortcut fzf | Search Commits for current buffer
+  \ noremap <Space>fc :BCommits<CR>
+Shortcut fzf | Search Commits
+  \ noremap <Space>fC :Commits<CR>
+Shortcut fzf | Search Lines in current buffer
+  \ noremap <Space>fB :BLines<CR>
+
+Shortcut! vaw (textobj) select around word
+Shortcut! viw (textobj) select inside word
+
+Shortcut! vaW (textobj) select around WORD
+Shortcut! viW (textobj) select inside WORD
+
+Shortcut! vas (textobj) select around sentence
+Shortcut! vis (textobj) select inside sentence
+
+Shortcut! vap (textobj) select around paragraph
+Shortcut! vip (textobj) select inside paragraph
+
+Shortcut! va[ (textobj) select around [] block
+Shortcut! vi[ (textobj) select inside [] block
+
+Shortcut! va] (textobj) select around [] block
+Shortcut! vi] (textobj) select inside [] block
+
+Shortcut! va( (textobj) select around () block
+Shortcut! vi( (textobj) select inside () block
+
+Shortcut! vab (textobj) select around () block
+Shortcut! vib (textobj) select inside () block
+
+Shortcut! va< (textobj) select around <> block
+Shortcut! vi< (textobj) select inside <> block
+
+Shortcut! va> (textobj) select around <> block
+Shortcut! vi> (textobj) select inside <> block
+
+Shortcut! vat (textobj) select around XML tag
+Shortcut! vit (textobj) select inside XML tag
+
+Shortcut! va{ (textobj) select around {} block
+Shortcut! vi{ (textobj) select inside {} block
+
+Shortcut! va} (textobj) select around {} block
+Shortcut! vi} (textobj) select inside {} block
+
+Shortcut! vaB (textobj) select around {} block
+Shortcut! viB (textobj) select inside {} block
+
+Shortcut! va" (textobj) select around double quotes
+Shortcut! vi" (textobj) select inside double quotes
+
+Shortcut! va' (textobj) select around single quotes
+Shortcut! vi' (textobj) select inside single quotes
+
+Shortcut! va` (textobj) select around back quotes
+Shortcut! vi` (textobj) select inside back quotes
+
+Shortcut! vau (textobj) select around URL
+Shortcut! viu (textobj) select inside URL
