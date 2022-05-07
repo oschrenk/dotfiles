@@ -12,10 +12,16 @@ source ~/.config/nvim/plugins.vim
 " Look and Feel
 " ============================
 
-set laststatus=0                  " hide statusbar
 set background=dark
 colorscheme gruvbox
 let g:gruvbox_sign_column = 'bg0'
+
+set cursorcolumn              " highlights column
+set cursorline                " highlights line
+set laststatus=0              " hide statusbar
+set number                    " show line number
+set signcolumn=number         " show sign in number column
+set title                     " show title in console title bar.
 
 " ============================
 " Config, Global
