@@ -1,5 +1,4 @@
 set shell=fish
-set termguicolors
 set inccommand=nosplit    " nvim 0.6+ only.live preview for substitute command
 
 " ============================
@@ -21,6 +20,7 @@ set cursorline                " highlights line
 set laststatus=0              " hide statusbar
 set number                    " show line number
 set signcolumn=number         " show sign in number column
+set termguicolors             " emit 24-but colours
 set title                     " show title in console title bar.
 
 " ============================
