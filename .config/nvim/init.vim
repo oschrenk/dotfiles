@@ -1,5 +1,4 @@
 set shell=fish
-set inccommand=nosplit    " nvim 0.6+ only.live preview for substitute command
 
 " ============================
 " Plugins
@@ -57,8 +56,9 @@ set lazyredraw                " redraw only when we need to
 set showmatch                 " show matching brackets
 
 set hlsearch                  " Highlight search matches
-set incsearch                 " Highlight search matches as you type
 set ignorecase                " Ignore case when searching
+set inccommand=nosplit        " nvim 0.6+ only.live preview for substitute command
+set incsearch                 " Highlight search matches as you type
 set smartcase                 " Ignore case if pattern is lowercase, case-sensitive otherwise
 
 set autoread                  " Set to auto read when a file is changed from the outside
