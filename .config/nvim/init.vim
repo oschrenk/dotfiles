@@ -160,7 +160,6 @@ source ~/.config/nvim/settings.fzf.vim
 source ~/.config/nvim/settings.netrw.vim
 source ~/.config/nvim/settings.rainbow_parentheses.vim
 source ~/.config/nvim/settings.textobj.vim
-source ~/.config/nvim/settings.textobj.url.vim
 
 " ============================
 " Keyboard mappings

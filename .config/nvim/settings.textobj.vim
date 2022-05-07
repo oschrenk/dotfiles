@@ -52,3 +52,6 @@ Shortcut! vi' (textobj) select inside single quotes
 
 Shortcut! va` (textobj) select around back quotes
 Shortcut! vi` (textobj) select inside back quotes
+
+Shortcut! vau (textobj) select around URL
+Shortcut! viu (textobj) select inside URL
