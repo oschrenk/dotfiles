@@ -6,7 +6,6 @@
       "layout": "even-horizontal",
       "options": { "automatic-rename": "off" },
       "panes": [
-        { "shell_command": [] },
         { "shell_command": [] }
       ]
     }
