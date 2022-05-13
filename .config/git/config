@@ -239,10 +239,16 @@
   email = oliver.schrenk@gmail.com
 [include]
   path = ~/.config/git/config.d/system
-[includeIf "gitdir:~/Projects/qicloud"]
-  path = ~/.config/git/config.d/work
-[includeIf "gitdir:~/Projects/oschrenk"]
-  path = ~/.config/git/config.d/freelance
+[includeIf "gitdir:~/Projects/badger/"]
+  path = ~/.config/git/config.d/badger
+[includeIf "gitdir:~/Projects/personal/"]
+  path = ~/.config/git/config.d/personal
+[includeIf "gitdir:~/Projects/zalando/"]
+  path = ~/.config/git/config.d/zalando
+[includeIf "gitdir:~/Projects/forks/"]
+  path = ~/.config/git/config.d/personal
+[includeIf "gitdir:~/Projects/external/"]
+  path = ~/.config/git/config.d/personal
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
