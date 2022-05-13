@@ -1,6 +1,0 @@
-"*":
-  core:
-    automaticallyUpdate: false
-    telemetryConsent: "no"
-  welcome:
-    showOnStartup: false
