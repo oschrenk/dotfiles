@@ -46,3 +46,5 @@ list-commands-history.json
 list-extensions-history.json
 list-outline-history.json
 list-symbols-history.json
+.config/coc/suggest.txt
+.config/tmux/plugins/
