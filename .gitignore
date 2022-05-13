@@ -47,3 +47,4 @@ list-outline-history.json
 list-symbols-history.json
 .config/coc/suggest.txt
 .config/tmux/plugins/
+.config/fisher
