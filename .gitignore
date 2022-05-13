@@ -25,7 +25,6 @@ configstore/
 .config/gtk-2.0/
 cache
 certificates
-.config/vdirsyncer/status/
 .atom/github.cson
 logs
 session
