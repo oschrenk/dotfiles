@@ -136,8 +136,13 @@ custom-commands:
       - name: ISSUE
         help: issue to log work on
         default: \$JIRA_ISSUE
+      - name: COMMENT
+        help: comment
+    options:
+      - name: comment
+        short: m
     script: |-
-      # deal with e
+      # deal with empty issue
       issue=""
       {{if args.ISSUE}}
         issue={{args.ISSUE}}
@@ -152,7 +157,7 @@ custom-commands:
         period=\$(echo "{{args.TIME}}" | sed 's/h/hours/g' | sed 's/m/minutes/g' | xargs -I _ gdate -d"1970-01-01 00:00:00 UTC _" "+%s")
         before=\$((\$now-\$period))
         startdate=\$(date -r \$before +"%Y-%m-%dT%H:%M:%S.000%z")
-        {{jira}} worklog add --started "\$startdate" --time-spent="{{args.TIME}}" \$issue
+        {{jira}} worklog add {{if options.comment}} -m "{{options.comment}}"{{end}} --started "\$startdate" --time-spent="{{args.TIME}}" \$issue
       else
         echo "Issue required."
       fi
