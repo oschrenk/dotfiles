@@ -93,7 +93,7 @@ custom-commands:
       - name: ISSUE
         default: \$JIRA_ISSUE
     script: |
-      {{jira}} off {{args.ISSUE}}
+      {{jira}} off
       {{jira}} unassign {{args.ISSUE}}
       {{jira}} trans --noedit "To Do" {{args.ISSUE}}
 
@@ -107,7 +107,7 @@ custom-commands:
       - name: comment
         short: m
     script: |
-      {{jira}} off {{args.ISSUE}}
+      {{jira}} off
       {{jira}} unassign {{args.ISSUE}}
       {{jira}} trans{{if options.comment}} -m "{{options.comment}}"{{end}} --noedit "Code review" {{args.ISSUE}}
 
@@ -121,7 +121,7 @@ custom-commands:
       - name: comment
         short: m
     script: |
-      {{jira}} off {{args.ISSUE}}
+      {{jira}} off
       {{jira}} trans{{if options.comment}} -m "{{options.comment}}"{{end}} "Done" {{args.ISSUE}}
 
   ########################
