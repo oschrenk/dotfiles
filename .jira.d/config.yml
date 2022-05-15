@@ -174,6 +174,21 @@ custom-commands:
       mkdir -p $HOME/.jira.d/work
       touch $HOME/.jira.d/work/{{args.ISSUE}}
 
+  - name: hours
+    help: submit worklog
+    args:
+      - name: DATE
+        help: ISO formatted day of work worked
+        required: true
+      - name: HOURS
+        help: hours worked
+        required: true
+      - name: TICKET
+        help: ticket to mark
+        default: ZAL-1
+    script: |-
+      {{jira}} worklog add --noedit --started "{{args.DATE}}"T10:00:00.000+0200 --time-spent="{{args.HOURS}}"h "{{args.TICKET}}"
+
   - name: endwork
     help: submit worklog for issue
     args:
