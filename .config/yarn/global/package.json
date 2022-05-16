@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "ios-deploy": "^1.10.0",
-    "prettier": "^2.0.4"
-  }
-}
