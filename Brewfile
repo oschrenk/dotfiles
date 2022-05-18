@@ -141,7 +141,6 @@ brew "traefik"
 brew "txn2/tap/kubefwd"
 
 # macos
-brew "dockutil"   # configures the dock
 brew "fileicon"   # managing custom icons for files and folders
 brew "mas"        # app store apps
 
@@ -198,6 +197,9 @@ cask "cog"
 cask "dbeaver-community"
 cask "discord"
 cask "docker"
+# until https://github.com/kcrawford/dockutil/issues/127 is resolved
+# install dockutil via this cask
+cask "hpedrorodrigues/tools/dockutil"
 cask "elgato-control-center"
 cask "firefox"
 cask "flux"
