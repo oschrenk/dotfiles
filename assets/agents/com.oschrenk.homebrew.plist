@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>EnvironmentVariables</key>
+    <dict>
+      <!-- Set Locale -->
+      <key>LANG</key>
+      <string>en_US.UTF-8</string>
+      <key>LC_ALL</key>
+      <string>en_US.UTF-8</string>
+    </dict>
+    <key>Label</key>
+    <string>com.oschrenk.homebrew</string>
+    <key>WorkingDirectory</key>
+    <string>/usr/local/</string>
+    <key>ProgramArguments</key>
+    <array>
+      <!-- full path to binary -->
+      <string>/usr/local/bin/brew</string>
+      <string>update</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StartInterval</key>
+    <!-- Intervall in seconds -->
+    <integer>3600</integer>
+    <!-- Store output -->
+    <key>StandardOutPath</key>
+    <string>/tmp/com.oschrenk.homebrew.log</string>
+    <key>StandardErrorPath</key>
+    <string>/tmp/com.oschrenk.homebrew.log</string>
+  </dict>
+</plist>
+
