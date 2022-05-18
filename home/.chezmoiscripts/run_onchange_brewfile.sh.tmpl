@@ -1,0 +1,5 @@
+#!/bin/zsh
+
+# Brewfile hash: {{ include "../Brewfile" | sha256sum }}
+brew bundle --no-lock --file {{ joinPath .chezmoi.sourceDir "../Brewfile" | quote }}
+
