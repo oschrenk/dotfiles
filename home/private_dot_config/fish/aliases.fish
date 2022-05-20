@@ -18,6 +18,9 @@ alias t    terraform
 
 alias ios 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
 
+# chezmoi
+alias ccd  `chezmoi cd`
+
 # tmux sessions
 alias tk   'tmux kill-session -t'
 alias tl   'tmuxp load -2 -y'
