@@ -14,9 +14,7 @@ alias a    'ag'
 alias c    clear
 alias g    git
 alias k    kubectl
-alias j    journal
 alias t    terraform
-
 
 alias ios 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
 
