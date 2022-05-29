@@ -2,10 +2,38 @@
 
 BASEDIR="$( chezmoi source-path )/.."
 
+#--------------------------------------
+# fileicon resistant apps
+#--------------------------------------
+# calibre uses it's own image to load the dock item
+# only for a short time it is actually using the dock's cache
+# we need to also overwrite the png inside the resources to work
+if [ -d "/Applications/calibre.app" ]; then
+  ORIGINAL=/Applications/calibre.app/Contents/Resources/resources/images/library.png
+  BACKUP=/Applications/calibre.app/Contents/Resources/resources/images/library.png.bak
+  if [ -f "$BACKUP" ]; then
+    # notinng to do
+    echo "calibre already backed up"
+  else
+    sudo cp $ORIGINAL $BACKUP
+  fi
+
+  # overwrite image
+  sudo cp $BASEDIR/assets/icons/calibre.png /Applications/calibre.app/Contents/Resources/resources/images/library.png
+  # use icon
+  sudo fileicon set /Applications/calibre.app $BASEDIR/assets/icons/calibre.icns
+else
+  echo "No calibre.app found"
+fi
+
+
+#--------------------------------------
+# fileicon compatible
+#--------------------------------------
+
 sudo fileicon set /Applications/Alacritty.app/ $BASEDIR/assets/icons/alacritty.icns
 sudo fileicon set /Applications/Blackmagic\ ATEM\ Switchers/ATEM\ Software\ Control.app/ $BASEDIR/assets/icons/atem.icns
 sudo fileicon set /Applications/Boost\ Note.app/ $BASEDIR/assets/icons/boost-note.icns
-sudo fileicon set /Applications/calibre.app $BASEDIR/assets/icons/calibre.icns
 sudo fileicon set /Applications/Docker.app $BASEDIR/assets/icons/docker.icns
 # docker has app inside app
 sudo fileicon set /Applications/Docker.app/Contents/MacOS/Docker\ Desktop.app $BASEDIR/assets/icons/docker.icns
