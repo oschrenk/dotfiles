@@ -216,7 +216,9 @@ cask "keyboardcleantool"
 cask "keycastr"             # shows key strokes on screen
 cask "kindlegen"
 cask "knockknock"
-cask "lens"  
+# Lens 5.5 required login, use OpenLens
+# cask "lens"  
+cask "ykursadkaya/openlens/openlens"
 cask "meld"   
 cask "microsoft-teams" 
 cask "monodraw" 
