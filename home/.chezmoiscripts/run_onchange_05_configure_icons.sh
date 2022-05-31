@@ -26,6 +26,30 @@ else
   echo "No calibre.app found"
 fi
 
+# jdownloader uses it's own image to load the dock item
+# only for a short time it is actually using the dock's cache
+# we need to also overwrite the png inside the resources to work
+APP_DIR="$HOME/Applications/JDownloader 2"
+if [ -d "$APP_DIR" ]; then
+  ORIGINAL="$APP_DIR/themes/standard/org/jdownloader/images/logo/jd_logo_128_128.png"
+  BACKUP="$APP_DIR/themes/standard/org/jdownloader/images/logo/jd_logo_128_128.png.bak"
+  if [ -f "$BACKUP" ]; then
+    # notinng to do
+    echo "jdownloader already backed up"
+  else
+    sudo cp "$ORIGINAL" "$BACKUP"
+  fi
+
+  # overwrite image
+  sudo cp "$BASEDIR/assets/icons/jdownloader.png" "$ORIGINAL"
+  # use icon
+  sudo fileicon set ~/Applications/JDownloader2.app/ $BASEDIR/assets/icons/jdownloader.icns
+else
+  echo "No $APP_DIR found"
+  echo
+  echo
+  echo
+fi
 
 #--------------------------------------
 # fileicon compatible
@@ -46,7 +70,6 @@ sudo fileicon set /Applications/Google\ Chrome.app $BASEDIR/assets/icons/google-
 sudo fileicon set /Applications/GoToMeeting.app/ $BASEDIR/assets/icons/google_meet.icns
 sudo fileicon set /Applications/HandBrake.app/ $BASEDIR/assets/icons/handbrake.icns
 sudo fileicon set /Applications/IntelliJ\ IDEA\ CE.app $BASEDIR/assets/icons/intellij.icns
-sudo fileicon set /Applications/JDownloader2.app/ $BASEDIR/assets/icons/jdownloader.icns
 sudo fileicon set /Applications/NordVPN\ IKE.app/ $BASEDIR/assets/icons/nordvpn.icns
 sudo fileicon set /Applications/Pulse\ Secure.app/ $BASEDIR/assets/icons/mozilla-vpn.icns
 sudo fileicon set /Applications/Sequel\ Pro.app/ $BASEDIR/assets/icons/sequel-pro.icns
