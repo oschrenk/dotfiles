@@ -160,6 +160,13 @@ source ~/.config/nvim/settings.fzf.vim
 source ~/.config/nvim/settings.netrw.vim
 source ~/.config/nvim/settings.rainbow_parentheses.vim
 
+autocmd BufEnter *.{ts} :syntax sync fromstart
+autocmd BufLeave *.{ts} :syntax sync clear
+autocmd BufEnter *.{js} :syntax sync fromstart
+autocmd BufLeave *.{js} :syntax sync clear
+autocmd BufEnter *.{jsx,tsx} :syntax sync fromstart
+autocmd BufLeave *.{jsx,tsx} :syntax sync clear
+
 " ============================
 " Keyboard mappings
 " ============================
