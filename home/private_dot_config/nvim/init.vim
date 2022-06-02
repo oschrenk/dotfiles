@@ -31,42 +31,43 @@ o.showcmd = true       -- show partially-typed commands
 
 vim.opt.display = vim.opt.display:append('lastline') -- show as much as possible from last line
 
+-- ============================
+-- Config, Global
+-- ============================
+-- window management
+o.splitright = true    -- always split to the right
+o.splitbelow = true    -- always split to the bottom
+
+-- behaviour
+o.wildmenu = true      -- visual autocomplete for command menu
+o.showmatch = true     -- show matching brackets
+
+-- performance
+o.updatetime = 300     -- bad experience for diagnostic messages when it's default 4000
+o.lazyredraw = true    -- redraw only when required
+
+-- indentation and whitespace
+o.autoindent = true    -- copy indentation from last line
+o.smartindent = true   -- automatically inserts one extra level in some cases
+o.expandtab = true     -- <TAB> will insert 'softtabstop' spaces
+o.tabstop = 2          -- width of the <TAB> character
+o.shiftwidth = 2       -- affects >>, <<, ==
+o.softtabstop = 2
+o.backspace = 2        -- make backspace work like most other app
+
+-- searching
+o.hlsearch = true        -- Highlight search matches
+o.ignorecase = true      -- Ignore case when searching
+o.inccommand = 'nosplit' -- nvim 0.6+ only.live preview for substitute command
+o.incsearch = true       -- Highlight search matches as you type
+o.smartcase = true       -- Ignore case if pattern lowercase, case-sensitive otherwise
+
+-- external files
+o.autoread = true        -- Set to auto read when a file is changed from the outside
+vim.opt.clipboard:prepend('unnamed,unnamedplus') -- cross platform clipboard access
+
 EOF
 
-" ============================
-" Config, Global
-" ============================
-" window management
-set splitright                " always split to the right
-set splitbelow                " always split to the bottom
-
-" behaviour
-set wildmenu                  " visual autocomplete for command menu
-set showmatch                 " show matching brackets
-
-" performance
-set updatetime=300            " bad experience for diagnostic messages when it's default 4000
-set lazyredraw                " redraw only when we need to
-
-" indentation and whitespace
-set autoindent                " copy indentation from last line
-set smartindent               " automatically inserts one extra level in some cases
-set expandtab                 " <TAB> will insert 'softtabstop' spaces
-set tabstop=2                 " width of the <TAB> character
-set shiftwidth=2              " affects >>, <<, ==
-set softtabstop=2
-set backspace=2               " make backspace work like most other app
-
-" searching
-set hlsearch                  " Highlight search matches
-set ignorecase                " Ignore case when searching
-set inccommand=nosplit        " nvim 0.6+ only.live preview for substitute command
-set incsearch                 " Highlight search matches as you type
-set smartcase                 " Ignore case if pattern is lowercase, case-sensitive otherwise
-
-" external files
-set autoread                  " Set to auto read when a file is changed from the outside
-set clipboard^=unnamed,unnamedplus " cross platform clipboard access
 " Disable backups, swaps
 set nobackup                  " Get rid of backups, I don't use them
 set nowb                      " Get rid of backups on write
