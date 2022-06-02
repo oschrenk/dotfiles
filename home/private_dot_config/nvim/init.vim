@@ -158,7 +158,14 @@ source ~/.config/nvim/settings.coc.vim
 source ~/.config/nvim/settings.echo-doc.vim
 source ~/.config/nvim/settings.fzf.vim
 source ~/.config/nvim/settings.netrw.vim
-source ~/.config/nvim/settings.rainbow_parentheses.vim
+
+" ---------------------------
+" rainbow_parentheses.vim
+" ---------------------------
+au VimEnter * RainbowParenthesesToggle
+au Syntax * RainbowParenthesesLoadRound
+au Syntax * RainbowParenthesesLoadSquare
+au Syntax * RainbowParenthesesLoadBraces
 
 autocmd BufEnter *.{ts} :syntax sync fromstart
 autocmd BufLeave *.{ts} :syntax sync clear
