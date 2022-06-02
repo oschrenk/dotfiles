@@ -61,7 +61,7 @@ Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
 Plug 'kshenoy/vim-signature'              " toggle, display, navigate marks
 
 " Themes
-Plug 'morhetz/gruvbox'
+Plug 'ellisonleao/gruvbox.nvim'
 
 call plug#end()
 
