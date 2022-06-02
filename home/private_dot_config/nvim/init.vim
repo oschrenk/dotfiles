@@ -4,29 +4,34 @@
 
 source ~/.config/nvim/plugins.vim
 
-" ============================
-" Look and Feel
-" ============================
+lua << EOF
+local o = vim.o
 
-set background=dark
-colorscheme gruvbox
-let g:gruvbox_sign_column = 'bg0'
+-- ============================
+-- Look and Feel
+-- ============================
+o.background = 'dark'
+vim.cmd('colorscheme gruvbox')
+vim.g['gruvbox_sign_column'] = 'bg0'
 
-set cursorcolumn       " highlights column
-set cursorline         " highlights line
-set display+=lastline  " show as much as possible from last line
-set laststatus=0       " hide statusbar
-set number             " show line number
-set scrolloff=1        " ensure number of visible lines above/below cursor
-set sidescrolloff=5    " ensure number of visible columns left/right to cursor
-set signcolumn=number  " show sign in number column
-set termguicolors      " emit 24-but colours
-set title              " show title in console title bar.
+o.cursorcolumn = true   -- highlights column
+o.cursorline = true     -- highlights line
+o.laststatus = 0        -- hide statusbar
+o.number= true          -- show line number
+o.scrolloff = 1         -- ensure number of visible lines above/below cursor
+o.sidescrolloff = 5     -- ensure number of visible columns left/right to cursor
+o.signcolumn = "number" -- show sign in number column
+o.termguicolors = true  -- emit 24-bit colours
+o.title = true          -- show title in console title bar.
 
-" command bar
-set cmdheight=2        " the command bar is 2 high.
-set showmode           " show current-mode
-set showcmd            " show partially-typed commands
+-- command bar
+o.cmdheight = 2        -- the command bar is 2 high.
+o.showmode = true      -- show current-mode
+o.showcmd = true       -- show partially-typed commands
+
+vim.opt.display = vim.opt.display:append('lastline') -- show as much as possible from last line
+
+EOF
 
 " ============================
 " Config, Global
