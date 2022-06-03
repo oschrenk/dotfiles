@@ -53,7 +53,7 @@ o.expandtab = true     -- <TAB> will insert 'softtabstop' spaces
 o.tabstop = 2          -- width of the <TAB> character
 o.shiftwidth = 2       -- affects >>, <<, ==
 o.softtabstop = 2
-o.backspace = 2        -- make backspace work like most other app
+o.backspace = 'indent,eol,start' -- make backspace work like most other app
 
 -- searching
 o.hlsearch = true        -- Highlight search matches
@@ -64,7 +64,7 @@ o.smartcase = true       -- Ignore case if pattern lowercase, case-sensitive oth
 
 -- external files
 o.autoread = true        -- Set to auto read when a file is changed from the outside
-vim.opt.clipboard:prepend('unnamed,unnamedplus') -- cross platform clipboard access
+o.clipboard = 'unnamed,unnamedplus' -- cross platform clipboard access
 
 EOF
 
