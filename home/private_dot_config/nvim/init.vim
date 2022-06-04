@@ -294,13 +294,9 @@ Shortcut shortcut | Show shortcut menu and run chosen shortcut
 Shortcut time | insert current time
   \ nmap <space>xt i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 
-" Jump back to last edited buffer
-Shortcut repeat the last macro
+Shortcut buffer | Jump back to last edited buffer
   \ nnoremap <C-p> :e#<CR>
   \ inoremap <C-p> <esc>:e#<CR>
-
-Shortcut repeat the last macro
-  \ nnoremap , @@
 
 Shortcut fzf | Search text
   \ nnoremap <silent> <space>/ :execute 'Rg ' . input('Rg/')<CR>
