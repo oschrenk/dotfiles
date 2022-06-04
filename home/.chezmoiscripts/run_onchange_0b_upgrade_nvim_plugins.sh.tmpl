@@ -3,4 +3,4 @@
 # Update at most once every two hours
 # Last update: {{ sub (now | unixEpoch) (mod (now | unixEpoch) 7200) }}
 echo "Upgrading nvim plugins"
-nvim -es -u ~/.config/nvim/plugins.vim -i NONE -c "PlugUpgrade" -c "PlugClean!" -c "PlugUpdate" -c "PlugInstall" -c "CocUpdate" -c "qa"
+nvim -es -u ~/.config/nvim/plugins.vim -i NONE -c "PlugUpgrade" -c "PlugClean!" -c "PlugUpdate" -c "PlugInstall" -c "qa"

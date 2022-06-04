@@ -1,6 +1,0 @@
-{
-  "codeLens.enable": true,
-  "suggest.maxCompleteItemCount": 10,
-  "coc.preferences.formatOnSaveFiletypes": ["scala"],
-  "metals.scalafmtConfigPath": ".scalafmt.conf"
-}

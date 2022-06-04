@@ -24,15 +24,6 @@ Plug 'lambdalisue/fern-git-status.vim'
 Plug 'airblade/vim-rooter'                                      " auto sets working directory
 
 
-" Completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'} " autocompletion with language server protocol
-Plug 'scalameta/coc-metals', {'do': 'yarn install --frozen-lockfile'} " install from main because of https://github.com/scalameta/coc-metals/issues/421
-Plug 'wellle/tmux-complete.vim'                 " complete from tmux
-Plug 'Shougo/echodoc.vim'                       " print doc in command line
-" for Coc extensions go to
-" ~/.config/coc/extensions/package.json
-" and install via `yarn`
-
 " Control
 Plug 'tpope/vim-repeat'                   " enable repeating for some plugins
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
