@@ -16,7 +16,11 @@ Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim spl
 
 " Navigation
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'             " fuzzy find
-Plug 'oschrenk/vim-vinegar'                                     " netrw enhancements
+Plug 'lambdalisue/fern.vim'
+Plug 'lambdalisue/nerdfont.vim'
+Plug 'lambdalisue/fern-renderer-nerdfont.vim'
+Plug 'lambdalisue/fern-git-status.vim'
+
 Plug 'airblade/vim-rooter'                                      " auto sets working directory
 
 
