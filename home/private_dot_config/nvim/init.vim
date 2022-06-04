@@ -183,7 +183,7 @@ autocmd BufLeave *.{jsx,tsx} :syntax sync clear
 " ============================
 
 " map leader to <space>
-let mapleader = "\<Space>"
+let mapleader = "\<space>"
 
 " Do not enter Ex mode by accident
 nnoremap Q <Nop>
@@ -252,10 +252,10 @@ iab tommorrow tomorrow
 source ~/.config/nvim/plugged/vim-shortcut/plugin/shortcut.vim
 
 Shortcut shortcut | Show shortcut menu and run chosen shortcut
-  \ noremap <silent> <Leader><Leader> :Shortcuts<Return>
+  \ noremap <silent> <space><space> :Shortcuts<Return>
 
 Shortcut time | insert current time
-  \ nmap <Space>xt i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+  \ nmap <space>xt i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
 
 " Jump back to last edited buffer
 Shortcut repeat the last macro
@@ -266,40 +266,40 @@ Shortcut repeat the last macro
   \ nnoremap , @@
 
 Shortcut fzf | Search text
-  \ nnoremap <silent> <Space>/ :execute 'Rg ' . input('Rg/')<CR>
+  \ nnoremap <silent> <space>/ :execute 'Rg ' . input('Rg/')<CR>
 Shortcut fzf | Search Git files
-  \ noremap <Space>fo :GFiles<CR>
+  \ noremap <space>fo :GFiles<CR>
 Shortcut fzf | Search files
-  \ noremap <Space>fO :Files<CR>
+  \ noremap <space>fO :Files<CR>
 Shortcut fzf | Search Tags
-  \ noremap <Space>fT :Tags<CR>
+  \ noremap <space>fT :Tags<CR>
 Shortcut fzf | Search Old files and buffers
-  \ noremap <Space>fH :History<CR>
+  \ noremap <space>fH :History<CR>
 Shortcut fzf | Search Marks
-  \ noremap <Space>fm :Marks<CR>
+  \ noremap <space>fm :Marks<CR>
 Shortcut fzf | Search Commits for current buffer
-  \ noremap <Space>fc :BCommits<CR>
+  \ noremap <space>fc :BCommits<CR>
 Shortcut fzf | Search Commits
-  \ noremap <Space>fC :Commits<CR>
+  \ noremap <space>fC :Commits<CR>
 Shortcut fzf | Search Lines in current buffer
-  \ noremap <Space>fB :BLines<CR>
+  \ noremap <space>fB :BLines<CR>
 
 Shortcut coc | Rename current word
-  \ nmap <leader>rn <Plug>(coc-rename)
+  \ nmap <space>rn <Plug>(coc-rename)
 
-Shortcut coc | Format selected region
-  \ xmap <leader>f  <Plug>(coc-format-selected)
-  \ nmap <leader>f  <Plug>(coc-format-selected)
+" Shortcut coc | Format selected region
+"   \ xmap <space>f  <Plug>(coc-format-selected)
+"   \ nmap <space>f  <Plug>(coc-format-selected)
 
-Shortcut coc | Do codeAction of selected region, ex: `<leader>aap` for current paragraph
-  \ xmap <leader>a  <Plug>(coc-codeaction-selected)
-  \ nmap <leader>a  <Plug>(coc-codeaction-selected)
+Shortcut coc | Do codeAction of selected region, ex: `<space>aap` for current paragraph
+  \ xmap <space>a  <Plug>(coc-codeaction-selected)
+  \ nmap <space>a  <Plug>(coc-codeaction-selected)
 
 Shortcut coc | Do codeAction of current line
-  \ nmap <leader>ac  <Plug>(coc-codeaction)
+  \ nmap <space>ac  <Plug>(coc-codeaction)
 
 Shortcut coc | Fix autofix problem of current line
-  \ nmap <leader>qf  <Plug>(coc-fix-current)
+  \ nmap <space>qf  <Plug>(coc-fix-current)
 
 Shortcut coc | Show all diagnostics
   \ nnoremap <silent> <space>a  :<C-u>CocList diagnostics<cr>
