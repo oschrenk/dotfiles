@@ -191,7 +191,6 @@ augroup FernEvents
 augroup END
 
 source ~/.config/nvim/settings.fzf.vim
-source ~/.config/nvim/settings.netrw.vim
 
 augroup FernTypeGroup
     autocmd! * <buffer>
