@@ -293,6 +293,7 @@ Shortcut buffer | Jump back to last edited buffer
   \ nnoremap <C-p> :e#<CR>
   \ inoremap <C-p> <esc>:e#<CR>
 
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
 
 lua << EOF
 require('gitsigns').setup{

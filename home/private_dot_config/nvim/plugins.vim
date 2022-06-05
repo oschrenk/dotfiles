@@ -14,6 +14,10 @@ Plug 'EinfachToll/DidYouMean'             "  asks for the right file to open if 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim splits
 
+" Finding
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+
 " Navigation
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/nerdfont.vim'
