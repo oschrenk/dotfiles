@@ -43,7 +43,7 @@ Plug 'kana/vim-textobj-user'              " create your own text-objects
 Plug 'mattn/vim-textobj-url'              " au/iu for url
 
 " Git
-Plug 'nvim-lua/plenary.nvim'              " lua dependency for gitsigns
+Plug 'nvim-lua/plenary.nvim'              " lua dependency
 Plug 'lewis6991/gitsigns.nvim'            " # lua Git integration for buffers
 Plug 'f-person/git-blame.nvim'            " integrate Git blame
 
