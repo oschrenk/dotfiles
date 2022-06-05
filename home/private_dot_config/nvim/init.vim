@@ -363,7 +363,6 @@ lua <<EOF
     }),
     sources = {
       { name = 'buffer' },
-      { name = 'path' },
       { name = 'tmux' },
       { name = 'browser' }
     }

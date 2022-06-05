@@ -29,7 +29,6 @@ Plug 'airblade/vim-rooter'                                      " auto sets work
 " Completion
 Plug 'hrsh7th/nvim-cmp'          " completion engine
 Plug 'hrsh7th/cmp-buffer'        " complete from buffer
-Plug 'hrsh7th/cmp-path'          " complete file system path
 Plug 'andersevenrud/cmp-tmux'    " complete from tmux panes
 Plug 'meetcw/cmp-browser-source' " complete from browser
 
