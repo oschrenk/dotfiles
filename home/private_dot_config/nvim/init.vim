@@ -347,5 +347,4 @@ require('gitsigns').setup{
   end
 }
 
-vim.cmd([[autocmd FileType scala,sbt lua require("metals").initialize_or_attach({})]])
 EOF
