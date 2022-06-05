@@ -53,6 +53,9 @@ Plug 'f-person/git-blame.nvim'            " integrate Git blame
 Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
 Plug 'kshenoy/vim-signature'              " toggle, display, navigate marks
 
+" Treesitter
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
 " Themes
 Plug 'ellisonleao/gruvbox.nvim'
 
