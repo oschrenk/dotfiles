@@ -50,11 +50,11 @@ Plug 'lewis6991/gitsigns.nvim'            " # lua Git integration for buffers
 Plug 'f-person/git-blame.nvim'            " integrate Git blame
 
 " Look and feel
-Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
 Plug 'kshenoy/vim-signature'              " toggle, display, navigate marks
 
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'p00f/nvim-ts-rainbow'               " rainbow parentheses
 
 " Themes
 Plug 'ellisonleao/gruvbox.nvim'

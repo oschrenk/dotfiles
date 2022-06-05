@@ -195,14 +195,6 @@ augroup FernTypeGroup
     autocmd BufEnter <buffer> silent execute "normal \<Plug>(fern-action-reload)"
 augroup END
 
-" ---------------------------
-" rainbow_parentheses.vim
-" ---------------------------
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
-
 autocmd BufEnter *.{ts} :syntax sync fromstart
 autocmd BufLeave *.{ts} :syntax sync clear
 autocmd BufEnter *.{js} :syntax sync fromstart
@@ -365,5 +357,10 @@ require'nvim-treesitter.configs'.setup {
     -- can be boolean or list of languages
     additional_vim_regex_highlighting = false,
   },
+  rainbow = {
+    enable = true,
+    extended_mode = true,
+    max_file_lines = nil,
+  }
 }
 EOF
