@@ -348,3 +348,22 @@ require('gitsigns').setup{
 }
 
 EOF
+
+lua << EOF
+require'nvim-treesitter.configs'.setup {
+  ensure_installed = {
+    "bash", "fish",
+    "html", "css",
+    "lua", "vim",
+    "python",
+    "scala", "hocon",
+    "markdown",
+    "javascript", "json", "typescript", "tsx"
+  },
+  highlight = {
+    enable = true,
+    -- can be boolean or list of languages
+    additional_vim_regex_highlighting = false,
+  },
+}
+EOF
