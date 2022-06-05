@@ -49,18 +49,6 @@ Plug 'nvim-lua/plenary.nvim'              " lua dependency for gitsigns
 Plug 'lewis6991/gitsigns.nvim'            " # lua Git integration for buffers
 Plug 'f-person/git-blame.nvim'            " integrate Git blame
 
-" File types
-Plug 'dag/vim-fish',                      { 'for': 'fish' }
-Plug 'derekwyatt/vim-scala',              { 'for': ['scala', 'markdown'] } " scala syntax
-Plug 'Tyilo/applescript.vim',             { 'for': 'applescript' }
-Plug 'tmux-plugins/vim-tmux',             { 'for': 'tmux' }
-Plug 'leafgarland/typescript-vim',        " typescript
-Plug 'pangloss/vim-javascript',           " typescript
-Plug 'peitalin/vim-jsx-typescript'        " tsx
-Plug 'hashivim/vim-terraform',            { 'for': 'terraform' }
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-Plug 'satabin/hocon-vim',                 " typelevel config files
-
 " Look and feel
 Plug 'kien/rainbow_parentheses.vim'       " colored parentheses
 Plug 'kshenoy/vim-signature'              " toggle, display, navigate marks
