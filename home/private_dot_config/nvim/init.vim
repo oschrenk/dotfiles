@@ -296,6 +296,25 @@ Shortcut buffer | Jump back to last edited buffer
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 
 lua << EOF
+require('telescope').setup{
+	defaults = {
+    layout_strategy = "flex",
+    layout_config = {
+      vertical = {
+        preview_cutoff = 20,
+      },
+      horizontal = {
+        preview_cutoff = 80,
+      },
+    },
+		path_display={"smart"},
+    file_previewer = require'telescope.previewers'.vim_buffer_cat.new
+	}
+}
+require('telescope').load_extension('fzf')
+EOF
+
+lua << EOF
 require('gitsigns').setup{
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
