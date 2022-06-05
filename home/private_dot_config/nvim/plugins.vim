@@ -31,7 +31,9 @@ Plug 'hrsh7th/nvim-cmp'          " completion engine
 Plug 'hrsh7th/cmp-buffer'        " complete from buffer
 Plug 'andersevenrud/cmp-tmux'    " complete from tmux panes
 Plug 'meetcw/cmp-browser-source' " complete from browser
-
+Plug 'hrsh7th/cmp-nvim-lsp'      " complete from lsp
+Plug 'hrsh7th/cmp-vsnip'         " snippet engine
+Plug 'hrsh7th/vim-vsnip'         " snippet engine
 
 " Control
 Plug 'tpope/vim-repeat'                   " enable repeating for some plugins
@@ -50,6 +52,9 @@ Plug 'f-person/git-blame.nvim'            " integrate Git blame
 " Treesitter
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'p00f/nvim-ts-rainbow'               " rainbow parentheses
+
+" Language Server
+Plug 'scalameta/nvim-metals'
 
 " Themes
 Plug 'ellisonleao/gruvbox.nvim'

@@ -354,19 +354,57 @@ lua <<EOF
   local cmp = require'cmp'
 
   cmp.setup({
+    -- required to be able to select item via return key
+    -- annoying to bring in just another plugin for that, but alas
+    snippet = {
+      expand = function(args)
+        vim.fn["vsnip#anonymous"](args.body)
+      end,
+    },
     mapping = cmp.mapping.preset.insert({
-      ['<C-b>'] = cmp.mapping.scroll_docs(-4),
-      ['<C-f>'] = cmp.mapping.scroll_docs(4),
-      ['<C-Space>'] = cmp.mapping.complete(),
-      ['<C-e>'] = cmp.mapping.abort(),
-      ['<CR>'] = cmp.mapping.confirm({ select = true }),
+      -- `select = true` not allowed _unless_ snippet section also configured
+      ["<CR>"] = cmp.mapping.confirm({ select = true }),
+      -- use tab
+      ["<Tab>"] = function(fallback)
+        if cmp.visible() then
+          cmp.select_next_item()
+        else
+          fallback()
+        end
+      end,
+      ["<S-Tab>"] = function(fallback)
+        if cmp.visible() then
+          cmp.select_prev_item()
+        else
+          fallback()
+        end
+      end,
     }),
     sources = {
       { name = 'buffer' },
       { name = 'tmux' },
-      { name = 'browser' }
+      { name = 'browser' },
+      { name = "nvim_lsp" }
     }
   })
 
   require('cmp-browser-source').start_server()
+EOF
+
+lua <<EOF
+vim.opt_global.shortmess:remove("F"):append("c")
+
+local metals_config = require("metals").bare_config()
+
+metals_config.settings = {
+  showImplicitArguments = true,
+  excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+}
+metals_config.init_options.statusBarProvider = "on"
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+metals_config.capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+
+vim.cmd([[autocmd FileType scala,sbt lua require("metals").initialize_or_attach({})]])
+
 EOF
