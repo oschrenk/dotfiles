@@ -190,8 +190,6 @@ augroup FernEvents
   autocmd FileType fern call FernInit()
 augroup END
 
-source ~/.config/nvim/settings.fzf.vim
-
 augroup FernTypeGroup
     autocmd! * <buffer>
     autocmd BufEnter <buffer> silent execute "normal \<Plug>(fern-action-reload)"
@@ -295,24 +293,6 @@ Shortcut buffer | Jump back to last edited buffer
   \ nnoremap <C-p> :e#<CR>
   \ inoremap <C-p> <esc>:e#<CR>
 
-Shortcut fzf | Search text
-  \ nnoremap <silent> <space>/ :execute 'Rg ' . input('Rg/')<CR>
-Shortcut fzf | Search Git files
-  \ noremap <space>fo :GFiles<CR>
-Shortcut fzf | Search files
-  \ noremap <space>fO :Files<CR>
-Shortcut fzf | Search Tags
-  \ noremap <space>fT :Tags<CR>
-Shortcut fzf | Search Old files and buffers
-  \ noremap <space>fH :History<CR>
-Shortcut fzf | Search Marks
-  \ noremap <space>fm :Marks<CR>
-Shortcut fzf | Search Commits for current buffer
-  \ noremap <space>fc :BCommits<CR>
-Shortcut fzf | Search Commits
-  \ noremap <space>fC :Commits<CR>
-Shortcut fzf | Search Lines in current buffer
-  \ noremap <space>fB :BLines<CR>
 
 lua << EOF
 require('gitsigns').setup{

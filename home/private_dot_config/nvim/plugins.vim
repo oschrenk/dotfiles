@@ -15,7 +15,6 @@ Plug 'EinfachToll/DidYouMean'             "  asks for the right file to open if 
 Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim splits
 
 " Navigation
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'             " fuzzy find
 Plug 'lambdalisue/fern.vim'
 Plug 'lambdalisue/nerdfont.vim'
 Plug 'lambdalisue/fern-renderer-nerdfont.vim'
