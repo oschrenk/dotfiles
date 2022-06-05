@@ -38,7 +38,6 @@ Plug 'meetcw/cmp-browser-source' " complete from browser
 Plug 'tpope/vim-repeat'                   " enable repeating for some plugins
 Plug 'tpope/vim-surround'                 " quote/parenthesize the surrounded code
 Plug 'tpope/vim-commentary'               " Comment stuff. Use gcc on line, gc on visual block
-Plug 'sunaku/vim-shortcut'                " discoverable & searchable shortcuts for (Neo)Vim
 
 " Text objects
 Plug 'kana/vim-textobj-user'              " create your own text-objects

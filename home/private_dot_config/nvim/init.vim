@@ -268,22 +268,6 @@ iab teh the
 iab tommorow tomorrow
 iab tommorrow tomorrow
 
-" ===========================
-" Shortcut
-" ===========================
-
-" need to source manually
-source ~/.config/nvim/plugged/vim-shortcut/plugin/shortcut.vim
-
-Shortcut shortcut | Show shortcut menu and run chosen shortcut
-  \ noremap <silent> <space><space> :Shortcuts<Return>
-
-Shortcut time | insert current time
-  \ nmap <space>xt i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
-
-Shortcut buffer | Jump back to last edited buffer
-  \ nnoremap <C-p> :e#<CR>
-  \ inoremap <C-p> <esc>:e#<CR>
 
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 
