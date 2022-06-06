@@ -195,6 +195,17 @@ augroup FernTypeGroup
     autocmd BufEnter <buffer> silent execute "normal \<Plug>(fern-action-reload)"
 augroup END
 
+function! s:on_highlight() abort
+  " Use brighter highlight on root node
+  highlight link FernRootSymbol Title
+  highlight link FernRootText   Title
+endfunction
+
+augroup my-fern-highlight
+  autocmd!
+  autocmd User FernHighlight call s:on_highlight()
+augroup END
+
 autocmd BufEnter *.{ts} :syntax sync fromstart
 autocmd BufLeave *.{ts} :syntax sync clear
 autocmd BufEnter *.{js} :syntax sync fromstart
