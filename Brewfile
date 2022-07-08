@@ -176,6 +176,7 @@ mas "Reeder 5", id: 1529448980
 mas "Session", id: 1521432881  
 mas "Tip", id: 1495732622 
 mas "VOX", id: 461369673   
+# mas "XCode", id: 497799835  # see eof, because of size last thing to install
 
 #######################################
 # Fonts
@@ -252,3 +253,10 @@ cask "vlc"
 cask "warp"
 cask "zoom"
 
+#######################################
+# Xcode
+#######################################
+
+mas "XCode", id: 497799835   
+# to agree to license
+# sudo xcodebuild -license
