@@ -222,7 +222,6 @@ cask "jdownloader"
 cask "kap"
 cask "keyboardcleantool"
 cask "keycastr"             # shows key strokes on screen
-cask "kindlegen"
 cask "knockknock"
 # Lens 5.5 required login, use OpenLens
 # cask "lens"  
