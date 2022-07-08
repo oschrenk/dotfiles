@@ -1,3 +1,11 @@
+#######################################
+# Taps
+#######################################
+tap "txn2/tap"                # kubefwd
+tap "coursier/formulas"       # coursier
+tap "homebrew/cask-fonts"     # fonts
+tap "homebrew/cask-drivers"   # elgato control center, rode-central
+
 # You can list all packages installed via
 # brew "leaves"
 
