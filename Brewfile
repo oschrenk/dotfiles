@@ -1,10 +1,12 @@
 #######################################
 # Taps
 #######################################
-tap "txn2/tap"                # kubefwd
 tap "coursier/formulas"       # coursier
-tap "homebrew/cask-fonts"     # fonts
+tap "derailed/k9s"            # k9s
 tap "homebrew/cask-drivers"   # elgato control center, rode-central
+tap "homebrew/cask-fonts"     # fonts
+tap "oschrenk/casks"          # mplus-mn-nerd-font-complete-mono
+tap "txn2/tap"                # kubefwd
 
 # You can list all packages installed via
 # brew "leaves"
