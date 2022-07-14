@@ -200,7 +200,6 @@ cask "mplus-mn-nerd-font-complete-mono"
 # Casks
 #######################################
 
-cask "alfred"
 cask "android-platform-tools"
 cask "bettertouchtool"
 cask "calibre"
