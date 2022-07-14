@@ -239,6 +239,7 @@ cask "paparazzi"
 cask "paw"
 cask "plan"
 cask "postman"
+cask "raycast"
 cask "rocket"               # quick emoji access
 cask "rode-central"               # quick emoji access
 cask "sequel-pro"
