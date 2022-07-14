@@ -2,11 +2,25 @@
 
 These are my dotfiles. There are many like it but these are mine.
 
+## Install new machine
+
 ```
-./install.sh
+# install homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+# install chezmoi and requirements
+brew install chezmoi git git-lfs
+
+# init
+chezmoi init oschrenk/dotfiles
+
+# pull assets
+chezmoi cd
+git lfs install
+git lfs pull
 ```
 
-## Packages
+### Packages
 
 Follow the on-screen instructions. You will sometimes be asked for a password.
 Downloading and compiling all the various applications and packages will take roughly 1 hour.
