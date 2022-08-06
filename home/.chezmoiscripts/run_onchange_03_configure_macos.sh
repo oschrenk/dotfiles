@@ -133,6 +133,18 @@ rm -rf ~/.DS_Store
 echo "Finder: Set sidebar width to 150"
 defaults write com.apple.finder SidebarWidth -int 150
 
+# Enable spring loading for directories
+# Tested on macOS 12.5
+# Requires: Nothing. Takes immediate effect
+echo "Finder: Enable spring loading for directories"
+defaults write NSGlobalDomain com.apple.springing.enabled -bool true
+
+# Shorten the spring loading delay for directories
+# Tested on macOS 12.5
+# Requires: Nothing. Takes immediate effect
+echo "Finder: Shorten the spring loading delay for directories"
+defaults write NSGlobalDomain com.apple.springing.delay -float 0.2
+
 #######################################
 # DESKTOP
 #######################################
