@@ -61,6 +61,7 @@ brew "chrome-cli"     # control chrome via cli
 brew "direnv"         # auto load env
 brew "exa"            # "better" ls
 brew "fzf"            # fuzzy file finder
+brew "htop"           # Improved top
 brew "pandoc"         # document converter,
 brew "tmux"           # terminal multiplexer
 brew "tmuxp"          # tmux session manager
