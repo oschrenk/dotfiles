@@ -47,7 +47,8 @@ After casks are installed you can already start important apps and configure the
 - IntelliJ. Configure plugins.
   - Scala,
   - Key Promoter
-  - Ideavim.
+  - Ideavim
+  - Hocon
 - Hammerspoon.
   - Preferences. Apply accessibility settings.
 - alacritty.
