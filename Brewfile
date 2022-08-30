@@ -118,6 +118,8 @@ brew "bower"       # JavaScript Package Manager
 brew "coursier/formulas/coursier" # Pure Scala Artifact Fetching
 brew "cloc"        # count lines of code
 brew "cmake"       # cross-platform  build automation
+brew "podman"      # manage OCI contaniners and pods
+cask "podman-desktop" # manage OCI contaniners and pods
 brew "fnm"         # node version manger
 brew "go"          # go
 brew "grunt-cli"   # JavaScript Task Runner
