@@ -1,5 +1,4 @@
-jorgebucaran/nvm.fish
-jorgebucaran/fisher
 evanlucas/fish-kubectl-completions
 jorgebucaran/autopair.fish
-reitzig/sdkman-for-fish@v1.4.0
+jorgebucaran/fisher
+jorgebucaran/nvm.fish
