@@ -136,6 +136,9 @@ endfunction
 " make .md markdown files
 au BufRead,BufNewFile *.md set filetype=markdown
 
+" make Jenkinsfile groovy
+autocmd BufRead,BufNewFile Jenkinsfile set filetype=groovy
+
 au FileType gitcommit :call AutoBranch()
 
 " when commiting add [BRANCH] (if matching prefix), and enter insert mode
