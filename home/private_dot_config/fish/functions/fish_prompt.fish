@@ -802,7 +802,7 @@ function __bobthefish_prompt_rubies -S -d 'Display current Ruby information'
 end
 
 function __bobthefish_virtualenv_python_version -S -d 'Get current Python version'
-    switch (python --version 2>&1 | tr '\n' ' ')
+    switch (python3 --version 2>&1 | tr '\n' ' ')
         case 'Python 2*PyPy*'
             echo $pypy_glyph
         case 'Python 3*PyPy*'
