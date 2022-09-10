@@ -345,7 +345,8 @@ require'nvim-treesitter.configs'.setup {
     "python",
     "scala", "hocon",
     "markdown",
-    "javascript", "json", "typescript", "tsx"
+    "javascript", "json", "typescript", "tsx",
+    "hcl"
   },
   highlight = {
     enable = true,
