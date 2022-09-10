@@ -9,7 +9,7 @@ endif
 call plug#begin('~/.config/nvim/plugged')
 
 " Startup
-Plug 'EinfachToll/DidYouMean'             "  asks for the right file to open if ambigous
+Plug 'mong8se/actually.nvim'             "  asks for the right file to open if ambigous
 
 " tmux
 Plug 'christoomey/vim-tmux-navigator'     " Navigate over tmux panes and vim splits
