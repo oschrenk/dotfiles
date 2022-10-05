@@ -2,7 +2,7 @@
 " Plugins
 " ============================
 
-source ~/.config/nvim/plugins.vim
+lua require('plugins')
 
 lua << EOF
 local o = vim.o
