@@ -407,8 +407,6 @@ lua <<EOF
 EOF
 
 lua <<EOF
-vim.opt_global.shortmess:remove("F"):append("c")
-
 local metals_config = require("metals").bare_config()
 
 metals_config.settings = {
