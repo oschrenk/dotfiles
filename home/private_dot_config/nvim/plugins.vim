@@ -63,6 +63,8 @@ call plug#end()
 
 lua <<EOF
 require('gitsigns').setup()
+-- disable git blame by default, very slow
+vim.g.gitblame_enabled = 0
 EOF
 
 "End Plug --------------------
