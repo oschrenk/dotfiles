@@ -6,4 +6,3 @@ target
 .idea/
 *.log
 node_modules
-terraform*
