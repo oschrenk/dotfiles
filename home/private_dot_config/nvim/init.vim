@@ -66,12 +66,12 @@ o.smartcase = true       -- Ignore case if pattern lowercase, case-sensitive oth
 o.autoread = true        -- Set to auto read when a file is changed from the outside
 o.clipboard = 'unnamed,unnamedplus' -- cross platform clipboard access
 
-EOF
+-- disable backups/swap files
+o.backup = false
+o.writebackup = false
+o.swapfile = false
 
-" Disable backups, swaps
-set nobackup                  " Get rid of backups, I don't use them
-set nowb                      " Get rid of backups on write
-set noswapfile                " Get rid of swp files, I have never used them
+EOF
 
 " Keep undo history across sessions
 " :help undo-persistence
