@@ -1,6 +1,6 @@
 #!/bin/sh
 
-BASEDIR="$( chezmoi source-path )"
+BASEDIR="$( chezmoi source-path )/../"
 
 #--------------------------------------
 # fileicon resistant apps
