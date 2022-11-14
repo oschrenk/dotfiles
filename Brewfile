@@ -163,9 +163,9 @@ brew "mas"        # app store apps
 # Apps
 #######################################
 
-mas "Affinity Designer", id: 824171161   
-mas "Affinity Photo", id: 824183456
-mas "Affinity Publisher", id: 881418622   
+mas "Affinity Designer 2", id: 1616831348   
+mas "Affinity Photo 2", id: 1616822987
+mas "Affinity Publisher 2", id: 1606941598   
 mas "Apple Configurator", id: 1037126344
 mas "Controller", id: 1198176727 
 mas "Due", id: 524373870 
