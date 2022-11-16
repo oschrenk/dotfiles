@@ -96,7 +96,7 @@ brew "svn"                  # svn,some packages eg roboto font rely on it
 
 # cli
 brew "chezmoi"
-brew "hub"                  # interact with github
+brew "gh"                  # interact with github
 brew "go-jira"
 
 ## a/v
