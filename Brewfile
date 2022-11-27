@@ -15,7 +15,7 @@ tap "txn2/tap"                # kubefwd
 # Bootstrap priorities
 #######################################
 
-# having these installed early in the bootstrapping process allows 
+# having these installed early in the bootstrapping process allows
 # to already configure and use services and applications while brew
 # keeps installing other packages
 
@@ -29,8 +29,8 @@ cask "intellij-idea-ce"
 brew "chezmoi"
 brew "fish"
 brew "fzf"
-mas "Bear", id: 1091189122 
-mas "NotePlan 3", id: 1505432629 
+mas "Bear", id: 1091189122
+mas "NotePlan 3", id: 1505432629
 
 #######################################
 # Packages
@@ -163,26 +163,26 @@ brew "mas"        # app store apps
 # Apps
 #######################################
 
-mas "Affinity Designer 2", id: 1616831348   
+mas "Affinity Designer 2", id: 1616831348
 mas "Affinity Photo 2", id: 1616822987
-mas "Affinity Publisher 2", id: 1606941598   
+mas "Affinity Publisher 2", id: 1606941598
 mas "Apple Configurator", id: 1037126344
-mas "Controller", id: 1198176727 
-mas "Due", id: 524373870 
-mas "Health Auto Export", id: 1115567069 
-mas "HomeControl", id: 1547121417  
-mas "iMovie", id: 408981434 
-mas "Keynote", id: 409183694 
+mas "Controller", id: 1198176727
+mas "Due", id: 524373870
+mas "Health Auto Export", id: 1115567069
+mas "HomeControl", id: 1547121417
+mas "iMovie", id: 408981434
+mas "Keynote", id: 409183694
 mas "MindNode", id: 1289197285
 mas "NextDNS", id: 1464122853
-mas "NordVPN", id: 905953485  
+mas "NordVPN", id: 905953485
 mas "Numbers", id: 409203825
-mas "Pages", id: 409201541   
-mas "PhotoScape X", id: 929507092   
-mas "Reeder 5", id: 1529448980 
-mas "Session", id: 1521432881  
-mas "Tip", id: 1495732622 
-mas "VOX", id: 461369673   
+mas "Pages", id: 409201541
+mas "PhotoScape X", id: 929507092
+mas "Reeder 5", id: 1529448980
+mas "Session", id: 1521432881
+mas "Tip", id: 1495732622
+mas "VOX", id: 461369673
 # mas "XCode", id: 497799835  # see eof, because of size last thing to install
 
 #######################################
@@ -229,12 +229,12 @@ cask "keyboardcleantool"
 cask "keycastr"             # shows key strokes on screen
 cask "knockknock"
 # Lens 5.5 required login, use OpenLens
-# cask "lens"  
+# cask "lens"
 cask "ykursadkaya/openlens/openlens"
-cask "meld"   
-cask "monodraw" 
-cask "numi" 
-cask "obs"     
+cask "meld"
+cask "monodraw"
+cask "numi"
+cask "obs"
 cask "omnidisksweeper"
 cask "omnigraffle"
 cask "paparazzi"
