@@ -175,7 +175,6 @@ return require('packer').startup(function(use)
         grace_period = 3,
         keys = {
           ['nv'] = {'h', 'l'},
-          ['nvi'] = {'<Left>', '<Down>', '<Up>', '<Right>'},
         },
         ignore_filetypes = {"fern"}
       }
