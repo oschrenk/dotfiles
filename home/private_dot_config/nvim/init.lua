@@ -7,10 +7,6 @@ local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 local home = os.getenv("HOME")
 
--- Leader/local leader
-g.mapleader = [[ ]]
-g.maplocalleader = [[,]]
-
 -- Skip some remote provider loading
 g.loaded_python3_provider = 0
 g.loaded_node_provider = 0
