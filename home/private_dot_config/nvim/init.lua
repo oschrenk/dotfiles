@@ -161,21 +161,6 @@ o.undofile = true
 o.undolevels=500
 o.undoreload=500
 
-vim.api.nvim_exec(
-[[
-" Jump to first character or column
-noremap <silent> H :call FirstCharOrFirstCol()<cr>
-function! FirstCharOrFirstCol()
-  let current_col = virtcol('.')
-  normal ^
-  let first_char = virtcol('.')
-  if current_col == first_char
-    normal 0
-  endif
-endfunction
-]],
-false)
-
 -- ============================
 -- Fern
 -- ============================
@@ -266,9 +251,6 @@ noremap <Down> <nop>
 " move cursors naturally
 nnoremap j gj
 nnoremap k gk
-
-" quickly move to end of line
-nnoremap L $
 
 " U: Redos since 'u' undos
 nnoremap U :redo<cr>
