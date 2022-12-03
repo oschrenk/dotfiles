@@ -59,7 +59,22 @@ return require('packer').startup(function(use)
     'ggandor/leap.nvim',
     config = function()
       require('leap').add_default_mappings()
-    end
+    end,
+    requires =  {
+      'ggandor/flit.nvim',
+      after = 'leap.nvim',
+      config = function()
+        require('flit').setup {
+          keys = { f = 'f', F = 'F', t = 't', T = 'T' },
+          -- A string like "nv", "nvo", "o", etc.
+          labeled_modes = "nv",
+          multiline = true,
+          -- Like `leap`s similar argument (call-specific overrides).
+          -- E.g.: opts = { equivalence_classes = {} }
+          opts = {}
+        }
+      end
+    },
   }
   use {
     "kylechui/nvim-surround",
