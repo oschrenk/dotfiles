@@ -9,7 +9,7 @@ scrolling:
   multiplier: 3
 
 font:
-  size: 20.0
+  size: 22.0
   normal:
     family: "mplus Nerd Font Mono"
     style: light
