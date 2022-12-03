@@ -16,19 +16,28 @@ g.loaded_python3_provider = 0
 g.loaded_node_provider = 0
 g.loaded_perl_provider = 0
 g.loaded_ruby_provider = 0
+g.loaded_netrw         = 1
 
 -- Disable some built-in plugins we don't want
 local disabled_built_ins = {
+  '2html_plugin',
+  'getscript',
+  'getscriptPlugin',
   'gzip',
   'man',
   'matchit',
   'matchparen',
-  'shada_plugin',
-  'tarPlugin',
-  'tar',
-  'zipPlugin',
-  'zip',
+  'netrw',
+  'netrwFileHandlers',
   'netrwPlugin',
+  'netrwSettings',
+  'shada_plugin',
+  'tar',
+  'tarPlugin',
+  'vimball',
+  'vimballPlugin',
+  'zip',
+  'zipPlugin',
 }
 for i = 1, 10 do
   g['loaded_' .. disabled_built_ins[i]] = 1
