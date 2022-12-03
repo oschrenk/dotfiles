@@ -126,10 +126,6 @@ vim.cmd('iab tommorrow tomorrow')
 o.spelllang = 'en'
 o.spellfile = home .. '/.config/nvim/spell/en.utf-8.add' -- dictionary location
 
-
-autocmd('FileType', { pattern = 'gitcommit', command = 'setlocal spell' })
-autocmd('FileType', { pattern = 'markdown', command = 'setlocal spell' })
-
 -- ===========================
 -- Filetypes
 -- ===========================

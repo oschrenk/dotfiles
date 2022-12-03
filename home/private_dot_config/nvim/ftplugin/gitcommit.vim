@@ -1,3 +1,5 @@
+setlocal spell
+
 " when commiting add [TICKET], and enter insert mode
 " if body is empty it's a new commit
 if getline(1) == ""
