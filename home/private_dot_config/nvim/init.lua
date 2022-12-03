@@ -133,20 +133,42 @@ autocmd('FileType', { pattern = 'markdown', command = 'setlocal spell' })
 -- ===========================
 -- Filetypes
 -- ===========================
--- make .md markdown files
-autocmd('BufRead,BufNewFile', { pattern = 'md', command = 'set filetype=markdown' })
--- make Jenkinsfile groovy
-autocmd('BufRead,BufNewFile', { pattern = 'Jenkinsfile', command = 'set filetype=groovy' })
+local my_filetypes = augroup("MyFiletypes", { clear = true })
 
+-- make .md markdown files
+autocmd('BufRead,BufNewFile', {
+	  pattern = 'md',
+	  command = 'set filetype=markdown',
+	  group = my_filetypes
+  })
+-- make Jenkinsfile groovy
+autocmd('BufRead,BufNewFile', {
+	pattern = 'Jenkinsfile',
+	command = 'set filetype=groovy',
+	group = my_filetypes
+})
+
+-- ===========================
+-- Actions
+-- ===========================
+local my_actions = augroup("MyActions", { clear = true })
 -- Reload when entering buffer or gaining focus
 -- costs ~280ms startup time
 -- au FocusGained,BufEnter * :silent! !
-
+--
 -- Autosave on focus lost or when exiting the buffer
-autocmd('FocusLost,WinLeave', { pattern = '*', command = ':silent! w' })
+autocmd('FocusLost,WinLeave', {
+  pattern = '*',
+  command = ':silent! w',
+  group = my_actions
+})
 
 -- Auto-Delete trailing whitspace
-autocmd('BufWritePre,WinLeave', { pattern = '*', command = [[:%s/\s\+$//e]] })
+autocmd('BufWritePre,WinLeave', {
+  pattern = '*',
+  command = [[:%s/\s\+$//e]] ,
+  group = my_actions
+})
 
 -- ===========================
 -- Undo
