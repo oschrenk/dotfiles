@@ -10,11 +10,8 @@ metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 vim.cmd([[autocmd FileType scala,sbt lua require("metals").initialize_or_attach({})]])
 
-local function map(mode, lhs, rhs, opts)
+local function map(mode, lhs, rhs)
   local options = { noremap = true }
-  if opts then
-    options = vim.tbl_extend("force", options, opts)
-  end
   vim.api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
