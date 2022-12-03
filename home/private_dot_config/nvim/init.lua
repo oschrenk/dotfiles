@@ -2,9 +2,6 @@ require('impatient')
 
 local o = vim.o
 local g = vim.g
-local cmd = vim.cmd
-local autocmd = vim.api.nvim_create_autocmd
-local augroup = vim.api.nvim_create_augroup
 local home = os.getenv("HOME")
 
 -- Skip some remote provider loading
@@ -125,6 +122,9 @@ o.spellfile = home .. '/.config/nvim/spell/en.utf-8.add' -- dictionary location
 -- ===========================
 -- Filetypes
 -- ===========================
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
+
 local my_filetypes = augroup("MyFiletypes", { clear = true })
 
 -- make .md markdown files
