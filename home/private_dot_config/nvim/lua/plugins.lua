@@ -160,6 +160,7 @@ return require('packer').startup(function(use)
     requires = {
       'hrsh7th/cmp-nvim-lsp'
     },
+    ft = {'scala', 'sbt' },
     config = [[require('config.metals_config')]],
   }
 
