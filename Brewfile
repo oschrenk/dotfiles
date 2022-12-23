@@ -207,6 +207,7 @@ cask "mplus-mn-nerd-font-complete-mono"
 #######################################
 
 cask "android-platform-tools"
+cask "arc"
 cask "bettertouchtool"
 cask "calibre"
 cask "cog"
