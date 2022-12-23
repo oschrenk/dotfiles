@@ -245,7 +245,7 @@ cask "paw"
 cask "plan"
 cask "postman"
 cask "rocket"               # quick emoji access
-cask "rode-central"               # quick emoji access
+cask "rode-central"
 cask "sequel-pro"
 cask "signal"
 cask "slack"
