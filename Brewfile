@@ -168,6 +168,7 @@ mas "Affinity Photo 2", id: 1616822987
 mas "Affinity Publisher 2", id: 1606941598
 mas "Apple Configurator", id: 1037126344
 mas "Controller", id: 1198176727
+mas "Day One", id: 1055511498
 mas "Due", id: 524373870
 mas "Health Auto Export", id: 1115567069
 mas "HomeControl", id: 1547121417
