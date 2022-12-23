@@ -262,6 +262,6 @@ cask "zoom"
 # Xcode
 #######################################
 
-mas "XCode", id: 497799835   
+mas "XCode", id: 497799835
 # to agree to license
 # sudo xcodebuild -license
