@@ -178,19 +178,19 @@ defaults write com.apple.dock wvous-br-corner -int 12
 echo "Menubar: Set clock to d. MMM HH:mm eg 17. Apr 17:58"
 defaults write com.apple.menuextra.clock DateFormat -string "d. MMM HH:mm"
 
-echo "Always show WiFi in menubar"
+echo "Menubar: Always show WiFi"
 defaults write "com.apple.controlcenter" "NSStatusItem Visible WiFi" '1'
 
-echo "Always show Sound in menubar"
+echo "Menubar: Always show Sound"
 defaults write "com.apple.controlcenter" "NSStatusItem Visible Sound" '1'
 
-echo "Always show FocusModes in menubar"
+echo "Menubar: Always show FocusModes"
 defaults write "com.apple.controlcenter" "NSStatusItem Visible FocusModes" '1'
 
-echo "Always show Battery in menubar"
+echo "Menubar: Always show Battery"
 defaults write "com.apple.controlcenter" "NSStatusItem Visible Battery" '1'
 
-echo "Hide Siri in menubar"
+echo "Menubar: Hide Siri"
 defaults write "com.apple.Siri" "StatusMenuVisible" '0'
 defaults delete "com.apple.systemuiserver" "NSStatusItem Visible Siri"
 
