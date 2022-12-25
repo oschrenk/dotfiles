@@ -240,7 +240,6 @@ cask "obs"
 cask "omnidisksweeper"
 cask "omnigraffle"
 cask "paparazzi"
-cask "paw"
 cask "plan"
 cask "postman"
 cask "rocket"               # quick emoji access
