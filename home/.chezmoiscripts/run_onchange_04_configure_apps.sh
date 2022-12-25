@@ -62,10 +62,20 @@ defaults write com.apple.Safari InstallExtensionUpdatesAutomatically -bool true
 echo "Safari: Warn about fraudulent websites"
 defaults write com.apple.Safari WarnAboutFraudulentWebsites -bool true
 
+#######################################
+# IINA
+#######################################
+
+echo "IINA: Don't enable playback history"
+defaults write "com.colliderli.iina" "recordPlaybackHistory" '0'
+
+echo "IINA: Don't show Open Recent Menu"
+defaults write "com.colliderli.iina" "recordRecentFiles" '0'
+
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
-for app in "Chrome" "Hammerspoon" "Mail" "Safari"; do
+for app in "Chrome" "Hammerspoon" "Mail" "Safari" "IINA"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
