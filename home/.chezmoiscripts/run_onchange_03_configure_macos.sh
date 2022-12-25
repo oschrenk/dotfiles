@@ -195,6 +195,33 @@ defaults write "com.apple.Siri" "StatusMenuVisible" '0'
 defaults delete "com.apple.systemuiserver" "NSStatusItem Visible Siri"
 
 #######################################
+# SPOTLIGHT
+#######################################
+
+# Applications
+# Bookmarks
+# Calculator (MENU_EXPRESSION)
+# Contacts
+# Conversion (MENU_CONVERSION)
+# Definition (MENU_DEFINITION)
+# Documents
+# Events & Reminders (EVENT_TODO)
+# Folders (DIRECTORIES)
+# Fonts
+# Images
+# Mail & Messages
+# Movies
+# Music
+# Other (MENU_OTHER)
+# PDF Documents (PDF)
+# Presentations
+# Siri Suggestions (MENU_SPOTLIGHT_SUGGESTIONS)
+# Spreadsheets
+# System Settings (SYSTEM_PREFS)
+echo "Spotlight: Set defaults"
+defaults write "com.apple.Spotlight" "orderedItems" '({enabled=1;name=APPLICATIONS;},{enabled=0;name=BOOKMARKS;},{enabled=1;name="MENU_EXPRESSION";},{enabled=1;name=CONTACT;},{enabled=0;name="MENU_CONVERSION";},{enabled=0;name="MENU_DEFINITION";},{enabled=1;name=DOCUMENTS;},{enabled=1;name="EVENT_TODO";},{enabled=1;name=DIRECTORIES;},{enabled=1;name=FONTS;},{enabled=1;name=IMAGES;},{enabled=1;name=MESSAGES;},{enabled=0;name=MOVIES;},{enabled=0;name=MUSIC;},{enabled=0;name="MENU_OTHER";},{enabled=0;name=PDF;},{enabled=0;name=PRESENTATIONS;},{enabled=0;name="MENU_SPOTLIGHT_SUGGESTIONS";},{enabled=0;name=SPREADSHEETS;},{enabled=1;name="SYSTEM_PREFS";},)'
+
+#######################################
 # SCREENSHOTS
 #######################################
 
