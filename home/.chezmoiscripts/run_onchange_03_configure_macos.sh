@@ -178,6 +178,9 @@ defaults write com.apple.dock wvous-br-corner -int 12
 echo "Menubar: Set clock to d. MMM HH:mm eg 17. Apr 17:58"
 defaults write com.apple.menuextra.clock DateFormat -string "d. MMM HH:mm"
 
+echo "Menubar: Always hide"
+defaults write "Apple Global Domain" "AppleMenuBarVisibleInFullscreen" '0'
+
 echo "Menubar: Always show WiFi"
 defaults write "com.apple.controlcenter" "NSStatusItem Visible WiFi" '1'
 
