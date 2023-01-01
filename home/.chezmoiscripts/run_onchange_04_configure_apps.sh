@@ -72,10 +72,17 @@ defaults write "com.colliderli.iina" "recordPlaybackHistory" '0'
 echo "IINA: Don't show Open Recent Menu"
 defaults write "com.colliderli.iina" "recordRecentFiles" '0'
 
+#######################################
+# Note Plan 3
+#######################################
+
+echo "NotePlan: Mondayis first day of the week"
+defaults write "co.noteplan.NotePlan3" "firstDayOfWeek" '2'
+
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
-for app in "Chrome" "Hammerspoon" "Mail" "Safari" "IINA"; do
+for app in "Chrome" "Hammerspoon" "Mail" "Safari" "IINA", "NotePlan"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
