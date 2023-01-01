@@ -84,7 +84,7 @@ defaults write "co.noteplan.NotePlan3" "firstDayOfWeek" '2'
 ###########################################################
 for app in "Chrome" "Hammerspoon" "Mail" "Safari" "IINA", "NotePlan"; do
   while true; do
-    read -p "Do you want to restart $app? [y/(n)]: " yn
+    read -p "Do you want to kill $app? [y/(n)]: " yn
     case $yn in
         [Yy]* ) killall "$app" > /dev/null 2>&1 ; break;;
         [Nn]* ) break;;
