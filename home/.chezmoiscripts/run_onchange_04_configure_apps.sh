@@ -76,8 +76,20 @@ defaults write "com.colliderli.iina" "recordRecentFiles" '0'
 # Note Plan 3
 #######################################
 
-echo "NotePlan: Mondayis first day of the week"
+echo "NotePlan: Set Monday as first day of the week"
 defaults write "co.noteplan.NotePlan3" "firstDayOfWeek" '2'
+
+echo "NotePlan: Set font size to 22"
+defaults write "co.noteplan.NotePlan3" "fontSize" '22'
+
+echo "NotePlan: Set font to `System`"
+defaults write "co.noteplan.NotePlan3" "fontFamily" 'System'
+
+echo "NotePlan: Set text width to 700"
+defaults write "co.noteplan.NotePlan3" "maxTextWidth" '700'
+
+echo "NotePlan: Set them to Gruvbox iA.json"
+defaults write "co.noteplan.NotePlan3" "themeDark" '"Gruvbox iA.json"'
 
 ###########################################################
 # Kill affected applications                              #
