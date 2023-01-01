@@ -82,7 +82,7 @@ defaults write "co.noteplan.NotePlan3" "firstDayOfWeek" '2'
 echo "NotePlan: Set font size to 22"
 defaults write "co.noteplan.NotePlan3" "fontSize" '22'
 
-echo "NotePlan: Set font to `System`"
+echo "NotePlan: Set font to System"
 defaults write "co.noteplan.NotePlan3" "fontFamily" 'System'
 
 echo "NotePlan: Set text width to 700"
