@@ -7,3 +7,5 @@ target
 *.log
 node_modules
 *.svg
+*.puml
+yarn.lock
