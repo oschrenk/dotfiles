@@ -66,6 +66,7 @@ Open these apps to start synchronizing data
 
 Login:
 - Discord
+- Grammarly Desktop
 - Slack
 
 Link device:
