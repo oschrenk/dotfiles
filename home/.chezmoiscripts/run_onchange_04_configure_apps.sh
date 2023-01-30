@@ -88,7 +88,7 @@ defaults write "co.noteplan.NotePlan3" "fontFamily" 'System'
 echo "NotePlan: Set text width to 700"
 defaults write "co.noteplan.NotePlan3" "maxTextWidth" '700'
 
-echo "NotePlan: Set them to Gruvbox iA.json"
+echo "NotePlan: Set theme to Gruvbox iA.json"
 defaults write "co.noteplan.NotePlan3" "themeDark" '"Gruvbox iA.json"'
 
 ###########################################################
