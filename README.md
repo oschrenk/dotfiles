@@ -57,6 +57,9 @@ After casks are installed you can already start important apps and configure the
 - Spotify
   - download "Liked Songs"
 
+System Settings:
+- "Privacy & Security > Full disk access..." Allow for alacritty. Otheriwse you will see
+
 Open these apps to start synchronizing data
 - Bear
 - Noteplan
