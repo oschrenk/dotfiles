@@ -248,6 +248,7 @@ cask "spotify"
 cask "steam"
 cask "telegram"
 cask "the-unarchiver"
+cask "topnotch"             # "hide" notch
 cask "transmission"
 cask "visual-studio-code"
 cask "vlc"

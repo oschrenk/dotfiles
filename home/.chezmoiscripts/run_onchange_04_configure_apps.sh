@@ -98,10 +98,22 @@ defaults write "co.noteplan.NotePlan3" "themeDark" '"Gruvbox iA.json"'
 echo "Homerow: Set shortcut to ctrl+f"
 defaults write "com.dexterleng.Homerow" "shortcut" '"\U2303F"'
 
+#######################################
+# TopNotch
+#######################################
+echo "Top Notch: Enable"
+defaults write "pl.maketheweb.TopNotch" "isEnabled" '1'
+
+echo "Top Notch: Hide on Macbook Screen only"
+defaults write "pl.maketheweb.TopNotch" "hideOnBuiltInOnly" '1'
+
+echo "Top Notch: Hide Menubar Icon (start app again to show icon)"
+defaults write "pl.maketheweb.TopNotch" "hideMenubarIcon" '1'
+
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
-for app in "Chrome" "Hammerspoon" "Mail" "Safari" "IINA", "NotePlan", "Homerow"; do
+for app in "Chrome" "Hammerspoon" "Mail" "Safari" "IINA" "NotePlan" "Homerow" "TopNotch"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
