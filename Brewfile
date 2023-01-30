@@ -129,6 +129,7 @@ brew "openjdk@11"  # jvm
 brew "openjdk@17"  # jvm
 brew "python"      # python
 brew "poetry"      # python
+brew "pyenv"       # python
 brew "rbenv"       # ruby
 brew "ruby-build"  # ruby
 brew "rust"        # rust
