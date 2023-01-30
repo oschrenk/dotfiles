@@ -26,7 +26,7 @@ colors:
     foreground: '0xeaeaea'
 
 shell:
-  program: /usr/local/bin/fish
+  program: /opt/homebrew/bin/fish
   args:
     - --login
     - --init-command

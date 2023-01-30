@@ -2,8 +2,8 @@
 # (responsible for setting up initial environment)
 
 # put homebrew bin before system bin
-fish_add_path --prepend /usr/local/sbin
-fish_add_path --prepend /usr/local/bin
+fish_add_path --prepend /opt/homebrew/sbin
+fish_add_path --prepend /opt/homebrew/bin
 
 # editor
 set -x EDITOR nvim
