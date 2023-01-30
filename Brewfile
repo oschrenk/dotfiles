@@ -231,16 +231,14 @@ cask "keycastr"             # shows key strokes on screen
 cask "knockknock"
 # Lens 5.5 required login, use OpenLens
 # cask "lens"
-cask "ykursadkaya/openlens/openlens"
+# cask "ykursadkaya/openlens/openlens"
 cask "meld"
 cask "microsoft-azure-storage-explorer"
 cask "monodraw"
 cask "numi"
 cask "obs"
 cask "omnidisksweeper"
-cask "omnigraffle"
 cask "paparazzi"
-cask "plan"
 cask "postman"
 cask "rocket"               # quick emoji access
 cask "rode-central"
