@@ -33,35 +33,32 @@ Downloading and compiling all the various applications and packages will take ro
 
 After casks are installed you can already start important apps and configure them
 
-- App Store, Press continue.
-- 1Password.
-  - Let it sync.
+- App Store
+- 1Password
   - Security > Touch Id
   - Security > Apple Watch.
   - Developer > Use the SSH Agent
-  - Developer > Biometric Unlock
-- Chrome.
-  - Grammarly
-  - Instapaper
+  - Developer > Enable Biometric Unlock
+- Chrome
+  - open profiles, and log into services
 - Karabiner Elements.
   - Open. Read "System Extensions Blocked" popup. Click on "Open Security Preferences" and press "Allow".
-- Bear
-  - Synchronize
-- Noteplan.
-  - Settings > Sync > Use cloudkit
-  - Leave open to sync
 - IntelliJ. Configure plugins.
-  - Scala,
+  - Scala
   - Key Promoter
   - Ideavim
   - Hocon
-- Hammerspoon.
+- Hammerspoon
   - Preferences. Apply accessibility settings.
-- alacritty.
+- alacritty
   - System Preferences > Security & privacy > General. Click Allow.
 - Calendar
 - Mail
-- Photos. Sync, stay with power cable
 - Spotify
-- Raycast
+  - download "Liked Songs"
+
+Open these apps to start synchronizing data
+- Bear
+- Noteplan
+- Photos
 
