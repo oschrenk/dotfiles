@@ -28,4 +28,7 @@ else
   rbenv install $TARGET_RUBY_VERSION
   rbenv global $TARGET_RUBY_VERSION
   rbenv rehash
+  echo "Finished setting up ruby $TARGET_RUBY_VERSION"
 fi
+
+
