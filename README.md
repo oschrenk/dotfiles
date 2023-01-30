@@ -7,17 +7,20 @@ These are my dotfiles. There are many like it but these are mine.
 ```
 # install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# temporary setup path in zsh until we have fish
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # install chezmoi and requirements
 brew install chezmoi git git-lfs
 
 # init
 chezmoi init oschrenk/dotfiles
-
-# pull assets
 chezmoi cd
 git lfs install
 git lfs pull
+
+# apply
+chezmoi apply
 ```
 
 ### Packages
