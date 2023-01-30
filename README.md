@@ -65,3 +65,6 @@ Open these apps to start synchronizing data
 - Noteplan
 - Photos
 
+Link device:
+- Signal
+- Telegram
