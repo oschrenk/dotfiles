@@ -125,7 +125,6 @@ brew "go"          # go
 brew "grunt-cli"   # JavaScript Task Runner
 brew "maven"       # jvm
 brew "node"        # javascript
-brew "openjdk@8"   # jvm
 brew "openjdk@11"  # jvm
 brew "openjdk@17"  # jvm
 brew "python"      # python
