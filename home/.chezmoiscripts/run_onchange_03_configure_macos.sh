@@ -246,10 +246,10 @@ defaults write com.apple.screencapture location ~/Downloads
 #######################################
 
 echo "Keyboard: Set key repeat rate to 1"
-defaults write NSGlobalDomain KeyRepeat -int 1
+defaults write "Apple Global Domain" "KeyRepeat" '2'
 
-echo "Keyboard: Set initial key repeat rate to 12"
-defaults write NSGlobalDomain InitialKeyRepeat -int 12
+echo "Keyboard: Set initial key repeat rate to 15"
+defaults write "Apple Global Domain" "InitialKeyRepeat" '15'
 
 echo "Keyboard: Disable auto capitalization"
 defaults write NSGlobalDomain NSAutomaticCapitalizationEnabled -bool false
