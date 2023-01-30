@@ -91,10 +91,17 @@ defaults write "co.noteplan.NotePlan3" "maxTextWidth" '700'
 echo "NotePlan: Set theme to Gruvbox iA.json"
 defaults write "co.noteplan.NotePlan3" "themeDark" '"Gruvbox iA.json"'
 
+#######################################
+# Homerow
+#######################################
+
+echo "Homerow: Set shortcut to ctrl+f"
+defaults write "com.dexterleng.Homerow" "shortcut" '"\U2303F"'
+
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
-for app in "Chrome" "Hammerspoon" "Mail" "Safari" "IINA", "NotePlan"; do
+for app in "Chrome" "Hammerspoon" "Mail" "Safari" "IINA", "NotePlan", "Homerow"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
