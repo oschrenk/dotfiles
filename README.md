@@ -13,6 +13,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # install chezmoi and requirements
 brew install chezmoi git git-lfs
 
+# install rosetta 2
+softwareupdate --install-rosetta
+
 # init
 chezmoi init oschrenk/dotfiles
 chezmoi cd
