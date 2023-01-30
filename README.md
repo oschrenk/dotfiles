@@ -52,18 +52,21 @@ After casks are installed you can already start important apps and configure the
   - Preferences. Apply accessibility settings.
 - alacritty
   - System Preferences > Security & privacy > General. Click Allow.
-- Calendar
-- Mail
 - Spotify
   - download "Liked Songs"
 
 System Settings:
 - "Privacy & Security > Full disk access..." Allow for alacritty. Otheriwse you will see
+- Add and configure Internet accounts
 
 Open these apps to start synchronizing data
 - Bear
 - Noteplan
 - Photos
+
+Login:
+- Discord
+- Slack
 
 Link device:
 - Signal
