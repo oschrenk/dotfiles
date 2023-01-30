@@ -263,6 +263,9 @@ defaults write NSGlobalDomain NSAutomaticPeriodSubstitutionEnabled -bool false
 echo "Keyboard: Disable smart quotes"
 defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 
+echo "Keyboard: Enable keyboard navigation"
+defaults write "Apple Global Domain" "AppleKeyboardUIMode" '2'
+
 #######################################
 # TIME MACHINE
 #######################################
