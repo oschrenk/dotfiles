@@ -26,7 +26,21 @@ function toggle_window_maximized()
         windowSizeCache[win:id()] = nil
     else
         windowSizeCache[win:id()] = win:frame()
+
+        -- to workaround AXEnhancedUserInterface bug:
+        -- 1. disable AXEnhancedUserInterface
+        -- 2. do the thing
+        -- 3. re-enable AXEnhancedUserInterface
+        -- see also https://github.com/Hammerspoon/hammerspoon/issues/3224#issuecomment-1294359070
+        local axApp = hs.axuielement.applicationElement(win:application())
+        local wasEnhanced = axApp.AXEnhancedUserInterface
+        if wasEnhanced then
+          axApp.AXEnhancedUserInterface = false
+        end
         win:maximize()
+        if wasEnhanced then
+          axApp.AXEnhancedUserInterface = true
+        end
     end
 end
 
