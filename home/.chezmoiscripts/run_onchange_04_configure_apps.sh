@@ -114,10 +114,24 @@ defaults write "pl.maketheweb.TopNotch" "hideOnBuiltInOnly" '1'
 echo "Top Notch: Hide Menubar Icon (start app again to show icon)"
 defaults write "pl.maketheweb.TopNotch" "hideMenubarIcon" '1'
 
+#######################################
+# Flux
+#######################################
+echo "Flux: Set location to Haarlem"
+defaults write "org.herf.Flux" "locationTextField" '"Haarlem"'
+defaults write "org.herf.Flux" "location" '"52.38,4.63"'
+
+echo "Flux: Set color transitions"
+defaults delete "org.herf.Flux" "dayColorTemp"
+defaults write "org.herf.Flux" "lateColorTemp" '1200'
+defaults write "org.herf.Flux" "nightColorTemp" '1900'
+defaults write "org.herf.Flux" "wakeTime" '390'
+defaults write "org.herf.Flux" "steptime" '26'
+
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
-for app in "Chrome" "Hammerspoon" "Mail" "Safari" "IINA" "NotePlan" "Homerow" "TopNotch"; do
+for app in "Chrome" "Hammerspoon" "Mail" "Safari" "IINA" "NotePlan" "Homerow" "TopNotch" "Flux"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
