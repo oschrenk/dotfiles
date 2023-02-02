@@ -128,10 +128,16 @@ defaults write "org.herf.Flux" "nightColorTemp" '1900'
 defaults write "org.herf.Flux" "wakeTime" '390'
 defaults write "org.herf.Flux" "steptime" '26'
 
+#######################################
+# IntelliJ Idea CE
+#######################################
+echo "IntelliJ Idea CE: Enable key repeat"
+defaults write com.jetbrains.intellij.ce ApplePressAndHoldEnabled -bool false
+
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
-for app in "Chrome" "Hammerspoon" "Mail" "Safari" "IINA" "NotePlan" "Homerow" "TopNotch" "Flux"; do
+for app in "Chrome" "Hammerspoon" "Mail" "Safari" "IINA" "NotePlan" "Homerow" "TopNotch" "Flux" "idea"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
