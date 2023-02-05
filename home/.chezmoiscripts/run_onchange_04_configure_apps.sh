@@ -37,6 +37,16 @@ defaults write com.apple.Mail DisableReplyAnimations -bool true
 defaults write com.apple.Mail DisableSendAnimations -bool true
 
 #######################################
+# Calendar
+#######################################
+
+echo "Calendar: Show Week numbers"
+defaults write "com.apple.iCal" "Show Week Numbers" '1'
+
+echo "Calendar: Enable time zone support"
+defaults write "com.apple.iCal" "TimeZone support enabled" '1'
+
+#######################################
 # SAFARI
 #######################################
 
