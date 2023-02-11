@@ -1,5 +1,4 @@
 local home = os.getenv("HOME")
-
 -- ===========================
 -- Auto corrections
 -- ===========================
