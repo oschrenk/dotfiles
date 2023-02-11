@@ -147,7 +147,7 @@ defaults write com.jetbrains.intellij.ce ApplePressAndHoldEnabled -bool false
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
-for app in "Chrome" "Hammerspoon" "Mail" "Safari" "IINA" "NotePlan" "Homerow" "TopNotch" "Flux" "idea"; do
+for app in "Chrome" "Hammerspoon" "Mail" "Safari" "IINA" "NotePlan" "Homerow" "TopNotch" "Flux" "idea" "Calendar"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
