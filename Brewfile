@@ -39,6 +39,7 @@ mas "NotePlan 3", id: 1505432629
 ## system
 brew "blueutil"       # get/set bluetooth from terminal
 brew "coreutils"      # GNU core utilities
+brew "fd"             # fast find alternative
 brew "findutils"      # g-prefixed `find`, `locate`, `updatedb`,`xargs`
 brew "gawk"           # GNU awk utility
 brew "the_silver_searcher" # Code-search similar to ack
