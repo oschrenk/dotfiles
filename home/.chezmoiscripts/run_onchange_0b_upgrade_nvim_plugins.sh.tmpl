@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# Update at most once every two hours
-# Last update: {{ sub (now | unixEpoch) (mod (now | unixEpoch) 7200) }}
-echo "Upgrading nvim plugins"
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
