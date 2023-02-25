@@ -82,6 +82,19 @@ defaults write "com.colliderli.iina" "recordPlaybackHistory" '0'
 echo "IINA: Don't show Open Recent Menu"
 defaults write "com.colliderli.iina" "recordRecentFiles" '0'
 
+echo "IINA: UI arrows rewind/forward"
+defaults write "com.colliderli.iina" "arrowBtnAction" '2'
+
+echo "IINA: Don't keep window open after playback"
+defaults write "com.colliderli.iina" "keepOpenOnFileEnd" '0'
+
+echo "IINA: Resume last playback position"
+defaults delete "com.colliderli.iina" "resumeLastPosition"
+
+echo "IINA: Enable yt-dlp"
+defaults delete "com.colliderli.iina" "ytdlEnabled"
+defaults write "com.colliderli.iina" "ytdlSearchPath" '"/opt/homebrew/bin/yt-dlp"'
+
 #######################################
 # Note Plan 3
 #######################################
