@@ -7,7 +7,7 @@ if getline(1) == ""
   let ticket_match = matchstr(branch, '\v[A-Z]+-[0-9]+')
   " only add prefix when branch name matches
   if ticket_match != ""
-    call append(0, [ticket_match . " ", "", "branch: " . branch])
+    call append(0, ["[" . ticket_match . "] ", "", "branch: " . branch])
     execute "norm k"
   endif
 " otherwise we are probably amending
