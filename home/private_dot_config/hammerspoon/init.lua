@@ -49,7 +49,6 @@ end
 
 require('bluetooth')
 require('network')
-require('notifications')
 require('wifi')
 require('window')
 
@@ -67,8 +66,6 @@ hs.hotkey.bind(hyper, "q", send_window_to_prev_monitor)
 hs.hotkey.bind(hyper, "e", send_window_to_next_monitor)
 
 hs.hotkey.bind(hyper, "h", connectHeadphones)
-
-hs.hotkey.bind(hyper, "c", closeNotifications)
 
 
 hs.hotkey.bind(hyper, "b", toggleBluetooth)
