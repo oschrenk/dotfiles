@@ -132,6 +132,10 @@ appWatchers = {}
 globalWatcher = hs.application.watcher.new(handleGlobalEvent):start()
 attachExistingApps()
 
+wifiWatcher = hs.wifi.watcher.new(wifiListener)
+wifiWatcher:watchingFor({ "SSIDChange" })
+wifiWatcher:start()
+
 ------------------------
 -- Reload
 ------------------------

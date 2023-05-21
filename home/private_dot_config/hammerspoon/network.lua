@@ -8,7 +8,7 @@ local lastSSID = hs.wifi.currentNetwork()
 
 local function has_value (tab, val)
     for index, value in ipairs(tab) do
-        print("comparing: val:"..(val or "nil").." value:"..(value or "nil"))
+        -- print("comparing: val:"..(val or "nil").." value:"..(value or "nil"))
         -- We grab the first index of our sub-table instead
         if value == val then
           return true
@@ -55,35 +55,40 @@ function enteredNetwork(old_ssid, new_ssid, ssid_pool)
   -- changed wifi
   -- checking if we more than changed network within environment
   if (old_ssid ~= nil and new_ssid ~= nil) then
-    notify("Changed Wifi")
     return (not has_value(ssid_pool, old_ssid)) and has_value(ssid_pool, new_ssid)
   end
 
   return false
 end
 
-function enteredHome()
+function enteredHome(ssid)
+  notify("Connected to home wifi" .. ' "' ..ssid .. '"')
 end
 
-function enteredWork()
+function enteredWork(ssid)
+  notify("Connected to work wifi" .. ' "' ..ssid .. '"')
 end
 
-function ssidChangedCallback()
+function enteredUntrusted(ssid)
+  notify("Connected to untrusted wifi" .. ' "' ..ssid .. '"')
+end
+
+function wifiListener(watcher, message, interface)
+  if message == "SSIDChange" then
     newSSID = hs.wifi.currentNetwork()
 
     print("ssidChangedCallback: old:"..(lastSSID or "nil").." new:"..(newSSID or "nil"))
     if (newSSID ~= nil) then
       if (enteredNetwork(lastSSID, newSSID, work_SSID_pool)) then
-        enteredWork()
-      end
-
-      if (enteredNetwork(lastSSID, newSSID, home_SSID_pool)) then
-        enteredHome()
+        enteredWork(newSSID)
+      elseif (enteredNetwork(lastSSID, newSSID, home_SSID_pool)) then
+        enteredHome(newSSID)
+      else
+        enteredUntrusted(newSSID)
       end
     end
 
     lastSSID = newSSID
+  end
 end
 
-wifiWatcher = hs.wifi.watcher.new(ssidChangedCallback)
-wifiWatcher:start()
