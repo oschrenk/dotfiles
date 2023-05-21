@@ -5,8 +5,6 @@ local wifiWatcher = nil
 local work_SSID_pool = {  }
 local home_SSID_pool = { 'Citadel' }
 local lastSSID = hs.wifi.currentNetwork()
-local homeLocation = 'Home'
-local workLocation = 'Work'
 
 local function has_value (tab, val)
     for index, value in ipairs(tab) do
@@ -65,11 +63,9 @@ function enteredNetwork(old_ssid, new_ssid, ssid_pool)
 end
 
 function enteredHome()
-  switchNetworkLocation(homeLocation)
 end
 
 function enteredWork()
-  switchNetworkLocation(workLocation)
 end
 
 function ssidChangedCallback()
