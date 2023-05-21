@@ -54,9 +54,6 @@ require('notifications')
 require('wifi')
 require('window')
 
--- mounting/unmounting drives
--- require('drives')
-
 -- fast user switching via script is crippled in Big Sur
 -- see also https://apple.stackexchange.com/questions/409820/access-fast-user-switching-from-a-script-in-big-sur
 -- require('userswitching')
