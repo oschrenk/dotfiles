@@ -54,11 +54,6 @@ require('notifications')
 require('wifi')
 require('window')
 
--- fast user switching via script is crippled in Big Sur
--- see also https://apple.stackexchange.com/questions/409820/access-fast-user-switching-from-a-script-in-big-sur
--- require('userswitching')
--- hs.hotkey.bind(hyper, "u", toggleUser)
-
 ------------------------
 -- Keyboard Bindings
 ------------------------
