@@ -57,8 +57,8 @@ require('window')
 ------------------------
 local hyper = {"ctrl", "alt", "shift", "cmd"}
 
-hs.hotkey.bind(hyper, 'a', left50)
-hs.hotkey.bind(hyper, 'd', right50)
+hs.hotkey.bind(hyper, 'a', loopLeft)
+hs.hotkey.bind(hyper, 'd', loopRight)
 hs.hotkey.bind(hyper, 's', toggle_window_maximized)
 hs.hotkey.bind(hyper, 'x', toggle_full_screen)
 

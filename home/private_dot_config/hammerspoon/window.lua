@@ -4,6 +4,7 @@
 
 -- Internal state
 local windowSizeCache = {}
+local windowSizeCacheLoop = {}
 
 function center_window()
   local win = hs.window.focusedWindow()
@@ -46,6 +47,72 @@ end
 
 function left50()
   hs.window.focusedWindow():moveToUnit(hs.layout.left50)
+end
+
+function loopLeft()
+    local win = hs.window.focusedWindow()
+    local entry = windowSizeCacheLoop[win:id()]
+    if entry then
+        print("found entry")
+        local original_frame = entry["frame"]
+        local percentage = entry["percentage"]
+        if percentage == 50 then
+          -- move to 70%
+          print("moving to 70")
+          hs.window.focusedWindow():moveToUnit(hs.layout.left70)
+          local newState = {frame=original_frame, percentage=70}
+          windowSizeCacheLoop[win:id()] = newState
+        elseif percentage == 70 then
+          -- move to original state, reset cache entry
+          print("moving to original")
+          win:setFrame(original_frame)
+          windowSizeCacheLoop[win:id()] = nil
+        else
+          -- move to 50% state
+          print("moving to 50")
+          local newState = {frame=original_frame, percentage=50}
+          hs.window.focusedWindow():moveToUnit(hs.layout.left50)
+          windowSizeCacheLoop[win:id()] = newState
+        end
+    else
+        -- new windoww, start with 50%
+        local newState = {frame=win:frame(), percentage=50}
+        windowSizeCacheLoop[win:id()] = newState
+        hs.window.focusedWindow():moveToUnit(hs.layout.left50)
+    end
+end
+
+function loopRight()
+    local win = hs.window.focusedWindow()
+    local entry = windowSizeCacheLoop[win:id()]
+    if entry then
+        print("found entry")
+        local original_frame = entry["frame"]
+        local percentage = entry["percentage"]
+        if percentage == 50 then
+          -- move to 30%
+          print("moving to 30")
+          hs.window.focusedWindow():moveToUnit(hs.layout.right30)
+          local newState = {frame=original_frame, percentage=30}
+          windowSizeCacheLoop[win:id()] = newState
+        elseif percentage == 30 then
+          -- move to original state, reset cache entry
+          print("moving to original")
+          win:setFrame(original_frame)
+          windowSizeCacheLoop[win:id()] = nil
+        else
+          -- move to 50% state
+          print("moving to 50")
+          local newState = {frame=original_frame, percentage=50}
+          hs.window.focusedWindow():moveToUnit(hs.layout.right50)
+          windowSizeCacheLoop[win:id()] = newState
+        end
+    else
+        -- new windoww, start with 50%
+        local newState = {frame=win:frame(), percentage=50}
+        windowSizeCacheLoop[win:id()] = newState
+        hs.window.focusedWindow():moveToUnit(hs.layout.right50)
+    end
 end
 
 function right50()
