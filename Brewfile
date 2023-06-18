@@ -226,7 +226,6 @@ cask "hex-fiend"
 cask "insomnia"
 cask "iina"
 cask "jdk-mission-control"
-cask "jdownloader"
 cask "keyboardcleantool"
 cask "keycastr"             # shows key strokes on screen
 cask "knockknock"
