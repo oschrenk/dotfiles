@@ -6,6 +6,7 @@ tap "derailed/k9s"            # k9s
 tap "homebrew/cask-drivers"   # elgato control center, rode-central
 tap "homebrew/cask-fonts"     # fonts
 tap "txn2/tap"                # kubefwd
+tap "ankitpokhrel/jira-cli"   # jira-cli
 
 # You can list all packages installed via
 # brew "leaves"
@@ -98,7 +99,7 @@ brew "svn"                  # svn,some packages eg roboto font rely on it
 # cli
 brew "chezmoi"
 brew "gh"                  # interact with github
-brew "go-jira"
+brew "jira-cli"            # interact with jira
 
 ## a/v
 brew "asciinema"
