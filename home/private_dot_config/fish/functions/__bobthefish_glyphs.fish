@@ -10,6 +10,7 @@ function __bobthefish_glyphs -S -d 'Define glyphs used by bobthefish'
   set -x detached_glyph          \u27A6
   set -x tag_glyph               \u2302
   set -x nonzero_exit_glyph      '! '
+  set -x private_glyph           \uE0A2 ' '
   set -x superuser_glyph         '$ '
   set -x bg_job_glyph            '% '
   set -x hg_glyph                \u263F
@@ -23,7 +24,7 @@ function __bobthefish_glyphs -S -d 'Define glyphs used by bobthefish'
   set -x go_glyph                ''
   set -x nix_glyph               ''
 
-  # Desk glyphs
+  # Desk glyphs
   set -x desk_glyph              \u25F2
 
   # Kubernetes glyphs
@@ -50,6 +51,7 @@ function __bobthefish_glyphs -S -d 'Define glyphs used by bobthefish'
 
   # Disable Powerline fonts (unless we're using nerd fonts instead)
   if [ "$theme_powerline_fonts" = "no" -a "$theme_nerd_fonts" != "yes" ]
+    set private_glyph           \u29B8 ' '
     set branch_glyph            \u2387
     set right_black_arrow_glyph ''
     set right_arrow_glyph       ''
@@ -59,6 +61,8 @@ function __bobthefish_glyphs -S -d 'Define glyphs used by bobthefish'
 
   # Use prettier Nerd Fonts glyphs
   if [ "$theme_nerd_fonts" = "yes" ]
+    set private_glyph    \uF023 ' ' # nf-fa-lock
+
     set branch_glyph     \uF418
     set detached_glyph   \uF417
     set tag_glyph        \uF412
@@ -74,18 +78,18 @@ function __bobthefish_glyphs -S -d 'Define glyphs used by bobthefish'
     set vagrant_aborted_glyph  \uF468 # ✕ 'aborted'
     set vagrant_unknown_glyph  \uF421 # strange cases
 
-    # set git_dirty_glyph      \uF448 '' # nf-oct-pencil
-    # set git_staged_glyph     \uF0C7 '' # nf-fa-save
-    # set git_stashed_glyph    \uF0C6 '' # nf-fa-paperclip
-    # set git_untracked_glyph  \uF128 '' # nf-fa-question
+    set git_dirty_glyph      \uF448 '' # nf-oct-pencil
+    set git_staged_glyph     \uF0C7 '' # nf-fa-save
+    set git_stashed_glyph    \uF0C6 '' # nf-fa-paperclip
+    set git_untracked_glyph  \uF128 '' # nf-fa-question
     # set git_untracked_glyph  \uF141 '' # nf-fa-ellipsis_h
 
-    # set git_ahead_glyph      \uF47B # nf-oct-chevron_up
-    # set git_behind_glyph     \uF47C # nf-oct-chevron_down
+    set git_ahead_glyph      \uF47B # nf-oct-chevron_up
+    set git_behind_glyph     \uF47C # nf-oct-chevron_down
 
-    # set git_plus_glyph       \uF0DE # fa-sort-asc
-    # set git_minus_glyph      \uF0DD # fa-sort-desc
-    # set git_plus_minus_glyph \uF0DC # fa-sort
+    set git_plus_glyph       \uF0DE # fa-sort-asc
+    set git_minus_glyph      \uF0DD # fa-sort-desc
+    set git_plus_minus_glyph \uF0DC # fa-sort
   end
 
   # Avoid ambiguous glyphs

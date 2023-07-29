@@ -8,6 +8,7 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
       set -l colorfg black
       [ "$color_scheme" = 'terminal-dark-white' ]; and set colorfg white
       set -x color_initial_segment_exit     white red --bold
+      set -x color_initial_segment_private  white black
       set -x color_initial_segment_su       white green --bold
       set -x color_initial_segment_jobs     white blue --bold
 
@@ -27,18 +28,22 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
 
       set -x color_vagrant                  brcyan $colorfg
       set -x color_k8s                      magenta white --bold
+      set -x color_aws_vault                blue $colorfg --bold
+      set -x color_aws_vault_expired        blue red --bold
       set -x color_username                 white black --bold
       set -x color_hostname                 white black
       set -x color_rvm                      brmagenta $colorfg --bold
-      set -x color_nvm                      brgreen $colorfg --bold
+      set -x color_node                     brgreen $colorfg --bold
       set -x color_virtualfish              brblue $colorfg --bold
       set -x color_virtualgo                brblue $colorfg --bold
       set -x color_desk                     brblue $colorfg --bold
+      set -x color_nix                      brblue $colorfg --bold
 
     case 'terminal-light*'
       set -l colorfg white
       [ "$color_scheme" = 'terminal-light-black' ]; and set colorfg black
       set -x color_initial_segment_exit     black red --bold
+      set -x color_initial_segment_private  black white
       set -x color_initial_segment_su       black green --bold
       set -x color_initial_segment_jobs     black blue --bold
 
@@ -58,18 +63,22 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
 
       set -x color_vagrant                  brcyan $colorfg
       set -x color_k8s                      magenta white --bold
+      set -x color_aws_vault                blue $colorfg --bold
+      set -x color_aws_vault_expired        blue red --bold
       set -x color_username                 black white --bold
       set -x color_hostname                 black white
       set -x color_rvm                      brmagenta $colorfg --bold
-      set -x color_nvm                      brgreen $colorfg --bold
+      set -x color_node                     brgreen $colorfg --bold
       set -x color_virtualfish              brblue $colorfg --bold
       set -x color_virtualgo                brblue $colorfg --bold
       set -x color_desk                     brblue $colorfg --bold
+      set -x color_nix                      brblue $colorfg --bold
 
     case 'terminal2' 'terminal2-dark*'
       set -l colorfg black
       [ "$color_scheme" = 'terminal2-dark-white' ]; and set colorfg white
       set -x color_initial_segment_exit     grey red --bold
+      set -x color_initial_segment_private  grey black
       set -x color_initial_segment_su       grey green --bold
       set -x color_initial_segment_jobs     grey blue --bold
 
@@ -89,18 +98,22 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
 
       set -x color_vagrant                  brcyan $colorfg
       set -x color_k8s                      magenta white --bold
+      set -x color_aws_vault                blue $colorfg --bold
+      set -x color_aws_vault_expired        blue red --bold
       set -x color_username                 brgrey white --bold
       set -x color_hostname                 brgrey white
       set -x color_rvm                      brmagenta $colorfg --bold
-      set -x color_nvm                      brgreen $colorfg --bold
+      set -x color_node                     brgreen $colorfg --bold
       set -x color_virtualfish              brblue $colorfg --bold
       set -x color_virtualgo                brblue $colorfg --bold
       set -x color_desk                     brblue $colorfg --bold
+      set -x color_nix                      brblue $colorfg --bold
 
     case 'terminal2-light*'
       set -l colorfg white
       [ "$color_scheme" = 'terminal2-light-black' ]; and set colorfg black
       set -x color_initial_segment_exit     brgrey red --bold
+      set -x color_initial_segment_private  brgrey black
       set -x color_initial_segment_su       brgrey green --bold
       set -x color_initial_segment_jobs     brgrey blue --bold
 
@@ -120,13 +133,16 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
 
       set -x color_vagrant                  brcyan $colorfg
       set -x color_k8s                      magenta white --bold
+      set -x color_aws_vault                blue $colorfg --bold
+      set -x color_aws_vault_expired        blue red --bold
       set -x color_username                 grey black --bold
       set -x color_hostname                 grey black
       set -x color_rvm                      brmagenta $colorfg --bold
-      set -x color_nvm                      brgreen $colorfg --bold
+      set -x color_node                     brgreen $colorfg --bold
       set -x color_virtualfish              brblue $colorfg --bold
       set -x color_virtualgo                brblue $colorfg --bold
       set -x color_desk                     brblue $colorfg --bold
+      set -x color_nix                      brblue $colorfg --bold
 
     case 'zenburn'
       set -l grey   333333 # a bit darker than normal zenburn grey
@@ -138,6 +154,7 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
       set -l white  DCDCCC
 
       set -x color_initial_segment_exit     $white $red --bold
+      set -x color_initial_segment_private  $white $grey
       set -x color_initial_segment_su       $white $green --bold
       set -x color_initial_segment_jobs     $white $blue --bold
 
@@ -157,13 +174,16 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
 
       set -x color_vagrant                  $blue $green --bold
       set -x color_k8s                      $green $white --bold
+      set -x color_aws_vault                $blue $grey --bold
+      set -x color_aws_vault_expired        $blue $red --bold
       set -x color_username                 $grey $blue --bold
       set -x color_hostname                 $grey $blue
       set -x color_rvm                      $red $grey --bold
-      set -x color_nvm                      $green $white --bold
+      set -x color_node                     $green $white --bold
       set -x color_virtualfish              $blue $grey --bold
       set -x color_virtualgo                $blue $grey --bold
       set -x color_desk                     $blue $grey --bold
+      set -x color_nix                      $blue $grey --bold
 
     case 'base16-light'
       set -l base00 181818
@@ -186,6 +206,7 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
       set -l colorfg $base00
 
       set -x color_initial_segment_exit     $base02 $base08 --bold
+      set -x color_initial_segment_private  $base02 $base06
       set -x color_initial_segment_su       $base02 $base0B --bold
       set -x color_initial_segment_jobs     $base02 $base0D --bold
 
@@ -205,13 +226,16 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
 
       set -x color_vagrant                  $base0C $colorfg --bold
       set -x color_k8s                      $base06 $colorfg --bold
+      set -x color_aws_vault                $base0D $colorfg --bold
+      set -x color_aws_vault_expired        $base0D $base08 --bold
       set -x color_username                 $base02 $base0D --bold
       set -x color_hostname                 $base02 $base0D
       set -x color_rvm                      $base08 $colorfg --bold
-      set -x color_nvm                      $base0B $colorfg --bold
+      set -x color_node                     $base0B $colorfg --bold
       set -x color_virtualfish              $base0D $colorfg --bold
       set -x color_virtualgo                $base0D $colorfg --bold
       set -x color_desk                     $base0D $colorfg --bold
+      set -x color_nix                      $base0D $colorfg --bold
 
     case 'base16' 'base16-dark'
       set -l base00 181818
@@ -234,6 +258,7 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
       set -l colorfg $base07
 
       set -x color_initial_segment_exit     $base05 $base08 --bold
+      set -x color_initial_segment_private  $base05 $base02
       set -x color_initial_segment_su       $base05 $base0B --bold
       set -x color_initial_segment_jobs     $base05 $base0D --bold
 
@@ -253,13 +278,16 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
 
       set -x color_vagrant                  $base0C $colorfg --bold
       set -x color_k8s                      $base0B $colorfg --bold
+      set -x color_aws_vault                $base0D $base0A --bold
+      set -x color_aws_vault_expired        $base0D $base08 --bold
       set -x color_username                 $base02 $base0D --bold
       set -x color_hostname                 $base02 $base0D
       set -x color_rvm                      $base08 $colorfg --bold
-      set -x color_nvm                      $base0B $colorfg --bold
+      set -x color_node                     $base0B $colorfg --bold
       set -x color_virtualfish              $base0D $colorfg --bold
       set -x color_virtualgo                $base0D $colorfg --bold
       set -x color_desk                     $base0D $colorfg --bold
+      set -x color_nix                      $base0D $colorfg --bold
 
     case 'solarized-light'
       set -l base03  002b36
@@ -282,6 +310,7 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
       set colorfg $base03
 
       set -x color_initial_segment_exit     $base02 $red --bold
+      set -x color_initial_segment_private  $base02 $base2
       set -x color_initial_segment_su       $base02 $green --bold
       set -x color_initial_segment_jobs     $base02 $blue --bold
 
@@ -301,13 +330,16 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
 
       set -x color_vagrant                  $violet $colorfg --bold
       set -x color_k8s                      $green $colorfg --bold
+      set -x color_aws_vault                $violet $base3 --bold
+      set -x color_aws_vault_expired        $violet $orange --bold
       set -x color_username                 $base2 $blue --bold
       set -x color_hostname                 $base2 $blue
       set -x color_rvm                      $red $colorfg --bold
-      set -x color_nvm                      $green $colorfg --bold
+      set -x color_node                     $green $colorfg --bold
       set -x color_virtualfish              $cyan $colorfg --bold
       set -x color_virtualgo                $cyan $colorfg --bold
       set -x color_desk                     $cyan $colorfg --bold
+      set -x color_nix                      $cyan $colorfg --bold
 
     case 'solarized' 'solarized-dark'
       set -l base03  002b36
@@ -330,6 +362,7 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
       set colorfg $base3
 
       set -x color_initial_segment_exit     $base2 $red --bold
+      set -x color_initial_segment_private  $base2 $base02
       set -x color_initial_segment_su       $base2 $green --bold
       set -x color_initial_segment_jobs     $base2 $blue --bold
 
@@ -349,13 +382,16 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
 
       set -x color_vagrant                  $violet $colorfg --bold
       set -x color_k8s                      $green $colorfg --bold
+      set -x color_aws_vault                $violet $base3 --bold
+      set -x color_aws_vault_expired        $violet $orange --bold
       set -x color_username                 $base02 $blue --bold
       set -x color_hostname                 $base02 $blue
       set -x color_rvm                      $red $colorfg --bold
-      set -x color_nvm                      $green $colorfg --bold
+      set -x color_node                     $green $colorfg --bold
       set -x color_virtualfish              $cyan $colorfg --bold
       set -x color_virtualgo                $cyan $colorfg --bold
       set -x color_desk                     $cyan $colorfg --bold
+      set -x color_nix                      $cyan $colorfg --bold
 
     case 'light'
       #               light  medium dark
@@ -371,6 +407,7 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
       set -l ruby_red af0000
 
       set -x color_initial_segment_exit     $grey[3] $red[2] --bold
+      set -x color_initial_segment_private  $grey[3] $grey[1]
       set -x color_initial_segment_su       $grey[3] $green[2] --bold
       set -x color_initial_segment_jobs     $grey[3] $blue[3] --bold
 
@@ -390,13 +427,16 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
 
       set -x color_vagrant                  $blue[1] $white --bold
       set -x color_k8s                      $green[1] $colorfg --bold
+      set -x color_aws_vault                $blue[3] $orange[1] --bold
+      set -x color_aws_vault_expired        $blue[3] $red[3] --bold
       set -x color_username                 $grey[1] $blue[3] --bold
       set -x color_hostname                 $grey[1] $blue[3]
       set -x color_rvm                      $ruby_red $grey[1] --bold
-      set -x color_nvm                      $green $grey[1] --bold
+      set -x color_node                     $green $grey[1] --bold
       set -x color_virtualfish              $blue[2] $grey[1] --bold
       set -x color_virtualgo                $blue[2] $grey[1] --bold
       set -x color_desk                     $blue[2] $grey[1] --bold
+      set -x color_nix                      $blue[2] $grey[1] --bold
 
     case 'gruvbox'
       #               light  medium  dark  darkest
@@ -410,33 +450,37 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
       set -l fg       fbf1c7 ebdbb2 d5c4a1 a89984
       set -l bg       504945 282828
 
-      set -x color_initial_segment_exit  $fg[1] $red[2] --bold
-      set -x color_initial_segment_su    $fg[1] $green[2] --bold
-      set -x color_initial_segment_jobs  $fg[1] $aqua[2] --bold
+      set -x color_initial_segment_exit     $fg[1] $red[2] --bold
+      set -x color_initial_segment_private  $fg[1] $bg[1]
+      set -x color_initial_segment_su       $fg[1] $green[2] --bold
+      set -x color_initial_segment_jobs     $fg[1] $aqua[2] --bold
 
-      set -x color_path                  $bg[1] $fg[2]
-      set -x color_path_basename         $bg[1] $fg[2] --bold
-      set -x color_path_nowrite          $red[1] $fg[2]
-      set -x color_path_nowrite_basename $red[1] $fg[2] --bold
+      set -x color_path                     $bg[1] $fg[2]
+      set -x color_path_basename            $bg[1] $fg[2] --bold
+      set -x color_path_nowrite             $red[1] $fg[2]
+      set -x color_path_nowrite_basename    $red[1] $fg[2] --bold
 
-      set -x color_repo                  $green[2] $bg[1]
-      set -x color_repo_work_tree        $bg[1] $fg[2] --bold
-      set -x color_repo_dirty            $red[2] $fg[2]
-      set -x color_repo_staged           $yellow[1] $bg[1]
+      set -x color_repo                     $green[2] $bg[1]
+      set -x color_repo_work_tree           $bg[1] $fg[2] --bold
+      set -x color_repo_dirty               $red[2] $fg[2]
+      set -x color_repo_staged              $yellow[1] $bg[1]
 
-      set -x color_vi_mode_default       $fg[4] $bg[2] --bold
-      set -x color_vi_mode_insert        $blue[1] $bg[2] --bold
-      set -x color_vi_mode_visual        $yellow[1] $bg[2] --bold
+      set -x color_vi_mode_default          $fg[4] $bg[2] --bold
+      set -x color_vi_mode_insert           $blue[1] $bg[2] --bold
+      set -x color_vi_mode_visual           $yellow[1] $bg[2] --bold
 
-      set -x color_vagrant               $blue[2] $fg[2] --bold
-      set -x color_k8s                   $green[2] $fg[2] --bold
-      set -x color_username              $fg[3] $blue[2] --bold
-      set -x color_hostname              $fg[3] $blue[2]
-      set -x color_rvm                   $red[2] $fg[2] --bold
-      set -x color_nvm                   $green[1] $fg[2] --bold
-      set -x color_virtualfish           $blue[2] $fg[2] --bold
-      set -x color_virtualgo             $blue[2] $fg[2] --bold
-      set -x color_desk                  $blue[2] $fg[2] --bold
+      set -x color_vagrant                  $blue[2] $fg[2] --bold
+      set -x color_k8s                      $green[2] $fg[2] --bold
+      set -x color_aws_vault                $blue[2] $yellow[1] --bold
+      set -x color_aws_vault_expired        $blue[2] $red[1] --bold
+      set -x color_username                 $fg[3] $blue[2] --bold
+      set -x color_hostname                 $fg[3] $blue[2]
+      set -x color_rvm                      $red[2] $fg[2] --bold
+      set -x color_node                     $green[1] $fg[2] --bold
+      set -x color_virtualfish              $blue[2] $fg[2] --bold
+      set -x color_virtualgo                $blue[2] $fg[2] --bold
+      set -x color_desk                     $blue[2] $fg[2] --bold
+      set -x color_nix                      $blue[2] $fg[2] --bold
 
     case 'dracula' # https://draculatheme.com
       set -l bg           282a36
@@ -452,33 +496,88 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
       set -l red          ff5555
       set -l yellow       f1fa8c
 
-      set -x color_initial_segment_exit  $fg $red  --bold
-      set -x color_initial_segment_su    $fg $purple --bold
-      set -x color_initial_segment_jobs  $fg $comment --bold
+      set -x color_initial_segment_exit     $fg $red  --bold
+      set -x color_initial_segment_private  $fg $selection
+      set -x color_initial_segment_su       $fg $purple --bold
+      set -x color_initial_segment_jobs     $fg $comment --bold
 
-      set -x color_path                  $selection $fg
-      set -x color_path_basename         $selection $fg --bold
-      set -x color_path_nowrite          $selection $red
-      set -x color_path_nowrite_basename $selection $red --bold
+      set -x color_path                     $selection $fg
+      set -x color_path_basename            $selection $fg --bold
+      set -x color_path_nowrite             $selection $red
+      set -x color_path_nowrite_basename    $selection $red --bold
 
-      set -x color_repo                  $green $bg
-      set -x color_repo_work_tree        $selection $fg --bold
-      set -x color_repo_dirty            $red $bg
-      set -x color_repo_staged           $yellow $bg
+      set -x color_repo                     $green $bg
+      set -x color_repo_work_tree           $selection $fg --bold
+      set -x color_repo_dirty               $red $bg
+      set -x color_repo_staged              $yellow $bg
 
-      set -x color_vi_mode_default       $bg $yellow --bold
-      set -x color_vi_mode_insert        $green $bg --bold
-      set -x color_vi_mode_visual        $orange $bg --bold
+      set -x color_vi_mode_default          $bg $yellow --bold
+      set -x color_vi_mode_insert           $green $bg --bold
+      set -x color_vi_mode_visual           $orange $bg --bold
 
-      set -x color_vagrant               $pink $bg --bold
-      set -x color_k8s                   $green $fg --bold
-      set -x color_username              $selection $cyan --bold
-      set -x color_hostname              $selection $cyan
-      set -x color_rvm                   $red $bg --bold
-      set -x color_nvm                   $green $bg --bold
-      set -x color_virtualfish           $comment $bg --bold
-      set -x color_virtualgo             $cyan $bg --bold
-      set -x color_desk                  $comment $bg --bold
+      set -x color_vagrant                  $pink $bg --bold
+      set -x color_k8s                      $purple $bg --bold
+      set -x color_aws_vault                $comment $yellow --bold
+      set -x color_aws_vault_expired        $comment $red --bold
+      set -x color_username                 $selection $cyan --bold
+      set -x color_hostname                 $selection $cyan
+      set -x color_rvm                      $red $bg --bold
+      set -x color_node                     $green $bg --bold
+      set -x color_virtualfish              $comment $bg --bold
+      set -x color_virtualgo                $cyan $bg --bold
+      set -x color_desk                     $comment $bg --bold
+      set -x color_nix                      $cyan $bg --bold
+
+    case 'nord'
+      set -l base00  2E3440
+      set -l base01  3B4252
+      set -l base02  434C5E
+      set -l base03  4C566A
+      set -l base04  D8DEE9
+      set -l base05  E5E9F0
+      set -l base06  ECEFF4
+      set -l base07  8FBCBB
+      set -l base08  88C0D0
+      set -l base09  81A1C1
+      set -l base0A  5E81AC
+      set -l base0B  BF616A
+      set -l base0C  D08770
+      set -l base0D  EBCB8B
+      set -l base0E  A3BE8C
+      set -l base0F  B48EAD
+
+      set -l colorfg $base00
+
+      set -x color_initial_segment_exit     $base05 $base0B --bold
+      set -x color_initial_segment_private  $base05 $base02
+      set -x color_initial_segment_su       $base05 $base0E --bold
+      set -x color_initial_segment_jobs     $base05 $base0C --bold
+
+      set -x color_path                     $base02 $base05
+      set -x color_path_basename            $base02 $base06 --bold
+      set -x color_path_nowrite             $base02 $base08
+      set -x color_path_nowrite_basename    $base02 $base08 --bold
+
+      set -x color_repo                     $base0E $colorfg
+      set -x color_repo_work_tree           $base02 $colorfg --bold
+      set -x color_repo_dirty               $base0B $colorfg
+      set -x color_repo_staged              $base0D $colorfg
+
+      set -x color_vi_mode_default          $base08 $colorfg --bold
+      set -x color_vi_mode_insert           $base06 $colorfg --bold
+      set -x color_vi_mode_visual           $base07 $colorfg --bold
+
+      set -x color_vagrant                  $base02 $colorfg --bold
+      set -x color_k8s                      $base02 $colorfg --bold
+      set -x color_aws_vault                $base0A $base0D --bold
+      set -x color_aws_vault_expired        $base0A $base0B --bold
+      set -x color_username                 $base02 $base0D --bold
+      set -x color_hostname                 $base02 $base0D
+      set -x color_rvm                      $base09 $colorfg --bold
+      set -x color_node                     $base09 $colorfg --bold
+      set -x color_virtualfish              $base09 $colorfg --bold
+      set -x color_virtualgo                $base09 $colorfg --bold
+      set -x color_desk                     $base09 $colorfg --bold
 
     case '*' # default dark theme
       #               light  medium dark
@@ -495,6 +594,7 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
       set -l go_blue  00d7d7
 
       set -x color_initial_segment_exit     $white $red[2] --bold
+      set -x color_initial_segment_private  $white $grey[3]
       set -x color_initial_segment_su       $white $green[2] --bold
       set -x color_initial_segment_jobs     $white $blue[3] --bold
 
@@ -514,38 +614,43 @@ function __bobthefish_colors -S -a color_scheme -d 'Define colors used by bobthe
 
       set -x color_vagrant                  $blue[1] $white --bold
       set -x color_k8s                      $green[2] $white --bold
+      set -x color_aws_vault                $blue[3] $orange[1] --bold
+      set -x color_aws_vault_expired        $blue[3] $red[3] --bold
       set -x color_username                 $grey[1] $blue[3] --bold
       set -x color_hostname                 $grey[1] $blue[3]
       set -x color_rvm                      $ruby_red $grey[1] --bold
-      set -x color_nvm                      $green[1] $white --bold
+      set -x color_node                     $green[1] $white --bold
       set -x color_virtualfish              $blue[2] $grey[1] --bold
       set -x color_virtualgo                $go_blue $black --bold
       set -x color_desk                     $blue[2] $grey[1] --bold
+      set -x color_nix                      $blue[2] $grey[1] --bold
   end
 end
 
 function __bobthefish_user_color_scheme_deprecated
-  set -q __color_initial_segment_exit;  or set -l __color_initial_segment_exit  ffffff ce000f --bold
-  set -q __color_initial_segment_su;    or set -l __color_initial_segment_su    ffffff 189303 --bold
-  set -q __color_initial_segment_jobs;  or set -l __color_initial_segment_jobs  ffffff 255e87 --bold
-  set -q __color_path;                  or set -l __color_path                  333333 999999
-  set -q __color_path_basename;         or set -l __color_path_basename         333333 ffffff --bold
-  set -q __color_path_nowrite;          or set -l __color_path_nowrite          660000 cc9999
-  set -q __color_path_nowrite_basename; or set -l __color_path_nowrite_basename 660000 cc9999 --bold
-  set -q __color_repo;                  or set -l __color_repo                  addc10 0c4801
-  set -q __color_repo_work_tree;        or set -l __color_repo_work_tree        333333 ffffff --bold
-  set -q __color_repo_dirty;            or set -l __color_repo_dirty            ce000f ffffff
-  set -q __color_repo_staged;           or set -l __color_repo_staged           f6b117 3a2a03
-  set -q __color_vi_mode_default;       or set -l __color_vi_mode_default       999999 333333 --bold
-  set -q __color_vi_mode_insert;        or set -l __color_vi_mode_insert        189303 333333 --bold
-  set -q __color_vi_mode_visual;        or set -l __color_vi_mode_visual        f6b117 3a2a03 --bold
-  set -q __color_vagrant;               or set -l __color_vagrant               48b4fb ffffff --bold
-  set -q __color_username;              or set -l __color_username              cccccc 255e87 --bold
-  set -q __color_hostname;              or set -l __color_hostname              cccccc 255e87
-  set -q __color_rvm;                   or set -l __color_rvm                   af0000 cccccc --bold
-  set -q __color_virtualfish;           or set -l __color_virtualfish           005faf cccccc --bold
-  set -q __color_virtualgo;             or set -l __color_virtualgo             005faf cccccc --bold
-  set -q __color_desk;                  or set -l __color_desk                  005faf cccccc --bold
+  set -q __color_initial_segment_exit;     or set -l __color_initial_segment_exit     ffffff ce000f --bold
+  set -q __color_initial_segment_private;  or set -l __color_initial_segment_private  ffffff 255e87
+  set -q __color_initial_segment_su;       or set -l __color_initial_segment_su       ffffff 189303 --bold
+  set -q __color_initial_segment_jobs;     or set -l __color_initial_segment_jobs     ffffff 255e87 --bold
+  set -q __color_path;                     or set -l __color_path                     333333 999999
+  set -q __color_path_basename;            or set -l __color_path_basename            333333 ffffff --bold
+  set -q __color_path_nowrite;             or set -l __color_path_nowrite             660000 cc9999
+  set -q __color_path_nowrite_basename;    or set -l __color_path_nowrite_basename    660000 cc9999 --bold
+  set -q __color_repo;                     or set -l __color_repo                     addc10 0c4801
+  set -q __color_repo_work_tree;           or set -l __color_repo_work_tree           333333 ffffff --bold
+  set -q __color_repo_dirty;               or set -l __color_repo_dirty               ce000f ffffff
+  set -q __color_repo_staged;              or set -l __color_repo_staged              f6b117 3a2a03
+  set -q __color_vi_mode_default;          or set -l __color_vi_mode_default          999999 333333 --bold
+  set -q __color_vi_mode_insert;           or set -l __color_vi_mode_insert           189303 333333 --bold
+  set -q __color_vi_mode_visual;           or set -l __color_vi_mode_visual           f6b117 3a2a03 --bold
+  set -q __color_vagrant;                  or set -l __color_vagrant                  48b4fb ffffff --bold
+  set -q __color_username;                 or set -l __color_username                 cccccc 255e87 --bold
+  set -q __color_hostname;                 or set -l __color_hostname                 cccccc 255e87
+  set -q __color_rvm;                      or set -l __color_rvm                      af0000 cccccc --bold
+  set -q __color_virtualfish;              or set -l __color_virtualfish              005faf cccccc --bold
+  set -q __color_virtualgo;                or set -l __color_virtualgo                005faf cccccc --bold
+  set -q __color_desk;                     or set -l __color_desk                     005faf cccccc --bold
+  set -q __color_nix;                      or set -l __color_nix                      005faf cccccc --bold
 
   set_color black -b red --bold
   echo "The 'user' color scheme is deprecated."
@@ -561,27 +666,31 @@ function __bobthefish_user_color_scheme_deprecated
   ___bobthefish_colors default
 
   # then override everything you want! note that these must be defined with `set -x`
-  set -x color_initial_segment_exit  $__color_initial_segment_exit
-  set -x color_initial_segment_su    $__color_initial_segment_su
-  set -x color_initial_segment_jobs  $__color_initial_segment_jobs
-  set -x color_path                  $__color_path
-  set -x color_path_basename         $__color_path_basename
-  set -x color_path_nowrite          $__color_path_nowrite
-  set -x color_path_nowrite_basename $__color_path_nowrite_basename
-  set -x color_repo                  $__color_repo
-  set -x color_repo_work_tree        $__color_repo_work_tree
-  set -x color_repo_dirty            $__color_repo_dirty
-  set -x color_repo_staged           $__color_repo_staged
-  set -x color_vi_mode_default       $__color_vi_mode_default
-  set -x color_vi_mode_insert        $__color_vi_mode_insert
-  set -x color_vi_mode_visual        $__color_vi_mode_visual
-  set -x color_vagrant               $__color_vagrant
-  set -x color_username              $__color_username
-  set -x color_hostname              $__color_hostname
-  set -x color_rvm                   $__color_rvm
-  set -x color_virtualfish           $__color_virtualfish
-  set -x color_virtualgo             $__color_virtualgo
-  set -x color_desk                  $__color_desk
+  set -x color_initial_segment_exit     $__color_initial_segment_exit
+  set -x color_initial_segment_private  $__color_initial_segment_private
+  set -x color_initial_segment_su       $__color_initial_segment_su
+  set -x color_initial_segment_jobs     $__color_initial_segment_jobs
+  set -x color_path                     $__color_path
+  set -x color_path_basename            $__color_path_basename
+  set -x color_path_nowrite             $__color_path_nowrite
+  set -x color_path_nowrite_basename    $__color_path_nowrite_basename
+  set -x color_repo                     $__color_repo
+  set -x color_repo_work_tree           $__color_repo_work_tree
+  set -x color_repo_dirty               $__color_repo_dirty
+  set -x color_repo_staged              $__color_repo_staged
+  set -x color_vi_mode_default          $__color_vi_mode_default
+  set -x color_vi_mode_insert           $__color_vi_mode_insert
+  set -x color_vi_mode_visual           $__color_vi_mode_visual
+  set -x color_vagrant                  $__color_vagrant
+  set -x color_aws_vault                $__color_aws_vault
+  set -x color_aws_vault_expired        $__color_aws_vault_expired
+  set -x color_username                 $__color_username
+  set -x color_hostname                 $__color_hostname
+  set -x color_rvm                      $__color_rvm
+  set -x color_virtualfish              $__color_virtualfish
+  set -x color_virtualgo                $__color_virtualgo
+  set -x color_desk                     $__color_desk
+  set -x color_nix                      $__color_nix
 end"
 
   echo
