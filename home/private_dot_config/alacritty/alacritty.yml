@@ -10,13 +10,13 @@ scrolling:
   multiplier: 3
 
 font:
-  size: 22.0
+  size: 20.0
   normal:
-    family: "mplus Nerd Font Mono"
-    style: light
+    family: "M+CodeLat Nerd Font Mono"
+    style: Light
   bold:
-    family: "mplus Nerd Font Mono"
-    style: regular
+    family: "M+CodeLat Nerd Font Mono"
+    style: Medium
   offset:
     x: 0
     y: 0

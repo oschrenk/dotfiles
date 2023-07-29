@@ -5,7 +5,6 @@ tap "coursier/formulas"       # coursier
 tap "derailed/k9s"            # k9s
 tap "homebrew/cask-drivers"   # elgato control center, rode-central
 tap "homebrew/cask-fonts"     # fonts
-tap "oschrenk/casks"          # mplus-mn-nerd-font-complete-mono
 tap "txn2/tap"                # kubefwd
 
 # You can list all packages installed via
@@ -196,12 +195,12 @@ cask "font-ia-writer-duo"
 cask "font-ia-writer-quattro"
 cask "font-iosevka"
 cask "font-mplus"
+cask "font-mplus-nerd-font"
 cask "font-open-sans"
 cask "font-open-sans-condensed"
 cask "font-roboto-mono"
 cask "font-roboto-mono-nerd-font"
 cask "font-victor-mono"
-cask "mplus-mn-nerd-font-complete-mono"
 
 #######################################
 # Casks
