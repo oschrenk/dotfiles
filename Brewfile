@@ -1,12 +1,12 @@
 #######################################
 # Taps
 #######################################
+tap "ankitpokhrel/jira-cli"   # jira-cli
 tap "coursier/formulas"       # coursier
 tap "derailed/k9s"            # k9s
 tap "homebrew/cask-drivers"   # elgato control center, rode-central
 tap "homebrew/cask-fonts"     # fonts
 tap "txn2/tap"                # kubefwd
-tap "ankitpokhrel/jira-cli"   # jira-cli
 
 # You can list all packages installed via
 # brew "leaves"
