@@ -55,7 +55,6 @@ brew "vim"
 
 ## crypto
 brew "age"            # modern and secure encryption too
-brew "magic-wormhole" # Securely transfers data between computers
 brew "croc"           # Securely transfers data between computers
 
 ## command line
