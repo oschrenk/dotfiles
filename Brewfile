@@ -59,7 +59,6 @@ brew "croc"           # Securely transfers data between computers
 
 ## command line
 brew "bat"            # "better" cat
-brew "chezmoi"
 brew "chrome-cli"     # control chrome via cli
 brew "direnv"         # auto load env
 brew "exa"            # "better" ls
