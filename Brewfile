@@ -60,15 +60,18 @@ brew "croc"           # Securely transfers data between computers
 
 ## command line
 brew "bat"            # "better" cat
+brew "chezmoi"
 brew "chrome-cli"     # control chrome via cli
 brew "direnv"         # auto load env
 brew "exa"            # "better" ls
 brew "fzf"            # fuzzy file finder
+brew "gh"             # interact with github
+brew "gitmux"         # git status in tmux status bar
 brew "htop"           # Improved top
+brew "jira-cli"       # interact with jira
 brew "pandoc"         # document converter,
 brew "tmux"           # terminal multiplexer
 brew "tmuxp"          # tmux session manager
-brew "gitmux"         # git status in tmux status bar
 
 # parsing/converting
 brew "dos2unix"       # convert text between DOS, UNIX, and Mac formats
@@ -98,10 +101,6 @@ brew "git-lfs"              # large file storage
 brew "git-open"             # open github/gitlab urls from terminal
 brew "svn"                  # svn,some packages eg roboto font rely on it
 
-# cli
-brew "chezmoi"
-brew "gh"                  # interact with github
-brew "jira-cli"            # interact with jira
 
 ## a/v
 brew "asciinema"
