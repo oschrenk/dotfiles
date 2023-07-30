@@ -193,6 +193,9 @@ defaults write "com.apple.controlcenter" "NSStatusItem Visible FocusModes" '1'
 echo "Menubar: Always show Battery"
 defaults write "com.apple.controlcenter" "NSStatusItem Visible Battery" '1'
 
+echo "Menubar: Never show Now Playing"
+defaults write "com.apple.controlcenter" "NSStatusItem Visible NowPlaying" '0'
+
 echo "Menubar: Don't show input source"
 defaults write "com.apple.TextInputMenu" "visible" '0'
 
