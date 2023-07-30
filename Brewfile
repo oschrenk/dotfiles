@@ -2,6 +2,7 @@
 # Taps
 #######################################
 tap "ankitpokhrel/jira-cli"   # jira-cli
+tap "arl/arl"                 # gitmux
 tap "coursier/formulas"       # coursier
 tap "derailed/k9s"            # k9s
 tap "homebrew/cask-drivers"   # elgato control center, rode-central
@@ -67,6 +68,7 @@ brew "htop"           # Improved top
 brew "pandoc"         # document converter,
 brew "tmux"           # terminal multiplexer
 brew "tmuxp"          # tmux session manager
+brew "gitmux"         # git status in tmux status bar
 
 # parsing/converting
 brew "dos2unix"       # convert text between DOS, UNIX, and Mac formats
