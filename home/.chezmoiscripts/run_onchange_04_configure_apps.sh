@@ -16,6 +16,12 @@ defaults write com.google.Chrome DisablePrintPreview -bool true
 echo "Hammerspoon: Move config file to XDG_CONFIG_HOME"
 defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
 
+echo "Hammerspoon: Don't show in Dock"
+defaults write "org.hammerspoon.Hammerspoon" "MJShowDockIconKey" '0'
+
+echo "Hammerspoon: Don't show in Menubar"
+defaults write "org.hammerspoon.Hammerspoon" "MJShowMenuIconKey" '0'
+
 #######################################
 # MAIL
 #######################################
