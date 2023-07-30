@@ -56,7 +56,7 @@ After casks are installed you can already start important apps and configure the
   - download "Liked Songs"
 
 System Settings:
-- "Privacy & Security > Full disk access..." Allow for alacritty. Otheriwse you will see
+- "Privacy & Security > Full disk access..." Allow for alacritty.
 - Add and configure Internet accounts
 
 Open these apps to start synchronizing data
