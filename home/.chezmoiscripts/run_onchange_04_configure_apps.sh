@@ -137,6 +137,9 @@ echo "Homerow: Hide menubar icon"
 defaults write "com.dexterleng.Homerow" "NSStatusItem Visible Item-0" '0'
 defaults write "com.dexterleng.Homerow" "show-menubar-icon" '0'
 
+echo "Homerow: Disable certain apps"
+defaults write "com.dexterleng.Homerow" "disabled-bundle-paths" '("/Applications/Alacritty.app",)'
+
 #######################################
 # TopNotch
 #######################################
