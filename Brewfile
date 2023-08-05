@@ -233,6 +233,7 @@ cask "knockknock"
 # cask "ykursadkaya/openlens/openlens"
 cask "meld"
 cask "microsoft-azure-storage-explorer"
+cask "monitorcontrol"       # control brightness for external monitor
 cask "monodraw"
 cask "numi"
 cask "obs"
