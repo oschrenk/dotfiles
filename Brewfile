@@ -61,6 +61,7 @@ brew "croc"           # Securely transfers data between computers
 brew "bat"            # "better" cat
 brew "chrome-cli"     # control chrome via cli
 brew "direnv"         # auto load env
+brew "entr"           # run arbitrary commands when files change
 brew "exa"            # "better" ls
 brew "fzf"            # fuzzy file finder
 brew "gh"             # interact with github
