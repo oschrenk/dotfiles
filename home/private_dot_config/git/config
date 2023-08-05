@@ -7,11 +7,48 @@
 
   editor = nvim
 
-  # See https://github.com/so-fancy/diff-so-fancy
-  # - NOT patch compatible output
-  # - no +/- beginning of line
-  # 0 word difference
-  pager = diff-so-fancy | less --tabs=4 -RFX
+  # See https://github.com/dandavison/delta
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  navigate = true             # use n and N to move between diff sections
+  side-by-side = true
+
+  true-color = always
+  syntax-theme = gruvbox-dark
+  hunk-header-style = omit
+
+  dark = true
+  # Line numbers
+  line-numbers = true
+  line-numbers-left-style = "#84786A"
+  line-numbers-right-style = "#84786A"
+  line-numbers-minus-style = "#A02A11"
+  line-numbers-plus-style = "#479B36"
+  line-numbers-zero-style = "#84786A"
+  line-numbers-left-format = " {nm:>3} │"
+  line-numbers-right-format = " {np:>3} │"
+  # File
+  file-style = "#FFFFFF" bold
+  file-added-label = [+]
+  file-copied-label = [==]
+  file-modified-label = [*]
+  file-removed-label = [-]
+  file-renamed-label = [->]
+  file-decoration-style = "#434C5E" ul
+  file-decoration-style = "#84786A" ul
+  # Diff contents
+  inline-hint-style = syntax
+  minus-style = syntax "#330011"
+  minus-emph-style = syntax "#80002a"
+  minus-non-emph-style = syntax auto
+  plus-style = syntax "#347127"
+  plus-emph-style = syntax "#003300"
+  plus-non-emph-style = syntax auto
+  whitespace-error-style = "#FB4934" reverse
 
 [pull]
   # Since 2.0
@@ -180,6 +217,19 @@
   # git diff HEAD:file1 file2 compares an (o)bject and a (w)ork tree entity;
   # git diff --no-index a b   compares two non-git things (1) and (2).
   mnemonicPrefix = true
+
+  # since git 2.17
+  # moved lines in a diff are colored differently
+  # https://git-scm.com/docs/git-diff#Documentation/git-diff.txt---color-movedltmodegt
+  # no
+  #  Moved lines are not highlighted.
+  # default
+  #  Is a synonym for zebra. May change to a more sensible mode in the future
+  # ...
+  # zebra
+  #  Blocks of moved text are detected as in blocks mode. The blocks are painted using either the color.diff.{old,new}Moved color or color.diff.{old,new}MovedAlternative. The change between the two colors indicates that a new block was detected.
+  #
+  colorMoved = default
 
 [merge]
   # By default, when you merge a branch in git, you get a fairly meaningless

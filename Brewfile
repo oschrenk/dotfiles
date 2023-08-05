@@ -95,6 +95,7 @@ brew "wget"
 brew "diff-so-fancy"        # better looking diffs
 brew "git"                  # dvcs
 brew "git-crypt"            # encrypt secrets in git
+brew "git-delta"            # better looking diffs
 brew "git-extras"           # nice git extras
 brew "git-lfs"              # large file storage
 brew "git-open"             # open github/gitlab urls from terminal
