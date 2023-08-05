@@ -2,9 +2,7 @@
   "session_name": "personal",
   "windows": [
     {
-      "window_name": "home",
       "layout": "even-horizontal",
-      "options": { "automatic-rename": "off" },
       "panes": [
         { "shell_command": [] }
       ]
