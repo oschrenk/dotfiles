@@ -13,11 +13,11 @@
     <key>Label</key>
     <string>com.oschrenk.homebrew</string>
     <key>WorkingDirectory</key>
-    <string>/usr/local/</string>
+    <string>/opt/homebrew</string>
     <key>ProgramArguments</key>
     <array>
       <!-- full path to binary -->
-      <string>/usr/local/bin/brew</string>
+      <string>/opt/homebrew/bin/brew</string>
       <string>update</string>
     </array>
     <key>RunAtLoad</key>
