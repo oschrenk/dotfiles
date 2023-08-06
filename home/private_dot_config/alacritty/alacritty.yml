@@ -31,7 +31,7 @@ shell:
   args:
     - --login
     - --init-command
-    - "tl personal"
+    - "tmux"
 
 key_bindings:
   # Fix Alt as Meta in macOS
