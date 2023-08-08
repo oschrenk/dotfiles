@@ -51,7 +51,6 @@ brew "watchman"       # watch files and take action when they change
 ## edit
 brew "ctags"          # generate index of symbols
 brew "neovim"         # editor
-brew "vim"
 
 ## crypto
 brew "age"            # modern and secure encryption too
