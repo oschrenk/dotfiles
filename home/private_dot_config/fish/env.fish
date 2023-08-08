@@ -16,6 +16,9 @@ fish_add_path --prepend /opt/homebrew/bin
 # editor
 set -x EDITOR nvim
 
+# XDG
+set -gx XDG_CONFIG_HOME $HOME/.config
+
 # Set locale
 set -gx LC_ALL en_US.UTF-8
 set -gx LANG en_US.UTF-8
