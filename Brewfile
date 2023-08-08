@@ -124,6 +124,7 @@ brew "podman"      # manage OCI contaniners and pods
 cask "podman-desktop" # manage OCI contaniners and pods
 brew "fnm"         # node version manger
 brew "go"          # go
+brew "go-task"     # go-based task runner as Make replacement
 brew "grunt-cli"   # JavaScript Task Runner
 brew "maven"       # jvm
 brew "node"        # javascript
