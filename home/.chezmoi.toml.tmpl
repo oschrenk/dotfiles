@@ -1,0 +1,13 @@
+{{- $identity := promptStringOnce . "identity" "Age identity file location" -}}
+
+{{- $recipient := promptStringOnce . "recipient" "Age public key" -}}
+
+
+encryption = "age"
+
+[diff]
+  pager = "delta"
+
+[age]
+  identity = {{ $identity | quote }}
+  recipient = {{ $recipient | quote }}

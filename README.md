@@ -11,7 +11,7 @@ These are my dotfiles. There are many like it but these are mine.
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # install chezmoi and requirements
-brew install chezmoi git git-lfs
+brew install age chezmoi git git-lfs 1password
 
 # install rosetta 2
 softwareupdate --install-rosetta
@@ -24,6 +24,23 @@ git lfs pull
 
 # apply
 chezmoi apply
+```
+
+Certain files require age decryption. You will be asked certain values
+
+```
+chezmoi init
+Age identity file location?
+Age public key?
+```
+
+These answers are stored in 1Password
+
+Creation
+```
+$ mkdir -p $HOME/.age
+$ age-keygen -o $HOME/.age/key.txt
+Public key: age...c8p
 ```
 
 ### Packages
