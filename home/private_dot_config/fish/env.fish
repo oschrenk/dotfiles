@@ -1,6 +1,14 @@
 # This file is sourced on login shells only
 # (responsible for setting up initial environment)
 
+# set
+# -g or --global
+#        Sets a globally-scoped variable.  Global variables are available to all
+#        functions running in the same shell.  They can be modified or erased.
+# --export or -x
+#        Causes the specified shell variable to be exported to child processes
+#        (making it an "environment variable").
+
 # put homebrew bin before system bin
 fish_add_path --prepend /opt/homebrew/sbin
 fish_add_path --prepend /opt/homebrew/bin
