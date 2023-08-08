@@ -49,7 +49,6 @@ brew "watch"          # issue commands at regular interval
 brew "watchman"       # watch files and take action when they change
 
 ## edit
-brew "ctags"          # generate index of symbols
 brew "neovim"         # editor
 
 ## crypto
