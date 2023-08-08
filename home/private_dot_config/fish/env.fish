@@ -43,7 +43,8 @@ fish_add_path --append $ANDROID_HOME/tools/bin
 fish_add_path --append $ANDROID_HOME/platform-tools
 
 # Rust
-fish_add_path --prepend $HOME/.cargo/bin
+fish_add_path --prepend $XDG_DATA_HOME/.cargo/bin
+set -gx CARGO_HOME $XDG_DATA_HOME/cargo
 
 # Python
 pyenv init - | source
