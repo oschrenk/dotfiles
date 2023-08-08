@@ -18,6 +18,8 @@ set -x EDITOR nvim
 
 # XDG
 set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx INPUTRC "$XDG_CONFIG_HOME"/readline/inputrc
+set -gx WGETRC "$XDG_CONFIG_HOME"/wgetrc
 
 # Set locale
 set -gx LC_ALL en_US.UTF-8
