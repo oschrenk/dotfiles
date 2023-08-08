@@ -29,9 +29,7 @@ set -g theme_newline_cursor clean
 function react_to_pwd --on-variable PWD
   if string match -e -- "$HOME/Projects" "$PWD"
     set -g theme_display_k8s_context yes
-    set -g theme_display_k8s_namespace yes
   else
     set -g theme_display_k8s_context no
-    set -g theme_display_k8s_namespace no
   end
 end
