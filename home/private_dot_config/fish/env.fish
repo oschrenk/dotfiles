@@ -57,6 +57,7 @@ fish_add_path --prepend $HOME/.krew/bin
 # homebrew
 set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
+set -gx HOMEBREW_NO_UPDATE_REPORT_NEW 1
 
 # fzf
 # control how fzf is executed when doing :Files in vim
