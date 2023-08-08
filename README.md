@@ -89,3 +89,4 @@ Login:
 Link device:
 - Signal
 - Telegram
+- Whatsapp
