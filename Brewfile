@@ -89,7 +89,6 @@ brew "telnet"         # telnet protocol
 
 ## http
 # brew "curl"  # included/managed by macos
-brew "wget"
 
 ## vcs
 brew "git"                  # dvcs
