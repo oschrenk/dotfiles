@@ -1,6 +1,6 @@
 window:
   padding:
-    x: 0
+    x: 3
     y: 0
   decorations: none
   option_as_alt: Both
