@@ -88,7 +88,7 @@ brew "ssh-copy-id"
 brew "telnet"         # telnet protocol
 
 ## http
-brew "curl"
+# brew "curl"  # included/managed by macos
 brew "wget"
 
 ## vcs
