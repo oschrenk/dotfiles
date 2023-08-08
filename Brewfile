@@ -84,7 +84,8 @@ brew "httrack"        # copy websites offline
 brew "nmap"           # port scanning
 brew "ngrep"          # network packet analyzer
 brew "mobile-shell"   # better shell for roaming
-brew "ssh-copy-id"
+# brew "ssh-copy-id" # included/managed by macos
+
 brew "telnet"         # telnet protocol
 
 ## http
