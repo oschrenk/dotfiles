@@ -107,7 +107,7 @@ brew "asciinema"     # record terminal sessions
 brew "exiftool"      # read/write exif
 brew "ffmpeg"        # convert audio/video
 brew "flac"          # flac codec
-brew "imagemagick@6"
+# brew "imagemagick@6" # included/managed by macos
 brew "lame"          # mp3 codec
 brew "libmp3splt"    # split mp3, off, flac files
 brew "mp3splt"       # split mp3, off, flac files
