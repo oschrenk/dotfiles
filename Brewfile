@@ -20,18 +20,18 @@ tap "txn2/tap"                # kubefwd
 # to already configure and use services and applications while brew
 # keeps installing other packages
 
-cask "1password"
-cask "1password-cli"
-cask "alacritty"
-cask "google-chrome"
-cask "karabiner-elements"
-cask "hammerspoon"
-cask "intellij-idea-ce"
-brew "chezmoi"
-brew "fish"
-brew "fzf"
-mas "Bear", id: 1091189122
-mas "NotePlan 3", id: 1505432629
+cask "1password"                 # password manager
+cask "1password-cli"             # password manager
+cask "alacritty"                 # terminal
+cask "google-chrome"             # browser
+cask "karabiner-elements"        # customize keyboard
+cask "hammerspoon"               # desktop automation
+cask "intellij-idea-ce"          # ide for java/scala
+brew "chezmoi"                   # dotfiles manager
+brew "fish"                      # shell
+brew "fzf"                       # fuzzy finder
+mas "Bear", id: 1091189122       # notes
+mas "NotePlan 3", id: 1505432629 # daily notes
 
 #######################################
 # Packages
@@ -50,7 +50,7 @@ brew "watchman"       # watch files and take action when they change
 
 ## edit
 brew "ctags"          # generate index of symbols
-brew "neovim"
+brew "neovim"         # editor
 brew "vim"
 
 ## crypto
@@ -80,12 +80,12 @@ brew "xmlstarlet"     # process XML
 brew "yq"             # process YAML
 
 ## network
-brew "httrack"
-brew "nmap"
-brew "ngrep"
-brew "mobile-shell"
+brew "httrack"        # copy websites offline
+brew "nmap"           # port scanning
+brew "ngrep"          # network packet analyzer
+brew "mobile-shell"   # better shell for roaming
 brew "ssh-copy-id"
-brew "telnet"
+brew "telnet"         # telnet protocol
 
 ## http
 brew "curl"
@@ -102,18 +102,18 @@ brew "svn"                  # svn,some packages eg roboto font rely on it
 
 
 ## a/v
-brew "asciinema"
-brew "exiftool"
-brew "ffmpeg"
-brew "flac"
+brew "asciinema"     # record terminal sessions
+brew "exiftool"      # read/write exif
+brew "ffmpeg"        # convert audio/video
+brew "flac"          # flac codec
 brew "imagemagick@6"
-brew "lame"
-brew "libmp3splt"
-brew "mp3splt"
-brew "sox"
-brew "x264"
-brew "xvid"
-brew "yt-dlp"
+brew "lame"          # mp3 codec
+brew "libmp3splt"    # split mp3, off, flac files
+brew "mp3splt"       # split mp3, off, flac files
+brew "sox"           # edit audio
+brew "x264"          # h264 encoder
+brew "xvid"          # mp4 lib
+brew "yt-dlp"        # download youtube video/audio
 
 ## programming
 brew "bower"       # JavaScript Package Manager
@@ -143,20 +143,22 @@ brew "typescript"  # typescript
 brew "yarn"        # javascript
 
 # cloud
-brew "awscli"             # aws
+brew "awscli"  # aws
+brew "doctl"   # Digital Ocean
+brew "pulumi"  # infrastructure as code
+brew "tfenv"   # terraform version manager
+brew "traefik" # reverse proxy
+
+# k8s
 brew "derailed/k9s/k9s"
-brew "doctl"              # Digital Ocean
-brew "helm"
-brew "kubectl"
-brew "kubectx"
-brew "kustomize"
-brew "krew"               # Package manager for kubectl plugins
-brew "kube-linter"
-brew "minikube"
-brew "pulumi"
-brew "tfenv"
-brew "traefik"
-brew "txn2/tap/kubefwd"
+brew "helm"             # k8s package manager
+brew "kubectl"          # k8s cli
+brew "kubectx"          # switch k8s contexts
+brew "kustomize"        # template free k8s resource transformers
+brew "krew"             # package manager for kubectl plugins
+brew "kube-linter"      # lint k8s yaml and helm
+brew "minikube"         # run local k8s
+brew "txn2/tap/kubefwd" # bulk port forwarding
 
 # macos
 brew "fileicon"   # managing custom icons for files and folders
@@ -208,55 +210,55 @@ cask "font-victor-mono"
 # Casks
 #######################################
 
-cask "android-platform-tools"
-cask "arc"
-cask "calibre"
-cask "cog"
-cask "dbeaver-community"
-cask "discord"
-cask "docker"
+cask "android-platform-tools" # android sdk
+cask "arc"                  # chromium based browser
+cask "calibre"              # ebook manager
+cask "cog"                  # audio client
+cask "dbeaver-community"    # sql client
+cask "discord"              # discord client
+cask "docker"               # docker client
 # until https://github.com/kcrawford/dockutil/issues/127 is resolved
 # install dockutil via this cask
 cask "hpedrorodrigues/tools/dockutil"
-cask "elgato-control-center"
-cask "firefox"
-cask "flux"
-cask "grammarly-desktop"
-cask "handbrake"
-cask "hex-fiend"
-cask "insomnia"
-cask "iina"
-cask "jdk-mission-control"
-cask "keyboardcleantool"
+cask "elgato-control-center" # elgato software to control lights
+cask "firefox"              # browser
+cask "flux"                 # control screen color temperature
+cask "grammarly-desktop"    # grammarly client
+cask "handbrake"            # video transcoder
+cask "hex-fiend"            # hex editor
+cask "insomnia"             # http and graphql client
+cask "iina"                 # video client
+cask "jdk-mission-control"  # monitor java applications
+cask "keyboardcleantool"    # disables keyboard for easier cleaning
 cask "keycastr"             # shows key strokes on screen
-cask "knockknock"
+cask "knockknock"           # identify macos background tasks/processes
 # Lens 5.5 required login, use OpenLens
 # cask "lens"
 # cask "ykursadkaya/openlens/openlens"
-cask "meld"
+cask "meld"                 # 3 way merge tool
 cask "microsoft-azure-storage-explorer"
 cask "monitorcontrol"       # control brightness for external monitor
-cask "monodraw"
-cask "numi"
-cask "obs"
-cask "omnidisksweeper"
-cask "paparazzi"
-cask "postman"
+cask "monodraw"             # draw ascii art
+cask "numi"                 # calculator
+cask "obs"                  # broadcasting
+cask "omnidisksweeper"      # cleanup disk space
+cask "paparazzi"            # make screenshots of websites
+cask "postman"              # api development
 cask "rocket"               # quick emoji access
-cask "rode-central"
-cask "sequel-pro"
-cask "signal"
-cask "slack"
-cask "spotify"
-cask "steam"
-cask "telegram"
-cask "the-unarchiver"
+cask "rode-central"         # rode companion app (for AI-1)
+cask "sequel-pro"           # sql client
+cask "signal"               # signal messaging
+cask "slack"                # slack office communication
+cask "spotify"              # audio client
+cask "steam"                # gaming client
+cask "telegram"             # telegram messaging
+cask "the-unarchiver"       # unarchiving for most archive files
 cask "topnotch"             # "hide" notch
-cask "transmission"
-cask "visual-studio-code"
-cask "vlc"
-cask "whatsapp"
-cask "zoom"
+cask "transmission"         # torrent client
+cask "visual-studio-code"   # editor
+cask "vlc"                  # video client
+cask "whatsapp"             # whatsapp messaging
+cask "zoom"                 # video conferencing
 
 #######################################
 # Xcode
