@@ -28,18 +28,33 @@ function __tmux_sessions_mru
   tmux list-sessions -F '#{session_last_attached} #{session_name} #{session_path}' | sort --nuiiiumeric-sort --reverse | awk '{print $2,$3}'
 end
 
-function __tmux_create_or_switch -a session_name session_path
+function __tmux_create_or_switch_by_entry -a entry
+  # destructure selection
+  # currently not all fields are used
+  set --local selected_source (echo $entry | cut -f 1 )
+  set --local selected_search_path (echo $entry | cut -f 2)
+  set --local selected_full_path (echo $entry | cut -f 3 )
+  set --local display_path (echo $entry | cut -f 4 )
+  set --local session_name (echo "$display_path" | tr . - | tr ' ' - | tr ':' - | tr '[:upper:]' '[:lower:]')
+
+  __tmux_create_or_switch_by_name $session_name $session_path
+end
+
+function __tmux_create_or_switch_by_name -a session_name session_path
   # create session if it does not exist
   tmux has-session -t="$session_name" &> /dev/null
     or tmux new-session -d -s $session_name -c "$session_path"
 
   switch (__tmux_context)
     case "attached"
+      echo "a"
       tmux switch -t $session_name
     case "detached"
-      tmux switch-client -t $session_name
-    case "serverless"
+      echo "d"
       tmux attach -t $session_name
+    case "serverless"
+      echo "s"
+      tmux switch-client -t $session_name
     case '*'
       echo "Error: Invalid tmux context" 1>&2
       exit 1
@@ -73,27 +88,39 @@ set --local temp_file (mktemp)
 # LOGIC
 ###################
 
-# build entries
-__build_search_entries $temp_file $default_entry $base_dir
+set sub_command $argv[1]
+set -q sub_command; or set sub_command 'start'
 
-# make selection
-set --local selection (cat $temp_file | fzf --delimiter='\t' --with-nth=4)
 
-# cleanup
-# TODO create trap for this
-rm -f $temp_file
+switch $sub_command
+  # load default profile
+  case "init"
+    __tmux_create_or_switch_by_entry (echo -e $default_entry)
 
-# exit early if selection is not valid (eg: user pressed escape)
-if test -z $selection
-  exit
+  # search through available sesssions
+  case "search"
+    # build entries
+    __build_search_entries $temp_file $default_entry $base_dir
+
+    # make selection
+    set --local selected_entry (cat $temp_file | fzf --delimiter='\t' --with-nth=4)
+
+    # cleanup, TODO create trap for this
+    rm -f $temp_file
+
+    # exit early if selection is not valid (eg: user pressed escape)
+    if test -z $selected_entry
+      exit
+    end
+
+    __tmux_create_or_switch_by_entry $selected_entry
+
+  # show detached sessions
+  # since status left show always the active session, we just return detached
+  case "sessions"
+    tmux list-sessions -F "#{session_name}" -f "#{==:#{session_attached},0}" | cut -d "/" -f2 | head -3 | awk -v d=" " '{s=(NR==1?s:s d)$0}END{print s}'
+  case '*'
+    echo "Error: Unknown command `$sub_command`" 1>&2
+    exit 1
 end
 
-# destructure selection
-set --local selected_source (echo $selection | cut -f 1 )
-set --local selected_search_path (echo $selection | cut -f 2)
-set --local selected_full_path (echo $selection | cut -f 3 )
-set --local display_path (echo $selection | cut -f 4 )
-set --local session_name (echo "$display_path" | tr . - | tr ' ' - | tr ':' - | tr '[:upper:]' '[:lower:]')
-
-# create session
-__tmux_create_or_switch $session_name $selected_full_path
