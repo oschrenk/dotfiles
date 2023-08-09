@@ -11,6 +11,7 @@
 function __tmux_context
   # determine if the tmux server is running
   if tmux list-sessions &>/dev/null
+    # if $TMUX is set we are already inside TMUX
 	  if test -n "$TMUX" # inside tmux
 		  echo "attached"
 	  else # outside tmux
@@ -24,20 +25,24 @@ end
 # list current tmux sessions ordered by most recently uses
 # returns `#{session_name} #{session_path}`
 function __tmux_sessions_mru
-  tmux list-sessions -F '#{session_last_attached} #{session_name} #{session_path}' | sort --numeric-sort --reverse | awk '{print $2,$3}'
+  tmux list-sessions -F '#{session_last_attached} #{session_name} #{session_path}' | sort --nuiiiumeric-sort --reverse | awk '{print $2,$3}'
 end
 
 function __tmux_create_or_switch -a session_name session_path
-  if not test (tmux has-session -t=$session_name &> /dev/null)
-    tmux new-session -d -s $session_name -c "$session_path"
-  end
+  # create session if it does not exist
+  tmux has-session -t="$session_name" &> /dev/null
+    or tmux new-session -d -s $session_name -c "$session_path"
 
-   # if $TMUX is set we are already inside TMUX
-  if test -n "$TMUX"
-    tmux switch -t $session_name
-   # otherwise we switch to it
-   else
-    tmux switch-client -t $session_name
+  switch (__tmux_context)
+    case "attached"
+      tmux switch -t $session_name
+    case "detached"
+      tmux switch-client -t $session_name
+    case "serverless"
+      tmux attach -t $session_name
+    case '*'
+      echo "Error: Invalid tmux context" 1>&2
+      exit 1
   end
 end
 
