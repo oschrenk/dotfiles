@@ -165,10 +165,10 @@ echo "Desktop: Set Hotcorner Top Left to Mission Control"
 defaults write com.apple.dock wvous-tl-corner -int 2
 echo "Desktop: Set Hotcorner Top Right to Mission Control"
 defaults write com.apple.dock wvous-tr-corner -int 2
-echo "Desktop: Set Hotcorner Bottom Left to Application Windows"
+echo "Desktop: Set Hotcorner Bottom Left to Desktop"
 defaults write com.apple.dock wvous-bl-corner -int 4
-echo "Desktop: Set Hotcorner Bottom Right to Desktop"
-defaults write com.apple.dock wvous-br-corner -int 12
+echo "Desktop: Set Hotcorner Bottom Right to Screenshot"
+defaults write com.apple.dock wvous-br-corner -int 5
 
 #######################################
 # MENUBAR
