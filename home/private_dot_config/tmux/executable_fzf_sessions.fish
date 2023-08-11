@@ -103,7 +103,7 @@ switch $sub_command
     __build_search_entries $temp_file $default_entry $base_dir
 
     # make selection
-    set --local selected_entry (cat $temp_file | fzf --delimiter='\t' --with-nth=4)
+    set --local selected_entry (cat $temp_file | fzf --delimiter='\t' --with-nth=4 --info=inline-right)
 
     # cleanup, TODO create trap for this
     rm -f $temp_file
