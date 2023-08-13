@@ -4,7 +4,7 @@ if test -r ~/.config/fish/aliases.fish
 end
 
 if status --is-login
-    source ~/.config/fish/env.fish
+  source ~/.config/fish/env.fish
 end
 
 # Enable direnv
