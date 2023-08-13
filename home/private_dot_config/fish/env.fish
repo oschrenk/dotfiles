@@ -81,8 +81,13 @@ set -gx FZF_DEFAULT_COMMAND 'rg --files --no-ignore --hidden --follow --glob "!{
 # relies on `brew install fd`
 set -gx FZF_CTRL_T_COMMAND 'fd --type f --type d --hidden --follow --exclude .git'
 
+#############################
+# ssh
+#############################
 set -x SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
+#############################
 # k8s
+#############################
 set -x KUBECONFIG (find $HOME/.kube/config.d -name "*.yml" -o -name '*.yaml' | sort | xargs echo | sed 's/ /:/g')
 
