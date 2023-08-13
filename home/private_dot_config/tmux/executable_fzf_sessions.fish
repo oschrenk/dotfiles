@@ -61,18 +61,28 @@ function __tmux_create_or_switch_by_name -a session_name session_path
   end
 end
 
+
+# entry format:
+#   "$source\t$search_path\t$full_path\t$display_path"
+# with
+# - $source       [default|git]
+# - $search_path  search path that discovered this entry
+#   - empty if source is default
+#   - set if source is git
+# - $session_path full path to initial directory, also used as session_path
+# - $display_path relative path to search_path for displaying
 function __build_search_entries -a temp_file default_entry search_path
   set --local search_path_length (math (string length $search_path) + 2)
 
   # store default as first option
   echo -e $default_entry >> $temp_file
 
-  for repo_path in (find -L $search_path -type d -name ".git" -maxdepth 3 | rev | cut -c6- | rev | sort);
+  for session_path in (find -L $search_path -type d -name ".git" -maxdepth 3 | rev | cut -c6- | rev | sort);
     set --local source "git"
-    set --local display_path (echo $repo_path | cut -c$search_path_length-)
+    set --local display_path (echo $session_path | cut -c$search_path_length-)
 
     # store as git source
-    set --local entry (echo "$source\t$search_path\t$full_path\t$display_path")
+    set --local entry (echo "$source\t$search_path\t$session_path\t$display_path")
     echo -e $entry >> $temp_file
   end
 end
@@ -80,6 +90,7 @@ end
 ###################
 # CONFIG
 ###################
+#
 set --local default_entry (echo "default\t\t$HOME/Downloads\tdefault")
 set --local base_dir $HOME/Projects
 set --local temp_file (mktemp)
@@ -88,11 +99,12 @@ set --local temp_file (mktemp)
 # LOGIC
 ###################
 
+# default to `start` sub_command
 set sub_command $argv[1]
 set -q sub_command; or set sub_command 'start'
 
-
 switch $sub_command
+
   # load default profile
   case "init"
     __tmux_create_or_switch_by_entry (echo -e $default_entry)
