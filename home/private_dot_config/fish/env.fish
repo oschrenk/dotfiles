@@ -9,6 +9,10 @@
 #        Causes the specified shell variable to be exported to child processes
 #        (making it an "environment variable").
 
+#############################
+# PATH
+#############################
+
 # put homebrew bin before system bin
 fish_add_path --prepend /opt/homebrew/sbin
 fish_add_path --prepend /opt/homebrew/bin
