@@ -7,11 +7,6 @@ if status --is-login
     source ~/.config/fish/env.fish
 end
 
-# local configurations
-if test -r ~/.config/fish/local.fish
-  source ~/.config/fish/local.fish
-end
-
 # Enable direnv
 eval (direnv hook fish)
 
