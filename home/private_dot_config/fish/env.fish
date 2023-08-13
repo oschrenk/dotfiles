@@ -66,7 +66,7 @@ set -gx HOMEBREW_NO_UPDATE_REPORT_NEW 1
 # fzf
 #############################
 # control colors/styling
- set -gx FZF_DEFAULT_OPTS '--color=bw,prompt:11,fg:,bg+:,fg+: --height 40% --reverse --prompt="  " --pointer=" " --border=none --no-separator --no-scrollbar --info=hidden'
+ set -gx FZF_DEFAULT_OPTS '--color=bw,prompt:11,fg:,bg+:,fg+: --height 40% --reverse --prompt="󰍉 " --pointer="󰘍" --border=none --no-separator --no-scrollbar --info=hidden'
 
 # control how fzf is executed when doing :Files in vim
 # relies on `brew install ripgrep`
