@@ -7,7 +7,6 @@ abbr -a -- - 'cd -'
 
 alias d    'cd $HOME/Downloads'
 alias p    'cd $HOME/Projects'
-alias n    'cd $HOME/Projects/personal/notes'
 
 # Applications
 alias a    'ag'
