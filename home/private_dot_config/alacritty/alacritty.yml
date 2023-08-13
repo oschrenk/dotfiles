@@ -12,11 +12,17 @@ scrolling:
 font:
   size: 20.0
   normal:
-    family: "M+CodeLat Nerd Font Mono"
-    style: Light
+    family: "JetBrainsMono Nerd Font"
+    style: ExtraLight
   bold:
-    family: "M+CodeLat Nerd Font Mono"
-    style: Medium
+    family: "JetBrainsMono Nerd Font"
+    style: Regular
+  italic:
+    family: "JetBrainsMono Nerd Font"
+    style: ExtraLight Italic
+  bold_italic:
+    family: "JetBrainsMono Nerd Font"
+    style: Regular Italic
   offset:
     x: 0
     y: 2
