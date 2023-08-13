@@ -63,7 +63,12 @@ set -gx HOMEBREW_NO_ANALYTICS 1
 set -gx HOMEBREW_NO_ENV_HINTS 1
 set -gx HOMEBREW_NO_UPDATE_REPORT_NEW 1
 
+#############################
 # fzf
+#############################
+# control colors/styling
+ set -gx FZF_DEFAULT_OPTS '--color=bw,prompt:11,fg:,bg+:0,fg+:,gutter:0 --height 40% --reverse --prompt="  " --pointer=" " --border=none --no-separator --no-scrollbar --info=hidden'
+
 # control how fzf is executed when doing :Files in vim
 # relies on `brew install ripgrep`
 # --files: List files that would be searched but do not search
