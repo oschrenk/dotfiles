@@ -32,7 +32,7 @@ function __tmux_create_or_switch_by_entry -a entry
   # destructure selected item into separate fields
   set --local selected_session_path (echo $entry | cut -f 3 )
   set --local selected_display_path (echo $entry | cut -f 4 )
-  set --local normalized_session_name (echo "$display_path" | tr . - | tr ' ' - | tr ':' - | tr '[:upper:]' '[:lower:]')
+  set --local normalized_session_name (echo "$selected_display_path" | tr . - | tr ' ' - | tr ':' - | tr '[:upper:]' '[:lower:]')
 
   __tmux_create_or_switch_by_name $normalized_session_name $selected_session_path
 end
@@ -103,7 +103,7 @@ set -q sub_command; or set sub_command 'start'
 switch $sub_command
 
   # load default profile
-  case "init"
+  case "start"
     __tmux_create_or_switch_by_entry (echo -e $default_entry)
 
   # search through available sesssions
