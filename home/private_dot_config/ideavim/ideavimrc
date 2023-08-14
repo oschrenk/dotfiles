@@ -1,13 +1,130 @@
-set clipboard=unnamed
-set visualbell
-set noerrorbells
+" ###########################
+" BASE
+" ###########################
+
+" set leader to <space>
+let mapleader = " "
+
+" ###########################
+" TIPS
+" ###########################
+" In a dialog hitting <Esc> won’t work since it closes the dialog
+" but if your cursor is caught in selection mode, pressing Ctrl+] " works without moving your hands off the home row.
+
+" ###########################
+" CONFIGURATION
+" ###########################
+"
+" see also list of supported commands
+" https://github.com/JetBrains/ideavim/wiki/set-commands
+"
+" vim
+" ***************************
+
+set clipboard=unnamed " support system clipboard
+set hlsearch          " highlight search occurrences
+set ignorecase        " ignore case in search patterns
+set incsearch         " show search results while typing
+set noerrorbells      " silence on error
+set smartcase         " no ignore case when pattern is uppercase
+set visualbell        " flash screen instead of bell
+set wrapscan          " searches wrap around the end of the file
+
+" intellij-specific
+" ***************************
+
+" define mode that would be enabled during the refactoring
+" (renaming, live template, introduce variable, etc)
+"  - keep  - keep the mode, enabled before starting a refactoring
+"  - select - start refactoring in select mode
+"  - visual - start refactoring in visual mode
+set idearefactormode=keep
+
+" If true, join command will be performed via IDE
+set ideajoin
+
+" IdeaVim icon in the status bar.
+"   - enabled - icon is shown in the status bar
+"   - gray - use the gray version of the icon
+"   - disabled - hide the icon
+set ideastatusicon=gray
+
+" Define the list of additional buffers where IdeaVim is enabled.
+"   - dialog - in dialogs
+"   - singleline - in single line editors (not suggested)
+set ideavimsupport=dialog
+
+" ###########################
+" PLUGINS
+" ###########################
 
 " emulate vim-surround
 " Commands: ys, cs, ds, S
-set surround
+Plug 'tpope/vim-surround'
 
 " emulate commentary.vim
 " Commands: gcc, gc + motion, v_gc
-set commentary
+Plug 'tpope/vim-commentary'
 
-source ~/.vimrc
+" treat project explorer like nerdtree
+Plug 'preservim/nerdtree'
+
+" ###########################
+" KEY MAPPINGS
+" ###########################
+" to search for actions: :actionlist <pattern>
+
+" basic key mapping
+" ***************************
+
+" cancel highlight
+nnoremap <C-C>      :nohls<return><esc>
+
+" code actions
+nnoremap U          :action FindUsages<CR>
+nnoremap R          :action RenameElement<CR>
+nnoremap ==         :action ReformatCode<CR>
+vnoremap =          :action ReformatCode<CR>
+nnoremap --         :action OptimizeImports<CR>
+
+" setup ataman
+nnoremap <Space>    :action LeaderAction<cr>
+vnoremap <Space>    :action LeaderAction<cr>
+
+" movements
+nmap     gr         :action ShowUsages<CR>
+nmap     gi         :action GotoImplementation<CR>
+nmap     gs         :action GotoSuperMethod<CR>
+nmap     gt         <Action>(GotoTest)
+map      gb         <Action>(JumpToLastChange)
+
+" leader based
+" ***************************
+
+" change font size
+nmap     <leader>+  :action EditorIncreaseFontSize<CR>
+nmap     <leader>-  :action EditorDecreaseFontSize<CR>
+nmap     <leader>=  :action EditorResetFontSize<CR>
+
+" show information
+map      <leader>ii <Action>(QuickJavaDoc)
+map      <leader>in <Action>(GotoNextError)
+map      <leader>ip <Action>(GotoPreviousError)
+map      <leader>ir <Action>(ShowErrorDescription)
+map      <leader>iq <Action>(QuickImplementations)
+
+" edit/source ideavim config
+" to source manually, enter command mode (via `:`)
+" :source ~/.config/ideavim/ideavimrc
+nnoremap <leader>vv :e ~/.config/ideavim/ideavimrc<CR>
+nnoremap <leader>vr :source ~/.config/ideavim/ideavimrc<CR>
+
+" ***************************
+" NERDTree
+" ***************************
+
+let g:NERDTreeMapActivateNode='l' " open close directory
+let g:NERDTreeMapJumpParent='h'   " move up one directory level
+nnoremap <leader>nd :NERDTreeFocus<CR>
+map      <leader>ne :action SelectInProjectView<CR>
+nnoremap <leader>nb :action ShowNavBar<CR>
