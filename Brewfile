@@ -137,6 +137,7 @@ brew "rust"        # rust
 brew "sbt"         # scala
 brew "scala"       # scala
 brew "tectonic"    # tex
+brew "typst"       # tex alternative (rust based)
 brew "typescript"  # typescript
 brew "yarn"        # javascript
 
