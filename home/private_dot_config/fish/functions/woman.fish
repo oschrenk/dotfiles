@@ -30,8 +30,8 @@ function woman --description  "a companion for man, showing examples"
 
   set -l file $woman_home/$topic.md
   if test -e $file
-    # this depends on https://github.com/oschrenk/mess
-    mess $file
+    # this depends on https://github.com/charmbracelet/glow
+    glow $file
   else
     echo "No womanual entry for $topic"
   end
