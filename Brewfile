@@ -44,7 +44,6 @@ brew "fd"             # fast find alternative
 brew "findutils"      # g-prefixed `find`, `locate`, `updatedb`,`xargs`
 brew "gawk"           # GNU awk utility
 brew "ripgrep"        # Code-search like grep and the_silver_searcher
-brew "the_silver_searcher" # Code-search similar to ack
 brew "watch"          # issue commands at regular interval
 brew "watchman"       # watch files and take action when they change
 
