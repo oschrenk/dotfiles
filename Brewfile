@@ -61,6 +61,7 @@ brew "direnv"         # auto load env
 brew "entr"           # run arbitrary commands when files change
 brew "exa"            # "better" ls
 brew "fzf"            # fuzzy file finder
+brew "glow"           # render markdown in terminal
 brew "gh"             # interact with github
 brew "gitmux"         # git status in tmux status bar
 brew "htop"           # Improved top
