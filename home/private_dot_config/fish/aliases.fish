@@ -9,28 +9,15 @@ alias d    'cd $HOME/Downloads'
 alias p    'cd $HOME/Projects'
 
 # Applications
-alias a    'ag'
-alias c    clear
-alias g    git
-alias k    kubectl
-alias t    terraform
-
+alias c   'cd (chezmoi source-path)'
+alias cux 'chmod u+x'
+alias g   git
 alias ios 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
-
-# chezmoi
-alias ccd  'chezmoi cd'
-
-# tmux sessions
-alias tk   'tmux kill-session -t'
-alias tl   'tmuxp load -2 -y'
-
-# Make user executable
-alias cux  'chmod u+x'
+alias k   kubectl
+alias t   terraform
 
 # Sound
 # requires `brew install sox`
 alias noise 'play -q -c 2 --null synth brownnoise band -n 2500 4000 tremolo 20 .1 reverb 50'
 alias tng 'play -c2 -n synth whitenoise band -n 100 24 band -n 300 100 gain +5'
 
-# Fun
-alias meow 'cat'
