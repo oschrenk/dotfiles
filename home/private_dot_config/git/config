@@ -2,7 +2,7 @@
 # Inclusion of user/system specific files at the bottom
 
 [core]
-  attributesfile = ~/.config/git/attributes/global
+  attributesFile = ~/.config/git/attributes
   excludesFile = ~/.config/git/ignore
 
   editor = nvim
