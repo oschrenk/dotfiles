@@ -3,7 +3,7 @@
 
 [core]
   attributesfile = ~/.config/git/attributes/global
-  excludesfile = ~/.config/git/ignore/global
+  excludesFile = ~/.config/git/ignore
 
   editor = nvim
 
