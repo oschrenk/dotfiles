@@ -2,11 +2,10 @@ return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter" },
   dependencies = {
-    "hrsh7th/cmp-path",
     "hrsh7th/cmp-buffer",
     'hrsh7th/cmp-nvim-lsp',
     'andersevenrud/cmp-tmux',
-    'meetcw/cmp-browser-source',
+    'wxxxcxx/cmp-browser-source',
     'hrsh7th/cmp-vsnip',
     'hrsh7th/vim-vsnip'
   },
