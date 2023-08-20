@@ -44,5 +44,6 @@ return {
         { name = "nvim_lsp" }
       }
     })
+    require("cmp-browser-source").start_server()
   end
 }
