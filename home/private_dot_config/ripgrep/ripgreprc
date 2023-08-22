@@ -1,0 +1,42 @@
+# Seehttps://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#configuration-file
+
+# Don't print lines longer than this limit in bytes. Longer lines are omitted,
+# and only the number of matches in that line is printed.
+--max-columns=160
+
+# Exclude directories.
+--glob=!{.cache,.git,.svn,build,dist,node_modules,target,Trash,vendor}
+
+# Exclude file types.
+--glob=!*.{lock}
+
+# Exclude files.
+--glob=!{package-lock.json}
+
+# Searches case insensitively if the pattern is all lowercase.
+# Search case sensitively otherwise.
+--smart-case
+
+# Follow symbolic links while traversing directories.
+# This is disabled by default. Note that ripgrep will check for symbolic link
+# loops and report errors if it finds one.
+--follow
+
+# all ASCII whitespace at the beginning of each line printed will be trimmed
+--trim
+
+# Sort results in ascending order. The possible values are
+#   none      (Default) Do not sort. Fastest. Can be multi-threaded.
+#   path      Sort by file path. Always single-threaded.
+#   modified  Sort by last modified time of file. Always single-threaded.
+#   accessed  Sort by last accessed time of file. Always single-threaded.
+#   created   Sort by the creation time of file. Always single-threaded.
+--sort=path
+
+# Configure color settings and styles.
+# --colors=path:bg:0x3b,0x3b,0x3b
+# --colors=path:fg:white
+# --colors=line:fg:0xf2,0xc2,0x60
+# --colors=match:bg:0x2b,0x83,0xa6
+# --colors=match:fg:0xff,0xff,0xff
+# --colors=match:style:nobold
