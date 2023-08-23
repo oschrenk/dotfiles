@@ -69,6 +69,7 @@ brew "jira-cli"       # interact with jira
 brew "pandoc"         # document converter,
 brew "tmux"           # terminal multiplexer
 brew "tmuxp"          # tmux session manager
+brew "walk"           # file manager
 
 # parsing/converting
 brew "dos2unix"       # convert text between DOS, UNIX, and Mac formats
