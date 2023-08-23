@@ -80,10 +80,9 @@ brew "yq"             # process YAML
 
 ## network
 brew "httrack"        # copy websites offline
-brew "nmap"           # port scanning
-brew "ngrep"          # network packet analyzer
 brew "mobile-shell"   # better shell for roaming
-
+brew "ngrep"          # network packet analyzer
+brew "nmap"           # port scanning
 brew "telnet"         # telnet protocol
 
 ## http
@@ -114,32 +113,32 @@ brew "xvid"          # mp4 lib
 brew "yt-dlp"        # download youtube video/audio
 
 ## programming
-brew "bower"       # JavaScript Package Manager
-brew "coursier/formulas/coursier" # Pure Scala Artifact Fetching
-brew "cloc"        # count lines of code
-brew "cmake"       # cross-platform  build automation
-brew "podman"      # manage OCI contaniners and pods
-cask "podman-desktop" # manage OCI contaniners and pods
-brew "fnm"         # node version manger
-brew "go"          # go
-brew "go-task"     # go-based task runner as Make replacement
-brew "grunt-cli"   # JavaScript Task Runner
-brew "maven"       # jvm
-brew "node"        # javascript
-brew "openjdk@11"  # jvm
-brew "openjdk@17"  # jvm
-brew "python"      # python
-brew "poetry"      # python
-brew "pyenv"       # python
-brew "rbenv"       # ruby
-brew "ruby-build"  # ruby
-brew "rust"        # rust
-brew "sbt"         # scala
-brew "scala"       # scala
+brew "bower"       # javascript, package manager
+brew "cloc"        # generic, count lines of code
+brew "cmake"       # generic, cross-platform  build automation
+brew "coursier/formulas/coursier" # jvm, scala, artifact fetching
+brew "fnm"         # javascript, version manger
+brew "go"          # go, language
+brew "go-task"     # generic, go-based task runner as Make replacement
+brew "grunt-cli"   # javascript, task runner
+brew "maven"       # jvm, package manager
+brew "node"        # javascript, language
+brew "openjdk@11"  # jvm, sdk
+brew "openjdk@17"  # jvm, sdk
+brew "podman"      # generic, manage OCI contaniners and pods
+brew "poetry"      # python, package manager
+brew "pyenv"       # python, version manager
+brew "python"      # python, language
+brew "rbenv"       # ruby, version manager
+brew "ruby-build"  # ruby, version manager
+brew "rust"        # rust, language
+brew "sbt"         # jvm, scala
+brew "scala"       # jvm, scala
 brew "tectonic"    # tex
+brew "typescript"  # typescript, language
 brew "typst"       # tex alternative (rust based)
-brew "typescript"  # typescript
-brew "yarn"        # javascript
+brew "yarn"        # javascript, package manager
+cask "podman-desktop" # generic, manage OCI contaniners and pods
 
 # cloud
 brew "awscli"  # aws
@@ -149,15 +148,15 @@ brew "tfenv"   # terraform version manager
 brew "traefik" # reverse proxy
 
 # k8s
-brew "derailed/k9s/k9s"
-brew "helm"             # k8s package manager
-brew "kubectl"          # k8s cli
-brew "kubectx"          # switch k8s contexts
-brew "kustomize"        # template free k8s resource transformers
-brew "krew"             # package manager for kubectl plugins
-brew "kube-linter"      # lint k8s yaml and helm
-brew "minikube"         # run local k8s
-brew "txn2/tap/kubefwd" # bulk port forwarding
+brew "derailed/k9s/k9s" # k8s, cluster manager
+brew "helm"             # k8s, package manager
+brew "krew"             # k8s, kubectl package manager
+brew "kube-linter"      # k8s, lint k8s yaml and helm
+brew "kubectl"          # k8s, cli
+brew "kubectx"          # k8s, switch k8s contexts
+brew "kustomize"        # k8s, template free k8s resource transformers
+brew "minikube"         # k8s, run local k8s
+brew "txn2/tap/kubefwd" # k8s, bulk port forwarding
 
 # macos
 brew "fileicon"   # managing custom icons for files and folders
@@ -226,8 +225,8 @@ cask "flux"                 # control screen color temperature
 cask "grammarly-desktop"    # grammarly client
 cask "handbrake"            # video transcoder
 cask "hex-fiend"            # hex editor
-cask "insomnia"             # http and graphql client
 cask "iina"                 # video client
+cask "insomnia"             # http and graphql client
 cask "jdk-mission-control"  # monitor java applications
 cask "keyboardcleantool"    # disables keyboard for easier cleaning
 cask "keycastr"             # shows key strokes on screen
