@@ -13,7 +13,7 @@ alias a    'ag'
 alias c    chezmoi
 alias g    git
 alias k    kubectl
-alias t    terraform
+alias t    task
 
 alias ios 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
 
