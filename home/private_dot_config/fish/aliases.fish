@@ -18,7 +18,7 @@ alias t    task
 alias ios 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
 
 # chezmoi
-alias che  'cd (chezmoi source-path)'
+alias che  'cd (chezmoi source-path)/..'
 
 # Make user executable
 alias cux  'chmod u+x'
