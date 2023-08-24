@@ -10,7 +10,7 @@ alias p    'cd $HOME/Projects'
 
 # Applications
 alias a    'ag'
-alias c    clear
+alias c    chezmoi
 alias g    git
 alias k    kubectl
 alias t    terraform
