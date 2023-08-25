@@ -10,7 +10,6 @@ return {
         vim.api.nvim_set_var("fern#renderer#nerdfont#root_symbol", "")
         vim.api.nvim_set_var("fern#renderer#nerdfont#root_leading", "")
         vim.api.nvim_set_var("fern#renderer#nerdfont#indent_markers", 1)
-
       end,
     },
     "lambdalisue/fern-git-status.vim",
