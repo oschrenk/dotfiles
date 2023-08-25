@@ -231,7 +231,6 @@ cask "knockknock"           # identify macos background tasks/processes
 # cask "lens"
 # cask "ykursadkaya/openlens/openlens"
 cask "meld"                 # 3 way merge tool
-cask "microsoft-azure-storage-explorer"
 cask "monitorcontrol"       # control brightness for external monitor
 cask "monodraw"             # draw ascii art
 cask "numi"                 # calculator
