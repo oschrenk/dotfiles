@@ -10,6 +10,13 @@ echo "Chrome: Use the system-native print preview dialog"
 defaults write com.google.Chrome DisablePrintPreview -bool true
 
 #######################################
+# Arc Browser
+#######################################
+
+echo "Arc: Disable User interface sounds"
+defaults write "company.thebrowser.Browser" "playUserInterfaceSoundsDisabled" '1'
+
+#######################################
 # HAMMERSPOON
 #######################################
 
@@ -184,7 +191,7 @@ defaults write com.jetbrains.intellij.ce ApplePressAndHoldEnabled -bool false
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
-for app in "Chrome" "Hammerspoon" "Mail" "Safari" "IINA" "NotePlan" "Homerow" "TopNotch" "Flux" "idea" "Calendar"; do
+for app in "Chrome" "Arc" "Hammerspoon" "Mail" "Safari" "IINA" "NotePlan" "Homerow" "TopNotch" "Flux" "idea" "Calendar"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
