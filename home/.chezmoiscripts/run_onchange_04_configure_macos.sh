@@ -201,7 +201,6 @@ defaults write "com.apple.TextInputMenu" "visible" '0'
 
 echo "Menubar: Hide Siri"
 defaults write "com.apple.Siri" "StatusMenuVisible" '0'
-defaults delete "com.apple.systemuiserver" "NSStatusItem Visible Siri"
 
 #######################################
 # SPOTLIGHT
