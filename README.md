@@ -56,8 +56,8 @@ After casks are installed you can already start important apps and configure the
   - Security > Apple Watch.
   - Developer > Use the SSH Agent
   - Developer > Enable Biometric Unlock
-- Chrome
-  - open profiles, and log into services
+- Arc
+- open profiles, and log into services
 - Karabiner Elements.
   - Open. Read "System Extensions Blocked" popup. Click on "Open Security Preferences" and press "Allow".
 - IntelliJ. Configure plugins.
