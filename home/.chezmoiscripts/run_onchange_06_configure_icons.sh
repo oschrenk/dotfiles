@@ -56,6 +56,7 @@ fi
 #--------------------------------------
 
 sudo fileicon set /Applications/Alacritty.app/ $BASEDIR/assets/icons/alacritty.icns
+sudo fileicon set /Applications/Arc.app $BASEDIR/assets/icons/arc.icns
 sudo fileicon set /Applications/Blackmagic\ ATEM\ Switchers/ATEM\ Software\ Control.app/ $BASEDIR/assets/icons/atem.icns
 sudo fileicon set /Applications/Docker.app $BASEDIR/assets/icons/docker.icns
 # docker has app inside app
