@@ -253,7 +253,7 @@ defaults write com.apple.screencapture location ~/Downloads
 #######################################
 
 echo "Keyboard: Set key repeat rate to 1"
-defaults write "Apple Global Domain" "KeyRepeat" '2'
+defaults write "Apple Global Domain" "KeyRepeat" '1'
 
 echo "Keyboard: Set initial key repeat rate to 15"
 defaults write "Apple Global Domain" "InitialKeyRepeat" '15'
