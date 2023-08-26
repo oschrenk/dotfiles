@@ -95,8 +95,6 @@ brew "git-delta"     # better looking diffs
 brew "git-extras"    # nice git extras
 brew "git-lfs"       # large file storage
 brew "git-open"      # open github/gitlab urls from terminal
-brew "svn"           # svn,some packages eg roboto font rely on it
-
 
 ## a/v
 brew "asciinema"     # record terminal sessions
