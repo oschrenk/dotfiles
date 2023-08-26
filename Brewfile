@@ -9,8 +9,7 @@ tap "homebrew/cask-drivers"   # elgato control center, rode-central
 tap "homebrew/cask-fonts"     # fonts
 tap "txn2/tap"                # kubefwd
 
-# You can list all packages installed via
-# brew "leaves"
+# You can list all packages installed via `brew leaves`
 
 #######################################
 # Bootstrap priorities
@@ -89,13 +88,13 @@ brew "telnet"         # telnet protocol
 # brew "curl"  # included/managed by macos
 
 ## vcs
-brew "git"                  # dvcs
-brew "git-crypt"            # encrypt secrets in git
-brew "git-delta"            # better looking diffs
-brew "git-extras"           # nice git extras
-brew "git-lfs"              # large file storage
-brew "git-open"             # open github/gitlab urls from terminal
-brew "svn"                  # svn,some packages eg roboto font rely on it
+brew "git"           # dvcs
+brew "git-crypt"     # encrypt secrets in git
+brew "git-delta"     # better looking diffs
+brew "git-extras"    # nice git extras
+brew "git-lfs"       # large file storage
+brew "git-open"      # open github/gitlab urls from terminal
+brew "svn"           # svn,some packages eg roboto font rely on it
 
 
 ## a/v
