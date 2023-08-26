@@ -135,7 +135,7 @@ brew "tectonic"    # tex
 brew "typescript"  # typescript, language
 brew "typst"       # tex alternative (rust based)
 brew "yarn"        # javascript, package manager
-cask "podman-desktop" # generic, manage OCI contaniners and pods
+cask "podman-desktop" # generic, manage OCI containers and pods
 
 # cloud
 brew "awscli"  # aws
