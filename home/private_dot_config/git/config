@@ -285,16 +285,10 @@
 	defaultBranch = main
 
 [user]
-  name = Oliver Schrenk
-  email = oliver.schrenk@gmail.com
-[include]
-  path = ~/.config/git/config.d/system
-[includeIf "gitdir:~/Projects/personal/"]
-  path = ~/.config/git/config.d/personal
-[includeIf "gitdir:~/Projects/forks/"]
-  path = ~/.config/git/config.d/personal
-[includeIf "gitdir:~/Projects/external/"]
-  path = ~/.config/git/config.d/personal
+  # since 2.4.1
+  # https://git-scm.com/docs/git-config#Documentation/git-config.txt-useruseConfigOnly
+  # avoid trying to guess defaults for user.email and user.name
+	useConfigOnly = true
 
 [filter "lfs"]
 	clean = git-lfs clean -- %f
