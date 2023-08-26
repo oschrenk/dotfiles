@@ -16,6 +16,9 @@ defaults write com.google.Chrome DisablePrintPreview -bool true
 echo "Arc: Disable User interface sounds"
 defaults write "company.thebrowser.Browser" "playUserInterfaceSoundsDisabled" '1'
 
+echo "Arc: Skip unboxing video"
+defaults write "company.thebrowser.Browser" "shouldSkipUnboxingVideo" '1'
+
 #######################################
 # HAMMERSPOON
 #######################################
