@@ -1,0 +1,3 @@
+repgrep    # interactive replacer for ripgrep
+typstfmt   # formatter for the typst language
+vimv       # batch rename using vim
