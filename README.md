@@ -14,8 +14,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install age chezmoi git git-lfs 1password
 
 # install rosetta 2
-# System Information > Software > Applications
-# sort by Kind, and find "Intel"
+# system_profiler SPApplicationsDataType -json | jq -r '.SPApplicationsDataType[] | select (.arch_kind == "arch_i64") | ._name ' | sort
 #
 # needed for
 #   Islanders (game on steam)
