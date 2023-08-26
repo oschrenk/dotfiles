@@ -14,6 +14,19 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install age chezmoi git git-lfs 1password
 
 # install rosetta 2
+# System Information > Software > Applications
+# sort by Kind, and find "Intel"
+#
+# needed for
+#   Islanders (game on steam)
+#   Meld
+#   Paparazzi!
+#   pgAdmin 4
+#   PhotoScape X
+#   Sequel Pro
+#   Steam
+#   Steam Helper
+#   WhatsApp
 softwareupdate --install-rosetta
 
 # init
