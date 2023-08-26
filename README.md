@@ -38,7 +38,7 @@ git lfs pull
 chezmoi apply
 ```
 
-Certain files require age decryption. You will be asked certain values
+Certain files require age decryption. You will be asked a few questions:
 
 ```
 chezmoi init
@@ -46,14 +46,7 @@ Age identity file location?
 Age public key?
 ```
 
-These answers are stored in 1Password
-
-Creation
-```
-$ mkdir -p $HOME/.age
-$ age-keygen -o $HOME/.age/key.txt
-Public key: age...c8p
-```
+These answers are stored in 1Password under "Chezmoi / Age / Key"
 
 ### Packages
 
