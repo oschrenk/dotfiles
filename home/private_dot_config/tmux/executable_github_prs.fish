@@ -5,7 +5,8 @@
 ########################
 
 # Requirements:
-#   brew install gh
+#   - `git`: brew install git
+#   - `gh`: brew install gh
 #
 # Configuration:
 #   - gh needs to be authorized
