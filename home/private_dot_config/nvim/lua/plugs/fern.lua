@@ -23,7 +23,7 @@ return {
   config = function()
     vim.api.nvim_set_keymap("n", "-", "", {
       callback = function()
-        vim.api.nvim_command("Fern . -reveal=% -drawer -toggle -width=30 -right")
+        vim.api.nvim_command("Fern . -reveal=% -drawer -toggle -right -width=50")
       end,
     })
     vim.api.nvim_exec(
