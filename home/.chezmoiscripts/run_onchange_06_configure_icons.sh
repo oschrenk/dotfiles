@@ -12,7 +12,7 @@ if [ -d "/Applications/calibre.app" ]; then
   ORIGINAL=/Applications/calibre.app/Contents/Resources/resources/images/library.png
   BACKUP=/Applications/calibre.app/Contents/Resources/resources/images/library.png.bak
   if [ -f "$BACKUP" ]; then
-    # notinng to do
+    # nothing to do
     echo "calibre already backed up"
   else
     sudo cp $ORIGINAL $BACKUP
