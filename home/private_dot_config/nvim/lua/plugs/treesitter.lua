@@ -20,6 +20,7 @@ return {
         "python",
         "rust",
         "scala", "hocon",
+        "swift",
         "yaml"
       },
       textobjects = {
