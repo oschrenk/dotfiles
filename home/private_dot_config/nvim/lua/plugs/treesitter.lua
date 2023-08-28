@@ -8,14 +8,19 @@ return {
       context_commentstring = { enable = true, enable_autocmd = false },
       ensure_installed = {
         "bash", "fish",
-        "html", "css",
         "comment", "regex", "vim",
+        "diff", "git_config", "git_rebase", "gitcommit", "gitignore",
+        "go",
+        "hcl",
+        "html", "css",
+        "javascript", "typescript", "tsx",
+        "json", "jq",
         "lua",
-        "python",
-        "scala", "hocon",
         "markdown", "markdown_inline", "rst",
-        "javascript", "json", "typescript", "tsx",
-        "hcl"
+        "python",
+        "rust",
+        "scala", "hocon",
+        "yaml"
       },
       textobjects = {
         select = {
