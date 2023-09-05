@@ -118,6 +118,7 @@ brew "fnm"         # javascript, version manger
 brew "go"          # go, language
 brew "go-task"     # generic, go-based task runner as Make replacement
 brew "grunt-cli"   # javascript, task runner
+brew "stylua"      # lua formatter
 brew "maven"       # jvm, package manager
 brew "node"        # javascript, language
 brew "openjdk@11"  # jvm, sdk
