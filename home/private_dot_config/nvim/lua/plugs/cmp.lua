@@ -3,11 +3,11 @@ return {
   event = { "InsertEnter" },
   dependencies = {
     "hrsh7th/cmp-buffer",
-    'hrsh7th/cmp-nvim-lsp',
-    'andersevenrud/cmp-tmux',
-    'wxxxcxx/cmp-browser-source',
-    'hrsh7th/cmp-vsnip',
-    'hrsh7th/vim-vsnip'
+    "hrsh7th/cmp-nvim-lsp",
+    "andersevenrud/cmp-tmux",
+    "wxxxcxx/cmp-browser-source",
+    "hrsh7th/cmp-vsnip",
+    "hrsh7th/vim-vsnip",
   },
   config = function()
     require("cmp").setup({
@@ -38,12 +38,12 @@ return {
         end,
       }),
       sources = {
-        { name = 'buffer' },
-        { name = 'tmux' },
-        { name = 'browser' },
-        { name = "nvim_lsp" }
-      }
+        { name = "buffer" },
+        { name = "tmux" },
+        { name = "browser" },
+        { name = "nvim_lsp" },
+      },
     })
     require("cmp-browser-source").start_server()
-  end
+  end,
 }

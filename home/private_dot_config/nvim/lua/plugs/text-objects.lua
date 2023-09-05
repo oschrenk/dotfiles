@@ -1,8 +1,8 @@
 return {
-  'chrisgrieser/nvim-various-textobjs',
+  "chrisgrieser/nvim-various-textobjs",
   lazy = false,
   config = function()
-    local textobjs = require('various-textobjs')
+    local textobjs = require("various-textobjs")
 
     textobjs.setup({
       useDefaultKeymaps = false,

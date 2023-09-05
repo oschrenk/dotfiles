@@ -1,11 +1,10 @@
 return {
   "scalameta/nvim-metals",
   dependencies = {
-    'hrsh7th/cmp-nvim-lsp'
+    "hrsh7th/cmp-nvim-lsp",
   },
-  ft = {'scala', 'sbt' },
+  ft = { "scala", "sbt" },
   config = function()
-
     local metals_config = require("metals").bare_config()
 
     metals_config.settings = {
@@ -32,6 +31,5 @@ return {
     map("n", "<leader>sh", [[<cmd>lua vim.lsp.buf.signature_help()<CR>]])
     map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
     map("n", "<leader>f", "<cmd>lua vim.lsp.buf.format{async = true }<CR>")
-
-  end
+  end,
 }
