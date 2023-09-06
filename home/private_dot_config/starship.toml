@@ -1,0 +1,110 @@
+# get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# insert a blank line between shell prompts
+add_newline = true
+
+format = """
+$kubernetes\
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$docker_context\
+$helm\
+$pulumi\
+$terraform\
+$nix_shell\
+$env_var\
+$custom\
+$sudo\
+$cmd_duration\
+$line_break\
+$jobs\
+$time\
+$status\
+$container\
+$character"""
+
+# Set 'gruvboox' as custom color palette
+palette = 'gruvbox'
+
+[directory]
+style = 'bold green'
+
+[kubernetes]
+disabled = false
+detect_files = ['k8s']
+symbol = '⛵'
+style = 'aqua'
+
+[git_branch]
+style = "bold yellow"
+
+[git_metrics]
+disabled = false
+added_style = 'green'
+deleted_style	= 'red'
+format = '([+$added]($added_style))([-$deleted]($deleted_style) )'
+ignore_submodules = true
+
+[git_status]
+format       = "$ahead$behind$diverged$conflicted$deleted$staged$renamed$modified$untracked$stashed"
+conflicted   = "[≠$count ](bold red)"
+ahead        = "[⇡$count ](bold purple)"
+behind       = "[⇣$count ](bold purple)"
+diverged     = "[⇕$count ](bold purple)"
+untracked    = "[+$count ](bold orange)"
+modified     = "[~$count ](bold yellow)"
+staged       = "[++$count ](bold green)"
+renamed      = "[»$count ](bold white)"
+deleted      = "[✘$count ](bold red)"
+stashed      = "[x$count ](bold purple)"
+
+[cmd_duration]
+style	= 'bold yellow'
+
+[custom.time_mood]
+shell = ["fish"]
+command = """
+set TIME (date +%H)
+if test "$TIME" -le 17; and test "$TIME" -ge 8
+    set time_symbol "🌤"
+else if test "$TIME" -le 21; and "$TIME" -ge 18
+    set time_symbol "🌖"
+else if "$TIME" -le 4; or "$TIME" -ge 22
+    set time_symbol "🌙"
+else
+    set time_symbol "🌔"
+end
+echo "$time_symbol "
+"""
+format = "[at $output]($style) "
+style = 'white'
+when = "true"
+
+[custom.docker]
+description = "Shows the docker symbol if the current directory has Dockerfile or docker-compose.yml files"
+detect_files = ["Dockerfile", "docker-compose.yml", "docker-compose.yaml"]
+format = '[with $symbol ]($style)'
+style = 'white'
+symbol = '🐳'
+
+# define custom colors
+[palettes.gruvbox]
+aqua = '#8ec07c'
+blue = '#83a598'
+gray = '#928374'
+green = '#b8bb26'
+orange = '#fe8019'
+purple = '#d3869b'
+red = '#fb4934'
+white = '#ebdbb2' # fg
+yellow = '#fabd2f'
+# fg colors
+fg  = '#ebdbb2'
+fg0 = '#fbf1c7'
+fg1 = '#ebdbb2'
+fg2 = '#bdae93'
