@@ -29,6 +29,7 @@ cask "hammerspoon"               # desktop automation
 cask "intellij-idea-ce"          # ide for java/scala
 brew "chezmoi"                   # dotfiles manager
 brew "fish"                      # shell
+brew "starship"                  # prompt
 brew "fzf"                       # fuzzy finder
 mas "Bear", id: 1091189122       # notes
 mas "NotePlan 3", id: 1505432629 # daily notes
