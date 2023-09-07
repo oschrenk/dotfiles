@@ -239,7 +239,6 @@ cask "paparazzi"            # make screenshots of websites
 cask "postman"              # api development
 cask "rocket"               # quick emoji access
 cask "rode-central"         # rode companion app (for AI-1)
-cask "sequel-pro"           # sql client
 cask "signal"               # signal messaging
 cask "slack"                # slack office communication
 cask "spotify"              # audio client

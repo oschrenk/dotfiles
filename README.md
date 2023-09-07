@@ -21,7 +21,6 @@ brew install age chezmoi git git-lfs 1password
 #   Paparazzi!
 #   pgAdmin 4
 #   PhotoScape X
-#   Sequel Pro
 #   Steam
 #   Steam Helper
 softwareupdate --install-rosetta
