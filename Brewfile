@@ -132,6 +132,7 @@ brew "rbenv"       # ruby, version manager
 brew "ruby-build"  # ruby, version manager
 brew "rust"        # rust, language
 brew "sbt"         # jvm, scala
+brew "shellcheck"  # shell linter
 brew "scala"       # jvm, scala
 brew "tectonic"    # tex
 brew "typescript"  # typescript, language
