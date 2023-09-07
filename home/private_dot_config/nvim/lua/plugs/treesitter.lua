@@ -5,7 +5,10 @@ return {
   dependencies = {},
   config = function()
     require("nvim-treesitter.configs").setup({
-      context_commentstring = { enable = true, enable_autocmd = false },
+      context_commentstring = {
+        enable = true,
+        enable_autocmd = false
+      },
       ensure_installed = {
         "bash",
         "comment",
@@ -74,7 +77,11 @@ return {
           node_decremental = "<C-x>",
         },
       },
-      rainbow = { enable = true, extended_mode = false, max_file_lines = 400 },
+      rainbow = {
+        enable = true,
+        extended_mode = false,
+        max_file_lines = 400
+      },
     })
   end,
 }
