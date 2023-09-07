@@ -230,7 +230,6 @@ cask "knockknock"           # identify macos background tasks/processes
 # Lens 5.5 required login, use OpenLens
 # cask "lens"
 # cask "ykursadkaya/openlens/openlens"
-cask "meld"                 # 3 way merge tool
 cask "monitorcontrol"       # control brightness for external monitor
 cask "monodraw"             # draw ascii art
 cask "numi"                 # calculator
