@@ -180,7 +180,6 @@ mas "NextDNS", id: 1464122853
 mas "NordVPN", id: 905953485
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
-mas "PhotoScape X", id: 929507092
 mas "Reeder 5", id: 1529448980
 mas "Session", id: 1521432881
 mas "VOX", id: 461369673

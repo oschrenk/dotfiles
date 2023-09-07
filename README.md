@@ -18,7 +18,6 @@ brew install age chezmoi git git-lfs 1password
 #
 # needed for
 #   Islanders (game on steam)
-#   PhotoScape X
 #   Steam
 #   Steam Helper
 softwareupdate --install-rosetta
