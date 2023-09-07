@@ -5,7 +5,7 @@ return {
   dependencies = {
     "David-Kunz/markid",
     "HiPhish/nvim-ts-rainbow2",
-    "nvim-treesitter/nvim-treesitter-textobjects"
+    "nvim-treesitter/nvim-treesitter-textobjects",
   },
   config = function()
     require("nvim-treesitter.configs").setup({
@@ -45,7 +45,6 @@ return {
         "yaml",
       },
       -- `textobjects` via nvim-treesitter/nvim-treesitter-context
-      -- see https://github.com/nvim-treesitter/nvim-treesitter-textobjects
       textobjects = {
         select = {
           enable = true,
@@ -88,9 +87,9 @@ return {
         enable = true,
         -- list of languages you want to disable the plugin for
         disable = { },
-        -- Which query to use for finding delimiters
+        -- which query to use for finding delimiters
         query = 'rainbow-parens',
-        -- Highlight the entire buffer all at once
+        -- highlight the entire buffer all at once
         strategy = require('ts-rainbow').strategy.global,
       },
       -- `markid` via "David-Kunz/markid" dependency
