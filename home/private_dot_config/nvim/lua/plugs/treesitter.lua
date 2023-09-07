@@ -2,7 +2,10 @@ return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   lazy = false,
-  dependencies = {},
+  dependencies = {
+    "HiPhish/nvim-ts-rainbow2",
+    "David-Kunz/markid"
+  },
   config = function()
     require("nvim-treesitter.configs").setup({
       context_commentstring = {
@@ -77,11 +80,18 @@ return {
           node_decremental = "<C-x>",
         },
       },
+      -- `rainbow` via "HiPhish/nvim-ts-rainbow2" dependency
       rainbow = {
         enable = true,
-        extended_mode = false,
-        max_file_lines = 400
+        -- list of languages you want to disable the plugin for
+        disable = { },
+        -- Which query to use for finding delimiters
+        query = 'rainbow-parens',
+        -- Highlight the entire buffer all at once
+        strategy = require('ts-rainbow').strategy.global,
       },
+      -- `markid` via "David-Kunz/markid" dependency
+      markid = { enable = true }
     })
   end,
 }
