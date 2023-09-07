@@ -24,7 +24,6 @@ brew install age chezmoi git git-lfs 1password
 #   Sequel Pro
 #   Steam
 #   Steam Helper
-#   WhatsApp
 softwareupdate --install-rosetta
 
 # init
