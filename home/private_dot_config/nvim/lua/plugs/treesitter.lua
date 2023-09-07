@@ -11,7 +11,7 @@ return {
     require("nvim-treesitter.configs").setup({
       context_commentstring = {
         enable = true,
-        enable_autocmd = false
+        enable_autocmd = false,
       },
       ensure_installed = {
         "bash",
@@ -86,14 +86,14 @@ return {
       rainbow = {
         enable = true,
         -- list of languages you want to disable the plugin for
-        disable = { },
+        disable = {},
         -- which query to use for finding delimiters
-        query = 'rainbow-parens',
+        query = "rainbow-parens",
         -- highlight the entire buffer all at once
-        strategy = require('ts-rainbow').strategy.global,
+        strategy = require("ts-rainbow").strategy.global,
       },
       -- `markid` via "David-Kunz/markid" dependency
-      markid = { enable = true }
+      markid = { enable = true },
     })
   end,
 }
