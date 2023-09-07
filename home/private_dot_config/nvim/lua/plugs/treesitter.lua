@@ -3,8 +3,9 @@ return {
   build = ":TSUpdate",
   lazy = false,
   dependencies = {
+    "David-Kunz/markid",
     "HiPhish/nvim-ts-rainbow2",
-    "David-Kunz/markid"
+    "nvim-treesitter/nvim-treesitter-textobjects"
   },
   config = function()
     require("nvim-treesitter.configs").setup({
@@ -43,6 +44,8 @@ return {
         "vim",
         "yaml",
       },
+      -- `textobjects` via nvim-treesitter/nvim-treesitter-context
+      -- see https://github.com/nvim-treesitter/nvim-treesitter-textobjects
       textobjects = {
         select = {
           enable = true,
