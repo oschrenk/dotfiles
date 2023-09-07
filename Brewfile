@@ -235,7 +235,6 @@ cask "monodraw"             # draw ascii art
 cask "numi"                 # calculator
 cask "obs"                  # broadcasting
 cask "omnidisksweeper"      # cleanup disk space
-cask "paparazzi"            # make screenshots of websites
 cask "postman"              # api development
 cask "rocket"               # quick emoji access
 cask "rode-central"         # rode companion app (for AI-1)

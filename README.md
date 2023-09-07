@@ -18,8 +18,6 @@ brew install age chezmoi git git-lfs 1password
 #
 # needed for
 #   Islanders (game on steam)
-#   Paparazzi!
-#   pgAdmin 4
 #   PhotoScape X
 #   Steam
 #   Steam Helper
