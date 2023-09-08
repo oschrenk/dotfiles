@@ -60,7 +60,6 @@ brew "bat"            # "better" cat
 brew "chrome-cli"     # control chrome via cli
 brew "direnv"         # auto load env
 brew "entr"           # run arbitrary commands when files change
-brew "fzf"            # fuzzy file finder
 brew "gh"             # interact with github
 brew "gitmux"         # git status in tmux status bar
 brew "glow"           # render markdown in terminal
