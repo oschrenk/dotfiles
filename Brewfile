@@ -60,13 +60,13 @@ brew "bat"            # "better" cat
 brew "chrome-cli"     # control chrome via cli
 brew "direnv"         # auto load env
 brew "entr"           # run arbitrary commands when files change
-brew "exa"            # "better" ls
 brew "fzf"            # fuzzy file finder
 brew "gh"             # interact with github
 brew "gitmux"         # git status in tmux status bar
 brew "glow"           # render markdown in terminal
 brew "htop"           # Improved top
 brew "jira-cli"       # interact with jira
+brew "lsd"            # "better" ls
 brew "pandoc"         # document converter,
 brew "tmux"           # terminal multiplexer
 brew "tmuxp"          # tmux session manager
