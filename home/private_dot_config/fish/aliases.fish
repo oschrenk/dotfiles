@@ -5,23 +5,23 @@ alias ....  'cd ../../..'
 alias ..... 'cd ../../../..'
 abbr -a -- - 'cd -'
 
-alias d    'cd $HOME/Downloads'
-alias p    'cd $HOME/Projects'
+alias d 'cd $HOME/Downloads'
+alias p 'cd $HOME/Projects'
 
 # Applications
-alias a    'ag'
-alias c    chezmoi
-alias g    git
-alias k    kubectl
-alias t    task
+alias a 'ag'
+alias c 'chezmoi'
+alias g 'git'
+alias k 'kubectl'
+alias t 'task'
 
 alias ios 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
 
 # chezmoi
-alias che  'cd (chezmoi source-path)/..'
+alias che 'cd (chezmoi source-path)/..'
 
 # Make user executable
-alias cux  'chmod u+x'
+alias cux 'chmod u+x'
 
 # Sound
 # requires `brew install sox`
