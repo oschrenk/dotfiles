@@ -10,6 +10,7 @@ alias p 'cd $HOME/Projects'
 
 # Applications
 alias a 'ag'
+alias b 'brew'
 alias c 'chezmoi'
 alias g 'git'
 alias k 'kubectl'
