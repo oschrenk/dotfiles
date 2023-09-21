@@ -50,7 +50,8 @@ return {
             tmux     = '',
             browser  = '',
             nvim_lsp = '',
-          })[entry.source.name]
+            vim_dadbod_completion = ''
+          })[entry.source.name:gsub("-", "_")]
           return vim_item
         end
     }
