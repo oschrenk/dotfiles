@@ -21,8 +21,7 @@ return {
     vim.g.db_ui_auto_execute_table_helpers = 1
 
     -- available templates
-    -- {optional_schema}
-    -- {table}
+    -- `{table}`, `{schema}`, `{optional_schema}`, `{dbname}` and `{last_query}`.
     vim.g.db_ui_table_helpers = {
       postgresql = {
         Count = "SELECT count(*) FROM {table}",
