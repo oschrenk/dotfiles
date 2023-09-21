@@ -43,6 +43,17 @@ return {
         { name = "browser" },
         { name = "nvim_lsp" },
       },
+      formatting = {
+        format = function(entry, vim_item)
+          vim_item.menu = ({
+            buffer   = '',
+            tmux     = '',
+            browser  = '',
+            nvim_lsp = '',
+          })[entry.source.name]
+          return vim_item
+        end
+    }
     })
     require("cmp-browser-source").start_server()
   end,
