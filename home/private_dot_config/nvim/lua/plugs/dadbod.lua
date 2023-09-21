@@ -17,6 +17,7 @@ return {
     vim.g.db_ui_win_position = "left"
     vim.g.db_ui_winwidth = 30
 
+    vim.g.db_ui_use_nvim_notify = 1
     vim.g.db_ui_auto_execute_table_helpers = 1
 
     -- available templates
