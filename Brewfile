@@ -75,6 +75,7 @@ brew "walk"           # file manager
 # parsing/converting
 brew "dos2unix"       # convert text between DOS, UNIX, and Mac formats
 brew "jq"             # process JSON
+brew "jx"             # view JSON in terminal
 brew "miller"         # process CSV
 brew "xmlstarlet"     # process XML
 brew "yq"             # process YAML
