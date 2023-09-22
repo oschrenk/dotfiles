@@ -56,6 +56,7 @@ brew "age"            # modern and secure encryption too
 brew "croc"           # Securely transfers data between computers
 
 ## command line
+brew "alerter"        # send notifications from terminal
 brew "bat"            # "better" cat
 brew "chrome-cli"     # control chrome via cli
 brew "direnv"         # auto load env
@@ -67,7 +68,6 @@ brew "htop"           # Improved top
 brew "jira-cli"       # interact with jira
 brew "lsd"            # "better" ls
 brew "pandoc"         # document converter,
-brew "terminal-notifier" # send notifications from terminal
 brew "tmux"           # terminal multiplexer
 brew "tmuxp"          # tmux session manager
 brew "walk"           # file manager
