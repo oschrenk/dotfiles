@@ -159,7 +159,11 @@ brew "txn2/tap/kubefwd" # k8s, bulk port forwarding
 
 # macos
 brew "fileicon"   # managing custom icons for files and folders
-brew "mas"        # app store apps
+
+# brew "mas"        # app store apps
+# until https://github.com/mas-cli/mas/pull/496
+# is merged
+brew "nicerloop/nicerloop/mas" # app store apps
 
 #######################################
 # Apps
