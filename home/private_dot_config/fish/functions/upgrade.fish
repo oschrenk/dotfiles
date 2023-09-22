@@ -4,7 +4,7 @@ function upgrade --description "Upgrade homebrew, mas, nvim, tpm, fisher"
 
   # upgrade macos applications
   # waiting for https://github.com/mas-cli/mas/pull/496
-  # mas upgrade
+  mas upgrade
 
   # upgrade neovim plugins
   nvim --headless "+Lazy! sync" +qa
