@@ -11,7 +11,6 @@ alias p 'cd $HOME/Projects'
 # Applications
 alias b 'brew'
 alias c 'chezmoi'
-alias g 'git'
 alias k 'kubectl'
 alias r 'rg'
 alias t 'task'
