@@ -3,7 +3,7 @@ function oo --description "Open current directory"
   # This is linux xdg-open
     command xdg-open .
   else
-  # OS X
+  # macOS
     command open .
   end
 end

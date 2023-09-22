@@ -5,7 +5,7 @@
 # %Local  ALL=NOPASSWD: /usr/sbin/networksetup -setv6off *
 # %Local  ALL=NOPASSWD: /usr/sbin/networksetup -setv6automatic *
 
-function tunnel --description "SSH SOCKS proxy script for Mac OS X"
+function tunnel --description "SSH SOCKS proxy script for macOS"
 
   # Fetching ip address before the thunnel is easy, just use dns service for that
   function __public_ip_via_dig -d 'Get public IP through via dig w/o proxy'

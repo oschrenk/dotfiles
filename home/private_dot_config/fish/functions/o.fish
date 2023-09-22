@@ -3,7 +3,7 @@ function o --description "Open file"
   # This is linux xdg-open
     command xdg-open $argv
   else
-  # OS X
+  # macOS
     command open $argv
   end
 end
