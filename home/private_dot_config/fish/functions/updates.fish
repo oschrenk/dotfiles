@@ -4,7 +4,7 @@ function updates --description "Notifications for homebrew updates"
   # so wrote to file
   comm -1 -3 (brew list --pinned | psub) (brew outdated --quiet | psub) > /tmp/updated
 
-  set -l count (trim (cat /tmp/updated | wc -l))
+  set -l count (string trim (cat /tmp/updated | wc -l))
   set packages (cat /tmp/updated)
   if test $count -eq 0
     terminal-notifier -sender com.apple.Terminal -title "Homebrew" -message "up-to-date"
