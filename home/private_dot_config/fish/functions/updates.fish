@@ -7,8 +7,8 @@ function updates --description "Notifications for homebrew updates"
   set -l count (trim (cat /tmp/updated | wc -l))
   set packages (cat /tmp/updated)
   if test $count -eq 0
-    /usr/local/bin/terminal-notifier -sender com.apple.Terminal -title "Homebrew" -subtitle "up-to-date"
+    terminal-notifier -sender com.apple.Terminal -title "Homebrew" -message "up-to-date"
   else
-    /usr/local/bin/terminal-notifier -sender com.apple.Terminal -title "Homebrew" -subtitle "$count updates" -message "$packages"
+    terminal-notifier -sender com.apple.Terminal -title "Homebrew" -subtitle "$count updates" -message "$packages"
   end
 end

@@ -67,6 +67,7 @@ brew "htop"           # Improved top
 brew "jira-cli"       # interact with jira
 brew "lsd"            # "better" ls
 brew "pandoc"         # document converter,
+brew "terminal-notifier" # send notifications from terminal
 brew "tmux"           # terminal multiplexer
 brew "tmuxp"          # tmux session manager
 brew "walk"           # file manager
