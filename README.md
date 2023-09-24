@@ -17,7 +17,6 @@ brew install age chezmoi git git-lfs 1password
 # system_profiler SPApplicationsDataType -json | jq -r '.SPApplicationsDataType[] | select (.arch_kind == "arch_i64") | ._name ' | sort
 #
 # needed for
-#   Islanders (game on steam)
 #   Steam
 #   Steam Helper
 softwareupdate --install-rosetta
