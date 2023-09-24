@@ -58,7 +58,8 @@ for item in \
 	Keynote \
 	Pages \
 	"App Store" \
-	"System Preferences" ; do
+	"System Preferences" \
+  "Homerow" ; do
   if (dockutil --find "$item" > /dev/null 2>&1); then
     echo "Dock: Unpinning $item from dock"
     dockutil --no-restart --remove "$item"
