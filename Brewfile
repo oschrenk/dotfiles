@@ -67,7 +67,6 @@ brew "jira-cli"       # interact with jira
 brew "lsd"            # "better" ls
 brew "pandoc"         # document converter,
 brew "tmux"           # terminal multiplexer
-brew "tmuxp"          # tmux session manager
 brew "walk"           # file manager
 
 # parsing/converting
