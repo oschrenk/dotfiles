@@ -88,9 +88,6 @@ brew "ngrep"          # network packet analyzer
 brew "nmap"           # port scanning
 brew "telnet"         # telnet protocol
 
-## http
-# brew "curl"  # included/managed by macos
-
 ## vcs
 brew "git"           # dvcs
 brew "git-crypt"     # encrypt secrets in git
@@ -104,7 +101,6 @@ brew "asciinema"     # record terminal sessions
 brew "exiftool"      # read/write exif
 brew "ffmpeg"        # convert audio/video
 brew "flac"          # flac codec
-# brew "imagemagick@6" # included/managed by macos
 brew "lame"          # mp3 codec
 brew "libmp3splt"    # split mp3, off, flac files
 brew "mp3splt"       # split mp3, off, flac files
