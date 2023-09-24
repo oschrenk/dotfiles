@@ -31,6 +31,7 @@ brew "chezmoi"                   # dotfiles manager
 brew "fish"                      # shell
 brew "starship"                  # prompt
 brew "fzf"                       # fuzzy finder
+brew "neovim"                    # editor
 mas "Bear", id: 1091189122       # notes
 mas "NotePlan 3", id: 1505432629 # daily notes
 
@@ -47,9 +48,6 @@ brew "gawk"           # generic, GNU awk utility
 brew "ripgrep"        # generic, recursive search
 brew "watch"          # issue commands at regular interval
 brew "watchman"       # watch files and take action when they change
-
-## edit
-brew "neovim"         # editor
 
 ## crypto
 brew "age"            # modern and secure encryption too
