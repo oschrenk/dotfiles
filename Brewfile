@@ -40,11 +40,11 @@ mas "NotePlan 3", id: 1505432629 # daily notes
 
 ## system
 brew "blueutil"       # get/set bluetooth from terminal
-brew "coreutils"      # GNU core utilities
-brew "fd"             # fast find alternative
-brew "findutils"      # g-prefixed `find`, `locate`, `updatedb`,`xargs`
-brew "gawk"           # GNU awk utility
-brew "ripgrep"        # Code-search like grep and the_silver_searcher
+brew "coreutils"      # generic, GNU core utilities
+brew "fd"             # generic, fast find alternative
+brew "findutils"      # generic, GNU g-prefixed `find`, xargs`
+brew "gawk"           # generic, GNU awk utility
+brew "ripgrep"        # generic, recursive search
 brew "watch"          # issue commands at regular interval
 brew "watchman"       # watch files and take action when they change
 
@@ -115,7 +115,7 @@ brew "cloc"        # generic, count lines of code
 brew "coursier/formulas/coursier" # jvm, scala, artifact fetching
 brew "fnm"         # javascript, version manger
 brew "go"          # go, language
-brew "go-task"     # generic, go-based task runner as Make replacement
+brew "go-task"     # generic, go-based task runner
 brew "grunt-cli"   # javascript, task runner
 brew "stylua"      # lua formatter
 brew "maven"       # jvm, package manager
