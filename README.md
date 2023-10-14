@@ -4,6 +4,8 @@ These are my dotfiles. There are many like it but these are mine.
 
 ## Install new machine
 
+Install homebrew and bootstrap requirements
+
 ```
 # install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
@@ -12,36 +14,37 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # install chezmoi and requirements
 brew install age chezmoi git git-lfs 1password
+```
 
-# install rosetta 2
-# system_profiler SPApplicationsDataType -json | jq -r '.SPApplicationsDataType[] | select (.arch_kind == "arch_i64") | ._name ' | sort
-#
-# needed for
-#   Steam
-#   Steam Helper
-softwareupdate --install-rosetta
+Initialize chezmoi
 
-# init
+```
 chezmoi init oschrenk/dotfiles
-chezmoi cd
-git lfs install
-git lfs pull
-
-# apply
-chezmoi apply
 ```
 
-Certain files require age decryption. You will be asked a few questions:
+Certain files require age decryption. You will be asked a few questions.
+These answers are stored in 1Password under "Chezmoi / Age / Key"
 
 ```
-chezmoi init
 Age identity file location?
 Age public key?
 ```
 
-These answers are stored in 1Password under "Chezmoi / Age / Key"
+Pull binary assets
 
-### Packages
+```
+chezmoi cd
+git lfs install
+git lfs pull
+```
+
+Apply
+
+```
+chezmoi apply
+```
+
+## First run
 
 Follow the on-screen instructions. You will sometimes be asked for a password.
 Downloading and compiling all the various applications and packages will take roughly 1 hour.
@@ -54,8 +57,14 @@ After casks are installed you can already start important apps and configure the
   - Security > Apple Watch.
   - Developer > Use the SSH Agent
   - Developer > Enable Biometric Unlock
+- Alacritty
+  - SystemSettings > "Privacy & Security > Full disk access..." Allow for ...
 - Arc
   - open profiles, and log into services
+- Bear
+  - Open to synchronize data
+- Hammerspoon
+  - Preferences. Apply accessibility settings.
 - Karabiner Elements.
   - Open. Read "System Extensions Blocked" popup. Click on "Open Security Preferences" and press "Allow".
 - IntelliJ. Configure plugins.
@@ -63,21 +72,12 @@ After casks are installed you can already start important apps and configure the
   - Key Promoter
   - Ideavim
   - Hocon
-- Hammerspoon
-  - Preferences. Apply accessibility settings.
-- alacritty
-  - System Preferences > Security & privacy > General. Click Allow.
+- Noteplan
+  - Open to synchronize data
+- Photos
+  - Open to synchronize data
 - Spotify
   - download "Liked Songs"
-
-System Settings:
-- "Privacy & Security > Full disk access..." Allow for alacritty.
-- Add and configure Internet accounts
-
-Open these apps to start synchronizing data
-- Bear
-- Noteplan
-- Photos
 
 Login:
 - Discord
@@ -88,3 +88,17 @@ Link device:
 - Signal
 - Telegram
 - Whatsapp
+
+## Rosetta
+
+Steam is one of the last applications not offering a native arm variant for macOS
+
+```
+# install rosetta 2
+# system_profiler SPApplicationsDataType -json | jq -r '.SPApplicationsDataType[] | select (.arch_kind == "arch_i64") | ._name ' | sort
+#
+# needed for
+#   Steam
+#   Steam Helper
+softwareupdate --install-rosetta
+```
