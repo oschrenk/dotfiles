@@ -7,7 +7,7 @@
 
 function tunnel --description "SSH SOCKS proxy script for macOS"
 
-  # Fetching ip address before the thunnel is easy, just use dns service for that
+  # Fetching ip address before establishing tunnel using dns service
   function __public_ip_via_dig -d 'Get public IP through via dig w/o proxy'
     dig -4 @resolver1.opendns.com -t a myip.opendns.com +short
   end
@@ -101,7 +101,7 @@ function tunnel --description "SSH SOCKS proxy script for macOS"
 
   function usage
     echo "Usage: tunnel [on|off|killall|shutdown|status]"
-    echo "tunnel is fish script to toggle proxy settings in OSX"
+    echo "tunnel is fish script to toggle proxy settings in macOS"
     echo "tunnel initiates an SSH tunnel and then enables a Socks proxy"
   end
 
