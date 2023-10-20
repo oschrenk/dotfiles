@@ -180,8 +180,6 @@ mas "NordVPN", id: 905953485
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "Reeder 5", id: 1529448980
-mas "Session", id: 1521432881
-mas "VOX", id: 461369673
 # mas "XCode", id: 497799835  # see eof, because of size last thing to install
 
 #######################################
@@ -228,7 +226,6 @@ cask "knockknock"           # identify macos background tasks/processes
 # Lens 5.5 required login, use OpenLens
 # cask "lens"
 # cask "ykursadkaya/openlens/openlens"
-cask "monitorcontrol"       # control brightness for external monitor
 cask "monodraw"             # draw ascii art
 cask "numi"                 # calculator
 cask "obs"                  # broadcasting
