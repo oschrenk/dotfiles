@@ -7,6 +7,7 @@ tap "coursier/formulas"       # coursier
 tap "derailed/k9s"            # k9s
 tap "homebrew/cask-drivers"   # elgato control center, rode-central
 tap "homebrew/cask-fonts"     # fonts
+tap "oschrenk/made"           # tools by myself
 tap "txn2/tap"                # kubefwd
 
 # You can list all packages installed via `brew leaves`
@@ -45,6 +46,7 @@ brew "coreutils"      # generic, GNU core utilities
 brew "fd"             # generic, fast find alternative
 brew "findutils"      # generic, GNU g-prefixed `find`, xargs`
 brew "gawk"           # generic, GNU awk utility
+brew "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
 brew "ripgrep"        # generic, recursive search
 brew "watch"          # issue commands at regular interval
 brew "watchman"       # watch files and take action when they change
