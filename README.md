@@ -80,11 +80,13 @@ After casks are installed you can already start important apps and configure the
   - download "Liked Songs"
 
 Login:
+
 - Discord
 - Grammarly Desktop
 - Slack
 
 Link device:
+
 - Signal
 - Telegram
 - Whatsapp
