@@ -16,9 +16,25 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugs", {
-  defaults = { lazy = true, version = false },
-  checker = { notify = false },
-  change_detection = { enabled = false, notify = false },
+  defaults = {
+    -- if "true" by default all plugins will be loaded lazily
+    lazy = true,
+    -- install specific versions of plugins.you can use
+    -- "commit", "tag", "branch", or "version"
+    -- "*" will install latest stable version of plugins that support Semver.
+    -- "false" latest available version. recommended
+    version = false
+  },
+  checker = {
+    -- automatically check for plugin updates
+    enabled = false,
+  },
+  change_detection = {
+    -- automatically check for config file changes and reload the ui
+    enabled = false,
+    -- get a notification when changes are found
+    notify = false
+  },
   performance = {
     rtp = {
       disabled_plugins = {
