@@ -66,7 +66,9 @@ for item in \
 	Pages \
 	"App Store" \
 	"System Preferences" \
-  "Homerow" ; do
+  "Homerow" \
+  "Telegram"
+  ; do
   if (dockutil --find "$item" > /dev/null 2>&1); then
     echo "Dock: Unpinning $item from dock"
     dockutil --no-restart --remove "$item"
