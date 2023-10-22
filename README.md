@@ -16,7 +16,9 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 brew install chezmoi git git-lfs age 1password 1password-cli
 ```
 
-Initialize chezmoi
+Setup 1Password and sync the vaults.
+
+Initialize chezmoi.
 
 ```
 chezmoi init oschrenk/dotfiles
