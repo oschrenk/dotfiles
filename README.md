@@ -104,5 +104,5 @@ Steam is one of the last applications not offering a native arm variant for macO
 # needed for
 #   Steam
 #   Steam Helper
-softwareupdate --install-rosetta
+softwareupdate --install-rosetta --agree-to-license
 ```
