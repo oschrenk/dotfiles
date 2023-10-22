@@ -13,7 +13,7 @@ Install homebrew and bootstrap requirements
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # install chezmoi and requirements
-brew install age chezmoi git git-lfs 1password
+brew install chezmoi git git-lfs age 1password 1password-cli
 ```
 
 Initialize chezmoi
