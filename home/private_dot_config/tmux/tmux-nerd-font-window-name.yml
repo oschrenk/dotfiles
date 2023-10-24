@@ -4,5 +4,6 @@ config:
 
 icons:
   java: ""
+  k9s: "󱃾"
   kubectl: "󱃾"
   caffeinate: ""
