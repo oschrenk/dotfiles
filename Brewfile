@@ -54,6 +54,7 @@ brew "watchman"       # watch files and take action when they change
 ## crypto
 brew "age"            # modern and secure encryption too
 brew "croc"           # Securely transfers data between computers
+brew "minisign"       # sign files and verify signatures
 
 ## command line
 brew "alerter"        # send notifications from terminal
