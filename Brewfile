@@ -137,7 +137,6 @@ brew "typescript"  # typescript, language
 brew "typst"       # tex alternative (rust based)
 brew "yamlfmt"     # yaml, formatter
 brew "yarn"        # javascript, package manager
-cask "podman-desktop" # generic, manage OCI containers and pods
 
 # cloud
 brew "awscli"  # aws
@@ -234,6 +233,7 @@ cask "monodraw"             # draw ascii art
 cask "numi"                 # calculator
 cask "obs"                  # broadcasting
 cask "omnidisksweeper"      # cleanup disk space
+cask "podman-desktop"       # generic, manage containers and pods
 cask "postman"              # api development
 cask "rocket"               # quick emoji access
 cask "rode-central"         # rode companion app (for AI-1)
