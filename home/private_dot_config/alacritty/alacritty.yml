@@ -1,17 +1,14 @@
 env:
   TERM: alacritty-direct
-
 window:
   padding:
     x: 3
     y: 0
   decorations: none
   option_as_alt: Both
-
 scrolling:
   history: 10000
   multiplier: 3
-
 font:
   size: 20.0
   normal:
@@ -29,13 +26,11 @@ font:
   offset:
     x: 0
     y: 2
-
 cursor:
   style:
     shape: Block
   # draws box as hollow when window is not focused
   unfocused_hollow: true
-
 # Colors (Gruvbox dark)
 # see https://github.com/alacritty/alacritty-theme/blob/master/themes/gruvbox_dark.yaml
 colors:
@@ -46,38 +41,35 @@ colors:
     #   foreground: '0xebdbb2'
     background: '0x262626'
     foreground: '0xeaeaea'
-
   # Normal colors
   normal:
-    black:   '0x282828'
-    red:     '0xcc241d'
-    green:   '0x98971a'
-    yellow:  '0xd79921'
-    blue:    '0x458588'
+    black: '0x282828'
+    red: '0xcc241d'
+    green: '0x98971a'
+    yellow: '0xd79921'
+    blue: '0x458588'
     magenta: '0xb16286'
-    cyan:    '0x689d6a'
-    white:   '0xa89984'
-
+    cyan: '0x689d6a'
+    white: '0xa89984'
   # Bright colors
   bright:
-    black:   '0x928374'
-    red:     '0xfb4934'
-    green:   '0xb8bb26'
-    yellow:  '0xfabd2f'
-    blue:    '0x83a598'
+    black: '0x928374'
+    red: '0xfb4934'
+    green: '0xb8bb26'
+    yellow: '0xfabd2f'
+    blue: '0x83a598'
     magenta: '0xd3869b'
-    cyan:    '0x8ec07c'
-    white:   '0xebdbb2'
-
+    cyan: '0x8ec07c'
+    white: '0xebdbb2'
 shell:
   program: /opt/homebrew/bin/fish
   args:
     - --login
     - --init-command
     - "$HOME/.config/tmux/fzf_sessions.fish start"
-
 key_bindings:
   # alacritty eats up Ctrl+(Shift) + Tab => capture and forward it to shell
   # see also https://github.com/alacritty/alacritty/issues/4451
-  - {key: Tab, mods: Control, chars: "\x1b[27;5;9~"}
-  - {key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~"}
+  - {key: Tab, mods: Control, chars: "\e[27;5;9~"}
+  - {key: Tab, mods: Control|Shift, chars: "\e[27;6;9~"}
+  - {key: F11, action: ToggleFullscreen}
