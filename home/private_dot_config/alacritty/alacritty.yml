@@ -76,3 +76,8 @@ shell:
     - --init-command
     - "$HOME/.config/tmux/fzf_sessions.fish start"
 
+key_bindings:
+  # alacritty eats up Ctrl+(Shift) + Tab => capture and forward it to shell
+  # see also https://github.com/alacritty/alacritty/issues/4451
+  - {key: Tab, mods: Control, chars: "\x1b[27;5;9~"}
+  - {key: Tab, mods: Control|Shift, chars: "\x1b[27;6;9~"}
