@@ -9,7 +9,7 @@ return {
       },
       exclude = {
         filetypes = {
-          "list"
+          "list",
         },
         buftypes = {
           "help",

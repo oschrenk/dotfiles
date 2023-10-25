@@ -28,19 +28,19 @@ return {
         Comment = "SHOW FULL COLUMNS FROM {table}",
         Describe = "DESC {table}",
         Explain = "EXPLAIN {last_query}",
-        List = 'SELECT * FROM {table} LIMIT 100 OFFSET 0 * 100',
+        List = "SELECT * FROM {table} LIMIT 100 OFFSET 0 * 100",
       },
     }
     vim.api.nvim_create_autocmd("FileType", {
-    pattern = { "sql", "mysql" },
-    callback = function()
-      require('cmp').setup.buffer(
-        { sources = {
-          { name = 'vim-dadbod-completion' },
-          { name = 'buffer' }
-        }}
-      )
-    end
+      pattern = { "sql", "mysql" },
+      callback = function()
+        require("cmp").setup.buffer({
+          sources = {
+            { name = "vim-dadbod-completion" },
+            { name = "buffer" },
+          },
+        })
+      end,
     })
   end,
 }
