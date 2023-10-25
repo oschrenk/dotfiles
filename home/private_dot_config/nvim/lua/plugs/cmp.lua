@@ -1,3 +1,5 @@
+-- https://github.com/hrsh7th/nvim-cmp
+-- completion engine plugin
 return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter" },
@@ -46,15 +48,15 @@ return {
       formatting = {
         format = function(entry, vim_item)
           vim_item.menu = ({
-            buffer   = '',
-            tmux     = '',
-            browser  = '',
-            nvim_lsp = '',
-            vim_dadbod_completion = ''
+            buffer = "",
+            tmux = "",
+            browser = "",
+            nvim_lsp = "",
+            vim_dadbod_completion = "",
           })[entry.source.name:gsub("-", "_")]
           return vim_item
-        end
-    }
+        end,
+      },
     })
     require("cmp-browser-source").start_server()
   end,
