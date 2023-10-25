@@ -9,6 +9,8 @@ return {
   {
     "williamboman/mason.nvim",
     cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
+    event = "User FileOpened",
+    lazy = true,
     config = function()
       require("mason").setup({
         ui = {
