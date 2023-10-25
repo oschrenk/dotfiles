@@ -23,5 +23,27 @@ return {
         max_concurrent_installers = 2,
       })
     end,
-  }
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    cmd = { "LspInstall", "LspUninstall" },
+    lazy = true,
+    event = "User FileOpened",
+    dependencies = "mason.nvim",
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = {
+          "grammarly",
+          "jqls",
+          "lua_ls",
+          "marksman",
+        },
+      })
+    end,
+  },
+  {
+    "neovim/nvim-lspconfig",
+    lazy = true,
+    dependencies = { "mason-lspconfig.nvim" },
+  },
 }
