@@ -42,6 +42,9 @@ key_bindings:
   # see also https://github.com/alacritty/alacritty/issues/4451
   - {key: Tab, mods: Control, chars: "\e[27;5;9~"}
   - {key: Tab, mods: Control|Shift, chars: "\e[27;6;9~"}
+  # macos has two fullscreen modes
+  #   - FullScreen which takes a "Space"
+  #   - SimpleFullscreen which does not take a "Space"
   - {key: F, mods: Command, action: ToggleSimpleFullscreen}
 import:
   - ~/.config/alacritty/themes/gruvbox_dark.yaml
