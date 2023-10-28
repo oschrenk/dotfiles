@@ -135,6 +135,7 @@ brew "scala"       # jvm, scala
 brew "tectonic"    # tex
 brew "typescript"  # typescript, language
 brew "typst"       # tex alternative (rust based)
+brew "xcodes"      # xcode & runtimes manager
 brew "yamlfmt"     # yaml, formatter
 brew "yarn"        # javascript, package manager
 
