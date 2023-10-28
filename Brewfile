@@ -68,6 +68,7 @@ brew "glow"           # render markdown in terminal
 brew "htop"           # Improved top
 brew "jira-cli"       # interact with jira
 brew "lsd"            # "better" ls
+brew "page"           # Use Neovim as pager
 brew "pandoc"         # document converter,
 brew "tmux"           # terminal multiplexer
 brew "walk"           # file manager
