@@ -37,9 +37,6 @@ end
 -- ============================
 -- Look and Feel
 -- ============================
-o.background = "dark"
-vim.cmd("colorscheme gruvbox")
-vim.g["gruvbox_sign_column"] = "bg0"
 
 o.cursorcolumn = true -- highlights column
 o.cursorline = true -- highlights line
