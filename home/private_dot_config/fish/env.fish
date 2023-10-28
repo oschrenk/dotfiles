@@ -73,7 +73,7 @@ set -gx RIPGREP_CONFIG_PATH $XDG_CONFIG_HOME/ripgrep/ripgreprc
 # fzf
 #############################
 # control colors/styling
- set -gx FZF_DEFAULT_OPTS '--color=bw,prompt:11,fg:,bg+:,fg+: --height 40% --reverse --prompt="󰍉 " --pointer="󰘍" --border=none --no-separator --no-scrollbar --info=hidden'
+set -gx FZF_DEFAULT_OPTS '--color=bw,prompt:11,fg:,bg+:,fg+: --height 40% --reverse --prompt="󰍉 " --pointer="󰘍" --border=none --no-separator --no-scrollbar --info=hidden'
 
 # control how fzf is executed when doing :Files in vim
 # relies on `brew install ripgrep`
@@ -96,4 +96,3 @@ set -x SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/
 # k8s
 #############################
 set -x KUBECONFIG (find $HOME/.kube/config.d -name "*.yml" -o -name '*.yaml' | sort | xargs echo | sed 's/ /:/g')
-
