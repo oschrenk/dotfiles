@@ -10,23 +10,27 @@
 #        (making it an "environment variable").
 
 #############################
+# WELL KNOWN
+#############################
+
+# editor
+set -x EDITOR nvim
+
+# Set locale
+set -gx LC_ALL en_US.UTF-8
+set -gx LANG en_US.UTF-8
+
+#############################
 # PATH
 #############################
 # put homebrew bin before system bin
 fish_add_path --prepend /opt/homebrew/sbin
 fish_add_path --prepend /opt/homebrew/bin
 
-# editor
-set -x EDITOR nvim
-
 # XDG
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx INPUTRC "$XDG_CONFIG_HOME"/readline/inputrc
 set -gx WGETRC "$XDG_CONFIG_HOME"/wgetrc
-
-# Set locale
-set -gx LC_ALL en_US.UTF-8
-set -gx LANG en_US.UTF-8
 
 # Go
 set -x GOPATH $HOME/Frameworks/go
