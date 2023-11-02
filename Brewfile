@@ -58,6 +58,7 @@ brew "minisign"       # sign files and verify signatures
 
 ## command line
 brew "alerter"        # send notifications from terminal
+brew "atuin"          # improved shell history
 brew "bat"            # "better" cat
 brew "chrome-cli"     # control chrome via cli
 brew "direnv"         # auto load env
