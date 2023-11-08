@@ -180,8 +180,8 @@ defaults write "org.herf.Flux" "location" '"52.38,4.63"'
 
 echo "Flux: Set color transitions"
 defaults delete "org.herf.Flux" "dayColorTemp"
-defaults write "org.herf.Flux" "lateColorTemp" '1200'
-defaults write "org.herf.Flux" "nightColorTemp" '1900'
+defaults write "org.herf.Flux" "lateColorTemp" '1900'  # night
+defaults write "org.herf.Flux" "nightColorTemp" '3200' # evening
 defaults write "org.herf.Flux" "wakeTime" '390'
 defaults write "org.herf.Flux" "steptime" '26'
 
