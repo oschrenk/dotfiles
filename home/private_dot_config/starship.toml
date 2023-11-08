@@ -30,8 +30,7 @@ style = 'bold green'
 
 [kubernetes]
 disabled = false
-detect_files = ['k8s']
-symbol = '⛵'
+symbol = '🛶'
 style = 'aqua'
 
 [git_branch]
