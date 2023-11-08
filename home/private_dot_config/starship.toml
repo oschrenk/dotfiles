@@ -45,7 +45,8 @@ format = '([+$added]($added_style))([-$deleted]($deleted_style) )'
 ignore_submodules = true
 
 [git_status]
-format       = "$ahead$behind$diverged$conflicted$deleted$staged$renamed$modified$untracked$stashed"
+# not including modified, preferring git_metrics
+format       = "$ahead$behind$diverged$conflicted$deleted$staged$renamed$untracked$stashed"
 conflicted   = "[≠$count ](bold red)"
 ahead        = "[⇡$count ](bold purple)"
 behind       = "[⇣$count ](bold purple)"
