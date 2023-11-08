@@ -34,6 +34,7 @@ symbol = '🛶'
 style = 'aqua'
 
 [git_branch]
+symbol = '🌿'
 style = "bold yellow"
 
 [git_metrics]
