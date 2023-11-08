@@ -61,25 +61,6 @@ stashed      = "[x$count ](bold purple)"
 [cmd_duration]
 style	= 'bold yellow'
 
-[custom.time_mood]
-shell = ["fish"]
-command = """
-set TIME (date +%H)
-if test "$TIME" -le 17; and test "$TIME" -ge 8
-    set time_symbol "🌤"
-else if test "$TIME" -le 21; and "$TIME" -ge 18
-    set time_symbol "🌖"
-else if "$TIME" -le 4; or "$TIME" -ge 22
-    set time_symbol "🌙"
-else
-    set time_symbol "🌔"
-end
-echo "$time_symbol "
-"""
-format = "[at $output]($style) "
-style = 'white'
-when = "true"
-
 [custom.docker]
 description = "Shows the docker symbol if the current directory has Dockerfile or docker-compose.yml files"
 detect_files = ["Dockerfile", "docker-compose.yml", "docker-compose.yaml"]
