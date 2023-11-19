@@ -1,9 +1,11 @@
 config:
   fallback-icon: "?" # icon to use if no definition is found
   show-name: false # show the window name with the icon
-
 icons:
-  java: ""
-  k9s: "󱃾"
-  kubectl: "󱃾"
   caffeinate: ""
+  java: ""
+  k9s: "\U000F10FE"
+  kubectl: "\U000F10FE"
+  sbt: ""
+  scala: ""
+  task: ""
