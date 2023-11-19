@@ -3,7 +3,6 @@ return {
   build = ":TSUpdate",
   lazy = false,
   dependencies = {
-    "David-Kunz/markid",
     "HiPhish/nvim-ts-rainbow2",
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
@@ -92,8 +91,6 @@ return {
         -- highlight the entire buffer all at once
         strategy = require("ts-rainbow").strategy.global,
       },
-      -- `markid` via "David-Kunz/markid" dependency
-      markid = { enable = true },
     })
   end,
 }
