@@ -147,7 +147,7 @@
   dtc = difftool --cached
 
   # Find a file path in codebase:
-  find = "!git ls-files | grep -i"
+  find = "!git ls-files | rg"
   f = !git find
 
   # simple log
