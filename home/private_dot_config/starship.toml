@@ -30,6 +30,7 @@ style = 'bold green'
 
 [kubernetes]
 disabled = false
+format = '[$symbol $context]($style) '
 symbol = '🛶'
 style = 'aqua'
 
