@@ -135,6 +135,8 @@ brew "rust"        # rust, language
 brew "sbt"         # jvm, scala
 brew "shellcheck"  # shell linter
 brew "scala"       # jvm, scala
+brew "swiftformat" # swift, format
+brew "swiftlint"   # swift, lint
 brew "tectonic"    # tex
 brew "typescript"  # typescript, language
 brew "typst"       # tex alternative (rust based)
