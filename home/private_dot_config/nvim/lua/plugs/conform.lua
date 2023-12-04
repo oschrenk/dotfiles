@@ -15,6 +15,10 @@ return {
   -- everything in opts will be passed to setup()
   opts = {
     -- define your formatters
+    -- sub-list to run only the first available formatter
+    -- eg { { "prettierd", "prettier" } }
+    -- "*" filetype runs formatters on all filetypes.
+    -- "_" filetype runs formatters on filetypes w/o configured formatters
     formatters_by_ft = {
       fish = { "fish_indent" },
       javascript = { { "prettierd", "prettier" } },
@@ -23,11 +27,8 @@ return {
       python = { "black" },
       scala = { "scalafmt" },
       sh = { "shellcheck" },
-      -- sub-list to run only the first available formatter
       typescript = { "prettier" },
       yaml = { "yamlfmt" },
-      -- "*" filetype runs formatters on all filetypes.
-      -- "_" filetype runs formatters on filetypes w/o configured formatters
       ["_"] = { "trim_whitespace" },
     },
     -- set up format-on-save
