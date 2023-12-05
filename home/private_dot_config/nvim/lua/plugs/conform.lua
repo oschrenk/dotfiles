@@ -27,6 +27,7 @@ return {
       python = { "black" },
       scala = { "scalafmt" },
       sh = { "shellcheck" },
+      swift = { "swiftformat" },
       typescript = { "prettier" },
       yaml = { "yamlfmt" },
       ["_"] = { "trim_whitespace" },
