@@ -38,25 +38,3 @@ autocmd({ "BufRead", "BufNewFile" }, {
   command = "set filetype=groovy",
   group = my_filetypes,
 })
-
--- ===========================
--- Actions
--- ===========================
-local my_actions = augroup("MyActions", { clear = true })
--- Reload when entering buffer or gaining focus
--- costs ~280ms startup time
--- au FocusGained,BufEnter * :silent! !
---
--- Autosave on focus lost or when exiting the buffer
-autocmd({ "FocusLost", "WinLeave" }, {
-  pattern = "*",
-  command = ":silent! w",
-  group = my_actions,
-})
-
--- Auto-Delete trailing whitspace
-autocmd({ "BufWritePre", "WinLeave" }, {
-  pattern = "*",
-  command = [[:%s/\s\+$//e]],
-  group = my_actions,
-})
