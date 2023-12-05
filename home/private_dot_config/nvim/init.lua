@@ -23,7 +23,7 @@ require("lazy").setup("plugs", {
     -- "commit", "tag", "branch", or "version"
     -- "*" will install latest stable version of plugins that support Semver.
     -- "false" latest available version. recommended
-    version = false
+    version = false,
   },
   checker = {
     -- automatically check for plugin updates
@@ -33,7 +33,7 @@ require("lazy").setup("plugs", {
     -- automatically check for config file changes and reload the ui
     enabled = false,
     -- get a notification when changes are found
-    notify = false
+    notify = false,
   },
   performance = {
     rtp = {
