@@ -47,6 +47,7 @@ brew "fd"             # generic, fast find alternative
 brew "findutils"      # generic, GNU g-prefixed `find`, xargs`
 brew "gawk"           # generic, GNU awk utility
 brew "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
+brew "oschrenk/made/nightshift" # hardware, control Night Shift
 brew "ripgrep"        # generic, recursive search
 brew "watch"          # issue commands at regular interval
 brew "watchman"       # watch files and take action when they change
