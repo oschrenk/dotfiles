@@ -34,6 +34,7 @@ brew "fish"                      # shell
 brew "starship"                  # prompt
 brew "fzf"                       # fuzzy finder
 brew "neovim"                    # editor
+brew "obsidian"                  # notes
 mas "Bear", id: 1091189122       # notes
 mas "NotePlan 3", id: 1505432629 # daily notes
 
