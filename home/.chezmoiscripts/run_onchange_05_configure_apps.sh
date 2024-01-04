@@ -187,6 +187,18 @@ defaults write "com.colliderli.iina" "ytdlSearchPath" '"/opt/homebrew/bin/yt-dlp
 echo "NotePlan: Set Monday as first day of the week"
 defaults write "co.noteplan.NotePlan3" "firstDayOfWeek" '2'
 
+echo "NotePlan: Enable Weekly Notes"
+defaults write "co.noteplan.NotePlan3" "isWeeklyNotes" '1'
+
+echo "NotePlan: Enable Monthly Notes"
+defaults write "co.noteplan.NotePlan3" "isMonthlyNotes" '1'
+
+echo "NotePlan: Distable Quarterly Notes"
+defaults write "co.noteplan.NotePlan3" "isQuarterlyNotes" '0'
+
+echo "NotePlan: Enable Yearly Notes"
+defaults write "co.noteplan.NotePlan3" "isYearlyNotes" '1'
+
 echo "NotePlan: Set font size to 22"
 defaults write "co.noteplan.NotePlan3" "fontSize" '22'
 
