@@ -9,6 +9,7 @@ tap "homebrew/cask-drivers"   # elgato control center, rode-central
 tap "homebrew/cask-fonts"     # fonts
 tap "oschrenk/made"           # tools by myself
 tap "txn2/tap"                # kubefwd
+tap "epk/epk"                 # sf-mono nerd font
 
 # You can list all packages installed via `brew leaves`
 
@@ -206,6 +207,7 @@ cask "font-mplus-nerd-font"
 cask "font-open-sans"
 cask "font-roboto-mono"
 cask "font-roboto-mono-nerd-font"
+cask "font-sf-mono-nerd-font"
 cask "font-victor-mono"
 
 #######################################
