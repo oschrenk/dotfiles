@@ -200,6 +200,7 @@ echo "NotePlan: Enable Yearly Notes"
 defaults write "co.noteplan.NotePlan3" "isYearlyNotes" '1'
 
 echo "NotePlan: Set font size to 22"
+defaults write "co.noteplan.NotePlan3" "fontDelta" '6'
 defaults write "co.noteplan.NotePlan3" "fontSize" '22'
 
 echo "NotePlan: Set font to System"
