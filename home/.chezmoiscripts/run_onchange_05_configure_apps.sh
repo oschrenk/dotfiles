@@ -212,6 +212,16 @@ defaults write "co.noteplan.NotePlan3" "maxTextWidth" '700'
 echo "NotePlan: Set theme to Gruvbox iA.json"
 defaults write "co.noteplan.NotePlan3" "themeDark" '"Gruvbox iA.json"'
 
+echo "NotePlan: Allow NotePlan to have custom keyboard shortcuts"
+allowCustomKeyboardShortcutsForApp "co.noteplan.NotePlan3"
+
+echo "NotePlan: Replace Toggle Sidebar shortcut to ⌘S"
+echo "NotePlan: Replace Toggle Calendar Sidebar shortcut to ⇧⌘S"
+defaults write co.noteplan.NotePlan3 NSUserKeyEquivalents "{
+        'Toggle Sidebar' = '${key_cmd}s';
+        'Toggle Calendar Sidebar' = '${key_shift}${key_cmd}s';
+    }"
+
 #######################################
 # Homerow
 #######################################
@@ -270,7 +280,7 @@ defaults write com.jetbrains.intellij.ce ApplePressAndHoldEnabled -bool false
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
-for app in "Chrome" "Arc" "Hammerspoon" "Mail" "Safari" "IINA" "NotePlan" "Homerow" "TopNotch" "Flux" "idea" "Calendar"; do
+for app in "Chrome" "Arc" "Hammerspoon" "Mail" "Safari" "IINA" "NotePlan" "Homerow" "TopNotch" "Flux" "idea" "Calendar" "cfprefsd" "Finder"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
