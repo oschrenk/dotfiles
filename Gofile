@@ -1,0 +1,2 @@
+github.com/spf13/cobra-cli@latest     # cli generator
+github.com/catilac/plistwatch@latest  # watch plist changes
