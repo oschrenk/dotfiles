@@ -219,6 +219,7 @@ cask "android-platform-tools" # android sdk
 cask "calibre"              # ebook manager
 cask "cog"                  # audio client
 cask "dbeaver-community"    # sql client
+cask "db-browser-for-sqlite" # sqlite client
 cask "discord"              # discord client
 cask "docker"               # docker client
 # until https://github.com/kcrawford/dockutil/issues/127 is resolved
