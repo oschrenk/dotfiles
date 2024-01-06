@@ -166,6 +166,7 @@ brew "minikube"         # k8s, run local k8s
 brew "txn2/tap/kubefwd" # k8s, bulk port forwarding
 
 # macos
+brew "dockutil"   # manage the dock
 brew "fileicon"   # managing custom icons for files and folders
 
 # brew "mas"        # app store apps
@@ -222,9 +223,6 @@ cask "dbeaver-community"    # sql client
 cask "db-browser-for-sqlite" # sqlite client
 cask "discord"              # discord client
 cask "docker"               # docker client
-# until https://github.com/kcrawford/dockutil/issues/127 is resolved
-# install dockutil via this cask
-cask "hpedrorodrigues/tools/dockutil"
 cask "elgato-control-center" # elgato software to control lights
 cask "firefox"              # browser
 cask "flux"                 # control screen color temperature
