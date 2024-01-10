@@ -1,0 +1,130 @@
+##### Configuration #####
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+
+BACKGROUND_COLOR="494d64"
+ICON_FONT_FACE="SFMono Nerd Font:Medium:15.0"
+ICON_COLOR="cad3f5"
+LABEL_FONT_FACE="SF Pro:Light:14.0"
+LABEL_COLOR="cad3f5"
+
+##### Documentation #####
+# General:
+# https://felixkratz.github.io/SketchyBar/config/bar
+#
+# Color:
+# https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
+#
+# Events:
+# https://felixkratz.github.io/SketchyBar/config/events
+
+##### Layout #####
+# height: height of the bar
+# color:  background color
+
+sketchybar --bar    \
+  height=32         \
+  color=0x00000000  \
+  margin=0          \
+  sticky=on         \
+  padding_left=23   \
+  padding_right=23  \
+  notch_width=188   \
+  font_smoothing=on \
+  shadow=off
+  display=main
+
+##### Colors #####
+# background.color: text background color
+sketchybar --default \
+  background.color="0x00$BACKGROUND_COLOR" \
+  background.corner_radius=5 \
+  background.height=26 \
+  icon.font="$ICON_FONT_FACE" \
+  icon.color="0xff$ICON_COLOR" \
+  icon.padding_left=5 \
+  icon.padding_right=5 \
+  label.font="$LABEL_FONT_FACE" \
+  label.color="0xff$LABEL_COLOR" \
+  label.y_offset=0 \
+  label.padding_left=5 \
+  label.padding_right=5
+
+##### Left Items #####
+
+# sketchybar \
+#   --add item front_app left \
+#   --set front_app script="$PLUGIN_DIR/front_app.sh" \
+#   padding_left=10 \
+#   icon.drawing=off \
+#   --subscribe front_app front_app_switched
+#
+sketchybar --add item tmux.attached left \
+		       --set tmux.attached \
+			     icon.drawing=off  \
+			     script="$PLUGIN_DIR/tmux.attached.sh"				\
+		       --add event tmux_session_update \
+		       --subscribe tmux.attached tmux_session_update
+
+sketchybar --add item tmux.git left \
+		       --set tmux.git \
+			     icon.drawing=off  \
+			     script="$PLUGIN_DIR/tmux.git.sh"				\
+		       --add event tmux_session_update \
+		       --subscribe tmux.git tmux_session_update
+
+##### Right Items #####
+sketchybar --add item clock right \
+           --set clock update_freq=30 \
+                       script="$PLUGIN_DIR/clock.sh"
+
+# event subscription for wifi does not work macOS 14+
+# we disable it also, since interaction with it is rare
+# sketchybar --add item wifi right \
+#            --set wifi update_freq=10 \
+#                       script="$PLUGIN_DIR/wifi.sh"
+
+sketchybar --add item volume right \
+           --set volume  script="$PLUGIN_DIR/volume.sh" \
+           --subscribe volume volume_change
+
+sketchybar --add item battery right \
+           --set battery script="$PLUGIN_DIR/battery.sh"\
+                         update_freq=120 \
+           --subscribe battery system_woke power_source_change
+
+sketchybar --add item noteplan right \
+           --set noteplan script="$PLUGIN_DIR/noteplan.sh"\
+                          update_freq=10
+
+# click_script="shortcuts run \"toggle focus\""		\
+# _NSDoNotDisturbEnabledNotification
+# _NSDoNotDisturbDisabledNotification
+# only track going in and out of DND, no other focus mode
+# sketchybar --add item focus right \
+# 		       --set focus \
+# 			     icon= \
+# 			     script="$PLUGIN_DIR/focus.sh"				\
+#            --set focus update_freq=30 \
+# 		       --add event focus_on "_NSDoNotDisturbEnabledNotification"\
+# 		       --add event focus_off "_NSDoNotDisturbDisabledNotification"\
+# 		       --subscribe focus focus_on focus_off
+
+sketchybar --add item tmux.jira right \
+		       --set tmux.jira \
+			     icon.drawing=off  \
+			     script="$PLUGIN_DIR/tmux.jira.fish" \
+		       --add event tmux_session_update \
+		       --subscribe tmux.jira tmux_session_update
+
+# meh. polling
+# sketchybar --add item vpn right \
+#            --set vpn icon= \
+#                      update_freq=5 \
+#                      script="$PLUGIN_DIR/vpn.sh"
+
+##### Update #####
+# required step at end of the initial configuration
+# forces all scripts to run the first time,
+# it should never be run in an item script.
+
+sketchybar --update
