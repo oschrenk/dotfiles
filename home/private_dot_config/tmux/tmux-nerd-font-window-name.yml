@@ -7,6 +7,7 @@ icons:
   java: ""
   k9s: "\U000F10FE"
   kubectl: "\U000F10FE"
+  nvim: ""
   sbt: ""
   scala: ""
   task: ""
