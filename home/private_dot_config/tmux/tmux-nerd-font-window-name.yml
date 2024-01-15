@@ -2,6 +2,7 @@ config:
   fallback-icon: "?" # icon to use if no definition is found
   show-name: false # show the window name with the icon
 icons:
+  brew: ""
   caffeinate: ""
   java: ""
   k9s: "\U000F10FE"
