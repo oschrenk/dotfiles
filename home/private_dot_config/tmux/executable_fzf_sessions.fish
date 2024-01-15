@@ -44,13 +44,10 @@ function __tmux_create_or_switch_by_name -a session_name session_path
 
     switch (__tmux_context)
         case attached
-            echo a
             tmux switch -t $session_name
         case detached
-            echo d
             tmux attach -t $session_name
         case serverless
-            echo s
             tmux switch-client -t $session_name
         case '*'
             echo "Error: Invalid tmux context" 1>&2
