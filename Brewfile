@@ -235,9 +235,6 @@ cask "jdk-mission-control"  # monitor java applications
 cask "keyboardcleantool"    # disables keyboard for easier cleaning
 cask "keycastr"             # shows key strokes on screen
 cask "knockknock"           # identify macos background tasks/processes
-# Lens 5.5 required login, use OpenLens
-# cask "lens"
-# cask "ykursadkaya/openlens/openlens"
 cask "monodraw"             # draw ascii art
 cask "numi"                 # calculator
 cask "obs"                  # broadcasting
