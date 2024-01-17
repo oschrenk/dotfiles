@@ -235,6 +235,7 @@ cask "jdk-mission-control"  # monitor java applications
 cask "keyboardcleantool"    # disables keyboard for easier cleaning
 cask "keycastr"             # shows key strokes on screen
 cask "knockknock"           # identify macos background tasks/processes
+cask "mochi"                # study notes and flashcards
 cask "monodraw"             # draw ascii art
 cask "numi"                 # calculator
 cask "obs"                  # broadcasting
