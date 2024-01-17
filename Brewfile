@@ -168,6 +168,7 @@ brew "txn2/tap/kubefwd" # k8s, bulk port forwarding
 # macos
 brew "dockutil"   # manage the dock
 brew "fileicon"   # managing custom icons for files and folders
+brew "iconsur"    # download icons from app store
 
 # brew "mas"        # app store apps
 # until https://github.com/mas-cli/mas/pull/496
