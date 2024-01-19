@@ -1,9 +1,6 @@
 #!/bin/sh
 
-# requires
-#   https://github.com/oschrenk/noteplan
-#   https://github.com/jqlang/jq 
-OPEN=$("$HOME"/Frameworks/go/bin/noteplan todo --json | jq .day.open)
+OPEN=$(lsappinfo -all info -only StatusLabel "co.noteplan.NotePlan3" | sed -nr 's/\"StatusLabel\"=\{ \"label\"=\"(.+)\" \}$/\1/p')
 
 if [[ $OPEN != "" ]]; then
   sketchybar -m --set noteplan icon=󰸞 \
