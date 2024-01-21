@@ -71,6 +71,7 @@ sudo fileicon set /Applications/GoToMeeting.app/ "$BASEDIR"/assets/icons/google_
 sudo fileicon set /Applications/HandBrake.app/ "$BASEDIR"/assets/icons/handbrake.icns
 sudo fileicon set /Applications/IntelliJ\ IDEA\ CE.app "$BASEDIR"/assets/icons/intellij.icns
 sudo fileicon set /Applications/Mochi.app "$BASEDIR"/assets/icons/mochi.icns
+sudo fileicon set /Applications/Obsidian.app "$BASEDIR"/assets/icons/obsidian.icns
 sudo fileicon set /Applications/OpenVPN\ Connect.app "$BASEDIR"/assets/icons/open-vpn.icns
 sudo fileicon set /Applications/Pulse\ Secure.app/ "$BASEDIR"/assets/icons/mozilla-vpn.icns
 sudo fileicon set /Applications/Sequel\ Pro.app/ "$BASEDIR"/assets/icons/sequel-pro.icns
