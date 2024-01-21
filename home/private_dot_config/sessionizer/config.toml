@@ -1,0 +1,9 @@
+[base]
+ignore = ["target", ".idea", "node_modules"]
+
+[default]
+name = "default"
+path = "$HOME/Downloads"
+
+[projects]
+base_dir = "$HOME/Projects"
