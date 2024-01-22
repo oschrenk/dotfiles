@@ -94,7 +94,7 @@ sketchybar --add item battery right \
 
 sketchybar --add item noteplan right \
            --set noteplan script="$PLUGIN_DIR/noteplan.sh"\
-                          update_freq=10
+                          update_freq=30
 
 # click_script="shortcuts run \"toggle focus\""		\
 # _NSDoNotDisturbEnabledNotification
