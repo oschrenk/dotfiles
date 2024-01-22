@@ -2,12 +2,16 @@
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 
 BACKGROUND_COLOR="494d64"
+# brew install epk/epk/font-sf-mono-nerd-font
 ICON_FONT_FACE="SFMono Nerd Font:Medium:15.0"
 ICON_COLOR="cad3f5"
+# brew install font-sf-pro
 LABEL_FONT_FACE="SF Pro:Light:14.0"
 LABEL_COLOR="cad3f5"
 
-##### Documentation #####
+########################
+#     Documentation    #
+########################
 # General:
 # https://felixkratz.github.io/SketchyBar/config/bar
 #
@@ -17,10 +21,9 @@ LABEL_COLOR="cad3f5"
 # Events:
 # https://felixkratz.github.io/SketchyBar/config/events
 
-##### Layout #####
-# height: height of the bar
-# color:  background color
-
+########################
+#        Layout        #
+########################
 sketchybar --bar    \
   height=32         \
   color=0x00000000  \
@@ -33,8 +36,9 @@ sketchybar --bar    \
   shadow=off
   display=main
 
-##### Colors #####
-# background.color: text background color
+########################
+#        Colors        #
+########################
 sketchybar --default \
   background.color="0x00$BACKGROUND_COLOR" \
   background.corner_radius=5 \
@@ -49,15 +53,9 @@ sketchybar --default \
   label.padding_left=5 \
   label.padding_right=5
 
-##### Left Items #####
-
-# sketchybar \
-#   --add item front_app left \
-#   --set front_app script="$PLUGIN_DIR/front_app.sh" \
-#   padding_left=10 \
-#   icon.drawing=off \
-#   --subscribe front_app front_app_switched
-#
+########################
+#      Left Side       #
+########################
 sketchybar --add item tmux.attached left \
 		       --set tmux.attached \
 			     icon.drawing=off  \
@@ -72,16 +70,12 @@ sketchybar --add item tmux.git left \
 		       --add event tmux_session_update \
 		       --subscribe tmux.git tmux_session_update
 
-##### Right Items #####
+########################
+#      Right Side      #
+########################
 sketchybar --add item clock right \
            --set clock update_freq=30 \
                        script="$PLUGIN_DIR/clock.sh"
-
-# event subscription for wifi does not work macOS 14+
-# we disable it also, since interaction with it is rare
-# sketchybar --add item wifi right \
-#            --set wifi update_freq=10 \
-#                       script="$PLUGIN_DIR/wifi.sh"
 
 sketchybar --add item volume right \
            --set volume script="$PLUGIN_DIR/volume.sh" \
@@ -96,19 +90,6 @@ sketchybar --add item noteplan right \
            --set noteplan script="$PLUGIN_DIR/noteplan.sh"\
                           update_freq=30
 
-# click_script="shortcuts run \"toggle focus\""		\
-# _NSDoNotDisturbEnabledNotification
-# _NSDoNotDisturbDisabledNotification
-# only track going in and out of DND, no other focus mode
-# sketchybar --add item focus right \
-# 		       --set focus \
-# 			     icon= \
-# 			     script="$PLUGIN_DIR/focus.sh"				\
-#            --set focus update_freq=30 \
-# 		       --add event focus_on "_NSDoNotDisturbEnabledNotification"\
-# 		       --add event focus_off "_NSDoNotDisturbDisabledNotification"\
-# 		       --subscribe focus focus_on focus_off
-
 sketchybar --add item tmux.jira right \
 		       --set tmux.jira \
 			     icon.drawing=off  \
@@ -116,13 +97,9 @@ sketchybar --add item tmux.jira right \
 		       --add event tmux_session_update \
 		       --subscribe tmux.jira tmux_session_update
 
-# meh. polling
-# sketchybar --add item vpn right \
-#            --set vpn icon= \
-#                      update_freq=5 \
-#                      script="$PLUGIN_DIR/vpn.sh"
-
-##### Update #####
+########################
+#         Update       #
+########################
 # required step at end of the initial configuration
 # forces all scripts to run the first time,
 # it should never be run in an item script.
