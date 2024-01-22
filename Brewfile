@@ -5,6 +5,7 @@ tap "ankitpokhrel/jira-cli"   # jira-cli
 tap "arl/arl"                 # gitmux
 tap "coursier/formulas"       # coursier
 tap "derailed/k9s"            # k9s
+tap "felixkratz/formulae"     # sketchybar
 tap "homebrew/cask-drivers"   # elgato control center, rode-central
 tap "homebrew/cask-fonts"     # fonts
 tap "oschrenk/made"           # tools by myself
@@ -170,6 +171,7 @@ brew "txn2/tap/kubefwd" # k8s, bulk port forwarding
 brew "dockutil"   # manage the dock
 brew "fileicon"   # managing custom icons for files and folders
 brew "iconsur"    # download icons from app store
+brew "sketchybar" # custom statusbar
 
 # brew "mas"        # app store apps
 # until https://github.com/mas-cli/mas/pull/496
