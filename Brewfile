@@ -266,5 +266,6 @@ cask "zoom"                 # video conferencing
 
 brew "xcodes"      # xcode & runtimes manager
 mas "XCode", id: 497799835
+mas "Apple Developer", id: 640199958
 # to agree to license
 # sudo xcodebuild -license
