@@ -84,8 +84,8 @@ sketchybar --add item clock right \
 #                       script="$PLUGIN_DIR/wifi.sh"
 
 sketchybar --add item volume right \
-           --set volume  script="$PLUGIN_DIR/volume.sh" \
-           --subscribe volume volume_change
+           --set volume script="$PLUGIN_DIR/volume.sh" \
+           --subscribe  volume volume_change
 
 sketchybar --add item battery right \
            --set battery script="$PLUGIN_DIR/battery.sh"\
