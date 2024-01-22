@@ -1,5 +1,5 @@
 [base]
-ignore = ["target", ".idea", "node_modules"]
+ignore = [".build", "node_modules"]
 
 [default]
 name = "default"
