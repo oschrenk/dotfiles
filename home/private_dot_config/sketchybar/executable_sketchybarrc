@@ -26,8 +26,8 @@ sketchybar --bar    \
   color=0x00000000  \
   margin=0          \
   sticky=on         \
-  padding_left=23   \
-  padding_right=23  \
+  padding_left=16   \
+  padding_right=16  \
   notch_width=188   \
   font_smoothing=on \
   shadow=off
@@ -41,8 +41,8 @@ sketchybar --default \
   background.height=26 \
   icon.font="$ICON_FONT_FACE" \
   icon.color="0xff$ICON_COLOR" \
-  icon.padding_left=5 \
-  icon.padding_right=5 \
+  icon.padding_left=3 \
+  icon.padding_right=3 \
   label.font="$LABEL_FONT_FACE" \
   label.color="0xff$LABEL_COLOR" \
   label.y_offset=0 \
