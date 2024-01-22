@@ -145,7 +145,6 @@ brew "swiftlint"   # swift, lint
 brew "tectonic"    # tex
 brew "typescript"  # typescript, language
 brew "typst"       # tex alternative (rust based)
-brew "xcodes"      # xcode & runtimes manager
 brew "yamlfmt"     # yaml, formatter
 brew "yarn"        # javascript, package manager
 
@@ -265,6 +264,7 @@ cask "zoom"                 # video conferencing
 # Xcode
 #######################################
 
+brew "xcodes"      # xcode & runtimes manager
 mas "XCode", id: 497799835
 # to agree to license
 # sudo xcodebuild -license
