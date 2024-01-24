@@ -9,22 +9,6 @@
 source ./run_onchange_03_configure_apps__helper.sh
 
 #######################################
-# Arc Browser
-#######################################
-
-# See also 
-# https://arcinternet.notion.site/Arc-Advanced-f7efb9a85d824cec828711ece77e1474
-#
-# Turn off telemetry
-# https://raw.githubusercontent.com/SenpaiHunters/ArcAdvanced/main/ArcTelemetryBlocking/ArcTel.sh
-
-echo "Arc: Disable User interface sounds"
-defaults write "company.thebrowser.Browser" "playUserInterfaceSoundsDisabled" '1'
-
-echo "Arc: Skip unboxing video"
-defaults write "company.thebrowser.Browser" "shouldSkipUnboxingVideo" '1'
-
-#######################################
 # HAMMERSPOON
 #######################################
 
@@ -180,7 +164,8 @@ defaults write com.jetbrains.intellij.ce ApplePressAndHoldEnabled -bool false
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
-for app in "Arc" "Hammerspoon" "Mail" "Safari" "IINA" "Homerow" "TopNotch" "Flux" "idea" "Calendar" "cfprefsd" "Finder"; do
+# Restarting cfprefsd and Finder to make keyboard changes stick
+for app in "Hammerspoon" "Mail" "Safari" "IINA" "Homerow" "TopNotch" "Flux" "idea" "Calendar" "cfprefsd" "Finder"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
