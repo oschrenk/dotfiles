@@ -8,30 +8,6 @@
 
 source ./run_onchange_03_configure_apps__helper.sh
 
-
-#######################################
-# Homerow
-#######################################
-
-echo "Homerow: Set shortcut to ctrl+f"
-defaults write "com.dexterleng.Homerow" "shortcut" '"\U2303F"'
-
-echo "Homerow: Set search shortcut to ctrl+shift+f"
-defaults write "com.dexterleng.Homerow" "search-shortcut" '"\U2303\U21e7F"'
-
-echo "Homerow: Set scroll shortcut to ctrl+g"
-defaults write "com.dexterleng.Homerow" "scroll-shortcut" '"\U2303G"'
-
-echo "Homerow: Enable experimental support for Spotify"
-defaults write "com.dexterleng.Homerow" "is-experimental-support-enabled" '1'
-
-echo "Homerow: Hide menubar icon"
-defaults write "com.dexterleng.Homerow" "NSStatusItem Visible Item-0" '0'
-defaults write "com.dexterleng.Homerow" "show-menubar-icon" '0'
-
-echo "Homerow: Disable certain apps"
-defaults write "com.dexterleng.Homerow" "disabled-bundle-paths" '("/Applications/Alacritty.app",)'
-
 #######################################
 # TopNotch
 #######################################
@@ -68,7 +44,7 @@ defaults write com.jetbrains.intellij.ce ApplePressAndHoldEnabled -bool false
 # Kill affected applications                              #
 ###########################################################
 # Restarting cfprefsd and Finder to make keyboard changes stick
-for app in "Homerow" "TopNotch" "Flux" "idea" "cfprefsd" "Finder"; do
+for app in "TopNotch" "Flux" "idea" "cfprefsd" "Finder"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
