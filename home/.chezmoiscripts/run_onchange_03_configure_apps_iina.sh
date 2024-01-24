@@ -37,6 +37,9 @@ echo "IINA: Enable yt-dlp"
 defaults delete "com.colliderli.iina" "ytdlEnabled"
 defaults write "com.colliderli.iina" "ytdlSearchPath" '"/opt/homebrew/bin/yt-dlp"'
 
+echo "IINA: Don't autoplay next item"
+defaults write "com.colliderli.iina" "playlistAutoPlayNext" '0'
+
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
