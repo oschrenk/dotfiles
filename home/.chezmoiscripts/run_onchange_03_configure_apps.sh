@@ -3,67 +3,10 @@
 # set -eufo pipefail
 
 ########################
-## DOCS               ##
-########################
-
-# to find the bundle identifier, you can point to the app directory and read
-# the "Info.plist"
-#
-# For example:
-# /usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' "/Applications/IINA.app/Contents/Info.plist"
-# com.colliderli.iina
-#
-# 
-# to find changes to settings, install
-#
-# https://github.com/catilac/plistwatch
-#
-# It does not catch all changes (depends on macos behaviour and app behaviour)
-# but will get you far
-
-########################
 ## HELPER methods     ##
 ########################
-#
-# Helps configure custom keyboard shortcuts for applications
-#
-# This methods ensures to add the application only ONCE to the array but only once!
-# see also https://github.com/ymendel/dotfiles/issues/1
-allowCustomKeyboardShortcutsForApp() {
-    local appName="$1"
-    if [[ $# == 0 || $# > 1 ]]; then
-        echo "usage: allowCustomKeyboardShortcutsForApp com.company.appname"
-        # wrong usage
-        return 1
-    else
-        if ! ( defaults read com.apple.universalaccess "com.apple.custommenu.apps" 2>/dev/null | grep -q "$appName" )
-        then
-            # does not contain app, so add it
-            defaults write com.apple.universalaccess "com.apple.custommenu.apps" -array-add "$appName"
-        fi
-    fi
-}
 
-#######################################
-# KEYBOARD DOCUMENTATION
-#######################################
-
-# keyboard shortcuts
-# modifier key legend:
-#  @ = command
-#  ^ = control
-#  ~ = option
-#  $ = shift
-key_cmd='@'
-key_ctrl='^'
-key_opt='~'
-key_shift='$'
-
-# Restart cfprefsd and Finder for changes to take effect.
-# You may also have to restart any apps that were running
-# when you changed their keyboard shortcuts. There is some
-# amount of voodoo as to what you do or do not have to
-# restart, and when.
+source ./run_onchange_03_configure_apps__helper.sh
 
 #######################################
 # CHROME
@@ -187,54 +130,6 @@ defaults delete "com.colliderli.iina" "ytdlEnabled"
 defaults write "com.colliderli.iina" "ytdlSearchPath" '"/opt/homebrew/bin/yt-dlp"'
 
 #######################################
-# Note Plan 3
-#######################################
-
-echo "NotePlan: Set Monday as first day of the week"
-defaults write "co.noteplan.NotePlan3" "firstDayOfWeek" '2'
-
-echo "NotePlan: Enable Weekly Notes"
-defaults write "co.noteplan.NotePlan3" "isWeeklyNotes" '1'
-
-echo "NotePlan: Enable Monthly Notes"
-defaults write "co.noteplan.NotePlan3" "isMonthlyNotes" '1'
-
-echo "NotePlan: Distable Quarterly Notes"
-defaults write "co.noteplan.NotePlan3" "isQuarterlyNotes" '0'
-
-echo "NotePlan: Enable Yearly Notes"
-defaults write "co.noteplan.NotePlan3" "isYearlyNotes" '1'
-
-echo "NotePlan: Set font size to 22"
-defaults write "co.noteplan.NotePlan3" "fontDelta" '6'
-defaults write "co.noteplan.NotePlan3" "fontSize" '22'
-
-echo "NotePlan: Set font to System"
-defaults write "co.noteplan.NotePlan3" "fontFamily" 'System'
-
-echo "NotePlan: Set text width to 700"
-defaults write "co.noteplan.NotePlan3" "maxTextWidth" '700'
-
-echo "NotePlan: Set theme to Gruvbox iA.json"
-defaults write "co.noteplan.NotePlan3" "themeDark" '"Gruvbox iA.json"'
-
-echo "NotePlan: Allow NotePlan to have custom keyboard shortcuts"
-allowCustomKeyboardShortcutsForApp "co.noteplan.NotePlan3"
-
-echo "NotePlan: Replace Toggle Sidebar shortcut to ⌘S"
-echo "NotePlan: Replace Toggle Calendar Sidebar shortcut to ⇧⌘S"
-defaults write co.noteplan.NotePlan3 NSUserKeyEquivalents "{
-        'Toggle Sidebar' = '${key_cmd}s';
-        'Toggle Calendar Sidebar' = '${key_shift}${key_cmd}s';
-    }"
-
-echo "Noteplan: Recognize Asterisk as Todo"
-defaults write "co.noteplan.NotePlan3" "isAsteriskTodo" '1'
-
-echo "Noteplan: Do not recognize Dash as Todo"
-defaults write "co.noteplan.NotePlan3" "isDashTodo" '0'
-
-#######################################
 # Homerow
 #######################################
 
@@ -292,7 +187,7 @@ defaults write com.jetbrains.intellij.ce ApplePressAndHoldEnabled -bool false
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
-for app in "Chrome" "Arc" "Hammerspoon" "Mail" "Safari" "IINA" "NotePlan" "Homerow" "TopNotch" "Flux" "idea" "Calendar" "cfprefsd" "Finder"; do
+for app in "Chrome" "Arc" "Hammerspoon" "Mail" "Safari" "IINA" "Homerow" "TopNotch" "Flux" "idea" "Calendar" "cfprefsd" "Finder"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
