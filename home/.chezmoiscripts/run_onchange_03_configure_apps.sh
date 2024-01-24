@@ -76,6 +76,12 @@ defaults write com.google.Chrome DisablePrintPreview -bool true
 # Arc Browser
 #######################################
 
+# See also 
+# https://arcinternet.notion.site/Arc-Advanced-f7efb9a85d824cec828711ece77e1474
+#
+# Turn off telemetry
+# https://raw.githubusercontent.com/SenpaiHunters/ArcAdvanced/main/ArcTelemetryBlocking/ArcTel.sh
+
 echo "Arc: Disable User interface sounds"
 defaults write "company.thebrowser.Browser" "playUserInterfaceSoundsDisabled" '1'
 
