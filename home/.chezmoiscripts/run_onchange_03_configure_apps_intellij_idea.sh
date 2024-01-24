@@ -17,8 +17,7 @@ defaults write com.jetbrains.intellij.ce ApplePressAndHoldEnabled -bool false
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
-# Restarting cfprefsd and Finder to make keyboard changes stick
-for app in "idea" "cfprefsd" "Finder"; do
+for app in "idea"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
