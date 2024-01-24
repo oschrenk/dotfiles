@@ -228,6 +228,12 @@ defaults write co.noteplan.NotePlan3 NSUserKeyEquivalents "{
         'Toggle Calendar Sidebar' = '${key_shift}${key_cmd}s';
     }"
 
+echo "Noteplan: Recognize Asterisk as Todo"
+defaults write "co.noteplan.NotePlan3" "isAsteriskTodo" '1'
+
+echo "Noteplan: Do not recognize Dash as Todo"
+defaults write "co.noteplan.NotePlan3" "isDashTodo" '0'
+
 #######################################
 # Homerow
 #######################################
