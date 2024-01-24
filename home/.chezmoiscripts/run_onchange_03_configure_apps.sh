@@ -9,19 +9,6 @@
 source ./run_onchange_03_configure_apps__helper.sh
 
 #######################################
-# HAMMERSPOON
-#######################################
-
-echo "Hammerspoon: Move config file to XDG_CONFIG_HOME"
-defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
-
-echo "Hammerspoon: Don't show in Dock"
-defaults write "org.hammerspoon.Hammerspoon" "MJShowDockIconKey" '0'
-
-echo "Hammerspoon: Don't show in Menubar"
-defaults write "org.hammerspoon.Hammerspoon" "MJShowMenuIconKey" '0'
-
-#######################################
 # MAIL
 #######################################
 
@@ -165,7 +152,7 @@ defaults write com.jetbrains.intellij.ce ApplePressAndHoldEnabled -bool false
 # Kill affected applications                              #
 ###########################################################
 # Restarting cfprefsd and Finder to make keyboard changes stick
-for app in "Hammerspoon" "Mail" "Safari" "IINA" "Homerow" "TopNotch" "Flux" "idea" "Calendar" "cfprefsd" "Finder"; do
+for app in "Mail" "Safari" "IINA" "Homerow" "TopNotch" "Flux" "idea" "Calendar" "cfprefsd" "Finder"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
