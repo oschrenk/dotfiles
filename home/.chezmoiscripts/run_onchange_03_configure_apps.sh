@@ -9,13 +9,6 @@
 source ./run_onchange_03_configure_apps__helper.sh
 
 #######################################
-# CHROME
-#######################################
-
-echo "Chrome: Use the system-native print preview dialog"
-defaults write com.google.Chrome DisablePrintPreview -bool true
-
-#######################################
 # Arc Browser
 #######################################
 
@@ -187,7 +180,7 @@ defaults write com.jetbrains.intellij.ce ApplePressAndHoldEnabled -bool false
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
-for app in "Chrome" "Arc" "Hammerspoon" "Mail" "Safari" "IINA" "Homerow" "TopNotch" "Flux" "idea" "Calendar" "cfprefsd" "Finder"; do
+for app in "Arc" "Hammerspoon" "Mail" "Safari" "IINA" "Homerow" "TopNotch" "Flux" "idea" "Calendar" "cfprefsd" "Finder"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
