@@ -1,0 +1,36 @@
+#!/bin/sh
+# See https://explainshell.com/explain?cmd=set%20-eufo%20pipefail
+# set -eufo pipefail
+
+########################
+## HELPER methods     ##
+########################
+
+source ./run_onchange_03_configure_apps__helper.sh
+
+#######################################
+# TopNotch
+#######################################
+echo "Top Notch: Enable"
+defaults write "pl.maketheweb.TopNotch" "isEnabled" '1'
+
+echo "Top Notch: Hide on Macbook Screen only"
+defaults write "pl.maketheweb.TopNotch" "hideOnBuiltInOnly" '1'
+
+echo "Top Notch: Hide Menubar Icon (start app again to show icon)"
+defaults write "pl.maketheweb.TopNotch" "hideMenubarIcon" '1'
+
+
+###########################################################
+# Kill affected applications                              #
+###########################################################
+for app in "Homerow"; do
+  while true; do
+    read -p "Do you want to restart $app? [y/(n)]: " yn
+    case $yn in
+        [Yy]* ) killall "$app" > /dev/null 2>&1 ;open -a "$app"; break;;
+        [Nn]* ) break;;
+        * ) echo "Invalid answer; defaulting to no."; break;;
+    esac
+  done
+done
