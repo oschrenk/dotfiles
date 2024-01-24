@@ -65,3 +65,32 @@ key_shift='$'
 # amount of voodoo as to what you do or do not have to
 # restart, and when.
 
+#######################################
+# KEYBOARD DOCUMENTATION
+#######################################
+
+askToRestartApps() {
+  for app in $*; do
+    while true; do
+      read -p "Do you want to restart $app? [y/(n)]: " yn
+      case $yn in
+          [Yy]* ) killall "$app" > /dev/null 2>&1 ;open -a "$app"; break;;
+          [Nn]* ) break;;
+          * ) echo "Invalid answer; defaulting to no."; break;;
+      esac
+    done
+  done
+}
+
+killProcess() {
+  for process in $*; do
+    while true; do
+      read -p "Do you want to restart $process? [y/(n)]: " yn
+      case $yn in
+          [Yy]* ) killall "$process" > /dev/null 2>&1 ; break;;
+          [Nn]* ) break;;
+          * ) echo "Invalid answer; defaulting to no."; break;;
+      esac
+    done
+  done
+}

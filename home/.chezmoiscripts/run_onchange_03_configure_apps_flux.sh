@@ -25,13 +25,5 @@ defaults write "org.herf.Flux" "steptime" '26'
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
-for app in "Flux"; do
-  while true; do
-    read -p "Do you want to restart $app? [y/(n)]: " yn
-    case $yn in
-        [Yy]* ) killall "$app" > /dev/null 2>&1 ;open -a "$app"; break;;
-        [Nn]* ) break;;
-        * ) echo "Invalid answer; defaulting to no."; break;;
-    esac
-  done
-done
+
+askToRestartApps "Flux"
