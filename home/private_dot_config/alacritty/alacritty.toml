@@ -52,7 +52,7 @@ history = 10000
 multiplier = 3
 
 [shell]
-args = ["--login", "--init-command", "$HOME/.config/tmux/fzf_sessions.fish start"]
+args = ["--login", "--init-command", "/opt/homebrew/bin/sessionizer start"]
 program = "/opt/homebrew/bin/fish"
 
 [window]
