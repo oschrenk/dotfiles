@@ -3,7 +3,7 @@
 # set -eufo pipefail
 
 ########################
-## DOCS   methods     ##
+## DOCS               ##
 ########################
 
 # to find the bundle identifier, you can point to the app directory and read
