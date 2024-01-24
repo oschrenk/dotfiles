@@ -9,16 +9,6 @@
 source ./run_onchange_03_configure_apps__helper.sh
 
 #######################################
-# Calendar
-#######################################
-
-echo "Calendar: Show Week numbers"
-defaults write "com.apple.iCal" "Show Week Numbers" '1'
-
-echo "Calendar: Enable time zone support"
-defaults write "com.apple.iCal" "TimeZone support enabled" '1'
-
-#######################################
 # SAFARI
 #######################################
 
@@ -132,7 +122,7 @@ defaults write com.jetbrains.intellij.ce ApplePressAndHoldEnabled -bool false
 # Kill affected applications                              #
 ###########################################################
 # Restarting cfprefsd and Finder to make keyboard changes stick
-for app in "Safari" "IINA" "Homerow" "TopNotch" "Flux" "idea" "Calendar" "cfprefsd" "Finder"; do
+for app in "Safari" "IINA" "Homerow" "TopNotch" "Flux" "idea" "cfprefsd" "Finder"; do
   while true; do
     read -p "Do you want to restart $app? [y/(n)]: " yn
     case $yn in
