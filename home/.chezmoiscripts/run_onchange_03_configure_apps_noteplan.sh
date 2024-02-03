@@ -28,14 +28,14 @@ echo "NotePlan: Enable Yearly Notes"
 defaults write "co.noteplan.NotePlan3" "isYearlyNotes" '1'
 
 echo "NotePlan: Set font size to 22"
-defaults write "co.noteplan.NotePlan3" "fontDelta" '6'
-defaults write "co.noteplan.NotePlan3" "fontSize" '22'
+/usr/libexec/PlistBuddy -c "Delete ':fontDelta'" -c "Add ':fontDelta' integer '6'" "$HOME/Library/Containers/co.noteplan.NotePlan3/Data/Library/Preferences/co.noteplan.NotePlan3.plist"
+/usr/libexec/PlistBuddy -c "Delete ':fontSize'" -c "Add ':fontSize' real '22.000000'" "$HOME/Library/Containers/co.noteplan.NotePlan3/Data/Library/Preferences/co.noteplan.NotePlan3.plist"
 
 echo "NotePlan: Set font to System"
 defaults write "co.noteplan.NotePlan3" "fontFamily" 'System'
 
 echo "NotePlan: Set text width to 700"
-defaults write "co.noteplan.NotePlan3" "maxTextWidth" '700'
+/usr/libexec/PlistBuddy -c "Delete ':maxTextWidth'" -c "Add ':maxTextWidth' real '800.000000'" "$HOME/Library/Containers/co.noteplan.NotePlan3/Data/Library/Preferences/co.noteplan.NotePlan3.plist"
 
 echo "NotePlan: Set theme to Gruvbox iA.json"
 defaults write "co.noteplan.NotePlan3" "themeDark" '"Gruvbox iA.json"'
