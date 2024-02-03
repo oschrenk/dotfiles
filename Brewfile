@@ -171,6 +171,7 @@ brew "dockutil"   # manage the dock
 brew "fileicon"   # managing custom icons for files and folders
 brew "iconsur"    # download icons from app store
 brew "sketchybar" # custom statusbar
+brew "8ta4/plist/plist" # watch plist files
 
 # brew "mas"        # app store apps
 # until https://github.com/mas-cli/mas/pull/496
