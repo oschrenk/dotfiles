@@ -1,9 +1,9 @@
 ##### Configuration #####
-PLUGIN_DIR="$CONFIG_DIR/plugins"
-
+PLUGIN_DIR="$CONFIG_DIR/plugiDEFAULT
 BACKGROUND_COLOR="494d64"
 # brew install epk/epk/font-sf-mono-nerd-font
-ICON_FONT_FACE="SFMono Nerd Font:Medium:15.0"
+ICON_FONT_FACE="SFMono Nerd Font:Medium"
+ICON_FONT_SIZE="15.0"
 ICON_COLOR="cad3f5"
 # brew install font-sf-pro
 LABEL_FONT_FACE="SF Pro:Light:14.0"
@@ -98,7 +98,7 @@ sketchybar --add item noteplan right \
 
 sketchybar --add item tmux.jira right \
 		       --set tmux.jira \
-			     icon.drawing=off  \
+			     icon.drawing=off \
 			     script="$PLUGIN_DIR/tmux.jira.fish" \
 		       --add event tmux_session_update \
 		       --subscribe tmux.jira tmux_session_update

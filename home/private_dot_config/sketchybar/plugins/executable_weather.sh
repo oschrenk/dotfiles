@@ -1,14 +1,14 @@
 #!/usr/bin/env sh
 
 LOCATION="Haarlem"
-FORMAT_STRING="+%t%20+%c"
+# see https://github.com/chubin/wttr.in/tree/master?tab=readme-ov-file#one-line-output
+#%c is the weather as symbol
+#%t is the temperature
+FORMAT_STRING="+%c:+%t"
+#?m forces metrics units
+WEATHER_STRING=$(curl -s "https://wttr.in/${LOCATION}?m&format=${FORMAT_STRING}")
 
-WEATHER_STRING=$(curl -s "https://wttr.in/${LOCATION}?format=${FORMAT_STRING}" | awk '{$1=$1};1')
+WEATHER_ICON=$(echo $WEATHER_STRING | cut -d ':' -f 1)
+WEATHER_TEMP=$(echo $WEATHER_STRING | cut -d ':' -f 2)
 
-# Fallback if empty
-if [ -z $WEATHER_STRING ]; then
-    sketchybar --set $NAME icon= label="-"
-    return
-fi
-
-sketchybar --set $NAME icon= label="$WEATHER_STRING"
+sketchybar --set $NAME icon="$WEATHER_ICON" label="$WEATHER_TEMP"
