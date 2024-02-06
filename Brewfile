@@ -82,6 +82,7 @@ brew "walk"           # file manager
 # documents
 brew "oschrenk/made/noteplan" # noteplan companion
 brew "pandoc"                 # document converter
+brew "zola"                   # static site generator
 
 # parsing/converting
 brew "dos2unix"       # convert text between DOS, UNIX, and Mac formats
