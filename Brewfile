@@ -75,10 +75,12 @@ brew "htop"           # Improved top
 brew "jira-cli"       # interact with jira
 brew "lsd"            # "better" ls
 brew "page"           # Use Neovim as pager
-brew "pandoc"         # document converter,
 brew "tree"           # print file tree
 brew "tmux"           # terminal multiplexer
 brew "walk"           # file manager
+
+# documents
+brew "pandoc"         # document converter,
 
 # parsing/converting
 brew "dos2unix"       # convert text between DOS, UNIX, and Mac formats
