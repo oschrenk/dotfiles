@@ -80,6 +80,7 @@ brew "tmux"           # terminal multiplexer
 brew "walk"           # file manager
 
 # documents
+brew "hugo"                   # static site generator
 brew "oschrenk/made/noteplan" # noteplan companion
 brew "pandoc"                 # document converter
 brew "zola"                   # static site generator
