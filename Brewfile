@@ -258,6 +258,7 @@ cask "topnotch"             # "hide" notch
 cask "transmission"         # torrent client
 cask "vlc"                  # video client
 cask "whatsapp"             # whatsapp messaging
+cask "zed"                  # editor
 cask "zoom"                 # video conferencing
 
 #######################################
