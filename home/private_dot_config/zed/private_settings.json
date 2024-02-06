@@ -8,7 +8,15 @@
 // from the command palette or from `Zed` application menu.
 {
   "theme": "Gruvbox Dark",
-  "vim_mode": true,
   "ui_font_size": 18,
-  "buffer_font_size": 20
+
+  "buffer_font_size": 20,
+  "buffer_font_family": "Zed Mono",
+
+  "telemetry": {
+    "metrics": false,
+    "diagnostics": false
+  },
+
+  "vim_mode": true
 }
