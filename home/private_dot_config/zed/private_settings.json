@@ -7,16 +7,31 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "features": {
+    "copilot": false
+  },
   "theme": "Gruvbox Dark",
   "ui_font_size": 18,
+  "collaboration_panel": {
+    "button": false
+  },
+  "chat_panel": {
+    "button": false
+  },
+  "notification_panel": {
+    "button": false
+  },
+
+  "journal": {
+    "path": "~",
+    "hour_format": "hour24"
+  },
 
   "buffer_font_size": 20,
   "buffer_font_family": "Zed Mono",
-
   "telemetry": {
     "metrics": false,
     "diagnostics": false
   },
-
   "vim_mode": true
 }
