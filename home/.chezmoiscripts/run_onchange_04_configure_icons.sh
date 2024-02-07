@@ -83,6 +83,7 @@ sudo fileicon set /Applications/The\ Hit\ List.app "$BASEDIR"/assets/icons/the-h
 sudo fileicon set /Applications/The\ Unarchiver.app "$BASEDIR"/assets/icons/the-unarchiver.icns
 sudo fileicon set /Applications/Transmission.app/ "$BASEDIR"/assets/icons/transmission.icns
 sudo fileicon set /Applications/Vimac.app/ "$BASEDIR"/assets/icons/vimac.icns
+sudo fileicon set /Applications/WhatsApp.app/ "$BASEDIR"/assets/icons/whatsapp.icns
 sudo fileicon set /Applications/VLC.app/ "$BASEDIR"/assets/icons/vlc.icns
 sudo fileicon set /Applications/zoom.us.app "$BASEDIR"/assets/icons/zoom.icns
 
