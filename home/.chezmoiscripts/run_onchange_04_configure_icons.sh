@@ -85,6 +85,7 @@ sudo fileicon set /Applications/Transmission.app/ "$BASEDIR"/assets/icons/transm
 sudo fileicon set /Applications/Vimac.app/ "$BASEDIR"/assets/icons/vimac.icns
 sudo fileicon set /Applications/WhatsApp.app/ "$BASEDIR"/assets/icons/whatsapp.icns
 sudo fileicon set /Applications/VLC.app/ "$BASEDIR"/assets/icons/vlc.icns
+sudo fileicon set /Applications/Zed.app/ "$BASEDIR"/assets/icons/zed.icns
 sudo fileicon set /Applications/zoom.us.app "$BASEDIR"/assets/icons/zoom.icns
 
 echo "Killing Dock"
