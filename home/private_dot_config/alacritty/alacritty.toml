@@ -10,7 +10,7 @@ shape = "Block"
 TERM = "alacritty-direct"
 
 [font]
-size = 20.0
+size = 22.0
 
 [font.bold]
 family = "JetBrainsMono Nerd Font Mono"
