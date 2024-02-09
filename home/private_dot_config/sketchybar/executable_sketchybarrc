@@ -1,12 +1,14 @@
 ##### Configuration #####
-PLUGIN_DIR="$CONFIG_DIR/plugiDEFAULT
+PLUGIN_DIR="$CONFIG_DIR/plugins"
 BACKGROUND_COLOR="494d64"
 # brew install epk/epk/font-sf-mono-nerd-font
-ICON_FONT_FACE="SFMono Nerd Font:Medium"
+ICON_FONT_FAMILY="SFMono Nerd Font"
+ICON_FONT_STYLE="Medium"
 ICON_FONT_SIZE="15.0"
+DEFAULT_ICON_FONT_FACE="$ICON_FONT_FAMILY:$ICON_FONT_STYLE:$ICON_FONT_SIZE"
 ICON_COLOR="cad3f5"
 # brew install font-sf-pro
-LABEL_FONT_FACE="SF Pro:Light:14.0"
+LABEL_FONT_FACE="SF Pro:Light:15.0"
 LABEL_COLOR="cad3f5"
 
 ########################
@@ -43,10 +45,11 @@ sketchybar --default \
   background.color="0x00$BACKGROUND_COLOR" \
   background.corner_radius=5 \
   background.height=26 \
-  icon.font="$ICON_FONT_FACE" \
+  icon.font="$DEFAULT_ICON_FONT_FACE" \
   icon.color="0xff$ICON_COLOR" \
   icon.padding_left=3 \
   icon.padding_right=3 \
+  icon.y_offset=0 \
   label.font="$LABEL_FONT_FACE" \
   label.color="0xff$LABEL_COLOR" \
   label.y_offset=0 \
