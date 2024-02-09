@@ -21,6 +21,7 @@ return {
     -- "_" filetype runs formatters on filetypes w/o configured formatters
     formatters_by_ft = {
       fish = { "fish_indent" },
+      go = { "gofmt" },
       javascript = { { "prettierd", "prettier" } },
       lua = { "stylua" },
       markdown = { "prettier" },
