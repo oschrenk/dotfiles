@@ -52,7 +52,7 @@ history = 10000
 multiplier = 3
 
 [shell]
-args = ["--login", "--init-command", "/opt/homebrew/bin/sessionizer start"]
+args = ["--login", "--init-command", "/opt/homebrew/bin/sessionizer start; tmux attach -t default"]
 program = "/opt/homebrew/bin/fish"
 
 [window]
