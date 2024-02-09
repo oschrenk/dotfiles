@@ -30,10 +30,10 @@ local disabled_built_ins = {
   "zip",
   "zipPlugin",
 }
+
 for i = 1, 10 do
   g["loaded_" .. disabled_built_ins[i]] = 1
 end
-
 -- ============================
 -- Look and Feel
 -- ============================
