@@ -31,7 +31,7 @@ local disabled_built_ins = {
   "zipPlugin",
 }
 
-for i = 1, 10 do
+for i = 1, 18 do
   g["loaded_" .. disabled_built_ins[i]] = 1
 end
 -- ============================
