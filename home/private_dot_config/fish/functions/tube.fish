@@ -1,3 +1,3 @@
 function tube --description "Download videos"
-  yt-dlp $argv
+    yt-dlp $argv
 end
