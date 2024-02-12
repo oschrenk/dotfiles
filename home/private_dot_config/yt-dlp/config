@@ -1,4 +1,4 @@
--o "~/Downloads/%(title)s.%(ext)s"
--f bestvideo[height<=?1080]+bestaudio/best
+-o "~/Downloads/%(channel)s - %(title)s.%(ext)s"
+-f "bv*[vcodec^=avc]+ba[ext=m4a]/b[ext=mp4]/b"
 --ignore-errors
 --continue
