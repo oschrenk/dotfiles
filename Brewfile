@@ -251,6 +251,7 @@ cask "obs"                  # broadcasting
 cask "omnidisksweeper"      # cleanup disk space
 cask "podman-desktop"       # generic, manage containers and pods
 cask "postman"              # api development
+cask "raindropio"           # bookmark managment
 cask "rocket"               # quick emoji access
 cask "rode-central"         # rode companion app (for AI-1)
 cask "signal"               # signal messaging
