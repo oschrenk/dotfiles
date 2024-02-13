@@ -85,6 +85,7 @@ sketchybar --add item weather right \
            --set weather update_freq=3600 \
                          icon.font="$ICON_FONT_FAMILY:$ICON_FONT_STYLE:12.0" \
                          icon.y_offset=1 \
+                         icon.padding_left=0 \
                          icon.padding_right=2 \
                          script="$PLUGIN_DIR/weather.sh" \
            --subscribe weather system_woke
