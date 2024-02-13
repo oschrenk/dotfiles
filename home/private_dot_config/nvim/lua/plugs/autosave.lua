@@ -1,8 +1,9 @@
--- https://github.com/pocco81/auto-save.nvim
+-- https://github.com/okuuva/auto-save.nvim
 -- Auto Save buffers
 return {
-  "pocco81/auto-save.nvim",
-  event = { "FocusLost" },
+  "okuuva/auto-save.nvim",
+  cmd = "ASToggle", -- optional for lazy loading on command
+  event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
   opts = {
     enabled = true, -- start auto-save when plugin is loaded
     execution_message = {
