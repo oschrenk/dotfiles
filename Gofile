@@ -2,3 +2,4 @@ github.com/spf13/cobra-cli@latest         # cli generator
 github.com/catilac/plistwatch@latest      # watch plist changes
 golang.org/x/tools/cmd/godoc@latest       # godocs
 honnef.co/go/tools/cmd/staticcheck@latest # static checker
+github.com/cosmtrek/air@latest            # watch file changes
