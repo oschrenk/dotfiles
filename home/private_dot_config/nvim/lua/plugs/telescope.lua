@@ -9,6 +9,12 @@ return {
       end,
     },
     {
+      "<leader>fh",
+      function()
+        require("telescope.builtin").help_tags()
+      end,
+    },
+    {
       "<leader>of",
       function()
         require("telescope.builtin").oldfiles()
