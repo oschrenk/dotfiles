@@ -263,6 +263,7 @@ cask "the-unarchiver"       # unarchiving for most archive files
 cask "topnotch"             # "hide" notch
 cask "transmission"         # torrent client
 cask "vlc"                  # video client
+cask "whisky"               # wine wrapper
 cask "whatsapp"             # whatsapp messaging
 cask "zed"                  # editor
 cask "zoom"                 # video conferencing
