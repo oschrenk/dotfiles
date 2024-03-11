@@ -225,6 +225,7 @@ cask "font-victor-mono"
 #######################################
 
 cask "android-platform-tools" # android sdk
+cask "bruno"                # test APIs
 cask "calibre"              # ebook manager
 cask "cog"                  # audio client
 cask "dbeaver-community"    # sql client
@@ -238,7 +239,6 @@ cask "grammarly-desktop"    # grammarly client
 cask "handbrake"            # video transcoder
 cask "hex-fiend"            # hex editor
 cask "iina"                 # video client
-cask "insomnia"             # http and graphql client
 cask "jdk-mission-control"  # monitor java applications
 cask "keyboardcleantool"    # disables keyboard for easier cleaning
 cask "keycastr"             # shows key strokes on screen
