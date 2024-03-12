@@ -264,6 +264,7 @@ cask "transmission"         # torrent client
 cask "vlc"                  # video client
 cask "whisky"               # wine client
 cask "whatsapp"             # whatsapp messaging
+cask "xld"                  # cd ripper
 cask "zed"                  # editor
 cask "zoom"                 # video conferencing
 
