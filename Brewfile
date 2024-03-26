@@ -231,6 +231,7 @@ cask "calibre"              # ebook manager
 cask "cog"                  # audio client
 cask "dbeaver-community"    # sql client
 cask "db-browser-for-sqlite" # sqlite client
+cask "diffusionbee"         # Stable Diffusion locally
 cask "discord"              # discord client
 cask "docker"               # docker client
 cask "elgato-control-center" # elgato software to control lights
