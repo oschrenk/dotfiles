@@ -59,7 +59,7 @@ fish_add_path --prepend $XDG_DATA_HOME/.cargo/bin
 set -gx CARGO_HOME $XDG_DATA_HOME/cargo
 
 # Python
-pyenv init - | source
+fish_add_path --prepend /opt/homebrew/opt/python@3.12/libexec/bin
 
 # kubectl krew
 fish_add_path --prepend $HOME/.krew/bin
