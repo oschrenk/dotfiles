@@ -24,7 +24,23 @@ vim.o.spellfile = home .. "/.config/nvim/spell/en.utf-8.add" -- dictionary locat
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
 
+-- clear: Clear existing commands if the group already exists
 local my_filetypes = augroup("MyFiletypes", { clear = true })
+local my_sketchybar = augroup("MySketchybar", { clear = true })
+
+-- emit event on loading files
+autocmd({ "BufRead", "BufNewFile", "FocusGained" }, {
+  pattern = "*",
+  command = "silent! !sketchybar --trigger nvim_gained_focus FILENAME=%",
+  group = my_sketchybar,
+})
+
+-- emit event on loading files
+autocmd({ "FocusLost" }, {
+  pattern = "*",
+  command = "silent! !sketchybar --trigger nvim_lost_focus",
+  group = my_sketchybar,
+})
 
 -- make .md markdown files
 autocmd({ "BufRead", "BufNewFile" }, {
