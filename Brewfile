@@ -248,6 +248,7 @@ cask "knockknock"           # identify macos background tasks/processes
 cask "mindmac"              # llm api client
 cask "mochi"                # study notes and flashcards
 cask "monodraw"             # draw ascii art
+cask "musicbrainz-picard"   # audio collection organizer
 cask "numi"                 # calculator
 cask "obs"                  # broadcasting
 cask "omnidisksweeper"      # cleanup disk space
