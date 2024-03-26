@@ -27,6 +27,9 @@ set -gx LANG en_US.UTF-8
 fish_add_path --prepend /opt/homebrew/sbin
 fish_add_path --prepend /opt/homebrew/bin
 
+# put local bin before
+fish_add_path --prepend $HOME/.local/bin
+
 # XDG
 set -gx XDG_CONFIG_HOME $HOME/.config
 set -gx INPUTRC "$XDG_CONFIG_HOME"/readline/inputrc
