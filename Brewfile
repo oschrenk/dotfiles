@@ -133,6 +133,7 @@ brew "maven"       # jvm, package manager
 brew "node"        # javascript, language
 brew "openjdk@11"  # jvm, sdk
 brew "openjdk@17"  # jvm, sdk
+brew "openjdk@21"  # jvm, sdk
 brew "podman"      # generic, manage OCI contaniners and pods
 brew "poetry"      # python, package manager
 brew "prettier"    # generic, code formatter for js, css, json, md, yaml
