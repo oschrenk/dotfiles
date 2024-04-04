@@ -265,6 +265,7 @@ cask "telegram"             # telegram messaging
 cask "the-unarchiver"       # unarchiving  most archive files
 cask "topnotch"             # "hide" notch
 cask "transmission"         # torrent client
+cask "visual-studio-code"   # editor
 cask "vlc"                  # video client
 cask "whisky"               # wine client
 cask "whatsapp"             # whatsapp messaging
