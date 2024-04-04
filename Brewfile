@@ -262,7 +262,7 @@ cask "slack"                # slack office communication
 cask "spotify"              # audio client
 cask "steam"                # gaming client
 cask "telegram"             # telegram messaging
-cask "the-unarchiver"       # unarchiving for most archive files
+cask "the-unarchiver"       # unarchiving  most archive files
 cask "topnotch"             # "hide" notch
 cask "transmission"         # torrent client
 cask "vlc"                  # video client
