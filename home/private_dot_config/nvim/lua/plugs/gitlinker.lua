@@ -1,19 +1,9 @@
 return {
   "linrongbin16/gitlinker.nvim",
+  cmd = "GitLink",
+  opts = {},
   keys = {
-    {
-      "<leader>gc",
-      function()
-        return require("gitlinker").link({ action = require("gitlinker.actions").clipboard })
-      end,
-      desc = "Copy Git URL",
-    },
-    {
-      "<leader>go",
-      function()
-        return require("gitlinker").link({ action = require("gitlinker.actions").system })
-      end,
-      desc = "Open Git URL",
-    },
+    { "<leader>gy", "<cmd>GitLink<cr>", mode = { "n", "v" }, desc = "Yank git link" },
+    { "<leader>gY", "<cmd>GitLink!<cr>", mode = { "n", "v" }, desc = "Open git link" },
   },
 }
