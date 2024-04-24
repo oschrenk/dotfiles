@@ -61,17 +61,25 @@ sketchybar --default \
 ########################
 sketchybar --add item tmux.attached left \
 		       --set tmux.attached \
-			     icon.drawing=off  \
-			     script="$PLUGIN_DIR/tmux.attached.sh"				\
+			     icon.drawing=off \
+			     script="$PLUGIN_DIR/tmux.attached.sh" \
 		       --add event tmux_session_update \
 		       --subscribe tmux.attached tmux_session_update
 
 sketchybar --add item tmux.git left \
 		       --set tmux.git \
-			     icon.drawing=off  \
-			     script="$PLUGIN_DIR/tmux.git.sh"				\
+			     icon.drawing=off \
+			     script="$PLUGIN_DIR/tmux.git.sh"\
 		       --add event tmux_session_update \
 		       --subscribe tmux.git tmux_session_update
+
+# sketchybar --add item nvim left \
+# 		       --set nvim \
+# 			     icon.drawing=on \
+# 			     script="$PLUGIN_DIR/nvim.sh" \
+# 		       --add event nvim_gained_focus \
+# 		       --add event nvim_lost_focus \
+# 		       --subscribe nvim nvim_gained_focus nvim_lost_focus
 
 ########################
 #      Right Side      #
@@ -79,7 +87,7 @@ sketchybar --add item tmux.git left \
 #
 sketchybar --add item clock right \
            --set clock update_freq=30 \
-                       script="$PLUGIN_DIR/clock.sh"
+           script="$PLUGIN_DIR/clock.sh"
 
 sketchybar --add item weather right \
            --set weather update_freq=3600 \
@@ -111,7 +119,7 @@ sketchybar --add item tmux.jira right \
 		       --subscribe tmux.jira tmux_session_update
 
 ########################
-#         Update       #
+#        Update        #
 ########################
 # required step at end of the initial configuration
 # forces all scripts to run the first time,
