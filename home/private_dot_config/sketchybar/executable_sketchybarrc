@@ -99,10 +99,6 @@ sketchybar --add item battery right \
                          update_freq=120 \
            --subscribe battery system_woke power_source_change
 
-sketchybar --add item noteplan right \
-           --set noteplan script="$PLUGIN_DIR/noteplan.sh"\
-                          update_freq=30
-
 sketchybar --add item tmux.jira right \
 		       --set tmux.jira \
 			     icon.drawing=off \
