@@ -189,7 +189,6 @@ brew "nicerloop/nicerloop/mas" # app store apps
 mas "Affinity Designer 2", id: 1616831348  # vector editing
 mas "Affinity Photo 2", id: 1616822987     # raster editing
 mas "Affinity Publisher 2", id: 1606941598 # book publishing
-mas "Apple Configurator", id: 1037126344
 mas "Controller", id: 1198176727           # apple home
 mas "Due", id: 524373870                   # reminders on steroid
 mas "Health Auto Export", id: 1115567069   # export apple health data
