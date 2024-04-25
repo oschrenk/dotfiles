@@ -73,14 +73,6 @@ sketchybar --add item tmux.git left \
 		       --add event tmux_session_update \
 		       --subscribe tmux.git tmux_session_update
 
-# sketchybar --add item nvim left \
-# 		       --set nvim \
-# 			     icon.drawing=on \
-# 			     script="$PLUGIN_DIR/nvim.sh" \
-# 		       --add event nvim_gained_focus \
-# 		       --add event nvim_lost_focus \
-# 		       --subscribe nvim nvim_gained_focus nvim_lost_focus
-
 ########################
 #      Right Side      #
 ########################

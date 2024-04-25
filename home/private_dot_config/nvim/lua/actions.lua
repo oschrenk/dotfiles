@@ -28,20 +28,6 @@ local augroup = vim.api.nvim_create_augroup
 local my_filetypes = augroup("MyFiletypes", { clear = true })
 local my_sketchybar = augroup("MySketchybar", { clear = true })
 
--- emit event on loading files
-autocmd({ "BufRead", "BufNewFile", "FocusGained" }, {
-  pattern = "*",
-  command = "silent! !sketchybar --trigger nvim_gained_focus FILENAME=%",
-  group = my_sketchybar,
-})
-
--- emit event on loading files
-autocmd({ "FocusLost" }, {
-  pattern = "*",
-  command = "silent! !sketchybar --trigger nvim_lost_focus",
-  group = my_sketchybar,
-})
-
 -- make .md markdown files
 autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "md",
