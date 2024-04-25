@@ -36,7 +36,6 @@ brew "starship"                  # prompt
 brew "fzf"                       # fuzzy finder
 brew "neovim"                    # editor
 cask "obsidian"                  # notes
-mas "NotePlan 3", id: 1505432629 # daily notes
 
 #######################################
 # Packages
@@ -198,6 +197,7 @@ mas "HomeControl", id: 1547121417
 mas "Keynote", id: 409183694
 mas "MindNode", id: 1289197285
 mas "NextDNS", id: 1464122853
+mas "NotePlan 3", id: 1505432629           # daily notes
 mas "NordVPN", id: 905953485
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
