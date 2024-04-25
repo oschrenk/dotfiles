@@ -224,52 +224,52 @@ cask "font-victor-mono"
 #######################################
 
 cask "android-platform-tools" # android sdk
-cask "bruno"                # test APIs
-cask "calibre"              # ebook manager
-cask "cog"                  # audio client
-cask "dbeaver-community"    # sql client
-cask "db-browser-for-sqlite" # sqlite client
-cask "diffusionbee"         # Stable Diffusion locally
-cask "discord"              # discord client
-cask "docker"               # docker client
-cask "elgato-control-center" # elgato software to control lights
-cask "firefox"              # browser
-cask "flux"                 # control screen color temperature
-cask "grammarly-desktop"    # grammarly client
-cask "handbrake"            # video transcoder
-cask "hex-fiend"            # hex editor
-cask "iina"                 # video client
-cask "jdk-mission-control"  # monitor java applications
-cask "keyboardcleantool"    # disables keyboard for easier cleaning
-cask "keycastr"             # shows key strokes on screen
-cask "knockknock"           # identify macos background tasks/processes
-cask "mindmac"              # llm api client
-cask "mochi"                # study notes and flashcards
-cask "monodraw"             # draw ascii art
-cask "musicbrainz-picard"   # audio collection organizer
-cask "numi"                 # calculator
-cask "obs"                  # broadcasting
-cask "omnidisksweeper"      # cleanup disk space
-cask "podman-desktop"       # generic, manage containers and pods
-cask "postman"              # api development
-cask "raindropio"           # bookmark managment
-cask "rocket"               # quick emoji access
-cask "rode-central"         # rode companion app (for AI-1)
-cask "signal"               # signal messaging
-cask "slack"                # slack office communication
-cask "spotify"              # audio client
-cask "steam"                # gaming client
-cask "telegram"             # telegram messaging
-cask "the-unarchiver"       # unarchiving  most archive files
-cask "topnotch"             # "hide" notch
-cask "transmission"         # torrent client
-cask "visual-studio-code"   # editor
-cask "vlc"                  # video client
-cask "whisky"               # wine client
-cask "whatsapp"             # whatsapp messaging
-cask "xld"                  # cd ripper
-cask "zed"                  # editor
-cask "zoom"                 # video conferencing
+cask "bruno"                  # test APIs
+cask "calibre"                # ebook manager
+cask "cog"                    # audio client
+cask "dbeaver-community"      # sql client
+cask "db-browser-for-sqlite"  # sqlite client
+cask "diffusionbee"           # Stable Diffusion locally
+cask "discord"                # discord client
+cask "docker"                 # docker client
+cask "elgato-control-center"  # elgato software to control lights
+cask "firefox"                # browser
+cask "flux"                   # control screen color temperature
+cask "grammarly-desktop"      # grammarly client
+cask "handbrake"              # video transcoder
+cask "hex-fiend"              # hex editor
+cask "iina"                   # video client
+cask "jdk-mission-control"    # monitor java applications
+cask "keyboardcleantool"      # disables keyboard for easier cleaning
+cask "keycastr"               # shows key strokes on screen
+cask "knockknock"             # identify macos background tasks/processes
+cask "mindmac"                # llm api client
+cask "mochi"                  # study notes and flashcards
+cask "monodraw"               # draw ascii art
+cask "musicbrainz-picard"     # audio collection organizer
+cask "numi"                   # calculator
+cask "obs"                    # broadcasting
+cask "omnidisksweeper"        # cleanup disk space
+cask "podman-desktop"         # generic, manage containers and pods
+cask "postman"                # api development
+cask "raindropio"             # bookmark managment
+cask "rocket"                 # quick emoji access
+cask "rode-central"           # rode companion app (for AI-1)
+cask "signal"                 # signal messaging
+cask "slack"                  # slack office communication
+cask "spotify"                # audio client
+cask "steam"                  # gaming client
+cask "telegram"               # telegram messaging
+cask "the-unarchiver"         # unarchiving  most archive files
+cask "topnotch"               # "hide" notch
+cask "transmission"           # torrent client
+cask "visual-studio-code"     # editor
+cask "vlc"                    # video client
+cask "whisky"                 # wine client
+cask "whatsapp"               # whatsapp messaging
+cask "xld"                    # cd ripper
+cask "zed"                    # editor
+cask "zoom"                   # video conferencing
 
 #######################################
 # Xcode
