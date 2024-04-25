@@ -178,8 +178,7 @@ brew "sketchybar" # custom statusbar
 brew "8ta4/plist/plist" # watch plist files
 
 # brew "mas"        # app store apps
-# until https://github.com/mas-cli/mas/pull/496
-# is merged
+# waiting for https://github.com/mas-cli/mas/issues/512
 brew "nicerloop/nicerloop/mas" # app store apps
 
 #######################################
