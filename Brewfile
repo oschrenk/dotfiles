@@ -237,6 +237,7 @@ cask "firefox"                # browser
 cask "flux"                   # control screen color temperature
 cask "grammarly-desktop"      # grammarly client
 cask "handbrake"              # video transcoder
+cask "hidden"                 # hide menu bar items
 cask "hex-fiend"              # hex editor
 cask "iina"                   # video client
 cask "jdk-mission-control"    # monitor java applications
