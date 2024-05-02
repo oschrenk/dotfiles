@@ -1,3 +1,5 @@
+-- https://github.com/nvim-telescope/telescope.nvim
+-- fuzzy finder and picker over lists.
 return {
   "nvim-telescope/telescope.nvim",
   cmd = "Telescope",

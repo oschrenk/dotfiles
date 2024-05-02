@@ -1,3 +1,6 @@
+-- https://github.com/ethanholz/nvim-lastplace
+-- reopen files at their last position
+-- !!! unmaintained as of 2023-07-23
 return {
   "ethanholz/nvim-lastplace",
   lazy = false,

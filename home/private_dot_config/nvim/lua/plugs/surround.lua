@@ -1,3 +1,5 @@
+-- https://github.com/kylechui/nvim-surround
+-- add/change/delete surrounding delimiter
 return {
   "kylechui/nvim-surround",
   keys = {

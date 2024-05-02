@@ -1,3 +1,6 @@
+-- https://github.com/monaqa/dial.nvim
+--
+-- enhance increment/decrement behaviour
 return {
   "monaqa/dial.nvim",
   keys = {

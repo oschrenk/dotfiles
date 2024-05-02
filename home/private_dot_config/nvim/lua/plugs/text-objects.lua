@@ -1,4 +1,7 @@
+-- https://github.com/chrisgrieser/nvim-various-textobjs
+-- bundle of text objects
 return {
+
   "chrisgrieser/nvim-various-textobjs",
   lazy = false,
   config = function()

@@ -1,3 +1,5 @@
+-- https://github.com/lewis6991/gitsigns.nvim
+-- show hunks
 return {
   "lewis6991/gitsigns.nvim",
   event = { "BufNewFile", "BufRead", "BufAdd" },

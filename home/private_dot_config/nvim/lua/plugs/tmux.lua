@@ -1,3 +1,5 @@
+-- https://github.com/aserowy/tmux.nvim
+-- tmux integration to move from vim pane to neighboring tmux pane
 return {
   "aserowy/tmux.nvim",
   keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>" },

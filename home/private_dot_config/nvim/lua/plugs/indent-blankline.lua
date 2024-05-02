@@ -1,3 +1,5 @@
+-- https://github.com/lukas-reineke/indent-blankline.nvim
+-- show indentation guides
 return {
   "lukas-reineke/indent-blankline.nvim",
   event = { "BufNewFile", "BufRead", "BufAdd" },

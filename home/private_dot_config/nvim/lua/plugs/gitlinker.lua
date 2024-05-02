@@ -1,3 +1,6 @@
+-- https://github.com/linrongbin16/gitlinker.nvim
+-- generate sharable file permalinks (with line ranges) or
+-- open directly
 return {
   "linrongbin16/gitlinker.nvim",
   cmd = "GitLink",
