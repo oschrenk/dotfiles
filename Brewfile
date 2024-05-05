@@ -250,6 +250,7 @@ cask "monodraw"               # draw ascii art
 cask "musicbrainz-picard"     # audio collection organizer
 cask "numi"                   # calculator
 cask "obs"                    # broadcasting
+cask "onyx"                   # macos maintenance
 cask "omnidisksweeper"        # cleanup disk space
 cask "podman-desktop"         # generic, manage containers and pods
 cask "postman"                # api development
