@@ -5,10 +5,6 @@ return {
   build = ":TSUpdate",
   lazy = false,
   dependencies = {
-    -- https://github.com/HiPhish/nvim-ts-rainbow2
-    -- rainbow delimiters via treesitter
-    "HiPhish/nvim-ts-rainbow2",
-
     -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
     -- syntax aware text-objects
     "nvim-treesitter/nvim-treesitter-textobjects",
@@ -88,16 +84,6 @@ return {
           node_incremental = "<C-a>",
           node_decremental = "<C-x>",
         },
-      },
-      -- `rainbow` via "HiPhish/nvim-ts-rainbow2" dependency
-      rainbow = {
-        enable = true,
-        -- list of languages you want to disable the plugin for
-        disable = {},
-        -- which query to use for finding delimiters
-        query = "rainbow-parens",
-        -- highlight the entire buffer all at once
-        strategy = require("ts-rainbow").strategy.global,
       },
     })
   end,
