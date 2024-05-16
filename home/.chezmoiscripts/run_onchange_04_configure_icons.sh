@@ -73,6 +73,7 @@ sudo fileicon set /Applications/IntelliJ\ IDEA\ CE.app "$BASEDIR"/assets/icons/i
 sudo fileicon set /Applications/Mochi.app "$BASEDIR"/assets/icons/mochi.icns
 sudo fileicon set /Applications/NordVPN.app "$BASEDIR"/assets/icons/nordvpn.icns
 sudo fileicon set /Applications/Obsidian.app "$BASEDIR"/assets/icons/obsidian.icns
+sudo fileicon set /Applications/Ollamac.app "$BASEDIR"/assets/icons/ollamac.icns
 sudo fileicon set /Applications/OpenVPN\ Connect.app "$BASEDIR"/assets/icons/open-vpn.icns
 sudo fileicon set /Applications/Pulse\ Secure.app/ "$BASEDIR"/assets/icons/mozilla-vpn.icns
 sudo fileicon set /Applications/Sequel\ Pro.app/ "$BASEDIR"/assets/icons/sequel-pro.icns
@@ -82,7 +83,6 @@ sudo fileicon set /Applications/Steam.app/ "$BASEDIR"/assets/icons/steam.icns
 sudo fileicon set /Applications/Telegram.app/ "$BASEDIR"/assets/icons/telegram.icns
 sudo fileicon set /Applications/The\ Hit\ List.app "$BASEDIR"/assets/icons/the-hit-list.icns
 sudo fileicon set /Applications/The\ Unarchiver.app "$BASEDIR"/assets/icons/the-unarchiver.icns
-sudo fileicon set /Applications/Transmission.app/ "$BASEDIR"/assets/icons/transmission.icns
 sudo fileicon set /Applications/Vimac.app/ "$BASEDIR"/assets/icons/vimac.icns
 sudo fileicon set /Applications/WhatsApp.app/ "$BASEDIR"/assets/icons/whatsapp.icns
 sudo fileicon set /Applications/VLC.app/ "$BASEDIR"/assets/icons/vlc.icns
