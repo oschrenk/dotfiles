@@ -32,11 +32,13 @@ style = "ExtraLight"
 x = 0
 y = 2
 
+# forward Ctrl++Tab (get's "eaten by alacritty")
 [[keyboard.bindings]]
 chars = "\u001B[27;5;9~"
 key = "Tab"
 mods = "Control"
 
+# forward Ctrl+Shift+Tab (get's "eaten by alacritty")
 [[keyboard.bindings]]
 chars = "\u001B[27;6;9~"
 key = "Tab"
