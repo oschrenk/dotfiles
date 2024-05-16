@@ -46,13 +46,6 @@ return {
       end,
       desc = "Telescope git status",
     },
-    {
-      "z=",
-      function()
-        require("telescope.builtin").spell_suggest()
-      end,
-      desc = "Telescope spell suggest",
-    },
   },
   dependencies = {
     -- https://github.com/nvim-lua/plenary.nvim
