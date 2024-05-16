@@ -9,42 +9,49 @@ return {
       function()
         require("telescope.builtin").fd()
       end,
+      desc = "Telescope fd",
     },
     {
       "<leader>fh",
       function()
         require("telescope.builtin").help_tags()
       end,
+      desc = "Telescope help tags",
     },
     {
       "<leader>of",
       function()
         require("telescope.builtin").oldfiles()
       end,
+      desc = "Telescope oldfiles",
     },
     {
       "<leader>mf",
       function()
         require("telescope.builtin").marks()
       end,
+      desc = "Telescope marks",
     },
     {
       "<leader>wf",
       function()
         require("telescope.builtin").live_grep()
       end,
+      desc = "Telescope live grep",
     },
     {
       "<leader>gf",
       function()
         require("telescope.builtin").git_status()
       end,
+      desc = "Telescope git status",
     },
     {
       "z=",
       function()
         require("telescope.builtin").spell_suggest()
       end,
+      desc = "Telescope spell suggest",
     },
   },
   dependencies = {
