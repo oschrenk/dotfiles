@@ -47,7 +47,15 @@ return {
       end,
     },
   },
-  dependencies = { "nvim-lua/plenary.nvim", { "nvim-telescope/telescope-fzf-native.nvim", build = "make" } },
+  dependencies = {
+    -- https://github.com/nvim-lua/plenary.nvim
+    -- convenience lua functions
+    "nvim-lua/plenary.nvim",
+
+    -- https://github.com/nvim-telescope/telescope-fzf-native.nvim
+    -- c port of fzf for telescope
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+  },
   config = function()
     require("telescope").setup({
       pickers = {
