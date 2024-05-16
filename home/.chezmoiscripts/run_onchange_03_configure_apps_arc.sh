@@ -5,8 +5,7 @@
 ########################
 ## HELPER methods     ##
 ########################
-
-source ./run_onchange_03_configure_apps__helper.sh
+source ~/.local/share/chezmoi/home/.chezmoiscripts/run_onchange_03_configure_apps__helper.sh
 
 #######################################
 # Arc Browser
