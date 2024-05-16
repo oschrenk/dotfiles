@@ -18,6 +18,15 @@ for _, mode in ipairs({ "n", "i", "v" }) do
   map(mode, "<Right>", "<Nop>", opts)
 end
 
+-- Disable scrolling
+-- https://neovim.io/doc/user/scroll.html
+vim.keymap.set({ "n", "v" }, "<C-e>", "<Nop>")
+vim.keymap.set({ "n", "v" }, "<C-d>", "<Nop>")
+vim.keymap.set({ "n", "v" }, "<C-f>", "<Nop>")
+vim.keymap.set({ "n", "v" }, "<C-y>", "<Nop>")
+vim.keymap.set({ "n", "v" }, "<C-u>", "<Nop>")
+vim.keymap.set({ "n", "v" }, "<C-b>", "<Nop>")
+
 -- do not enter Ex mode by accident
 map("n", "Q", "<Nop>", opts)
 
