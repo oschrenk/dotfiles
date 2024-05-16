@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+# Ollamafile hash: {{ include "../Ollamafile" | sha256sum }}
+
+for model in $(cat {{ joinPath .chezmoi.sourceDir "../Ollamafile" | quote }} | cut -d "#" -f 1)
+do
+    ollama pull $model
+done
+
