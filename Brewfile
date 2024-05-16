@@ -170,6 +170,9 @@ brew "kustomize"        # k8s, template free k8s resource transformers
 brew "minikube"         # k8s, run local k8s
 brew "txn2/tap/kubefwd" # k8s, bulk port forwarding
 
+# llm
+brew "ollama"           # create, run llm
+
 # macos
 brew "dockutil"   # manage the dock
 brew "fileicon"   # managing custom icons for files and folders
@@ -250,6 +253,7 @@ cask "monodraw"               # draw ascii art
 cask "musicbrainz-picard"     # audio collection organizer
 cask "numi"                   # calculator
 cask "obs"                    # broadcasting
+cask "ollamac"                # gui for ollama
 cask "onyx"                   # macos maintenance
 cask "omnidisksweeper"        # cleanup disk space
 cask "podman-desktop"         # generic, manage containers and pods
