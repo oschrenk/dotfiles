@@ -3,14 +3,10 @@
 return {
   "kylechui/nvim-surround",
   keys = {
-    { "ys" },
-    { "yS" },
-    { "ds" },
-    { "cs" },
-    { "gS", mode = "x" },
-    { "S", mode = "x" },
-    { "<C-g>s", mode = "i" },
-    { "<C-g>S", mode = "i" },
+    { "ys", desc = "Surround text with {motion}{char}" },
+    { "ds", desc = "Delete sourounding delimiter {char}" },
+    { "cs", desc = "Change sourounding delimiter {char}" },
+    { "S", mode = "x", desc = "Surround selection with {char}" },
   },
   config = function()
     require("nvim-surround").setup()
