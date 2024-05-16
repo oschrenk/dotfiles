@@ -1,5 +1,6 @@
 -- https://github.com/okuuva/auto-save.nvim
 -- Auto Save buffers
+--
 return {
   "okuuva/auto-save.nvim",
   cmd = "ASToggle", -- optional for lazy loading on command

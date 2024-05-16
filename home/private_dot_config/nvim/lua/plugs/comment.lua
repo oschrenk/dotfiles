@@ -1,5 +1,6 @@
 -- https://github.com/numToStr/Comment.nvim
 -- plugin to make commenting easier
+--
 return {
   "numToStr/Comment.nvim",
   keys = { { "gc", mode = { "n", "x" } } },

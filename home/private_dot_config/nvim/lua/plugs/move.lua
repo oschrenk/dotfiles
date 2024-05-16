@@ -1,3 +1,5 @@
+-- https://github.com/matze/vim-move
+-- move lines and selections up and down
 return {
   "matze/vim-move",
   keys = {

@@ -1,5 +1,6 @@
 -- https://github.com/windwp/nvim-autopairs
 -- Automatically create pairs of characters
+--
 return {
   "windwp/nvim-autopairs",
   event = "InsertEnter",

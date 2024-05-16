@@ -1,3 +1,5 @@
+-- https://github.com/stevearc/conform.nvim
+-- formatter plugin
 return {
   "stevearc/conform.nvim",
   event = { "BufWritePre" },

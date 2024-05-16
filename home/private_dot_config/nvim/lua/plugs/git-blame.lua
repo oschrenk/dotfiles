@@ -1,5 +1,6 @@
 -- https://github.com/f-person/git-blame.nvim
 -- git blame for neowin
+--
 return {
   "f-person/git-blame.nvim",
   event = { "BufRead" },

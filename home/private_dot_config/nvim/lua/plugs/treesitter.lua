@@ -1,9 +1,16 @@
+-- https://github.com/nvim-treesitter/nvim-treesitter
+-- Treesitter configurations and abstraction layer
 return {
   "nvim-treesitter/nvim-treesitter",
   build = ":TSUpdate",
   lazy = false,
   dependencies = {
+    -- https://github.com/HiPhish/nvim-ts-rainbow2
+    -- rainbow delimiters via treesitter
     "HiPhish/nvim-ts-rainbow2",
+
+    -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
+    -- syntax aware text-objects
     "nvim-treesitter/nvim-treesitter-textobjects",
   },
   config = function()

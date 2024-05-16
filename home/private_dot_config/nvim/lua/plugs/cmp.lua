@@ -1,14 +1,36 @@
 -- https://github.com/hrsh7th/nvim-cmp
 -- completion engine plugin
+--
 return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter" },
   dependencies = {
+    -- https://github.com/hrsh7th/cmp-buffer
+    -- source for words in buffer
     "hrsh7th/cmp-buffer",
-    "hrsh7th/cmp-nvim-lsp",
+
+    -- https://github.com/hrsh7th/cmp-nvim-lsp
+    -- source for lsp
     "andersevenrud/cmp-tmux",
+
+    -- https://github.com/andersevenrud/cmp-tmux
+    -- source for tmux
+    "hrsh7th/cmp-nvim-lsp",
+
+    -- wxxxcxx/cmp-browser-source
+    -- source for browser
+    -- relies on Chrome extension
+    -- https://chromewebstore.google.com/detail/completion-source-provide/dgfnehmpeggdlmbblgjfbfioegibajlb
     "wxxxcxx/cmp-browser-source",
+
+    -- https://github.com/hrsh7th/cmp-vsnip
+    -- source for snippet emgine
     "hrsh7th/cmp-vsnip",
+
+    -- https://github.com/hrsh7th/vim-vsnip
+    -- snippet engine
+    -- cmp unfortunately REQUIRES a snippet engine
+    -- otherwise I would not bring this in
     "hrsh7th/vim-vsnip",
   },
   config = function()
@@ -58,6 +80,7 @@ return {
         end,
       },
     })
+    -- starts server on default port 18998
     require("cmp-browser-source").start_server()
   end,
 }
