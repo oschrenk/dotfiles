@@ -2,7 +2,12 @@
 -- tmux integration to move from vim pane to neighboring tmux pane
 return {
   "aserowy/tmux.nvim",
-  keys = { "<C-h>", "<C-j>", "<C-k>", "<C-l>" },
+  keys = {
+    { "<C-h>", desc = "Tmux move left" },
+    { "<C-j>", desc = "Tmux move down" },
+    { "<C-k>", desc = "Tmux move up" },
+    { "<C-l>", desc = "Tmux move right" },
+  },
   config = function()
     require("tmux").setup({
       copy_sync = { enable = false },
