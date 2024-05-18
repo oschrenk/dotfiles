@@ -5,7 +5,7 @@ return {
   cmd = "Gen",
   keys = {
     {
-      "<leader>oa",
+      "<leader>la",
       mode = { "n", "x", "o" },
       "<cmd>Gen Ask<CR>",
       desc = "Ask",
