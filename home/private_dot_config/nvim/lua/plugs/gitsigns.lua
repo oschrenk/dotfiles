@@ -35,8 +35,8 @@ return {
         end, { expr = true })
 
         -- Actions
-        map({ "n", "v" }, "<space>hs", ":Gitsigns stage_hunk<CR>")
-        map({ "n", "v" }, "<space>hu", ":Gitsigns reset_hunk<CR>")
+        map({ "n", "v" }, "<leader>hs", ":Gitsigns stage_hunk<CR>")
+        map({ "n", "v" }, "<leader>hu", ":Gitsigns reset_hunk<CR>")
 
         -- Text object
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>")
