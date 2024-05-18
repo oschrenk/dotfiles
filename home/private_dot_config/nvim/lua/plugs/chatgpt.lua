@@ -8,8 +8,16 @@ return {
   "jackMort/ChatGPT.nvim",
   cmd = { "ChatGPT", "ChatGPTRun" },
   config = function()
+    -- i'm pretty sure that is wrong but I can't figure out how to make
+    -- nui based windows as pretty as default telescope
+    local win_options = {
+      winhighlight = "Float:Float,FloatBorder:None",
+    }
     require("chatgpt").setup({
       api_key_cmd = "op read op://Personal/auth0.openai.com/2jesovznfbi6yodj6cnb2azgg4 --no-newline",
+      popup_window = { win_options = win_options },
+      popup_input = { submit = "<C-s>" },
+      settings_window = {},
       openai_params = {
         model = "gpt-3.5-turbo",
         frequency_penalty = 0,
