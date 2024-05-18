@@ -39,7 +39,6 @@ return {
     local wk = require("which-key")
     wk.register({
       c = {
-        name = "+ChatGPT",
         c = { "<cmd>ChatGPT<CR>", "ChatGPT" },
         g = { "<cmd>ChatGPTRun grammar_correction<CR>", "Grammar Correction", mode = { "n", "v" } },
         t = { "<cmd>ChatGPTRun translate<CR>", "Translate", mode = { "n", "v" } },
