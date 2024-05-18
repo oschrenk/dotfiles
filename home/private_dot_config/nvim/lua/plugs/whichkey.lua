@@ -8,10 +8,40 @@ return {
     vim.o.timeoutlen = 300
   end,
   opts = {
-    -- your configuration comes here
-    -- or leave it empty to use the default settings
-    -- refer to the configuration section below
-    disable = { filetypes = { "TelescopePrompt" } },
+    plugins = {
+      marks = true,
+      registers = false,
+      spelling = {
+        enabled = true,
+      },
+      presets = {
+        operators = false,
+        motions = false,
+        text_objects = true,
+        windows = true,
+        nav = false,
+        z = true,
+        g = true,
+      },
+    },
     layout = { height = { min = 4, max = 8 } },
+    defaults = {
+      ["g"] = { name = "+goto" },
+      ["z"] = { name = "+fold" },
+      ["]"] = { name = "+next" },
+      ["["] = { name = "+prev" },
+      ["<leader>c"] = { name = " Chat GPT" },
+      ["<leader>f"] = { name = "󰦅 Find" },
+      ["<leader>g"] = { name = "󰘭 Git" },
+      ["<leader>g"] = { name = "󰘭 Git" },
+      ["<leader>j"] = { name = " Flash" },
+      ["<leader>o"] = { name = " Ollama" },
+      ["<leader>p"] = { name = " Palette" },
+    },
   },
+  config = function(_, opts)
+    local wk = require("which-key")
+    wk.setup(opts)
+    wk.register(opts.defaults)
+  end,
 }
