@@ -3,6 +3,14 @@
 return {
   "David-Kunz/gen.nvim",
   cmd = "Gen",
+  keys = {
+    {
+      "<leader>oa",
+      mode = { "n", "x", "o" },
+      "<cmd>Gen Ask<CR>",
+      desc = "Ask",
+    },
+  },
   opts = {
     -- see available models at https://ollama.com/library
     model = "mistral", -- default model
