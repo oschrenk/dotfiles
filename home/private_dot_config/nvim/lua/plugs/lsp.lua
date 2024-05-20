@@ -5,21 +5,38 @@
 -- 2. mason-lspconfig.nvim
 -- 3. Setup servers via lspconfig
 
+local ensure_installed = {
+  "dockerfile-language-server",
+  "docker-compose-language-service",
+  "gopls",
+  "jq-lsp",
+  "lua-language-server",
+  "marksman",
+  "typst-lsp",
+}
+
 return {
   {
     "williamboman/mason.nvim",
     cmd = {
       "Mason",
       "MasonInstall",
-      "MasonInstallAll",
       "MasonLog",
       "MasonUninstall",
       "MasonUninstallAll",
       "MasonUpdate",
+      "MasonUpdateAll",
     },
     event = "User FileOpened",
     lazy = true,
-    config = function()
+    config = function(_, opts)
+      -- custom cmd to install/update all mason ensure_installed
+      vim.api.nvim_create_user_command("MasonUpdateAll", function()
+        if ensure_installed and #ensure_installed > 0 then
+          vim.cmd("MasonInstall " .. table.concat(ensure_installed, " "))
+        end
+      end, {})
+
       require("mason").setup({
         ui = {
           icons = {
@@ -40,13 +57,7 @@ return {
     dependencies = "mason.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = {
-          "dockerls",
-          "gopls",
-          "jqls",
-          "lua_ls",
-          "marksman",
-        },
+        ensure_installed = ensure_installed,
       })
     end,
   },
