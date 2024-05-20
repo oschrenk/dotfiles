@@ -8,7 +8,15 @@
 return {
   {
     "williamboman/mason.nvim",
-    cmd = { "Mason", "MasonInstall", "MasonInstallAll", "MasonUninstall", "MasonUninstallAll", "MasonLog" },
+    cmd = {
+      "Mason",
+      "MasonInstall",
+      "MasonInstallAll",
+      "MasonLog",
+      "MasonUninstall",
+      "MasonUninstallAll",
+      "MasonUpdate",
+    },
     event = "User FileOpened",
     lazy = true,
     config = function()
