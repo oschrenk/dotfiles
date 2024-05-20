@@ -12,6 +12,13 @@ return {
       desc = "Find files",
     },
     {
+      "<leader>fd",
+      function()
+        require("telescope.builtin").diagnostics()
+      end,
+      desc = "Find diagnostics",
+    },
+    {
       "<leader>fh",
       function()
         require("telescope.builtin").help_tags()
