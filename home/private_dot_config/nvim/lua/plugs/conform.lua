@@ -31,6 +31,7 @@ return {
       scala = { "scalafmt" },
       sh = { "shellcheck" },
       swift = { "swiftformat" },
+      terraform = { "terraform_fmt" },
       typescript = { "prettier" },
       yaml = { "yamlfmt" },
       ["_"] = { "trim_whitespace" },
