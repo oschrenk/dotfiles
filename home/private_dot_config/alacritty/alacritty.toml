@@ -49,6 +49,18 @@ action = "ToggleSimpleFullscreen"
 key = "F"
 mods = "Command"
 
+# prevent accidental new window
+[[keyboard.bindings]]
+action = "None"
+key = "N"
+mods = "Command"
+
+# prevent accidental new tab
+[[keyboard.bindings]]
+action = "None"
+key = "T"
+mods = "Command"
+
 [scrolling]
 history = 10000
 multiplier = 3
