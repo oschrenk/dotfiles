@@ -68,6 +68,30 @@ return {
               capabilities = lsp_capabilities,
             })
           end,
+          ["lua_ls"] = function()
+            lspconfig.lua_ls.setup({
+              capabilities = lsp_capabilities,
+              -- see https://luals.github.io/wiki/settings/
+              settings = {
+                Lua = {
+                  diagnostics = {
+                    -- ignore some globals
+                    globals = {
+                      -- neovim
+                      "vim",
+                      -- hammerspoon
+                      "hs",
+                    },
+                  },
+                  workspace = {
+                    ignoreDir = {
+                      "undo/**",
+                    },
+                  },
+                },
+              },
+            })
+          end,
           ["tsserver"] = function()
             lspconfig.tsserver.setup({
               capabilities = lsp_capabilities,
