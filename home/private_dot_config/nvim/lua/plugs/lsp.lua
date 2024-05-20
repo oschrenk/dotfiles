@@ -34,7 +34,7 @@ return {
       "MasonUpdate",
     },
     lazy = true,
-    config = function(_, opts)
+    config = function()
       require("mason").setup({
         ui = {
           icons = {
