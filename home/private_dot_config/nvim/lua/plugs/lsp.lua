@@ -33,6 +33,7 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
+          "dockerls",
           "gopls",
           "jqls",
           "lua_ls",
