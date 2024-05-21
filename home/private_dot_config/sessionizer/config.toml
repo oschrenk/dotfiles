@@ -1,9 +1,16 @@
 [base]
-ignore = [".build", "node_modules"]
+ignore = [".build", "node_modules", "private"]
 
 [default]
 name = "default"
 path = "$HOME/Downloads"
 
-[projects]
-base_dir = "$HOME/Projects"
+[search]
+# recrusively search git directories
+directories = [
+  "$HOME/Projects"
+]
+
+entries = [
+  "$HOME/.local/share/chezmoi"
+]
