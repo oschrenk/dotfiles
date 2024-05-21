@@ -64,13 +64,18 @@ fish_add_path --prepend /opt/homebrew/opt/python@3.12/libexec/bin
 # kubectl krew
 fish_add_path --prepend $HOME/.krew/bin
 
-# homebrew
-set -gx HOMEBREW_NO_ANALYTICS 1
-set -gx HOMEBREW_NO_ENV_HINTS 1
-set -gx HOMEBREW_NO_UPDATE_REPORT_NEW 1
+# node
+fish_add_path /opt/homebrew/opt/node@20/bin
 
-# ripgrep
-set -gx RIPGREP_CONFIG_PATH $XDG_CONFIG_HOME/ripgrep/ripgreprc
+#############################
+# homebrew
+#############################
+# disable analytics
+set -gx HOMEBREW_NO_ANALYTICS 1
+# don't print hints about env variables
+set -gx HOMEBREW_NO_ENV_HINTS 1
+# don't show added formulae/casks after update
+set -gx HOMEBREW_NO_UPDATE_REPORT_NEW 1
 
 #############################
 # fzf
