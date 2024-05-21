@@ -9,9 +9,6 @@ function upgrade --description "Upgrade homebrew, mas, nvim, tpm, fisher"
     # upgrade neovim plugins
     nvim --headless "+Lazy! sync" +qa
 
-    # upgrade mason registries
-    nvim --headless -c MasonUpdate +qall
-
     # upgrade tmux plugins
     $XDG_CONFIG_HOME/tmux/plugins/tpm/bin/update_plugins all
 
