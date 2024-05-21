@@ -11,6 +11,7 @@
 
 -- list of valid names
 -- https://raw.githubusercontent.com/neovim/nvim-lspconfig/master/doc/server_configurations.md
+-- :help lspconfig-all
 local ensure_installed = {
   "cssls",
   "dockerls",
@@ -19,6 +20,12 @@ local ensure_installed = {
   "html",
   "lua_ls",
   "marksman",
+  -- while sourcekit is available as an lspconfig,
+  -- it's binary is delivered with swift and thus "outside"
+  -- because of that mason doesn't manage it
+  -- see also https://github.com/williamboman/mason.nvim/issues/208#issuecomment-1200488465
+  -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sourcekit
+  -- "sourcekit",
   "tsserver",
 }
 
