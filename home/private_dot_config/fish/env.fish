@@ -21,6 +21,17 @@ set -gx LC_ALL en_US.UTF-8
 set -gx LANG en_US.UTF-8
 
 #############################
+# XDG
+#############################
+set -gx XDG_CONFIG_HOME $HOME/.config
+set -gx XDG_DATA_HOME $HOME/.local/share
+
+# force some apps to respect XDG
+set -gx INPUTRC "$XDG_CONFIG_HOME"/readline/inputrc
+set -gx WGETRC "$XDG_CONFIG_HOME"/wgetrc
+set -gx RIPGREP_CONFIG_PATH $XDG_CONFIG_HOME/ripgrep/ripgreprc
+
+#############################
 # PATH
 #############################
 # put homebrew bin before system bin
@@ -29,11 +40,6 @@ fish_add_path --prepend /opt/homebrew/bin
 
 # put local bin before
 fish_add_path --prepend $HOME/.local/bin
-
-# XDG
-set -gx XDG_CONFIG_HOME $HOME/.config
-set -gx INPUTRC "$XDG_CONFIG_HOME"/readline/inputrc
-set -gx WGETRC "$XDG_CONFIG_HOME"/wgetrc
 
 # Go
 set -x GOPATH $HOME/Frameworks/go
