@@ -58,7 +58,6 @@ return {
     "williamboman/mason-lspconfig.nvim",
     cmd = { "LspInstall", "LspUninstall" },
     event = { "BufRead" },
-    lazy = true,
     dependencies = {
       "williamboman/mason.nvim",
       "hrsh7th/cmp-nvim-lsp",
