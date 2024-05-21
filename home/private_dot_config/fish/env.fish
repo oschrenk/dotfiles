@@ -104,9 +104,11 @@ set -gx FZF_CTRL_T_COMMAND 'fd --type f --type d --hidden --follow --exclude .gi
 #############################
 # ssh
 #############################
+# use 1password for ssh
 set -x SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
 #############################
 # k8s
 #############################
+# automatically offer all $HOME/.kube/config.d/*.yml as K8s configs
 set -x KUBECONFIG (find $HOME/.kube/config.d -name "*.yml" -o -name '*.yaml' | sort | xargs echo | sed 's/ /:/g')
