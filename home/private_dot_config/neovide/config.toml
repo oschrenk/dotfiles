@@ -1,0 +1,22 @@
+# Detach from the terminal instead of waiting for the Neovide process to terminate. This parameter has no effect when launching from a GUI.
+fork = false
+
+# full: The default, all decorations.
+# none: No decorations at all. NOTE: Window cannot be moved nor resized after this.
+# (macOS only) transparent: Transparent decorations including a transparent bar.
+# (macOS only) buttonless: All decorations, but without quit, minimize or fullscreen buttons.
+frame = "buttonless"
+
+# start maximized
+maximized = false
+
+# open new tabs
+tabs = false
+
+# This sets the window title to be hidden on macOS.
+title-hidden = true
+
+[font]
+  normal = ["JetBrainsMono Nerd Font Mono"]
+  size = 22.0
+

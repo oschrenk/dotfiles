@@ -252,6 +252,7 @@ cask "mindmac"                # llm api client
 cask "mochi"                  # study notes and flashcards
 cask "monodraw"               # draw ascii art
 cask "musicbrainz-picard"     # audio collection organizer
+cask "neovide"                # neovim desktop app
 cask "numi"                   # calculator
 cask "obs"                    # broadcasting
 cask "ollamac"                # gui for ollama
