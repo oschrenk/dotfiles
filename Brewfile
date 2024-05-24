@@ -54,6 +54,9 @@ brew "ripgrep"        # generic, recursive search
 brew "watch"          # issue commands at regular interval
 brew "watchman"       # watch files and take action when they change
 
+## hardware
+brew "smartmontools"  # harddrive, read ssd info
+
 ## crypto
 brew "age"            # modern and secure encryption too
 brew "croc"           # securely transfer data between computers
