@@ -1,7 +1,4 @@
--- Leader/local leader
-vim.g.mapleader = [[ ]]
-vim.g.maplocalleader = [[,]]
-
+-- bootstrap lazy plugin manager
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -15,13 +12,18 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+-- Leader/local leader
+vim.g.mapleader = [[ ]]
+vim.g.maplocalleader = [[,]]
+
+-- load plugins
 require("lazy").setup("plugs", {
   defaults = {
-    -- if "true" by default all plugins will be loaded lazily
+    -- if "true" -> all plugins will be loaded lazily
     lazy = true,
-    -- install specific versions of plugins.you can use
+    -- install specific versions of plugins:
     -- "commit", "tag", "branch", or "version"
-    -- "*" will install latest stable version of plugins that support Semver.
+    -- "*" installs latest stable version of plugins
     -- "false" latest available version. recommended
     version = false,
   },
@@ -30,7 +32,7 @@ require("lazy").setup("plugs", {
     enabled = false,
   },
   change_detection = {
-    -- automatically check for config file changes and reload the ui
+    -- auto-reload on config changes
     enabled = false,
     -- get a notification when changes are found
     notify = false,

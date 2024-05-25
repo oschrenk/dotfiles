@@ -1,6 +1,6 @@
 setlocal spell
 
-" when commiting add [TICKET], and enter insert mode
+" when committing, add [TICKET], and enter insert mode
 " if body is empty it's a new commit
 if getline(1) == ""
   let branch = trim(system('git branch --show-current 2>/dev/null'))
