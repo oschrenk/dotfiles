@@ -6,8 +6,6 @@ tap "arl/arl"                 # gitmux
 tap "coursier/formulas"       # coursier
 tap "derailed/k9s"            # k9s
 tap "felixkratz/formulae"     # sketchybar
-tap "homebrew/cask-drivers"   # elgato control center, rode-central
-tap "homebrew/cask-fonts"     # fonts
 tap "oschrenk/made"           # tools by myself
 tap "txn2/tap"                # kubefwd
 tap "epk/epk"                 # sf-mono nerd font
@@ -63,7 +61,6 @@ brew "croc"           # securely transfer data between computers
 brew "minisign"       # sign files and verify signatures
 
 ## command line
-brew "alerter"        # send notifications from terminal
 brew "atuin"          # improved shell history
 brew "bat"            # "better" cat
 brew "chrome-cli"     # control chrome via cli
@@ -117,19 +114,16 @@ brew "flac"          # flac codec
 brew "lame"          # mp3 codec
 brew "libmp3splt"    # split mp3, off, flac files
 brew "mp3splt"       # split mp3, off, flac files
-brew "sox"           # edit audio
 brew "x264"          # h264 encoder
 brew "xvid"          # mp4 lib
 brew "yt-dlp"        # download youtube video/audio
 
 ## programming
-brew "bower"       # javascript, package manager
 brew "cloc"        # generic, count lines of code
 brew "coursier/formulas/coursier" # jvm, scala, artifact fetching
 brew "fnm"         # javascript, version manger
 brew "go"          # go, language
 brew "go-task"     # generic, go-based task runner
-brew "grunt-cli"   # javascript, task runner
 brew "stylua"      # lua formatter
 brew "maven"       # jvm, package manager
 brew "node"        # javascript, language
