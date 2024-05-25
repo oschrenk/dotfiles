@@ -24,7 +24,6 @@ cask "1password"                 # password manager
 cask "1password-cli"             # password manager
 cask "alacritty"                 # terminal
 cask "arc"                       # chromium based browser
-cask "google-chrome"             # browser
 cask "karabiner-elements"        # customize keyboard
 cask "hammerspoon"               # desktop automation
 cask "intellij-idea-ce"          # ide for java/scala
@@ -227,6 +226,7 @@ cask "font-victor-mono"
 cask "android-platform-tools" # android sdk
 cask "bruno"                  # test APIs
 cask "calibre"                # ebook manager
+cask "google-chrome"          # browser
 cask "cog"                    # audio client
 cask "dbeaver-community"      # sql client
 cask "db-browser-for-sqlite"  # sqlite client
