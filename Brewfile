@@ -239,13 +239,13 @@ cask "firefox"                # browser
 cask "flux"                   # control screen color temperature
 cask "grammarly-desktop"      # grammarly client
 cask "handbrake"              # video transcoder
-cask "hiddenbar"                 # hide menu bar items
+cask "hiddenbar"              # hide menu bar items
 cask "hex-fiend"              # hex editor
 cask "iina"                   # video client
 cask "jdk-mission-control"    # monitor java applications
-cask "keyboardcleantool"      # disables keyboard for easier cleaning
+cask "keyboardcleantool"      # disables keyboard for cleaning
 cask "keycastr"               # shows key strokes on screen
-cask "knockknock"             # identify macos background tasks/processes
+cask "knockknock"             # identify background tasks/processes
 cask "mindmac"                # llm api client
 cask "mochi"                  # study notes and flashcards
 cask "monodraw"               # draw ascii art
