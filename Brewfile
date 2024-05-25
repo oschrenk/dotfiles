@@ -33,6 +33,7 @@ brew "starship"                  # prompt
 brew "fzf"                       # fuzzy finder
 brew "neovim"                    # editor
 cask "obsidian"                  # notes
+cask "spotify"                # audio client
 
 #######################################
 # Packages
@@ -262,7 +263,6 @@ cask "rocket"                 # quick emoji access
 cask "rode-central"           # rode companion app (for AI-1)
 cask "signal"                 # signal messaging
 cask "slack"                  # slack office communication
-cask "spotify"                # audio client
 cask "steam"                  # gaming client
 cask "telegram"               # telegram messaging
 cask "the-unarchiver"         # unarchiving  most archive files
