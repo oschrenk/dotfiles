@@ -54,6 +54,7 @@ brew "watchman"       # watch files and take action when they change
 
 ## hardware
 brew "smartmontools"  # harddrive, read ssd info
+brew "m1ddc"          # monitor, control brightness of external monitor
 
 ## crypto
 brew "age"            # modern and secure encryption too
