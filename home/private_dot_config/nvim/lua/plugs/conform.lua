@@ -16,6 +16,11 @@ return {
   },
   -- everything in opts will be passed to setup()
   opts = {
+    -- general options
+    format_on_save = {
+      timeout_ms = 500,
+      lsp_fallback = true,
+    },
     -- define your formatters
     -- sub-list to run only the first available formatter
     -- eg { { "prettierd", "prettier" } }
@@ -37,8 +42,6 @@ return {
       yaml = { "yamlfmt" },
       ["_"] = { "trim_whitespace" },
     },
-    -- set up format-on-save
-    format_on_save = { timeout_ms = 500, lsp_fallback = true },
   },
   -- customize formatters
   formatters = {},
