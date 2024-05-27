@@ -147,6 +147,7 @@ brew "swiftlint"   # swift, lint
 brew "tectonic"    # tex
 brew "typescript"  # typescript, language
 brew "typst"       # tex alternative (rust based)
+brew "typstfmt"    # typst, formatter
 brew "yamlfmt"     # yaml, formatter
 brew "yarn"        # javascript, package manager
 
