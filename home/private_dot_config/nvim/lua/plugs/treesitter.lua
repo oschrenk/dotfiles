@@ -29,6 +29,7 @@ return {
         "hcl",
         "hocon",
         "html",
+        "hurl",
         "javascript",
         "jq",
         "json",
