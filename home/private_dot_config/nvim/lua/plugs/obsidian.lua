@@ -5,7 +5,16 @@ return {
     {
       "<leader>ot",
       mode = { "n", "x", "o" },
-      "<cmd>ObsidianToday<CR>",
+      function()
+        local client = require("obsidian").get_client()
+        local note = client:daily(0)
+        client:open_note(note, { sync = true })
+
+        -- simple hack to jump immediately to "tasks"
+        vim.api.nvim_win_set_cursor(0, { 11, 0 })
+        local key = vim.api.nvim_replace_termcodes("z<cr>", true, false, true)
+        vim.api.nvim_feedkeys(key, "n", true)
+      end,
       desc = "Today",
     },
     {
