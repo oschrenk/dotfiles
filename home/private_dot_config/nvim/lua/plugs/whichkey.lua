@@ -4,8 +4,12 @@ return {
   keys = { "<leader>", "`" },
   cmd = "WhichKey",
   init = function()
+    -- wait for mapped sequence to timeout
+    -- defaults to true
     vim.o.timeout = true
-    vim.o.timeoutlen = 300
+    -- Time in ms to wait for a mapped sequence to complete
+    -- default is 1000
+    vim.o.timeoutlen = 800
   end,
   opts = {
     plugins = {
