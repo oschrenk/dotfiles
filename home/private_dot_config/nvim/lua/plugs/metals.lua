@@ -15,6 +15,7 @@ return {
     metals_config.settings = {
       serverVersion = "1.3.1",
       -- prefer bsp over bloop
+      -- see also https://github.com/scalameta/metals/discussions/4505
       defaultBspToBuildTool = true,
       showImplicitArguments = true,
       excludedPackages = {
