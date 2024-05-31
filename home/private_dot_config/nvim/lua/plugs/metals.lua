@@ -17,7 +17,12 @@ return {
       -- prefer bsp over bloop
       -- see also https://github.com/scalameta/metals/discussions/4505
       defaultBspToBuildTool = true,
+      -- see implicit parameters
+      --   since v0.9.5, default: false
       showImplicitArguments = true,
+      -- see inferred types for generic methods
+      --   since v0.9.5, default: false
+      showInferredType = true,
       excludedPackages = {
         "akka.actor.typed.javadsl",
         "com.github.swagger.akka.javadsl",
