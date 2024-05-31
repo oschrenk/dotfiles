@@ -26,7 +26,9 @@ return {
       },
     }
 
-    metals_config.init_options.statusBarProvider = "on"
+    metals_config.init_options = {
+      statusBarProvider = "on",
+    }
     metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     -- Start metals
