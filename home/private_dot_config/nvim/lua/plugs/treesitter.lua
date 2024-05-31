@@ -96,7 +96,12 @@ return {
             ["[]"] = "@class.outer",
           },
         },
-        lsp_interop = { enable = true, peek_definition_code = { ["gD"] = "@*.*" } },
+        lsp_interop = {
+          enable = true,
+          peek_definition_code = {
+            ["gD"] = "@*.*",
+          },
+        },
       },
       highlight = { enable = true },
       indent = { enable = true },
