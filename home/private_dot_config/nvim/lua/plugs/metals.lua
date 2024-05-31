@@ -1,21 +1,36 @@
+local metals_au_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
+
 return {
   "scalameta/nvim-metals",
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
   },
-  ft = { "scala", "sbt" },
+  ft = {
+    "scala",
+    "sbt",
+  },
   config = function()
     local metals_config = require("metals").bare_config()
 
     metals_config.settings = {
       showImplicitArguments = true,
-      excludedPackages = { "akka.actor.typed.javadsl", "com.github.swagger.akka.javadsl" },
+      excludedPackages = {
+        "akka.actor.typed.javadsl",
+        "com.github.swagger.akka.javadsl",
+      },
     }
-    metals_config.init_options.statusBarProvider = "on"
 
+    metals_config.init_options.statusBarProvider = "on"
     metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    vim.cmd([[autocmd FileType scala,sbt lua require("metals").initialize_or_attach({})]])
+    -- Start metals
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = { "scala", "sbt", "java" },
+      callback = function()
+        require("metals").initialize_or_attach(metals_config)
+      end,
+      group = metals_au_group,
+    })
 
     local function map(mode, lhs, rhs)
       local options = { noremap = true }
