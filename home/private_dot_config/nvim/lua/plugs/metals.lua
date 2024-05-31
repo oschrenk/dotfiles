@@ -14,6 +14,8 @@ return {
 
     metals_config.settings = {
       serverVersion = "1.3.1",
+      -- prefer bsp over bloop
+      defaultBspToBuildTool = true,
       showImplicitArguments = true,
       excludedPackages = {
         "akka.actor.typed.javadsl",
