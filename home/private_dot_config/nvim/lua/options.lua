@@ -44,7 +44,7 @@ o.laststatus = 0 -- hide statusbar
 o.number = true -- show line number
 o.scrolloff = 1 -- ensure number of visible lines above/below cursor
 o.sidescrolloff = 5 -- ensure number of visible columns left/right to cursor
-o.signcolumn = "number" -- show sign in numbfer column
+o.signcolumn = "number" -- show sign in number column
 o.termguicolors = true -- emit 24-bit colours
 o.title = true -- show title in console title bar.
 
