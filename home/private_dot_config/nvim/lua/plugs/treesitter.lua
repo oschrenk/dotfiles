@@ -73,8 +73,8 @@ return {
         },
         swap = {
           enable = true,
-          swap_next = { ["<Tab>"] = "@parameter.inner" },
-          swap_previous = { ["<S-Tab>"] = "@parameter.inner" },
+          swap_next = { ["<Tab>"] = "@parameter.outer" },
+          swap_previous = { ["<S-Tab>"] = "@parameter.outer" },
         },
         move = { enable = true },
         lsp_interop = { enable = true, peek_definition_code = { ["gD"] = "@*.*" } },
