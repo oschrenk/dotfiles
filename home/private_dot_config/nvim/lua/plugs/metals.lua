@@ -20,6 +20,8 @@ return {
       excludedPackages = {
         "akka.actor.typed.javadsl",
         "com.github.swagger.akka.javadsl",
+        "akka.stream.javadsl",
+        "akka.http.javadsl",
       },
     }
 
