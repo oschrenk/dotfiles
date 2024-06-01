@@ -1,5 +1,6 @@
 local metals_au_group = vim.api.nvim_create_augroup("nvim-metals", { clear = true })
 
+-- https://github.com/scalameta/metals
 return {
   "scalameta/nvim-metals",
   dependencies = {
@@ -36,9 +37,13 @@ return {
     }
     metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-    -- Start metals
+    -- Start metals on certain filetypes
     vim.api.nvim_create_autocmd("FileType", {
-      pattern = { "scala", "sbt", "java" },
+      pattern = {
+        "scala",
+        "sbt",
+        "java",
+      },
       callback = function()
         require("metals").initialize_or_attach(metals_config)
       end,
