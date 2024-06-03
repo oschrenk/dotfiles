@@ -14,7 +14,7 @@ return {
     local metals_config = require("metals").bare_config()
 
     metals_config.settings = {
-      serverVersion = "1.3.1",
+      serverVersion = "latest.snapshot",
       -- prefer bsp over bloop
       -- see also https://github.com/scalameta/metals/discussions/4505
       defaultBspToBuildTool = true,
