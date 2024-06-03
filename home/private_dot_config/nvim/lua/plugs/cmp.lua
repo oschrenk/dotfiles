@@ -21,8 +21,13 @@ return {
     -- source for browser
     -- relies on Chrome extension
     -- https://chromewebstore.google.com/detail/completion-source-provide/dgfnehmpeggdlmbblgjfbfioegibajlb
-    "wxxxcxx/cmp-browser-source",
-
+    {
+      "wxxxcxx/cmp-browser-source",
+      config = function()
+        -- starts server on default port 18998
+        require("cmp-browser-source").start_server()
+      end,
+    },
     -- https://github.com/hrsh7th/cmp-vsnip
     -- source for snippet emgine
     "hrsh7th/cmp-vsnip",
@@ -79,7 +84,5 @@ return {
         end,
       },
     })
-    -- starts server on default port 18998
-    require("cmp-browser-source").start_server()
   end,
 }
