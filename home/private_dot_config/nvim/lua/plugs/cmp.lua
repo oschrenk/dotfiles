@@ -17,7 +17,7 @@ return {
     -- source for tmux
     "hrsh7th/cmp-nvim-lsp",
 
-    -- wxxxcxx/cmp-browser-source
+    -- https://github.com/wxxxcxx/cmp-browser-source
     -- source for browser
     -- relies on Chrome extension
     -- https://chromewebstore.google.com/detail/completion-source-provide/dgfnehmpeggdlmbblgjfbfioegibajlb
