@@ -74,7 +74,6 @@ return {
             tmux = "",
             browser = "",
             nvim_lsp = "",
-            vim_dadbod_completion = "",
           })[entry.source.name:gsub("-", "_")]
           return vim_item
         end,
