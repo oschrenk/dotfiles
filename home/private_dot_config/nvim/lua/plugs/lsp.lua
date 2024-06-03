@@ -1,4 +1,3 @@
--- Setup, "markdown"
 --
 -- It's important that you set up the plugins in the following order:
 -- 1. mason.nvim
@@ -20,6 +19,9 @@ local ensure_installed = {
   "html",
   "lua_ls",
   "marksman",
+  -- metals can't be managed via mason
+  -- "metals"
+  --
   -- while sourcekit is available as an lspconfig,
   -- it's binary is delivered with swift and thus "outside"
   -- because of that mason doesn't manage it
