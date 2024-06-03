@@ -37,8 +37,16 @@ return {
     -- cmp unfortunately REQUIRES a snippet engine
     -- otherwise I would not bring this in
     "hrsh7th/vim-vsnip",
+
+    -- https://github.com/onsails/lspkind.nvim
+    -- make menu/icons prettier
+    "onsails/lspkind.nvim",
   },
   config = function()
+    vim.api.nvim_set_hl(0, "CmpItemKindBrowser", { fg = "#689d6a" })
+    vim.api.nvim_set_hl(0, "CmpItemKindBuffer", { fg = "#b57614" })
+    vim.api.nvim_set_hl(0, "CmpItemKindTmux", { fg = "#d79921" })
+
     require("cmp").setup({
       -- required to be able to select item via return key
       -- annoying to bring in just another plugin for that, but alas
@@ -74,12 +82,28 @@ return {
       },
       formatting = {
         format = function(entry, vim_item)
-          vim_item.menu = ({
-            buffer = "",
-            tmux = "",
-            browser = "",
-            nvim_lsp = "",
-          })[entry.source.name:gsub("-", "_")]
+          if entry.source.name == "browser" then
+            vim_item.kind = "Browser "
+            vim_item.menu = ""
+            vim_item.kind_hl_group = "CmpItemKindBrowser"
+          end
+          if entry.source.name == "buffer" then
+            vim_item.kind = "Buffer "
+            vim_item.menu = ""
+            vim_item.kind_hl_group = "CmpItemKindBuffer"
+          end
+          if entry.source.name == "tmux" then
+            vim_item.kind = "Tmux "
+            vim_item.menu = ""
+            vim_item.kind_hl_group = "CmpItemKindTmux"
+          end
+
+          -- format lsp entries using lspkind
+          if entry.source.name == "nvim_lsp" then
+            vim_item =
+              require("lspkind").cmp_format({ mode = "text_symbol", maxwidth = 50, symbol_map = {} })(entry, vim_item)
+          end
+
           return vim_item
         end,
       },
