@@ -8,7 +8,7 @@ return {
       "<leader>la",
       mode = { "n", "x", "o" },
       "<cmd>Gen Ask<CR>",
-      desc = "Ask",
+      desc = "Ask Ollama",
     },
   },
   opts = {
