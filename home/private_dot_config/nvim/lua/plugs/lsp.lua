@@ -62,6 +62,7 @@ return {
     event = { "BufRead" },
     dependencies = {
       "williamboman/mason.nvim",
+      "neovim/nvim-lspconfig",
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
@@ -119,10 +120,5 @@ return {
         },
       })
     end,
-  },
-  {
-    "neovim/nvim-lspconfig",
-    lazy = true,
-    dependencies = { "mason-lspconfig.nvim" },
   },
 }
