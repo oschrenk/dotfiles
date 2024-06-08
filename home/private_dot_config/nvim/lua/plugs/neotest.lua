@@ -33,9 +33,51 @@ return {
       end,
       desc = "Attach to nearest test",
     },
+    {
+      "[t",
+      function()
+        require("neotest").jump.prev({ status = "failed" })
+      end,
+      desc = "Jump to previous failed test",
+    },
+    {
+      "]t",
+      function()
+        require("neotest").jump.next({ status = "failed" })
+      end,
+      desc = "Jump to next failed test",
+    },
+    {
+      "<leader>tc",
+      function()
+        require("neotest").output_panel.clear()
+      end,
+      desc = "Clear test panel",
+    },
+    {
+      "<leader>tt",
+      function()
+        require("neotest").output_panel.toggle()
+      end,
+      desc = "Toggle test panel",
+    },
+    {
+      "<leader>ts",
+      function()
+        require("neotest").summary.toggle()
+      end,
+      desc = "Toggle test summary",
+    },
+    {
+      "<leader>tl",
+      function()
+        require("neotest").run.run_last()
+      end,
+      desc = "Run last test",
+    },
   },
   config = function()
-    -- get neotest namespace (api call creates or returns namespace)
+    -- get neotest namespace
     local neotest_ns = vim.api.nvim_create_namespace("neotest")
     vim.diagnostic.config({
       virtual_text = {
@@ -49,6 +91,10 @@ return {
     require("neotest").setup({
       adapters = {
         require("neotest-go"),
+      },
+      status = {
+        signs = false,
+        virtual_text = true,
       },
     })
   end,

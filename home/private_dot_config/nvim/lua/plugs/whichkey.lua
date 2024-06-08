@@ -43,6 +43,7 @@ return {
       ["<leader>o"] = { name = " Obsidian" },
       ["<leader>j"] = { name = " Flash" },
       ["<leader>p"] = { name = " Palette" },
+      ["<leader>t"] = { name = "󰙨 Test" },
     },
   },
   config = function(_, opts)
