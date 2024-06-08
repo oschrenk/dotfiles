@@ -38,7 +38,7 @@ return {
       ["<leader>c"] = { name = " Chat GPT" },
       ["<leader>f"] = { name = "󰦅 Find" },
       ["<leader>g"] = { name = "󰘭 Git" },
-      ["<leader>h"] = { name = "󰘭 Git" },
+      ["<leader>h"] = { name = " Hunk" },
       ["<leader>l"] = { name = " Ollama" },
       ["<leader>o"] = { name = " Obsidian" },
       ["<leader>j"] = { name = " Flash" },
