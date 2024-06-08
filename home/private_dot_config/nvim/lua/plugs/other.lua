@@ -9,12 +9,9 @@ return {
         -- builtin mappings
         "golang",
         -- custom mapping
-        {
-          pattern = "/path/to/file/src/app/(.*)/.*.ext$",
-          target = "/path/to/file/src/view/%1/",
-          transformer = "lowercase",
-        },
       },
+      showMissingFiles = false,
+      rememberBuffers = false,
     })
   end,
 }
