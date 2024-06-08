@@ -53,14 +53,19 @@ return {
       vim.api.nvim_set_keymap(mode, lhs, rhs, options)
     end
 
-    map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-    map("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
-    map("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-    map("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-    map("n", "gds", "<cmd>lua vim.lsp.buf.document_symbol()<CR>")
-    map("n", "gws", "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>")
-    map("n", "<leader>sh", [[<cmd>lua vim.lsp.buf.signature_help()<CR>]])
-    map("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<CR>")
-    map("n", "<leader>f", "<cmd>lua vim.lsp.buf.format{async = true }<CR>")
+    local wk = require("which-key")
+    wk.register({
+      g = {
+        d = { "<cmd>lua vim.lsp.buf.definition()<CR>", "Goto definition", mode = { "n" } },
+        i = { "<cmd>lua vim.lsp.buf.implementation()<CR>", "Get implementations", mode = { "n" } },
+        r = { "<cmd>lua vim.lsp.buf.references()<CR>", "Get references", mode = { "n" } },
+        ds = { "<cmd>lua vim.lsp.buf.document_symbol()<CR>", "Get document symbols", mode = { "n" } },
+        ws = { "<cmd>lua vim.lsp.buf.workspace_symbol()<CR>", "Get workspace symbols", mode = { "n" } },
+      },
+      K = { "<cmd>lua vim.lsp.buf.hover()<CR>", "Display hover information", mode = { "n" } },
+      f = { "<cmd>lua vim.lsp.buf.format{async = true }<CR>", "Format buffer or selection", mode = { "n", "v" } },
+      r = { "<cmd>lua vim.lsp.buf.rename()<CR>", "Rename symbol under cursor", mode = { "n" } },
+      s = { "<cmd>lua vim.lsp.buf.signature_help()<CR>", "Display signature", mode = { "n" } },
+    })
   end,
 }
