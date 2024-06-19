@@ -155,8 +155,8 @@ brew "tfenv"   # terraform version manager
 brew "traefik" # reverse proxy
 
 # k8s
-brew "derailed/k9s/k9s" # k8s, cluster manager
 brew "helm"             # k8s, package manager
+brew "k9s"              # k8s, cluster manager
 brew "krew"             # k8s, kubectl package manager
 brew "kube-linter"      # k8s, lint k8s yaml and helm
 brew "kubectl"          # k8s, cli
