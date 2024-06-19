@@ -31,7 +31,6 @@ return {
       go = { "gofmt" },
       javascript = { { "prettierd", "prettier" } },
       lua = { "stylua" },
-      markdown = { "prettier" },
       python = { "black" },
       scala = { "scalafmt" },
       sh = { "shellcheck" },
