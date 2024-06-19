@@ -9,7 +9,14 @@ return {
       function()
         require("telescope.builtin").fd()
       end,
-      desc = "Find files",
+      desc = "Find files in project",
+    },
+    {
+      "<leader>fF",
+      function()
+        require("telescope.builtin").find_files({ cwd = require("telescope.utils").buffer_dir() })
+      end,
+      desc = "Find files in cwd",
     },
     {
       "<leader>fd",
