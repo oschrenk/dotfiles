@@ -1,11 +1,13 @@
 #######################################
 # Taps
 #######################################
+tap "8ta4/plist"              # plist
 tap "ankitpokhrel/jira-cli"   # jira-cli
 tap "coursier/formulas"       # coursier
+tap "epk/epk"                 # sf-mono nerd font
 tap "felixkratz/formulae"     # sketchybar
 tap "oschrenk/made"           # tools by myself
-tap "epk/epk"                 # sf-mono nerd font
+tap "txn2/tap"                # kubefwd
 
 # You can list all packages installed via `brew leaves`
 
