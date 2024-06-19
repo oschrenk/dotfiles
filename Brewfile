@@ -89,7 +89,7 @@ brew "yq"             # process YAML
 ## network
 brew "httrack"        # copy websites offline
 brew "hurl"           # run/test http requests
-brew "mobile-shell"   # better shell for roaming
+brew "mosh"           # better shell for roaming
 brew "ngrep"          # network packet analyzer
 brew "nmap"           # port scanning
 brew "telnet"         # telnet protocol
