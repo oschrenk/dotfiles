@@ -63,8 +63,6 @@ After casks are installed you can already start important apps and configure the
   - SystemSettings > "Privacy & Security > Full disk access..." Allow for ...
 - Arc
   - open profiles, and log into services
-- Bear
-  - Open to synchronize data
 - Hammerspoon
   - Preferences. Apply accessibility settings.
 - Karabiner Elements.
@@ -74,8 +72,6 @@ After casks are installed you can already start important apps and configure the
   - Key Promoter
   - Ideavim
   - Hocon
-- Noteplan
-  - Open to synchronize data
 - Photos
   - Open to synchronize data
 - Spotify
@@ -84,7 +80,6 @@ After casks are installed you can already start important apps and configure the
 Login:
 
 - Discord
-- Grammarly Desktop
 - Slack
 
 Link device:
