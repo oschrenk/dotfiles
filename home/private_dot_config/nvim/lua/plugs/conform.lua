@@ -37,7 +37,7 @@ return {
       swift = { "swiftformat" },
       terraform = { "terraform_fmt" },
       typescript = { "prettier" },
-      typst = { "typstfmt" },
+      typst = { "typstyle" },
       yaml = { "yamlfmt" },
       ["_"] = { "trim_whitespace" },
     },
