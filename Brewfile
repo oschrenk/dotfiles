@@ -3,7 +3,6 @@
 #######################################
 tap "ankitpokhrel/jira-cli"   # jira-cli
 tap "coursier/formulas"       # coursier
-tap "derailed/k9s"            # k9s
 tap "felixkratz/formulae"     # sketchybar
 tap "oschrenk/made"           # tools by myself
 tap "epk/epk"                 # sf-mono nerd font
