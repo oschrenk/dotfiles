@@ -81,7 +81,6 @@ sudo fileicon set /Applications/Slack.app/ "$BASEDIR"/assets/icons/slack.icns
 sudo fileicon set /Applications/Spotify.app/ "$BASEDIR"/assets/icons/spotify.icns
 sudo fileicon set /Applications/Steam.app/ "$BASEDIR"/assets/icons/steam.icns
 sudo fileicon set /Applications/Telegram.app/ "$BASEDIR"/assets/icons/telegram.icns
-sudo fileicon set /Applications/The\ Hit\ List.app "$BASEDIR"/assets/icons/the-hit-list.icns
 sudo fileicon set /Applications/The\ Unarchiver.app "$BASEDIR"/assets/icons/the-unarchiver.icns
 sudo fileicon set /Applications/Vimac.app/ "$BASEDIR"/assets/icons/vimac.icns
 sudo fileicon set /Applications/WhatsApp.app/ "$BASEDIR"/assets/icons/whatsapp.icns
