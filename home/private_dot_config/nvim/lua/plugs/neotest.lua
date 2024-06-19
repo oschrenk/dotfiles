@@ -10,6 +10,7 @@ return {
     -- adapters
     --https://github.com/nvim-neotest/neotest-go
     "nvim-neotest/neotest-go",
+    "olisikh/neotest-scala",
   },
   keys = {
     {
@@ -91,10 +92,11 @@ return {
     require("neotest").setup({
       adapters = {
         require("neotest-go"),
+        require("neotest-scala"),
       },
       status = {
-        signs = false,
-        virtual_text = true,
+        signs = true,
+        virtual_text = false,
       },
     })
   end,
