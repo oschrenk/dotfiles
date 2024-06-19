@@ -175,9 +175,9 @@ brew "iconsur"    # download icons from app store
 brew "sketchybar" # custom statusbar
 brew "8ta4/plist/plist" # watch plist files
 
-# brew "mas"        # app store apps
 # waiting for https://github.com/mas-cli/mas/issues/512
-brew "nicerloop/nicerloop/mas" # app store apps
+# see below for replacement until then
+# brew "mas"        # app store apps
 
 #######################################
 # Apps
@@ -277,5 +277,6 @@ brew "xcodes"      # xcode & runtimes manager
 mas "XCode", id: 497799835
 mas "Apple Developer", id: 640199958
 brew "swiftlint"   # swift, lint, requires Xcode
+brew "nicerloop/nicerloop/mas" # app store apps, requires Xcode
 # to agree to license
 # sudo xcodebuild -license
