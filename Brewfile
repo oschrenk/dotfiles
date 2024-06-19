@@ -127,7 +127,7 @@ brew "node"        # javascript, language
 brew "openjdk@11"  # jvm, sdk
 brew "openjdk@17"  # jvm, sdk
 brew "openjdk@21"  # jvm, sdk
-brew "pglci"       # postgres, just cli
+brew "pgcli"       # postgres, just cli
 brew "podman"      # generic, manage OCI contaniners and pods
 brew "poetry"      # python, package manager
 brew "prettier"    # generic, code formatter for js, css, json, md, yaml
