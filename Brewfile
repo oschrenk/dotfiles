@@ -119,8 +119,10 @@ brew "yt-dlp"        # download youtube video/audio
 brew "cloc"        # generic, count lines of code
 brew "coursier/formulas/coursier" # jvm, scala, artifact fetching
 brew "fnm"         # javascript, version manger
+brew "gradle"      # kotlin, build tool
 brew "go"          # go, language
 brew "go-task"     # generic, go-based task runner
+brew "kotlin"      # kotlin
 brew "stylua"      # lua formatter
 brew "maven"       # jvm, package manager
 brew "node"        # javascript, language
