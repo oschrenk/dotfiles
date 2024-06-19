@@ -141,7 +141,6 @@ brew "sbt"         # jvm, scala
 brew "shellcheck"  # shell linter
 brew "scala"       # jvm, scala
 brew "swiftformat" # swift, format
-brew "swiftlint"   # swift, lint
 brew "tectonic"    # tex
 brew "typescript"  # typescript, language
 brew "typst"       # tex alternative (rust based)
@@ -277,5 +276,6 @@ cask "zoom"                   # video conferencing
 brew "xcodes"      # xcode & runtimes manager
 mas "XCode", id: 497799835
 mas "Apple Developer", id: 640199958
+brew "swiftlint"   # swift, lint, requires Xcode
 # to agree to license
 # sudo xcodebuild -license
