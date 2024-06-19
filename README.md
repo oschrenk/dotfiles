@@ -88,7 +88,9 @@ Link device:
 - Telegram
 - Whatsapp
 
-## Rosetta
+## Steam & Rosetta
+
+`brew install steam`
 
 Steam is one of the last applications not offering a native arm variant for macOS
 

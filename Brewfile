@@ -258,7 +258,6 @@ cask "rocket"                 # quick emoji access
 cask "rode-central"           # rode companion app (for AI-1)
 cask "signal"                 # signal messaging
 cask "slack"                  # slack office communication
-cask "steam"                  # gaming client
 cask "telegram"               # telegram messaging
 cask "the-unarchiver"         # unarchiving  most archive files
 cask "topnotch"               # "hide" notch
