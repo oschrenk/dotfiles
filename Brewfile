@@ -2,7 +2,6 @@
 # Taps
 #######################################
 tap "ankitpokhrel/jira-cli"   # jira-cli
-tap "arl/arl"                 # gitmux
 tap "coursier/formulas"       # coursier
 tap "derailed/k9s"            # k9s
 tap "felixkratz/formulae"     # sketchybar
@@ -68,7 +67,6 @@ brew "chrome-cli"     # control chrome via cli
 brew "direnv"         # auto load env
 brew "entr"           # run arbitrary commands when files change
 brew "gh"             # interact with github
-brew "gitmux"         # git status in tmux status bar
 brew "glow"           # render markdown in terminal
 brew "htop"           # Improved top
 brew "jira-cli"       # interact with jira
