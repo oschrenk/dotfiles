@@ -5,6 +5,8 @@ return {
   "notjedi/nvim-rooter.lua",
   event = "BufReadPost",
   config = function()
-    require("nvim-rooter").setup()
+    require("nvim-rooter").setup({
+      rooter_patterns = { "build.sbt", ".git" },
+    })
   end,
 }
