@@ -14,6 +14,8 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # install chezmoi and requirements
 brew install chezmoi git git-lfs age 1password 1password-cli
+git lfs install
+
 ```
 
 Setup 1Password and sync the vaults.
@@ -36,7 +38,6 @@ Pull binary assets
 
 ```
 chezmoi cd
-git lfs install
 git lfs pull
 ```
 
