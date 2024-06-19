@@ -1,7 +1,25 @@
 #!/bin/sh
 
 #######################################
+# Available Sections:
+#
+# HARDWARE
+# DOCK
+# FINDER
+# DESKTOP
+# MENUBAR
+# SPOTLIGHT
+# SIRI
+# SCREENSHOTS
 # KEYBOARD
+# TIME MACHINE
+#
+#######################################
+
+
+
+#######################################
+# HARDWARE
 #######################################
 
 # relies on https://github.com/oschrenk/keyboard.swift
