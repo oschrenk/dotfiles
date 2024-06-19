@@ -6,7 +6,6 @@ tap "coursier/formulas"       # coursier
 tap "derailed/k9s"            # k9s
 tap "felixkratz/formulae"     # sketchybar
 tap "oschrenk/made"           # tools by myself
-tap "txn2/tap"                # kubefwd
 tap "epk/epk"                 # sf-mono nerd font
 
 # You can list all packages installed via `brew leaves`
