@@ -2,8 +2,11 @@
 
 # Ollamafile hash: {{ include "../Ollamafile" | sha256sum }}
 
+brew services start ollama
+
 for model in $(cat {{ joinPath .chezmoi.sourceDir "../Ollamafile" | quote }} | cut -d "#" -f 1)
 do
     ollama pull $model
 done
 
+brew services stop ollama
