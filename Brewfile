@@ -123,6 +123,7 @@ brew "fnm"         # javascript, version manger
 brew "gradle"      # kotlin, build tool
 brew "go"          # go, language
 brew "go-task"     # generic, go-based task runner
+brew "ktfmt"       # kotlin, formatter
 brew "kotlin"      # kotlin
 brew "stylua"      # lua formatter
 brew "maven"       # jvm, package manager
