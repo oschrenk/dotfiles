@@ -30,6 +30,8 @@ return {
       fish = { "fish_indent" },
       go = { "gofmt" },
       javascript = { { "prettierd", "prettier" } },
+      -- brew install ktfmt
+      kotlin = { "ktfmt " },
       lua = { "stylua" },
       python = { "black" },
       scala = { "scalafmt" },
