@@ -1,4 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env zsh
+
+trap 'echo exit; exit' INT TERM
 
 BASEDIR="$( chezmoi source-path )/../"
 
