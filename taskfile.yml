@@ -1,0 +1,17 @@
+version: '3'
+tasks:
+  brew:
+    cmds:
+      - cat home/.chezmoiscripts/run_onchange_01a_deps_brewfile.sh.tmpl | chezmoi execute-template | zsh
+  cargo:
+    cmds:
+      - cat home/.chezmoiscripts/run_onchange_01b_deps_cargofile.sh.tmpl | chezmoi execute-template | zsh
+  go:
+    cmds:
+      - cat home/.chezmoiscripts/run_onchange_01c_deps_gofile.sh.tmpl | chezmoi execute-template | zsh
+  ollama:
+    cmds:
+      - cat home/.chezmoiscripts/run_onchange_01d_deps_ollamafile.sh.tmpl | chezmoi execute-template | zsh
+  icons:
+    cmds:
+      - home/.chezmoiscripts/run_onchange_04_configure_icons.sh

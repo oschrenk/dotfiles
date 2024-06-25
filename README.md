@@ -89,6 +89,15 @@ Link device:
 - Telegram
 - Whatsapp
 
+## Scoped runs
+
+- `task brew` Install taps/brews/apps
+- `task cargo` Install crates
+- `task go` Install go apps
+- `task ollama` Install ollama models
+- `task icons` Install icons
+
+
 ## Steam & Rosetta
 
 `brew install steam`
