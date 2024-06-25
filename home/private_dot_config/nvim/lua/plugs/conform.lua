@@ -36,6 +36,8 @@ return {
       sh = { "shellcheck" },
       swift = { "swiftformat" },
       terraform = { "terraform_fmt" },
+      -- cargo install taplo-cli
+      toml = { "taplo" },
       typescript = { "prettier" },
       typst = { "typstyle" },
       yaml = { "yamlfmt" },
