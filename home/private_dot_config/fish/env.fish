@@ -61,8 +61,8 @@ fish_add_path --append $ANDROID_HOME/tools/bin
 fish_add_path --append $ANDROID_HOME/platform-tools
 
 # Rust
-fish_add_path --prepend $XDG_DATA_HOME/.cargo/bin
 set -gx CARGO_HOME $XDG_DATA_HOME/cargo
+fish_add_path --prepend $CARGO_HOME/bin
 
 # Python
 fish_add_path --prepend /opt/homebrew/opt/python@3.12/libexec/bin
