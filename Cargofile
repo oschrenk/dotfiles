@@ -1,3 +1,4 @@
 jx         # json viewer
 repgrep    # interactive replacer for ripgrep
+taplo-cli  # toml formatter
 typstyle   # formatter for the typst language
