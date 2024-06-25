@@ -34,6 +34,7 @@ return {
         "jq",
         "json",
         "kdl",
+        "kotlin",
         "lua",
         "markdown",
         "markdown_inline",
