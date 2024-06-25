@@ -58,3 +58,4 @@ require("lazy").setup("plugs", {
 require("options")
 require("actions")
 require("keymaps")
+require("neovide")
