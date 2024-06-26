@@ -105,7 +105,6 @@ sketchybar --add item calendar right \
                        y_offset=1 \
            --subscribe calendar system_woke
 
-
 sketchybar --add item tmux.jira right \
 		       --set tmux.jira \
 			     icon.drawing=off \
