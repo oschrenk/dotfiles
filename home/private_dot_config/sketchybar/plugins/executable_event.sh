@@ -30,10 +30,10 @@ if [ $NOW_EPOCH -lt $EVENT_START_EPOCH ]; then
 
 sketchybar --set "$NAME" \
   icon.drawing=off \
-  label="$EVENT_NAME in $DIFFERENCE_IN_MINUTES"
+  label="$EVENT_NAME in ${DIFFERENCE_IN_MINUTES}m"
 
 # we are in the current event
-else 
+else
   DIFFERENCE_IN_MINUTES=$((($EVENT_END_EPOCH - $NOW_EPOCH) / 60))
   sketchybar --set "$NAME" \
     icon.drawing=off \
