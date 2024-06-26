@@ -27,10 +27,9 @@ NOW_EPOCH=$(gdate +%s)
 # if we are before the next event
 if [ $NOW_EPOCH -lt $EVENT_START_EPOCH ]; then
   DIFFERENCE_IN_MINUTES=$((($EVENT_START_EPOCH - $NOW_EPOCH) / 60))
-
-sketchybar --set "$NAME" \
-  icon.drawing=off \
-  label="$EVENT_NAME in ${DIFFERENCE_IN_MINUTES}m"
+  sketchybar --set "$NAME" \
+    icon.drawing=off \
+    label="$EVENT_NAME in ${DIFFERENCE_IN_MINUTES}m"
 
 # we are in the current event
 else
