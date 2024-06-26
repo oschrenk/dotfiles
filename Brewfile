@@ -19,20 +19,20 @@ tap "txn2/tap"                # kubefwd
 # to already configure and use services and applications while brew
 # keeps installing other packages
 
-cask "1password"                 # password manager
-cask "1password-cli"             # password manager
-cask "alacritty"                 # terminal
-cask "arc"                       # chromium based browser
-cask "karabiner-elements"        # customize keyboard
-cask "hammerspoon"               # desktop automation
-cask "intellij-idea-ce"          # ide for java/scala
-brew "chezmoi"                   # dotfiles manager
-brew "fish"                      # shell
-brew "starship"                  # prompt
-brew "fzf"                       # fuzzy finder
-brew "neovim"                    # editor
-cask "obsidian"                  # notes
-cask "spotify"                # audio client
+cask "1password"          # password manager
+cask "1password-cli"      # password manager
+cask "alacritty"          # terminal
+cask "arc"                # chromium based browser
+cask "karabiner-elements" # customize keyboard
+cask "hammerspoon"        # desktop automation
+cask "intellij-idea-ce"   # ide for java/scala
+brew "chezmoi"            # dotfiles manager
+brew "fish"               # shell
+brew "starship"           # prompt
+brew "fzf"                # fuzzy finder
+brew "neovim"             # editor
+cask "obsidian"           # notes
+cask "spotify"            # audio client
 
 #######################################
 # Packages
