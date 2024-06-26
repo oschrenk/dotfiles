@@ -233,7 +233,6 @@ cask "docker"                 # docker client
 cask "elgato-control-center"  # elgato software to control lights
 cask "firefox"                # browser
 cask "flux"                   # control screen color temperature
-cask "grammarly-desktop"      # grammarly client
 cask "handbrake"              # video transcoder
 cask "hiddenbar"              # hide menu bar items
 cask "hex-fiend"              # hex editor
