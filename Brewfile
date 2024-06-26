@@ -221,7 +221,6 @@ cask "font-victor-mono"
 # Casks
 #######################################
 
-cask "android-platform-tools" # android sdk
 cask "bruno"                  # test APIs
 cask "calibre"                # ebook manager
 cask "google-chrome"          # browser
