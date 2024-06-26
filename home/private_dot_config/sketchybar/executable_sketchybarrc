@@ -99,11 +99,11 @@ sketchybar --add item battery right \
                          update_freq=120 \
            --subscribe battery system_woke power_source_change
 
-sketchybar --add item event right \
-           --set event script="$PLUGIN_DIR/event.sh" \
+sketchybar --add item calendar right \
+           --set event script="$PLUGIN_DIR/calendar.sh" \
                        update_freq=60 \
                        y_offset=1 \
-           --subscribe event system_woke
+           --subscribe calendar system_woke
 
 
 sketchybar --add item tmux.jira right \
