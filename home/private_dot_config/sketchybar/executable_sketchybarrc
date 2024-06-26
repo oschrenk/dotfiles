@@ -103,7 +103,7 @@ sketchybar --add item event right \
            --set event script="$PLUGIN_DIR/event.sh" \
                        update_freq=60 \
                        y_offset=1 \
-           --subscribe system_woke
+           --subscribe event system_woke
 
 
 sketchybar --add item tmux.jira right \
