@@ -251,6 +251,7 @@ cask "ollamac"                # gui for ollama
 cask "onyx"                   # macos maintenance
 cask "omnidisksweeper"        # cleanup disk space
 cask "podman-desktop"         # generic, manage containers and pods
+cask "raycast"                # launcher
 cask "raindropio"             # bookmark managment
 cask "rocket"                 # quick emoji access
 cask "rode-central"           # rode companion app (for AI-1)
