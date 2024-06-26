@@ -74,7 +74,6 @@ brew "lsd"            # "better" ls
 brew "page"           # Use Neovim as pager
 brew "tree"           # print file tree
 brew "tmux"           # terminal multiplexer
-brew "walk"           # file manager
 
 # documents
 brew "oschrenk/made/noteplan" # noteplan companion
