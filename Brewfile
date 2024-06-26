@@ -264,7 +264,6 @@ cask "transmission"           # torrent client
 cask "utm"                    # virtual machines for macos
 cask "visual-studio-code"     # editor
 cask "vlc"                    # video client
-cask "whisky"                 # wine client
 cask "whatsapp"               # whatsapp messaging
 cask "xld"                    # cd ripper
 cask "zed"                    # editor
