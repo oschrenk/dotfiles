@@ -222,6 +222,7 @@ cask "font-victor-mono"
 
 cask "bruno"                  # test APIs
 cask "calibre"                # ebook manager
+cask "chatgpt"                # ChatGPT
 cask "google-chrome"          # browser
 cask "cog"                    # audio client
 cask "dbeaver-community"      # sql client
