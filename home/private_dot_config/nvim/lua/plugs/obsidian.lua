@@ -6,7 +6,17 @@ return {
       "<leader>ot",
       mode = { "n", "x", "o" },
       function()
-        local client = require("obsidian").get_client()
+        local obsidian = require("obsidian")
+        local client = obsidian.get_client()
+        local workspace_specs = client.opts.workspaces
+        local workspace = nil
+        for _, spec in ipairs(workspace_specs) do
+          if spec.name == "personal" then
+            workspace = obsidian.Workspace.new_from_spec(spec)
+          end
+        end
+        client:set_workspace(workspace)
+
         local note = client:daily(0)
         client:open_note(note, { sync = true })
 
