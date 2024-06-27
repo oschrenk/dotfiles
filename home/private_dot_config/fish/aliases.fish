@@ -17,6 +17,9 @@ alias t task
 
 alias ios 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
 
+# git
+alias , 'cd (git rev-parse --show-toplevel)'
+
 # chezmoi
 alias che 'cd (chezmoi source-path)/..'
 
