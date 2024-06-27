@@ -25,9 +25,10 @@ EVENT_END_EPOCH=$(gdate --date="${EVENT_END_DATE}" +%s)
 NOW_EPOCH=$(gdate +%s)
 
 EVENT_NAME_LENGTH=$(echo "${EVENT_NAME}" | wc -c | tr -d ' ')
-# trim to 25 chars max
-if [ $EVENT_NAME_LENGTH -ge 25 ]; then
-  EVENT_NAME="$(echo $EVENT_NAME | cut -c 1-25)…"
+EVENT_NAME_LENGTH_MAX=40
+# trim to max length
+if [ $EVENT_NAME_LENGTH -ge $EVENT_NAME_LENGTH_MAX ]; then
+  EVENT_NAME="$(echo $EVENT_NAME | cut -c 1-$EVENT_NAME_LENGTH_MAX)…"
 fi
 
 # if we are before the next event
