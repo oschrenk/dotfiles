@@ -3,7 +3,7 @@
 # Requirements
 # https://github.com/oschrenk/mission
 
-TASKS=$("$HOME"/Frameworks/go/bin/mission tasks)
+TASKS=$("$HOME"/Frameworks/go/bin/mission tasks --show-done=false --show-cancelled=false)
 NEXT_TASK=$(echo "$TASKS" | head -1 | cut -d " " -f 2-)
 SUMMARY=$(echo "$TASKS" | tail -1 | cut -d " " -f 1)
 DONE=$(echo "$SUMMARY" | cut -d "/" -f 1)
