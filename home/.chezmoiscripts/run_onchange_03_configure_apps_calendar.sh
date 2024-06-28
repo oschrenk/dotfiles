@@ -36,6 +36,13 @@ defaults write "com.apple.iCal" "Show Week Numbers" '1'
 echo "Calendar: Enable time zone support"
 defaults write "com.apple.iCal" "TimeZone support enabled" '1'
 
+# day starts at (default: 8:00)
+# 06:00 = 360
+# 08:00 = 480
+# ...
+echo "Calendar: First minute of work hours at 6:00"
+defaults write com.apple.iCal "first minute of work hours" -integer 360
+
 
 ###########################################################
 # Kill affected applications                              #
