@@ -48,6 +48,7 @@ return {
     "nvim-lua/plenary.nvim",
   },
   opts = {
+    log_level = vim.log.levels.WARN,
     workspaces = {
       {
         name = "personal",
