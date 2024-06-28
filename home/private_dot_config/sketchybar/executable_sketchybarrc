@@ -106,6 +106,12 @@ sketchybar --add item calendar right \
                        y_offset=1 \
            --subscribe calendar system_woke
 
+sketchybar --add item mission right \
+           --set mission script="$PLUGIN_DIR/mission.sh" \
+                         update_freq=60 \
+                         y_offset=1 \
+           --subscribe mission system_woke
+
 sketchybar --add item tmux.jira right \
 		       --set tmux.jira \
 			     icon.drawing=off \
