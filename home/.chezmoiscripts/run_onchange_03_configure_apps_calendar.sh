@@ -14,6 +14,15 @@ source ~/.local/share/chezmoi/home/.chezmoiscripts/run_onchange_03_configure_app
 echo "Calendar: Days per week (default: 7)"
 defaults write "com.apple.iCal" "n days of week" -int 7
 
+# start week on (default: system setting)
+# system setting = 0
+# sunday = 1
+# monday = 2
+# ...
+# saturday = 7
+echo "Calendar: First day of the week (default: 0)"
+defaults write com.apple.iCal "first day of week" -int 0
+
 echo "Calendar: Show Week numbers"
 defaults write "com.apple.iCal" "Show Week Numbers" '1'
 
