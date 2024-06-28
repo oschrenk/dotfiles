@@ -42,7 +42,15 @@ defaults write "com.apple.iCal" "TimeZone support enabled" '1'
 # ...
 echo "Calendar: First minute of work hours at 6:00"
 defaults write com.apple.iCal "first minute of work hours" -integer 360
-
+# day ends at (default: 18:00)
+#
+#    18:00 = 1080
+#    20:00 = 1200
+#    22:00 = 1320
+# midnight = 1440
+#      ...
+echo "Calendar: Last minute of work hours at 18:00"
+defaults write com.apple.iCal "last minute of work hours" -integer 1080
 
 ###########################################################
 # Kill affected applications                              #
