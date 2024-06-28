@@ -23,6 +23,13 @@ defaults write "com.apple.iCal" "n days of week" -int 7
 echo "Calendar: First day of the week (default: 0)"
 defaults write com.apple.iCal "first day of week" -int 0
 
+# scroll in week view by (default: week)
+# day = 0
+# week = 1
+# week, stop on today = 2
+echo "Calendar: Scroll in week view by (default: week)"
+defaults write com.apple.iCal "scroll by weeks in week view" -integer 1
+
 echo "Calendar: Show Week numbers"
 defaults write "com.apple.iCal" "Show Week Numbers" '1'
 
