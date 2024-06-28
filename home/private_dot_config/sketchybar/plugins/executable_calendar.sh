@@ -9,6 +9,14 @@
 
 EVENT_STRING=$(icalBuddy --excludeAllDayEvents --includeOnlyEventsFromNowOn --bullet "" --includeEventProps 'title, datetime' --timeFormat "%H:%M" --limitItems 1 --noCalendarNames -ps "|,|-|" eventsToday)
 
+# exit early if no event found for today
+# for `//` see https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Shell-Parameter-Expansion
+if [ -z "${EVENT_STRING//}" ]; then
+  sketchybar --set "$NAME" \
+    drawing=off
+  exit
+fi
+
 EVENT_NAME=$(echo "$EVENT_STRING" | cut -d ',' -f 1)
 EVENT_TIME=$(echo "$EVENT_STRING" | cut -d ',' -f 2)
 EVENT_START_HOUR=$(echo "$EVENT_TIME" | cut -d '-' -f 1 | tr -d ' ')
@@ -36,6 +44,7 @@ if [ $NOW_EPOCH -lt $EVENT_START_EPOCH ]; then
   DIFFERENCE_IN_MINUTES=$((($EVENT_START_EPOCH - $NOW_EPOCH) / 60))
   sketchybar --set "$NAME" \
     icon.drawing=off \
+    drawing=on \
     label="$EVENT_NAME in ${DIFFERENCE_IN_MINUTES}m"
 
 # we are in the current event
@@ -43,6 +52,7 @@ else
   DIFFERENCE_IN_MINUTES=$((($EVENT_END_EPOCH - $NOW_EPOCH) / 60))
   sketchybar --set "$NAME" \
     icon.drawing=off \
+    drawing=on \
     label="$EVENT_NAME, ${DIFFERENCE_IN_MINUTES}m left"
 fi
 
