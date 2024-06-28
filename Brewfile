@@ -6,6 +6,7 @@ tap "ankitpokhrel/jira-cli"   # jira-cli
 tap "coursier/formulas"       # coursier
 tap "epk/epk"                 # sf-mono nerd font
 tap "felixkratz/formulae"     # sketchybar
+tap "jakehilborn/jakehilborn" # displayplacer
 tap "oschrenk/made"           # tools by myself
 tap "txn2/tap"                # kubefwd
 
@@ -52,6 +53,7 @@ brew "watch"          # issue commands at regular interval
 brew "watchman"       # watch files and take action when they change
 
 ## hardware
+brew "displayplacer"    # arrange monitors
 brew "smartmontools"  # harddrive, read ssd info
 brew "m1ddc"          # monitor, control brightness of external monitor
 
