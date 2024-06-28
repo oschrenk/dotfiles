@@ -52,6 +52,10 @@ defaults write com.apple.iCal "first minute of work hours" -integer 360
 echo "Calendar: Last minute of work hours at 18:00"
 defaults write com.apple.iCal "last minute of work hours" -integer 1080
 
+# show x hours at a time (default: 12)
+echo "Calendar: Show 16 hours at a time"
+defaults write com.apple.iCal "number of hours displayed" -integer 16
+
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
