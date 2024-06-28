@@ -56,6 +56,9 @@ defaults write com.apple.iCal "last minute of work hours" -integer 1080
 echo "Calendar: Show 16 hours at a time"
 defaults write com.apple.iCal "number of hours displayed" -integer 16
 
+echo "Calendar: Show Birthdays calendar"
+defaults write com.apple.iCal "display birthdays calendar" -bool YES
+
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
