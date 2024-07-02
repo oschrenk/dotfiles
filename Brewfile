@@ -7,6 +7,7 @@ tap "coursier/formulas"       # coursier
 tap "epk/epk"                 # sf-mono nerd font
 tap "felixkratz/formulae"     # sketchybar
 tap "jakehilborn/jakehilborn" # displayplacer
+tap "noahgorstein/tap"        # jqp
 tap "oschrenk/made"           # tools by myself
 tap "txn2/tap"                # kubefwd
 
@@ -85,6 +86,7 @@ brew "zola"                   # static site generator
 # parsing/converting
 brew "dos2unix"       # convert text between DOS, UNIX, and Mac formats
 brew "jq"             # process JSON
+brew "jqp"            # tui playground for jq
 brew "miller"         # process CSV
 brew "xmlstarlet"     # process XML
 brew "yq"             # process YAML
