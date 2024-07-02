@@ -42,10 +42,14 @@ fi
 # if we are before the next event
 if [ $NOW_EPOCH -lt $EVENT_START_EPOCH ]; then
   DIFFERENCE_IN_MINUTES=$((($EVENT_START_EPOCH - $NOW_EPOCH) / 60))
-  sketchybar --set "$NAME" \
-    icon.drawing=off \
-    drawing=on \
-    label="$EVENT_NAME in ${DIFFERENCE_IN_MINUTES}m"
+
+  # only show events withon 60m
+  if [ $DIFFERENCE_IN_MINUTES -lt 60 ]; then
+    sketchybar --set "$NAME" \
+      icon.drawing=off \
+      drawing=on \
+      label="$EVENT_NAME in ${DIFFERENCE_IN_MINUTES}m"
+  fi
 
 # we are in the current event
 else
