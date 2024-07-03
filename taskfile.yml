@@ -15,3 +15,7 @@ tasks:
   icons:
     cmds:
       - home/.chezmoiscripts/run_onchange_04_configure_icons.sh
+  services:
+    cmds:
+      - home/.chezmoiscripts/run_onchange_05a_configure_launch_agents.sh
+      - home/.chezmoiscripts/run_onchange_05b_configure_brew_services.sh
