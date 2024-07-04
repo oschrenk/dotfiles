@@ -1,3 +1,4 @@
+# vim: filetype=ruby
 github.com/spf13/cobra-cli@latest         # cli generator
 github.com/catilac/plistwatch@latest      # watch plist changes
 golang.org/x/tools/cmd/godoc@latest       # godocs

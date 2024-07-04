@@ -1,3 +1,4 @@
+# vim: syntax=ruby filetype=ruby
 jx         # json viewer
 repgrep    # interactive replacer for ripgrep
 taplo-cli  # toml formatter
