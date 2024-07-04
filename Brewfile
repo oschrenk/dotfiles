@@ -79,7 +79,6 @@ brew "tree"           # print file tree
 brew "tmux"           # terminal multiplexer
 
 # documents
-brew "oschrenk/made/noteplan" # noteplan companion
 brew "pandoc"                 # document converter
 brew "zola"                   # static site generator
 
