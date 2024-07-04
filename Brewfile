@@ -92,6 +92,7 @@ brew "xmlstarlet"     # process XML
 brew "yq"             # process YAML
 
 ## network
+brew "doggo"          # dns client
 brew "httrack"        # copy websites offline
 brew "hurl"           # run/test http requests
 brew "mosh"           # better shell for roaming
