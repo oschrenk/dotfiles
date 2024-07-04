@@ -189,18 +189,22 @@ brew "8ta4/plist/plist" # watch plist files
 # Apps
 #######################################
 
-mas "Affinity Designer 2", id: 1616831348  # vector editing
-mas "Affinity Photo 2", id: 1616822987     # raster editing
-mas "Affinity Publisher 2", id: 1606941598 # book publishing
-mas "Due", id: 524373870                   # reminders on steroid
-mas "Health Auto Export", id: 1115567069   # export apple health data
-mas "HomeControl", id: 1547121417          # apple home
-mas "Keynote", id: 409183694               # make slides
-mas "NextDNS", id: 1464122853              # dns blocking
-mas "NordVPN", id: 905953485               # NordVPN
-mas "Numbers", id: 409203825               # excel
-mas "Pages", id: 409201541                 # docs
-mas "Reeder 5", id: 1529448980             # rss
+# Only on Personal machine
+{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
+  mas "Affinity Designer 2", id: 1616831348  # vector editing
+  mas "Affinity Photo 2", id: 1616822987     # raster editing
+  mas "Affinity Publisher 2", id: 1606941598 # book publishing
+  mas "Due", id: 524373870                   # reminders on steroid
+  mas "Health Auto Export", id: 1115567069   # export apple health data
+  mas "HomeControl", id: 1547121417          # apple home
+  mas "Keynote", id: 409183694               # make slides
+  mas "NextDNS", id: 1464122853              # dns blocking
+  mas "NordVPN", id: 905953485               # NordVPN
+  mas "Numbers", id: 409203825               # excel
+  mas "Pages", id: 409201541                 # docs
+  mas "Reeder 5", id: 1529448980             # rss
+{{- end }}
+
 # mas "XCode", id: 497799835  # see eof, because of size last thing to install
 
 #######################################
