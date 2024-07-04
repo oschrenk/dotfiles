@@ -68,7 +68,7 @@ brew "atuin"          # improved shell history
 brew "bat"            # "better" cat
 brew "chrome-cli"     # control chrome via cli
 brew "direnv"         # auto load env
-brew "entr"           # run arbitrary commands when files change
+brew "entr"           # run commands on file change
 brew "gh"             # interact with github
 brew "glow"           # render markdown in terminal
 brew "htop"           # Improved top
