@@ -2,7 +2,7 @@ version: '3'
 tasks:
   brew:
     cmds:
-      - cat home/.chezmoiscripts/run_onchange_01a_deps_brewfile.sh.tmpl | chezmoi execute-template | zsh
+      - cat home/.chezmoiscripts/run_onchange_01a_deps_brewfiles.sh.tmpl | chezmoi execute-template | zsh
   cargo:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01b_deps_cargofile.sh.tmpl | chezmoi execute-template | zsh
