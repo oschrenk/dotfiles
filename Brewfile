@@ -54,7 +54,7 @@ brew "watch"          # issue commands at regular interval
 brew "watchman"       # watch files and take action when they change
 
 ## hardware
-brew "displayplacer"    # arrange monitors
+brew "displayplacer"  # arrange monitors
 brew "smartmontools"  # harddrive, read ssd info
 brew "m1ddc"          # monitor, control brightness of external monitor
 
