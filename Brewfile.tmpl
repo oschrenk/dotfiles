@@ -228,20 +228,45 @@ cask "font-victor-mono"
 # Casks
 #######################################
 
+# Only on Personal machine
+{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
+  cask "calibre"                # ebook manager
+  cask "diffusionbee"           # Stable Diffusion locally
+  cask "elgato-control-center"  # elgato software to control lights
+  cask "flux"                   # control screen color temperature
+  cask "handbrake"              # video transcoder
+  cask "mindmac"                # llm api client
+  cask "mochi"                  # study notes and flashcards
+  cask "musicbrainz-picard"     # audio collection organizer
+  cask "obs"                    # broadcasting
+  cask "ollamac"                # gui for ollama
+  cask "raindropio"             # bookmark managment
+  cask "raycast"                # launcher
+  cask "rocket"                 # quick emoji access
+  cask "rode-central"           # rode companion app (for AI-1)
+  cask "signal"                 # signal messaging
+  cask "telegram"               # telegram messaging
+  cask "the-unarchiver"         # unarchiving  most archive files
+  cask "topnotch"               # "hide" notch
+  cask "transmission"           # torrent client
+  cask "upscayl"                # upscala images with AI
+  cask "utm"                    # virtual machines for macos
+  cask "vlc"                    # video client
+  cask "whatsapp"               # whatsapp messaging
+  cask "xld"                    # cd ripper
+  cask "zed"                    # editor
+  cask "zoom"                   # video conferencing
+{{- end }}
+
 cask "bruno"                  # test APIs
-cask "calibre"                # ebook manager
 cask "chatgpt"                # ChatGPT
 cask "google-chrome"          # browser
 cask "cog"                    # audio client
 cask "dbeaver-community"      # sql client
 cask "db-browser-for-sqlite"  # sqlite client
-cask "diffusionbee"           # Stable Diffusion locally
 cask "discord"                # discord client
 cask "docker"                 # docker client
-cask "elgato-control-center"  # elgato software to control lights
 cask "firefox"                # browser
-cask "flux"                   # control screen color temperature
-cask "handbrake"              # video transcoder
 cask "hiddenbar"              # hide menu bar items
 cask "hex-fiend"              # hex editor
 cask "iina"                   # video client
@@ -249,35 +274,14 @@ cask "jdk-mission-control"    # monitor java applications
 cask "keyboardcleantool"      # disables keyboard for cleaning
 cask "keycastr"               # shows key strokes on screen
 cask "knockknock"             # identify background tasks/processes
-cask "mindmac"                # llm api client
-cask "mochi"                  # study notes and flashcards
 cask "monodraw"               # draw ascii art
-cask "musicbrainz-picard"     # audio collection organizer
 cask "neovide"                # neovim desktop app
 cask "numi"                   # calculator
-cask "obs"                    # broadcasting
-cask "ollamac"                # gui for ollama
 cask "onyx"                   # macos maintenance
 cask "omnidisksweeper"        # cleanup disk space
 cask "podman-desktop"         # generic, manage containers and pods
-cask "raycast"                # launcher
-cask "raindropio"             # bookmark managment
-cask "rocket"                 # quick emoji access
-cask "rode-central"           # rode companion app (for AI-1)
-cask "signal"                 # signal messaging
 cask "slack"                  # slack office communication
-cask "telegram"               # telegram messaging
-cask "the-unarchiver"         # unarchiving  most archive files
-cask "topnotch"               # "hide" notch
-cask "transmission"           # torrent client
-cask "upscayl"                # upscala images with AI
-cask "utm"                    # virtual machines for macos
 cask "visual-studio-code"     # editor
-cask "vlc"                    # video client
-cask "whatsapp"               # whatsapp messaging
-cask "xld"                    # cd ripper
-cask "zed"                    # editor
-cask "zoom"                   # video conferencing
 
 #######################################
 # Xcode
