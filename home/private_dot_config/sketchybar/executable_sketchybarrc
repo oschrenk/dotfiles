@@ -82,6 +82,14 @@ sketchybar --add item clock right \
                        update_freq=30 \
            --subscribe clock system_woke
 
+sketchybar --add item focus right \
+           --set focus script="$PLUGIN_DIR/focus.sh" \
+                       update_freq=60 \
+                       label.drawing=off \
+                       icon.padding_right=6 \
+		       --add event mission_focus \
+           --subscribe focus mission_focus
+
 sketchybar --add item weather right \
            --set weather update_freq=3600 \
                          icon.font="$ICON_FONT_FAMILY:$ICON_FONT_STYLE:12.0" \
