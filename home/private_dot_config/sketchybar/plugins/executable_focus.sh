@@ -4,18 +4,18 @@ status=$(cat ~/Library/DoNotDisturb/DB/Assertions.json | jq -r 'try .data[].stor
 
 case "$status" in
   com.apple.donotdisturb.mode.default)
-    sketchybar -m --set focus icon.color=0xFFFFFFFF icon=d
+    sketchybar -m --set focus icon.color=0xFFFFFFFF icon=􀆺
     ;;
   com.apple.sleep.sleep-mode)
-    sketchybar -m --set focus icon.color=0xFFFFFFFF icon=s
+    sketchybar -m --set focus icon.color=0xFFFFFFFF icon=􀙪
     ;;
   com.apple.focus.personal-time)
-    sketchybar -m --set focus icon.color=0xFFFFFFFF icon=p
+    sketchybar -m --set focus icon.color=0xFFFFFFFF icon=􀉪
     ;;
   com.apple.focus.work)
-    sketchybar -m --set focus icon.color=0xFFFFFFFF icon=w
+    sketchybar -m --set focus icon.color=0xFFFFFFFF icon=􁕝
     ;;
   *)
-    sketchybar -m --set focus icon.color=0xFF999999 icon=y
+    sketchybar -m --set focus icon.color=0xFF999999 icon=􀟈
     ;;
 esac
