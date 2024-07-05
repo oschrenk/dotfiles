@@ -106,11 +106,20 @@ sketchybar --add item calendar right \
                        y_offset=1 \
            --subscribe calendar system_woke
 
+# the mission_watch event is fired by `mission watch`
+# it watches the obsidian directory for `yyyy-mm-dd.md`
+# files and triggers an event if the file matching todays date changed
+
+# requires
+# brew tap oschrenk/made
+# brew install mission
+# brew services start mission
 sketchybar --add item mission right \
            --set mission script="$PLUGIN_DIR/mission.sh" \
-                         update_freq=60 \
+                         update_freq=600 \
                          y_offset=1 \
-           --subscribe mission system_woke
+		       --add event mission_watch \
+           --subscribe mission system_woke mission_watch
 
 sketchybar --add item tmux.jira right \
 		       --set tmux.jira \
