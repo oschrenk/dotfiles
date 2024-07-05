@@ -18,5 +18,7 @@ if [[ "$DONE" != "$TOTAL" ]]; then
                drawing=on
 else
   sketchybar --set "$NAME" \
-               drawing=off
+               icon=󰸞 \
+               label="No tasks" \
+               drawing=on
 fi
