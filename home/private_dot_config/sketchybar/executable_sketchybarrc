@@ -116,8 +116,8 @@ sketchybar --add item calendar right \
 sketchybar --add item mission right \
            --set mission script="$PLUGIN_DIR/mission.sh" \
                          update_freq=60 \
-		       --add event mission_watch \
-           --subscribe mission system_woke mission_watch
+		       --add event mission_task \
+           --subscribe mission system_woke mission_task
 
 sketchybar --add item tmux.jira right \
 		       --set tmux.jira \
