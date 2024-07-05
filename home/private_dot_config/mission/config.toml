@@ -1,0 +1,14 @@
+[[journals]]
+
+[[journals.default]]
+path = "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/personal/10 Journals/Personal"
+extension = "md"
+
+[[journals.other]]
+path = "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/personal/10 Journals/Work"
+extension = "md"
+
+[sketchybar]
+path = "/opt/homebrew/bin/sketchybar"
+event_task = "mission_task"
+event_focus = "mission_focus"
