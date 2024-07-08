@@ -1,6 +1,10 @@
 #!/bin/sh
 
-status=$(cat ~/Library/DoNotDisturb/DB/Assertions.json | jq -r 'try .data[].storeAssertionRecords[].assertionDetails.assertionDetailsModeIdentifier')
+if [ -z "${FOCUS_MODE}" ]; then
+  status=$(cat ~/Library/DoNotDisturb/DB/Assertions.json | jq -r 'try .data[].storeAssertionRecords[].assertionDetails.assertionDetailsModeIdentifier')
+else
+  status=$FOCUS_MODE
+fi
 
 case "$status" in
   com.apple.donotdisturb.mode.default)
