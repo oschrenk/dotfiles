@@ -117,7 +117,8 @@ sketchybar --add item mission right \
            --set mission script="$PLUGIN_DIR/mission.sh" \
                          update_freq=60 \
 		       --add event mission_task \
-           --subscribe mission system_woke mission_task
+		       --add event mission_focus \
+           --subscribe mission system_woke mission_task mission_focus
 
 sketchybar --add item tmux.jira right \
 		       --set tmux.jira \
