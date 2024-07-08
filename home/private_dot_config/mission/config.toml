@@ -4,7 +4,7 @@
 path = "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/personal/10 Journals/Personal"
 extension = "md"
 
-[[journals.other]]
+[[journals.work]]
 path = "$HOME/Library/Mobile Documents/iCloud~md~obsidian/Documents/personal/10 Journals/Work"
 extension = "md"
 
