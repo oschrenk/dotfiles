@@ -1,5 +1,9 @@
 #!/bin/sh
 
+# Requirements
+#  https://jqlang.github.io/jq/
+#  brew install jq
+
 if [ -z "${FOCUS_MODE}" ]; then
   status=$(cat ~/Library/DoNotDisturb/DB/Assertions.json | jq -r 'try .data[].storeAssertionRecords[].assertionDetails.assertionDetailsModeIdentifier')
 else
