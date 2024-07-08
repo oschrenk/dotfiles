@@ -106,13 +106,20 @@ sketchybar --add item calendar right \
                        y_offset=1 \
            --subscribe calendar system_woke
 
-# the mission_watch event is fired by `mission watch`
-# it watches the obsidian directory for `yyyy-mm-dd.md`
-# files and triggers an event if the file matching todays date changed
-# requires
-# brew tap oschrenk/made
-# brew install mission
-# brew services start mission
+# Requirements
+#  https://github.com/oschrenk/mission
+#  brew tap oschrenk/made
+#  brew install mission
+#
+#  To watch for changes and subscribe to events
+#   brew services start mission
+#  Then allow
+#   "System Settings" > "Privacy & Security" > "Full Disk Access", allow mission
+#   brew services restart mission
+#  This is because we are watching iCloud and system files (for macOS Focus)
+#
+# `mission_task` is fired when journal entry is changed
+# `mission_focus` is fired when macOS focus changes
 sketchybar --add item mission right \
            --set mission script="$PLUGIN_DIR/mission.sh" \
                          update_freq=60 \
