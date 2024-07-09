@@ -52,6 +52,13 @@ SUMMARY=$(echo "$TASKS" | tail -1 | cut -d " " -f 1)
 DONE=$(echo "$SUMMARY" | cut -d "/" -f 1)
 TOTAL=$(echo "$SUMMARY" | cut -d "/" -f 2)
 
+NEXT_TASK_LENGTH=$(echo "${NEXT_TASK}" | wc -c | tr -d ' ')
+NEXT_TASK_LENGTH_MAX=30
+# trim to max length
+if [ "$NEXT_TASK_LENGTH" -ge "$NEXT_TASK_LENGTH_MAX" ]; then
+  NEXT_TASK="$(echo "$NEXT_TASK" | cut -c 1-"$NEXT_TASK_LENGTH_MAX")…"
+fi
+
 if [[ "$DONE" != "$TOTAL" ]]; then
   sketchybar --set "$NAME" \
                icon="$ICON" \
