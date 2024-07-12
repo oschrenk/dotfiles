@@ -1,12 +1,30 @@
 #!/bin/zsh
-
+# Requirements
+#   brew install jq
+#
 # Ollamafile hash: {{ include "../Ollamafile" | sha256sum }}
 
-brew services start ollama
+local WAS_RUNNING=$(brew services info ollama --json | jq '.[].running')
 
+# start ollama service, if it isn't running yet
+if [ "$WAS_RUNNING" = "true" ]; then
+  echo "\nollama already running\n"
+else
+  echo "\nStarting ollama\n"
+  brew services start ollama
+fi
+
+# pulling the models
 for model in $(cat {{ joinPath .chezmoi.sourceDir "../Ollamafile" | quote }} | cut -d "#" -f 1)
 do
-    ollama pull $model
+  echo "\nPulling: $model\n"
+  ollama pull $model
 done
 
-brew services stop ollama
+# stop ollama service, if it wasn't running before
+if [ "$WAS_RUNNING" = "true" ]; then
+  echo "\nKeeping ollama running\n"
+else
+  echo "\nStopping ollama\n"
+  brew services stop ollama
+fi
