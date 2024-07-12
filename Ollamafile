@@ -8,3 +8,5 @@ qwen2:7b
 tinyllama:latest
 # https://ollama.com/library/nomic-embed-text
 nomic-embed-text:latest
+# https://ollama.com/library/codellama
+codellama:7b
