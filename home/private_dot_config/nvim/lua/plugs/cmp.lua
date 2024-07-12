@@ -9,6 +9,10 @@ return {
     -- source for words in buffer
     "hrsh7th/cmp-buffer",
 
+    -- https://github.com/hrsh7th/cmp-path
+    -- source for path completion
+    "hrsh7th/cmp-path",
+
     -- https://github.com/hrsh7th/cmp-nvim-lsp
     -- source for lsp
     "andersevenrud/cmp-tmux",
@@ -45,6 +49,7 @@ return {
   config = function()
     vim.api.nvim_set_hl(0, "CmpItemKindBrowser", { fg = "#689d6a" })
     vim.api.nvim_set_hl(0, "CmpItemKindBuffer", { fg = "#b57614" })
+    vim.api.nvim_set_hl(0, "CmpItemKindPath", { fg = "#45818e" })
     vim.api.nvim_set_hl(0, "CmpItemKindTmux", { fg = "#d79921" })
 
     require("cmp").setup({
@@ -76,6 +81,7 @@ return {
       }),
       sources = {
         { name = "buffer" },
+        { name = "path" },
         { name = "tmux" },
         { name = "browser" },
         { name = "nvim_lsp" },
@@ -91,6 +97,11 @@ return {
             vim_item.kind = "Buffer "
             vim_item.menu = ""
             vim_item.kind_hl_group = "CmpItemKindBuffer"
+          end
+          if entry.source.name == "path" then
+            vim_item.kind = "Path "
+            vim_item.menu = ""
+            vim_item.kind_hl_group = "CmpItemKindPath"
           end
           if entry.source.name == "tmux" then
             vim_item.kind = "Tmux "
