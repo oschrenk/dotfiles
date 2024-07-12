@@ -38,26 +38,6 @@ return {
     -- otherwise I would not bring this in
     "hrsh7th/vim-vsnip",
 
-    -- https://github.com/zbirenbaum/copilot-cmp
-    -- source for Github completions
-    {
-      "zbirenbaum/copilot-cmp",
-      dependencies = {
-        { "zbirenbaum/copilot.lua", build = "Copilot auth" },
-      },
-      config = function()
-        require("copilot_cmp").setup({})
-        require("copilot").setup({
-          panel = {
-            enabled = false,
-          },
-          suggestion = {
-            enabled = false,
-          },
-        })
-      end,
-    },
-
     -- https://github.com/onsails/lspkind.nvim
     -- make menu/icons prettier
     "onsails/lspkind.nvim",
@@ -66,7 +46,6 @@ return {
     vim.api.nvim_set_hl(0, "CmpItemKindBrowser", { fg = "#689d6a" })
     vim.api.nvim_set_hl(0, "CmpItemKindBuffer", { fg = "#b57614" })
     vim.api.nvim_set_hl(0, "CmpItemKindTmux", { fg = "#d79921" })
-    vim.api.nvim_set_hl(0, "CmpItemKindCopilot", { fg = "#b8bb26" })
 
     require("cmp").setup({
       -- required to be able to select item via return key
@@ -97,7 +76,6 @@ return {
       }),
       sources = {
         { name = "buffer" },
-        { name = "copilot" },
         { name = "tmux" },
         { name = "browser" },
         { name = "nvim_lsp" },
@@ -118,12 +96,6 @@ return {
             vim_item.kind = "Tmux "
             vim_item.menu = ""
             vim_item.kind_hl_group = "CmpItemKindTmux"
-          end
-
-          if entry.source.name == "copilot" then
-            vim_item.kind = "Copilot "
-            vim_item.menu = ""
-            vim_item.kind_hl_group = "CmpItemKindCopilot"
           end
           -- format lsp entries using lspkind
           if entry.source.name == "nvim_lsp" then
