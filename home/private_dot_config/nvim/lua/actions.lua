@@ -40,3 +40,9 @@ autocmd({ "BufRead", "BufNewFile" }, {
   command = "set filetype=groovy",
   group = my_filetypes,
 })
+-- make *.sh.tmpl zsh (for chezmoi)
+autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.sh.tmpl",
+  command = "set filetype=zsh",
+  group = my_filetypes,
+})
