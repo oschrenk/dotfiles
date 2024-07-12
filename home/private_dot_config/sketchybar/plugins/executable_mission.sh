@@ -28,22 +28,27 @@ case "$CURRENT_FOCUS" in
   com.apple.donotdisturb.mode.default)
     ICON="􀆺"
     ICON_COLOR="0xFFFFFFFF"
+    LABEL_DRAWING="on"
     ;;
   com.apple.sleep.sleep-mode)
     ICON="􀙪"
     ICON_COLOR="0xFFFFFFFF"
+    LABEL_DRAWING="off"
     ;;
   com.apple.focus.personal-time)
     ICON="􀉪"
     ICON_COLOR="0xFFFFFFFF"
+    LABEL_DRAWING="on"
     ;;
   com.apple.focus.work)
     ICON="􁕝"
     ICON_COLOR="0xFFFFFFFF"
+    LABEL_DRAWING="on"
     ;;
   *)
     ICON="􀟈"
     ICON_COLOR="0xFF999999"
+    LABEL_DRAWING="on"
     ;;
 esac
   
@@ -64,11 +69,13 @@ if [[ "$DONE" != "$TOTAL" ]]; then
                icon="$ICON" \
                icon.color="$ICON_COLOR" \
                label="$NEXT_TASK $SUMMARY" \
+               label.drawing="$LABEL_DRAWING" \
                drawing=on
 else
   sketchybar --set "$NAME" \
                icon="$ICON" \
                icon.color="$ICON_COLOR" \
                label="No tasks" \
+               label.drawing="$LABEL_DRAWING" \
                drawing=on
 fi
