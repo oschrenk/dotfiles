@@ -29,24 +29,22 @@ return {
       },
     },
     layout = { height = { min = 4, max = 8 } },
-    defaults = {
-      ["g"] = { name = "+goto" },
-      ["z"] = { name = "+fold" },
-      ["]"] = { name = "+next" },
-      ["["] = { name = "+prev" },
-      ["<leader>b"] = { name = " Buffer" },
-      ["<leader>f"] = { name = "󰦅 Find" },
-      ["<leader>g"] = { name = "󰘭 Git" },
-      ["<leader>h"] = { name = " Hunk" },
-      ["<leader>o"] = { name = " Obsidian" },
-      ["<leader>j"] = { name = " Flash" },
-      ["<leader>p"] = { name = " Palette" },
-      ["<leader>t"] = { name = "󰙨 Test" },
-    },
   },
   config = function(_, opts)
     local wk = require("which-key")
     wk.setup(opts)
-    wk.register(opts.defaults)
+    wk.add({
+      { "<leader>b", icon = { icon = "" }, group = "Buffer" },
+      { "<leader>f", icon = { icon = "󰦅" }, group = "Find" },
+      { "<leader>g", icon = { icon = "󰘭" }, group = "Git" },
+      { "<leader>h", icon = { icon = "" }, group = "Hunk" },
+      { "<leader>j", icon = { icon = "" }, group = "Flash" },
+      { "<leader>o", icon = { icon = "" }, group = "Obsidian" },
+      { "<leader>p", icon = { icon = "" }, group = "Palette" },
+      { "<leader>t", icon = { icon = "󰙨" }, group = "Test" },
+      { "[", group = "prev" },
+      { "]", group = "next" },
+      { "g", group = "goto" },
+    })
   end,
 }
