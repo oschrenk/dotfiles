@@ -38,7 +38,6 @@ return {
       ["<leader>f"] = { name = "󰦅 Find" },
       ["<leader>g"] = { name = "󰘭 Git" },
       ["<leader>h"] = { name = " Hunk" },
-      ["<leader>l"] = { name = " Ollama" },
       ["<leader>o"] = { name = " Obsidian" },
       ["<leader>j"] = { name = " Flash" },
       ["<leader>p"] = { name = " Palette" },
