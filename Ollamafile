@@ -1,2 +1,10 @@
 # vim: syntax=ruby filetype=ruby
-mistral
+
+# https://ollama.com/library/mistral
+mistral:7b
+# https://ollama.com/library/qwen2
+qwen2:7b
+# https://ollama.com/library/tinyllama
+tinyllama:1b
+# https://ollama.com/library/nomic-embed-text
+nomic-embed-text
