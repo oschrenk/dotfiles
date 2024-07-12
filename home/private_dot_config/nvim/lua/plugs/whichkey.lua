@@ -35,7 +35,6 @@ return {
       ["]"] = { name = "+next" },
       ["["] = { name = "+prev" },
       ["<leader>b"] = { name = " Buffer" },
-      ["<leader>c"] = { name = " Chat GPT" },
       ["<leader>f"] = { name = "󰦅 Find" },
       ["<leader>g"] = { name = "󰘭 Git" },
       ["<leader>h"] = { name = " Hunk" },
