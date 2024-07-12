@@ -27,6 +27,9 @@ return {
     config.augends:register_group({
       default = {
         augend.integer.alias.decimal,
+        augend.hexcolor.new({
+          case = "lower",
+        }),
         augend.date.alias["%Y-%m-%d"],
         augend.constant.alias.bool,
         casing,
@@ -35,28 +38,18 @@ return {
 
     config.augends:on_filetype({
       go = {
-        augend.integer.alias.decimal,
-        augend.integer.alias.hex,
-        augend.constant.alias.bool,
         operators,
       },
       typescript = {
-        augend.integer.alias.decimal,
-        augend.integer.alias.hex,
-        augend.constant.alias.bool,
         augend.constant.new({ elements = { "let", "const" } }),
-        casing,
       },
       markdown = {
-        augend.integer.alias.decimal,
         augend.misc.alias.markdown_header,
       },
       yaml = {
-        augend.integer.alias.decimal,
         augend.semver.alias.semver,
       },
       toml = {
-        augend.integer.alias.decimal,
         augend.semver.alias.semver,
       },
     })
