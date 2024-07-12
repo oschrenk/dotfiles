@@ -5,6 +5,6 @@ mistral:7b
 # https://ollama.com/library/qwen2
 qwen2:7b
 # https://ollama.com/library/tinyllama
-tinyllama:1b
+tinyllama:latest
 # https://ollama.com/library/nomic-embed-text
-nomic-embed-text
+nomic-embed-text:latest
