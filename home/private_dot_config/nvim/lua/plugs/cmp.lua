@@ -9,6 +9,16 @@ return {
     -- source for words in buffer
     "hrsh7th/cmp-buffer",
 
+    -- https://github.com/petertriho/cmp-git
+    -- git(hub/lab)
+    {
+      "petertriho/cmp-git",
+      dependencies = { "nvim-lua/plenary.nvim" },
+      config = function()
+        require("cmp_git").setup()
+      end,
+    },
+
     -- https://github.com/hrsh7th/cmp-path
     -- source for path completion
     "hrsh7th/cmp-path",
@@ -82,6 +92,7 @@ return {
       sources = {
         { name = "buffer" },
         { name = "path" },
+        { name = "git" },
         { name = "tmux" },
         { name = "browser" },
         { name = "nvim_lsp" },
