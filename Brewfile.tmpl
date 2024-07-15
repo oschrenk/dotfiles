@@ -47,8 +47,6 @@ brew "coreutils"      # generic, GNU core utilities
 brew "fd"             # generic, fast find alternative
 brew "findutils"      # generic, GNU g-prefixed `find`, xargs`
 brew "gawk"           # generic, GNU awk utility
-brew "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
-brew "oschrenk/made/nightshift" # hardware, control Night Shift
 brew "oschrenk/made/sessionizer" # tmux, manage sessions
 brew "ripgrep"        # generic, recursive search
 brew "watch"          # issue commands at regular interval
@@ -316,7 +314,14 @@ brew "xcodes"      # xcode & runtimes manager
 # xcode takes a lot of time and space to install, do it late
 mas "XCode", id: 497799835
 mas "Apple Developer", id: 640199958
+
+#######################################
+# These apps require full Xcode
+#######################################
 brew "swiftlint"   # swift, lint, requires Xcode
 brew "nicerloop/nicerloop/mas" # app store apps, requires Xcode
+
+brew "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
+brew "oschrenk/made/nightshift" # hardware, control Night Shift
 # to agree to license
 # sudo xcodebuild -license
