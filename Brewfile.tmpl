@@ -239,6 +239,7 @@ cask "font-victor-mono"
 # Only on Personal machine
 {{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
   cask "calibre"                # ebook manager
+  cask "chatgpt"                # ChatGPT
   cask "diffusionbee"           # Stable Diffusion locally
   cask "elgato-control-center"  # elgato software to control lights
   cask "flux"                   # control screen color temperature
@@ -264,7 +265,6 @@ cask "font-victor-mono"
 {{- end }}
 
 cask "bruno"                  # test APIs
-cask "chatgpt"                # ChatGPT
 cask "google-chrome"          # browser
 cask "cog"                    # audio client
 cask "dbeaver-community"      # sql client
