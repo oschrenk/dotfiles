@@ -334,7 +334,10 @@ vscode "scalameta.metals"            # Scala, Metals
 brew "swiftlint"   # swift, lint, requires Xcode
 brew "nicerloop/nicerloop/mas" # app store apps, requires Xcode
 
-brew "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
-brew "oschrenk/made/nightshift" # hardware, control Night Shift
+# Work machine has outdated Xcode
+{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
+  brew "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
+  brew "oschrenk/made/nightshift" # hardware, control Night Shift
+{{- end }}
 # to agree to license
 # sudo xcodebuild -license
