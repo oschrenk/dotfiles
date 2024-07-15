@@ -3,9 +3,15 @@
 # Requirements
 #  https://jqlang.github.io/jq/
 #  brew install jq
+#
+
+FOCUS_FILE="~/Library/DoNotDisturb/DB/Assertions.json"
 
 if [ -z "${FOCUS_MODE}" ]; then
-  status=$(cat ~/Library/DoNotDisturb/DB/Assertions.json | jq -r 'try .data[].storeAssertionRecords[].assertionDetails.assertionDetailsModeIdentifier')
+  if [[ -e "$FOCUS_FILE" ]]; then
+    status=$(cat "$FOCUS_FILE" | jq -r 'try .data[].storeAssertionRecords[].assertionDetails.assertionDetailsModeIdentifier')
+  fi
+    status="unknown"
 else
   status=$FOCUS_MODE
 fi
