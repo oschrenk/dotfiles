@@ -65,24 +65,25 @@ defaults write com.apple.dock 'magnification' -bool false
 
 # Dock: Unpin apps from dock
 for item in \
-	Launchpad \
-	Safari \
-	Mail \
-	FaceTime \
-	Messages \
-	Maps \
-	Photos \
-	Contacts \
 	Calendar \
-	Reminders \
-	Notes \
-	Music \
-	Podcasts \
-	TV \
-	News \
-	Numbers \
+	Contacts \
+	FaceTime \
 	Keynote \
+	Launchpad \
+	Mail \
+	Maps \
+	Messages \
+	Music \
+	News \
+	Notes \
+	Numbers \
 	Pages \
+	Photos \
+	Podcasts \
+	Reminders \
+	Safari \
+	TV \
+  Freeform \
 	"App Store" \
 	"System Preferences" \
   "Homerow" \
