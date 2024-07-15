@@ -285,8 +285,16 @@ cask "numi"                   # calculator
 cask "onyx"                   # macos maintenance
 cask "omnidisksweeper"        # cleanup disk space
 cask "podman-desktop"         # generic, manage containers and pods
-cask "slack"                  # slack office communication
 cask "visual-studio-code"     # editor
+
+#######################################
+# Office
+#######################################
+
+# Only on Personal machine
+{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
+  cask "slack"                  # slack office communication
+{{- end }}
 
 #######################################
 # VS code extensions
