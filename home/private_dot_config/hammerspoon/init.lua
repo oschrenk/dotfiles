@@ -57,7 +57,7 @@ end
 ------------------------
 -- Keyboard Bindings
 ------------------------
-require("window")
+require("windows")
 
 local windows = Windows.new()
 local hyper = { "ctrl", "alt", "shift", "cmd" }
