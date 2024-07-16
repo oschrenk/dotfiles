@@ -1,9 +1,10 @@
 require("AppWatcher")
-require("audio")
-require("bluetooth")
-require("notifications")
-require("wifi")
-require("windows")
+require("Audio")
+require("Bluetooth")
+require("Notifications")
+require("Wifi")
+require("WifiWatcher")
+require("Windows")
 
 ------------------------
 -- Settings
@@ -101,7 +102,6 @@ end
 local enteredUntrusted = function(ssid)
 	notify("Connected to untrusted wifi" .. ' "' .. ssid .. '"')
 end
-require("WifiWatcher")
 WifiWatcher.new(workSSIDs, homeSSIDs, enteredHome, enteredWork, enteredUntrusted).start()
 
 ------------------------
