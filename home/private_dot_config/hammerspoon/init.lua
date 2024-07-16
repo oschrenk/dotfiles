@@ -8,6 +8,9 @@ local SCRIPTS_DIR = HAMMERSPOON_DIR .. "/scripts"
 -- disable animation
 hs.window.animationDuration = 0
 
+require("bluetooth")
+require("network")
+require("wifi")
 ------------------------
 -- Helpers
 ------------------------
@@ -51,23 +54,21 @@ function connectHeadphones()
 	ok, result = hs.osascript.applescriptFromFile(SCRIPTS_DIR .. "/connectHeadphones.applescript")
 end
 
-require("bluetooth")
-require("network")
-require("wifi")
-require("window")
-
 ------------------------
 -- Keyboard Bindings
 ------------------------
+require("window")
+
+local windows = Windows.new()
 local hyper = { "ctrl", "alt", "shift", "cmd" }
 
-hs.hotkey.bind(hyper, "a", loopLeft)
-hs.hotkey.bind(hyper, "d", loopRight)
-hs.hotkey.bind(hyper, "s", toggle_window_maximized)
-hs.hotkey.bind(hyper, "x", toggle_full_screen)
+hs.hotkey.bind(hyper, "a", windows.loopLeft)
+hs.hotkey.bind(hyper, "d", windows.loopRight)
+hs.hotkey.bind(hyper, "s", windows.toggleWindowMaximized)
+hs.hotkey.bind(hyper, "x", windows.toggleFullScreen)
 
-hs.hotkey.bind(hyper, "q", send_window_to_prev_monitor)
-hs.hotkey.bind(hyper, "e", send_window_to_next_monitor)
+hs.hotkey.bind(hyper, "q", windows.sendWindowToPrevMonitor)
+hs.hotkey.bind(hyper, "e", windows.sendWindowToNextMonitor)
 
 hs.hotkey.bind(hyper, "h", connectHeadphones)
 
