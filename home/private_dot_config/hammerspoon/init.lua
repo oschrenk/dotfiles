@@ -13,12 +13,16 @@ require("bluetooth")
 require("network")
 require("notifications")
 require("wifi")
+require("windows")
 
 local notifications = Notifications.new(SCRIPTS_DIR)
 local notify = notifications.notify
 
 local audio = Audio.new(notify)
 local bluetooth = Bluetooth.new(notify)
+
+local wifi = Wifi.new(notify)
+local windows = Windows.new()
 
 ------------------------
 -- Environment settings
@@ -45,9 +49,6 @@ end
 ------------------------
 -- Keyboard Bindings
 ------------------------
-require("windows")
-
-local windows = Windows.new()
 local hyper = { "ctrl", "alt", "shift", "cmd" }
 
 hs.hotkey.bind(hyper, "a", windows.loopLeft)
@@ -61,7 +62,7 @@ hs.hotkey.bind(hyper, "e", windows.sendWindowToNextMonitor)
 hs.hotkey.bind(hyper, "h", connectHeadphones)
 
 hs.hotkey.bind(hyper, "b", bluetooth.toggle)
-hs.hotkey.bind(hyper, "v", toggleWifi)
+hs.hotkey.bind(hyper, "v", wifi.toggle)
 
 hs.hotkey.bind(hyper, "m", audio.mute)
 
