@@ -5,6 +5,15 @@ Notifications = {}
 Notifications.new = function(scripts_dir)
 	local self = {}
 
+	self.notify = function(message)
+		hs.notify
+			.new({
+				title = "Hammerspoon",
+				informativeText = message,
+			})
+			:send()
+	end
+
 	-- Clear notifications immediately
 	self.clearNotifications = function()
 		hs.osascript.applescriptFromFile(scripts_dir .. "/closeNotifiations.applescript")

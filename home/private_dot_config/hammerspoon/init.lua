@@ -9,19 +9,12 @@ local SCRIPTS_DIR = HAMMERSPOON_DIR .. "/scripts"
 hs.window.animationDuration = 0
 
 require("bluetooth")
+require("notifications")
 require("network")
 require("wifi")
-------------------------
--- Helpers
-------------------------
-function notify(message)
-	hs.notify
-		.new({
-			title = "Hammerspoon",
-			informativeText = message,
-		})
-		:send()
-end
+
+local notifications = Notifications.new(SCRIPTS_DIR)
+local notify = notifications.notify
 
 ------------------------
 -- Audio settings
