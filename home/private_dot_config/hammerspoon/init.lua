@@ -108,7 +108,7 @@ WifiWatcher.new(workSSIDs, homeSSIDs, enteredHome, enteredWork, enteredUntrusted
 -- Reload
 ------------------------
 hs.pathwatcher
-	.new(HAMMERSPOON_DIR, function(files)
+	.new(HAMMERSPOON_DIR, function(_)
 		hs.reload()
 	end)
 	:start()
