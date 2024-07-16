@@ -52,7 +52,7 @@ return {
     workspaces = {
       {
         name = "personal",
-        path = "~/Library/Mobile Documents/iCloud~md~obsidian/Documents/personal",
+        path = "~/Obsidian/memex",
         overrides = {
           daily_notes = {
             -- Optional, if you keep daily notes in a separate directory.
