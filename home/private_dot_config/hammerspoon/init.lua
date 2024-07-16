@@ -18,6 +18,7 @@ local notifications = Notifications.new(SCRIPTS_DIR)
 local notify = notifications.notify
 
 local audio = Audio.new(notify)
+local bluetooth = Bluetooth.new(notify)
 
 ------------------------
 -- Environment settings
@@ -35,10 +36,10 @@ hs.caffeinate.watcher
 	:start()
 
 function connectHeadphones()
-	if not bluetoothEnabled() then
-		enableBluetooth()
+	if not bluetooth.isEnabled() then
+		bluetooth.enable()
 	end
-	ok, result = hs.osascript.applescriptFromFile(SCRIPTS_DIR .. "/connectHeadphones.applescript")
+	_, _ = hs.osascript.applescriptFromFile(SCRIPTS_DIR .. "/connectHeadphones.applescript")
 end
 
 ------------------------
@@ -59,7 +60,7 @@ hs.hotkey.bind(hyper, "e", windows.sendWindowToNextMonitor)
 
 hs.hotkey.bind(hyper, "h", connectHeadphones)
 
-hs.hotkey.bind(hyper, "b", toggleBluetooth)
+hs.hotkey.bind(hyper, "b", bluetooth.toggle)
 hs.hotkey.bind(hyper, "v", toggleWifi)
 
 hs.hotkey.bind(hyper, "m", audio.mute)
