@@ -21,7 +21,6 @@ if [[ "$CURRENT_FOCUS" == "com.apple.focus.work" ]]; then
 # default to "default" tasks, else
 else
   TASKS=$(/opt/homebrew/bin/mission tasks --show-done=false --show-cancelled=false)
-
 fi
 
 case "$CURRENT_FOCUS" in
