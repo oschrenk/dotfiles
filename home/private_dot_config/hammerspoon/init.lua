@@ -1,3 +1,10 @@
+require("AppWatcher")
+require("audio")
+require("bluetooth")
+require("notifications")
+require("wifi")
+require("windows")
+
 ------------------------
 -- Settings
 ------------------------
@@ -8,19 +15,14 @@ local SCRIPTS_DIR = HAMMERSPOON_DIR .. "/scripts"
 -- disable animation
 hs.window.animationDuration = 0
 
-require("audio")
-require("bluetooth")
-require("notifications")
-require("wifi")
-require("windows")
+------------------------
+-- Dependencies
+------------------------
 
 local notifications = Notifications.new(SCRIPTS_DIR)
 local notify = notifications.notify
-
 local bluetooth = Bluetooth.new(notify)
-
 local audio = Audio.new(notify, bluetooth, SCRIPTS_DIR)
-
 local wifi = Wifi.new(notify)
 local windows = Windows.new()
 
@@ -59,22 +61,11 @@ hs.hotkey.bind(hyper, "v", wifi.toggle)
 
 hs.hotkey.bind(hyper, "m", audio.mute)
 
----
+-- *********************
+-- AppWatcher
+-- *********************
 
-function handleGlobalEvent(appName, eventType, appObject)
-	if eventType == hs.application.watcher.activated then
-		print("activated " .. appName)
-	end
-
-	if eventType == hs.application.watcher.launched then
-		print("launched " .. appName)
-	end
-end
-
-function handleAppEvent(element, event, watcher, info)
-	local appName = element:application():title()
-	local windowTitle = element:title()
-
+local appHandler = function(event, appName, windowTitle)
 	if event == hs.uielement.watcher.windowCreated then
 		print("created")
 		if appName:find("Google Chrome") then
@@ -94,33 +85,7 @@ function handleAppEvent(element, event, watcher, info)
 		end
 	end
 end
-
-function watchApp(app, initializing)
-	if appWatchers[app:pid()] then
-		return
-	end
-
-	local watcher = app:newWatcher(handleAppEvent)
-	appWatchers[app:pid()] = {
-		watcher = watcher,
-	}
-
-	watcher:start({ hs.uielement.watcher.focusedWindowChanged })
-end
-
-function attachExistingApps()
-	local apps = hs.application.runningApplications()
-	apps = hs.fnutils.filter(apps, function(app)
-		return app:title() ~= "Hammerspoon"
-	end)
-	hs.fnutils.each(apps, function(app)
-		watchApp(app, true)
-	end)
-end
-
-appWatchers = {}
-globalWatcher = hs.application.watcher.new(handleGlobalEvent):start()
-attachExistingApps()
+AppWatcher.new(appHandler).start()
 
 -- *********************
 -- WifiWatcher
