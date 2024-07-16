@@ -8,22 +8,16 @@ local SCRIPTS_DIR = HAMMERSPOON_DIR .. "/scripts"
 -- disable animation
 hs.window.animationDuration = 0
 
+require("audio")
 require("bluetooth")
-require("notifications")
 require("network")
+require("notifications")
 require("wifi")
 
 local notifications = Notifications.new(SCRIPTS_DIR)
 local notify = notifications.notify
 
-------------------------
--- Audio settings
-------------------------
-
-function mute()
-	hs.audiodevice.defaultOutputDevice():setMuted(true)
-	notify("Mute")
-end
+local audio = Audio.new(notify)
 
 ------------------------
 -- Environment settings
@@ -32,10 +26,10 @@ hs.caffeinate.watcher
 	.new(function(event)
 		if event == hs.caffeinate.watcher.systemWillSleep or event == hs.caffeinate.watcher.systemWillPowerOff then
 			print("sleeping")
-			mute()
+			audio.mute()
 		elseif event == hs.caffeinate.watcher.systemDidWake then
 			print("waking up")
-			mute()
+			audio.mute()
 		end
 	end)
 	:start()
@@ -68,7 +62,7 @@ hs.hotkey.bind(hyper, "h", connectHeadphones)
 hs.hotkey.bind(hyper, "b", toggleBluetooth)
 hs.hotkey.bind(hyper, "v", toggleWifi)
 
-hs.hotkey.bind(hyper, "m", mute)
+hs.hotkey.bind(hyper, "m", audio.mute)
 
 ---
 
