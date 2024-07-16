@@ -1,13 +1,12 @@
 ------------------------
 -- Network location
 ------------------------
-local wifiWatcher = nil
 local work_SSID_pool = {}
 local home_SSID_pool = { "Citadel" }
 local lastSSID = hs.wifi.currentNetwork()
 
 local function has_value(tab, val)
-	for index, value in ipairs(tab) do
+	for _, value in ipairs(tab) do
 		-- print("comparing: val:"..(val or "nil").." value:"..(value or "nil"))
 		-- We grab the first index of our sub-table instead
 		if value == val then
@@ -54,7 +53,8 @@ function enteredUntrusted(ssid)
 	notify("Connected to untrusted wifi" .. ' "' .. ssid .. '"')
 end
 
-function wifiListener(watcher, message, interface)
+-- interface: (watcher, message, interface)
+function wifiListener(_, message, _)
 	if message == "SSIDChange" then
 		newSSID = hs.wifi.currentNetwork()
 
