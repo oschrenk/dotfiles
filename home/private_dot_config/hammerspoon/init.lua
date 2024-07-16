@@ -10,7 +10,6 @@ hs.window.animationDuration = 0
 
 require("audio")
 require("bluetooth")
-require("network")
 require("notifications")
 require("wifi")
 require("windows")
@@ -123,9 +122,22 @@ appWatchers = {}
 globalWatcher = hs.application.watcher.new(handleGlobalEvent):start()
 attachExistingApps()
 
-wifiWatcher = hs.wifi.watcher.new(wifiListener)
-wifiWatcher:watchingFor({ "SSIDChange" })
-wifiWatcher:start()
+-- *********************
+-- WifiWatcher
+-- *********************
+local workSSIDs = {}
+local homeSSIDs = { "Citadel" }
+local enteredHome = function(ssid)
+	notify("Connected to home wifi" .. ' "' .. ssid .. '"')
+end
+local enteredWork = function(ssid)
+	notify("Connected to work wifi" .. ' "' .. ssid .. '"')
+end
+local enteredUntrusted = function(ssid)
+	notify("Connected to untrusted wifi" .. ' "' .. ssid .. '"')
+end
+require("WifiWatcher")
+WifiWatcher.new(workSSIDs, homeSSIDs, enteredHome, enteredWork, enteredUntrusted).start()
 
 ------------------------
 -- Reload
