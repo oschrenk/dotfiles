@@ -18,8 +18,9 @@ require("windows")
 local notifications = Notifications.new(SCRIPTS_DIR)
 local notify = notifications.notify
 
-local audio = Audio.new(notify)
 local bluetooth = Bluetooth.new(notify)
+
+local audio = Audio.new(notify, bluetooth, SCRIPTS_DIR)
 
 local wifi = Wifi.new(notify)
 local windows = Windows.new()
@@ -39,13 +40,6 @@ hs.caffeinate.watcher
 	end)
 	:start()
 
-function connectHeadphones()
-	if not bluetooth.isEnabled() then
-		bluetooth.enable()
-	end
-	_, _ = hs.osascript.applescriptFromFile(SCRIPTS_DIR .. "/connectHeadphones.applescript")
-end
-
 ------------------------
 -- Keyboard Bindings
 ------------------------
@@ -59,7 +53,7 @@ hs.hotkey.bind(hyper, "x", windows.toggleFullScreen)
 hs.hotkey.bind(hyper, "q", windows.sendWindowToPrevMonitor)
 hs.hotkey.bind(hyper, "e", windows.sendWindowToNextMonitor)
 
-hs.hotkey.bind(hyper, "h", connectHeadphones)
+hs.hotkey.bind(hyper, "h", audio.connectHeadphones)
 
 hs.hotkey.bind(hyper, "b", bluetooth.toggle)
 hs.hotkey.bind(hyper, "v", wifi.toggle)
