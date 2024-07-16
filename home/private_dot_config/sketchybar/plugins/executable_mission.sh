@@ -26,27 +26,27 @@ fi
 case "$CURRENT_FOCUS" in
   com.apple.donotdisturb.mode.default)
     ICON="􀆺"
-    ICON_COLOR="0xFFFFFFFF"
+    ICON_COLOR="0xffcad3f5"
     LABEL_DRAWING="on"
     ;;
   com.apple.sleep.sleep-mode)
     ICON="􀙪"
-    ICON_COLOR="0xFFFFFFFF"
+    ICON_COLOR="0xffcad3f5"
     LABEL_DRAWING="off"
     ;;
   com.apple.focus.personal-time)
     ICON="􀉪"
-    ICON_COLOR="0xFFFFFFFF"
+    ICON_COLOR="0xffcad3f5"
     LABEL_DRAWING="on"
     ;;
   com.apple.focus.work)
     ICON="􁕝"
-    ICON_COLOR="0xFFFFFFFF"
+    ICON_COLOR="0xffcad3f5"
     LABEL_DRAWING="on"
     ;;
   *)
     ICON="􀟈"
-    ICON_COLOR="0xFF999999"
+    ICON_COLOR="0xff999999"
     LABEL_DRAWING="on"
     ;;
 esac
