@@ -1,4 +1,5 @@
 # vim: syntax=ruby filetype=ruby
+
 #######################################
 # Taps
 #######################################
@@ -39,161 +40,155 @@ cask "obsidian"           # notes
 cask "spotify"            # audio client
 
 #######################################
+# Xcode
+#######################################
+
+# Installing XCode is VERY slow, but it
+# is requited by a handful of packages
+
+# Only on Personal machine
+{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
+  brew "xcodes"      # xcode & runtimes manager
+  # xcode takes a lot of time/space to install,
+  # do it later in the process
+  mas "XCode", id: 497799835
+  mas "Apple Developer", id: 640199958
+{{- end }}
+
+#######################################
 # Packages
 #######################################
 
-## system
-brew "blueutil"       # get/set bluetooth from terminal
-brew "coreutils"      # generic, GNU core utilities
-brew "fd"             # generic, fast find alternative
-brew "findutils"      # generic, GNU g-prefixed `find`, xargs`
-brew "gawk"           # generic, GNU awk utility
+brew "8ta4/plist/plist" # maocs, watch plist files
+brew "age"           # cryptography, encryption tool
+brew "ankitpokhrel/jira-cli/jira-cli" # cli, interact with jira
+brew "atuin"         # cli, improved shell history
+brew "blueutil"      # system, get/set bluetooth from terminal
+brew "chrome-cli"    # cli, control chrome via cli
+brew "cloc"          # generic, count lines of code
+brew "coreutils"     # system, generic, GNU core utilities
+brew "croc"          # cryptography, secure data transfer
+brew "direnv"        # cli, auto load env
+brew "displayplacer" # hardware, arrange monitors
+brew "dockutil"      # macos, manage the dock
+brew "dos2unix"      # data, convert text between DOS, UNIX, and Mac formats
+brew "fd"            # system, generic, fast find alternative
+brew "felixkratz/formulae/sketchybar" # macos, custom statusbar
+brew "fileicon"      # macos, manage icons
+brew "findutils"     # system, generic, GNU g-prefixed `find`, xargs`
+brew "fnm"           # javascript, version manger
+brew "gawk"          # system, generic, GNU awk utility
+brew "gh"            # cli, interact with github
+brew "git"           # git, dvcs
+brew "git-crypt"     # git, encrypt secrets in git
+brew "git-delta"     # git, better looking diffs
+brew "git-extras"    # git, nice git extras
+brew "git-lfs"       # git, large file storage
+brew "git-open"      # git, open github/gitlab urls from terminal
+brew "glow"          # cli, render markdown in terminal
+brew "go"            # go, language
+brew "go-task"       # generic, go-based task runner
+brew "gradle"        # kotlin, build tool
+brew "helm"          # k8s, package manager
+brew "htop"          # cli, Improved top
+brew "hurl"          # network, run/test http requests
+brew "ical-buddy"    # macos, calendar
+brew "iconsur"       # macos, fetch icons
+brew "jq"            # data, process JSON
+brew "k9s"           # k8s, cluster manager
+brew "kotlin"        # kotlin
+brew "krew"          # k8s, kubectl package manager
+brew "ktfmt"         # kotlin, formatter
+brew "kube-linter"   # k8s, lint k8s yaml and helm
+brew "kubectl"       # k8s, cli
+brew "kubectx"       # k8s, switch k8s contexts
+brew "kubescape"     # k8s, scan cluster for security issues
+brew "kustomize"     # k8s, resource transformers
+brew "lsd"           # cli, "better" ls
+brew "m1ddc"         # hardware, monitor control
+brew "miller"        # data, process CSV
+brew "minikube"      # k8s, run local k8s
+brew "minisign"      # cryptography, sign files and verify signatures
+brew "noahgorstein/tap/jqp" # data, tui playground for jq
+brew "node"          # javascript, language
+brew "openjdk@11"    # jvm, sdk
+brew "openjdk@17"    # jvm, sdk
+brew "openjdk@21"    # jvm, sdk
+brew "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
+brew "oschrenk/made/mission" # macos, task managment
+brew "oschrenk/made/nightshift" # hardware, control Night Shift
 brew "oschrenk/made/sessionizer" # tmux, manage sessions
-brew "ripgrep"        # generic, recursive search
-brew "watch"          # issue commands at regular interval
-brew "watchman"       # watch files and take action when they change
-
-## hardware
-brew "displayplacer"  # arrange monitors
-brew "smartmontools"  # harddrive, read ssd info
-brew "m1ddc"          # monitor, control brightness of external monitor
-
-## cryptography
-brew "age"            # encryption tool
-brew "croc"           # secure data transfer
-brew "minisign"       # sign files and verify signatures
-
-## command line
-brew "atuin"          # improved shell history
-brew "chrome-cli"     # control chrome via cli
-brew "direnv"         # auto load env
-brew "gh"             # interact with github
-brew "glow"           # render markdown in terminal
-brew "htop"           # Improved top
-brew "ankitpokhrel/jira-cli/jira-cli" # interact with jira
-brew "lsd"            # "better" ls
-brew "page"           # Use Neovim as pager
-brew "tree"           # print file tree
-brew "tmux"           # terminal multiplexer
-
-# documents
-brew "pandoc"                 # document converter
-brew "zola"                   # static site generator
-
-# parsing/converting
-brew "dos2unix"       # convert text between DOS, UNIX, and Mac formats
-brew "jq"             # process JSON
-brew "noahgorstein/tap/jqp" # tui playground for jq
-brew "miller"         # process CSV
-brew "xmlstarlet"     # process XML
-brew "yq"             # process YAML
-
-## network
-brew "doggo"          # dns client
-brew "httrack"        # copy websites offline
-brew "hurl"           # run/test http requests
-brew "mosh"           # better shell for roaming
-brew "ngrep"          # network packet analyzer
-brew "nmap"           # port scanning
-brew "telnet"         # telnet protocol
-
-## observability
-brew "logcli"         # loki query
-
-## vcs
-brew "git"           # dvcs
-brew "git-crypt"     # encrypt secrets in git
-brew "git-delta"     # better looking diffs
-brew "git-extras"    # nice git extras
-brew "git-lfs"       # large file storage
-brew "git-open"      # open github/gitlab urls from terminal
-
-## a/v
-brew "asciinema"     # record terminal sessions
-brew "exiftool"      # read/write exif
-brew "ffmpeg"        # convert audio/video
-brew "flac"          # flac codec
-brew "lame"          # mp3 codec
-brew "libmp3splt"    # split mp3, off, flac files
-brew "mp3splt"       # split mp3, off, flac files
-brew "x264"          # h264 encoder
-brew "xvid"          # mp4 lib
-brew "yt-dlp"        # download youtube video/audio
-
-## programming
-brew "cloc"        # generic, count lines of code
-brew "coursier/formulas/coursier" # jvm, scala, artifact fetching
-brew "fnm"         # javascript, version manger
-brew "gradle"      # kotlin, build tool
-brew "go"          # go, language
-brew "go-task"     # generic, go-based task runner
-brew "ktfmt"       # kotlin, formatter
-brew "kotlin"      # kotlin
-brew "stylua"      # lua formatter
-brew "maven"       # jvm, package manager
-brew "node"        # javascript, language
-brew "openjdk@11"  # jvm, sdk
-brew "openjdk@17"  # jvm, sdk
-brew "openjdk@21"  # jvm, sdk
-brew "pgcli"       # postgres, just cli
-brew "podman"      # generic, manage OCI contaniners and pods
-brew "poetry"      # python, package manager
-brew "prettier"    # generic, code formatter for js, css, json, md, yaml
-brew "pyenv"       # python, version manager
-brew "python"      # python, language
-brew "rbenv"       # ruby, version manager
-brew "ruby-build"  # ruby, version manager
-brew "rust"        # rust, language
-brew "sbt"         # jvm, scala
-brew "shellcheck"  # shell linter
-brew "scala"       # jvm, scala
-brew "swiftformat" # swift, format
-brew "tectonic"    # tex
-brew "typescript"  # typescript, language
-brew "typst"       # tex alternative (rust based)
-brew "yamlfmt"     # yaml, formatter
-brew "yarn"        # javascript, package manager
-
-# cloud
-brew "awscli"  # aws
-brew "doctl"   # Digital Ocean
-brew "pulumi"  # infrastructure as code
-brew "tfenv"   # terraform version manager
-brew "traefik" # reverse proxy
-
-# k8s
-brew "helm"             # k8s, package manager
-brew "k9s"              # k8s, cluster manager
-brew "krew"             # k8s, kubectl package manager
-brew "kube-linter"      # k8s, lint k8s yaml and helm
-brew "kubectl"          # k8s, cli
-brew "kubectx"          # k8s, switch k8s contexts
-brew "kubescape"        # k8s, scan cluster for security issues
-brew "kustomize"        # k8s, template free k8s resource transformers
-brew "minikube"         # k8s, run local k8s
+brew "page"          # cli, Use Neovim as pager
+brew "pgcli"         # postgres, just cli
+brew "poetry"        # python, package manager
+brew "prettier"      # generic, code formatter
+brew "pyenv"         # python, version manager
+brew "python"        # python, language
+brew "ripgrep"       # system, generic, recursive search
+brew "rust"          # rust, language
+brew "shellcheck"    # shell, linter
+brew "smartmontools" # hardware, harddrive, read ssd info
+brew "stylua"        # lua formatter
+brew "swiftformat"   # swift, format
+brew "telnet"        # network, telnet protocol
+brew "tmux"          # cli, terminal multiplexer
+brew "traefik"       # k8s, reverse proxy
+brew "tree"          # cli, print file tree
 brew "txn2/tap/kubefwd" # k8s, bulk port forwarding
+brew "typescript"    # typescript, language
+brew "watch"         # system, issue commands at regular interval
+brew "watchman"      # system, watch files and take action when they change
+brew "xmlstarlet"    # data, process XML
+brew "yamlfmt"       # yaml, formatter
+brew "yarn"          # javascript, package manager
+brew "yq"            # data, process YAML
 
-# llm
-brew "charmbracelet/tap/mods" # chatgpt, cli
-brew "ollama"           # create, run llm
-brew "huggingface-cli"  # hugging face
-
-# macos
-brew "dockutil"   # manage the dock
-brew "fileicon"   # managing custom icons for files and folders
-brew "ical-buddy"     # macos calendar
-brew "iconsur"    # download icons from app store
-brew "felixkratz/formulae/sketchybar" # custom statusbar
-brew "8ta4/plist/plist" # watch plist files
-brew "oschrenk/made/mission" # task managment
-
-# waiting for https://github.com/mas-cli/mas/issues/512
-# see below for replacement until then
-# brew "mas"        # app store apps
+{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
+  brew "asciinema"   # a/v, record terminal sessions
+  brew "awscli"      # devops, aws
+  brew "charmbracelet/tap/mods" # ai, chatgpt, cli
+  brew "coursier/formulas/coursier" # jvm, scala, artifact fetching
+  brew "doctl"       # devops, Digital Ocean
+  brew "doggo"       # network, dns client
+  brew "exiftool"    # a/v, read/write exif
+  brew "ffmpeg"      # a/v, convert audio/video
+  brew "flac"        # a/v, flac codec
+  brew "httrack"     # network, copy websites offline
+  brew "huggingface-cli" # ai, hugging face
+  brew "lame"        # a/v, mp3 codec
+  brew "libmp3splt"  # a/v, split mp3, off, flac files
+  brew "logcli"      # O11y, query loki
+  brew "maven"       # jvm, package manager
+  brew "mosh"        # network, better shell for roaming
+  brew "mp3splt"     # a/v, split mp3, off, flac files
+  brew "ngrep"       # network packet analyzer
+  brew "nicerloop/nicerloop/mas" # macos, app store cli, requires Xcode
+  brew "nmap"        # network,port scanning
+  brew "ollama"      # ai, create, run llm
+  brew "pandoc"      # docs, document converter
+  brew "podman"      # generic, manage OCI contaniners and pods
+  brew "pulumi"      # devops, infrastructure as code
+  brew "rbenv"       # ruby, version manager
+  brew "ruby-build"  # ruby, version manager
+  brew "sbt"         # jvm, scala
+  brew "scala"       # jvm, scala
+  brew "swiftlint"   # swift, lint, requires Xcode
+  brew "tectonic"    # tex
+  brew "tfenv"       # devops, terraform version manager
+  brew "typst"       # typst, tex alternative (rust based)
+  brew "x264"        # a/v, h264 encoder
+  brew "xvid"        # a/v, mp4 lib
+  brew "yt-dlp"      # a/v, download youtube video/audio
+  brew "zola"        # docs, static site generator
+{{- end }}
 
 #######################################
 # Apps
 #######################################
+
+# waiting for https://github.com/mas-cli/mas/issues/512
+# see below for replacement until then
+# brew "mas"        # app store apps
 
 # Only on Personal machine
 {{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
@@ -213,8 +208,6 @@ brew "oschrenk/made/mission" # task managment
   mas "Reeder 5", id: 1529448980             # rss
   mas "1Password for Safari", id: 1569813296   # 1Password extension
 {{- end }}
-
-# mas "XCode", id: 497799835  # see eof, because of size last thing to install
 
 #######################################
 # Fonts
@@ -238,69 +231,61 @@ cask "font-victor-mono"
 # Casks
 #######################################
 
-# Only on Personal machine
-{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
-  cask "calibre"                # ebook manager
-  cask "chatgpt"                # ChatGPT
-  cask "diffusionbee"           # Stable Diffusion locally
-  cask "elgato-control-center"  # elgato software to control lights
-  cask "flux"                   # control screen color temperature
-  cask "handbrake"              # video transcoder
-  cask "mindmac"                # llm api client
-  cask "mochi"                  # study notes and flashcards
-  cask "musicbrainz-picard"     # audio collection organizer
-  cask "obs"                    # broadcasting
-  cask "ollamac"                # gui for ollama
-  cask "raindropio"             # bookmark managment
-  cask "rode-central"           # rode companion app (for AI-1)
-  cask "signal"                 # signal messaging
-  cask "telegram"               # telegram messaging
-  cask "the-unarchiver"         # unarchiving most archive files
-  cask "topnotch"               # "hide" notch
-  cask "transmission"           # torrent client
-  cask "upscayl"                # upscala images with AI
-  cask "utm"                    # virtual machines for macos
-  cask "vlc"                    # video client
-  cask "whatsapp"               # whatsapp messaging
-  cask "xld"                    # cd ripper
-  cask "zoom"                   # video conferencing
-{{- end }}
-
-cask "bruno"                  # test APIs
-cask "google-chrome"          # browser
-cask "cog"                    # audio client
 cask "dbeaver-community"      # sql client
-cask "db-browser-for-sqlite"  # sqlite client
-cask "discord"                # discord client
 cask "docker"                 # docker client
 cask "firefox"                # browser
+cask "google-chrome"          # browser
 cask "hiddenbar"              # hide menu bar items
-cask "hex-fiend"              # hex editor
-cask "iina"                   # video client
 cask "jdk-mission-control"    # monitor java applications
 cask "keyboardcleantool"      # disables keyboard for cleaning
-cask "keycastr"               # shows key strokes on screen
-cask "knockknock"             # identify background tasks/processes
-cask "monodraw"               # draw ascii art
+cask "monodraw"               # draw ascii diagrams
 cask "neovide"                # neovim desktop app
-cask "numi"                   # calculator
-cask "onyx"                   # macos maintenance
-cask "omnidisksweeper"        # cleanup disk space
-cask "podman-desktop"         # generic, manage containers and pods
-cask "visual-studio-code"     # editor
-
-#######################################
-# Office
-#######################################
 
 # Only on Personal machine
 {{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
-  cask "slack"                  # slack office communication
+  cask "bruno"                 # test APIs
+  cask "calibre"               # ebook manager
+  cask "chatgpt"               # ChatGPT
+  cask "cog"                   # audio client
+  cask "db-browser-for-sqlite" # sqlite client
+  cask "diffusionbee"          # Stable Diffusion locally
+  cask "discord"               # discord client
+  cask "elgato-control-center" # elgato software to control lights
+  cask "flux"                  # control screen color temperature
+  cask "handbrake"             # video transcoder
+  cask "hex-fiend"             # hex editor
+  cask "iina"                  # video client
+  cask "keycastr"              # shows key strokes on screen
+  cask "knockknock"            # identify background tasks/processes
+  cask "mindmac"               # llm api client
+  cask "mochi"                 # study notes and flashcards
+  cask "musicbrainz-picard"    # audio collection organizer
+  cask "numi"                  # calculator
+  cask "obs"                   # broadcasting
+  cask "ollamac"               # gui for ollama
+  cask "omnidisksweeper"       # cleanup disk space
+  cask "onyx"                  # macos maintenance
+  cask "podman-desktop"        # generic, manage containers and pods
+  cask "raindropio"            # bookmark managment
+  cask "rode-central"          # rode companion app (for AI-1)
+  cask "signal"                # signal messaging
+  cask "slack"                 # slack office communication
+  cask "telegram"              # telegram messaging
+  cask "the-unarchiver"        # unarchiving most archive files
+  cask "topnotch"              # "hide" notch
+  cask "transmission"          # torrent client
+  cask "upscayl"               # upscala images with AI
+  cask "utm"                   # virtual machines for macos
+  cask "vlc"                   # video client
+  cask "whatsapp"              # whatsapp messaging
+  cask "xld"                   # cd ripper
+  cask "zoom"                  # video conferencing
 {{- end }}
 
 #######################################
-# VS code extensions
+# Visual Studio
 #######################################
+cask "visual-studio-code"     # editor
 
 vscode "GitHub.copilot"              # Github Copilot
 vscode "GitHub.copilot-chat"         # Github Copilot chat
@@ -315,30 +300,3 @@ vscode "redhat.vscode-yaml"          # Yaml, Syntax
 vscode "scala-lang.scala"            # Scala, Syntax
 vscode "scalameta.metals"            # Scala, Metals
 
-
-#######################################
-# Xcode
-#######################################
-
-# Only on Personal machine
-{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
-  brew "xcodes"      # xcode & runtimes manager
-  # xcode takes a lot of time/space to install,
-  # do it later in the process
-  mas "XCode", id: 497799835
-  mas "Apple Developer", id: 640199958
-{{- end }}
-
-#######################################
-# These apps require full Xcode
-#######################################
-brew "swiftlint"   # swift, lint, requires Xcode
-brew "nicerloop/nicerloop/mas" # app store apps, requires Xcode
-
-# Work machine has outdated Xcode
-{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
-  brew "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
-  brew "oschrenk/made/nightshift" # hardware, control Night Shift
-{{- end }}
-# to agree to license
-# sudo xcodebuild -license
