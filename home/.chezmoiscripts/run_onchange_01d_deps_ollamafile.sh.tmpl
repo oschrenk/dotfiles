@@ -4,6 +4,11 @@
 #
 # Ollamafile hash: {{ include "../Ollamafile" | sha256sum }}
 
+{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
+  echo "Only on personal machine"
+  exit 0
+{{- end }}
+
 local WAS_RUNNING=$(brew services info ollama --json | jq '.[].running')
 
 # start ollama service, if it isn't running yet
