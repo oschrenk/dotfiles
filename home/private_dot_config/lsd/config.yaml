@@ -9,12 +9,10 @@ classic: false
 # specifies the columns and their order when using the long and the tree layout
 # Possible values: permission, user, group, context, size, date, name, inode, links, git
 blocks:
-  - permission
-  - user
-  - group
+  - name
   - size
   - date
-  - name
+  - permission
 
 # == Color ==
 color:
@@ -105,7 +103,7 @@ sorting:
   # Whether to group directories together and where.
   # When "classic" is set, this is set to "none".
   # Possible values: first, last, none
-  dir-grouping: none
+  dir-grouping: first
 
 # == No Symlink ==
 # Whether to omit showing symlink targets
