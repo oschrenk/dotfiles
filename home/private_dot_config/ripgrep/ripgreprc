@@ -1,4 +1,4 @@
-# Seehttps://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#configuration-file
+# See https://github.com/BurntSushi/ripgrep/blob/master/GUIDE.md#configuration-file
 
 # Don't print lines longer than this limit in bytes. Longer lines are omitted,
 # and only the number of matches in that line is printed.
