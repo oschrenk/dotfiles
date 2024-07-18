@@ -87,10 +87,6 @@ nnoremap ==         :action ReformatCode<CR>
 vnoremap =          :action ReformatCode<CR>
 nnoremap --         :action OptimizeImports<CR>
 
-" setup ataman
-nnoremap <Space>    :action LeaderAction<cr>
-vnoremap <Space>    :action LeaderAction<cr>
-
 " movements
 nmap     gr         :action ShowUsages<CR>
 nmap     gi         :action GotoImplementation<CR>
@@ -100,18 +96,6 @@ map      gb         <Action>(JumpToLastChange)
 
 " leader based
 " ***************************
-
-" change font size
-nmap     <leader>+  :action EditorIncreaseFontSize<CR>
-nmap     <leader>-  :action EditorDecreaseFontSize<CR>
-nmap     <leader>=  :action EditorResetFontSize<CR>
-
-" show information
-map      <leader>ii <Action>(QuickJavaDoc)
-map      <leader>in <Action>(GotoNextError)
-map      <leader>ip <Action>(GotoPreviousError)
-map      <leader>ir <Action>(ShowErrorDescription)
-map      <leader>iq <Action>(QuickImplementations)
 
 " edit/source ideavim config
 " to source manually, enter command mode (via `:`)
