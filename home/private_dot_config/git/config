@@ -306,7 +306,5 @@
 # force git to use https:// instead of git://
 [url "git@github.com:"]
 	insteadOf = https://github.com/
-[url "git@github.com:"]
-	insteadOf = https://git::@github.com/
 [url "git://"]
 	insteadOf = https://
