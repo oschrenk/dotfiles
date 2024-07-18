@@ -85,3 +85,4 @@ set convert-meta off
 "\e[1;3C": forward-word
 "\e[5C": forward-word
 "\e\e[C": forward-word
+
