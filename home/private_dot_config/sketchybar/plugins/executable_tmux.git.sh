@@ -1,10 +1,5 @@
 #!/bin/sh
 
-# only accept tmux_session_update events 
-if [ "$SENDER" != "tmux_session_update" ]; then
-  exit 0
-fi
-
 # don't draw anything for default session
 if [ "$session_name" = "default" ]; then
   sketchybar --set "$NAME" drawing=off 
