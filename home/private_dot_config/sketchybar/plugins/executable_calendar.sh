@@ -7,7 +7,7 @@
 # this script only work until midnight of a given day
 # beyond that date and time calculation might be wrong
 
-EVENT_STRING=$(icalBuddy --excludeAllDayEvents --includeOnlyEventsFromNowOn --bullet "" --includeEventProps 'title, datetime' --timeFormat "%H:%M" --limitItems 1 --noCalendarNames -ps "|,|-|" eventsToday)
+EVENT_STRING=$(icalBuddy --excludeAllDayEvents --includeOnlyEventsFromNowOn --bullet "" --includeEventProps 'title, datetime' --timeFormat "%H:%M" --limitItems 2 --noCalendarNames -ps "|,|-|" eventsToday | grep -v "🕐 Timewax" | head -1)
 
 # exit early if no event found for today
 # for `//` see https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html#Shell-Parameter-Expansion
