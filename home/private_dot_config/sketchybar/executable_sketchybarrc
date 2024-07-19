@@ -35,8 +35,9 @@ sketchybar --bar    \
   padding_right=16  \
   notch_width=188   \
   font_smoothing=on \
-  shadow=off
-  display=main
+  shadow=off \
+  topmost=window \
+  display=all
 
 ########################
 #        Colors        #
