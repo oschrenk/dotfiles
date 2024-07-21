@@ -26,6 +26,8 @@ if [[ "$WEATHER_STRING" == *"Sorry"* || "$WEATHER_STRING" == *"Unknown"* ]]; the
 fi
 
 WEATHER_ICON=$(echo "$WEATHER_STRING" | cut -d ':' -f 1)
-WEATHER_TEMP=$(echo "$WEATHER_STRING" | cut -d ':' -f 2 | tr -d '+')
+WEATHER_TEMP=$(echo "$WEATHER_STRING" | cut -d ':' -f 2 | tr -d '')
 
-sketchybar --set "$NAME" icon="$WEATHER_ICON" label="$WEATHER_TEMP"
+sketchybar --set "$NAME" \
+           icon="$WEATHER_ICON" \
+           label="$WEATHER_TEMP"
