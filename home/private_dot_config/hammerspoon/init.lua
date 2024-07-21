@@ -25,7 +25,7 @@ local notify = notifications.notify
 local bluetooth = Bluetooth.new(notify)
 local audio = Audio.new(notify, bluetooth, SCRIPTS_DIR)
 local wifi = Wifi.new(notify)
-local windows = Windows.new()
+local windows = Windows.new(notify)
 
 ------------------------
 -- Environment settings
