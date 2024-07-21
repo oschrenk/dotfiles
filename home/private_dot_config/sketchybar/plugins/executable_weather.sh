@@ -5,7 +5,7 @@
 # `Unknown location; please try ~66.12345,5.123456`
 # You can specify a geo location (even gps) but then the weather report is wrong
 # so we keep the location, but ignore errors like that later
-LOCATION="Haarlem"
+LOCATION="Haarlem,NL"
 # see https://github.com/chubin/wttr.in/tree/master?tab=readme-ov-file#one-line-output
 #%c is the weather as symbol
 #%t is the temperature
