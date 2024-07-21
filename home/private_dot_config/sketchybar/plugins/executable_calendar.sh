@@ -43,7 +43,7 @@ fi
 if [ $NOW_EPOCH -lt $EVENT_START_EPOCH ]; then
   DIFFERENCE_IN_MINUTES=$((($EVENT_START_EPOCH - $NOW_EPOCH) / 60))
 
-  # only show events withon 60m
+  # only show events within 60m
   if [ $DIFFERENCE_IN_MINUTES -lt 60 ]; then
     sketchybar --set "$NAME" \
       icon.drawing=off \
