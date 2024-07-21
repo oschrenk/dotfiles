@@ -5,7 +5,7 @@ path = "$HOME/Obsidian/memex/10 Journals/Personal"
 extension = "md"
 
 [[journals.work]]
-path = "$HOME/Obsidian/memex/10 Journals/10 Journals/Work"
+path = "$HOME/Obsidian/memex/10 Journals/Work"
 extension = "md"
 
 [sketchybar]
