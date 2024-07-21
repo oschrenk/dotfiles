@@ -16,10 +16,14 @@ WEATHER_STRING=$(curl -s "https://wttr.in/${LOCATION}?m&format=${FORMAT_STRING}"
 # the service can fail with a 503, if wttr can't request data from their data provider
 # in that case the body contains 
 # `Sorry, we are running out of queries to the weather service at the moment.`
-# but it can also fail with a 200 and 
-# `Unknown location; please try ~66.12345,5.123456`
-# so we ignore the return code and look into the body
-if [[ "$WEATHER_STRING" == *"Sorry"* || "$WEATHER_STRING" == *"Unknown"* ]]; then
+# but it can also fail with a 200 
+# 1. eg: `Unknown location; please try ~66.12345,5.123456`
+# 2. `This query is already being processed`
+#
+# Re 2) See also https://github.com/chubin/wttr.in/blob/master/internal/processor/processor.go#L208
+#
+# It is not enough to inspect the return code, but also the body
+if [[ "$WEATHER_STRING" == *"Sorry"* || "$WEATHER_STRING" == *"Unknown"* || *"already being"* ]]; then
   FAILURE_ICON="☄️"
   sketchybar --set "$NAME" icon="$FAILURE_ICON" label="-"
   exit 0
