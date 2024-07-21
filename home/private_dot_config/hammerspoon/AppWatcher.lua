@@ -18,10 +18,12 @@ AppWatcher.new = function(handler)
 
 	-- interface: (element, event, watcher, info)
 	self.handleAppEvent = function(element, event, _, _)
-		local appName = element:application():title()
-		local windowTitle = element:title()
+		if element then
+			local appName = element:application():title()
+			local windowTitle = element:title()
 
-		handler(event, appName, windowTitle)
+			handler(event, appName, windowTitle)
+		end
 	end
 
 	-- interface:(app, initializing)
