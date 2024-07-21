@@ -23,7 +23,7 @@ WEATHER_STRING=$(curl -s "https://wttr.in/${LOCATION}?m&format=${FORMAT_STRING}"
 # Re 2) See also https://github.com/chubin/wttr.in/blob/master/internal/processor/processor.go#L208
 #
 # It is not enough to inspect the return code, but also the body
-if [[ "$WEATHER_STRING" == *"Sorry"* || "$WEATHER_STRING" == *"Unknown"* || *"already being"* ]]; then
+if [[ "$WEATHER_STRING" == *"Sorry"* || "$WEATHER_STRING" == *"Unknown"* || "$WEATHER_STRING" == *"already being"* ]]; then
   FAILURE_ICON="☄️"
   sketchybar --set "$NAME" icon="$FAILURE_ICON" label="-"
   exit 0
