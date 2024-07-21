@@ -49,6 +49,9 @@ if [ $NOW_EPOCH -lt $EVENT_START_EPOCH ]; then
       icon.drawing=off \
       drawing=on \
       label="$EVENT_NAME in ${DIFFERENCE_IN_MINUTES}m"
+  else
+    sketchybar --set "$NAME" \
+                 drawing=off
   fi
 
 # we are in the current event
