@@ -73,6 +73,11 @@ Plug 'preservim/nerdtree'
 " KEY MAPPINGS
 " ###########################
 " to search for actions: :actionlist <pattern>
+"
+" leader
+" ***************************
+" set <leader> to <space>
+let mapleader = " "
 
 " basic key mapping
 " ***************************
@@ -97,6 +102,28 @@ map      gb         <Action>(JumpToLastChange)
 " leader based
 " ***************************
 
+" change font size
+nmap     <leader>+  :action EditorIncreaseFontSize<CR>
+nmap     <leader>-  :action EditorDecreaseFontSize<CR>
+nmap     <leader>=  :action EditorResetFontSize<CR>
+
+" show information
+map      <leader>ii <Action>(QuickJavaDoc)
+map      <leader>in <Action>(GotoNextError)
+map      <leader>ip <Action>(GotoPreviousError)
+map      <leader>ir <Action>(ShowErrorDescription)
+map      <leader>iq <Action>(QuickImplementations)
+
+" refactor/extract
+vnoremap <leader>ev :action IntroduceVariable<CR>
+
+" run
+map      <leader>rr :action Run<CR>
+map      <leader>rd :action Debug<CR>
+
+" debug
+map      <leader>dr :action Debugger.ResumeThread<CR>
+
 " edit/source ideavim config
 " to source manually, enter command mode (via `:`)
 " :source ~/.config/ideavim/ideavimrc
@@ -109,6 +136,8 @@ nnoremap <leader>vr :source ~/.config/ideavim/ideavimrc<CR>
 
 let g:NERDTreeMapActivateNode='l' " open close directory
 let g:NERDTreeMapJumpParent='h'   " move up one directory level
+
+" press "Esc" to return focus on main editor window
 nnoremap <leader>nd :NERDTreeFocus<CR>
 map      <leader>ne :action SelectInProjectView<CR>
 nnoremap <leader>nb :action ShowNavBar<CR>
