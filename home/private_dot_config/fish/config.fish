@@ -5,6 +5,9 @@ set fish_greeting
 # - sets up $PATH and other env variables
 if status --is-login
     source ~/.config/fish/env.fish
+
+    # 1password plugins
+    source ~/.config/op/plugins.sh
 end
 
 # interactive shell:
