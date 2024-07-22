@@ -16,4 +16,6 @@ fi
 # also convert to lower case
 branch=$(git -C "$session_path" rev-parse --abbrev-ref HEAD | cut -d '/' -f 1 | tr '[:upper:]' '[:lower:]')
 
-sketchybar --set "$NAME" drawing=on icon.drawing=on icon=⎇  label="$branch"
+sketchybar --set "$NAME" \
+           icon=⎇  \
+           label="$branch"
