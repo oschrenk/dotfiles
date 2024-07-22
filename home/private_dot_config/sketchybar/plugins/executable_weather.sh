@@ -24,8 +24,9 @@ WEATHER_STRING=$(curl -s "https://wttr.in/${LOCATION}?m&format=${FORMAT_STRING}"
 #
 # It is not enough to inspect the return code, but also the body
 if [[ "$WEATHER_STRING" == *"Sorry"* || "$WEATHER_STRING" == *"Unknown"* || "$WEATHER_STRING" == *"already being"* ]]; then
-  FAILURE_ICON="☄️"
-  sketchybar --set "$NAME" icon="$FAILURE_ICON" label="-"
+  sketchybar --set "$NAME" \
+               icon="☄️" \
+               label.drawing=off
   exit 0
 fi
 
