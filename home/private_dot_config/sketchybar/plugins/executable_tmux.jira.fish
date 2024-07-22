@@ -58,6 +58,8 @@ if test "$SENDER" = tmux_session_update
         # fetch the latest jira ticket "In Progress"
         set -x ticket (jira --config $jira_config_path issue list --plain --no-headers -a$jira_me -s"In Progress" | head -1 | awk '{print $2}' | awk -v d=" " '{s=(NR==1?s:s d)$0}END{print s}')
 
-        sketchybar --set "$NAME" drawing=on icon.drawing=on icon=󰌃 label="$ticket"
+        sketchybar --set "$NAME" \
+            icon=󰌃 \
+            label="$ticket"
     end
 end
