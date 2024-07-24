@@ -70,15 +70,6 @@ sketchybar --add item tmux.session left \
 
 source "$PLUGIN_DIR/tmux.windows.sh"
 
-sketchybar --add item tmux.windows left \
-		       --set tmux.windows \
-			           icon.drawing=off \
-                 label.font="$ICON_FONT_FAMILY:$ICON_FONT_STYLE:15.0" \
-			           script="$PLUGIN_DIR/tmux.windows.sh" \
-                 update_freq=120 \
-		       --add event tmux_session_update \
-		       --subscribe tmux.windows tmux_session_update
-
 sketchybar --add item tmux.jira left \
 		       --set tmux.jira \
       			     icon.drawing=off \

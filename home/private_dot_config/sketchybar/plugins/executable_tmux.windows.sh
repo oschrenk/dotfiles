@@ -1,13 +1,12 @@
 #!/bin/sh
 
-ITER=0
-for window in $(tmux list-windows -F '#{window_name}' ); do
-  sketchybar --add item "tmux.windows.$ITER" left \
-	  	       --set tmux.windows."$ITER" \
+# support up to 3 windows
+for id in $(seq 1 5); do
+  sketchybar --add item "tmux.windows.$id" left \
+	  	       --set tmux.windows."$id" \
 		  	           script="$PLUGIN_DIR/tmux.window.sh" \
-                   update_freq=120 \
-		         --add event tmux_session_update \
-		         --subscribe tmux.windows."$ITER" tmux_session_update
-  ITER=$(expr "$ITER" + 1)
+                   update_freq=10 \
+		         --add event tmux_windows_update \
+		         --subscribe tmux.windows."$id" tmux_windows_update
 done
 
