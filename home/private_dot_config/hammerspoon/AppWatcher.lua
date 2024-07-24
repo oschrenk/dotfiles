@@ -18,7 +18,7 @@ AppWatcher.new = function(handler)
 
 	-- interface: (element, event, watcher, info)
 	self.handleAppEvent = function(element, event, _, _)
-		if element then
+		if element ~= nil then
 			local appName = element:application():title()
 			local windowTitle = element:title()
 
