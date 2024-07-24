@@ -23,4 +23,9 @@ show_help = true
    "^tube",
    "^sideload",
    "^stream",
+   "^pad",
+  # ignore single char entries
+   "^.$",
+  # ignore ls
+   "^ls$"
 ]
