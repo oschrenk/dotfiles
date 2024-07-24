@@ -19,6 +19,7 @@ show_help = true
 #
 # See also https://docs.rs/regex/latest/regex/#syntax
  history_filter = [
+  # ignore downloading videos
    "^tube",
    "^sideload",
    "^stream",
