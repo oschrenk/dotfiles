@@ -47,20 +47,21 @@ hs.caffeinate.watcher
 ------------------------
 local hyper = { "ctrl", "alt", "shift", "cmd" }
 
-hs.hotkey.bind(hyper, "a", windows.loopLeft)
-hs.hotkey.bind(hyper, "d", windows.loopRight)
+-- move windows
+hs.hotkey.bind(hyper, "a", windows.left50)
+hs.hotkey.bind(hyper, "d", windows.right50)
 hs.hotkey.bind(hyper, "s", windows.toggleWindowMaximized)
 hs.hotkey.bind(hyper, "x", windows.toggleFullScreen)
-
 hs.hotkey.bind(hyper, "q", windows.sendWindowToPrevMonitor)
 hs.hotkey.bind(hyper, "e", windows.sendWindowToNextMonitor)
 
+-- audio
 hs.hotkey.bind(hyper, "h", audio.connectHeadphones)
+hs.hotkey.bind(hyper, "m", audio.mute)
 
+-- connectivity
 hs.hotkey.bind(hyper, "b", bluetooth.toggle)
 hs.hotkey.bind(hyper, "v", wifi.toggle)
-
-hs.hotkey.bind(hyper, "m", audio.mute)
 
 -- *********************
 -- AppWatcher
