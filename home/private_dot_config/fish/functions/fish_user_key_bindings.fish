@@ -3,4 +3,5 @@ fzf_key_bindings
 bind \cp fzf_projects
 bind \co fzf_nvim
 bind \cg fzf_commits
-bind \cb fzf_branches
+bind \cb fzfBranches
+bind \ci _atuin_search
