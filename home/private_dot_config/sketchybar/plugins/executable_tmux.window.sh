@@ -31,6 +31,6 @@ else
                label.drawing="off" \
                drawing=on \
                icon.color="$ICON_COLOR" \
-               icon="$TMUX_WINDOW_INDEX" 
+               icon="" 
 fi
 
