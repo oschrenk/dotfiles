@@ -68,6 +68,8 @@ sketchybar --add item tmux.session left \
 		       --add event tmux_session_update \
 		       --subscribe tmux.session tmux_session_update
 
+source "$PLUGIN_DIR/tmux.windows.sh"
+
 sketchybar --add item tmux.windows left \
 		       --set tmux.windows \
 			           icon.drawing=off \
