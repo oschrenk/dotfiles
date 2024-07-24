@@ -29,3 +29,11 @@ show_help = true
   # ignore ls
    "^ls$"
 ]
+
+# default filter to use when searching
+# global (default)	Search from all hosts, all sessions, all directories
+# host	            Search just from this host
+# session	          Search just from current session
+# directory	        Search just from current directory
+# Ctrl+r toggles
+filter_mode = "host"
