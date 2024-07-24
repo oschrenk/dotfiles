@@ -1,7 +1,6 @@
 #!/bin/sh
 
 TMUX_WINDOW_INDEX=$(echo "$NAME" | cut -d '.' -f3)
-
 TMUX_WINDOW_COUNT=$(tmux list-windows -F '#{window_id}' | wc -l | xargs)
 MAYBE_TMUX_WINDOW=$(tmux list-windows -F '#{window_name}:#{window_active}' | sed "${TMUX_WINDOW_INDEX}q;d")
 
