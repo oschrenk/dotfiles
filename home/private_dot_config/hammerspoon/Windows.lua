@@ -1,26 +1,16 @@
 ------------------------
 -- Window Managment
 ------------------------
+require("WindowsLayout")
+
 Windows = {}
 Windows.new = function(notify)
 	local self = {}
 
+	local layout = WindowsLayout.new(notify)
+
 	-- Internal state
 	self.windowSizeCache = {}
-	self.windowSizeCacheLoop = {}
-
-	self.centerWindow = function()
-		local win = hs.window.focusedWindow()
-		local f = win:frame()
-		local screen = win:screen()
-		local max = screen:frame()
-
-		f.x = max.w * (15 / 100)
-		f.y = max.h * (5 / 100)
-		f.w = max.w * (70 / 100)
-		f.h = max.h * (90 / 100)
-		win:setFrame(f)
-	end
 
 	-- Toggle a window between its normal size, and being maximized
 	self.toggleWindowMaximized = function()
@@ -41,7 +31,7 @@ Windows.new = function(notify)
 			if wasEnhanced then
 				axApp.AXEnhancedUserInterface = false
 			end
-			win:maximize()
+			layout.moveWithYOffset(0, 100, 0, 100, 33)
 			if wasEnhanced then
 				axApp.AXEnhancedUserInterface = true
 			end
@@ -49,93 +39,23 @@ Windows.new = function(notify)
 	end
 
 	self.left50 = function()
-		hs.window.focusedWindow():moveToUnit(hs.layout.left50)
-	end
-
-	self.loopLeft = function()
-		local win = hs.window.focusedWindow()
-		local entry = self.windowSizeCacheLoop[win:id()]
-		if entry then
-			local original_frame = entry["frame"]
-			local percentage = entry["percentage"]
-			if percentage == 50 then
-				-- move to 70%
-				hs.window.focusedWindow():moveToUnit(hs.layout.left70)
-				local newState = { frame = original_frame, percentage = 70 }
-				self.windowSizeCacheLoop[win:id()] = newState
-			elseif percentage == 70 then
-				-- move to original state, reset cache entry
-				win:setFrame(original_frame)
-				self.windowSizeCacheLoop[win:id()] = nil
-			else
-				-- move to 50% state
-				local newState = { frame = original_frame, percentage = 50 }
-				hs.window.focusedWindow():moveToUnit(hs.layout.left50)
-				self.windowSizeCacheLoop[win:id()] = newState
-			end
-		else
-			-- new windoww, start with 50%
-			local newState = { frame = win:frame(), percentage = 50 }
-			self.windowSizeCacheLoop[win:id()] = newState
-			hs.window.focusedWindow():moveToUnit(hs.layout.left50)
-		end
-	end
-
-	self.loopRight = function()
-		local win = hs.window.focusedWindow()
-		local entry = self.windowSizeCacheLoop[win:id()]
-		if entry then
-			local original_frame = entry["frame"]
-			local percentage = entry["percentage"]
-			if percentage == 50 then
-				-- move to 30%
-				hs.window.focusedWindow():moveToUnit(hs.layout.right30)
-				local newState = { frame = original_frame, percentage = 30 }
-				self.windowSizeCacheLoop[win:id()] = newState
-			elseif percentage == 30 then
-				-- move to original state, reset cache entry
-				win:setFrame(original_frame)
-				self.windowSizeCacheLoop[win:id()] = nil
-			else
-				-- move to 50% state
-				local newState = { frame = original_frame, percentage = 50 }
-				hs.window.focusedWindow():moveToUnit(hs.layout.right50)
-				self.windowSizeCacheLoop[win:id()] = newState
-			end
-		else
-			-- new windoww, start with 50%
-			local newState = { frame = win:frame(), percentage = 50 }
-			self.windowSizeCacheLoop[win:id()] = newState
-			hs.window.focusedWindow():moveToUnit(hs.layout.right50)
-		end
+		layout.moveWithYOffset(0, 50, 0, 100, 33)
 	end
 
 	self.right50 = function()
-		hs.window.focusedWindow():moveToUnit(hs.layout.right50)
+		layout.moveWithYOffset(50, 50, 0, 100, 33)
 	end
 
 	self.toggleFullScreen = function()
-		hs.window.focusedWindow():toggleFullScreen()
+		layout.toggleFullScreen()
 	end
 
-	-- Send Window Prev Monitor
 	self.sendWindowToPrevMonitor = function()
-		if #hs.screen.allScreens() > 1 then
-			local win = hs.window.focusedWindow()
-			local previousScreen = win:screen():previous()
-			win:moveToScreen(previousScreen)
-			notify("Prev Monitor", 5)
-		end
+		layout.sendWindowToPrevMonitor()
 	end
 
-	-- Send Window Next Monitor
 	self.sendWindowToNextMonitor = function()
-		if #hs.screen.allScreens() > 1 then
-			local win = hs.window.focusedWindow()
-			local nextScreen = win:screen():next()
-			win:moveToScreen(nextScreen)
-			notify("Next Monitor", 5)
-		end
+		layout.sendWindowToNextMonitor()
 	end
 
 	return self
