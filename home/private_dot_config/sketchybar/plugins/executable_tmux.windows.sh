@@ -7,6 +7,7 @@ for id in $(seq 1 5); do
 		  	           script="$PLUGIN_DIR/tmux.window.sh" \
                    update_freq=60 \
 		         --add event tmux_windows_update \
-		         --subscribe tmux.window."$id" tmux_windows_update
+		         --add event tmux_sessions_update \
+		         --subscribe tmux.window."$id" tmux_windows_update tmux_sessions_update
 done
 
