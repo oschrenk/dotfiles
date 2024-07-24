@@ -60,14 +60,7 @@ sketchybar --default \
 ########################
 #      Left Side       #
 ########################
-sketchybar --add item tmux.session left \
-		       --set tmux.session \
-			           icon.drawing=off \
-			           script="$PLUGIN_DIR/tmux.session.sh" \
-                 update_freq=120 \
-		       --add event tmux_session_update \
-		       --subscribe tmux.session tmux_session_update
-
+source "$PLUGIN_DIR/tmux.sessions.sh"
 source "$PLUGIN_DIR/tmux.windows.sh"
 
 sketchybar --add item tmux.jira left \
