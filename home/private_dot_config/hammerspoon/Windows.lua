@@ -3,6 +3,9 @@
 ------------------------
 require("WindowsLayout")
 
+-- disable animation
+hs.window.animationDuration = 0
+
 Windows = {}
 Windows.new = function(notify)
 	local self = {}

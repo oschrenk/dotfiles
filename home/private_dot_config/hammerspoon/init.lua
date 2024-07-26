@@ -13,9 +13,6 @@ require("Windows")
 local HAMMERSPOON_DIR = os.getenv("HOME") .. "/.config/hammerspoon"
 local SCRIPTS_DIR = HAMMERSPOON_DIR .. "/scripts"
 
--- disable animation
-hs.window.animationDuration = 0
-
 ------------------------
 -- Dependencies
 ------------------------
