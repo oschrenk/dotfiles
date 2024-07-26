@@ -80,16 +80,14 @@ sketchybar --add item tmux.jira left \
 #
 sketchybar --add item clock right \
            --set clock script="$PLUGIN_DIR/clock.sh" \
-                       update_freq=30 \
+                       update_freq="$ICON_WIDTH" \
            --subscribe clock system_woke
 
 sketchybar --add item weather right \
-           --set weather update_freq=3600 \
+           --set weather script="$PLUGIN_DIR/weather.sh" \
+                         update_freq=3600 \
                          icon.font="$ICON_FONT_FAMILY:$ICON_FONT_STYLE:12.0" \
                          icon.y_offset=1 \
-                         icon.padding_left=0 \
-                         icon.padding_right=2 \
-                         script="$PLUGIN_DIR/weather.sh" \
            --subscribe weather system_woke
 
 sketchybar --add item volume right \
@@ -103,8 +101,8 @@ sketchybar --add item battery right \
 
 sketchybar --add item calendar right \
            --set calendar script="$PLUGIN_DIR/calendar.sh" \
-                       update_freq=60 \
-                       y_offset=1 \
+                          y_offset=1 \
+                          update_freq=60 \
 		       --add event mission_focus \
            --subscribe calendar system_woke mission_focus
 
