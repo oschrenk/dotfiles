@@ -101,7 +101,8 @@ sketchybar --add item calendar right \
            --set calendar script="$PLUGIN_DIR/calendar.sh" \
                        update_freq=60 \
                        y_offset=1 \
-           --subscribe calendar system_woke
+		       --add event mission_focus \
+           --subscribe calendar system_woke mission_focus
 
 # Requirements
 #  https://github.com/oschrenk/mission

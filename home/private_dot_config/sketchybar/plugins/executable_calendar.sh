@@ -1,11 +1,41 @@
 #!/usr/bin/env zsh
-
+#
+# Benefits from
+#
 # Requirements
 # brew install ical-buddy
 # brew install coreutils
+#
+# https://github.com/oschrenk/mission
+#   brew tap oschrenk/made
+#   brew install mission
+#
+#  To watch for changes and subscribe to events
+#   brew services start mission
+#  Then allow
+#   "System Settings" > "Privacy & Security" > "Full Disk Access", allow mission
+#   brew services restart mission
+#  This is because we are watching iCloud and system files (for macOS Focus)
 
 # this script only work until midnight of a given day
 # beyond that date and time calculation might be wrong
+
+CURRENT_FOCUS=$(/opt/homebrew/bin/mission focus)
+
+case "$CURRENT_FOCUS" in
+  com.apple.donotdisturb.mode.default)
+    sketchybar --set "$NAME" \
+                 drawing=off
+    return 0
+    ;;
+  com.apple.sleep.sleep-mode)
+    sketchybar --set "$NAME" \
+                 drawing=off
+    return 0
+    ;;
+  *)
+    # just continue
+esac
 
 EVENT_STRING=$(icalBuddy --excludeAllDayEvents --includeOnlyEventsFromNowOn --bullet "" --includeEventProps 'title, datetime' --timeFormat "%H:%M" --limitItems 2 --noCalendarNames -ps "|,|-|" eventsToday | grep -v "🕐 Timewax" | head -1)
 
