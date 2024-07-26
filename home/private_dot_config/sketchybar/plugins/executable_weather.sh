@@ -13,12 +13,14 @@ FORMAT_STRING="+%c:+%t"
 #?m forces metrics units
 WEATHER_STRING=$(curl -s "https://wttr.in/${LOCATION}?m&format=${FORMAT_STRING}")
 
-# the service can fail with a 503, if wttr can't request data from their data provider
-# in that case the body contains 
-# `Sorry, we are running out of queries to the weather service at the moment.`
-# but it can also fail with a 200 
-# 1. eg: `Unknown location; please try ~66.12345,5.123456`
-# 2. `This query is already being processed`
+# the call can fail for various reasons
+# - no network => empty string
+# - 503: wttr can't request data from data provider
+#        in that case the body contains 
+#        `Sorry, we are running out of queries to the weather service at the moment.`
+# - 200: but the body might contain one of these
+#   1. `Unknown location; please try ~66.12345,5.123456`
+#   2. `This query is already being processed`
 #
 # Re 2) See also https://github.com/chubin/wttr.in/blob/master/internal/processor/processor.go#L208
 #
