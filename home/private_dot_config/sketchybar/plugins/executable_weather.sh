@@ -23,10 +23,10 @@ WEATHER_STRING=$(curl -s "https://wttr.in/${LOCATION}?m&format=${FORMAT_STRING}"
 # Re 2) See also https://github.com/chubin/wttr.in/blob/master/internal/processor/processor.go#L208
 #
 # It is not enough to inspect the return code, but also the body
-if [[ "$WEATHER_STRING" == *"Sorry"* || "$WEATHER_STRING" == *"Unknown"* || "$WEATHER_STRING" == *"already being"* ]]; then
+if [[ -z "${WEATHER_STRING}" || "$WEATHER_STRING" == *"Sorry"* || "$WEATHER_STRING" == *"Unknown"* || "$WEATHER_STRING" == *"already being"* ]]; then
   sketchybar --set "$NAME" \
                icon="☄️" \
-               label.drawing=off
+               label.drawing="off"
   exit 0
 fi
 
@@ -36,3 +36,4 @@ WEATHER_TEMP=$(echo "$WEATHER_STRING" | cut -d ':' -f 2 | tr -d '+')
 sketchybar --set "$NAME" \
            icon="$WEATHER_ICON" \
            label="$WEATHER_TEMP"
+
