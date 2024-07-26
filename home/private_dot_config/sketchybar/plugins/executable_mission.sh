@@ -27,7 +27,7 @@ case "$CURRENT_FOCUS" in
   com.apple.donotdisturb.mode.default)
     ICON="􀆺"
     ICON_COLOR="0xffcad3f5"
-    LABEL_DRAWING="on"
+    LABEL_DRAWING="off"
     ;;
   com.apple.sleep.sleep-mode)
     ICON="􀙪"
