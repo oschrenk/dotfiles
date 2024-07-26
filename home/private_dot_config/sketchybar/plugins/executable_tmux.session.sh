@@ -25,8 +25,6 @@ if [[ $TMUX_INDEX_DISTANCE -eq '0' ]]; then
   IS_ATTACHED="true"
 fi
 
-echo "BEFORE $TMUX_SESSION_INDEX $TMUX_INDEX_DISTANCE \"$MAYBE_TMUX_SESSION\" far:$TOO_FAR attached:$IS_ATTACHED" >> ~/Downloads/log.txt
-
 # do NOT draw if:
 # - can't find the session
 # - too far away
