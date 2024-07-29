@@ -29,14 +29,6 @@ WindowsLayout.new = function(notify)
 		win:setFrame(f)
 	end
 
-	self.left50WithYOffset = function(yOffset)
-		self.moveWithYOffset(0, 50, 0, 100, yOffset)
-	end
-
-	self.right50WithYOffset = function(yOffset)
-		self.moveWithYOffset(50, 50, 0, 100, yOffset)
-	end
-
 	self.left50 = function()
 		hs.window.focusedWindow():moveToUnit(hs.layout.right50)
 	end
@@ -63,19 +55,6 @@ WindowsLayout.new = function(notify)
 			win:moveToScreen(nextScreen)
 			notify("Next Monitor", 5)
 		end
-	end
-
-	self.center = function()
-		local win = hs.window.focusedWindow()
-		local f = win:frame()
-		local screen = win:screen()
-		local max = screen:frame()
-
-		f.x = max.w * (15 / 100)
-		f.y = max.h * (5 / 100)
-		f.w = max.w * (70 / 100)
-		f.h = max.h * (90 / 100)
-		win:setFrame(f)
 	end
 
 	self.toggleFullScreen = function()
