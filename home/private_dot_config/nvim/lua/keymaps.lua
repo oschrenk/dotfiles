@@ -34,6 +34,9 @@ map("n", "Q", "<Nop>", opts)
 map("n", "j", "gj", opts)
 map("n", "k", "gk", opts)
 
+-- don't overwrite the register
+map("v", "P", "pgvy", opts)
+
 -- U: Redos since 'u' undos
 map("n", "U", ":redo<cr>", opts)
 
