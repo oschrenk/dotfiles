@@ -100,7 +100,6 @@ sketchybar --add item battery right \
 
 sketchybar --add item calendar right \
            --set calendar script="$PLUGIN_DIR/calendar.sh" \
-                          y_offset=1 \
                           update_freq=60 \
 		       --add event mission_focus \
            --subscribe calendar system_woke mission_focus
