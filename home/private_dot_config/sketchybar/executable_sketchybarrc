@@ -93,14 +93,14 @@ sketchybar --add item volume right \
            --set volume script="$PLUGIN_DIR/volume.sh" \
            --subscribe volume volume_change
 
-sketchybar --add item vpn right \
-           --set vpn script="$PLUGIN_DIR/vpn.sh"\
-                     update_freq=120
-
 sketchybar --add item battery right \
            --set battery script="$PLUGIN_DIR/battery.sh"\
                          update_freq=120 \
            --subscribe battery system_woke power_source_change
+
+sketchybar --add item tunnelblick right \
+           --set tunnelblick script="$PLUGIN_DIR/tunnelblick.sh" \
+                             update_freq=120
 
 sketchybar --add item calendar right \
            --set calendar script="$PLUGIN_DIR/calendar.sh" \
