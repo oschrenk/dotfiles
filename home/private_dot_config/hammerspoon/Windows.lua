@@ -1,7 +1,7 @@
 ------------------------
 -- Window Managment
 ------------------------
-require("WindowsLayout")
+require("Layout")
 
 -- disable animation
 hs.window.animationDuration = 0
@@ -10,7 +10,7 @@ Windows = {}
 Windows.new = function(notify)
 	local self = {}
 
-	local layout = WindowsLayout.new(notify)
+	local layout = Layout.new(notify)
 
 	-- Internal state
 	self.windowSizeCache = {}

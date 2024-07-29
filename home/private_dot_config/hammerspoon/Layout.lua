@@ -1,5 +1,5 @@
-WindowsLayout = {}
-WindowsLayout.new = function(notify)
+Layout = {}
+Layout.new = function(notify)
 	local self = {}
 
 	self.moveWithYOffset = function(percentX, percentW, percentY, percentH, yOffset)
