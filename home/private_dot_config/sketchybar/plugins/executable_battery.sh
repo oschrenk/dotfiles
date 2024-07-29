@@ -1,11 +1,17 @@
 #!/bin/sh
 
-ICON_BATTERY_100=""
-ICON_BATTERY_75=""
-ICON_BATTERY_50=""
-ICON_BATTERY_25=""
-ICON_BATTERY_0=""
-ICON_BATTERY_BOLT=""
+# sf-symbols:battery.100percent
+ICON_BATTERY_100="􀛨"
+# sf-symbols:battery.75percent
+ICON_BATTERY_75="􀺸"
+# sf-symbols:battery.50percent
+ICON_BATTERY_50="􀺶"
+# sf-symbols:battery.25percent
+ICON_BATTERY_25="􀛩"
+# sf-symbols:battery.0percent
+ICON_BATTERY_0="􀛪"
+# sf-symbols:battery.100percent.bolt
+ICON_BATTERY_BOLT="􀢋"
 
 PERCENTAGE=$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)
 CHARGING=$(pmset -g batt | grep 'AC Power')
