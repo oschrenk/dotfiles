@@ -59,6 +59,15 @@ defaults write com.apple.iCal "number of hours displayed" -integer 16
 echo "Calendar: Show Birthdays calendar"
 defaults write com.apple.iCal "display birthdays calendar" -bool YES
 
+echo "Calendar: Allow Calendar to have custom keyboard shortcuts"
+allowCustomKeyboardShortcutsForApp "com.apple.iCal"
+
+echo "Calendar: Replace Toggle Calendar Sidebar with ⌘S"
+defaults write com.apple.iCal NSUserKeyEquivalents "{
+        'Show Calender List' = '${key_cmd}s';
+        'Hide Calender List' = '${key_cmd}s';
+    }"
+
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
