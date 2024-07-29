@@ -42,7 +42,7 @@ sketchybar --bar    \
   display=all
 
 ########################
-#        Colors        #
+#       Defaults       #
 ########################
 sketchybar --default \
   background.color="0xff$BACKGROUND_COLOR" \
@@ -128,7 +128,6 @@ sketchybar --add item calendar right \
                           update_freq=60 \
 		       --add event mission_focus \
            --subscribe calendar system_woke mission_focus
-
 
 ########################
 #        Update        #
