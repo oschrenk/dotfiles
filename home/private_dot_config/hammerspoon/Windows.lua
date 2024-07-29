@@ -49,6 +49,10 @@ Windows.new = function(notify)
 		layout.moveWithYOffset(50, 50, 0, 100, 33)
 	end
 
+	self.center = function()
+		layout.moveWithYOffset(15, 70, 15, 70, 33)
+	end
+
 	self.toggleFullScreen = function()
 		layout.toggleFullScreen()
 	end

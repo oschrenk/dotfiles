@@ -51,6 +51,7 @@ hs.hotkey.bind(hyper, "s", windows.toggleWindowMaximized)
 hs.hotkey.bind(hyper, "x", windows.toggleFullScreen)
 hs.hotkey.bind(hyper, "q", windows.sendWindowToPrevMonitor)
 hs.hotkey.bind(hyper, "e", windows.sendWindowToNextMonitor)
+hs.hotkey.bind(hyper, "w", windows.center)
 
 -- audio
 hs.hotkey.bind(hyper, "h", audio.connectHeadphones)
