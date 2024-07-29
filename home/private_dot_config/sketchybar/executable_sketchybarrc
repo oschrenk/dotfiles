@@ -74,6 +74,27 @@ sketchybar --add item tmux.jira left \
 		       --add event tmux_session_update \
 		       --subscribe tmux.jira tmux_session_update
 
+# Requirements
+#  https://github.com/oschrenk/mission
+#  brew tap oschrenk/made
+#  brew install mission
+#
+#  To watch for changes and subscribe to events
+#   brew services start mission
+#  Then allow
+#   "System Settings" > "Privacy & Security" > "Full Disk Access", allow mission
+#   brew services restart mission
+#  This is because we are watching iCloud and system files (for macOS Focus)
+#
+# `mission_task` is fired when journal entry is changed
+# `mission_focus` is fired when macOS focus changes
+sketchybar --add item mission left \
+           --set mission script="$PLUGIN_DIR/mission.sh" \
+                         update_freq=60 \
+		       --add event mission_task \
+		       --add event mission_focus \
+           --subscribe mission system_woke mission_task mission_focus
+
 ########################
 #      Right Side      #
 ########################
@@ -108,26 +129,6 @@ sketchybar --add item calendar right \
 		       --add event mission_focus \
            --subscribe calendar system_woke mission_focus
 
-# Requirements
-#  https://github.com/oschrenk/mission
-#  brew tap oschrenk/made
-#  brew install mission
-#
-#  To watch for changes and subscribe to events
-#   brew services start mission
-#  Then allow
-#   "System Settings" > "Privacy & Security" > "Full Disk Access", allow mission
-#   brew services restart mission
-#  This is because we are watching iCloud and system files (for macOS Focus)
-#
-# `mission_task` is fired when journal entry is changed
-# `mission_focus` is fired when macOS focus changes
-sketchybar --add item mission right \
-           --set mission script="$PLUGIN_DIR/mission.sh" \
-                         update_freq=60 \
-		       --add event mission_task \
-		       --add event mission_focus \
-           --subscribe mission system_woke mission_task mission_focus
 
 ########################
 #        Update        #
