@@ -110,6 +110,10 @@ sketchybar --add item weather right \
                          icon.font="$ICON_FONT_FAMILY:$ICON_FONT_STYLE:12.0" \
            --subscribe weather system_woke
 
+sketchybar --add item slack right \
+           --set slack script="$PLUGIN_DIR/slack.sh"\
+                       update_freq=60
+
 sketchybar --add item volume right \
            --set volume script="$PLUGIN_DIR/volume.sh" \
            --subscribe volume volume_change
