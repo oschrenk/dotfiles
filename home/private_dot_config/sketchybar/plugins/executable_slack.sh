@@ -1,21 +1,17 @@
 #!/bin/sh
 
-❯ osascript -e 'id of app "Slack"'
-
 BUNDLE_ID="com.tinyspeck.slackmacgap"
 
 BADGE=$(lsappinfo -all info -only StatusLabel "$BUNDLE_ID" | sed -nr 's/\"StatusLabel\"=\{ \"label\"=\"(.+)\" \}$/\1/p')
 
-
-# draw by default
-DRAWING="on"
+ICON_COLOR=""0xffcad3f5""
 
 # Could also be `•` instead of a count
 if [[ -z "$BADGE"  || "$BADGE" == "•" ]]; then
-  DRAWING="off"
+  ICON_COLOR="0xff646466"
 fi
 
 sketchybar -m --set "$NAME" \
                     icon= \
-                    label.drawing="off" \
-                    drawing="$DRAWING"
+                    icon.color="$ICON_COLOR" \
+                    label.drawing="off" 
