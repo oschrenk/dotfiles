@@ -14,6 +14,10 @@ if [[ -z "$BADGE"  || "$BADGE" == "•" ]]; then
 fi
 
 sketchybar -m --set "$NAME" \
-                    icon= \
+                    icon="" \
                     icon.color="$ICON_COLOR" \
+                    icon.align=center \
+                    icon.width=25 \
+                    icon.padding_left=-2 \
+                    icon.padding_right=-8 \
                     label.drawing="off" 
