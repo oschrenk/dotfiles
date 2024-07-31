@@ -16,12 +16,18 @@ return {
   },
   -- everything in opts will be passed to setup()
   opts = {
-    -- general options
     format_on_save = function()
-      return {
+      local options = {
         lsp_fallback = true,
         timeout_ms = 500,
       }
+      if vim.bo.filetype == "kotlin" then
+        options = {
+          lsp_fallback = true,
+          timeout_ms = 2000,
+        }
+      end
+      return options
     end,
     formatters = {
       ktfmt = {
