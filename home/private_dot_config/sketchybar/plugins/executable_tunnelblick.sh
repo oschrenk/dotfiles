@@ -26,7 +26,7 @@ ICON=$DEFAULT_ICON
 ICON_COLOR="$ICON_COLOR_INACTIVE"
 
 # if any connection is connected
-if [[ $STATE = "*"CONNECTED"*" ]]; then
+if [[ $STATE == *"CONNECTED"* ]]; then
   ICON="􀞛" 
   ICON_COLOR="$ICON_COLOR_ACTIVE"
 fi
