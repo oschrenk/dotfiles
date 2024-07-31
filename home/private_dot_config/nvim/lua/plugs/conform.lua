@@ -41,7 +41,7 @@ return {
       go = { "gofmt" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
       -- brew install ktfmt
-      kotlin = { "ktfmt" },
+      kotlin = { "ktfmt", stop_after_first = true },
       lua = { "stylua" },
       python = { "black" },
       scala = { "scalafmt" },
