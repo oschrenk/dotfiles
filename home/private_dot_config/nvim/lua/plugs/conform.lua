@@ -39,7 +39,7 @@ return {
     formatters_by_ft = {
       fish = { "fish_indent" },
       go = { "gofmt" },
-      javascript = { "prettierd", "prettier", top_after_first = true },
+      javascript = { "prettierd", "prettier", stop_after_first = true },
       -- brew install ktfmt
       kotlin = { "ktfmt" },
       lua = { "stylua" },
