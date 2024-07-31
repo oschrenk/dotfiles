@@ -17,10 +17,12 @@ return {
   -- everything in opts will be passed to setup()
   opts = {
     -- general options
-    format_on_save = {
-      timeout_ms = 500,
-      lsp_fallback = true,
-    },
+    format_on_save = function()
+      return {
+        lsp_fallback = true,
+        timeout_ms = 500,
+      }
+    end,
     formatters = {
       ktfmt = {
         -- --kotlinlang-style:     4-space indent
