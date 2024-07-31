@@ -28,14 +28,20 @@ WEATHER_STRING=$(curl -s "https://wttr.in/${LOCATION}?m&format=${FORMAT_STRING}"
 if [[ -z "${WEATHER_STRING}" || "$WEATHER_STRING" == *"Sorry"* || "$WEATHER_STRING" == *"Unknown"* || "$WEATHER_STRING" == *"already being"* ]]; then
   sketchybar --set "$NAME" \
                icon="☄️" \
+               icon.width="21" \
+               icon.padding_right=0 \
+               label.padding_left=0 \
                label.drawing="off"
   exit 0
 fi
 
-WEATHER_ICON=$(echo "$WEATHER_STRING" | cut -d ':' -f 1)
+WEATHER_ICON=$(echo "$WEATHER_STRING" | cut -d ':' -f 1 | xargs)
 WEATHER_TEMP=$(echo "$WEATHER_STRING" | cut -d ':' -f 2 | tr -d '+')
 
 sketchybar --set "$NAME" \
            icon="$WEATHER_ICON" \
+           icon.width="21" \
+           icon.padding_right=0 \
+           label.padding_left=0 \
            label="$WEATHER_TEMP"
 
