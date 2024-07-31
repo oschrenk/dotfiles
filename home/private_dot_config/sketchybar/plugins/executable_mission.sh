@@ -68,7 +68,7 @@ if [[ "$DONE" != "$TOTAL" ]]; then
   sketchybar --set "$NAME" \
                icon="$ICON" \
                icon.color="$ICON_COLOR" \
-               label="$NEXT_TASK $SUMMARY" \
+               label="$NEXT_TASK" \
                label.drawing="$LABEL_DRAWING" \
                drawing=on
 else
