@@ -99,6 +99,9 @@ nmap     gs         :action GotoSuperMethod<CR>
 nmap     gt         <Action>(GotoTest)
 map      gb         <Action>(JumpToLastChange)
 
+" don't override yank register when pasting over text
+xnoremap P pgvy
+
 " leader based
 " ***************************
 
