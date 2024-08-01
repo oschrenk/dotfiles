@@ -34,7 +34,7 @@ Windows.new = function(notify)
 			if wasEnhanced then
 				axApp.AXEnhancedUserInterface = false
 			end
-			layout.moveWithYOffset(0, 100, 0, 100, 33)
+			layout.moveWithYOffset(0, 0, 1, 1, 33)
 			if wasEnhanced then
 				axApp.AXEnhancedUserInterface = true
 			end
@@ -42,15 +42,15 @@ Windows.new = function(notify)
 	end
 
 	self.left50 = function()
-		layout.moveWithYOffset(0, 50, 0, 100, 33)
+		layout.moveWithYOffset(0, 0, 0.5, 1, 33)
 	end
 
 	self.right50 = function()
-		layout.moveWithYOffset(50, 50, 0, 100, 33)
+		layout.moveWithYOffset(0.5, 0, 0.5, 1, 33)
 	end
 
 	self.center = function()
-		layout.moveWithYOffset(15, 70, 15, 70, 33)
+		layout.moveWithYOffset(0.15, 0.15, 0.7, 0.7, 33)
 	end
 
 	self.toggleFullScreen = function()

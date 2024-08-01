@@ -2,35 +2,28 @@ Layout = {}
 Layout.new = function(notify)
 	local self = {}
 
-	self.moveWithYOffset = function(percentX, percentW, percentY, percentH, yOffset)
+	-- @param percentX x coordinates of top left corner, in relative terms to screen - between 0 and 1
+	-- @param percentY x coordinates of top left corner, in relative terms to screen - between 0 and 1
+	-- @param percentW width of windows in relative terms to screen - between 0 and 1
+	-- @param percentW height of windows in relative terms to screen - between 0 and 1
+	-- @param yOffset y offset in absolute terms that is "cut off" from the top
+	self.moveWithYOffset = function(percentX, percentY, percentW, percentH, yOffset)
 		local win = hs.window.focusedWindow()
-		local f = win:frame()
-		local screen = win:screen()
-		local max = screen:frame()
-		local screenName = screen:name()
 
-		local newX = max.w * (percentX / 100)
-		local newW = max.w * (percentW / 100)
+		-- move into position
+		local rect = hs.geometry.rect(percentX, percentY, percentW, percentH)
+		win:moveToUnit(rect)
 
-		local newY = max.h * (percentY / 100)
-		local newH = max.h * (percentH / 100)
-
-		-- don-t apply offset for built-in display
-		if screenName ~= "Built-in Retina Display" then
-			newY = newY + yOffset
-			newH = newH - yOffset
+		-- only apply offset for non-notch screens
+		if win:screen():name() ~= "Built-in Retina Display" then
+			local f = win:frame()
+			local topLeft = hs.geometry.point(f.x, f.y + yOffset)
+			win:setTopLeft(topLeft)
 		end
-
-		f.x = newX
-		f.w = newW
-		f.y = newY
-		f.h = newH
-
-		win:setFrame(f)
 	end
 
 	self.left50 = function()
-		hs.window.focusedWindow():moveToUnit(hs.layout.right50)
+		hs.window.focusedWindow():moveToUnit(hs.layout.left50)
 	end
 
 	self.right50 = function()
