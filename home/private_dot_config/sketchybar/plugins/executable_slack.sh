@@ -1,8 +1,16 @@
 #!/bin/sh
 
 BUNDLE_ID="com.tinyspeck.slackmacgap"
+PROCESS_NAME="Slack"
 ICON_COLOR_ACTIVE="0xffcad3f5" 
 ICON_COLOR_INACTIVE="0xff484848"
+
+# only show if Slack is running
+if ! pgrep "$PROCESS_NAME"; then
+  sketchybar -m --set "$NAME" \
+                  drawing="off"
+  exit 0
+fi
 
 BADGE=$(lsappinfo -all info -only StatusLabel "$BUNDLE_ID" | sed -nr 's/\"StatusLabel\"=\{ \"label\"=\"(.+)\" \}$/\1/p')
 
