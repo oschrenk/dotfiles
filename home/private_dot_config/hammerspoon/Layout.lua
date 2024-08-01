@@ -9,17 +9,21 @@ Layout.new = function(notify)
 	-- @param yOffset y offset in absolute terms that is "cut off" from the top
 	self.moveWithYOffset = function(percentX, percentY, percentW, percentH, yOffset)
 		local win = hs.window.focusedWindow()
+		local screen = win:screen()
 
-		-- move into position
-		local rect = hs.geometry.rect(percentX, percentY, percentW, percentH)
-		win:moveToUnit(rect)
+		local newY = percentY
+		local newH = percentH
 
 		-- only apply offset for non-notch screens
-		if win:screen():name() ~= "Built-in Retina Display" then
-			local f = win:frame()
-			local topLeft = hs.geometry.point(f.x, f.y + yOffset)
-			win:setTopLeft(topLeft)
+		if screen:name() ~= "Built-in Retina Display" then
+			local offsetP = yOffset / screen:frame().h
+			newY = percentY + offsetP
+			newH = percentH - offsetP
 		end
+
+		-- move into position
+		local rect = hs.geometry.rect(percentX, newY, percentW, newH)
+		win:moveToUnit(rect)
 	end
 
 	self.left50 = function()
