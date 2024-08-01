@@ -114,6 +114,9 @@ map      <leader>ip <Action>(GotoPreviousError)
 map      <leader>ir <Action>(ShowErrorDescription)
 map      <leader>iq <Action>(QuickImplementations)
 
+" navigation
+map      <leader>. <Action>(SelectInProjectView)
+
 " refactor/extract
 vnoremap <leader>ev :action IntroduceVariable<CR>
 
