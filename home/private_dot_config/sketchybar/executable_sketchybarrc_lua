@@ -1,0 +1,42 @@
+#!/usr/bin/env lua
+
+package.cpath = package.cpath .. ";/Users/" .. os.getenv("USER") .. "/.local/share/sketchybar_lua/?.so"
+
+local sbar = require("sketchybar")
+local style = require("style")
+local icons = require("icons")
+
+-- bundle configuration into single message
+sbar.begin_config()
+sbar.hotload(true)
+
+sbar.bar({
+	height = 32,
+	color = style.bar.color,
+	margin = 0,
+	sticky = true,
+	padding_left = 16,
+	padding_right = 16,
+	notch_width = 188,
+	font_smoothing = true,
+	shadow = true,
+	topmost = "window",
+	display = "all",
+})
+
+sbar.default({
+	background = style.background,
+	icon = style.icon,
+	label = style.label,
+})
+
+local focus = require("items.focus").new()
+
+require("items.battery").new(icons.battery).add("right")
+require("items.calendar").new(icons.calendar).add("right")
+require("items.clock").new(icons.clock).add("right")
+require("items.mission").new(icons.mission, focus).add("left")
+
+sbar.end_config()
+
+sbar.event_loop()
