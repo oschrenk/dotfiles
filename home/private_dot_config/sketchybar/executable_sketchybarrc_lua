@@ -30,7 +30,7 @@ sbar.default({
 	label = style.label,
 })
 
-local focus = require("items.focus").new()
+local focus = require("utils.focus").new()
 
 require("items.battery").new(icons.battery).add("right")
 require("items.calendar").new(icons.calendar).add("right")
