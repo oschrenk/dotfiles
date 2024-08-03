@@ -13,7 +13,7 @@ TMUX_SESSION_INDEX_OF_ATTACHED=$(tmux list-sessions -F '#{session_name}:#{sessio
 TMUX_INDEX_DISTANCE=$(expr "$TMUX_SESSION_INDEX_OF_ATTACHED" - "$TMUX_SESSION_INDEX" | tr -d '-')
 
 TOO_FAR="false"
-if [[ $TMUX_INDEX_DISTANCE -gt '1' ]]; then
+if [[ $TMUX_INDEX_DISTANCE -gt '3' ]]; then
   TOO_FAR="true"
 fi
 IN_RANGE="false"
