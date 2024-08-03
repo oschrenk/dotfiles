@@ -62,7 +62,7 @@ function Mission.new(icons, focus)
 			end)
 		end
 
-		mission:subscribe({ "routine", "system_woke", "mission_task", "mission_focus" }, function(_)
+		mission:subscribe({ "forced", "routine", "system_woke", "mission_task", "mission_focus" }, function(_)
 			focus.handler(onComplete)
 		end)
 	end

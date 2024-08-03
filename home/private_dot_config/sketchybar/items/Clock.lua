@@ -16,7 +16,7 @@ function Clock.new()
 			},
 		})
 
-		clock:subscribe({ "power_source_change", "system_woke" }, function(_)
+		clock:subscribe({ "forced", "routine", "power_source_change", "system_woke" }, function(_)
 			clock:set({ label = os.date("%a %d %b %H:%M") })
 		end)
 	end
