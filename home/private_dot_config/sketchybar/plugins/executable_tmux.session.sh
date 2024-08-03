@@ -6,16 +6,14 @@
 #  brew install sessionizer
 #
 # Process
-# The "mother" script spawns a fixed count of this script
-# Each "child" script has a fixed id encpded in it's name
-#   tmux.session.<N>
-# The index is from 0 to N
-# we fetch the sessions from tmux
-# we assume a stable list of sessions coming back
-# we try to if a session at the given index exists
-# we do that with `jq -r .[X] // empty`
-# that way we can determine if the fixed index corresponds to a session
-#
+# - "mother" script spawns a fixed number of this script
+# - each "child" script has fixed id encoded in it's name
+#     tmux.session.<N>
+# - the index is from 0 to N
+# - fetch the sessions from tmux
+# - assume a stable list of sessions coming back
+# - if session at given index exists, the index "points" to it
+# - how we draw it depends on status of session
 
 # settings
 ICON=""
