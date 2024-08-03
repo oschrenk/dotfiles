@@ -1,0 +1,10 @@
+version: '3'
+tasks:
+  lua:
+    cmds:
+      - ln -sf sketchybarrc_lua sketchybarrc
+    silent: true
+  sh:
+    cmds:
+      - ln -sf  sketchybarrc_sh sketchybarrc
+    silent: true
