@@ -18,11 +18,11 @@ CURRENT_FOCUS=$(/opt/homebrew/bin/mission focus)
 
 # choose "work" tasks when in "work" mode
 if [[ "$CURRENT_FOCUS" == "com.apple.focus.work" ]]; then
-  TASKS=$(/opt/homebrew/bin/mission tasks --journal=work --show-done=false --show-cancelled=false)
+  TASKS=$(/opt/homebrew/bin/mission tasks --journal=work --show-done=false --show-cancelled=false --json | jq -r .tasks[].text)
 
 # default to "default" tasks, else
 else
-  TASKS=$(/opt/homebrew/bin/mission tasks --show-done=false --show-cancelled=false)
+  TASKS=$(/opt/homebrew/bin/mission tasks --show-done=false --show-cancelled=false --json | jq -r .tasks[].text)
 fi
 
 case "$CURRENT_FOCUS" in
@@ -53,10 +53,9 @@ case "$CURRENT_FOCUS" in
     ;;
 esac
   
-NEXT_TASK=$(echo "$TASKS" | head -1 | cut -d " " -f 2-)
-SUMMARY=$(echo "$TASKS" | tail -1 | cut -d " " -f 1)
-DONE=$(echo "$SUMMARY" | cut -d "/" -f 1)
-TOTAL=$(echo "$SUMMARY" | cut -d "/" -f 2)
+NEXT_TASK=$(echo "$TASKS" | head -1)
+DONE=$(/opt/homebrew/bin/mission tasks --show-done=false --show-cancelled=false --json | jq -r .summary.done)
+TOTAL=$(/opt/homebrew/bin/mission tasks --show-done=false --show-cancelled=false --json | jq -r .summary.total)
 
 NEXT_TASK_LENGTH=$(echo "${NEXT_TASK}" | wc -c | tr -d ' ')
 # trim to max length
