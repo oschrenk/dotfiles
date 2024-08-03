@@ -18,6 +18,7 @@ local Mission = {}
 function Mission.new(icons, focus)
 	local self = {}
 
+	local IconColor = "0xffcad3f5"
 	local Ellipsis = "…"
 	local MaxLength = 35
 
@@ -29,14 +30,19 @@ function Mission.new(icons, focus)
 		end
 	end
 
+	local focus2icon = {
+		[focus.work] = icons._work,
+		[focus.personal] = icons._personal,
+		[focus.sleep] = icons._sleep,
+		[focus.dnd] = icons._dnd,
+		["default"] = icons._personal,
+	}
+
 	-- @param position right|left
 	self.add = function(position)
 		local mission = sbar.add("item", {
 			position = position,
 			update_freq = 5,
-			icon = {
-				drawing = false,
-			},
 		})
 
 		local onComplete = function(current_focus)
@@ -47,10 +53,12 @@ function Mission.new(icons, focus)
 				cmd = "/opt/homebrew/bin/mission tasks --show-done=false --show-cancelled=false --json"
 			end
 
+			local icon = focus2icon[current_focus] or focus2icon["default"]
+
 			sbar.exec(cmd, function(json)
 				local text = trim(json.tasks[1].text)
 
-				mission:set({ label = text })
+				mission:set({ label = text, icon = icon })
 			end)
 		end
 

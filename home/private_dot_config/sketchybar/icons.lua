@@ -18,4 +18,10 @@ return {
 		_0 = "",
 		charging = "",
 	},
+	mission = {
+		_dnd = "􀟈",
+		_personal = "􀉪",
+		_sleep = "􀙪",
+		_work = "􁕝",
+	},
 }
