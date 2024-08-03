@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # support fixed amount of sessions
-for id in $(seq 1 5); do
+for id in $(seq 0 4); do
   sketchybar --add item "tmux.session.$id" left \
 	  	       --set tmux.session."$id" \
 		  	           script="$PLUGIN_DIR/tmux.session.sh" \
