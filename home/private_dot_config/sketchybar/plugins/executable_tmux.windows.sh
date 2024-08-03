@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # support up to 5 windows
-for id in $(seq 1 5); do
+for id in $(seq 0 4); do
   sketchybar --add item "tmux.window.$id" left \
 	  	       --set tmux.window."$id" \
 		  	           script="$PLUGIN_DIR/tmux.window.sh" \
