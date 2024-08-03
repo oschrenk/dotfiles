@@ -21,7 +21,9 @@ return {
     {
       "<leader>fd",
       function()
-        require("telescope.builtin").diagnostics()
+        require("telescope.builtin").diagnostics({
+          line_width = "full",
+        })
       end,
       desc = "Find diagnostics",
     },
@@ -79,6 +81,7 @@ return {
         },
       },
       defaults = {
+        wrap_results = true,
         sorting_strategy = "ascending",
         layout_strategy = "flex",
         layout_config = {
