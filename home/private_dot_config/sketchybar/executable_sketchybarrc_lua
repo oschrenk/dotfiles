@@ -11,23 +11,23 @@ sbar.begin_config()
 sbar.hotload(true)
 
 sbar.bar({
-	height = 32,
-	color = style.bar.color,
-	margin = 0,
-	sticky = true,
-	padding_left = 16,
-	padding_right = 16,
-	notch_width = 188,
-	font_smoothing = true,
-	shadow = true,
-	topmost = "window",
-	display = "all",
+  height = 32,
+  color = style.bar.color,
+  margin = 0,
+  sticky = true,
+  padding_left = 16,
+  padding_right = 16,
+  notch_width = 188,
+  font_smoothing = true,
+  shadow = true,
+  topmost = "window",
+  display = "all",
 })
 
 sbar.default({
-	background = style.background,
-	icon = style.icon,
-	label = style.label,
+  background = style.background,
+  icon = style.icon,
+  label = style.label,
 })
 
 local focus = require("utils.focus").new()

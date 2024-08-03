@@ -4,9 +4,9 @@ local Session = {}
 
 -- @param icons Plugin specific icons
 function Session.new(icons)
-	local self = {}
+  local self = {}
 
-	return self
+  return self
 end
 
 return Session
