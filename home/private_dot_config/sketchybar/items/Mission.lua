@@ -18,6 +18,17 @@ local Mission = {}
 function Mission.new(icons, focus)
 	local self = {}
 
+	local Ellipsis = "…"
+	local MaxLength = 35
+
+	local trim = function(text)
+		if string.len(text) > MaxLength then
+			return string.sub(text, 0, MaxLength) .. Ellipsis
+		else
+			return text
+		end
+	end
+
 	-- @param position right|left
 	self.add = function(position)
 		local mission = sbar.add("item", {
@@ -31,13 +42,15 @@ function Mission.new(icons, focus)
 		local onComplete = function(current_focus)
 			local cmd = ""
 			if current_focus == focus.work then
-				cmd = "/opt/homebrew/bin/mission tasks --journal=work --show-done=false --show-cancelled=false"
+				cmd = "/opt/homebrew/bin/mission tasks --journal=work --show-done=false --show-cancelled=false --json"
 			else
-				cmd = "/opt/homebrew/bin/mission tasks --show-done=false --show-cancelled=false"
+				cmd = "/opt/homebrew/bin/mission tasks --show-done=false --show-cancelled=false --json"
 			end
 
-			sbar.exec(cmd, function(task)
-				mission:set({ label = task })
+			sbar.exec(cmd, function(json)
+				local text = trim(json.tasks[1].text)
+
+				mission:set({ label = text })
 			end)
 		end
 
