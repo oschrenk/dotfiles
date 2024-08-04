@@ -21,7 +21,6 @@
   syntax-theme = gruvbox-dark
   hunk-header-style = omit
 
-  dark = true
   # Line numbers
   line-numbers = true
   line-numbers-left-style = "#84786A"
