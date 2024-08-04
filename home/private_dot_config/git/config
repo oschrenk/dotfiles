@@ -14,22 +14,13 @@
   diffFilter = delta --color-only
 
 [delta]
-  navigate = true             # use n and N to move between diff sections
+  navigate = true # use n and N to move between diff sections
   side-by-side = true
 
   true-color = always
-  syntax-theme = gruvbox-dark
   hunk-header-style = omit
 
-  # Line numbers
   line-numbers = true
-  line-numbers-left-style = "#84786A"
-  line-numbers-right-style = "#84786A"
-  line-numbers-minus-style = "#A02A11"
-  line-numbers-plus-style = "#479B36"
-  line-numbers-zero-style = "#84786A"
-  line-numbers-left-format = " {nm:>3} │"
-  line-numbers-right-format = " {np:>3} │"
 
   # File
   file-style = "#FFFFFF" bold
