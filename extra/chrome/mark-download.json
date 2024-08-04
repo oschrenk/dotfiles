@@ -4,7 +4,7 @@
   "codeBlockStyle": "fenced",
   "contextMenus": true,
   "disallowedChars": "[]#^",
-  "downloadImages": false,
+  "downloadImages": true,
   "downloadMode": "downloadsApi",
   "emDelimiter": "_",
   "fence": "```",
@@ -13,17 +13,16 @@
   "hr": "---",
   "imagePrefix": "assets/",
   "imageRefStyle": "inlined",
-  "imageStyle": "originalSource",
+  "imageStyle": "markdown",
   "includeTemplate": true,
   "linkReferenceStyle": "full",
   "linkStyle": "inlined",
   "mdClipsFolder": "{pageTitle}",
   "obsidianFolder": "01 Inbox",
   "obsidianIntegration": true,
-  "obsidianVault": "personal",
+  "obsidianVault": "memex",
   "saveAs": false,
   "strongDelimiter": "**",
   "title": "{pageTitle}",
   "turndownEscape": true
 }
-
