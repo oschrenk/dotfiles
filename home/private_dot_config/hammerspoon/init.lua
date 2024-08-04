@@ -55,7 +55,7 @@ hs.hotkey.bind(hyper, "q", windows.sendWindowToPrevMonitor)
 hs.hotkey.bind(hyper, "e", windows.sendWindowToNextMonitor)
 hs.hotkey.bind(hyper, "w", windows.center)
 
--- apperance
+-- appearance
 -- will spawn:
 -- > "Hammerspoon.app" wants access to control "SystemEvents.app".
 -- > Allowing control will provide access to documents and data in "System Events.app",
