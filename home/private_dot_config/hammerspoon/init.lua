@@ -1,3 +1,4 @@
+require("Appearance")
 require("AppWatcher")
 require("Audio")
 require("Bluetooth")
@@ -23,6 +24,7 @@ local bluetooth = Bluetooth.new(notify)
 local audio = Audio.new(notify, bluetooth, SCRIPTS_DIR)
 local wifi = Wifi.new(notify)
 local windows = Windows.new(notify)
+local appearance = Appearance.new()
 
 ------------------------
 -- Environment settings
@@ -52,6 +54,13 @@ hs.hotkey.bind(hyper, "x", windows.toggleFullScreen)
 hs.hotkey.bind(hyper, "q", windows.sendWindowToPrevMonitor)
 hs.hotkey.bind(hyper, "e", windows.sendWindowToNextMonitor)
 hs.hotkey.bind(hyper, "w", windows.center)
+
+-- apperance
+-- will spawn:
+-- > "Hammerspoon.app" wants access to control "SystemEvents.app".
+-- > Allowing control will provide access to documents and data in "System Events.app",
+-- > and to perform actions within that app.
+hs.hotkey.bind(hyper, "p", appearance.toggleDarkMode)
 
 -- audio
 hs.hotkey.bind(hyper, "h", audio.connectHeadphones)
