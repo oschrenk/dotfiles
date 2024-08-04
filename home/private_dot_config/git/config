@@ -30,6 +30,7 @@
   line-numbers-zero-style = "#84786A"
   line-numbers-left-format = " {nm:>3} │"
   line-numbers-right-format = " {np:>3} │"
+
   # File
   file-style = "#FFFFFF" bold
   file-added-label = [+]
@@ -39,6 +40,7 @@
   file-renamed-label = [->]
   file-decoration-style = "#434C5E" ul
   file-decoration-style = "#84786A" ul
+
   # Diff contents
   inline-hint-style = syntax
   minus-style = syntax "#330011"
