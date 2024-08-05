@@ -101,7 +101,7 @@ sketchybar --add item mission left \
 #
 sketchybar --add item clock right \
            --set clock script="$PLUGIN_DIR/clock.sh" \
-                       update_freq="$ICON_WIDTH" \
+                       update_freq=30 \
            --subscribe clock system_woke
 
 sketchybar --add item weather right \
