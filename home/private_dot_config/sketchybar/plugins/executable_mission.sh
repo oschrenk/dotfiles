@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if [[ "$SENDER" = "mouse.clicked" ]]; then
+  open -b "md.obsidian"
+fi
+
 NEXT_TASK_LENGTH_MAX=35
 
 # Requirements

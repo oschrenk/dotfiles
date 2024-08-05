@@ -93,7 +93,7 @@ sketchybar --add item mission left \
                          update_freq=60 \
 		       --add event mission_task \
 		       --add event mission_focus \
-           --subscribe mission system_woke mission_task mission_focus
+           --subscribe mission mouse.clicked system_woke mission_task mission_focus
 
 ########################
 #      Right Side      #
