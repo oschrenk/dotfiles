@@ -1,5 +1,9 @@
 #!/usr/bin/env sh
 
+if [[ "$SENDER" = "mouse.clicked" ]]; then
+  open -b "com.apple.weather"
+fi
+
 # if the service is overloaded, location resolution doesn't work, you will
 # get an error message like
 # `Unknown location; please try ~66.12345,5.123456`
