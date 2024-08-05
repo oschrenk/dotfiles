@@ -33,6 +33,7 @@ if [[ -z "${WEATHER_STRING}" || "$WEATHER_STRING" == *"Sorry"* || "$WEATHER_STRI
   sketchybar --set "$NAME" \
                icon="☄️" \
                icon.width="21" \
+               icon.y_offset=1 \
                icon.padding_right=0 \
                label.padding_left=0 \
                label.drawing="off"
@@ -45,6 +46,7 @@ WEATHER_TEMP=$(echo "$WEATHER_STRING" | cut -d ':' -f 2 | tr -d '+')
 sketchybar --set "$NAME" \
            icon="$WEATHER_ICON" \
            icon.width="21" \
+           icon.y_offset=1 \
            icon.padding_right=0 \
            label.padding_left=0 \
            label="$WEATHER_TEMP"
