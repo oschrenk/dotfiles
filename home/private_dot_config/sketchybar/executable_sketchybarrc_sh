@@ -110,6 +110,10 @@ sketchybar --add item clock right \
            --set clock.guatemala \
                  script="$PLUGIN_DIR/clock.sh America/Guatemala" \
                  click_script="sketchybar -m --set clock popup.drawing=off" \
+           --add item clock.vietnam popup.clock \
+           --set clock.vietnam \
+                 script="$PLUGIN_DIR/clock.sh Asia/Ho_Chi_Minh" \
+                 click_script="sketchybar -m --set clock popup.drawing=off" \
            --subscribe clock system_woke
 
 sketchybar --add item weather right \

@@ -7,6 +7,12 @@ case "$TZ" in
      ICON_DRAWING="on"
      TIME="$(TZ=${TZ} date '+%a %d %b %H:%M')"
    ;;
+   "Asia/Ho_Chi_Minh") 
+     ICON="🇻🇳"
+     ICON_DRAWING="on"
+     TIME="$(TZ=${TZ} date '+%a %d %b %H:%M')"
+   ;;
+
    *) 
      # sf-synbol:clock
      ICON="􀐫"
