@@ -22,6 +22,10 @@ EVENT_NAME_LENGTH_MAX=40
 # this script only work until midnight of a given day
 # beyond that date and time calculation might be wrong
 
+if [[ "$SENDER" = "mouse.clicked" ]]; then
+  open -b "com.apple.iCal"
+fi
+
 CURRENT_FOCUS=$(/opt/homebrew/bin/mission focus)
 
 case "$CURRENT_FOCUS" in

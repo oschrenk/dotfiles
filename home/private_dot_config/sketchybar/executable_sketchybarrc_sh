@@ -133,7 +133,7 @@ sketchybar --add item calendar right \
            --set calendar script="$PLUGIN_DIR/calendar.sh" \
                           update_freq=60 \
 		       --add event mission_focus \
-           --subscribe calendar system_woke mission_focus
+           --subscribe calendar mouse.clicked system_woke mission_focus
 
 ########################
 #        Update        #
