@@ -103,9 +103,6 @@ sketchybar --add item clock right \
            --set clock script="$PLUGIN_DIR/clock.sh" \
                        update_freq=30 \
                        click_script="sketchybar -m --set \$NAME popup.drawing=toggle" \
-                       popup.background.border_width=2 \
-                       popup.background.corner_radius=3 \
-                       popup.background.border_color=0xff9dd274 \
            --add item clock.guatemala popup.clock \
            --set clock.guatemala \
                  script="$PLUGIN_DIR/clock.sh America/Guatemala" \
