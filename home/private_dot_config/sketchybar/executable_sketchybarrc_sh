@@ -120,6 +120,7 @@ sketchybar --add item slack right \
 
 sketchybar --add item volume right \
            --set volume script="$PLUGIN_DIR/volume.sh" \
+                        click_script="$PLUGIN_DIR/volume.clicked.sh" \
            --subscribe volume volume_change
 
 sketchybar --add item battery right \
