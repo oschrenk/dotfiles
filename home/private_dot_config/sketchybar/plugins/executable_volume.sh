@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if [[ "$SENDER" = "mouse.clicked" ]]; then
+  open "x-apple.systempreferences:com.apple.preference.sound"
+fi
+
 # sf-symbols:speaker.wave.3
 ICON_SPEAKER_WAVE_3="􀊨"
 # sf-symbols:speaker.wave.2
@@ -11,6 +15,7 @@ ICON_SPEAKER="􀊠"
 
 # The volume_change event supplies a $INFO variable in which the current volume
 # percentage is passed to the script.
+#
 
 if [ "$SENDER" = "volume_change" ]; then
   VOLUME=$INFO
