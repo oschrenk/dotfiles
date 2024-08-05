@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo "battery clicked" >> ~/Downloads/log.txt
+open "x-apple.systempreferences:com.apple.preference.battery"
 
