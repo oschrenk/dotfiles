@@ -1,5 +1,13 @@
 # README
 
+## Debugging
+
+Tailing logs
+
+```
+tail -f /opt/homebrew/var/log/sketchybar/sketchybar.out.log
+```
+
 ## Handling clicks
 
 1. `click_script`
