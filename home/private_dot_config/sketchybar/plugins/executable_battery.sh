@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if [[ "$SENDER" = "mouse.clicked" ]]; then
+  open "x-apple.systempreferences:com.apple.preference.battery"
+fi
+
 # sf-symbols:battery.100percent
 ICON_BATTERY_100="􀛨"
 # sf-symbols:battery.75percent

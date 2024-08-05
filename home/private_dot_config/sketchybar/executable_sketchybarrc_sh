@@ -126,8 +126,7 @@ sketchybar --add item volume right \
 sketchybar --add item battery right \
            --set battery script="$PLUGIN_DIR/battery.sh"\
                          update_freq=120 \
-                         click_script="$PLUGIN_DIR/battery.clicked.sh" \
-           --subscribe battery system_woke power_source_change
+           --subscribe battery mouse.clicked system_woke power_source_change
 
 sketchybar --add item calendar right \
            --set calendar script="$PLUGIN_DIR/calendar.sh" \
