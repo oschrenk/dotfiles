@@ -1,4 +1,4 @@
-function system --description "Describe system"
+function macos --description "Describe system"
 
     ###############
     # Hardware
