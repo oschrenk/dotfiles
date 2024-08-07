@@ -1,3 +1,5 @@
+local tz = require("tz")
+
 local sbar = require("sketchybar")
 
 local Clock = {}
@@ -19,8 +21,11 @@ function Clock.new(icons)
     local guatemala = sbar.add("item", {
       position = "popup." .. clock.name,
       icon = icons.guatemala,
-      label = "Guatemala",
     })
+    guatemala:subscribe({ "forced", "routine" }, function(_)
+      local time = tz.date("%a %d %b %H:%M", os.time(), "America/Guatemala")
+      guatemala:set({ label = time })
+    end)
     guatemala:subscribe("mouse.clicked", function(_)
       guatemala:set({ popup = { drawing = false } })
     end)
@@ -30,6 +35,10 @@ function Clock.new(icons)
       icon = icons.vietnam,
       label = "Vietnam",
     })
+    vietnam:subscribe({ "forced", "routine" }, function(_)
+      local time = tz.date("%a %d %b %H:%M", os.time(), "Asia/Ho_Chi_Minh")
+      vietnam:set({ label = time })
+    end)
     vietnam:subscribe("mouse.clicked", function(_)
       vietnam:set({ popup = { drawing = false } })
     end)
