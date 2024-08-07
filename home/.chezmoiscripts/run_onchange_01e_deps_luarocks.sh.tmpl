@@ -1,0 +1,5 @@
+#!/bin/zsh
+#
+# Luarocks hash: {{ include "../Luarocks" | sha256sum }}
+
+luarocks install $(cat {{ joinPath .chezmoi.sourceDir "../Luarocks" | quote }} | cut -d "#" -f 1 | paste -s -d ' ' - )
