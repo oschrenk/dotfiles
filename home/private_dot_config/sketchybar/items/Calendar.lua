@@ -16,7 +16,7 @@ local sbar = require("sketchybar")
 -- this script only work until midnight of a given day
 -- beyond that date and time calculation might be wrong
 local Calendar = {}
-function Calendar.new()
+function Calendar.new(icons)
   local focus_dnd <const> = "com.apple.donotdisturb.mode.default"
   local focus_sleep <const> = "com.apple.sleep.sleep-mode"
 
@@ -26,18 +26,20 @@ function Calendar.new()
     local calendar = sbar.add("item", {
       position = position,
       update_freq = 120,
-      icon = {
-        drawing = false,
-      },
-      label = {
-        align = "right",
-      },
+      icon = icons.default,
     })
 
-    sbar.exec("/opt/homebrew/bin/mission focus", function(result)
-      if result == focus_dnd or result == focus_sleep then
-        calendar:set({ drawing = false })
-      end
+    local update = function()
+      sbar.exec("/opt/homebrew/bin/mission focus", function(raw)
+        local result = raw:gsub("%s+", "")
+        if result == focus_dnd or result == focus_sleep then
+          calendar:set({ label = result })
+        end
+      end)
+    end
+
+    calendar:subscribe({ "forced", "routine", "system_woke", "mission_focus" }, function(_)
+      update()
     end)
   end
 

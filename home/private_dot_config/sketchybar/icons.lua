@@ -6,6 +6,7 @@ local symbols = {
   ["battery.50percent"] = "􀺶",
   ["battery.75percent"] = "􀺸",
   ["bed.double.fill"] = "􀙪",
+  ["calendar"] = "􀉉",
   ["clock"] = "􀐫",
   ["list.clipboard"] = "􁕜",
   ["moon.fill"] = "􀆺",
@@ -42,6 +43,9 @@ return {
     _25 = symbols["battery.25percent"],
     _0 = symbols["battery.0percent"],
     charging = symbols["battery.100percent.bolt"],
+  },
+  calendar = {
+    default = symbols["calendar"],
   },
   clock = {
     clock = symbols["clock"],
