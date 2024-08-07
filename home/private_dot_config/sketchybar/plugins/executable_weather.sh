@@ -11,8 +11,9 @@ fi
 # so we keep the location, but ignore errors like that later
 LOCATION="Haarlem,NL"
 # see https://github.com/chubin/wttr.in/tree/master?tab=readme-ov-file#one-line-output
-#%c is the weather as symbol
-#%t is the temperature
+# %c is the weather as emoji
+# %x is the weather as plain symbol
+# %t is the temperature
 FORMAT_STRING="+%x:+%t"
 #?m forces metrics units
 WEATHER_STRING=$(curl -s "https://wttr.in/${LOCATION}?m&format=${FORMAT_STRING}")
