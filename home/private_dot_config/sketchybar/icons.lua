@@ -1,3 +1,12 @@
+local symbols = {
+  ["battery.100percent"] = "􀛨",
+  ["battery.75percent"] = "􀺸",
+  ["battery.50percent"] = "􀺶",
+  ["battery.25percent"] = "􀛩",
+  ["battery.0percent"] = "􀛪",
+  ["battery.100percent.bolt"] = "􀢋",
+}
+
 return {
   loading = "􀖇",
   apple = "􀣺",
@@ -11,12 +20,12 @@ return {
     _0 = "􀊣",
   },
   battery = {
-    _100 = "",
-    _75 = "",
-    _50 = "",
-    _25 = "",
-    _0 = "",
-    charging = "",
+    _100 = symbols["battery.100percent"],
+    _75 = symbols["battery.75percent"],
+    _50 = symbols["battery.50percent"],
+    _25 = symbols["battery.25percent"],
+    _0 = symbols["battery.0percent"],
+    charging = symbols["battery.100percent.bolt"],
   },
   mission = {
     _dnd = "􀟈",
