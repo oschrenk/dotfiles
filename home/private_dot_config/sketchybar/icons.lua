@@ -1,19 +1,19 @@
 local symbols = {
-  ["battery.100percent"] = "􀛨",
-  ["battery.75percent"] = "􀺸",
-  ["battery.50percent"] = "􀺶",
-  ["battery.25percent"] = "􀛩",
   ["battery.0percent"] = "􀛪",
+  ["battery.100percent"] = "􀛨",
   ["battery.100percent.bolt"] = "􀢋",
+  ["battery.25percent"] = "􀛩",
+  ["battery.50percent"] = "􀺶",
+  ["battery.75percent"] = "􀺸",
+  ["bed.double.fill"] = "􀙪",
+  ["list.clipboard"] = "􁕜",
+  ["moon.fill"] = "􀆺",
+  ["person.fill"] = "􀉪",
   ["speaker"] = "􀊠",
   ["speaker.slash"] = "􀊢",
   ["speaker.wave.1"] = "􀊤",
   ["speaker.wave.2"] = "􀊦",
   ["speaker.wave.3"] = "􀊨",
-  ["moon.fill"] = "􀆺",
-  ["person.fill"] = "􀉪",
-  ["list.clipboard"] = "􁕜",
-  ["bed.double.fill"] = "􀙪",
 }
 
 return {
