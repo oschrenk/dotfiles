@@ -5,6 +5,11 @@ local symbols = {
   ["battery.25percent"] = "􀛩",
   ["battery.0percent"] = "􀛪",
   ["battery.100percent.bolt"] = "􀢋",
+  ["speaker"] = "􀊠",
+  ["speaker.slash"] = "􀊢",
+  ["speaker.wave.1"] = "􀊤",
+  ["speaker.wave.2"] = "􀊦",
+  ["speaker.wave.3"] = "􀊨",
 }
 
 return {
@@ -13,11 +18,11 @@ return {
   preferences = "􀺽",
 
   volume = {
-    _100 = "􀊩",
-    _66 = "􀊧",
-    _33 = "􀊥",
-    _10 = "􀊡",
-    _0 = "􀊣",
+    _100 = symbols["speaker.wave.3"],
+    _66 = symbols["speaker.wave.2"],
+    _33 = symbols["speaker.wave.1"],
+    _10 = symbols["speaker"],
+    _0 = symbols["speaker.slash"],
   },
   battery = {
     _100 = symbols["battery.100percent"],
