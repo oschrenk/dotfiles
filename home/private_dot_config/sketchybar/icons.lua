@@ -18,6 +18,7 @@ local symbols = {
 }
 
 local emojis = {
+  ["comet"] = "☄️",
   ["guatemala"] = "🇬🇹",
   ["vietnam"] = "🇻🇳",
 }
@@ -49,6 +50,9 @@ return {
   },
   session = {
     tmux = nerdfont["nf-cod-terminal_tmux"],
+  },
+  weather = {
+    unknown = emojis["comet"],
   },
   mission = {
     _dnd = symbols["moon.fill"],
