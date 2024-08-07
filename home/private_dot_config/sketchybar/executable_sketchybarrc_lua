@@ -38,7 +38,7 @@ require("items.mission").new(icons.mission, focus).add("left")
 require("items.clock").new(icons.clock).add("right")
 require("items.weather").new(icons.weather).add("right")
 require("items.battery").new(icons.battery).add("right")
-require("items.calendar").new(icons.calendar).add("right")
+require("items.calendar").new(icons.calendar, focus).add("right")
 
 sbar.end_config()
 
