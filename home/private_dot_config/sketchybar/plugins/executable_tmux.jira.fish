@@ -10,19 +10,19 @@
 #   - the target board needs to exist at $HOME/.config/.jira/$board_name.yml
 
 function __error
-    echo $argv >&2
+    echo "error: $argv" >&2
     sketchybar --set "$NAME" drawing=off
-    exit 1
+    exit 0
 end
 
 # fail early if git not in $PATH
 if not type -q git
-    __error "Error: Could not find \"git\" in \$PATH"
+    __error "Could not find \"git\" in \$PATH"
 end
 
 # fail early if jira not in $PATH
 if not type -q jira
-    __error "Error: Could not find \"jira\" in \$PATH"
+    __error "Could not find \"jira\" in \$PATH"
 end
 
 # fetch current session
@@ -32,7 +32,7 @@ set -x path_to_repo (echo "$session_raw" | cut -d ":" -f 2)
 
 # return early if not valid directory
 if not test -d "$path_to_repo"
-    __error "Error: \"$path_to_repo\" is not a valid path to a repo"
+    __error "\"$path_to_repo\" is not a valid path to a repo"
 end
 
 set -x board_name (git -C "$path_to_repo" config --local --get jira.board 2>/dev/null)
@@ -40,14 +40,14 @@ set -x board_name (git -C "$path_to_repo" config --local --get jira.board 2>/dev
 # return early if we couldn't retrieve a board name
 # this checks if path is repository, and properly configured
 if test $status -ne 0
-    __error "Error: \"jira.board\" is not configured."
+    __error "\"jira.board\" is not configured."
 end
 
 set -x jira_config_path $HOME/.config/.jira/$board_name.yml
 
 # return early if board config doesn't exist
 if not test -e "$jira_config_path"
-    __error "Error: \"$jira_config_path\" not found"
+    __error "\"$jira_config_path\" not found"
 end
 
 if test "$SENDER" = tmux_session_update
