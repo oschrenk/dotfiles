@@ -8,3 +8,7 @@ tasks:
     cmds:
       - ln -sf  sketchybarrc_sh sketchybarrc
     silent: true
+  toggle:
+    cmds:
+      - ./toggle.sh
+    silent: true
