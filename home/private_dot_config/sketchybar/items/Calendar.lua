@@ -16,7 +16,7 @@ local sbar = require("sketchybar")
 -- this script only work until midnight of a given day
 -- beyond that date and time calculation might be wrong
 local Calendar = {}
-function Calendar.new(icons)
+function Calendar.new()
   local focus_dnd <const> = "com.apple.donotdisturb.mode.default"
   local focus_sleep <const> = "com.apple.sleep.sleep-mode"
 
