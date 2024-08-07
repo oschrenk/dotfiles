@@ -63,6 +63,7 @@ SUN_MAX="􀆭"
 
 # WEATHER_SYMBOL_PLAIN
 # see https://github.com/chubin/wttr.in/blob/master/lib/constants.py#L150C1-L170C2
+
 case "$WEATHER_ICON" in
    # "?": "Unknown"
    '?')
@@ -72,7 +73,7 @@ case "$WEATHER_ICON" in
    ;;
    # "o"   : "Sunny"
    'o')
-     ICON=""
+     ICON="$SUN_MAX"
    ;;
    # "=": "Fog"
    '=')
