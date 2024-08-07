@@ -42,7 +42,7 @@ function Mission.new(icons, focus)
   self.add = function(position)
     local mission = sbar.add("item", {
       position = position,
-      update_freq = 5,
+      update_freq = 60,
     })
 
     local onComplete = function(current_focus)
