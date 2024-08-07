@@ -17,6 +17,11 @@ local symbols = {
   ["speaker.wave.3"] = "􀊨",
 }
 
+local emojis = {
+  ["guatemala"] = "🇬🇹",
+  ["vietnam"] = "🇻🇳",
+}
+
 return {
   volume = {
     _100 = symbols["speaker.wave.3"],
@@ -35,6 +40,8 @@ return {
   },
   clock = {
     clock = symbols["clock"],
+    guatemala = emojis["guatemala"],
+    vietnam = emojis["vietnam"],
   },
   mission = {
     _dnd = symbols["moon.fill"],

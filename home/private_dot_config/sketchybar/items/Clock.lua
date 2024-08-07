@@ -6,12 +6,33 @@ local Clock = {}
 function Clock.new(icons)
   local self = {}
 
+  local popup_toggle = "sketchybar --set $NAME popup.drawing=toggle"
+
   self.add = function(position)
     local clock = sbar.add("item", {
       position = position,
+      click_script = popup_toggle,
       update_freq = 30,
       icon = icons.clock,
     })
+
+    local guatemala = sbar.add("item", {
+      position = "popup." .. clock.name,
+      icon = icons.guatemala,
+      label = "Guatemala",
+    })
+    guatemala:subscribe("mouse.clicked", function(_)
+      guatemala:set({ popup = { drawing = false } })
+    end)
+
+    local vietnam = sbar.add("item", {
+      position = "popup." .. clock.name,
+      icon = icons.vietnam,
+      label = "Vietnam",
+    })
+    vietnam:subscribe("mouse.clicked", function(_)
+      vietnam:set({ popup = { drawing = false } })
+    end)
 
     clock:subscribe({ "forced", "routine", "system_woke" }, function(_)
       clock:set({ label = os.date("%a %d %b %H:%M") })
