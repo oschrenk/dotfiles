@@ -108,6 +108,7 @@ Link device:
 - `task cargo` Install crates
 - `task go` Install go apps
 - `task ollama` Install ollama models
+- `task lua` Install lua rocks
 - `task icons` Install icons
 
 
