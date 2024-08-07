@@ -22,6 +22,10 @@ local emojis = {
   ["vietnam"] = "🇻🇳",
 }
 
+local nerdfont = {
+  ["nf-cod-terminal_tmux"] = "",
+}
+
 return {
   volume = {
     _100 = symbols["speaker.wave.3"],
@@ -42,6 +46,9 @@ return {
     clock = symbols["clock"],
     guatemala = emojis["guatemala"],
     vietnam = emojis["vietnam"],
+  },
+  session = {
+    tmux = nerdfont["nf-cod-terminal_tmux"],
   },
   mission = {
     _dnd = symbols["moon.fill"],

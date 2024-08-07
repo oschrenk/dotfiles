@@ -32,10 +32,12 @@ sbar.default({
 
 local focus = require("utils.focus").new()
 
+require("items.session").new(icons.session).add("left")
+require("items.mission").new(icons.mission, focus).add("left")
+
 require("items.clock").new(icons.clock).add("right")
 require("items.battery").new(icons.battery).add("right")
 require("items.calendar").new(icons.calendar).add("right")
-require("items.mission").new(icons.mission, focus).add("left")
 
 sbar.end_config()
 
