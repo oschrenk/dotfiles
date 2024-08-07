@@ -10,6 +10,10 @@ local symbols = {
   ["speaker.wave.1"] = "􀊤",
   ["speaker.wave.2"] = "􀊦",
   ["speaker.wave.3"] = "􀊨",
+  ["moon.fill"] = "􀆺",
+  ["person.fill"] = "􀉪",
+  ["list.clipboard"] = "􁕜",
+  ["bed.double.fill"] = "􀙪",
 }
 
 return {
@@ -33,9 +37,10 @@ return {
     charging = symbols["battery.100percent.bolt"],
   },
   mission = {
-    _dnd = "􀟈",
-    _personal = "􀉪",
-    _sleep = "􀙪",
-    _work = "􁕝",
+    _dnd = symbols["moon.fill"],
+    _personal = symbols["person.fill"],
+    _sleep = symbols["bed.double.fill"],
+    -- can't find original focus icon, closest seems to be clipboard
+    _work = symbols["list.clipboard"],
   },
 }
