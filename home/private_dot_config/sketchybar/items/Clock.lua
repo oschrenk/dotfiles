@@ -1,16 +1,16 @@
 local sbar = require("sketchybar")
 
 local Clock = {}
-function Clock.new()
+
+-- @param icons Plugin specific icons
+function Clock.new(icons)
   local self = {}
 
   self.add = function(position)
     local clock = sbar.add("item", {
       position = position,
       update_freq = 30,
-      icon = {
-        drawing = false,
-      },
+      icon = icons.clock,
       label = {
         align = "right",
       },
