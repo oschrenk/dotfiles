@@ -4,12 +4,20 @@ local Battery = {}
 function Battery.new(icons)
   local self = {}
 
+  local popup_toggle = "sketchybar --set $NAME popup.drawing=toggle"
+
   self.add = function(position)
     local battery = sbar.add("item", {
       position = position,
+      click_script = popup_toggle,
       label = { drawing = false },
       update_freq = 120,
     })
+
+    battery:subscribe("mouse.clicked", function(_)
+      sbar.exec("open 'x-apple.systempreferences:com.apple.preference.battery'")
+      battery:set({ popup = { drawing = false } })
+    end)
 
     battery:subscribe({ "power_source_change", "system_woke" }, function()
       sbar.exec("pmset -g batt", function(batt_info)
