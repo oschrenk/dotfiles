@@ -8,12 +8,12 @@ local Weather = {}
 function Weather.new(icons)
   local self = {}
 
-  local Location = "Haarlem,NL"
+  local Location <const> = "Haarlem,NL"
 
   -- see https://github.com/chubin/wttr.in/tree/master?tab=readme-ov-file#one-line-output
   -- %c is the weather as emoji
   -- %t is the temperature
-  local FormatString = "+%c:+%t"
+  local FormatString <const> = "+%c:+%t"
 
   self.add = function(position)
     local weather = sbar.add("item", {
