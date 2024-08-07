@@ -17,10 +17,6 @@ local symbols = {
 }
 
 return {
-  loading = "􀖇",
-  apple = "􀣺",
-  preferences = "􀺽",
-
   volume = {
     _100 = symbols["speaker.wave.3"],
     _66 = symbols["speaker.wave.2"],
