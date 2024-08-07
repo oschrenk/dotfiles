@@ -62,6 +62,10 @@ function Mission.new(icons, focus)
       end)
     end
 
+    mission:subscribe("mouse.clicked", function(_)
+      sbar.exec("open -b 'md.obsidian'")
+    end)
+
     mission:subscribe({ "forced", "routine", "system_woke", "mission_task", "mission_focus" }, function(_)
       focus.handler(onComplete)
     end)
