@@ -11,9 +11,6 @@ function Clock.new(icons)
       position = position,
       update_freq = 30,
       icon = icons.clock,
-      label = {
-        align = "right",
-      },
     })
 
     clock:subscribe({ "forced", "routine", "power_source_change", "system_woke" }, function(_)
