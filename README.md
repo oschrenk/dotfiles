@@ -71,6 +71,8 @@ After casks are installed you can already start important apps and configure the
   - SystemSettings > "Privacy & Security > Full disk access..." Allow for ...
 - Arc
   - open profiles, and log into services
+- Atuin
+  - `atuin login`
 - Hammerspoon
   - Preferences. Apply accessibility settings.
 - Karabiner Elements.
