@@ -48,13 +48,13 @@ hs.caffeinate.watcher
 local hyper = { "shift", "ctrl", "alt", "cmd" }
 
 -- move windows
-hs.hotkey.bind(hyper, "a", windows.left50)
-hs.hotkey.bind(hyper, "d", windows.right50)
-hs.hotkey.bind(hyper, "s", windows.toggleWindowMaximized)
+hs.hotkey.bind(hyper, "left", windows.left50)
+hs.hotkey.bind(hyper, "right", windows.right50)
+hs.hotkey.bind(hyper, "up", windows.toggleWindowMaximized)
 hs.hotkey.bind(hyper, "x", windows.toggleFullScreen)
 hs.hotkey.bind(hyper, "q", windows.sendWindowToPrevMonitor)
 hs.hotkey.bind(hyper, "e", windows.sendWindowToNextMonitor)
-hs.hotkey.bind(hyper, "w", windows.center)
+hs.hotkey.bind(hyper, "down", windows.center)
 
 -- appearance
 -- will spawn:
