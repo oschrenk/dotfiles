@@ -86,16 +86,16 @@ let mapleader = " "
 nnoremap <C-C>      :nohls<return><esc>
 
 " code actions
-nnoremap U          :action FindUsages<CR>
-nnoremap R          :action RenameElement<CR>
-nnoremap ==         :action ReformatCode<CR>
-vnoremap =          :action ReformatCode<CR>
-nnoremap --         :action OptimizeImports<CR>
+nnoremap U          <Action>(FindUsages)
+nnoremap R          <Action>(RenameElement)
+nnoremap ==         <Action>(ReformatCode)
+vnoremap =          <Action>(ReformatCode)
+nnoremap --         <Action>(OptimizeImports)
 
 " movements
-nmap     gr         :action ShowUsages<CR>
-nmap     gi         :action GotoImplementation<CR>
-nmap     gs         :action GotoSuperMethod<CR>
+nmap     gr         <Action>(ShowUsages)
+nmap     gi         <Action>(GotoImplementation)
+nmap     gs         <Action>(GotoSuperMethod)
 nmap     gt         <Action>(GotoTest)
 map      gb         <Action>(JumpToLastChange)
 
@@ -106,9 +106,9 @@ xnoremap P pgvy
 " ***************************
 
 " change font size
-nmap     <leader>+  :action EditorIncreaseFontSize<CR>
-nmap     <leader>-  :action EditorDecreaseFontSize<CR>
-nmap     <leader>=  :action EditorResetFontSize<CR>
+nmap     <D-=>     <Action>(EditorIncreaseFontSize)
+nmap     <D-->     <Action>(EditorDecreaseFontSize)
+nmap     <leader>= <Action>(EditorResetFontSize)
 
 " show information
 map      <leader>ii <Action>(QuickJavaDoc)
@@ -118,17 +118,21 @@ map      <leader>ir <Action>(ShowErrorDescription)
 map      <leader>iq <Action>(QuickImplementations)
 
 " navigation
-map      <leader>. <Action>(SelectInProjectView)
+" press "Esc" to return focus on main editor window
+nnoremap <leader>pf :NERDTreeFocus<CR>
+map      <leader>.  <Action>(SelectInProjectView)
+nnoremap <leader>nb <Action>(ShowNavBar)
 
 " refactor/extract
-vnoremap <leader>ev :action IntroduceVariable<CR>
+vnoremap <leader>ev <Action>(IntroduceVariable)
+map      <leader>eo <Action>(ExtractMethod)
 
 " run
-map      <leader>rr :action Run<CR>
-map      <leader>rd :action Debug<CR>
+map      <leader>rr <Action>(Run)
+map      <leader>rd <Action>(Debug)
 
 " debug
-map      <leader>dr :action Debugger.ResumeThread<CR>
+map      <leader>dr <Action>(Debugger.ResumeThread)
 
 " edit/source ideavim config
 " to source manually, enter command mode (via `:`)
@@ -137,13 +141,8 @@ nnoremap <leader>vv :e ~/.config/ideavim/ideavimrc<CR>
 nnoremap <leader>vr :source ~/.config/ideavim/ideavimrc<CR>
 
 " ***************************
-" NERDTree
+" NERDTree (Project)
 " ***************************
 
 let g:NERDTreeMapActivateNode='l' " open close directory
 let g:NERDTreeMapJumpParent='h'   " move up one directory level
-
-" press "Esc" to return focus on main editor window
-nnoremap <leader>nd :NERDTreeFocus<CR>
-map      <leader>ne :action SelectInProjectView<CR>
-nnoremap <leader>nb :action ShowNavBar<CR>
