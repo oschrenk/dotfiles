@@ -64,7 +64,7 @@ hs.hotkey.bind(hyper, "p", appearance.toggleDarkMode)
 
 -- audio
 hs.hotkey.bind(hyper, "h", audio.connectHeadphones)
-hs.hotkey.bind(hyper, "m", audio.mute)
+hs.hotkey.bind(hyper, "m", audio.toggleMute)
 
 -- connectivity
 hs.hotkey.bind(hyper, "b", bluetooth.toggle)
