@@ -30,7 +30,7 @@ function Weather.new(icons)
       sbar.exec(cmd, function(json)
         local current_condition = json.current_condition[1]
         local code = current_condition.weatherCode
-        local label = current_condition.temp_C
+        local label = current_condition.temp_C .. "°C"
         local id = Wttr.codeToIdentifier(code)
         local icon = icons[id]
 
