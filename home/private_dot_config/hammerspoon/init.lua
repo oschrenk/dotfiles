@@ -45,7 +45,7 @@ hs.caffeinate.watcher
 ------------------------
 -- Keyboard Bindings
 ------------------------
-local hyper = { "ctrl", "alt", "shift", "cmd" }
+local hyper = { "shift", "ctrl", "alt", "cmd" }
 
 -- move windows
 hs.hotkey.bind(hyper, "a", windows.left50)
