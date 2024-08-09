@@ -23,7 +23,6 @@ ICON_COLOR=$ICON_COLOR_INACTIVE
 
 # logic
 TMUX_SESSION_INDEX=$(echo "$NAME" | cut -d '.' -f3)
-TMUX_SESSION_COUNT=$(/opt/homebrew/bin/sessionizer sessions --json | jq length)
 
 MAYBE_TMUX_SESSION_NAME=$(/opt/homebrew/bin/sessionizer sessions --json | jq -r ".[${TMUX_SESSION_INDEX}].name // empty" )
 NAME_OF_ATTACHED_SESSION=$(/opt/homebrew/bin/sessionizer sessions --json | jq -r ".[] | select(.attached==true) | .name")
