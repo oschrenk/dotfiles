@@ -56,9 +56,13 @@ function Mission.new(icons, focus)
       local icon = focus2icon[current_focus] or focus2icon["default"]
 
       sbar.exec(cmd, function(json)
-        local text = trim(json.tasks[1].text)
-
-        mission:set({ label = text, icon = icon })
+        local maybeTasks = json.tasks
+        if (maybeTasks ~= nil) and (maybeTasks[1] ~= nil) then
+          local text = trim(maybeTasks[1].text)
+          mission:set({ icon = icon, label = text })
+        else
+          mission:set({ icon = icon, label = "No tasks" })
+        end
       end)
     end
 
