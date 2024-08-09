@@ -27,7 +27,7 @@ function Calendar.new(icons, focus)
     })
 
     local calUpdate = function()
-      sbar.exec("/opt/homebrew/bin/plan next", function(json)
+      sbar.exec("/opt/homebrew/bin/plan next --reject-tag timeblock", function(json)
         local event = json[1]
         if event ~= nil then
           local legend = event.legend
