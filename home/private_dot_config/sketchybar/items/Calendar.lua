@@ -26,7 +26,7 @@ function Calendar.new(icons, focus)
       icon = icons.default,
     })
 
-    local calUpdate = function()
+    local update = function()
       sbar.exec("/opt/homebrew/bin/plan next --reject-tag timeblock", function(json)
         local event = json[1]
         if event ~= nil then
@@ -53,19 +53,18 @@ function Calendar.new(icons, focus)
       end)
     end
 
-    local update = function()
-      sbar.exec("/opt/homebrew/bin/mission focus", function(raw)
-        local result = raw:gsub("%s+", "")
-        if result == focus.dnd or result == focus.sleep then
+    local onComplete = function(current_focus)
+      sbar.exec("/opt/homebrew/bin/mission focus", function(currentFocus)
+        if current_focus == focus.dnd or current_focus == focus.sleep then
           calendar:set({ drawing = false })
         else
-          calUpdate()
+          update()
         end
       end)
     end
 
     calendar:subscribe({ "forced", "routine", "system_woke", "mission_focus" }, function(_)
-      update()
+      focus.handler(onComplete)
     end)
   end
 
