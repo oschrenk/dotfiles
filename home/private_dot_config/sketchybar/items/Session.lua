@@ -13,8 +13,16 @@ function Session.new(icons)
       icon = icons.tmux,
     })
 
+    local update = function()
+      local cmd = '/opt/homebrew/bin/sessionizer sessions --json | jq -r ".[] | select(.attached==true) | .name"'
+
+      sbar.exec(cmd, function(name)
+        session:set({ label = name })
+      end)
+    end
+
     session:subscribe({ "forced", "routine", "system_woke" }, function(_)
-      session:set({ label = "some session" })
+      update()
     end)
   end
 
