@@ -26,11 +26,33 @@ function Calendar.new(icons, focus)
       icon = icons.default,
     })
 
+    local calUpdate = function()
+      sbar.exec("/opt/homebrew/bin/plan next", function(json)
+        local event = json[1]
+        if event ~= nil then
+          local legend = event.legend
+          local icon = legend.icon
+          local label = legend.description
+          local suffix = ""
+          if event.starts_in < 0 then
+            suffix = ", " .. event.starts_in .. "m" .. "left"
+          else
+            suffix = " in " .. event.starts_in .. "m"
+          end
+          calendar:set({ icon = icon, label = label .. suffix })
+        else
+          calendar:set({ icon = icons.default })
+        end
+      end)
+    end
+
     local update = function()
       sbar.exec("/opt/homebrew/bin/mission focus", function(raw)
         local result = raw:gsub("%s+", "")
         if result == focus.dnd or result == focus.sleep then
-          calendar:set({ label = result })
+          calendar:set({ label = "sleeping" })
+        else
+          calUpdate()
         end
       end)
     end
