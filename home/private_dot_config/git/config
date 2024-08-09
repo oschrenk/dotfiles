@@ -14,33 +14,18 @@
   diffFilter = delta --color-only
 
 [delta]
-  navigate = true # use n and N to move between diff sections
+  navigate = true # use n and N to jump next/previous file
   side-by-side = true
-
   true-color = always
   hunk-header-style = omit
-
   line-numbers = true
 
   # File
-  file-style = "#FFFFFF" bold
   file-added-label = [+]
   file-copied-label = [==]
   file-modified-label = [*]
   file-removed-label = [-]
   file-renamed-label = [->]
-  file-decoration-style = "#434C5E" ul
-  file-decoration-style = "#84786A" ul
-
-  # Diff contents
-  inline-hint-style = syntax
-  minus-style = syntax "#330011"
-  minus-emph-style = syntax "#80002a"
-  minus-non-emph-style = syntax auto
-  plus-style = syntax "#347127"
-  plus-emph-style = syntax "#003300"
-  plus-non-emph-style = syntax auto
-  whitespace-error-style = "#FB4934" reverse
 
 [pull]
   # Since 2.0
