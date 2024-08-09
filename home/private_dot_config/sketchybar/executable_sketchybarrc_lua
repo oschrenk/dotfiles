@@ -32,7 +32,7 @@ sbar.default({
 
 local focus = require("utils.focus").new()
 
-require("items.sessions").new(icons.sessions).add("left")
+require("items.sessions").new(icons.sessions, style.sessions).add("left")
 require("items.mission").new(icons.mission, focus).add("left")
 
 require("items.clock").new(icons.clock).add("right")

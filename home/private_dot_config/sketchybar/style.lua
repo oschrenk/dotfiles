@@ -1,5 +1,6 @@
 local black = 0xff000000
 local white = 0xffcad3f5
+local grey = 0xff484848
 
 return {
   background = {
@@ -35,5 +36,9 @@ return {
     padding_left = 3,
     padding_right = 3,
     y_offset = 0,
+  },
+  sessions = {
+    active = white,
+    inactive = grey,
   },
 }

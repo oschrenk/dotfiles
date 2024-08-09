@@ -1,32 +1,62 @@
 local sbar = require("sketchybar")
 
-local Session = {}
+local Sessions = {}
 
 -- @param icons Plugin specific icons
-function Session.new(icons)
+-- @param style Plugin specific icons
+function Sessions.new(icons, style)
   local self = {}
 
   self.add = function(position)
-    local session = sbar.add("item", {
-      position = position,
-      update_freq = 60,
-      icon = icons.tmux,
-    })
+    local cmd = "/opt/homebrew/bin/sessionizer sessions --json"
 
-    local update = function()
-      local cmd = '/opt/homebrew/bin/sessionizer sessions --json | jq -r ".[] | select(.attached==true) | .name"'
+    -- support fixed amount of sessions
+    for i = 1, 5, 1 do
+      local session = sbar.add("item", {
+        position = position,
+        update_freq = 60,
+        icon = icons.tmux,
+      })
 
-      sbar.exec(cmd, function(name)
-        session:set({ label = name })
+      local update = function()
+        sbar.exec(cmd, function(sessions)
+          local s = sessions[i]
+          if s ~= nil then
+            if s.attached then
+              session:set({
+                icon = {
+                  string = icons.tmux,
+                  color = style.active,
+                },
+                label = {
+                  string = s.name,
+                  drawing = true,
+                },
+              })
+            else
+              session:set({
+                icon = {
+                  string = icons.tmux,
+                  color = style.inactive,
+                },
+                label = {
+                  drawing = false,
+                },
+              })
+            end
+          else
+            session:set({ drawing = false })
+          end
+        end)
+      end
+
+      session:subscribe({ "forced", "routine", "system_woke", "tmux_sessions_update" }, function(_)
+        update()
       end)
     end
-
-    session:subscribe({ "forced", "routine", "system_woke" }, function(_)
-      update()
-    end)
   end
 
   return self
 end
 
-return Session
+return Sessions
