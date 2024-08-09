@@ -68,7 +68,7 @@ return {
     guatemala = emojis["guatemala"],
     vietnam = emojis["vietnam"],
   },
-  session = {
+  sessions = {
     tmux = nerdfont["nf-cod-terminal_tmux"],
   },
   weather = {
