@@ -11,7 +11,7 @@ invert = true
 
 # show help row, including current Atuin version, available updates, a keymap
 # hint, and total amount of commands in your history.
-show_help = true
+show_help = false
 
 # filter history recording by regexes
 # regexes are unanchored - if they don't start with ^ or end with $,
