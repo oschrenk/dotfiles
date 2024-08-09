@@ -41,4 +41,8 @@ return {
     active = white,
     inactive = grey,
   },
+  windows = {
+    active = white,
+    inactive = grey,
+  },
 }

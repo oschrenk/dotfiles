@@ -42,6 +42,7 @@ local emojis = {
 
 local nerdfont = {
   ["nf-cod-terminal_tmux"] = "",
+  ["nf-oct-dot_fill"] = "",
 }
 
 return {
@@ -71,6 +72,10 @@ return {
   sessions = {
     tmux = nerdfont["nf-cod-terminal_tmux"],
   },
+  windows = {
+    dot = nerdfont["nf-oct-dot_fill"],
+  },
+
   weather = {
     ["cloudy"] = symbols["cloud"],
     ["fog"] = symbols["cloud.fog"],
