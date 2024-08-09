@@ -18,7 +18,6 @@ local Mission = {}
 function Mission.new(icons, focus)
   local self = {}
 
-  local IconColor = "0xffcad3f5"
   local Ellipsis = "…"
   local MaxLength = 35
 
