@@ -19,8 +19,8 @@ function Clock.new(icons)
     })
 
     local guatemala = sbar.add("item", {
-      position = "popup." .. clock.name,
       icon = icons.guatemala,
+      position = "popup." .. clock.name,
     })
     guatemala:subscribe({ "forced", "routine" }, function(_)
       local time = tz.date("%a %d %b %H:%M", os.time(), "America/Guatemala")
