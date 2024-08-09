@@ -35,7 +35,7 @@ function Calendar.new(icons, focus)
           local label = legend.description
           local suffix = ""
           if event.starts_in < 0 then
-            suffix = ", " .. event.starts_in .. "m" .. "left"
+            suffix = ", " .. event.ends_in .. "m" .. " left"
           else
             suffix = " in " .. event.starts_in .. "m"
           end
