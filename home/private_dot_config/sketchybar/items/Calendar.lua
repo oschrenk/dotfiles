@@ -39,9 +39,16 @@ function Calendar.new(icons, focus)
           else
             suffix = " in " .. event.starts_in .. "m"
           end
-          calendar:set({ icon = icon, label = label .. suffix })
+          calendar:set({
+            icon = icon,
+            label = label .. suffix,
+            drawing = true,
+          })
         else
-          calendar:set({ icon = icons.default })
+          calendar:set({
+            icon = icons.default,
+            drawing = true,
+          })
         end
       end)
     end
@@ -50,7 +57,7 @@ function Calendar.new(icons, focus)
       sbar.exec("/opt/homebrew/bin/mission focus", function(raw)
         local result = raw:gsub("%s+", "")
         if result == focus.dnd or result == focus.sleep then
-          calendar:set({ label = "sleeping" })
+          calendar:set({ drawing = false })
         else
           calUpdate()
         end
