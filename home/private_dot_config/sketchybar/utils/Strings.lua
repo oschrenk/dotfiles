@@ -1,4 +1,6 @@
-function Split(input, sep)
+local strings = {}
+
+strings.split = function(input, sep)
   if sep == nil then
     sep = "%s"
   end
@@ -8,3 +10,14 @@ function Split(input, sep)
   end
   return t
 end
+
+strings.Trim = function(text, maxLength)
+  local Ellipsis = "…"
+  if string.len(text) > maxLength then
+    return string.sub(text, 0, maxLength) .. Ellipsis
+  else
+    return text
+  end
+end
+
+return strings

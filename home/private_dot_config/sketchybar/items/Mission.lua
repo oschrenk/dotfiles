@@ -1,4 +1,5 @@
 local sbar = require("sketchybar")
+local strings = require("utils.Strings")
 
 -- Requirements
 --  https://github.com/oschrenk/mission
@@ -18,16 +19,7 @@ local Mission = {}
 function Mission.new(icons, focus)
   local self = {}
 
-  local Ellipsis = "…"
   local MaxLength = 35
-
-  local trim = function(text)
-    if string.len(text) > MaxLength then
-      return string.sub(text, 0, MaxLength) .. Ellipsis
-    else
-      return text
-    end
-  end
 
   local focus2icon = {
     [focus.work] = icons._work,
@@ -60,7 +52,7 @@ function Mission.new(icons, focus)
         else
           local maybeTasks = json.tasks
           if (maybeTasks ~= nil) and (maybeTasks[1] ~= nil) then
-            local text = trim(maybeTasks[1].text)
+            local text = strings.Trim(maybeTasks[1].text, MaxLength)
             mission:set({ icon = icon, label = { string = text, drawing = true } })
           else
             mission:set({ icon = icon, label = { string = "No tasks", drawing = true } })
