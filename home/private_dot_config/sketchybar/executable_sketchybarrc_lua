@@ -19,7 +19,7 @@ sbar.bar({
   padding_right = 16,
   notch_width = 188,
   font_smoothing = true,
-  shadow = true,
+  shadow = false,
   topmost = "window",
   display = "all",
 })
