@@ -29,8 +29,8 @@ return {
     font = {
       -- brew install font-sf-pro
       family = "SF Pro",
-      style = "Light",
-      size = 15.0,
+      style = "Regular",
+      size = 14.0,
     },
     color = white,
     padding_left = 3,
