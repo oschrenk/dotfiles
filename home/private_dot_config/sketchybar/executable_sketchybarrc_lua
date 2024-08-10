@@ -21,6 +21,7 @@ sbar.bar({
   font_smoothing = true,
   shadow = false,
   topmost = "window",
+  -- main, all, <positive_integer list>
   display = "all",
 })
 
