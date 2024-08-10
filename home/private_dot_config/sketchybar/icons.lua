@@ -20,6 +20,7 @@ local symbols = {
   ["cloud.sun"] = "􀇔",
   ["cloud.sun.rain"] = "􀇖",
   ["ellipsis"] = "􀍠",
+  ["folder"] = "􀈕",
   ["heavy.rain"] = "􀇈",
   ["list.clipboard"] = "􁕜",
   ["moon.fill"] = "􀆺",
@@ -95,6 +96,9 @@ return {
     ["thunder.snow.showers"] = symbols["cloud.bolt.rain"],
     ["unknown"] = symbols["ellipsis"],
     ["very.cloudy"] = symbols["cloud.fill"],
+  },
+  project = {
+    folder = symbols["folder"],
   },
   mission = {
     _dnd = symbols["moon.fill"],
