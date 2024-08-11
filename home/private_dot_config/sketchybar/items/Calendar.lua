@@ -44,6 +44,10 @@ function Calendar.new(icons, focus)
             label = label .. suffix,
             drawing = true,
           })
+          local url = event.url
+          calendar:subscribe("mouse.clicked", function(_)
+            sbar.exec("open '" .. url .. "'")
+          end)
         else
           calendar:set({
             icon = icons.default,
