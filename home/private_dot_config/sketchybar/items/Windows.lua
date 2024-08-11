@@ -22,25 +22,31 @@ function Windows.new(icons, style)
         sbar.exec(cmd, function(windows)
           local w = windows[i]
           if w ~= nil then
-            if w.active then
-              window:set({
-                icon = {
-                  color = style.active,
-                },
-                label = {
-                  drawing = false,
-                },
-              })
+            if w.active_clients > 0 then
+              if w.active then
+                window:set({
+                  icon = {
+                    color = style.active,
+                  },
+                  label = {
+                    drawing = false,
+                  },
+                  drawing = true,
+                })
+              else
+                window:set({
+                  icon = {
+                    string = icons.dot,
+                    color = style.inactive,
+                  },
+                  label = {
+                    drawing = false,
+                  },
+                  drawing = true,
+                })
+              end
             else
-              window:set({
-                icon = {
-                  string = icons.dot,
-                  color = style.inactive,
-                },
-                label = {
-                  drawing = false,
-                },
-              })
+              window:set({ drawing = false })
             end
           else
             window:set({ drawing = false })
