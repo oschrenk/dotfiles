@@ -22,6 +22,7 @@ function Weather.new(icons)
       position = position,
       update_freq = 3600,
       icon = icons.unknown,
+      label = { drawing = false },
     })
 
     local update = function()
