@@ -101,8 +101,8 @@ AppWatcher.new(appHandler).start()
 -- *********************
 
 -- Define a function to be called when a notification is received
-function handleNotification(arg)
-	hs.alert.show(arg)
+function handleNotification(_)
+	os.execute("cd ~/.config/alacritty && ./appearance.sh toggle")
 end
 
 -- Set up the notification listener for Slack
