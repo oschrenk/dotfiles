@@ -1,4 +1,4 @@
-import = ["/Users/oliver/.config/alacritty/themes/gruvbox_dark.toml"]
+import = ["/Users/oliver/.config/alacritty/themes/active.toml"]
 
 [cursor]
 unfocused_hollow = true
