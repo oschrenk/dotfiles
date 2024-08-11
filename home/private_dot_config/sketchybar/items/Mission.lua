@@ -37,12 +37,14 @@ function Mission.new(icons, focus)
     })
 
     local onComplete = function(current_focus)
-      local cmd = ""
+      local journal = "default"
       if current_focus == focus.work then
-        cmd = "/opt/homebrew/bin/mission tasks --journal=work --show-done=false --show-cancelled=false --json"
-      else
-        cmd = "/opt/homebrew/bin/mission tasks --show-done=false --show-cancelled=false --json"
+        journal = "work"
       end
+
+      local cmd = "/opt/homebrew/bin/mission tasks --journal "
+        .. journal
+        .. " --show-done=false --show-cancelled=false --json"
 
       local icon = focus2icon[current_focus] or focus2icon["default"]
 
