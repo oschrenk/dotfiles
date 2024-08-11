@@ -17,6 +17,13 @@ function Weather.new(icons)
   -- j2 = "light weight" json without hourly data
   local FormatString <const> = "j2"
 
+  local isValidResponse = function(wttr_json)
+    if wttr_json == nil then
+      return false
+    end
+    return true
+  end
+
   self.add = function(position)
     local weather = sbar.add("item", {
       position = position,
@@ -28,14 +35,29 @@ function Weather.new(icons)
     local update = function()
       local cmd = string.format("curl -s 'https://wttr.in/%s?m&format=%s'", Location, FormatString)
 
-      sbar.exec(cmd, function(json)
-        local current_condition = json.current_condition[1]
-        local code = current_condition.weatherCode
-        local label = current_condition.temp_C .. "°C"
-        local id = Wttr.codeToIdentifier(code)
-        local icon = icons[id]
+      sbar.exec(cmd, function(wttr_json)
+        if isValidResponse(wttr_json) then
+          local current_condition = wttr_json.current_condition[1]
+          local code = current_condition.weatherCode
+          local label = current_condition.temp_C .. "°C"
+          local id = Wttr.codeToIdentifier(code)
+          local icon = icons[id]
 
-        weather:set({ icon = icon, label = label })
+          weather:set({
+            icon = icon,
+            label = {
+              string = label,
+              drawing = true,
+            },
+          })
+        else
+          weather:set({
+            icon = icons.unknown,
+            label = {
+              drawing = false,
+            },
+          })
+        end
       end)
     end
 
