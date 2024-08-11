@@ -32,6 +32,7 @@ function Sessions.new(icons, style)
                   string = s.name,
                   drawing = true,
                 },
+                drawing = true,
               })
             else
               session:set({
@@ -42,6 +43,7 @@ function Sessions.new(icons, style)
                 label = {
                   drawing = false,
                 },
+                drawing = true,
               })
             end
           else
