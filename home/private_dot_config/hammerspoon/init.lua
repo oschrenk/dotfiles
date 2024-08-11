@@ -97,6 +97,19 @@ end
 AppWatcher.new(appHandler).start()
 
 -- *********************
+-- NotificationWatcher
+-- *********************
+
+-- Define a function to be called when a notification is received
+function handleNotification(arg)
+	hs.alert.show(arg)
+end
+
+-- Set up the notification listener for Slack
+notificationWatcher = hs.distributednotifications.new(handleNotification, "AppleInterfaceThemeChangedNotification")
+notificationWatcher:start()
+
+-- *********************
 -- WifiWatcher
 -- *********************
 local workSSIDs = {}
