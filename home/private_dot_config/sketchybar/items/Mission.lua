@@ -61,11 +61,17 @@ function Mission.new(icons, focus)
           end
         end
       end)
-    end
+      local path = "10%2520Journals%252FPersonal%252F"
+      if journal == "work" then
+        path = "10%2520Journals%252FWork%252F"
+      end
 
-    mission:subscribe("mouse.clicked", function(_)
-      sbar.exec("open -b 'md.obsidian'")
-    end)
+      mission:subscribe("mouse.clicked", function(_)
+        local today = os.date("%Y-%m-%d")
+        local click_cmd = 'open "obsidian://advanced-uri?vault=ff2071cf269715b7&filepath=' .. path .. today .. '.md"'
+        sbar.exec(click_cmd)
+      end)
+    end
 
     mission:subscribe({ "forced", "routine", "system_woke", "mission_task", "mission_focus" }, function(_)
       focus.handler(onComplete)
