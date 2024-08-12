@@ -2,6 +2,7 @@ require("Appearance")
 require("AppWatcher")
 require("Audio")
 require("Bluetooth")
+require("Mail")
 require("Notifications")
 require("Wifi")
 require("WifiWatcher")
@@ -69,6 +70,10 @@ hs.hotkey.bind(hyper, "m", audio.toggleMute)
 -- connectivity
 hs.hotkey.bind(hyper, "b", bluetooth.toggle)
 hs.hotkey.bind(hyper, "v", wifi.toggle)
+
+-- mail, register cmd+i to copy messageid
+Mail.new(SCRIPTS_DIR).bindHotkey({ "cmd" }, "i")
+--
 
 -- *********************
 -- AppWatcher
