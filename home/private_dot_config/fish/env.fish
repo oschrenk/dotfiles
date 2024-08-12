@@ -73,6 +73,9 @@ fish_add_path --prepend $HOME/.krew/bin
 # node
 fish_add_path /opt/homebrew/opt/node@20/bin
 
+# swift
+fish_add_path /opt/homebrew/opt/swift/bin
+
 #############################
 # homebrew
 #############################
