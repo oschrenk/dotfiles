@@ -46,7 +46,16 @@ function Windows.new(icons, style)
                 })
               end
             else
-              window:set({ drawing = false })
+              window:set({
+                icon = {
+                  string = icons.dot,
+                  color = style.inactive,
+                },
+                label = {
+                  drawing = false,
+                },
+                drawing = true,
+              })
             end
           else
             window:set({ drawing = false })
