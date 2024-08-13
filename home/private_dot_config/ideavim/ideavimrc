@@ -125,7 +125,7 @@ nnoremap <leader>nb <Action>(ShowNavBar)
 
 " refactor/extract
 vnoremap <leader>ev <Action>(IntroduceVariable)
-map      <leader>eo <Action>(ExtractMethod)
+map      <leader>em <Action>(ExtractMethod)
 
 " run
 map      <leader>rr <Action>(Run)
