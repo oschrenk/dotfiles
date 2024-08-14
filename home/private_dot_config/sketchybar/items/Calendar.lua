@@ -49,6 +49,7 @@ function Calendar.new(icons, focus)
               string = label .. suffix,
               drawing = true,
             },
+            drawing = true,
           })
 
           local url = event.url
@@ -64,19 +65,18 @@ function Calendar.new(icons, focus)
             label = {
               drawing = false,
             },
+            drawing = true,
           })
         end
       end)
     end
 
     local onComplete = function(current_focus)
-      sbar.exec("/opt/homebrew/bin/mission focus", function(currentFocus)
-        if current_focus == focus.dnd or current_focus == focus.sleep then
-          calendar:set({ drawing = false })
-        else
-          update()
-        end
-      end)
+      if current_focus == focus.dnd or current_focus == focus.sleep then
+        calendar:set({ drawing = false })
+      else
+        update()
+      end
     end
 
     calendar:subscribe({ "forced", "routine", "system_woke", "mission_focus" }, function(_)
