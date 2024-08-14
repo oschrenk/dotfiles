@@ -34,24 +34,36 @@ function Calendar.new(icons, focus)
           local icon = legend.icon
           local label = legend.description
           local suffix = ""
+
           if event.starts_in < 0 then
             suffix = ", " .. event.ends_in .. "m" .. " left"
           else
             suffix = " in " .. event.starts_in .. "m"
           end
           calendar:set({
-            icon = icon,
-            label = label .. suffix,
-            drawing = true,
+            icon = {
+              string = icon,
+              drawing = true,
+            },
+            label = {
+              string = label .. suffix,
+              drawing = true,
+            },
           })
+
           local url = event.url
           calendar:subscribe("mouse.clicked", function(_)
             sbar.exec("open '" .. url .. "'")
           end)
         else
           calendar:set({
-            icon = icons.default,
-            drawing = true,
+            icon = {
+              string = icons.default,
+              drawing = true,
+            },
+            label = {
+              drawing = false,
+            },
           })
         end
       end)
