@@ -305,6 +305,9 @@ defaults write NSGlobalDomain NSAutomaticQuoteSubstitutionEnabled -bool false
 echo "Keyboard: Enable keyboard navigation"
 defaults write "Apple Global Domain" "AppleKeyboardUIMode" '2'
 
+echo "Keyboard: Fn does nothing"
+defaults write "com.apple.HIToolbox" "AppleFnUsageType" '0'
+
 echo "Keyboard shortcut: Disable ^→, and ^← to switch spaces"
 plutil -replace AppleSymbolicHotKeys.79.enabled -bool NO ~/Library/Preferences/com.apple.symbolichotkeys.plist
 plutil -replace AppleSymbolicHotKeys.81.enabled -bool NO ~/Library/Preferences/com.apple.symbolichotkeys.plist
