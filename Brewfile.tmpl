@@ -299,16 +299,26 @@ cask "neovide"                # neovim desktop app
 #######################################
 cask "visual-studio-code"     # editor
 
-vscode "GitHub.copilot"              # Github Copilot
-vscode "GitHub.copilot-chat"         # Github Copilot chat
-vscode "alssys.interactive-scala"    # Scala, Interactive
 vscode "asvetliakov.vscode-neovim"   # Neovim integration
 vscode "bierner.markdown-checkbox"   # Markdown checkboxes
+vscode "eamodio.gitlens"             # git (blame)
 vscode "fwcd.kotlin"                 # Kotlin
 vscode "jdinhlife.gruvbox"           # Theme, Gruvbox
 vscode "ms-azuretools.vscode-docker" # Docker administration
 vscode "ms-python.python"            # Python
 vscode "redhat.vscode-yaml"          # Yaml, Syntax
-vscode "scala-lang.scala"            # Scala, Syntax
-vscode "scalameta.metals"            # Scala, Metals
+
+# only on work machine
+{{- if eq .chezmoi.hostname "Olivers-WaxBook" }}
+  vscode "ms-vsliveshare.vsliveshare"  # collaborate with others
+{{- end }}
+
+# only on personal machine
+{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
+  vscode "GitHub.copilot"              # Github Copilot
+  vscode "GitHub.copilot-chat"         # Github Copilot chat
+  vscode "alssys.interactive-scala"    # Scala, Interactive
+  vscode "scala-lang.scala"            # Scala, Syntax
+  vscode "scalameta.metals"            # Scala, Metals
+{{- end }}
 
