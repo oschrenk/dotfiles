@@ -79,12 +79,13 @@ After casks are installed you can already start important apps and configure the
   - Open. Read "System Extensions Blocked" popup. Click on "Open Security Preferences" and press "Allow".
 - IntelliJ.
   - Configure plugins.
-    - Scala
-    - Kotlin
     - AutoDarkMode
-    - Key Promoter
-    - Ideavim
+    - Harpooner
     - Hocon
+    - Ideavim
+    - Key Promoter
+    - Kotlin
+    - Scala
   - Change settings
     - Don't send statistics
 
