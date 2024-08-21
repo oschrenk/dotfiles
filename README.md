@@ -114,7 +114,6 @@ Link device:
 - `task lua` Install lua rocks
 - `task icons` Install icons
 
-
 ## Steam & Rosetta
 
 `brew install steam`
