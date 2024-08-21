@@ -123,6 +123,18 @@ nnoremap <leader>pf :NERDTreeFocus<CR>
 map      <leader>.  <Action>(SelectInProjectView)
 nnoremap <leader>nb <Action>(ShowNavBar)
 
+" Harpoon
+nmap <leader>h1 <action>(HarpoonerOpenFile0)
+nmap <leader>h2 <action>(HarpoonerOpenFile1)
+nmap <leader>h3 <action>(HarpoonerOpenFile2)
+nmap <leader>h4 <action>(HarpoonerOpenFile3)
+
+nmap <leader>hm <action>(HarpoonerQuickMenu)
+nmap <leader>ha <action>(HarpoonerAddFile)
+
+nmap <leader>hn <action>(HarpoonerNextFileAction)
+nmap <leader>hp <action>(HarpoonerPreviousFileAction)
+
 " refactor/extract
 vnoremap <leader>ev <Action>(IntroduceVariable)
 map      <leader>em <Action>(ExtractMethod)
