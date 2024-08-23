@@ -85,6 +85,7 @@ return {
     ["1"] = symbols["keyboard.macwindow"],
     ["2"] = symbols["text.and.command.macwindow"],
     ["M"] = symbols["macwindow.and.cursorarrow"],
+    ["default"] = symbols["macwindow"],
   },
   weather = {
     ["cloudy"] = symbols["cloud"],
