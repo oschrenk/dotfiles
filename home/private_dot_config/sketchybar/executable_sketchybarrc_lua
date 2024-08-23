@@ -33,7 +33,9 @@ sbar.default({
 
 local focus = require("utils.focus").new()
 local sessionizer = require("utils.sessionizer").new()
+local aerospace = require("utils.aerospace").new()
 
+require("items.workspaces").new(icons.workspaces, style.workspaces, aerospace).add("left")
 require("items.sessions").new(icons.sessions, style.sessions).add("left")
 require("items.windows").new(icons.windows, style.windows).add("left")
 require("items.mission").new(icons.mission, focus).add("left")

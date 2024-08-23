@@ -23,6 +23,10 @@ local symbols = {
   ["folder"] = "􀈕",
   ["heavy.rain"] = "􀇈",
   ["list.clipboard"] = "􁕜",
+  ["keyboard.macwindow"] = "􀤯",
+  ["macwindow"] = "􀏜",
+  ["macwindow.and.cursorarrow"] = "􁝸",
+  ["macwindow.on.rectangle"] = "􀢌",
   ["moon.fill"] = "􀆺",
   ["person.fill"] = "􀉪",
   ["sleet"] = "􀇐",
@@ -33,6 +37,7 @@ local symbols = {
   ["speaker.wave.2"] = "􀊦",
   ["speaker.wave.3"] = "􀊨",
   ["sun.max"] = "􀆭",
+  ["text.and.command.macwindow"] = "􀣚",
 }
 
 local emojis = {
@@ -76,7 +81,11 @@ return {
   windows = {
     dot = nerdfont["nf-oct-dot_fill"],
   },
-
+  workspaces = {
+    ["1"] = symbols["keyboard.macwindow"],
+    ["2"] = symbols["text.and.command.macwindow"],
+    ["M"] = symbols["macwindow.and.cursorarrow"],
+  },
   weather = {
     ["cloudy"] = symbols["cloud"],
     ["fog"] = symbols["cloud.fog"],

@@ -45,4 +45,8 @@ return {
     active = white,
     inactive = grey,
   },
+  workspaces = {
+    active = white,
+    inactive = grey,
+  },
 }
