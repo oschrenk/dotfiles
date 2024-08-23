@@ -19,7 +19,7 @@ vim.o.spelllang = "en"
 vim.o.spellfile = home .. "/.config/nvim/spell/en.utf-8.add" -- dictionary location
 
 -- ===========================
--- Filetypes
+-- Auto Commands
 -- ===========================
 local autocmd = vim.api.nvim_create_autocmd
 local augroup = vim.api.nvim_create_augroup
