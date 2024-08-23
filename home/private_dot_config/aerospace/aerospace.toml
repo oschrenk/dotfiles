@@ -54,7 +54,7 @@ exec-on-workspace-change = [
 [gaps]
 inner.horizontal = 0
 inner.vertical = 0
-outer.top = [{ monitor."dell" = 33 }, 0]
+outer.top = [{ monitor."Built-in Retina Display" = 0 }, 33]
 
 #######################################
 # BINDINGS
