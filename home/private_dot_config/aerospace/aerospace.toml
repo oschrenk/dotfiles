@@ -25,8 +25,9 @@ accordion-padding = 0
 default-root-container-layout = 'tiles'
 
 # Possible values: horizontal|vertical|auto
-# 'auto' means: wide monitor (anything wider than high) gets horizontal orientation,
-#               tall monitor (anything higher than wide) gets vertical orientation
+# 'auto' means: 
+#   - wide monitor gets horizontal orientation,
+#   - tall monitor (anything higher than wide) gets vertical orientation
 default-root-container-orientation = 'auto'
 
 # Possible values: (qwerty|dvorak)
