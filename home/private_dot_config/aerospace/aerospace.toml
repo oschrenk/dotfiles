@@ -1,13 +1,13 @@
 # Start AeroSpace at login
 start-at-login = true
 
-# Add commands that run after login to macOS user session.
+# Run commands after login to macOS user session.
 # 'start-at-login' needs to be 'true' for 'after-login-command'
 # See: https://nikitabobko.github.io/AeroSpace/commands
 after-login-command = []
 
 # Add commands that run after AeroSpace startup.
-# 'after-startup-command' is run after 'after-login-command'
+# runs after 'after-login-command'
 # See: https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = []
 
