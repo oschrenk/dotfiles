@@ -46,3 +46,8 @@ autocmd({ "BufRead", "BufNewFile" }, {
   command = "set filetype=zsh",
   group = my_filetypes,
 })
+
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "aerospace.toml" },
+  command = "!aerospace reload-config",
+})
