@@ -8,9 +8,11 @@ return {
     "antoinemadec/FixCursorHold.nvim",
     "nvim-treesitter/nvim-treesitter",
     -- adapters
-    --https://github.com/nvim-neotest/neotest-go
+    -- https://github.com/nvim-neotest/neotest-go
     "nvim-neotest/neotest-go",
     "olisikh/neotest-scala",
+    -- https://github.com/codymikol/neotest-kotlin
+    "codymikol/neotest-kotlin",
   },
   keys = {
     {
@@ -93,6 +95,8 @@ return {
       adapters = {
         require("neotest-go"),
         require("neotest-scala"),
+        require("neotest-scala"),
+        require("codymikol/neotest-kotlin"),
       },
       status = {
         signs = true,
