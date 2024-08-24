@@ -9,6 +9,9 @@ tasks:
   go:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01c_deps_gofile.sh.tmpl | chezmoi execute-template | zsh
+  extensions:
+    cmds:
+      - cat home/.chezmoiscripts/run_onchange_01f_deps_extensions.sh.tmpl | chezmoi execute-template | zsh
   ollama:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01d_deps_ollamafile.sh.tmpl | chezmoi execute-template | zsh

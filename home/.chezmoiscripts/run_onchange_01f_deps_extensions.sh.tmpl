@@ -1,0 +1,9 @@
+#!/bin/zsh
+#
+# Extensions hash: {{ include "../Extensions" | sha256sum }}
+
+for extension in $(cat {{ joinPath .chezmoi.sourceDir "../Extensions" | quote }} | cut -d "#" -f 1)
+do
+  extension install arc $extension
+done
+
