@@ -1,0 +1,17 @@
+#!/bin/zsh
+#
+# Dutifile hash: {{ include "../Dutifile" | sha256sum }}
+#
+filepath={{ joinPath .chezmoi.sourceDir "../Dutifile"| quote }}
+
+# Read the file line by line
+while IFS= read -r line
+do
+  row=$(echo $line| cut -d "#" -f 1 | xargs)
+  if [[ -n "$row" ]]; then
+    uti=$(echo $row | cut -d " " -f 1 | xargs)
+    extension=$(echo $row | cut -d " " -f 2 | xargs)
+    echo "Setting \"$uti\" \"$extension\""
+    duti -s $uti $extension all
+  fi
+done < "$filepath"
