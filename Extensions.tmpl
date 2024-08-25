@@ -13,6 +13,14 @@ pncfbmialoiaghdehhbnbhkkgmjanfhe # uBlacklist
 ddkjiahejlhfcafbddmgiahcphecmpfh # uBlock Origin Lite
 dbepggeogbaibhgnhhndojpepiihcmeb # vimium
 
+# Only on Work machine
+{{- if eq .chezmoi.hostname "Olivers-WaxBook" }}
+
+  fmkadmapgofadopljbjfkapdkoienihi # React Developer Tools
+  lmhkpmbekcpmknklioeibfkpmmfibljd # Redux DevTools
+
+{{- end }}
+
 # Only on Personal machine
 {{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
 
