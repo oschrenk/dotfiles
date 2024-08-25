@@ -30,15 +30,14 @@ function Calendar.new(icons, focus)
       sbar.exec("/opt/homebrew/bin/plan next --ignore-tag timeblock --ignore-all-day-events", function(json)
         local event = json[1]
         if event ~= nil then
-          local legend = event.legend
-          local icon = legend.icon
-          local label = legend.description
+          local icon = event.title.icon
+          local label = event.title.label
           local suffix = ""
 
-          if event.starts_in < 0 then
-            suffix = ", " .. event.ends_in .. "m" .. " left"
+          if event["schedule"]["start"]["in"] < 0 then
+            suffix = ", " .. event["schedule"]["end"]["in"] .. "m" .. " left"
           else
-            suffix = " in " .. event.starts_in .. "m"
+            suffix = " in " .. event["schedule"]["start"]["in"] .. "m"
           end
           calendar:set({
             icon = {
@@ -52,7 +51,14 @@ function Calendar.new(icons, focus)
             drawing = true,
           })
 
-          local url = event.url
+          require("utils.debug")
+
+          local url = ""
+          for type, u in pairs(event["services"]) do
+            if type == "ical" then
+              url = u
+            end
+          end
           calendar:subscribe("mouse.clicked", function(_)
             sbar.exec("open '" .. url .. "'")
           end)
