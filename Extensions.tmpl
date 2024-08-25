@@ -1,18 +1,27 @@
+# vim: syntax=ruby filetype=ruby
+
 aeblfdkhhhdcdjpifhhbdiojplfjncoa # 1Password
 dgfnehmpeggdlmbblgjfbfioegibajlb # Completion Source Provider
 eimadpbcbfnmbkopoojfekhnkhdbieeh # Dark Reader
-ponfpcnoihfmfllpaingbgckeeldkhle # Enhancer for YouTube
 ippkeibgeeegemmdjhlhbdlcfjkgjann # Google Maps QuickClick
-aljlkinhomaaahfdojalfmimeidofpih # Hide YouTube Shorts
-pcmpcfapbekmbjjkdalcgopdkipoggdi # MarkDownload
 knjbgabkeojmfdhindppcmhhfiembkeb # Matter
-kkfmoaflbacidmgmkddkhjfdepckmggg # No stress booking
+pcmpcfapbekmbjjkdalcgopdkipoggdi # MarkDownload
 pkehgijcmpdhfbdbbnkijodmdjhbjlgp # Privacy Badger
 ldgfbffkinooeloadekpmfoklnobpien # Raindrop.io
-peifjmijpdkecmlpelpgejmekofaahki # Search Letterboxd
-mnjggcdmjocbbbhaepdhchncahnbgone # SponsorBlock for YouTube
 jaikcnhlohebodlpkmjepipngegjbfpg # Super Drag And Go
-cpgaheeihidjmolbakklolchdplenjai # Turbo Downloader for Instagram
 pncfbmialoiaghdehhbnbhkkgmjanfhe # uBlacklist
 ddkjiahejlhfcafbddmgiahcphecmpfh # uBlock Origin Lite
 dbepggeogbaibhgnhhndojpepiihcmeb # vimium
+
+# Only on Personal machine
+{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
+
+  ponfpcnoihfmfllpaingbgckeeldkhle # Enhancer for YouTube
+  aljlkinhomaaahfdojalfmimeidofpih # Hide YouTube Shorts
+  kkfmoaflbacidmgmkddkhjfdepckmggg # No stress booking
+  peifjmijpdkecmlpelpgejmekofaahki # Search Letterboxd
+  mnjggcdmjocbbbhaepdhchncahnbgone # SponsorBlock for YouTube
+  cpgaheeihidjmolbakklolchdplenjai # Turbo Downloader for Instagram
+
+{{- end }}
+

@@ -1,8 +1,12 @@
 #!/bin/zsh
 #
-# Extensions hash: {{ include "../Extensions" | sha256sum }}
+# Extensions hash: {{ include "../Extensions.tmpl" | sha256sum }}
 
-for extension in $(cat {{ joinPath .chezmoi.sourceDir "../Extensions" | quote }} | cut -d "#" -f 1)
+tmpfile=$(mktemp /tmp/chezmoi-extensions.XXXXXX)
+
+cat {{ joinPath .chezmoi.sourceDir "../Extensions.tmpl" | quote }} | chezmoi execute-template > $tmpfile
+
+for extension in $(cat $tmpfile | cut -d "#" -f 1)
 do
   extension install arc $extension
 done
