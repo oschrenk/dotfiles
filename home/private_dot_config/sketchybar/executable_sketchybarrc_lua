@@ -54,6 +54,11 @@ require("items.weather").new(icons.weather).add("right")
 require("items.battery").new(icons.battery).add("right")
 require("items.calendar").new(icons.calendar, focus).add("right")
 
+if isWork then
+  local tunnelblick = require("utils.tunnelblick").new()
+  require("items.tunnelblick").new(icons.tunnelblick, tunnelblick).add("right")
+end
+
 sbar.end_config()
 
 sbar.event_loop()

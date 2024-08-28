@@ -28,6 +28,8 @@ local symbols = {
   ["macwindow.and.cursorarrow"] = "􁝸",
   ["macwindow.on.rectangle"] = "􀢌",
   ["moon.fill"] = "􀆺",
+  ["network"] = "􀤆",
+  ["network.slash"] = "􁣡",
   ["person.fill"] = "􀉪",
   ["sleet"] = "􀇐",
   ["snowflake"] = "􀇥",
@@ -109,6 +111,10 @@ return {
   },
   project = {
     folder = symbols["folder"],
+  },
+  tunnelblick = {
+    active = symbols["network"],
+    inactive = symbols["network.slash"],
   },
   mission = {
     _dnd = symbols["moon.fill"],
