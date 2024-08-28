@@ -11,7 +11,7 @@ local system = require("utils.system")
 local hostname = system.getHostname()
 
 -- work hostname is not stable so test for personal hostname
-local isPersonal = hostname == "Olivers-MaxBook"
+local isPersonal = hostname == "Olivers-MaxBook.local"
 local isWork = not isPersonal
 
 -- bundle configuration into single message
