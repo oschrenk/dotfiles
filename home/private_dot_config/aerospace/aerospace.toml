@@ -316,5 +316,5 @@ if.app-id = 'com.apple.ActivityMonitor'
 run = 'layout floating'
 
 [[on-window-detected]]
-if.app-id = 'com.apple.Dictionary'
+if.app-id = 'com.colliderli.iina'
 run = 'layout floating'
