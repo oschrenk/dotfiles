@@ -6,7 +6,6 @@ return {
   background = {
     color = black,
     corner_radius = 5,
-    height = 26,
   },
   bar = {
     color = black,
