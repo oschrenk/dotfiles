@@ -113,6 +113,7 @@ Link device:
 - `task ollama` Install ollama models
 - `task lua` Install lua rocks
 - `task icons` Install icons
+- `task extensions` Install Arc Browser extensions
 
 ## Steam & Rosetta
 
