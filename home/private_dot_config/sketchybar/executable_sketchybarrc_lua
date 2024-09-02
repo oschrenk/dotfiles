@@ -19,7 +19,7 @@ sbar.begin_config()
 sbar.hotload(true)
 
 sbar.bar({
-  height = 32,
+  height = style.bar.height,
   color = style.bar.color,
   margin = 0,
   sticky = true,

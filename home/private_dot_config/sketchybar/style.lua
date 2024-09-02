@@ -9,6 +9,7 @@ return {
   },
   bar = {
     color = black,
+    height = 29,
   },
   icon = {
     font = {
