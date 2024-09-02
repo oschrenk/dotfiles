@@ -10,6 +10,16 @@ return {
   bar = {
     color = black,
     height = 29,
+    margin = 0,
+    sticky = true,
+    padding_left = 16,
+    padding_right = 16,
+    notch_width = 188,
+    font_smoothing = true,
+    shadow = false,
+    topmost = "window",
+    -- main, all, <positive_integer list>
+    display = "all",
   },
   icon = {
     font = {
