@@ -7,12 +7,18 @@ return {
     margin = 0,
     color = black,
     -- notch heights:
-    -- Mac 14.9
+    -- Macbook 14 (M1)
     --   1024x 665          : 22
     --   1147x 745          : 24
     --   1352x 878          : 29
     --   1512x 982 (default): 32
     --   1800x1169          : 38
+    -- Macbook 16 (M2)
+    --   1168x 756          : 22
+    --   1312x 848          : 24
+    --   1497x 976          : 28
+    --   1728x1117 (default): 32
+    --   2056x1329          : 38
     height = 32,
     sticky = true,
     padding_left = 16,
