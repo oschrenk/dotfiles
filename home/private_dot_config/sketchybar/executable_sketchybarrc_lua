@@ -19,12 +19,7 @@ sbar.begin_config()
 sbar.hotload(true)
 
 sbar.bar(style.bar)
-
-sbar.default({
-  background = style.background,
-  icon = style.icon,
-  label = style.label,
-})
+sbar.default(style.default)
 
 local focus = require("utils.focus").new()
 local sessionizer = require("utils.sessionizer").new()
