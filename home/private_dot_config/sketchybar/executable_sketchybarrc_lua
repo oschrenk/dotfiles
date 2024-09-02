@@ -2,9 +2,17 @@
 
 package.cpath = package.cpath .. ";/Users/" .. os.getenv("USER") .. "/.local/share/sketchybar_lua/?.so"
 
+-- dependencies
 local sbar = require("sketchybar")
+
+-- settings
 local style = require("style")
 local icons = require("icons")
+
+-- utilities
+local aerospace = require("utils.aerospace").new()
+local focus = require("utils.focus").new()
+local sessionizer = require("utils.sessionizer").new()
 local system = require("utils.system")
 
 -- bootstrap system variables
@@ -20,10 +28,6 @@ sbar.hotload(true)
 
 sbar.bar(style.bar)
 sbar.default(style.default)
-
-local focus = require("utils.focus").new()
-local sessionizer = require("utils.sessionizer").new()
-local aerospace = require("utils.aerospace").new()
 
 require("items.workspace").new(icons.workspaces, aerospace).add("left")
 require("items.sessions").new(icons.sessions, style.sessions).add("left")
