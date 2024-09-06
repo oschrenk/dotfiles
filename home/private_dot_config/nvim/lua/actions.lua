@@ -26,6 +26,7 @@ local augroup = vim.api.nvim_create_augroup
 
 -- clear: Clear existing commands if the group already exists
 local my_filetypes = augroup("MyFiletypes", { clear = true })
+local my_actions = augroup("MyActions", { clear = true })
 
 -- make .md markdown files
 autocmd({ "BufRead", "BufNewFile" }, {
@@ -51,4 +52,10 @@ autocmd({ "BufWritePost" }, {
   pattern = { "aerospace.toml" },
   command = "!aerospace reload-config",
   group = my_filetypes,
+})
+
+autocmd({ "FocusLost", "BufLeave" }, {
+  pattern = { "*" },
+  command = "silent! wa",
+  group = my_actions,
 })
