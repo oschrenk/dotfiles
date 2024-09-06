@@ -7,6 +7,17 @@ local Clock = {}
 -- @param icons Plugin specific icons
 function Clock.new(icons)
   local self = {}
+  local clocks = {}
+  local fmt <const> = "%a %d %b %H:%M"
+  local GT <const> = "guatemala"
+  local VN <const> = "vietnam"
+
+  local updateClocks = function()
+    local now = os.time()
+
+    clocks[GT]:set({ label = tz.date(fmt, now, "America/Guatemala") })
+    clocks[VN]:set({ label = tz.date(fmt, now, "Asia/Ho_Chi_Minh") })
+  end
 
   self.add = function(position)
     local clock = sbar.add("item", {
@@ -16,30 +27,23 @@ function Clock.new(icons)
     })
 
     clock:subscribe("mouse.entered", function(_)
+      updateClocks()
       clock:set({ popup = { drawing = true } })
     end)
     clock:subscribe("mouse.exited", function(_)
       clock:set({ popup = { drawing = false } })
     end)
 
-    local guatemala = sbar.add("item", {
+    clocks[GT] = sbar.add("item", {
       icon = icons.guatemala,
       position = "popup." .. clock.name,
     })
-    guatemala:subscribe({ "forced", "routine" }, function(_)
-      local time = tz.date("%a %d %b %H:%M", os.time(), "America/Guatemala")
-      guatemala:set({ label = time })
-    end)
 
-    local vietnam = sbar.add("item", {
+    clocks[VN] = sbar.add("item", {
       position = "popup." .. clock.name,
       icon = icons.vietnam,
       label = "Vietnam",
     })
-    vietnam:subscribe({ "forced", "routine" }, function(_)
-      local time = tz.date("%a %d %b %H:%M", os.time(), "Asia/Ho_Chi_Minh")
-      vietnam:set({ label = time })
-    end)
 
     clock:subscribe({ "forced", "routine", "system_woke" }, function(_)
       clock:set({ label = os.date("%a %d %b %H:%M") })
