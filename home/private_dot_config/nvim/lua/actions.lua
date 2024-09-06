@@ -46,7 +46,9 @@ autocmd({ "BufRead", "BufNewFile" }, {
   group = my_filetypes,
 })
 
-vim.api.nvim_create_autocmd("BufWritePost", {
+-- reload aerospace on config change
+autocmd({ "BufWritePost" }, {
   pattern = { "aerospace.toml" },
   command = "!aerospace reload-config",
+  group = my_filetypes,
 })
