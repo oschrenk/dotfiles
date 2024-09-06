@@ -26,7 +26,6 @@ local augroup = vim.api.nvim_create_augroup
 
 -- clear: Clear existing commands if the group already exists
 local my_filetypes = augroup("MyFiletypes", { clear = true })
-local my_sketchybar = augroup("MySketchybar", { clear = true })
 
 -- make .md markdown files
 autocmd({ "BufRead", "BufNewFile" }, {
