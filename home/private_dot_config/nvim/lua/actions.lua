@@ -54,6 +54,7 @@ autocmd({ "BufWritePost" }, {
   group = my_filetypes,
 })
 
+-- autosave when leaving buffer (to other tmux pane)
 autocmd({ "FocusLost", "BufLeave" }, {
   pattern = { "*" },
   command = "silent! wa",
