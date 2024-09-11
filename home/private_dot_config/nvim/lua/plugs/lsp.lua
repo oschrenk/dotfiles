@@ -28,7 +28,7 @@ local ensure_installed = {
   -- see also https://github.com/williamboman/mason.nvim/issues/208#issuecomment-1200488465
   -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sourcekit
   -- "sourcekit",
-  "tsserver",
+  "ts_ls",
 }
 
 return {
@@ -107,8 +107,8 @@ return {
               },
             })
           end,
-          ["tsserver"] = function()
-            lspconfig.tsserver.setup({
+          ["ts_ls"] = function()
+            lspconfig.ts_ls.setup({
               capabilities = lsp_capabilities,
               settings = {
                 completions = {
