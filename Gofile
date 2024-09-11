@@ -6,3 +6,4 @@ honnef.co/go/tools/cmd/staticcheck@latest     # static checker
 github.com/air-verse/air@latest               # watch file changes
 github.com/jesseduffield/lazydocker@latest    # docker cli
 golang.org/x/telemetry/cmd/gotelemetry@latest # go telemetry
+zgo.at/uni/v2@latest                          # unicode lookup
