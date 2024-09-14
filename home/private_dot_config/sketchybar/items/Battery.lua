@@ -8,7 +8,7 @@ function Battery.new(icons)
     local battery = sbar.add("item", {
       position = position,
       label = { drawing = false },
-      update_freq = 120,
+      update_freq = 300,
     })
 
     battery:subscribe("mouse.clicked", function(_)
