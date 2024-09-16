@@ -8,6 +8,7 @@ return {
   opts = {
     -- add any opts here
   },
+  build = ":AvanteBuild",
   keys = {
     {
       "<leader>aa",
