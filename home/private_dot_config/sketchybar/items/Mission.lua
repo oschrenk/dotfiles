@@ -68,7 +68,7 @@ function Mission.new(icons, focus)
 
       mission:subscribe("mouse.clicked", function(_)
         local today = os.date("%Y-%m-%d")
-        local click_cmd = 'open "obsidian://advanced-uri?vault=ff2071cf269715b7&filepath=' .. path .. today .. '.md"'
+        local click_cmd = 'open "obsidian://advanced-uri?vault=memex&filepath=' .. path .. today .. '.md"'
         sbar.exec(click_cmd)
       end)
     end
