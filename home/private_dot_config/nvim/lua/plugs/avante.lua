@@ -44,29 +44,7 @@ return {
     -- "nvim-tree/nvim-web-devicons"
     "nvim-tree/nvim-web-devicons", -- optional
     {
-      -- support for image pasting
-      -- https://github.com/HakonHarnes/img-clip.nvim
-      "HakonHarnes/img-clip.nvim",
-      opts = {
-        -- recommended settings
-        default = {
-          embed_image_as_base64 = false,
-          prompt_for_file_name = false,
-          drag_and_drop = {
-            insert_mode = true,
-          },
-          -- required for Windows users
-          use_absolute_path = true,
-        },
-      },
-    },
-    {
-      -- https://github.com/MeanderingProgrammer/render-markdown.nvim
-      "MeanderingProgrammer/render-markdown.nvim",
-      opts = {
-        file_types = { "markdown", "Avante" },
-      },
-      ft = { "markdown", "Avante" },
+      -- see markdown setup in markdown.nvim
     },
   },
 }
