@@ -74,7 +74,7 @@ return {
             "-I",
             "-H",
             "-E",
-            "{.git,.svn,.hg,CSV,.DS_Store,Thumbs.db,node_modules,bower_components,*.code-search,target,.bloop,.idea}",
+            "{.git,.svn,.hg,CSV,.DS_Store,Thumbs.db,node_modules,bower_components,*.code-search,target,.bloop,.idea,.build}",
             "-t",
             "f",
           },
