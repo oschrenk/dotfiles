@@ -19,6 +19,7 @@ local ensure_installed = {
   "html",
   "lua_ls",
   "marksman",
+  "ts_ls",
   -- metals can't be managed via mason
   -- "metals"
   --
@@ -28,7 +29,6 @@ local ensure_installed = {
   -- see also https://github.com/williamboman/mason.nvim/issues/208#issuecomment-1200488465
   -- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#sourcekit
   -- "sourcekit",
-  "ts_ls",
 }
 
 return {
