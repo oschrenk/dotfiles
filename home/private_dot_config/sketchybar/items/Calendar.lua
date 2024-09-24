@@ -1,4 +1,5 @@
 local sbar = require("sketchybar")
+local strings = require("utils.strings")
 
 -- Requirements
 --   brew install ical-buddy
@@ -30,7 +31,7 @@ function Calendar.new(icons, focus)
       sbar.exec("/opt/homebrew/bin/plan next --ignore-tags timeblock --ignore-all-day-events", function(json)
         local event = json[1]
         if event ~= nil then
-          local icon = event.title.icon
+          local icon = strings.TrimToNil(event.title.icon) or icons.default
           local label = event.title.label
           local suffix = ""
 
