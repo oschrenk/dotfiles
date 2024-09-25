@@ -1,0 +1,8 @@
+{
+    "extensions.experimental.affinity": {
+        "asvetliakov.vscode-neovim": 1
+    },
+    "editor.accessibilitySupport": "off",
+    "editor.fontSize": 18,
+    "window.zoomLevel": 1.5
+}
