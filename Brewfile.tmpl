@@ -309,7 +309,10 @@ vscode "redhat.vscode-yaml"          # Yaml, Syntax
 vscode "mk12.better-git-line-blame"  # git blame
 
 # only on work machine
-{{- if eq .chezmoi.hostname "Olivers-WaxBook" }}
+# work hostname is flakey
+#
+{{- if eq .chezmoi.hostname "Olivers-WaxBook" ||
+    if eq .chezmoi.hostname "Olivers-MacBook-Pro" }}
   vscode "ms-vsliveshare.vsliveshare" # collaborate with others
   vscode "GitLab.gitlab-workflow"     # gitlab
 {{- end }}
