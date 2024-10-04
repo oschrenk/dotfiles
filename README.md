@@ -10,6 +10,10 @@ Name your machine
 
 > On your Mac the local hostname is the computer’s name with `.local` added, and any spaces are replaced with hyphens
 
+Check chezmois idea of the hostname via:
+```
+chezmoi execute-template '{{ .chezmoi.hostname }}'
+```
 
 Install homebrew and bootstrap requirements
 
