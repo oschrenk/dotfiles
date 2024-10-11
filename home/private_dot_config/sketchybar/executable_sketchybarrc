@@ -29,7 +29,6 @@ sbar.hotload(true)
 sbar.bar(style.bar)
 sbar.default(style.default)
 
-require("items.workspace").new(icons.workspaces, aerospace).add("left")
 require("items.sessions").new(icons.sessions, style.sessions).add("left")
 require("items.windows").new(icons.windows, style.windows).add("left")
 require("items.mission").new(icons.mission, focus).add("left")
