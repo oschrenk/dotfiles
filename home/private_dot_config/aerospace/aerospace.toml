@@ -177,15 +177,15 @@ alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
+#######################################
+# WORKSPACES
+#######################################
+
 # Popular bundle ids
 # https://nikitabobko.github.io/AeroSpace/goodness#popular-apps-ids
 # 
 # Find bundle id
 # $ osascript -e 'id of app "Arc"'
-
-#######################################
-# WORKSPACES
-#######################################
 
 #++++++++++++++++++++++++++++++++++++++
 # workspace.AFFINITY
