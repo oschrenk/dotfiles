@@ -1,4 +1,3 @@
-import = ["/Users/oliver/.config/alacritty/themes/active.toml"]
 
 [cursor]
 unfocused_hollow = true
@@ -65,7 +64,7 @@ mods = "Command"
 history = 10000
 multiplier = 3
 
-[shell]
+[terminal.shell]
 args = [
   "--login",
   "--init-command",
@@ -80,3 +79,8 @@ option_as_alt = "Both"
 [window.padding]
 x = 3
 y = 0
+
+[general]
+import = ["/Users/oliver/.config/alacritty/themes/active.toml"]
+
+[terminal]
