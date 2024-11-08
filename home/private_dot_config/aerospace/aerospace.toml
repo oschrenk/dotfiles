@@ -184,8 +184,10 @@ alt-shift-l = ['join-with right', 'mode main']
 # Popular bundle ids
 # https://nikitabobko.github.io/AeroSpace/goodness#popular-apps-ids
 # 
-# Find bundle id
+# Find bundle ids and windows names
 # $ osascript -e 'id of app "Arc"'
+# $ aerospace list-apps
+# $ aerospace list-windows --all
 
 #++++++++++++++++++++++++++++++++++++++
 # workspace.AFFINITY
