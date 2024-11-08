@@ -219,11 +219,11 @@ if.app-id = 'org.alacritty'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-id = 'com.neovide.neovide'
-run = 'move-node-to-workspace 1'
+if.app-id = 'com.jetbrains.intellij.ce'
+run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
-if.app-id = 'com.jetbrains.intellij.ce'
+if.window-title-regex-substring = 'Merge Revisions'
 run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
