@@ -2,7 +2,7 @@
 ignore = [".build", "node_modules", "private"]
 
 [default]
-name = "default"
+name = "home"
 path = "$HOME/Downloads"
 
 [search]
