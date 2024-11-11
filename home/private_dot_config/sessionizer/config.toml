@@ -7,10 +7,6 @@ path = "$HOME/Downloads"
 
 [search]
 # recrusively search git directories
-directories = [
-  "$HOME/Projects"
-]
+directories = ["$HOME/Projects"]
 
-entries = [
-  "$HOME/.local/share/chezmoi"
-]
+entries = ["$HOME/.local/share/chezmoi"]
