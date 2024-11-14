@@ -5,6 +5,12 @@ trap 'echo exit; exit' INT TERM
 BASEDIR="$( chezmoi source-path )/../"
 
 #--------------------------------------
+# docs
+#--------------------------------------
+echo "This script requires App Managment permissions for the executing shell"
+echo "Settings > Privacy & Security > App Managment"
+
+#--------------------------------------
 # fileicon resistant apps
 #--------------------------------------
 # calibre uses it's own image to load the dock item
