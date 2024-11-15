@@ -1,0 +1,109 @@
+{
+  "general_settings": {
+    "betaFeatures": false,
+    "legacyMode": false,
+    "showMoreActionsButton": false,
+    "silentOpen": false
+  },
+  "highlighter_settings": {
+    "alwaysShowHighlights": true,
+    "highlightBehavior": "replace-content",
+    "highlighterEnabled": true
+  },
+  "interpreter_settings": {
+    "anthropicApiKey": "",
+    "defaultPromptContext": "{{fullHtml|strip_tags:(\"script,h1,h2,h3,h4,h5,h6,meta,a,ol,ul,li,p,em,strong,i,b,img,video,audio,math,tablecite,strong,td,th,tr,caption,u\")|strip_attr:(\"alt,src,href,id,content,property,name,datetime,title\")}}",
+    "interpreterAutoRun": false,
+    "interpreterEnabled": false,
+    "interpreterModel": "gpt-4o-mini",
+    "models": [
+      {
+        "baseUrl": "https://api.openai.com/v1/chat/completions",
+        "enabled": true,
+        "id": "gpt-4o-mini",
+        "name": "GPT-4o Mini",
+        "provider": "OpenAI"
+      },
+      {
+        "baseUrl": "https://api.openai.com/v1/chat/completions",
+        "enabled": true,
+        "id": "gpt-4o",
+        "name": "GPT-4o",
+        "provider": "OpenAI"
+      },
+      {
+        "baseUrl": "https://api.openai.com/v1/chat/completions",
+        "enabled": true,
+        "id": "gpt-o1-mini",
+        "name": "GPT-o1 Mini",
+        "provider": "OpenAI"
+      },
+      {
+        "baseUrl": "https://api.anthropic.com/v1/messages",
+        "enabled": true,
+        "id": "claude-3-5-sonnet-20240620",
+        "name": "Claude 3.5 Sonnet",
+        "provider": "Anthropic"
+      },
+      {
+        "baseUrl": "https://api.anthropic.com/v1/messages",
+        "enabled": true,
+        "id": "claude-3-haiku-20240307",
+        "name": "Claude 3 Haiku",
+        "provider": "Anthropic"
+      },
+      {
+        "baseUrl": "https://api.anthropic.com/v1/messages",
+        "enabled": true,
+        "id": "claude-3-opus-20240229",
+        "name": "Claude 3 Opus",
+        "provider": "Anthropic"
+      }
+    ],
+    "openaiApiKey": ""
+  },
+  "property_types": [
+    {
+      "defaultValue": "{{title}}",
+      "name": "title",
+      "type": "text"
+    },
+    {
+      "defaultValue": "{{url}}",
+      "name": "source",
+      "type": "text"
+    },
+    {
+      "defaultValue": "{{author|split:\", \"|wikilink|join}}",
+      "name": "author",
+      "type": "multitext"
+    },
+    {
+      "defaultValue": "{{published}}",
+      "name": "published",
+      "type": "date"
+    },
+    {
+      "defaultValue": "{{date}}",
+      "name": "created",
+      "type": "date"
+    },
+    {
+      "defaultValue": "{{description}}",
+      "name": "description",
+      "type": "text"
+    },
+    {
+      "defaultValue": "clippings",
+      "name": "tags",
+      "type": "multitext"
+    }
+  ],
+  "template_17268127389655knth6es5": [
+    "ᯡࡅ䁬⁼ၦǸʀච๙Ⴃᣰ✪ŹЭ〮怫䀫ਢ䰦㨲:ࢄѐ஋☰ª栣ᯐ֐ǐ冂(歪嶠᮸G⼠捵嬌ᒚ妶⯰݅歠౭㏎澀怴恉䛰ؑ㪰ċ啷䀣ภ ॆ⚶⠠㰡琠敕⒡䣶䀬ᙴ勲⥍⫶䥸ᶦ問⥦甕⭈㶉⨮ظV吲௨䕠憂瀩Р猠ୁԠև䀤秃ツ᳼帧Ꮮ䐡⻦ᄱ猇洽以嘪ℙ㊖丹ᆖ㏵ↀ丈䰼㸱+氁揧㎀ᗄ掆庚㊨啣⍗᡺ⲡ沿ᢽㄢ㛻Ⱟ⏸䀧ᇱ噡仍◰䚲ࠠ⎤ʠ䀴⨲̐䶀兕ۂ䦞䗍䰤ወ㔠Ѐϙ䁄ᠬ⌡䡄ࡌယ㤂ᓷ㟺ༀㇾޤ娷㭪䜨㩨₯ܫ栨ṟ焐䓲㍞䋂桰⬴候汪䫌ʹ㘌囿炢瑜ీ⮧ᬇ᭨䉡㻸☪䑠ᖺ㚼泶朓ᥙ㍕瓦硄ࠔ⸜䍤瘶浨夣惲㣲ᠪ畉巐С䋱䀾εᅄ絚瀭῀㍹䪬䐯纰彖ࢬ涨筹⍡ႈ㡣旆棘䆵炧堽㴷ᰚ㓬䞣憆筲ݗ䌄⒮⽚ࠢ瑖唸ǰ瑊㼔Ͱ⹠粺┭䇁† "
+  ],
+  "template_list": [
+    "17268127389655knth6es5"
+  ],
+  "vaults": []
+}
