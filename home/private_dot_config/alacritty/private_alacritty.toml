@@ -68,7 +68,7 @@ multiplier = 3
 args = [
   "--login",
   "--init-command",
-  "/opt/homebrew/bin/sessionizer start; tmux attach -t default",
+  "/opt/homebrew/bin/sessionizer start; tmux attach -t home",
 ]
 program = "/opt/homebrew/bin/fish"
 
