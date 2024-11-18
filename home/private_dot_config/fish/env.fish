@@ -112,8 +112,3 @@ set -x SSH_AUTH_SOCK "$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/
 #############################
 # automatically offer all $HOME/.kube/config.d/*.yml as K8s configs
 set -x KUBECONFIG (find $HOME/.kube/config.d -name "*.yml" -o -name '*.yaml' | sort | xargs echo | sed 's/ /:/g')
-
-#############################
-# Claude
-#############################
-set -x ANTHROPIC_API_KEY (op read "op://Personal/klbcel2ndipncvrw5kx6sohzru/API Key - Avante")
