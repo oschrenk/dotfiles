@@ -1,6 +1,7 @@
 # vim: filetype=ruby
 github.com/air-verse/air@latest               # watch file changes
 github.com/catilac/plistwatch@latest          # watch plist changes
+github.com/dbohdan/recur@latest               # repeat commands
 github.com/jesseduffield/lazydocker@latest    # docker cli
 github.com/spf13/cobra-cli@latest             # cli generator
 golang.org/x/telemetry/cmd/gotelemetry@latest # go telemetry
