@@ -40,6 +40,9 @@ defaults write "com.colliderli.iina" "ytdlSearchPath" '"/opt/homebrew/bin/yt-dlp
 echo "IINA: Don't autoplay next item"
 defaults write "com.colliderli.iina" "playlistAutoPlayNext" '0'
 
+echo "IINA: Don't seek with horizontal scroll"
+defaults write "com.colliderli.iina" "horizontalScrollAction" '2'
+
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
