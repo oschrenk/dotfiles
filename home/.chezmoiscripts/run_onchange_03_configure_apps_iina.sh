@@ -30,7 +30,7 @@ defaults delete "com.colliderli.iina" "resumeLastPosition"
 echo "IINA: Don't open new windows"
 defaults write "com.colliderli.iina" "alwaysOpenInNewWindow" '0'
 
-echo "IINA: Quite after closing window"
+echo "IINA: Quit after closing window"
 defaults write "com.colliderli.iina" "quitWhenNoOpenedWindow" '1'
 
 echo "IINA: Enable yt-dlp"
