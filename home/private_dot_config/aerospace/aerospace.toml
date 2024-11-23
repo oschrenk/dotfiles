@@ -34,7 +34,9 @@ default-root-container-orientation = 'auto'
 # Drop it from your config, if you don't like this behavior
 # See https://nikitabobko.github.io/AeroSpace/guide#on-focus-changed-callbacks
 # See https://nikitabobko.github.io/AeroSpace/commands#move-mouse
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+# Slack sometimes steals focus (during huddles)
+# on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 # Notify Sketchybar about workspace change
 # See https://nikitabobko.github.io/AeroSpace/guide#exec-on-workspace-change-callback
