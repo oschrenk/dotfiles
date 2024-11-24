@@ -349,3 +349,7 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
 run = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.sbs.diet'
+run = 'layout floating'
