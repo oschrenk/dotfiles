@@ -313,13 +313,13 @@ vscode "mk12.better-git-line-blame"  # git blame
 # only on work machine
 # work hostname is flakey
 #
-{{- if eq .chezmoi.hostname "Olivers-WaxBook" ||
-    if eq .chezmoi.hostname "Olivers-MacBook-Pro" }}
+{{- if or (eq .chezmoi.hostname "Olivers-WaxBook")
+    (eq .chezmoi.hostname "Olivers-MacBook-Pro") }}
   vscode "ms-vsliveshare.vsliveshare" # collaborate with others
   vscode "GitLab.gitlab-workflow"     # gitlab
 {{- end }}
 
-# only on personal machine
+# only on personal machiniie
 {{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
   vscode "scala-lang.scala"            # Scala, Syntax
   vscode "scalameta.metals"            # Scala, Metals
