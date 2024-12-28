@@ -49,6 +49,11 @@ initial-command = /opt/homebrew/bin/fish --login --interactive --init-command "/
 theme = "GruvboxDark"
 mouse-hide-while-typing = true
 
+# Clipboard
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+
 # Keybindings
 #   see also https://ghostty.org/docs/config/reference#keybind
 #   ghostty +list-keybinds
