@@ -1,0 +1,50 @@
+# vim: filetype=ruby
+
+# Reference
+#   see also https://ghostty.org/docs/config
+
+# Reload configuration at runtime via cmd+shift+,
+
+# Window Decoration
+# see also https://ghostty.org/docs/config/reference#window-decoration
+window-decoration = false
+window-padding-x = 3
+window-padding-y = 0
+initial-window = true
+quit-after-last-window-closed = true
+
+# Font Configuration
+#   to list valid fonts `ghostty +list-fonts`
+font-size = 22
+font-family = "JetBrainsMono Nerd Font Mono"
+font-style = "ExtraLight"
+font-style-bold = "Regular"
+font-style-italic = "ExtraLight Italic"
+font-style-bold-italic = "Regular Italic"
+font-thicken = true
+
+# Cursor
+#  see also https://ghostty.org/docs/config/reference#cursor-style
+cursor-style = block
+
+# Shell
+# see also
+#   https://ghostty.org/docs/config/reference#initial-command
+#   https://ghostty.org/docs/config/reference#shell-integration
+shell-integration = fish
+command = /opt/homebrew/bin/fish --login --interactive
+initial-command = /opt/homebrew/bin/fish --login --interactive --init-command "/opt/homebrew/bin/sessionizer start; tmux attach -t home"
+
+# Appearance
+#   see also
+#   https://ghostty.org/docs/config/reference#mouse-hide-while-typing
+# to list valid themes:
+#   ghostty +list-themes
+theme = "GruvboxDark"
+mouse-hide-while-typing = true
+
+# Keybindings
+#   see also https://ghostty.org/docs/config/reference#keybind
+#   ghostty +list-keybinds
+keybind = super+n=unbind
+keybind = super+t=unbind
