@@ -1,8 +1,14 @@
 # vim: filetype=ruby
 
 # Reference
-#   see also https://ghostty.org/docs/config
-
+#   see also https://ghostty.org/docs/config/reference
+#
+# Docs
+#   `ghostty +show-config --default --docs | nvim`
+#
+# Examples:
+#   see https://github.com/search?q=path%3Aghostty%2Fconfig&type=code
+#
 # Reload configuration at runtime via cmd+shift+,
 
 # Window Decoration
