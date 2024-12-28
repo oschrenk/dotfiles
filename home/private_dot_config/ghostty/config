@@ -54,8 +54,14 @@ clipboard-read = allow
 clipboard-write = allow
 clipboard-trim-trailing-spaces = true
 
+# Quick Terminal
+quick-terminal-position = top
+quick-terminal-screen = mouse
+quick-terminal-autohide = true
+
 # Keybindings
 #   see also https://ghostty.org/docs/config/reference#keybind
 #   ghostty +list-keybinds
 keybind = super+n=unbind
 keybind = super+t=unbind
+keybind = global:cmd+`=toggle_quick_terminal
