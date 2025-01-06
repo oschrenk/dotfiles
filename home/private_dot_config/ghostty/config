@@ -59,8 +59,12 @@ quick-terminal-position = top
 quick-terminal-screen = mouse
 quick-terminal-autohide = true
 
+# Keyboard
+# https://ghostty.org/docs/config/reference#macos-option-as-alt
+macos-option-as-alt = true
+
 # Keybindings
-#   see also https://ghostty.org/docs/config/reference#keybind
+#   https://ghostty.org/docs/config/reference#keybind
 #   ghostty +list-keybinds
 keybind = super+n=unbind
 keybind = super+t=unbind
