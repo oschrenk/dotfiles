@@ -57,7 +57,7 @@ function Mission.new(icons, focus)
             local text = strings.Trim(maybeTasks[1].text, MaxLength)
             mission:set({ icon = icon, label = { string = text, drawing = true } })
           else
-            mission:set({ icon = icon, label = { string = "No tasks", drawing = true } })
+            mission:set({ icon = icon, label = { string = "", drawing = true } })
           end
         end
       end)
