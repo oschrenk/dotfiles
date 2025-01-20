@@ -29,60 +29,60 @@ palette = 'gruvbox'
 style = 'bold green'
 
 [kubernetes]
-disabled     = false
+disabled = false
 detect_files = [".kube"]
-format       = '[$symbol $context$namespace]($style) '
-symbol       = '🛶'
-style        = 'aqua'
+format = '[$symbol $context $namespace]($style) '
+symbol = '🛶'
+style = 'aqua'
 
 [git_branch]
 symbol = '🌿'
-style  = "bold yellow"
+style = "bold yellow"
 
 [git_metrics]
-disabled          = false
-added_style       = 'green'
-deleted_style     = 'red'
-format            = '([+$added]($added_style))([-$deleted]($deleted_style) )'
+disabled = false
+added_style = 'green'
+deleted_style = 'red'
+format = '([+$added]($added_style))([-$deleted]($deleted_style) )'
 ignore_submodules = true
 
 [git_status]
 # not including modified, preferring git_metrics
-format     = "$ahead$behind$diverged$conflicted$deleted$staged$renamed$untracked$stashed"
+format = "$ahead$behind$diverged$conflicted$deleted$staged$renamed$untracked$stashed"
 conflicted = "[≠$count ](bold red)"
-ahead      = "[⇡$count ](bold purple)"
-behind     = "[⇣$count ](bold purple)"
-diverged   = "[⇕$count ](bold purple)"
-untracked  = "[+$count ](bold orange)"
-modified   = "[~$count ](bold yellow)"
-staged     = "[++$count ](bold green)"
-renamed    = "[»$count ](bold white)"
-deleted    = "[✘$count ](bold red)"
-stashed    = "[x$count ](bold purple)"
+ahead = "[⇡$count ](bold purple)"
+behind = "[⇣$count ](bold purple)"
+diverged = "[⇕$count ](bold purple)"
+untracked = "[+$count ](bold orange)"
+modified = "[~$count ](bold yellow)"
+staged = "[++$count ](bold green)"
+renamed = "[»$count ](bold white)"
+deleted = "[✘$count ](bold red)"
+stashed = "[x$count ](bold purple)"
 
 [cmd_duration]
 style = 'bold yellow'
 
 [custom.docker]
-description  = "Shows the docker symbol if the current directory has Dockerfile or docker-compose.yml files"
+description = "Shows the docker symbol if the current directory has Dockerfile or docker-compose.yml files"
 detect_files = ["Dockerfile", "docker-compose.yml", "docker-compose.yaml"]
-format       = '[with $symbol ]($style)'
-style        = 'white'
-symbol       = '🐳'
+format = '[with $symbol ]($style)'
+style = 'white'
+symbol = '🐳'
 
 # define custom colors
 [palettes.gruvbox]
-aqua   = '#8ec07c'
-blue   = '#83a598'
-gray   = '#928374'
-green  = '#b8bb26'
+aqua = '#8ec07c'
+blue = '#83a598'
+gray = '#928374'
+green = '#b8bb26'
 orange = '#fe8019'
 purple = '#d3869b'
-red    = '#fb4934'
-white  = '#ebdbb2' # fg
+red = '#fb4934'
+white = '#ebdbb2'  # fg
 yellow = '#fabd2f'
 # fg colors
-fg  = '#ebdbb2'
+fg = '#ebdbb2'
 fg0 = '#fbf1c7'
 fg1 = '#ebdbb2'
 fg2 = '#bdae93'
