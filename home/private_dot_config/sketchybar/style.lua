@@ -1,5 +1,5 @@
 local black = 0xff000000
-local white = 0xffcad3f5
+local white = 0xffe8dcb7
 local grey = 0xff484848
 
 return {
