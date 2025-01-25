@@ -10,10 +10,21 @@ git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/Sbar
 
 ## Debugging
 
+Print
+
+```
+# add debug statement
+print("debug")
+```
+
 Tailing logs
 
 ```
+# stdout
 tail -f /opt/homebrew/var/log/sketchybar/sketchybar.out.log
+
+# stderr
+tail -f /opt/homebrew/var/log/sketchybar/sketchybar.errlog
 ```
 
 ## Handling clicks
