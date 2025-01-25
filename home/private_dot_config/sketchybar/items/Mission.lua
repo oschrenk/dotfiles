@@ -6,12 +6,19 @@ local strings = require("utils.Strings")
 --  brew tap oschrenk/made
 --  brew install mission
 --
---  To watch for changes and subscribe to events
---   brew services start mission
---  Then allow
---   "System Settings" > "Privacy & Security" > "Full Disk Access", allow mission
+-- To support focus changes, and faster feedback, run the service
+--  brew services start mission
+--
+-- `mission` will watching iCloud and system files (to identify macOS Focus),
+--  To work properly we need give to give sketchybar and mission full disk access
+--  Then allow sketchybar full disk access
+--   "System Settings" > "Privacy & Security" > "Full Disk Access", allow
+--   `/opt/homebrew/bin/mission` and
+--   `/opt/homebrew/bin/sketchybar`
+--
+--  Then restart both services
 --   brew services restart mission
---  This is because we are watching iCloud and system files (for macOS Focus)
+--   brew services restart sketchybar
 local Mission = {}
 
 -- @param icons Plugin specific icons
