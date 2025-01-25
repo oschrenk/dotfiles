@@ -1,0 +1,9 @@
+{
+  "iconize": [
+    {
+      "field": "title.label",
+      "regex": "Movements Yoga",
+      "icon": "🪷"
+    }
+  ]
+}
