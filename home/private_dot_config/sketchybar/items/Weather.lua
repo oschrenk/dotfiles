@@ -10,19 +10,6 @@ function Weather.new(icons, wttr)
 
   local Location <const> = "Haarlem,NL"
 
-  -- request as json
-  -- while bigger, it has the convenience of being translated to a lua table
-  -- j1 = full json
-  -- j2 = "light weight" json without hourly data
-  local FormatString <const> = "j2"
-
-  local isValidResponse = function(wttr_json)
-    if wttr_json == nil then
-      return false
-    end
-    return true
-  end
-
   self.add = function(position)
     local weather = sbar.add("item", {
       position = position,
@@ -32,20 +19,12 @@ function Weather.new(icons, wttr)
     })
 
     local update = function()
-      local cmd = string.format("curl -s 'https://wttr.in/%s?m&format=%s'", Location, FormatString)
-
-      sbar.exec(cmd, function(wttr_json)
-        if isValidResponse(wttr_json) then
-          local current_condition = wttr_json.current_condition[1]
-          local code = current_condition.weatherCode
-          local label = current_condition.temp_C .. "°C"
-          local id = wttr.codeToIdentifier(code)
-          local icon = icons[id]
-
+      wttr.fetch(Location, function(data)
+        if data ~= nil then
           weather:set({
-            icon = icon,
+            icon = icons[data.id],
             label = {
-              string = label,
+              string = data.label,
               drawing = true,
             },
           })
@@ -59,6 +38,7 @@ function Weather.new(icons, wttr)
         end
       end)
     end
+    wttr.fetch(Location, update)
 
     weather:subscribe({ "forced", "routine", "system_woke" }, function(_)
       update()

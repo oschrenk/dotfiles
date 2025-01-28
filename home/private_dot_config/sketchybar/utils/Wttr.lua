@@ -1,3 +1,5 @@
+local sbar = require("sketchybar")
+
 local Wttr = {}
 
 function Wttr.new()
@@ -67,6 +69,36 @@ function Wttr.new()
     local clean = raw:sub(2)
 
     return clean
+  end
+
+  -- request as json
+  -- while bigger, it has the convenience of being translated to a lua table
+  -- j1 = full json
+  -- j2 = "light weight" json without hourly data
+  local FormatString <const> = "j2"
+
+  local isValidResponse = function(wttr_json)
+    if wttr_json == nil then
+      return false
+    end
+    return true
+  end
+
+  self.fetch = function(location, callback)
+    local cmd = string.format("curl -s 'https://wttr.in/%s?m&format=%s'", location, FormatString)
+
+    sbar.exec(cmd, function(wttr_json)
+      if isValidResponse(wttr_json) then
+        local current_condition = wttr_json.current_condition[1]
+        local code = current_condition.weatherCode
+        local label = current_condition.temp_C .. "°C"
+        local id = self.codeToIdentifier(code)
+
+        callback({ label = label, id = id })
+      else
+        callback(nil)
+      end
+    end)
   end
 
   return self
