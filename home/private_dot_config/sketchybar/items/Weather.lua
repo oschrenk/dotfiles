@@ -1,12 +1,11 @@
 require("utils.Strings")
-local Wttr = require("utils.Wttr")
-
 local sbar = require("sketchybar")
 
 local Weather = {}
 
 -- @param icons Plugin specific icons
-function Weather.new(icons)
+-- @param wttr wttr instance
+function Weather.new(icons, wttr)
   local self = {}
 
   local Location <const> = "Haarlem,NL"
@@ -40,7 +39,7 @@ function Weather.new(icons)
           local current_condition = wttr_json.current_condition[1]
           local code = current_condition.weatherCode
           local label = current_condition.temp_C .. "°C"
-          local id = Wttr.codeToIdentifier(code)
+          local id = wttr.codeToIdentifier(code)
           local icon = icons[id]
 
           weather:set({

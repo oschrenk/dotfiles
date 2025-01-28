@@ -14,6 +14,7 @@ local aerospace = require("utils.aerospace").new()
 local focus = require("utils.focus").new()
 local sessionizer = require("utils.sessionizer").new()
 local system = require("utils.system")
+local wttr = require("utils.wttr").new()
 
 -- bootstrap system variables
 local hostname = system.getHostname()
@@ -35,7 +36,7 @@ require("items.mission").new(icons.mission, focus).add("left")
 require("items.project").new(icons.project, sessionizer).add("left")
 
 require("items.clock").new(icons.clock).add("right")
-require("items.weather").new(icons.weather).add("right")
+require("items.weather").new(icons.weather, wttr).add("right")
 require("items.battery").new(icons.battery).add("right")
 require("items.calendar").new(icons.calendar, focus).add("right")
 
