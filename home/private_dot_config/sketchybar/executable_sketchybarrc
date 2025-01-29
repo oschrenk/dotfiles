@@ -10,7 +10,6 @@ local style = require("style")
 local icons = require("icons")
 
 -- utilities
-local aerospace = require("utils.aerospace").new()
 local focus = require("utils.focus").new()
 local sessionizer = require("utils.sessionizer").new()
 local system = require("utils.system")
