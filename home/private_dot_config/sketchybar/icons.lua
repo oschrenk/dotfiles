@@ -124,4 +124,7 @@ return {
     -- can't find original focus icon, closest seems to be clipboard
     _work = symbols["list.clipboard"],
   },
+  pomodoro = {
+    default = symbols["arrow.trianglehead.topright.capsulepath.clockwise"],
+  },
 }
