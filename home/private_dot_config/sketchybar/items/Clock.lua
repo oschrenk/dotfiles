@@ -40,9 +40,8 @@ function Clock.new(icons)
     })
 
     clocks[VN] = sbar.add("item", {
-      position = "popup." .. clock.name,
       icon = icons.vietnam,
-      label = "Vietnam",
+      position = "popup." .. clock.name,
     })
 
     clock:subscribe({ "forced", "routine", "system_woke" }, function(_)
