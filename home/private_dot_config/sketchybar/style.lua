@@ -1,11 +1,18 @@
-local black = 0xff000000
-local white = 0xffe8dcb7
-local grey = 0xff484848
+local palette = {
+  black = 0xff000000,
+  blue = 0xff8aa499,
+  green = 0xffb9bb46,
+  grey = 0xff484848,
+  red = 0xffe85841,
+  white = 0xffe8dcb7,
+  yellow = 0xfff1bf4f,
+}
 
 return {
+  palette = palette,
   bar = {
     margin = 0,
-    color = black,
+    color = palette.black,
     -- notch heights:
     -- Macbook 14 (M1)
     --   1024x 665          : 22
@@ -38,7 +45,7 @@ return {
         style = "Medium",
         size = 15.0,
       },
-      color = white,
+      color = palette.white,
       width = 30,
       align = "center",
       padding_left = 2,
@@ -52,26 +59,36 @@ return {
         style = "Regular",
         size = 14.0,
       },
-      color = white,
-      padding_left = 3,
-      padding_right = 3,
+      color = palette.white,
+      padding_left = 2,
+      padding_right = 2,
       y_offset = 0,
     },
     background = {
-      color = black,
+      color = palette.black,
       corner_radius = 5,
+    },
+    graph = {
+      color = palette.white,
+      fill_color = palette.white,
+      line_width = 0.5,
     },
   },
   sessions = {
-    active = white,
-    inactive = grey,
+    active = palette.white,
+    inactive = palette.grey,
   },
   windows = {
-    active = white,
-    inactive = grey,
+    active = palette.white,
+    inactive = palette.grey,
   },
   workspaces = {
-    active = white,
-    inactive = grey,
+    active = palette.white,
+    inactive = palette.grey,
+  },
+  pomodoro = {
+    active = palette.white,
+    inactive = palette.grey,
+    paused = palette.yello,
   },
 }
