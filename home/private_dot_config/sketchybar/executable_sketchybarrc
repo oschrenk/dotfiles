@@ -33,16 +33,12 @@ require("items.sessions").new(icons.sessions, style.sessions).add("left")
 require("items.windows").new(icons.windows, style.windows).add("left")
 require("items.mission").new(icons.mission, focus).add("left")
 require("items.project").new(icons.project, sessionizer).add("left")
+require("items.pomodoro").new(icons.pomodoro, style.pomodoro).add("left")
 
 require("items.clock").new(icons.clock).add("right")
 require("items.weather").new(icons.weather, wttr).add("right")
 require("items.battery").new(icons.battery).add("right")
 require("items.calendar").new(icons.calendar, focus).add("right")
-
-if isWork then
-  local tunnelblick = require("utils.tunnelblick").new()
-  require("items.tunnelblick").new(icons.tunnelblick, tunnelblick).add("right")
-end
 
 sbar.end_config()
 
