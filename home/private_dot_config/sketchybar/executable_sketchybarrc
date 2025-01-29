@@ -8,6 +8,7 @@ local sbar = require("sketchybar")
 -- settings
 local style = require("style")
 local icons = require("icons")
+local NotchWidth = 184
 
 -- utilities
 local focus = require("utils.focus").new()
@@ -33,7 +34,10 @@ require("items.sessions").new(icons.sessions, style.sessions).add("left")
 require("items.windows").new(icons.windows, style.windows).add("left")
 require("items.mission").new(icons.mission, focus).add("left")
 require("items.project").new(icons.project, sessionizer).add("left")
-require("items.pomodoro").new(icons.pomodoro, style.pomodoro).add("left")
+
+require("items.pomodoro").new(icons.pomodoro, style.pomodoro).add("center")
+require("items.spacer").new(NotchWidth).add("center")
+require("items.spacer").new(100).add("center")
 
 require("items.clock").new(icons.clock).add("right")
 require("items.weather").new(icons.weather, wttr).add("right")
