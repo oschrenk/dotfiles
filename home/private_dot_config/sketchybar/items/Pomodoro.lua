@@ -22,79 +22,73 @@ function Pomodoro.new(icons, style)
     return string.format("%02d:%02d", minutesLeft, secondsLeft)
   end
 
+  local drawBox = function(color, position)
+    sbar.add("item", {
+      position = position,
+      icon = {
+        drawing = false,
+      },
+      background = {
+        color = color,
+        corner_radius = 8,
+        height = 14,
+        padding_left = 3,
+        padding_right = 3,
+      },
+      label = {
+        padding_left = 4,
+        padding_right = 4,
+        font = {
+          size = 12.0,
+        },
+      },
+    })
+  end
+
   self.add = function(position)
-    local icon = sbar.add("item", {
+    drawBox(style.inactive, "q")
+    drawBox(style.inactive, "q")
+    drawBox(style.inactive, "q")
+    local spacer = sbar.add("item", {
       position = position,
-      label = { drawing = false },
-      icon = icons.default,
+      width = 184,
+      popup = {
+        y_offset = -8,
+        align = "center",
+        blur_radius = 10,
+      },
     })
+    drawBox(style.inactive, "e")
+    drawBox(style.inactive, "e")
+    drawBox(style.inactive, "e")
+
     local clock = sbar.add("item", {
-      position = position,
-      icon = { drawing = false },
+      position = "popup." .. spacer.name,
+      width = 184,
+      icon = { drawing = icons.default },
       label = {
+        width = 184,
+        align = "center",
         string = format(self.tick),
-        padding_left = 0,
-        padding_right = 3,
-      },
-      update_freq = secondsPerTick,
-    })
-    sbar.add("item", {
-      position = position,
-      icon = {
-        drawing = false,
       },
       background = {
-        color = style.inactive,
+        height = 40,
         corner_radius = 8,
-        height = 14,
-        padding_left = 3,
-        padding_right = 3,
-      },
-      label = {
-        padding_left = 4,
-        padding_right = 4,
-        font = {
-          size = 12.0,
-        },
       },
     })
-
-    sbar.add("item", {
-      position = position,
-      icon = {
-        drawing = false,
-      },
-      background = {
-        color = style.inactive,
-        corner_radius = 8,
-        height = 14,
-        padding_left = 3,
-        padding_right = 3,
-      },
-      label = {
-        padding_left = 4,
-        padding_right = 4,
-        font = {
-          size = 12.0,
-        },
-      },
-    })
-
-    clock:subscribe("mouse.clicked", function(_)
-      if self.running ~= true then
-        self.running = true
-        clock:set({ update_freq = secondsPerTick })
-      else
-        self.running = false
-        clock:set({ update_freq = 0 })
-      end
-    end)
 
     clock:subscribe({ "routine" }, function()
       if self.running == true then
         self.tick = self.tick + 1
         clock:set({ label = { string = format(self.tick) } })
       end
+    end)
+
+    spacer:subscribe("mouse.entered", function(_)
+      spacer:set({ popup = { drawing = true } })
+    end)
+    spacer:subscribe("mouse.exited", function(_)
+      spacer:set({ popup = { drawing = false } })
     end)
   end
 
