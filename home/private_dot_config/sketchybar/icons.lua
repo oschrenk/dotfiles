@@ -1,4 +1,5 @@
 local symbols = {
+  ["arrow.trianglehead.topright.capsulepath.clockwise"] = "􀤖",
   ["battery.0percent"] = "􀛪",
   ["battery.100percent"] = "􀛨",
   ["battery.100percent.bolt"] = "􀢋",
