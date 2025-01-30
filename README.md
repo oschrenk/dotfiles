@@ -97,6 +97,8 @@ After casks are installed you can already start important apps and configure the
   - Open to synchronize data
 - Spotify
   - download "Liked Songs"
+- sketchybar
+  - install [SbarLua](https://github.com/FelixKratz/SbarLua)
 
 Login:
 
