@@ -40,11 +40,11 @@ default-root-container-orientation = 'auto'
 
 # Notify Sketchybar about workspace change
 # See https://nikitabobko.github.io/AeroSpace/guide#exec-on-workspace-change-callback
-exec-on-workspace-change = [
-  '/bin/bash',
-  '-c',
-  '/opt/homebrew/opt/sketchybar/bin/sketchybar --trigger aerospace_workspace_changed FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
-]
+# exec-on-workspace-change = [
+#   '/bin/bash',
+#   '-c',
+#   '/opt/homebrew/opt/sketchybar/bin/sketchybar --trigger aerospace_workspace_changed FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE',
+# ]
 
 # Gaps between windows (inner-*) and between monitor edges (outer-*).
 # Possible values:
