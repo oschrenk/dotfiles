@@ -38,8 +38,7 @@ require("items.project").new(icons.project, sessionizer).add("left")
 require("items.pomodoro").new(icons.pomodoro, style.pomodoro).add("center")
 
 require("items.clock").new(icons.clock).add("right")
-
-require("items.weatherwttr").new(icons.weather, wttr).add("right")
+require("items.weathernative").new(style).add("right")
 require("items.battery").new(icons.battery).add("right")
 require("items.calendar").new(icons.calendar, focus).add("right")
 
