@@ -1,11 +1,11 @@
 require("utils.Strings")
 local sbar = require("sketchybar")
 
-local Weather = {}
+local WeatherWttr = {}
 
 -- @param icons Plugin specific icons
 -- @param wttr wttr instance
-function Weather.new(icons, wttr)
+function WeatherWttr.new(icons, wttr)
   local self = {}
 
   local Location <const> = "Haarlem,NL"
@@ -48,4 +48,4 @@ function Weather.new(icons, wttr)
   return self
 end
 
-return Weather
+return WeatherWttr
