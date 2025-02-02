@@ -66,6 +66,7 @@ macos-option-as-alt = true
 # Keybindings
 #   https://ghostty.org/docs/config/reference#keybind
 #   ghostty +list-keybinds
+#   [alt|ctrl|shift|super] + key
 keybind = super+n=unbind
 keybind = super+t=unbind
 keybind = global:cmd+`=toggle_quick_terminal
