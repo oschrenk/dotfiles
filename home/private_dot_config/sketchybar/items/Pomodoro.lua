@@ -2,28 +2,21 @@ local sbar = require("sketchybar")
 
 local Pomodoro = {}
 
--- @param icons Plugin specific icons
+-- @param pomodoro Pomodoro service
 -- @param style Plugin specific icons
-function Pomodoro.new(icons, style)
+--
+-- We support a maximum of 10 pomodoros per day
+-- That way this widget can be done statically, assuming
+-- a fixed number of elements instead of dynamically resizing
+function Pomodoro.new(pomodoro, style)
   local self = {}
 
-  local secondsPerTick = 1
-  local secondsMax = 25 * 60
+  self.clock = nil
+  self.done = {}
+  self.left = {}
 
-  self.running = false
-  self.tick = 0
-
-  local format = function(tick)
-    local secondsGone = tick * secondsPerTick
-    local totalSecondsLeft = secondsMax - secondsGone
-    local minutesLeft = math.floor(totalSecondsLeft / 60)
-    local secondsLeft = totalSecondsLeft % 60
-
-    return string.format("%02d:%02d", minutesLeft, secondsLeft)
-  end
-
-  local drawBox = function(value, color, position)
-    sbar.add("item", {
+  local createCounter = function(initialValue, color, position)
+    return sbar.add("item", {
       position = position,
       label = {
         font = {
@@ -31,7 +24,7 @@ function Pomodoro.new(icons, style)
           style = "Regular",
         },
         color = color,
-        string = value,
+        string = initialValue,
       },
       icon = { drawing = false },
       background = {
@@ -41,9 +34,40 @@ function Pomodoro.new(icons, style)
     })
   end
 
+  local createMap = function(count)
+    local m = {}
+    local c = math.floor(count / 2)
+    for i = 1, c do
+      m[i] = "2"
+    end
+    if count % 2 == 1 then
+      m[c + 1] = "1"
+    end
+
+    return m
+  end
+
+  local callback = function(state)
+    local time, done, left = state.time, state.done, state.left
+
+    local doneM = createMap(done)
+    for i, v in ipairs(doneM) do
+      self.done[i]:set({ label = { string = v } })
+    end
+
+    local leftM = createMap(left)
+    for i, v in ipairs(leftM) do
+      self.left[i]:set({ label = { string = v } })
+    end
+
+    self.clock:set({ label = { string = time } })
+  end
+
   self.add = function(position)
-    drawBox("2", style.done, "q")
-    drawBox("1", style.done, "q")
+    for i = 1, 5 do
+      self.done[i] = createCounter(" ", style.done, "q")
+    end
+
     local spacer = sbar.add("item", {
       position = position,
       width = 184,
@@ -52,41 +76,40 @@ function Pomodoro.new(icons, style)
         align = "center",
         blur_radius = 10,
       },
+      update_freq = 5,
     })
-    drawBox("2", style.active, "e")
-    drawBox("2", style.inactive, "e")
-    drawBox("1", style.inactive, "e")
 
-    local clock = sbar.add("item", {
+    for i = 1, 5 do
+      self.left[i] = createCounter(" ", style.inactive, "e")
+    end
+
+    self.clock = sbar.add("item", {
       position = "popup." .. spacer.name,
-      width = 184,
+      width = 120,
       icon = {
-        font = {
-          family = "pomodoro",
-          style = "Regular",
-          size = 15.0,
-        },
-        string = "1",
+        drawing = false,
       },
       label = {
-        width = 184,
+        font = {
+          size = 20.0,
+        },
+        width = 120,
         align = "center",
-        string = format(self.tick),
+        string = "00:00",
+        y_offset = -5,
       },
       background = {
-        height = 40,
-        corner_radius = 8,
+        height = 44,
+        corner_radius = 12,
       },
     })
 
-    clock:subscribe({ "routine" }, function()
-      if self.running == true then
-        self.tick = self.tick + 1
-        clock:set({ label = { string = format(self.tick) } })
-      end
+    spacer:subscribe({ "routine", "forced" }, function()
+      pomodoro.status(callback)
     end)
 
     spacer:subscribe("mouse.entered", function(_)
+      pomodoro.status(callback)
       spacer:set({ popup = { drawing = true } })
     end)
     spacer:subscribe("mouse.exited", function(_)
