@@ -14,7 +14,6 @@ local NotchWidth = 184
 local focus = require("utils.focus").new()
 local sessionizer = require("utils.sessionizer").new()
 local system = require("utils.system")
-local wttr = require("utils.wttr").new()
 
 -- bootstrap system variables
 local hostname = system.getHostname()
