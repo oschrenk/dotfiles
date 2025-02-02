@@ -21,7 +21,7 @@
 # DOCK
 #######################################
 
-# Sets "System Preferences > Dock & Menu Bar > Dock > Automatically hide and shiw the Dock
+# Sets "System Preferences > Dock & Menu Bar > Dock > Automatically hide and show the Dock
 # Tested on macOS 12.4
 # Requires 'killall Dock'
 echo "Dock: Automatically hide"
