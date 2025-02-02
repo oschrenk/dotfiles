@@ -6,6 +6,8 @@ BASEDIR="$( chezmoi source-path )/.."
 #--------------------------------------
 # docs
 #--------------------------------------
+echo "Applying Custom icons"
+echo ""
 echo "This script requires App Managment permissions for the executing shell"
 echo "Settings > Privacy & Security > App Managment"
 
