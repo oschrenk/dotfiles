@@ -13,6 +13,10 @@
 # KEYBOARD
 #######################################
 
+# requires https://github.com/oschrenk/keyboard.swift
+echo "Keyboard: Set auto-brightness"
+/opt/homebrew/bin/keyboard set --auto-brightness=true --idle-dim-time=10 --brightness=0
+
 echo "Keyboard: Set key repeat rate to 1 (normal minimum is 2 => 30 ms)"
 echo "To experiment with speeds go to https://mac-os-key-repeat.vercel.app/"
 defaults write "Apple Global Domain" "KeyRepeat" '1'
