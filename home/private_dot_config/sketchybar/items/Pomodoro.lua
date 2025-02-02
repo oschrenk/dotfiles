@@ -22,33 +22,28 @@ function Pomodoro.new(icons, style)
     return string.format("%02d:%02d", minutesLeft, secondsLeft)
   end
 
-  local drawBox = function(color, position)
+  local drawBox = function(value, color, position)
     sbar.add("item", {
       position = position,
-      icon = {
-        drawing = false,
-      },
-      background = {
-        color = color,
-        corner_radius = 8,
-        height = 14,
-        padding_left = 3,
-        padding_right = 3,
-      },
       label = {
-        padding_left = 4,
-        padding_right = 4,
         font = {
-          size = 12.0,
+          family = "pomodoro",
+          style = "Regular",
         },
+        color = color,
+        string = value,
+      },
+      icon = { drawing = false },
+      background = {
+        padding_left = 0,
+        padding_right = 0,
       },
     })
   end
 
   self.add = function(position)
-    drawBox(style.inactive, "q")
-    drawBox(style.inactive, "q")
-    drawBox(style.inactive, "q")
+    drawBox("2", style.done, "q")
+    drawBox("1", style.done, "q")
     local spacer = sbar.add("item", {
       position = position,
       width = 184,
@@ -58,14 +53,21 @@ function Pomodoro.new(icons, style)
         blur_radius = 10,
       },
     })
-    drawBox(style.inactive, "e")
-    drawBox(style.inactive, "e")
-    drawBox(style.inactive, "e")
+    drawBox("2", style.active, "e")
+    drawBox("2", style.inactive, "e")
+    drawBox("1", style.inactive, "e")
 
     local clock = sbar.add("item", {
       position = "popup." .. spacer.name,
       width = 184,
-      icon = { drawing = icons.default },
+      icon = {
+        font = {
+          family = "pomodoro",
+          style = "Regular",
+          size = 15.0,
+        },
+        string = "1",
+      },
       label = {
         width = 184,
         align = "center",

@@ -88,7 +88,8 @@ return {
   },
   pomodoro = {
     active = palette.white,
+    done = palette.green,
     inactive = palette.grey,
-    paused = palette.yello,
+    paused = palette.yellow,
   },
 }
