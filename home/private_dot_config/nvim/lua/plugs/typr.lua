@@ -1,6 +1,13 @@
 return {
   "nvzone/typr",
-  cmd = "TyprStats",
+  cmd = { "Typr", "TyprStats" },
+  keys = {
+    { mode = "n", "<leader>Ty", ":Typr<CR>" },
+    { mode = "n", "<leader>Ts", ":TyprStats<CR>" },
+  },
   dependencies = "nvzone/volt",
-  opts = {},
+  opts = {
+    insert_on_start = true,
+    stats_filepath = vim.env.XDG_DATA_HOME .. "/typr/stats",
+  },
 }
