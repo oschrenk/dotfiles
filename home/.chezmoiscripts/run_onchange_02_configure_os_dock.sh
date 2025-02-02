@@ -38,6 +38,7 @@ echo "Dock: Disable magnification"
 defaults write com.apple.dock 'magnification' -bool false
 
 # Dock: Unpin apps from dock
+# requires https://github.com/kcrawford/dockutil
 for item in \
 	Calendar \
 	Contacts \
