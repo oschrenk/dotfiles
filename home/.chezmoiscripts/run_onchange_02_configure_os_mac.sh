@@ -3,23 +3,11 @@
 #######################################
 # Available Sections:
 #
-# SIRI
-# SCREENSHOTS
 # KEYBOARD
 # TIME MACHINE
 # ACCESSIBILITY
 #
 #######################################
-
-#######################################
-# SCREENSHOTS
-#######################################
-
-echo "Screenshot: Save screenshots as png"
-defaults write com.apple.screencapture type png
-
-echo "Screenshot: Save screenshots to ~/Downloads"
-defaults write com.apple.screencapture location ~/Downloads
 
 #######################################
 # KEYBOARD
