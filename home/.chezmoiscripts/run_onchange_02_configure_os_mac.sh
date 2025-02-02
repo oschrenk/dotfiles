@@ -1,22 +1,6 @@
 #!/bin/sh
 
 #######################################
-# Available Sections:
-#
-# TIME MACHINE
-# ACCESSIBILITY
-#
-#######################################
-
-#######################################
-# TIME MACHINE
-#######################################
-
-echo "Time Machine: Exclude directories from Time Machine backups"
-tmutil addexclusion ~/Downloads
-tmutil addexclusion ~/Movies
-
-#######################################
 # ACCESSIBILITY
 #######################################
 
@@ -27,7 +11,7 @@ defaults write "com.apple.driver.AppleBluetoothMultitouch.trackpad" "HIDScrollZo
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
-for app in "Dock" "Finder" "System Preferences"; do
+for app in "System Preferences"; do
   echo "Restarting $app"
 	killall "$app" > /dev/null 2>&1
 done
