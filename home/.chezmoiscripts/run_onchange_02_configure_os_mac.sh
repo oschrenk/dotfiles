@@ -12,13 +12,6 @@
 #######################################
 
 #######################################
-# SIRI
-#######################################
-
-echo "Siri: Enable Female Irish voice"
-defaults write "com.apple.assistant.backedup" "Output Voice" '{Custom=1;Footprint=2;Gender=2;Language="en-IE";Name=maeve;}'
-
-#######################################
 # SCREENSHOTS
 #######################################
 
