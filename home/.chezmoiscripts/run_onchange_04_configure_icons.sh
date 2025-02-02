@@ -2,8 +2,7 @@
 
 trap 'echo exit; exit' INT TERM
 
-BASEDIR="$( chezmoi source-path )/../"
-
+BASEDIR="$( chezmoi source-path )/.."
 #--------------------------------------
 # docs
 #--------------------------------------
