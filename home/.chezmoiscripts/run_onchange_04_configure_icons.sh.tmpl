@@ -1,0 +1,106 @@
+#!/usr/bin/env zsh
+
+trap 'echo exit; exit' INT TERM
+
+BASEDIR="{{ joinPath .chezmoi.sourceDir | quote }}/../assets/icons"
+
+#--------------------------------------
+# docs
+#--------------------------------------
+echo "Applying Custom icons"
+echo ""
+echo "This script requires App Managment permissions for the executing shell"
+echo "Settings > Privacy & Security > App Managment"
+echo ""
+echo "Assuming basedir: $BASEDIR"
+
+#--------------------------------------
+# fileicon resistant apps
+#--------------------------------------
+# calibre uses it's own image to load the dock item
+# only for a short time it is actually using the dock's cache
+# we need to also overwrite the png inside the resources to work
+if [ -d "/Applications/calibre.app" ]; then
+  ORIGINAL=/Applications/calibre.app/Contents/Resources/resources/images/library.png
+  BACKUP=/Applications/calibre.app/Contents/Resources/resources/images/library.png.bak
+  if [ -f "$BACKUP" ]; then
+    # nothing to do
+    echo "calibre already backed up"
+  else
+    sudo cp $ORIGINAL $BACKUP
+  fi
+
+  # overwrite image
+  sudo cp "$BASEDIR"/calibre.png /Applications/calibre.app/Contents/Resources/resources/images/library.png
+  # use icon
+  sudo fileicon set /Applications/calibre.app "$BASEDIR"/calibre.icns
+else
+  echo "No calibre.app found"
+fi
+
+# jdownloader uses it's own image to load the dock item
+# only for a short time it is actually using the dock's cache
+# we need to also overwrite the png inside the resources to work
+APP_DIR="$HOME/Applications/JDownloader 2"
+if [ -d "$APP_DIR" ]; then
+  ORIGINAL="$APP_DIR/themes/standard/org/jdownloader/images/logo/jd_logo_128_128.png"
+  BACKUP="$APP_DIR/themes/standard/org/jdownloader/images/logo/jd_logo_128_128.png.bak"
+  if [ -f "$BACKUP" ]; then
+    # notinng to do
+    echo "jdownloader already backed up"
+  else
+    sudo cp "$ORIGINAL" "$BACKUP"
+  fi
+
+  # overwrite image
+  sudo cp "$BASEDIR/jdownloader.png" "$ORIGINAL"
+  # use icon
+  sudo fileicon set ~/Applications/JDownloader2.app/ "$BASEDIR"/jdownloader.icns
+else
+  echo "No $APP_DIR found"
+  echo
+  echo
+  echo
+fi
+
+#--------------------------------------
+# fileicon compatible
+#--------------------------------------
+
+sudo fileicon set /Applications/Alacritty.app/ "$BASEDIR"/alacritty.icns
+sudo fileicon set /Applications/Arc.app "$BASEDIR"/arc.icns
+sudo fileicon set /Applications/Blackmagic\ ATEM\ Switchers/ATEM\ Software\ Control.app/ "$BASEDIR"/atem.icns
+sudo fileicon set /Applications/Docker.app "$BASEDIR"/docker.icns
+# docker has app inside app
+sudo fileicon set /Applications/Docker.app/Contents/MacOS/Docker\ Desktop.app "$BASEDIR"/docker.icns
+
+sudo fileicon set /Applications/Firefox.app/ "$BASEDIR"/firefox.icns
+# Google Chat is in user app
+sudo fileicon set ~/Applications/Chrome\ Apps.localized/Google\ Chat.app "$BASEDIR"/google-chat.icns
+sudo fileicon set /Applications/Google\ Chrome.app "$BASEDIR"/google-chrome.icns
+# the default icon is to similar to Noteplan 3, switch to a green icon
+sudo fileicon set /Applications/GoToMeeting.app/ "$BASEDIR"/google_meet.icns
+sudo fileicon set /Applications/HandBrake.app/ "$BASEDIR"/handbrake.icns
+sudo fileicon set /Applications/IntelliJ\ IDEA\ CE.app "$BASEDIR"/intellij.icns
+sudo fileicon set /Applications/Mochi.app "$BASEDIR"/mochi.icns
+sudo fileicon set /Applications/Neovide.app "$BASEDIR"/neovide.icns
+sudo fileicon set /Applications/NordVPN.app "$BASEDIR"/nordvpn.icns
+sudo fileicon set /Applications/Obsidian.app "$BASEDIR"/obsidian.icns
+sudo fileicon set /Applications/Ollamac.app "$BASEDIR"/ollamac.icns
+sudo fileicon set /Applications/OpenVPN\ Connect.app "$BASEDIR"/open-vpn.icns
+sudo fileicon set /Applications/Pulse\ Secure.app/ "$BASEDIR"/mozilla-vpn.icns
+sudo fileicon set /Applications/Sequel\ Pro.app/ "$BASEDIR"/sequel-pro.icns
+sudo fileicon set /Applications/Slack.app/ "$BASEDIR"/slack.icns
+sudo fileicon set /Applications/Spotify.app/ "$BASEDIR"/spotify.icns
+sudo fileicon set /Applications/Steam.app/ "$BASEDIR"/steam.icns
+sudo fileicon set /Applications/Telegram.app/ "$BASEDIR"/telegram.icns
+sudo fileicon set /Applications/The\ Unarchiver.app "$BASEDIR"/the-unarchiver.icns
+sudo fileicon set /Applications/UTM.app "$BASEDIR"/utm.icns
+sudo fileicon set /Applications/Vimac.app/ "$BASEDIR"/vimac.icns
+sudo fileicon set /Applications/WhatsApp.app/ "$BASEDIR"/whatsapp.icns
+sudo fileicon set /Applications/VLC.app/ "$BASEDIR"/vlc.icns
+sudo fileicon set /Applications/Zed.app/ "$BASEDIR"/zed.icns
+sudo fileicon set /Applications/zoom.us.app "$BASEDIR"/zoom.icns
+
+echo "Killing Dock"
+killall Dock
