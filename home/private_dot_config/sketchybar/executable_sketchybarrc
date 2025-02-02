@@ -8,19 +8,16 @@ local sbar = require("sketchybar")
 -- settings
 local style = require("style")
 local icons = require("icons")
-local NotchWidth = 184
+
+-- services
+local focus = require("services.focus").new()
+local sessionizer = require("services.sessionizer").new()
 
 -- utilities
-local focus = require("utils.focus").new()
-local sessionizer = require("utils.sessionizer").new()
 local system = require("utils.system")
 
--- bootstrap system variables
-local hostname = system.getHostname()
-
 -- work hostname is not stable so test for personal hostname
-local isPersonal = hostname == "Olivers-MaxBook.local"
-local isWork = not isPersonal
+local isPersonal = system.getHostname() == "Olivers-MaxBook.local"
 
 -- bundle configuration into single message
 sbar.begin_config()
