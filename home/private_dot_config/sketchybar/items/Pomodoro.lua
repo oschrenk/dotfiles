@@ -48,19 +48,24 @@ function Pomodoro.new(pomodoro, style)
   end
 
   local callback = function(state)
-    local time, done, left = state.time, state.done, state.left
+    if state == nil then
+      self.left[1]:set({ label = { color = style.inactive } })
+    else
+      for i, v in ipairs(createMap(state.done)) do
+        self.done[i]:set({ label = { string = v } })
+      end
 
-    local doneM = createMap(done)
-    for i, v in ipairs(doneM) do
-      self.done[i]:set({ label = { string = v } })
+      for i, v in ipairs(createMap(state.left)) do
+        self.left[i]:set({ label = { string = v } })
+      end
+
+      if state.time ~= "00:00" then
+        self.left[1]:set({ label = { color = style.active } })
+      else
+        self.left[1]:set({ label = { color = style.inactive } })
+      end
+      self.clock:set({ label = { string = state.time } })
     end
-
-    local leftM = createMap(left)
-    for i, v in ipairs(leftM) do
-      self.left[i]:set({ label = { string = v } })
-    end
-
-    self.clock:set({ label = { string = time } })
   end
 
   self.add = function(position)
