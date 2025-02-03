@@ -3,11 +3,18 @@ local sbar = require("sketchybar")
 
 local WeatherWttr = {}
 
--- Using a menubar alias requires sketchybar to have screen recording permission
+-- Requirements:
+-- 1. Show Weather in Menu Bar
+-- 2. Give screen recording permission to sketchybar
+--
+-- Re 1) Open Control Center > Menu Bar only > Show Weather in menubar
+-- Re 2) Using a menubar alias requires sketchybar to have screen recording permission
 -- Which means that a permanent indicator is shown
 -- This can be mitigiated by installing
 -- `brew install yellowdot`
 -- It can technically also be removed but requires SIP removal
+--
+--
 -- @param style color palette
 function WeatherWttr.new(style)
   local self = {}
