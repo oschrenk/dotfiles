@@ -9,17 +9,23 @@ function Pomodoro.new()
 
   self.status = function(callback)
     sbar.exec('/Users/oliver/Frameworks/go/bin/pomodoro status -f "%r %c/%g"', function(raw)
-      local minutes, seconds, done, goal = string.match(raw, "(%d+):(%d+) (%d+)/(%d+)")
+      -- clean up multiline output
+      raw = raw:gsub("%s+", "")
+      if raw == "" or raw == nil then
+        callback(nil)
+      else
+        local minutes, seconds, done, goal = string.match(raw, "(%d+):(%d+) (%d+)/(%d+)")
 
-      local state = {
-        state = "unknown",
-        time = string.format("%02d:%02d", minutes, seconds),
-        done = done,
-        left = goal - done,
-        goal = goal,
-      }
+        local state = {
+          state = "unknown",
+          time = string.format("%02d:%02d", minutes, seconds),
+          done = done,
+          left = goal - done,
+          goal = goal,
+        }
 
-      callback(state)
+        callback(state)
+      end
     end)
   end
 
