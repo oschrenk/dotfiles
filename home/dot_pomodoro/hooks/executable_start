@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+set -exo pipefail
+
+say "Pomodoro started"
