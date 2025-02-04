@@ -30,6 +30,7 @@ set -gx XDG_DATA_HOME $HOME/.local/share
 set -gx INPUTRC "$XDG_CONFIG_HOME"/readline/inputrc
 set -gx WGETRC "$XDG_CONFIG_HOME"/wgetrc
 set -gx RIPGREP_CONFIG_PATH $XDG_CONFIG_HOME/ripgrep/ripgreprc
+set -gx K9S_CONFIG_DIR $XDG_CONFIG_HOME/k9s
 
 #############################
 # PATH
