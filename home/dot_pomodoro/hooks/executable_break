@@ -2,3 +2,4 @@
 set -exo pipefail
 
 say "Paused"
+sketchybar --trigger pomodoro pomodoro_event=break

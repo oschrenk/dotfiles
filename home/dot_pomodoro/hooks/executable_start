@@ -2,3 +2,4 @@
 set -exo pipefail
 
 say "Pomodoro started"
+sketchybar --trigger pomodoro pomodoro_event=start

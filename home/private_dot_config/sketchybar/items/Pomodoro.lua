@@ -81,7 +81,7 @@ function Pomodoro.new(pomodoro, style)
         align = "center",
         blur_radius = 10,
       },
-      update_freq = 5,
+      update_freq = 30,
     })
 
     for i = 1, 5 do
@@ -109,7 +109,8 @@ function Pomodoro.new(pomodoro, style)
       },
     })
 
-    spacer:subscribe({ "routine", "forced" }, function()
+    spacer:subscribe({ "routine", "forced", "pomodoro" }, function(env)
+      print(env.pomodoro_event)
       pomodoro.status(callback)
     end)
 
@@ -117,7 +118,7 @@ function Pomodoro.new(pomodoro, style)
       pomodoro.status(callback)
       spacer:set({ popup = { drawing = true } })
     end)
-    spacer:subscribe("mouse.exited", function(_)
+    self.clock:subscribe("mouse.exited", function(_)
       spacer:set({ popup = { drawing = false } })
     end)
   end
