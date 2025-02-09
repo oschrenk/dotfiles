@@ -11,8 +11,9 @@ local icons = require("icons")
 
 -- services
 local focus = require("services.focus").new()
-local sessionizer = require("services.sessionizer").new()
+local ifconfig = require("services.ifconfig").new()
 local pomodoro = require("services.pomodoro").new()
+local sessionizer = require("services.sessionizer").new()
 
 -- utilities
 local system = require("utils.system")
@@ -37,6 +38,7 @@ require("items.pomodoro").new(pomodoro, style.pomodoro).add("center")
 require("items.clock").new(icons.clock).add("right")
 require("items.weathernative").new(style).add("right")
 require("items.battery").new(icons.battery).add("right")
+require("items.openvpn").new(icons.openvpn, ifconfig).add("right")
 require("items.calendar").new(icons.calendar, focus).add("right")
 
 sbar.end_config()

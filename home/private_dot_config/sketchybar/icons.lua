@@ -117,6 +117,10 @@ return {
     active = symbols["network"],
     inactive = symbols["network.slash"],
   },
+  openvpn = {
+    active = symbols["network"],
+    inactive = symbols["network.slash"],
+  },
   mission = {
     _dnd = symbols["moon.fill"],
     _personal = symbols["person.fill"],
