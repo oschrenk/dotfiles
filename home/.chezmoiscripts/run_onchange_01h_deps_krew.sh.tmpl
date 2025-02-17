@@ -1,0 +1,12 @@
+#!/bin/zsh
+#
+# Krewfile hash: {{ include "../Krewfile" | sha256sum }}
+#
+filepath={{ joinPath .chezmoi.sourceDir "../Krewfile"| quote }}
+
+# installing the plugins
+for plugin in $(cat $filepath | cut -d "#" -f 1)
+do
+  echo "\nInstalling: $plugin\n"
+  kubectl krew install $plugin
+done
