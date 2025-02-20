@@ -9,6 +9,11 @@
       "field": "title.label",
       "regex": "Refinement",
       "icon": "💅"
+    },
+    {
+      "field": "title.label",
+      "regex": "1:1",
+      "icon": "🤝"
     }
   ],
   "hooks": [
