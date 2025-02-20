@@ -2,17 +2,14 @@ local sbar = require("sketchybar")
 local strings = require("utils.strings")
 
 -- Requirements
---   brew install ical-buddy
---   brew install coreutils
---   brew install oschrenk/made/mission
+--   brew install oschrenk/made/plan
 --
 -- To watch for changes and subscribe to events
---   brew services start mission
+--   brew services start plan
 --
 -- Then allow
---   "System Settings" > "Privacy & Security" > "Full Disk Access", allow mission
---   brew services restart mission
--- This is because we are watching iCloud and system files (for macOS Focus)
+--   "System Settings" > "Privacy & Security" > "Full Disk Access", allow plan
+--   brew services restart plan
 
 -- this script only work until midnight of a given day
 -- beyond that date and time calculation might be wrong
