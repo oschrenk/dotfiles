@@ -4,6 +4,11 @@
       "field": "title.label",
       "regex": "Movements Yoga",
       "icon": "🪷"
+    },
+    {
+      "field": "title.label",
+      "regex": "Refinement",
+      "icon": "💅"
     }
   ],
   "hooks": [
