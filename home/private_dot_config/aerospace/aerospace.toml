@@ -245,6 +245,22 @@ run       = ['move-node-to-workspace 1']
 if.app-id = 'com.microsoft.VSCode'
 run       = ['move-node-to-workspace 1']
 
+[[on-window-detected]]
+if.app-id = 'com.seriflabs.affinitydesigner2'
+run       = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.seriflabs.affinitypublisher2'
+run       = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.seriflabs.affinityphoto2'
+run       = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.msteedman.mochi'
+run       = 'move-node-to-workspace 2'
+
 # workspace.2 (=secondary)
 #--------------------------------------
 
@@ -265,23 +281,7 @@ if.app-id = 'com.apple.reminders'
 run       = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
-if.app-id = 'com.msteedman.mochi'
-run       = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
 if.app-id = 'com.valvesoftware.steam'
-run       = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.seriflabs.affinitydesigner2'
-run       = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.seriflabs.affinitypublisher2'
-run       = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.seriflabs.affinityphoto2'
 run       = 'move-node-to-workspace 2'
 
 # workspace.M (=Media and Messenger)
@@ -356,6 +356,7 @@ run       = 'layout floating'
 if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
 run       = 'layout floating'
 
+# Macrofactor (iOS app; keeps flickering)
 [[on-window-detected]]
 if.app-id = 'com.sbs.diet'
 run       = 'layout floating'
