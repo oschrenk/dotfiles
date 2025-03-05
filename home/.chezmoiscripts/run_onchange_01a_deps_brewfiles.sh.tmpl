@@ -6,7 +6,7 @@ tmpfile=$(mktemp /tmp/chezmoi-brew.XXXXXX)
 
 cat {{ joinPath .chezmoi.sourceDir "../Brewfile.tmpl" | quote }} | chezmoi execute-template > $tmpfile
 
-brew bundle --no-lock --file $tmpfile
+brew bundle --file $tmpfile
 
 rm $tmpfile
 
