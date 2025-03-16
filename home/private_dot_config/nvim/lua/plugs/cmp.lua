@@ -1,6 +1,5 @@
 -- https://github.com/hrsh7th/nvim-cmp
 -- completion engine plugin
---
 return {
   "hrsh7th/nvim-cmp",
   event = { "InsertEnter" },

@@ -1,3 +1,5 @@
+-- https://github.com/jellydn/hurl.nvim
+-- run HTTP requests directly from `.hurl` files
 return {
   "jellydn/hurl.nvim",
   dependencies = {

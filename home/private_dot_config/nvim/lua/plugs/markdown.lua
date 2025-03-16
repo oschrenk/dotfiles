@@ -1,4 +1,5 @@
 -- https://github.com/MeanderingProgrammer/render-markdown.nvim
+-- improve rendering Markdown files
 return {
   "MeanderingProgrammer/render-markdown.nvim",
   dependencies = {

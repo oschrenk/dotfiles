@@ -1,3 +1,5 @@
+-- https://github.com/shellRaining/hlchunk.nvim
+-- highlight your indent line and the current chunk (context)
 return {
   "shellRaining/hlchunk.nvim",
   event = { "BufReadPre", "BufNewFile" },

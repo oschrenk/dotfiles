@@ -1,3 +1,5 @@
+-- https://github.com/kevinhwang91/nvim-ufo
+-- make folds look better
 return {
   "kevinhwang91/nvim-ufo",
   event = { "BufReadPost", "BufNewFile" },

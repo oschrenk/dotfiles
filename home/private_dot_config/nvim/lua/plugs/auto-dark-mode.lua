@@ -1,3 +1,5 @@
+-- https://github.com/f-person/auto-dark-mode.nvim
+-- automatically change appearance based on system settings
 return {
   "f-person/auto-dark-mode.nvim",
   enabled = true,

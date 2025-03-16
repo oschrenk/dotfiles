@@ -1,3 +1,5 @@
+-- https://github.com/nvzone/typr
+-- typing practice plugin with dashboard
 return {
   "nvzone/typr",
   cmd = { "Typr", "TyprStats" },

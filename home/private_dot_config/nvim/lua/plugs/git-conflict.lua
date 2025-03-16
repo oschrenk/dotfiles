@@ -1,3 +1,5 @@
+-- https://github.com/akinsho/git-conflict.nvim
+-- visualise and resolve merge conflicts in neovim
 return {
   "akinsho/git-conflict.nvim",
   event = "BufReadPost",

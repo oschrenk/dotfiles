@@ -1,3 +1,5 @@
+-- https://github.com/ellisonleao/gruvbox.nvim
+-- lua implementation of gruvbox
 return {
   "ellisonleao/gruvbox.nvim",
   lazy = false, -- make sure to load this during startup

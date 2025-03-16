@@ -1,3 +1,5 @@
+-- https://github.com/epwalsh/obsidian.nvim
+-- interact with Obsidian
 return {
   "epwalsh/obsidian.nvim",
   cmd = { "ObsidianToday", "ObsidianDailies", "ObsidianQuickSwitch", "ObsidianNew", "ObsidianTags" },
