@@ -5,6 +5,16 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   config = function()
     require("hlchunk").setup({
+      indent = {
+        enable = true,
+        chars = { "│", "¦", "┆", "┊" },
+        -- list of colors
+        style = {
+          vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
+        },
+        ahead_lines = 20,
+        delay = 100,
+      },
       chunk = {
         enable = false,
         use_treesitter = true,
@@ -24,16 +34,6 @@ return {
           { fg = "#CB8764" },
         },
         exclude_filetypes = {},
-      },
-      indent = {
-        enable = true,
-        chars = { "│", "¦", "┆", "┊" },
-        -- list of colors
-        style = {
-          vim.fn.synIDattr(vim.fn.synIDtrans(vim.fn.hlID("Whitespace")), "fg", "gui"),
-        },
-        ahead_lines = 20,
-        delay = 100,
       },
       blank = {
         enable = false,
