@@ -11,6 +11,14 @@
 #
 # Reload configuration at runtime via cmd+shift+,
 
+
+
+
+
+# Window behaviour
+#   don't confirm closing/quitting
+confirm-close-surface = false
+
 # Window Decoration
 # see also https://ghostty.org/docs/config/reference#window-decoration
 window-decoration = false
