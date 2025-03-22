@@ -10,3 +10,6 @@ tinyllama:latest
 nomic-embed-text:latest
 # https://ollama.com/library/codellama
 codellama:7b
+# https://ollama.com/library/gemma3
+# "current most capable model that runs on single GPU"
+gemma3:1b
