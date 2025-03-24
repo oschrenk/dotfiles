@@ -11,9 +11,8 @@ local icons = require("icons")
 
 -- services
 local focus = require("services.focus").new()
-local ifconfig = require("services.ifconfig").new()
-local pomodoro = require("services.pomodoro").new()
 local sessionizer = require("services.sessionizer").new()
+local pomodoro = require("services.pomodoro").new()
 
 -- utilities
 local system = require("utils.system")
