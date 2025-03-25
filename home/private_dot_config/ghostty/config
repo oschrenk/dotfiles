@@ -14,6 +14,7 @@
 # Window behaviour
 #   don't confirm closing/quitting
 confirm-close-surface = false
+quit-after-last-window-closed = true
 
 # Window Decoration
 # see also https://ghostty.org/docs/config/reference#window-decoration
@@ -21,7 +22,6 @@ window-decoration = false
 window-padding-x = 3
 window-padding-y = 0
 initial-window = true
-quit-after-last-window-closed = true
 
 # Font Configuration
 #   to list valid fonts `ghostty +list-fonts`
