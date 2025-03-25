@@ -74,4 +74,4 @@ macos-option-as-alt = true
 #   [alt|ctrl|shift|super] + key
 keybind = super+n=unbind
 keybind = super+t=unbind
-keybind = global:cmd+`=toggle_quick_terminal
+keybind = global:super+grave_accent=toggle_quick_terminal
