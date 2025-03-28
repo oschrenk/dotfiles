@@ -69,7 +69,6 @@ return {
       -- for instance sourcekit needs to be managed
       -- see comment at top for more details
       -- we enable sourcekit in ftplugin/swift.lua
-      -- mas
       mason_lspconfig.setup({
         ensure_installed = ensure_installed,
         handlers = {
