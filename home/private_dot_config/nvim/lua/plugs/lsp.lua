@@ -9,7 +9,7 @@
 -- https://github.com/bluz71/dotfiles/blob/9e90fbb99e66501b374c8441f559d649788b028f/nvim/lua/config/lsp-config.lua#L108
 
 -- list of valid names
--- https://raw.githubusercontent.com/neovim/nvim-lspconfig/master/doc/server_configurations.md
+-- https://raw.githubusercontent.com/neovim/nvim-lspconfig/master/doc/configs.md
 -- :help lspconfig-all
 local ensure_installed = {
   "gopls",
