@@ -4,7 +4,7 @@ local metals_au_group = vim.api.nvim_create_augroup("nvim-metals", { clear = tru
 return {
   "scalameta/nvim-metals",
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp",
+    "saghen/blink.cmp",
   },
   ft = {
     "scala",
@@ -33,7 +33,7 @@ return {
     metals_config.init_options = {
       statusBarProvider = "off",
     }
-    metals_config.capabilities = require("cmp_nvim_lsp").default_capabilities()
+    metals_config.capabilities = require("blink.cmp").get_lsp_capabilities()
 
     -- Start metals on certain filetypes
     vim.api.nvim_create_autocmd("FileType", {
