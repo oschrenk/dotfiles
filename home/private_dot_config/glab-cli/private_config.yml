@@ -16,10 +16,10 @@ host: gitlab.com
 no_prompt: false
 # Configuration specific for GitLab instances.
 hosts:
-  gitlab.com:
-    # What protocol to use to access the API endpoint. Supported values: http, https.
-    api_protocol: https
-    # Configure host for API endpoint. Defaults to the host itself.
-    api_host: gitlab.com
-    # Your GitLab access token. To get one, read https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html
-    token:
+    gitlab.com:
+        # What protocol to use to access the API endpoint. Supported values: http, https.
+        api_protocol: https
+        # Configure host for API endpoint. Defaults to the host itself.
+        api_host: gitlab.com
+        # Your GitLab access token. To get one, read https://docs.gitlab.com/ee/user/profile/personal_access_tokens.html
+        token:
