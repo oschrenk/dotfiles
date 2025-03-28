@@ -91,7 +91,19 @@ return {
         git = {
           module = "blink-cmp-git",
           name = "Git",
-          opts = {},
+          opts = {
+            git_centers = {
+              gitlab = {
+                pull_request = {
+                  enable = function()
+                    local enable = require("blink-cmp-git.default.gitlab").issue.enable()
+                    local utils = require("blink-cmp-git.utils")
+                    return enable or utils.get_repo_remote_url():find("git.timewax.com", 1, true)
+                  end,
+                },
+              },
+            },
+          },
         },
       },
     },
