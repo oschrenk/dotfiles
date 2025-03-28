@@ -73,6 +73,7 @@ return {
           transform_items = function(_, items)
             for _, item in ipairs(items) do
               item.kind_icon = ""
+              item.labelDetails.detail = nil
             end
             return items
           end,
@@ -84,6 +85,7 @@ return {
           transform_items = function(_, items)
             for _, item in ipairs(items) do
               item.kind_icon = ""
+              item.labelDetails.detail = nil
             end
             return items
           end,
