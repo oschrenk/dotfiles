@@ -12,13 +12,8 @@
 -- https://raw.githubusercontent.com/neovim/nvim-lspconfig/master/doc/server_configurations.md
 -- :help lspconfig-all
 local ensure_installed = {
-  "cssls",
-  "dockerls",
-  "eslint",
   "gopls",
-  "html",
   "lua_ls",
-  "marksman",
   "ts_ls",
   -- metals can't be managed via mason
   -- "metals"
