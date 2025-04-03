@@ -14,6 +14,16 @@
       "field": "title.label",
       "regex": "1:1",
       "icon": "🤝"
+    },
+    {
+      "field": "title.label",
+      "regex": "Development standup",
+      "icon": "🙋"
+    },
+    {
+      "field": "title.label",
+      "regex": "Deploy",
+      "icon": "🚀"
     }
   ],
   "hooks": [
