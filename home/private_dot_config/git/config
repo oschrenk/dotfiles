@@ -163,6 +163,9 @@
   newNormal = green bold
   newHighlight = green bold 22
 
+[column]
+  ui = auto
+
 [delta]
   navigate = true # use n and N to jump next/previous file
   side-by-side = true
