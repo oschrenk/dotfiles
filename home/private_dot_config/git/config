@@ -287,6 +287,10 @@
   # the same conflict arises it is resolved automatically
   enabled = true
 
+[tag]
+  # see https://git-scm.com/docs/git-tag#Documentation/git-tag.txt---sortltkeygt
+  sort = version:refname
+
 [user]
   # since 2.4.1
   # https://git-scm.com/docs/git-config#Documentation/git-config.txt-useruseConfigOnly
