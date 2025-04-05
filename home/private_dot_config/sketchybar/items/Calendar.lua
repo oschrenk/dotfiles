@@ -25,7 +25,9 @@ function Calendar.new(icons, focus)
     })
 
     local update = function()
-      sbar.exec("/opt/homebrew/bin/plan next --ignore-tags timeblock --ignore-all-day-events", function(json)
+      local cmd =
+        "/opt/homebrew/bin/plan next --ignore-tags=timeblock --ignore-all-day-events --ignore-calendar-labels=Events"
+      sbar.exec(cmd, function(json)
         local event = json[1]
         if event ~= nil then
           local icon = strings.TrimToNil(event.title.icon) or icons.default
