@@ -130,6 +130,8 @@
   # simple log
   l = log  --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 
+  # log graph
+  lol = log --oneline --graph --all
   # --force-with-lease
   #   makes sure that nobody else pushed something on top of my old remote,
   # --force alone would just overwrite
