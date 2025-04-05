@@ -181,6 +181,11 @@
   # unstage is the opposite of git add. It removes items from the staging area.
   unstage = reset HEAD
 
+[branch]
+  # sort ordering of branches when displayed by git-branch
+  # see also https://git-scm.com/docs/git-config#Documentation/git-config.txt-branchsort
+  sort = committerdate
+
 [commit]
   # since git 2.9 as option
   # Show unified diff between the HEAD commit and what would be
