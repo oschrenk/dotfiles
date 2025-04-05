@@ -1,69 +1,12 @@
-# [include]
-# Inclusion of user/system specific files at the bottom
-
-[core]
-  attributesFile = ~/.config/git/attributes
-  excludesFile = ~/.config/git/ignore
-
-  editor = nvim
-
-  # See https://github.com/dandavison/delta
-  pager = delta
-
-[interactive]
-  diffFilter = delta --color-only
-
-[delta]
-  navigate = true # use n and N to jump next/previous file
-  side-by-side = true
-  true-color = always
-  hunk-header-style = omit
-  line-numbers = true
-
-  # File
-  file-added-label = [+]
-  file-copied-label = [==]
-  file-modified-label = [*]
-  file-removed-label = [-]
-  file-renamed-label = [->]
-
-[pull]
-  # Since 2.0
-  # Corresponds to:
-  #   git fetch
-  #   git merge --ff-only <branch>
-  # It will fail, if there is a commit that can't be fast forwarded
-  # Normally you want to run `pull --rebase` as a response
-	ff = only
-
-[push]
-  # nothing:  do not push anything.
-
-  # default in 1.x
-  # this makes clients before 2.x, using --force really dangerous
-  # matching: push all matching branches. All branches having the same
-  #           name in both ends are considered to be matching.
-  # upstream: push the current branch to its upstream branch.
-  # tracking: deprecated synonym for upstream.
-  # current:  push the current branch to a branch of the same name.
-
-  # default since 2.0, new  since 1.7.11
-  # simple:   like upstream, but refuses to push if upstream branch’s name
-  #           is different from the local one
-  default = current
-
-  # since 2.4.1
-  # pushes relevant (only referenced by pushed commits) tags by default
-  # This does
-  #   git push --follow-tags, which is available since 1.8.3
-  followTags = true
-
-[rerere]
-  # reuse recorded resolution
-  # tells git to remember how you resolved hunk conflicts, so that next time
-  # the same conflict arises it is resolved automatically
-  enabled = true
-
+#
+# https://git-scm.com/docs
+#
+# This is the config file
+# - a '#' or ';' character indicates a comment
+# - the file consists of sections and variables.
+# - a section begins with name in square brackets until the next eg. [section]
+# - sections can have sub-sections in quotes eg. [section "subsection"]
+#
 [alias]
   a = add
 
@@ -192,6 +135,48 @@
   # committed at the bottom of the commit message template.
   verbose = true
 
+[core]
+  attributesFile = ~/.config/git/attributes
+  excludesFile = ~/.config/git/ignore
+
+  editor = nvim
+
+  # See https://github.com/dandavison/delta
+  pager = delta
+
+
+[color]
+  # default is `true` since 1.8.4
+  ui = true
+
+[color "diff"]
+  meta = 227
+  commit = 227 bold
+  frag = magenta bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+
+[delta]
+  navigate = true # use n and N to jump next/previous file
+  side-by-side = true
+  true-color = always
+  hunk-header-style = omit
+  line-numbers = true
+
+  # File
+  file-added-label = [+]
+  file-copied-label = [==]
+  file-modified-label = [*]
+  file-removed-label = [-]
+  file-renamed-label = [->]
+
 [diff]
   # since git 2.11 as option
   # try to create more aesthetically pleasing diffs
@@ -218,6 +203,19 @@
   #
   colorMoved = default
 
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+
+[init]
+  templatedir = ~/.config/git/template
+	defaultBranch = main
+
+[interactive]
+  diffFilter = delta --color-only
+
 [merge]
   # By default, when you merge a branch in git, you get a fairly meaningless
   # message like merge #branch 'master' of git@github.com:name/project.
@@ -229,6 +227,37 @@
   # it uses another ||||||| marker that is followed by the original text.
   # default is `merge`
   conflictstyle = diff3
+
+[pull]
+  # Since 2.0
+  # Corresponds to:
+  #   git fetch
+  #   git merge --ff-only <branch>
+  # It will fail, if there is a commit that can't be fast forwarded
+  # Normally you want to run `pull --rebase` as a response
+	ff = only
+
+[push]
+  # nothing:  do not push anything.
+
+  # default in 1.x
+  # this makes clients before 2.x, using --force really dangerous
+  # matching: push all matching branches. All branches having the same
+  #           name in both ends are considered to be matching.
+  # upstream: push the current branch to its upstream branch.
+  # tracking: deprecated synonym for upstream.
+  # current:  push the current branch to a branch of the same name.
+
+  # default since 2.0, new  since 1.7.11
+  # simple:   like upstream, but refuses to push if upstream branch’s name
+  #           is different from the local one
+  default = current
+
+  # since 2.4.1
+  # pushes relevant (only referenced by pushed commits) tags by default
+  # This does
+  #   git push --follow-tags, which is available since 1.8.3
+  followTags = true
 
 [rebase]
   # since 2.7
@@ -249,27 +278,11 @@
   # %s: title line
   instructionFormat = %cn: %s
 
-[color]
-  # default is `true` since 1.8.4
-  ui = true
-
-[color "diff"]
-  meta = 227
-  commit = 227 bold
-  frag = magenta bold
-  old = red bold
-  new = green bold
-  whitespace = red reverse
-
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
-
-[init]
-  templatedir = ~/.config/git/template
-	defaultBranch = main
+[rerere]
+  # reuse recorded resolution
+  # tells git to remember how you resolved hunk conflicts, so that next time
+  # the same conflict arises it is resolved automatically
+  enabled = true
 
 [user]
   # since 2.4.1
@@ -277,8 +290,3 @@
   # avoid trying to guess defaults for user.email and user.name
 	useConfigOnly = true
 
-[filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
