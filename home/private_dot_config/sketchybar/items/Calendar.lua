@@ -20,7 +20,7 @@ function Calendar.new(icons, focus)
   self.add = function(position)
     local calendar = sbar.add("item", {
       position = position,
-      update_freq = 120,
+      update_freq = 60,
       icon = icons.default,
     })
 
