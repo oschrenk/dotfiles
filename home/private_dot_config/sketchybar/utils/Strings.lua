@@ -21,6 +21,9 @@ strings.Trim = function(text, maxLength)
 end
 
 strings.TrimToNil = function(text)
+  if text == nil then
+    return nil
+  end
   local trimmed = text:match("^%s*(.-)%s*$")
   if trimmed == "" then
     return nil
