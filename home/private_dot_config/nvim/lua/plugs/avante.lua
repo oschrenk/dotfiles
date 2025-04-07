@@ -15,7 +15,7 @@ return {
       function()
         require("avante.api").ask()
       end,
-      desc = "Avante: ask",
+      desc = "Avante: Ask",
       mode = { "n", "v" },
     },
     {
@@ -23,14 +23,14 @@ return {
       function()
         require("avante.api").refresh()
       end,
-      desc = "Avante: refresh",
+      desc = "Avante: Refresh",
     },
     {
       "<leader>ae",
       function()
         require("avante.api").edit()
       end,
-      desc = "Avante: edit",
+      desc = "Avante: Edit",
       mode = "v",
     },
   },
