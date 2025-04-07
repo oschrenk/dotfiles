@@ -58,9 +58,23 @@ return {
         overrides = {
           daily_notes = {
             -- Optional, if you keep daily notes in a separate directory.
-            folder = "10 Journals/Personal",
+            folder = "40 Journals/Personal",
             -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
-            template = "Journal/Daily.md",
+            -- takes `templates.folder` as prefix
+            template = "Journal/Personal/Daily.md",
+          },
+        },
+      },
+      {
+        name = "work",
+        path = "~/Obsidian/memex",
+        overrides = {
+          daily_notes = {
+            -- Optional, if you keep daily notes in a separate directory.
+            folder = "40 Journals/Work",
+            -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+            -- takes `templates.folder` as prefix
+            template = "Journal/Work/Daily.md",
           },
         },
       },
@@ -81,9 +95,7 @@ return {
         local today = os.date("%Y-%m-%d")
         local journal = {
           journal = "personal",
-          ["journal-start-date"] = today,
-          ["journal-end-date"] = today,
-          ["journal-section"] = "day",
+          ["journal-date"] = today,
         }
         out = journal
       else
