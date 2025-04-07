@@ -4,8 +4,18 @@ return {
   "nvzone/typr",
   cmd = { "Typr", "TyprStats" },
   keys = {
-    { mode = "n", "<leader>Ty", ":Typr<CR>" },
-    { mode = "n", "<leader>Ts", ":TyprStats<CR>" },
+    {
+      "<leader>Ty",
+      ":Typr<CR>",
+      mode = { "n" },
+      desc = "Typr: Start",
+    },
+    {
+      "<leader>Ts",
+      ":TyprStats<CR>",
+      mode = { "n" },
+      desc = "Typr: Stats",
+    },
   },
   dependencies = "nvzone/volt",
   opts = {
