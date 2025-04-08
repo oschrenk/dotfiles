@@ -24,6 +24,9 @@ tasks:
   krew:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01h_deps_krew.sh.tmpl | chezmoi execute-template | zsh
+  node:
+    cmds:
+      - cat home/.chezmoiscripts/run_onchange_01i_deps_node.sh.tmpl | chezmoi execute-template | zsh
   icons:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_04_configure_icons.sh.tmpl | chezmoi execute-template | zsh
