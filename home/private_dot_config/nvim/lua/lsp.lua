@@ -1,4 +1,5 @@
 vim.lsp.enable("gopls")
+vim.lsp.enable("harper-ls")
 vim.lsp.enable("luals")
-vim.lsp.enable("tlls")
 vim.lsp.enable("sourcekit-lsp")
+vim.lsp.enable("tlls")
