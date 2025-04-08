@@ -96,7 +96,7 @@ After casks are installed you can already start important apps and configure the
 - Spotify
   - download "Liked Songs"
 - sketchybar
-  - install [SbarLua](https://github.com/FelixKratz/SbarLua)
+  - `brew services start sketchybar`
 
 Login:
 
@@ -113,17 +113,18 @@ Link device:
 
 - `task brew` Install taps/brews/apps
 - `task cargo` Install crates
-- `task go` Install go apps
-- `task ollama` Install ollama models
-- `task lua` Install lua rocks
-- `task icons` Install icons
 - `task extensions` Install Arc Browser extensions
+- `task go` Install go apps
+- `task icons` Install icons
+- `task lua` Install lua rocks
+- `task node` Install node tools
+- `task ollama` Install ollama models
 
 ## Steam & Rosetta
 
 `brew install steam`
 
-Steam is one of the last applications not offering a native arm variant for macOS
+Steam is the last application (I use) not offering a native arm variant for macOS
 
 ```
 # install rosetta 2
