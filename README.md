@@ -5,7 +5,7 @@ These are my dotfiles. There are many like it but these are mine.
 ## Install new machine
 
 Name your machine
-> On your Mac, choose "System Settings", "General"  in the sidebar, click "About" on the right.
+> On your Mac, choose "System Settings", "General" in the sidebar, click "About" on the right.
 > Type a new name in the Name field.
 
 > On your Mac the local hostname is the computer’s name with `.local` added, and any spaces are replaced with hyphens
