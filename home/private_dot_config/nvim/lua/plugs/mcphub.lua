@@ -15,6 +15,19 @@ return {
     require("mcphub").setup({
       -- Use bundled mcp-hub instead of global install
       use_bundled_binary = true,
+
+      -- Required configuration
+      port = 3000, -- Default hub port
+      config = vim.fn.expand("~/.config/mcphub/servers.json"),
+
+      -- Optional customization
+      log = {
+        level = vim.log.levels.WARN, -- DEBUG, INFO, WARN, ERROR
+        to_file = true, -- Creates ~/.local/state/nvim/mcphub.log
+      },
+      on_ready = function()
+        vim.notify("MCP Hub is online!")
+      end,
     })
   end,
 }
