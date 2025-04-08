@@ -70,7 +70,7 @@ After casks are installed you can already start important apps and configure the
   - Security > Apple Watch.
   - Developer > Use the SSH Agent
   - Developer > Enable Biometric Unlock
-- Alacritty
+- Ghostty
   - SystemSettings > "Privacy & Security > Full disk access..." Allow for ...
 - Arc
   - open profiles, and log into services
