@@ -38,9 +38,9 @@ return {
     },
   },
   ft = "markdown",
-  -- if you only want to load obsidian.nvim for markdown files actually in your vault:
+  -- Replace the above line with this if you only want to load obsidian.nvim for markdown files in your vault:
   -- event = {
-  --   -- for home shortcut '~' 'use vim.fn.expand'
+  --   -- If you want to use the home shortcut '~' here you need to call 'vim.fn.expand'.
   --   -- E.g. "BufReadPre " .. vim.fn.expand "~" .. "/my-vault/**.md"
   --   "BufReadPre path/to/my-vault/**.md",
   --   "BufNewFile path/to/my-vault/**.md",
@@ -57,9 +57,10 @@ return {
         path = "~/Obsidian/memex",
         overrides = {
           daily_notes = {
-            -- Optional, if you daily notes in separate directory.
+            -- Optional, if you keep daily notes in a separate directory.
             folder = "40 Journals/Personal",
-            -- Optional, if you want to use template from `templates.folder`
+            -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+            -- takes `templates.folder` as prefix
             template = "Journal/Personal/Daily.md",
           },
         },
@@ -69,9 +70,10 @@ return {
         path = "~/Obsidian/memex",
         overrides = {
           daily_notes = {
-            -- Optional, if you daily notes in separate directory.
+            -- Optional, if you keep daily notes in a separate directory.
             folder = "40 Journals/Work",
-            -- Optional, if you want to use template from `templates.folder`
+            -- Optional, if you want to automatically insert a template from your template directory like 'daily.md'
+            -- takes `templates.folder` as prefix
             template = "Journal/Work/Daily.md",
           },
         },
