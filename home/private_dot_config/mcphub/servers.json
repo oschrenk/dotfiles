@@ -9,11 +9,9 @@
         "DEBUG": "true"
       }
     },
-    "remote-server": {
-      "url": "https://api.example.com/mcp",
-      "headers": {
-        "Authorization": "Bearer your-token"
-      }
+    "apple-reminders": {
+      "command": "mcp-server-apple-reminders",
+      "args": []
     }
   }
 }
