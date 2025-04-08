@@ -26,7 +26,6 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # install chezmoi and requirements
 brew install chezmoi git git-lfs age 1password 1password-cli
 git lfs install
-
 ```
 
 Setup 1Password and sync the vaults.
@@ -92,7 +91,6 @@ After casks are installed you can already start important apps and configure the
     - Scala
   - Change settings
     - Don't send statistics
-
 - Photos
   - Open to synchronize data
 - Spotify
