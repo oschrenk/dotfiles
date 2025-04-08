@@ -2,13 +2,7 @@
 -- interact with Obsidian
 return {
   "epwalsh/obsidian.nvim",
-  cmd = {
-    "ObsidianToday",
-    "ObsidianDailies",
-    "ObsidianQuickSwitch",
-    "ObsidianNew",
-    "ObsidianTags",
-  },
+  cmd = { "ObsidianToday", "ObsidianDailies", "ObsidianQuickSwitch", "ObsidianNew", "ObsidianTags" },
   keys = {
     {
       "<leader>ot",
