@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "apple-reminders": {
+      "command": "mcp-server-apple-reminders",
+      "args": []
+    }
+  }
+}
