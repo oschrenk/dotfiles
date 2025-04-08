@@ -1,11 +1,13 @@
 #!/bin/zsh
 #
-# Krewfile hash: {{ include "../Nodefile" | sha256sum }}
-#
-filepath={{ joinPath .chezmoi.sourceDir "../Nodefile"| quote }}
+# hash: {{ include "../Nodefile.tmpl" | sha256sum }}
+
+tmpfile=$(mktemp /tmp/chezmoi-nodefile.XXXXXX)
+
+cat {{ joinPath .chezmoi.sourceDir "../Nodefile.tmpl" | quote }} | chezmoi execute-template > $tmpfile
 
 # installing the dependencies
-for dependency in $(cat $filepath | cut -d "#" -f 1)
+for dependency in $(cat $tmpfile | cut -d "#" -f 1)
 do
   echo "\nInstalling: $dependency\n"
   npm install -g $dependency
