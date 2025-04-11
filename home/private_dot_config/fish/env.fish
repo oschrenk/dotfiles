@@ -77,8 +77,9 @@ fish_add_path /opt/homebrew/opt/node@20/bin
 # swift
 fish_add_path /opt/homebrew/opt/swift/bin
 
-set -x SWIFTLY_HOME "$XDG_DATA_HOME/swiftly"
-set -x SWIFTLY_BIN "$SWIFTLY_HOME/bin"
+set -x SWIFTLY_HOME_DIR "$XDG_DATA_HOME/swiftly"
+set -x SWIFTLY_BIN_DIR "$SWIFTLY_HOME_DIR/bin"
+fish_add_path $SWIFTLY_BIN_DIR
 
 #############################
 # homebrew
