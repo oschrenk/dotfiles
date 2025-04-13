@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "apple-reminders": {
-      "command": "mcp-server-apple-reminders",
+      "command": "/opt/homebrew/bin/mcp-server-apple-reminders",
       "args": []
     }
   }
