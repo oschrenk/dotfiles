@@ -63,7 +63,7 @@ return {
     -- PROVIDER config
     -- ----------------------
     claude = {
-      model = "claude-3-5-sonnet",
+      model = "claude-3-7-sonnet",
       -- register account
       -- retrieve api key
       --   https://claude.ai/settings/account
