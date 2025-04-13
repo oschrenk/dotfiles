@@ -66,7 +66,17 @@ return {
     -- ----------------------
     -- GENERAL config
     -- ----------------------
-    --
+    windows = {
+      -- default 30
+      width = 40,
+      sidebar_header = {
+        enabled = false,
+      },
+      behaviour = {
+        enable_token_counting = false,
+      },
+      hints = { enabled = true },
+    },
     -- ----------------------
     -- PROVIDER config
     -- ----------------------
