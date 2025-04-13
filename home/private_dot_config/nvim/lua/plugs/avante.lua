@@ -46,7 +46,17 @@ return {
   },
   opts = {
     claude = {
-      -- config
+      -- register account
+      -- retrieve api key
+      --   https://claude.ai/settings/account
+      --
+      -- export ANTHROPIC_API_KEY="..."
+      -- security add-generic-password -s "avante-claude-api" -a "ANTHROPIC_API_KEY" -w "$ANTHROPIC_API_KEY"
+      --
+      -- providing a
+      --  - string => interpreted as key
+      --  - table  => executed as cmd
+      api_key_name = { "security", "find-generic-password", "-s", "avante-claude-api", "-a", "ANTHROPIC_API_KEY", "-w" },
     },
     gemini = {
       -- config
