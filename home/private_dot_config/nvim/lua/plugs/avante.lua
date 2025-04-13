@@ -16,6 +16,14 @@ return {
       end,
     },
     {
+      "<leader>ac",
+      desc = "Avante: Chat",
+      mode = { "n", "v" },
+      function()
+        require("avante.api").ask({ ask = false })
+      end,
+    },
+    {
       "<leader>ar",
       desc = "Avante: Refresh",
       function()
