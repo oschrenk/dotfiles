@@ -163,6 +163,13 @@ brew "yamlfmt"       # yaml, formatter
 brew "yarn"          # javascript, package manager
 brew "yq"            # data, process YAML
 
+# only on work machine
+# work hostname is flakey, so check if NOT personal machine
+{{- if not (eq .chezmoi.hostname "Olivers-MaxBook") }}
+  brew "snyk-cli"    # scan for security vulnerabilities
+{{- end }}
+
+# only on pesonal machine
 {{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
   brew "asciinema"   # a/v, record terminal sessions
   brew "awscli"      # devops, aws
