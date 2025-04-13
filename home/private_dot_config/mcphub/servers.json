@@ -1,7 +1,15 @@
 {
   "mcpServers": {
     "apple-reminders": {
+      "commentHome": "https://github.com/FradSer/mcp-server-apple-reminders",
+      "commentInstall": "npm -g mcp-server-apple-reminders",
       "command": "/opt/homebrew/bin/mcp-server-apple-reminders",
+      "args": []
+    },
+    "mcp-server-macos-use": {
+      "commentHome": "https://github.com/mediar-ai/mcp-server-macos-use",
+      "commentInstall": "brew install oschrenk/personal/mcp-server-macos-use",
+      "command": "/opt/homebrew/bin/mcp-server-macos-use",
       "args": []
     }
   }
