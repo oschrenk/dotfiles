@@ -16,6 +16,26 @@ return {
       function()
         local obsidian = require("obsidian")
         local client = obsidian.get_client()
+        client:switch_workspace("work")
+
+        local note = client:daily(0)
+        client:open_note(note, { sync = true })
+
+        vim.cmd("1/## Tasks/1")
+        vim.cmd("noh")
+        local old_option = vim.opt.scrolloff
+        vim.opt.scrolloff = 0
+        vim.cmd("normal! zt")
+        vim.opt.scrolloff = old_option
+      end,
+      desc = "Today (Work)",
+    },
+    {
+      "<leader>oT",
+      mode = { "n", "x", "o" },
+      function()
+        local obsidian = require("obsidian")
+        local client = obsidian.get_client()
         client:switch_workspace("personal")
 
         local note = client:daily(0)
@@ -28,7 +48,7 @@ return {
         vim.cmd("normal! zt")
         vim.opt.scrolloff = old_option
       end,
-      desc = "Today",
+      desc = "Today (Personal)",
     },
     {
       "<leader>od",
