@@ -32,14 +32,24 @@ return {
     },
   },
   dependencies = {
+    -- ----------------------
+    -- REQUIRED
+    -- ----------------------
+    -- https://github.com/nvim-treesitter/nvim-treesitter
+    "nvim-treesitter/nvim-treesitter",
     -- https://github.com/nvim-lua/plenary.nvim
     "nvim-lua/plenary.nvim",
     -- https://github.com/stevearc/dressing.nvim
     "stevearc/dressing.nvim",
     -- https://github.com/MunifTanjim/nui.nvim
     "MunifTanjim/nui.nvim",
+    --
+    -- ----------------------
+    -- OPTIONAL
+    -- ----------------------
+    --
     -- "nvim-tree/nvim-web-devicons"
-    "nvim-tree/nvim-web-devicons", -- optional
+    "nvim-tree/nvim-web-devicons",
     {
       -- see markdown setup in markdown.nvim
     },
