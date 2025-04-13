@@ -48,6 +48,7 @@ return {
       fish = { "fish_indent" },
       go = { "gofmt" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
+      json = { "jq" },
       -- brew install ktfmt
       kotlin = { "ktfmt", stop_after_first = true },
       lua = { "stylua" },
