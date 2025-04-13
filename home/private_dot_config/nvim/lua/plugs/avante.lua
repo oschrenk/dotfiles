@@ -45,7 +45,17 @@ return {
     },
   },
   opts = {
+    -- ----------------------
+    -- GENERAL config
+    -- ----------------------
+    --
+    -- default provider
+    provider = "anthropic",
+    -- ----------------------
+    -- PROVIDER config
+    -- ----------------------
     claude = {
+      model = "claude-3-5-sonnet",
       -- register account
       -- retrieve api key
       --   https://claude.ai/settings/account
