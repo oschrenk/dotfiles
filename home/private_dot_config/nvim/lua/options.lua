@@ -49,7 +49,7 @@ o.termguicolors = true -- emit 24-bit colours
 o.title = true -- show title in console title bar.
 
 -- command bar
-o.cmdheight = 2 -- the command bar is 2 high.
+o.cmdheight = 0 -- height of command bar, 0 just looks good
 o.showmode = true -- show current-mode
 o.showcmd = true -- show partially-typed commands
 
