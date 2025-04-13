@@ -45,6 +45,14 @@ return {
     },
   },
   opts = {
-    -- add any opts her
+    claude = {
+      -- config
+    },
+    gemini = {
+      -- config
+    },
+    openai = {
+      model = "o3-mini",
+    },
   },
 }
