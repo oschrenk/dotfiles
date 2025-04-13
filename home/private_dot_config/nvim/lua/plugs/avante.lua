@@ -79,6 +79,9 @@ return {
     gemini = {
       -- config
     },
+    ollama = {
+      model = "gemma3:1b",
+    },
     openai = {
       model = "o3-mini",
     },
