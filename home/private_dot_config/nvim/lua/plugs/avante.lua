@@ -5,33 +5,30 @@
 -- https://console.anthropic.com/settings/keys
 return {
   "yetone/avante.nvim",
-  opts = {
-    -- add any opts here
-  },
   build = "make",
   keys = {
     {
       "<leader>aa",
+      desc = "Avante: Ask",
+      mode = { "n", "v" },
       function()
         require("avante.api").ask()
       end,
-      desc = "Avante: Ask",
-      mode = { "n", "v" },
     },
     {
       "<leader>ar",
+      desc = "Avante: Refresh",
       function()
         require("avante.api").refresh()
       end,
-      desc = "Avante: Refresh",
     },
     {
       "<leader>ae",
+      desc = "Avante: Edit",
+      mode = "v",
       function()
         require("avante.api").edit()
       end,
-      desc = "Avante: Edit",
-      mode = "v",
     },
   },
   dependencies = {
@@ -46,5 +43,8 @@ return {
     {
       -- see markdown setup in markdown.nvim
     },
+  },
+  opts = {
+    -- add any opts her
   },
 }
