@@ -59,8 +59,6 @@ return {
     -- GENERAL config
     -- ----------------------
     --
-    -- default provider
-    provider = "anthropic",
     -- ----------------------
     -- PROVIDER config
     -- ----------------------
