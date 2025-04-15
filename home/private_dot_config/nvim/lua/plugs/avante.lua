@@ -6,37 +6,52 @@
 return {
   "yetone/avante.nvim",
   build = "make",
+  cmd = {
+    "AvanteAsk",
+    "AvanteChat",
+    "AvanteEdit",
+    "AvanteToggle",
+  },
   keys = {
     {
       "<leader>aa",
-      desc = "Avante: Ask",
-      mode = { "n", "v" },
       function()
         require("avante.api").ask()
       end,
+      desc = "avante: ask",
+      mode = { "n", "v" },
     },
     {
       "<leader>ac",
-      desc = "Avante: Chat",
-      mode = { "n", "v" },
       function()
         require("avante.api").ask({ ask = false })
       end,
-    },
-    {
-      "<leader>ar",
-      desc = "Avante: Refresh",
-      function()
-        require("avante.api").refresh()
-      end,
+      desc = "avante: chat",
+      mode = { "n", "v" },
     },
     {
       "<leader>ae",
-      desc = "Avante: Edit",
-      mode = "v",
       function()
         require("avante.api").edit()
       end,
+      desc = "avante: edit",
+      mode = { "n", "v" },
+    },
+    {
+      "<leader>ar",
+      function()
+        require("avante.api").refresh()
+      end,
+      desc = "avante: refresh",
+      mode = "v",
+    },
+    {
+      "<leader>at",
+      function()
+        require("avante.api").toggle()
+      end,
+      desc = "avante: toggle",
+      mode = "n",
     },
   },
   dependencies = {
