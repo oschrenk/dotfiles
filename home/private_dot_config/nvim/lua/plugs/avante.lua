@@ -1,8 +1,5 @@
 -- AI-driven code suggestions
 -- https://github.com/yetone/avante.nvim
---
--- get api keys via
--- https://console.anthropic.com/settings/keys
 return {
   "yetone/avante.nvim",
   build = "make",
