@@ -85,12 +85,13 @@ return {
       -- % on available width, default 30
       width = 40,
       sidebar_header = {
-        enabled = false,
+        -- show headers in sidebar, default true
+        enabled = true,
       },
-      behaviour = {
-        enable_token_counting = false,
+      ask = {
+        -- toogle floating windwow for "Ask", default false
+        floating = false,
       },
-      hints = { enabled = true },
     },
     -- ----------------------
     -- PROVIDER config
