@@ -99,7 +99,16 @@ return {
         height = 8,
       },
     },
-
+    -- ----------------------
+    -- BEHAVIOUR config
+    -- ----------------------
+    behaviour = {
+      -- automatically adds keymaps, default true
+      -- setting to false, will still add a subset of keymaps
+      auto_set_keymaps = true,
+      -- count and show input tokens in sidear, default true.
+      enable_token_counting = true,
+    },
     -- ----------------------
     -- PROVIDER config
     -- ----------------------
