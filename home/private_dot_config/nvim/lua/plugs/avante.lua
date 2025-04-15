@@ -92,7 +92,14 @@ return {
         -- toogle floating windwow for "Ask", default false
         floating = false,
       },
+      input = {
+        -- prefix char in sidebar, unclear yet if used in prompt
+        prefix = "> ",
+        -- Height of input window in vertical layout
+        height = 8,
+      },
     },
+
     -- ----------------------
     -- PROVIDER config
     -- ----------------------
