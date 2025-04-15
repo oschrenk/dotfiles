@@ -7,14 +7,24 @@ return {
     "nvim-tree/nvim-web-devicons",
   },
   opts = {
-    file_types = { "markdown", "Avante" },
+    file_types = {
+      "markdown",
+      "Avante",
+    },
   },
-  ft = { "markdown", "Avante" },
+  ft = {
+    "markdown",
+    "Avante",
+  },
   config = function()
     require("render-markdown").setup({
       latex = { enabled = false },
       bullet = {
-        icons = { "•", "◦", "⋄" },
+        icons = {
+          "•",
+          "◦",
+          "⋄",
+        },
       },
     })
   end,
