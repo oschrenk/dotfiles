@@ -74,7 +74,11 @@ return {
     -- https://github.com/nvim-tree/nvim-web-devicons
     "nvim-tree/nvim-web-devicons",
     {
-      -- see markdown setup in markdown.nvim
+
+      -- https://github.com/MeanderingProgrammer/render-markdown.nvim
+      -- improve rendering Markdown files
+      -- see setup in markdown.nvim
+      "MeanderingProgrammer/render-markdown.nvim",
     },
   },
   opts = {
