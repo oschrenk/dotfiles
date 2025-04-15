@@ -109,6 +109,7 @@ return {
     behaviour = {
       -- automatically adds keymaps, default true
       -- setting to false, will still add a subset of keymaps
+      -- especially `files`
       auto_set_keymaps = true,
       -- count and show input tokens in sidear, default true.
       enable_token_counting = true,
