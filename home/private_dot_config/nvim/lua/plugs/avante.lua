@@ -79,7 +79,7 @@ return {
   },
   opts = {
     -- ----------------------
-    -- GENERAL config
+    -- APPEARANCE config
     -- ----------------------
     windows = {
       -- % on available width, default 30
