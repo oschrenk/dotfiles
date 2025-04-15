@@ -82,7 +82,7 @@ return {
     -- GENERAL config
     -- ----------------------
     windows = {
-      -- default 30
+      -- % on available width, default 30
       width = 40,
       sidebar_header = {
         enabled = false,
