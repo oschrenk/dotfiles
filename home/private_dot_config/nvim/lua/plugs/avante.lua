@@ -127,7 +127,15 @@ return {
       -- providing a
       --  - string => interpreted as key
       --  - table  => executed as cmd
-      api_key_name = { "security", "find-generic-password", "-s", "avante-claude-api", "-a", "ANTHROPIC_API_KEY", "-w" },
+      api_key_name = {
+        "security",
+        "find-generic-password",
+        "-s",
+        "avante-claude-api",
+        "-a",
+        "ANTHROPIC_API_KEY",
+        "-w",
+      },
     },
     ollama = {
       model = "gemma3:1b",
