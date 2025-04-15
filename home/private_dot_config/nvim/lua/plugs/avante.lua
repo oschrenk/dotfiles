@@ -129,9 +129,6 @@ return {
       --  - table  => executed as cmd
       api_key_name = { "security", "find-generic-password", "-s", "avante-claude-api", "-a", "ANTHROPIC_API_KEY", "-w" },
     },
-    gemini = {
-      -- config
-    },
     ollama = {
       model = "gemma3:1b",
     },
