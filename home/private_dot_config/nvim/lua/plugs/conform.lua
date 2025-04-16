@@ -29,16 +29,6 @@ return {
       end
       return options
     end,
-    formatters = {
-      ktfmt = {
-        -- --kotlinlang-style:     4-space indent
-        -- --meta-style (default): 2-space block indent
-        -- --google-style:         2-space indent
-        --
-        args = { "--kotlinlang-style", "$FILENAME" },
-        stdin = false,
-      },
-    },
     -- define your formatters
     -- sub-list to run only the first available formatter
     -- eg { { "prettierd", "prettier" } }
@@ -63,6 +53,16 @@ return {
       typst = { "typstyle" },
       yaml = { "yamlfmt" },
       ["_"] = { "trim_whitespace" },
+    },
+    formatters = {
+      ktfmt = {
+        -- --kotlinlang-style:     4-space indent
+        -- --meta-style (default): 2-space block indent
+        -- --google-style:         2-space indent
+        --
+        args = { "--kotlinlang-style", "$FILENAME" },
+        stdin = false,
+      },
     },
   },
   -- customize formatters
