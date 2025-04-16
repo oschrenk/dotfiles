@@ -64,9 +64,21 @@ return {
         args = { "--kotlinlang-style", "$FILENAME" },
         stdin = false,
       },
+      yamlfmt = function(_)
+        local config_file =
+          vim.fs.find({ ".yamlfmt.yaml", ".yamlfmt", ".yamlfmt.yml", "yamlfmt.yml" }, { upward = true })[1]
+
+        if config_file then
+          return {
+            command = "yamlfmt",
+            args = { "-conf", config_file, "-" },
+          }
+        end
+        return {
+          command = "yamlfmt",
+          args = { "-" },
+        }
+      end,
     },
   },
-  -- customize formatters
-  formatters = {},
-  init = function() end,
 }
