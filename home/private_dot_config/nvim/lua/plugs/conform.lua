@@ -29,7 +29,7 @@ return {
       end
       return options
     end,
-    -- define your formatters
+    -- choose your formatters
     -- sub-list to run only the first available formatter
     -- eg { { "prettierd", "prettier" } }
     -- "*" filetype runs formatters on all filetypes.
@@ -54,6 +54,7 @@ return {
       yaml = { "yamlfmt" },
       ["_"] = { "trim_whitespace" },
     },
+    -- configure your formatters
     formatters = {
       ktfmt = {
         -- --kotlinlang-style:     4-space indent
