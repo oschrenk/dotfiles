@@ -17,7 +17,7 @@ return {
       use_bundled_binary = true,
 
       -- Required configuration
-      port = 3000,
+      port = 37373,
       config = vim.fn.expand("~/.config/mcphub/servers.json"),
 
       -- Optional customization
