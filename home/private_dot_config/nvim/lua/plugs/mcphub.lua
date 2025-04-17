@@ -26,6 +26,13 @@ return {
         -- Creates ~/.local/state/nvim/mcphub.log
         to_file = true,
       },
+      -- Extensions configuration
+      extensions = {
+        avante = {
+          -- make /slash commands from MCP server prompts
+          make_slash_commands = true,
+        },
+      },
       on_ready = function()
         vim.notify("MCP Hub is online!")
       end,
