@@ -17,13 +17,14 @@ return {
       use_bundled_binary = true,
 
       -- Required configuration
-      port = 3000, -- Default hub port
+      port = 3000,
       config = vim.fn.expand("~/.config/mcphub/servers.json"),
 
       -- Optional customization
       log = {
-        level = vim.log.levels.WARN, -- DEBUG, INFO, WARN, ERROR
-        to_file = true, -- Creates ~/.local/state/nvim/mcphub.log
+        level = vim.log.levels.WARN,
+        -- Creates ~/.local/state/nvim/mcphub.log
+        to_file = true,
       },
       on_ready = function()
         vim.notify("MCP Hub is online!")
