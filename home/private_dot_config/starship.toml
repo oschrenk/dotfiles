@@ -31,7 +31,7 @@ style = 'bold green'
 [kubernetes]
 disabled     = false
 detect_files = [".kube"]
-format       = '[$symbol $context $namespace]($style) '
+format       = '[$symbol $context $namespace]($style)'
 symbol       = '🛶'
 style        = 'aqua'
 
