@@ -1,4 +1,5 @@
 # vim: filetype=ruby
-com.neovide.neovide md  # Neovide for Markdown
-com.colliderli.iina mp4 # iina for video
-com.colliderli.iina mkv # iina for video
+com.neovide.neovide md   # Neovide for Markdown
+com.colliderli.iina mp4  # iina for video
+com.colliderli.iina mkv  # iina for video
+com.colliderli.iina webm # iina for video
