@@ -1,4 +1,3 @@
-local home = os.getenv("HOME")
 -- ===========================
 -- Auto corrections
 -- ===========================
@@ -11,12 +10,6 @@ vim.cmd("iab soem some")
 vim.cmd("iab teh the")
 vim.cmd("iab tommorow tomorrow")
 vim.cmd("iab tommorrow tomorrow")
-
--- ===========================
--- Spellcheck
--- ===========================
-vim.o.spelllang = "en"
-vim.o.spellfile = home .. "/.config/nvim/spell/en.utf-8.add" -- dictionary location
 
 -- ===========================
 -- Auto Commands

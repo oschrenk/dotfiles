@@ -107,3 +107,9 @@ o.undodir = home .. "/.config/nvim/undo//"
 o.undofile = true
 o.undolevels = 500
 o.undoreload = 500
+
+-- ===========================
+-- Spellcheck
+-- ===========================
+o.spelllang = "en"
+o.spellfile = home .. "/.config/nvim/spell/en.utf-8.add" -- dictionary location
