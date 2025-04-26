@@ -1,7 +1,6 @@
 # Sample config
 #   https://github.com/meli/meli/blob/master/meli/docs/samples/sample-config.toml
 
-
 [accounts.personal]
 identity     = "oliver.schrenk@gmail.com"
 display_name = "Oliver Schrenk"
@@ -15,20 +14,36 @@ use_oauth2              = true
 
 root_mailbox = '[Gmail]'
 
-listing.index_style  = "Conversations"
-subscribed_mailboxes = ["*"]
+# all: ["*"]
+subscribed_mailboxes = ["INBOX"]
 
 ## Gmail auto saves sent mail to Sent folder, so don't duplicate the effort:
 composing.store_sent_mail = false
 send_mail                 = { hostname = "smtp.gmail.com", port = 587, auth = { type = "xoauth2", token_command = "...", require_auth = true }, security = { type = "STARTTLS" } }
 
+[accounts.personal.mailboxes]
+"History" = { collapsed = true }
+
+
 [listing]
-sidebar_ratio = 80
+index_style           = "Conversations"
+recent_dates          = true
+relative_list_indices = false
+relative_menu_indices = false
+sidebar_ratio         = 80
+unseen_flag           = "␣"
 
 [shortcuts.general]
-toggle_help        = "?"
 enter_command_mode = ":"
 quit               = "q"
+toggle_help        = "?"
+
+[shortcuts.listing]
+focus_left  = 'h'
+focus_right = 'l'
+open_entry  = "Enter"
+exit_entry  = 'Esc'
 
 [terminal]
-theme = "dark"
+theme         = "gruvbox"
+ascii_drawing = true

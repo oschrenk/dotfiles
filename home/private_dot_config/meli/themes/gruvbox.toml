@@ -1,0 +1,127 @@
+# Documentation
+#  general => https://meli-email.org/documentation.html#meli-themes.5
+#  keys    => https://meli-email.org/documentation.html#meli-themes.5_VALID_KEYS
+[terminal.themes.gruvbox]
+"theme_default" = { fg = "$light1", bg = "$dark0", attrs = "Default" }
+
+"mail.listing.compact.even"             = { fg = "theme_default", bg = "$dark2", attrs = "theme_default" }
+"mail.listing.compact.even_highlighted" = { fg = "$dark0", bg = "$focused_bg", attrs = "theme_default" }
+"mail.listing.compact.odd"              = { fg = "theme_default", bg = "$dark2", attrs = "theme_default" }
+"mail.listing.compact.odd_highlighted"  = { fg = "$dark0", bg = "$focused_bg", attrs = "theme_default" }
+
+"mail.listing.plain.even"             = { fg = "theme_default", bg = "$dark2", attrs = "theme_default" }
+"mail.listing.plain.even_highlighted" = { fg = "$light1", bg = "$focused_bg", attrs = "theme_default" }
+"mail.listing.plain.odd"              = { fg = "theme_default", bg = "$dark4", attrs = "theme_default" }
+"mail.listing.plain.odd_highlighted"  = { fg = "$dark0", bg = "$focused_bg", attrs = "theme_default" }
+
+"mail.listing.conversations.highlighted" = { fg = "$light1", bg = "$focused_bg", attrs = "theme_default" }
+"mail.listing.conversations.selected"    = { fg = "theme_default", bg = "theme_default", attrs = "theme_default" }
+"mail.listing.conversations.subject"     = { fg = "theme_default", bg = "theme_default", attrs = "theme_default" }
+"mail.listing.conversations.unseen"      = { fg = "theme_default", bg = "theme_default", attrs = "theme_default" }
+"mail.listing.conversations.date"        = { fg = "$neutral_aqua", bg = "$dark0", attrs = "theme_default" }
+"mail.listing.conversations.from"        = { fg = "$bright_yellow", bg = "$dark0", attrs = "theme_default" }
+
+"mail.listing.tag_default" = { fg = "theme_default", bg = "$dark4", attrs = "theme_default" }
+
+"mail.sidebar"              = { fg = "theme_default", bg = "theme_default", attrs = "theme_default" }
+"mail.sidebar_account_name" = { fg = "$light3", bg = "theme_default", attrs = "theme_default" }
+"mail.sidebar_unread_count" = { fg = "$light3", bg = "theme_default", attrs = "theme_default" }
+
+"mail.sidebar_index"             = { fg = "$dark1", bg = "theme_default", attrs = "theme_default" }
+"mail.sidebar_highlighted_index" = { fg = "$bright_yellow", bg = "mail.sidebar_highlighted", attrs = "theme_default" }
+
+"mail.sidebar_highlighted_unread_count" = { fg = "mail.sidebar_highlighted", bg = "mail.sidebar_highlighted", attrs = "theme_default" }
+
+"mail.sidebar_highlighted"         = { fg = "$bright_yellow", bg = "$dark1", attrs = "theme_default" }
+"mail.sidebar_highlighted_account" = { fg = "$light3", bg = "$unfocused_bg", attrs = "theme_default" }
+
+"mail.sidebar_highlighted_account_name"         = { fg = "$light1", bg = "$focused_bg", attrs = "theme_default" }
+"mail.sidebar_highlighted_account_index"        = { fg = "mail.sidebar_highlighted_account", bg = "mail.sidebar_highlighted_account", attrs = "theme_default" }
+"mail.sidebar_highlighted_account_unread_count" = { fg = "mail.sidebar_highlighted_account", bg = "mail.sidebar_highlighted_account", attrs = "theme_default" }
+
+
+"mail.view.body"    = { fg = "theme_default", bg = "theme_default", attrs = "theme_default" }
+"mail.view.headers" = { fg = "$light1", bg = "theme_default", attrs = "theme_default" }
+
+"mail.view.thread.indentation.a" = { fg = "theme_default", bg = "$dark0", attrs = "theme_default" }
+"mail.view.thread.indentation.b" = { fg = "theme_default", bg = "$dark1", attrs = "theme_default" }
+"mail.view.thread.indentation.c" = { fg = "theme_default", bg = "$dark2", attrs = "theme_default" }
+"mail.view.thread.indentation.d" = { fg = "theme_default", bg = "$dark3", attrs = "theme_default" }
+"mail.view.thread.indentation.e" = { fg = "theme_default", bg = "$dark4", attrs = "theme_default" }
+"mail.view.thread.indentation.f" = { fg = "theme_default", bg = "$gray", attrs = "theme_default" }
+
+"pager.highlight_search"         = { fg = "$light1", bg = "$dark2", attrs = "Bold" }
+"pager.highlight_search_current" = { fg = "$light_green", bg = "$dark2", attrs = "Bold" }
+
+"status.bar"          = { fg = "$light3", bg = "$dark1", attrs = "theme_default" }
+"status.notification" = { fg = "$light3", bg = "$dark1", attrs = "theme_default" }
+
+"tab.bar"       = { fg = "theme_default", bg = "theme_default", attrs = "theme_default" }
+"tab.focused"   = { fg = "$light1", bg = "$focused_bg", attrs = "theme_default" }
+"tab.unfocused" = { fg = "$light1", bg = "$unfocused_bg", attrs = "theme_default" }
+
+"widgets.form.field"          = { fg = "theme_default", bg = "theme_default", attrs = "theme_default" }
+"widgets.form.highlighted"    = { fg = "theme_default", bg = "$dark4", attrs = "theme_default" }
+"widgets.form.label"          = { fg = "theme_default", bg = "theme_default", attrs = "Bold" }
+"widgets.list.header"         = { fg = "theme_default", bg = "theme_default", attrs = "Bold" }
+"widgets.options.highlighted" = { fg = "theme_default", bg = "$dark4", attrs = "theme_default" }
+
+[terminal.themes.gruvbox.color_aliases]
+dark0_hard       = "#1d2021"
+dark0            = "#282828"
+dark0_soft       = "#32302f"
+dark1            = "#3c3836"
+dark2            = "#504945"
+dark3            = "#665c54"
+dark4            = "#7c6f64"
+light0_hard      = "#f9f5d7"
+light0           = "#fbf1c7"
+light0_soft      = "#f2e5bc"
+light1           = "#ebdbb2"
+light2           = "#d5c4a1"
+light3           = "#bdae93"
+light4           = "#a89984"
+bright_red       = "#fb4934"
+bright_green     = "#b8bb26"
+bright_yellow    = "#fabd2f"
+bright_blue      = "#83a598"
+bright_purple    = "#d3869b"
+bright_aqua      = "#8ec07c"
+bright_orange    = "#fe8019"
+neutral_red      = "#cc241d"
+neutral_green    = "#98971a"
+neutral_yellow   = "#d79921"
+neutral_blue     = "#458588"
+neutral_purple   = "#b16286"
+neutral_aqua     = "#689d6a"
+neutral_orange   = "#d65d0e"
+faded_red        = "#9d0006"
+faded_green      = "#79740e"
+faded_yellow     = "#b57614"
+faded_blue       = "#076678"
+faded_purple     = "#8f3f71"
+faded_aqua       = "#427b58"
+faded_orange     = "#af3a03"
+dark_red_hard    = "#792329"
+dark_red         = "#722529"
+dark_red_soft    = "#7b2c2f"
+light_red_hard   = "#fc9690"
+light_red        = "#fc9487"
+light_red_soft   = "#f78b7f"
+dark_green_hard  = "#5a633a"
+dark_green       = "#62693e"
+dark_green_soft  = "#686d43"
+light_green_hard = "#d3d6a5"
+light_green      = "#d5d39b"
+light_green_soft = "#cecb94"
+dark_aqua_hard   = "#3e4934"
+dark_aqua        = "#49503b"
+dark_aqua_soft   = "#525742"
+light_aqua_hard  = "#e6e9c1"
+light_aqua       = "#e8e5b5"
+light_aqua_soft  = "#e1dbac"
+gray             = "#928374"
+
+# semantics
+focused_bg   = "$dark1"
+unfocused_bg = "$dark0"
