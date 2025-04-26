@@ -1,0 +1,34 @@
+# Sample config
+#   https://github.com/meli/meli/blob/master/meli/docs/samples/sample-config.toml
+
+
+[accounts.personal]
+identity     = "oliver.schrenk@gmail.com"
+display_name = "Oliver Schrenk"
+
+format                  = "imap"
+server_hostname         = 'imap.gmail.com'
+server_password_command = "~/.config/meli/password_command.sh"
+server_username         = "oliver.schrenk@gmail.com"
+server_port             = "993"
+use_oauth2              = true
+
+root_mailbox = '[Gmail]'
+
+listing.index_style  = "Conversations"
+subscribed_mailboxes = ["*"]
+
+## Gmail auto saves sent mail to Sent folder, so don't duplicate the effort:
+composing.store_sent_mail = false
+send_mail                 = { hostname = "smtp.gmail.com", port = 587, auth = { type = "xoauth2", token_command = "...", require_auth = true }, security = { type = "STARTTLS" } }
+
+[listing]
+sidebar_ratio = 80
+
+[shortcuts.general]
+toggle_help        = "?"
+enter_command_mode = ":"
+quit               = "q"
+
+[terminal]
+theme = "dark"
