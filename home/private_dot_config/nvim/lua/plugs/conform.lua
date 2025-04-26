@@ -61,7 +61,7 @@ return {
         -- --meta-style (default): 2-space block indent
         -- --google-style:         2-space indent
         --
-        args = { "--kotlinlang-style", "$FILENAME" },
+        args = { "--meta-style", "$FILENAME" },
         stdin = false,
       },
       yamlfmt = function(_)
