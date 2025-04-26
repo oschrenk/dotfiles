@@ -38,19 +38,24 @@ return {
       fish = { "fish_indent" },
       go = { "gofmt" },
       javascript = { "prettierd", "prettier", stop_after_first = true },
+      -- brew install black
       json = { "jq" },
       -- brew install ktfmt
       kotlin = { "ktfmt", stop_after_first = true },
       lua = { "stylua" },
+      -- brew install black
       python = { "black" },
       scala = { "scalafmt" },
+      -- brew install shellcheck
       sh = { "shellcheck" },
+      -- brew install swiftformat
       swift = { "swiftformat" },
       terraform = { "terraform_fmt" },
       -- cargo install taplo-cli
       toml = { "taplo" },
       typescript = { "prettier" },
       typst = { "typstyle" },
+      -- brew install yamlfmt
       yaml = { "yamlfmt" },
       ["_"] = { "trim_whitespace" },
     },
