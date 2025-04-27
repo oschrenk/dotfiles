@@ -45,9 +45,9 @@ send_mail                 = { hostname = "smtp.gmail.com", port = 587, auth = { 
 [accounts.personal.mailboxes]
 "History" = { collapsed = true }
 
-
 [listing]
-index_style           = "Conversations"
+# plain|threaded|compact|conversations
+index_style           = "compact"
 recent_dates          = true
 relative_list_indices = false
 relative_menu_indices = false
