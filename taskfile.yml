@@ -18,9 +18,6 @@ tasks:
   lua:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01e_deps_luarocks.sh.tmpl | chezmoi execute-template | zsh
-  duti:
-    cmds:
-      - cat home/.chezmoiscripts/run_onchange_01g_deps_duti.sh.tmpl | chezmoi execute-template | zsh
   krew:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01h_deps_krew.sh.tmpl | chezmoi execute-template | zsh

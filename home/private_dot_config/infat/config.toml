@@ -1,0 +1,12 @@
+[extensions]
+md = "Neovide"
+mkv = "IINA"
+mp4 = "IINA"
+webm = "IINA"
+
+[schemes]
+mailto = "Mail"
+web = "Arc"
+
+[types]
+plain-text = "Neovide"
