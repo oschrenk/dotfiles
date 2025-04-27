@@ -72,6 +72,8 @@ macos-option-as-alt = true
 #   https://ghostty.org/docs/config/reference#keybind
 #   ghostty +list-keybinds
 #   [alt|ctrl|shift|super] + key
+# dont' create new windows
 keybind = super+n=unbind
+# dont' create new tabs
 keybind = super+t=unbind
 keybind = global:super+grave_accent=toggle_quick_terminal
