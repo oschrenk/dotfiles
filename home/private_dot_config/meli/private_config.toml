@@ -69,7 +69,6 @@ refresh     = 'R'     # default: F5
 [shortcuts."envelope-view"]
 return_to_normal_view = 'r' # default: r
 
-
 [terminal]
 theme         = "gruvbox"
 ascii_drawing = true
