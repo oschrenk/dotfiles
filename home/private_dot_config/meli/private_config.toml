@@ -1,6 +1,27 @@
 # Sample config
 #   https://github.com/meli/meli/blob/master/meli/docs/samples/sample-config.toml
 
+# Flags
+# meli supports the basic `maildir` flags: 
+#  - passed, 
+#  - replied,
+#  - seen, 
+#  - trashed, 
+#  - draft and 
+#  - flagged. 
+#
+# Flags can be searched with `flags:` prefix in a search query, 
+# and can be modified by
+#    flag set FLAG
+#    flag unset FLAG
+
+# Tags
+# meli supports tagging in notmuch and IMAP/JMAP backends. 
+# Tags can be searched with the `tags:` prefix in a search query,
+# and can be modified by
+#    tag add TAG
+#    tag remove TAG
+
 [accounts.personal]
 identity     = "oliver.schrenk@gmail.com"
 display_name = "Oliver Schrenk"
