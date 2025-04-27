@@ -4,10 +4,12 @@
 [terminal.themes.gruvbox]
 "theme_default" = { fg = "$light1", bg = "$dark0", attrs = "Default" }
 
-"mail.listing.compact.even"             = { fg = "theme_default", bg = "$dark2", attrs = "theme_default" }
-"mail.listing.compact.even_highlighted" = { fg = "$dark0", bg = "$focused_bg", attrs = "theme_default" }
-"mail.listing.compact.odd"              = { fg = "theme_default", bg = "$dark2", attrs = "theme_default" }
-"mail.listing.compact.odd_highlighted"  = { fg = "$dark0", bg = "$focused_bg", attrs = "theme_default" }
+"mail.listing.compact.even"             = { fg = "theme_default", bg = "$unfocused_bg", attrs = "theme_default" }
+"mail.listing.compact.even_highlighted" = { fg = "theme_default", bg = "$focused_bg", attrs = "theme_default" }
+"mail.listing.compact.even_unseen"      = { fg = "theme_default", bg = "$dark4" }
+"mail.listing.compact.odd"              = { fg = "theme_default", bg = "$unfocused_bg", attrs = "theme_default" }
+"mail.listing.compact.odd_highlighted"  = { fg = "theme_default", bg = "$focused_bg", attrs = "theme_default" }
+"mail.listing.compact.odd_unseen"       = { fg = "theme_default", bg = "$dark4" }
 
 "mail.listing.plain.even"             = { fg = "theme_default", bg = "$dark2", attrs = "theme_default" }
 "mail.listing.plain.even_highlighted" = { fg = "$light1", bg = "$focused_bg", attrs = "theme_default" }
