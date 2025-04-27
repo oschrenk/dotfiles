@@ -30,7 +30,7 @@ index_style           = "Conversations"
 recent_dates          = true
 relative_list_indices = false
 relative_menu_indices = false
-sidebar_ratio         = 80
+sidebar_ratio         = 75
 unseen_flag           = "␣"
 
 [shortcuts.general]
@@ -43,6 +43,11 @@ focus_left  = 'h'
 focus_right = 'l'
 open_entry  = "Enter"
 exit_entry  = 'Esc'
+refresh     = 'R'     # default: F5
+
+[shortcuts."envelope-view"]
+return_to_normal_view = 'r' # default: r
+
 
 [terminal]
 theme         = "gruvbox"

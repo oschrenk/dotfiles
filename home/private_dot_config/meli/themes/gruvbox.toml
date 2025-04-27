@@ -54,6 +54,7 @@
 "pager.highlight_search_current" = { fg = "$light_green", bg = "$dark2", attrs = "Bold" }
 
 "status.bar"          = { fg = "$light3", bg = "$dark1", attrs = "theme_default" }
+"status.command_bar"  = { fg = "$light1", bg = "$dark0", attrs = "theme_default" }
 "status.notification" = { fg = "$light3", bg = "$dark1", attrs = "theme_default" }
 
 "tab.bar"       = { fg = "theme_default", bg = "theme_default", attrs = "theme_default" }
