@@ -1,6 +1,10 @@
 # import default fzf key bindings
 fzf_key_bindings
 
+# !!! NEVER bind \cm
+# Ctrl+M is the same as return
+# I thought one can remap it but it will mess up fish
+
 bind \cp fzf_projects
 bind \co fzf_nvim
 bind \cg fzf_commits
