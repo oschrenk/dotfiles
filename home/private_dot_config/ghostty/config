@@ -59,7 +59,7 @@ clipboard-write = allow
 clipboard-trim-trailing-spaces = true
 
 # Quick Terminal
-quick-terminal-position = top
+quick-terminal-position = right
 quick-terminal-screen = mouse
 quick-terminal-autohide = true
 quick-terminal-animation-duration = 0
