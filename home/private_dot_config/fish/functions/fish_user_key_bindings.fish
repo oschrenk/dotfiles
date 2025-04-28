@@ -1,10 +1,22 @@
-# import default fzf key bindings
-fzf_key_bindings
-
+####################
+# KEY BINDINGS
+####################
+#
 # !!! NEVER bind \cm
 # Ctrl+M is the same as return
 # I thought one can remap it but it will mess up fish
+# 
+# To list all bindings
+#   bind -a
+#
+# To list preset bindings
+#   bind -a | grep preset | sort
+#   bind -a | grep preset | grep ctrl | sort
 
+# import default fzf key bindings
+fzf_key_bindings
+
+# fzf related user functions
 bind \cp fzf_projects
 bind \co fzf_nvim
 bind \cg fzf_commits
