@@ -250,6 +250,10 @@ if.app-id = 'com.microsoft.VSCode'
 run       = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
+if.app-id = 'com.apple.dt.Xcode'
+run       = ['move-node-to-workspace 1']
+
+[[on-window-detected]]
 if.app-id = 'com.seriflabs.affinitydesigner2'
 run       = 'move-node-to-workspace 2'
 
