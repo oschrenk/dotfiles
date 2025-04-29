@@ -6,7 +6,7 @@ name = "home"
 path = "$HOME/Downloads"
 
 [search]
-# recrusively search git directories
+# recursively search git directories
 directories = ["$HOME/Projects"]
 
 entries = ["$HOME/.local/share/chezmoi"]
