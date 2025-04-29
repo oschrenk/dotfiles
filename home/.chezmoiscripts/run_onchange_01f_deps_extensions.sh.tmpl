@@ -10,7 +10,7 @@ cat {{ joinPath .chezmoi.sourceDir "../Extensions.tmpl" | quote }} | chezmoi exe
 cat $tmpfile | cut -d "#" -f1 | while IFS= read -r line; do
   [[ -z "$line" ]] && continue
   echo "$line"
-  local id=$(echo $line | cut -d "=" -f1)
+  local id=$(echo $line | cut -d "=" -f1 | xargs)
   local name=$(echo $line | cut -d "=" -f2)
   echo "Installing $name"
   extension install arc $id
