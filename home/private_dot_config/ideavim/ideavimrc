@@ -144,6 +144,7 @@ vnoremap <leader>ev <Action>(IntroduceVariable)
 map      <leader>em <Action>(ExtractMethod)
 
 " run
+map      <leader>rc <Action>(CompileDirty)
 map      <leader>rr <Action>(Run)
 map      <leader>rd <Action>(Debug)
 
