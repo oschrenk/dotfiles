@@ -99,6 +99,10 @@ nmap     gs         <Action>(GotoSuperMethod)
 nmap     gt         <Action>(GotoTest)
 map      gb         <Action>(JumpToLastChange)
 
+" diagnostics
+nmap     ]g         <Action>(GotoNextError)
+nmap     [g         <Action>(GotoPreviousError)
+
 " don't override yank register when pasting over text
 xnoremap P pgvy
 
