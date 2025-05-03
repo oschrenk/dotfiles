@@ -32,4 +32,16 @@ strings.TrimToNil = function(text)
   end
 end
 
+strings.UrlEncode = function(str)
+  if str == nil then
+    return ""
+  end
+  str = tostring(str)
+  str = string.gsub(str, "\n", "\r\n")
+  str = string.gsub(str, "([^%w%-_%.%~])", function(c)
+    return string.format("%%%02X", string.byte(c))
+  end)
+  return str
+end
+
 return strings
