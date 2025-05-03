@@ -11,6 +11,7 @@ local style = require("style")
 
 -- services
 local focus = require("services.focus").new()
+local mission = require("services.mission").new()
 local pomodoro = require("services.pomodoro").new()
 local sessionizer = require("services.sessionizer").new()
 
@@ -29,7 +30,7 @@ sbar.default(style.default)
 
 require("items.sessions").new(icons.sessions, style.sessions).add("left")
 require("items.windows").new(icons.windows, style.windows).add("left")
-require("items.mission").new(icons.mission, focus).add("left")
+require("items.mission").new(mission, focus, icons.mission).add("left")
 require("items.project").new(icons.project, sessionizer).add("left")
 
 -- require("items.pomodoro").new(pomodoro, style.pomodoro).add("center")

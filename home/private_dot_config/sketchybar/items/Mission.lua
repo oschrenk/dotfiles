@@ -21,9 +21,10 @@ local strings = require("utils.Strings")
 --   brew services restart sketchybar
 local Mission = {}
 
+-- @param mission Instance of Mission service
+-- @param focus Instance of Focus service
 -- @param icons Plugin specific icons
--- @param focus Instance of Focus
-function Mission.new(icons, focus)
+function Mission.new(mission, focus, icons)
   local self = {}
 
   local MaxLength = 35
@@ -38,7 +39,7 @@ function Mission.new(icons, focus)
 
   -- @param position right|left
   self.add = function(position)
-    local mission = sbar.add("item", {
+    local item = sbar.add("item", {
       position = position,
       update_freq = 60,
     })
@@ -49,38 +50,35 @@ function Mission.new(icons, focus)
         journal = "work"
       end
 
-      local cmd = "/opt/homebrew/bin/mission tasks --journal "
-        .. journal
-        .. " --show-done=false --show-cancelled=false --json"
-
       local icon = focus2icon[current_focus] or focus2icon["default"]
-
-      sbar.exec(cmd, function(json)
+      local callback = function(json)
         if current_focus == focus.dnd or current_focus == focus.sleep then
-          mission:set({ icon = icon, label = { drawing = false } })
+          item:set({ icon = icon, label = { drawing = false } })
         else
           local maybeTasks = json.tasks
           if (maybeTasks ~= nil) and (maybeTasks[1] ~= nil) then
             local text = strings.Trim(maybeTasks[1].text, MaxLength)
-            mission:set({ icon = icon, label = { string = text, drawing = true } })
+            item:set({ icon = icon, label = { string = text, drawing = true } })
           else
-            mission:set({ icon = icon, label = { string = "", drawing = true } })
+            item:set({ icon = icon, label = { string = "", drawing = true } })
           end
         end
-      end)
+      end
+      mission.getTasks(journal, callback)
+
       local path = "10%2520Journals%252FPersonal%252F"
       if journal == "work" then
         path = "10%2520Journals%252FWork%252F"
       end
 
-      mission:subscribe("mouse.clicked", function(_)
+      item:subscribe("mouse.clicked", function(_)
         local today = os.date("%Y-%m-%d")
         local click_cmd = 'open "obsidian://advanced-uri?vault=memex&filepath=' .. path .. today .. '.md"'
         sbar.exec(click_cmd)
       end)
     end
 
-    mission:subscribe({ "forced", "routine", "system_woke", "mission_task", "mission_focus" }, function(_)
+    item:subscribe({ "forced", "routine", "system_woke", "mission_task", "mission_focus" }, function(_)
       focus.handler(onComplete)
     end)
   end
