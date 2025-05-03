@@ -36,6 +36,14 @@ function Mission.new(user_config)
     end)
   end
 
+  self.openObsidian = function(vault, rel_path)
+    local cmd = table.concat({
+      "open",
+      '"obsidian://advanced-uri?vault=' .. vault .. "&filepath=" .. rel_path .. '"',
+    }, " ")
+    sbar.exec(cmd)
+  end
+
   return self
 end
 

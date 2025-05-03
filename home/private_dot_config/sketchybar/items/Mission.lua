@@ -67,11 +67,7 @@ function Mission.new(mission, focus, icons)
         local rel_path = strings.UrlEncode(json.meta.path.relative)
 
         item:subscribe("mouse.clicked", function(_)
-          local cmd = table.concat({
-            "open",
-            '"obsidian://advanced-uri?vault=' .. vault .. "&filepath=" .. rel_path .. '"',
-          }, " ")
-          sbar.exec(cmd)
+          mission.openObsidian(vault, rel_path)
         end)
       end
       mission.getTasks(journal, callback)
