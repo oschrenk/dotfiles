@@ -63,19 +63,18 @@ function Mission.new(mission, focus, icons)
             item:set({ icon = icon, label = { string = "", drawing = true } })
           end
         end
+        local vault = json.meta.vault
+        local rel_path = strings.UrlEncode(json.meta.path.relative)
+
+        item:subscribe("mouse.clicked", function(_)
+          local cmd = table.concat({
+            "open",
+            '"obsidian://advanced-uri?vault=' .. vault .. "&filepath=" .. rel_path .. '"',
+          }, " ")
+          sbar.exec(cmd)
+        end)
       end
       mission.getTasks(journal, callback)
-
-      local path = "10%2520Journals%252FPersonal%252F"
-      if journal == "work" then
-        path = "10%2520Journals%252FWork%252F"
-      end
-
-      item:subscribe("mouse.clicked", function(_)
-        local today = os.date("%Y-%m-%d")
-        local click_cmd = 'open "obsidian://advanced-uri?vault=memex&filepath=' .. path .. today .. '.md"'
-        sbar.exec(click_cmd)
-      end)
     end
 
     item:subscribe({ "forced", "routine", "system_woke", "mission_task", "mission_focus" }, function(_)
