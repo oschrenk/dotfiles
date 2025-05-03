@@ -1,14 +1,20 @@
+[vault]
+name = "memex"
+path = "$HOME/Obsidian/memex"
+
 [[journals]]
 
 [[journals.default]]
-path = "$HOME/Obsidian/memex/10 Journals/Personal"
+vault     = "memex"
+path      = "$HOME/Obsidian/memex/10 Journals/Personal"
 extension = "md"
 
 [[journals.work]]
-path = "$HOME/Obsidian/memex/10 Journals/Work"
+vault     = "memex"
+path      = "$HOME/Obsidian/memex/10 Journals/Work"
 extension = "md"
 
 [sketchybar]
-path = "/opt/homebrew/bin/sketchybar"
-event_task = "mission_task"
+path        = "/opt/homebrew/bin/sketchybar"
+event_task  = "mission_task"
 event_focus = "mission_focus"
