@@ -6,13 +6,13 @@ package.cpath = package.cpath .. ";/Users/" .. os.getenv("USER") .. "/.local/sha
 local sbar = require("sketchybar")
 
 -- settings
-local style = require("style")
 local icons = require("icons")
+local style = require("style")
 
 -- services
 local focus = require("services.focus").new()
-local sessionizer = require("services.sessionizer").new()
 local pomodoro = require("services.pomodoro").new()
+local sessionizer = require("services.sessionizer").new()
 
 -- utilities
 local system = require("utils.system")
@@ -32,7 +32,7 @@ require("items.windows").new(icons.windows, style.windows).add("left")
 require("items.mission").new(icons.mission, focus).add("left")
 require("items.project").new(icons.project, sessionizer).add("left")
 
-require("items.pomodoro").new(pomodoro, style.pomodoro).add("center")
+-- require("items.pomodoro").new(pomodoro, style.pomodoro).add("center")
 
 require("items.clock").new(icons.clock).add("right")
 require("items.weathernative").new(style).add("right")
