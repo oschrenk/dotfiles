@@ -2,16 +2,14 @@
 #
 # Extensions hash: {{ include "../Extensions.tmpl" | sha256sum }}
 
-# tmpfile=$(mktemp /tmp/chezmoi-extensions.XXXXXX)
-local tmpfile=/tmp/chezmoi-extensions.XXXXXX
+local tmpfile=$(mktemp /tmp/chezmoi-extensions.XXXXXX)
 
 cat {{ joinPath .chezmoi.sourceDir "../Extensions.tmpl" | quote }} | chezmoi execute-template > $tmpfile
 
 cat $tmpfile | cut -d "#" -f1 | while IFS= read -r line; do
   [[ -z "$line" ]] && continue
-  echo "$line"
-  local id=$(echo $line | cut -d "=" -f1 | xargs)
-  local name=$(echo $line | cut -d "=" -f2)
+  local name=$(echo $line | cut -d "=" -f1 | xargs)
+  local id=$(echo $line | cut -d "=" -f2)
   echo "Installing $name"
   extension install arc $id
 done
