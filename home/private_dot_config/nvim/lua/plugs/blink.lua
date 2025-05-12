@@ -97,6 +97,9 @@ return {
         git = {
           module = "blink-cmp-git",
           name = "Git",
+          enabled = function()
+            return vim.tbl_contains({ "gitcommit" }, vim.bo.filetype)
+          end,
           opts = {
             git_centers = {
               gitlab = {
