@@ -38,7 +38,6 @@ function spotifish --description "control spotify from your fish shell"
         echo $bold$green"$argv"$reset
     end
 
-
     function __spoti_tell
         osascript -e "tell application \"Spotify\" to $argv"
     end
