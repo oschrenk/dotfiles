@@ -1,7 +1,7 @@
 -- https://github.com/epwalsh/obsidian.nvim
 -- interact with Obsidian
 return {
-  "epwalsh/obsidian.nvim",
+  "obsidian-nvim/obsidian.nvim",
   cmd = {
     "ObsidianToday",
     "ObsidianDailies",
