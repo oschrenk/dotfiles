@@ -14,6 +14,8 @@ local Calendar = {}
 function Calendar.new(icons, focus)
   local self = {}
 
+  local MaxLength = 35
+
   self.add = function(position)
     local calendar = sbar.add("item", {
       position = position,
@@ -28,7 +30,8 @@ function Calendar.new(icons, focus)
         local event = json[1]
         if event ~= nil then
           local icon = strings.TrimToNil(event.title.icon) or icons.default
-          local label = event.title.label
+
+          local label = strings.Trim(event.title.label, MaxLength)
           local suffix = ""
 
           if event["schedule"]["start"]["in"] < 0 then
