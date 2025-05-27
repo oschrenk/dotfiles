@@ -10,9 +10,6 @@ local strings = require("utils.strings")
 -- Then allow
 --   "System Settings" > "Privacy & Security" > "Full Disk Access", allow plan
 --   brew services restart plan
-
--- this script only work until midnight of a given day
--- beyond that date and time calculation might be wrong
 local Calendar = {}
 function Calendar.new(icons, focus)
   local self = {}
