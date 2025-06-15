@@ -1,6 +1,5 @@
 # vim: syntax=ruby filetype=ruby
 jx         # json viewer
-repgrep    # interactive replacer for ripgrep
 sleek      # sql formatter
 taplo-cli  # toml formatter
 typstyle   # formatter for the typst language
