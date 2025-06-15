@@ -1,4 +1,4 @@
 #!/bin/zsh
 
-# Cargofile hash: {{ include "../Cargofile" | sha256sum }}
-cargo install $(cat {{ joinPath .chezmoi.sourceDir "../Cargofile" | quote }} | cut -d "#" -f 1 | paste -s -d ' ' - )
+# Cargofile hash: {{ include "../apps/Cargofile" | sha256sum }}
+cargo install $(cat {{ joinPath .chezmoi.sourceDir "../apps/Cargofile" | quote }} | cut -d "#" -f 1 | paste -s -d ' ' - )

@@ -1,5 +1,7 @@
 version: '3'
 tasks:
+  apps:
+    deps: [brew, cargo, go, krew, lua, node, ollama]
   brew:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01a_deps_brewfiles.sh.tmpl | chezmoi execute-template | zsh

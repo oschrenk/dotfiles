@@ -2,7 +2,7 @@
 # Requirements
 #   brew install jq
 #
-# Ollamafile hash: {{ include "../Ollamafile" | sha256sum }}
+# Ollamafile hash: {{ include "../apps/Ollamafile" | sha256sum }}
 
 {{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
   echo "Only on personal machine"
@@ -20,7 +20,7 @@ else
 fi
 
 # pulling the models
-for model in $(cat {{ joinPath .chezmoi.sourceDir "../Ollamafile" | quote }} | cut -d "#" -f 1)
+for model in $(cat {{ joinPath .chezmoi.sourceDir "../apps/Ollamafile" | quote }} | cut -d "#" -f 1)
 do
   echo "\nPulling: $model\n"
   ollama pull $model

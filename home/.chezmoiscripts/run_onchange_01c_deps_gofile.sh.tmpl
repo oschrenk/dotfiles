@@ -1,12 +1,12 @@
 #!/bin/zsh
 
-# Gofile hash: {{ include "../Gofile" | sha256sum }}
+# Gofile hash: {{ include "../apps/Gofile" | sha256sum }}
 
 GOPATH="$HOME/Frameworks/go"
 GOBIN="$GOPATH/bin"
 mkdir -p "$GOBIN"
 
-for package in $(cat {{ joinPath .chezmoi.sourceDir "../Gofile" | quote }} | cut -d "#" -f 1)
+for package in $(cat {{ joinPath .chezmoi.sourceDir "../apps/Gofile" | quote }} | cut -d "#" -f 1)
 do
     go install $package
 done

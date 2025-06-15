@@ -1,10 +1,10 @@
 #!/bin/zsh
 
-# Brewfile hash: {{ include "../Brewfile.tmpl" | sha256sum }}
+# Brewfile hash: {{ include "../apps/Brewfile.tmpl" | sha256sum }}
 
 tmpfile=$(mktemp /tmp/chezmoi-brew.XXXXXX)
 
-cat {{ joinPath .chezmoi.sourceDir "../Brewfile.tmpl" | quote }} | chezmoi execute-template > $tmpfile
+cat {{ joinPath .chezmoi.sourceDir "../apps/Brewfile.tmpl" | quote }} | chezmoi execute-template > $tmpfile
 
 brew bundle --file $tmpfile
 

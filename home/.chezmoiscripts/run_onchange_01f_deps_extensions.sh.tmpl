@@ -1,10 +1,10 @@
 #!/bin/zsh
 #
-# Extensions hash: {{ include "../Extensions.tmpl" | sha256sum }}
+# Extensions hash: {{ include "../apss/Extensions.tmpl" | sha256sum }}
 
 local tmpfile=$(mktemp /tmp/chezmoi-extensions.XXXXXX)
 
-cat {{ joinPath .chezmoi.sourceDir "../Extensions.tmpl" | quote }} | chezmoi execute-template > $tmpfile
+cat {{ joinPath .chezmoi.sourceDir "../apps/Extensions.tmpl" | quote }} | chezmoi execute-template > $tmpfile
 
 cat $tmpfile | cut -d "#" -f1 | while IFS= read -r line; do
   [[ -z "$line" ]] && continue

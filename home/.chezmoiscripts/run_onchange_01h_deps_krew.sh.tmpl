@@ -1,8 +1,8 @@
 #!/bin/zsh
 #
-# Krewfile hash: {{ include "../Krewfile" | sha256sum }}
+# Krewfile hash: {{ include "../apps/Krewfile" | sha256sum }}
 #
-filepath={{ joinPath .chezmoi.sourceDir "../Krewfile"| quote }}
+filepath={{ joinPath .chezmoi.sourceDir "../apps/Krewfile"| quote }}
 
 # installing the plugins
 for plugin in $(cat $filepath | cut -d "#" -f 1)

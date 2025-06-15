@@ -1,10 +1,10 @@
 #!/bin/zsh
 #
-# hash: {{ include "../Nodefile.tmpl" | sha256sum }}
+# hash: {{ include "../apps/Nodefile.tmpl" | sha256sum }}
 
 tmpfile=$(mktemp /tmp/chezmoi-nodefile.XXXXXX)
 
-cat {{ joinPath .chezmoi.sourceDir "../Nodefile.tmpl" | quote }} | chezmoi execute-template > $tmpfile
+cat {{ joinPath .chezmoi.sourceDir "../apps/Nodefile.tmpl" | quote }} | chezmoi execute-template > $tmpfile
 
 # installing the dependencies
 for dependency in $(cat $tmpfile | cut -d "#" -f 1)
