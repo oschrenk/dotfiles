@@ -149,6 +149,7 @@ map      <leader>rr <Action>(Run)
 map      <leader>rd <Action>(Debug)
 
 " debug
+map      <leader>da <Action>(XDebugger.AttachToProcess)
 map      <leader>dr <Action>(Debugger.ResumeThread)
 
 " edit/source ideavim config
