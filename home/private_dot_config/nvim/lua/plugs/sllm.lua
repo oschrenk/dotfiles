@@ -16,6 +16,7 @@ return {
   },
   config = function()
     require("sllm").setup({
+      llm_cmd = "/opt/homebrew/bin/llm",
       pick_func = require("snacks.picker").select,
       notify_func = require("snacks.notifier").notify
     })
