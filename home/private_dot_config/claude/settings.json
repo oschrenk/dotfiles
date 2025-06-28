@@ -1,0 +1,12 @@
+{
+  "includePatterns": [
+    "**/*"
+  ],
+  "excludePatterns": [
+    "node_modules/**",
+    "dist/**",
+    "out-tsc/**"
+  ],
+  "includeCoAuthoredBy": false,
+  "verbose": false
+}
