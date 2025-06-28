@@ -7,6 +7,10 @@
     "dist/**",
     "out-tsc/**"
   ],
+  "env": {
+    "DISABLE_AUTOUPDATER": "1",
+    "DISABLE_TELEMETRY": "1",
+  },
   "includeCoAuthoredBy": false,
   "verbose": false
 }
