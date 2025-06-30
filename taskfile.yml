@@ -29,6 +29,9 @@ tasks:
   icons:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_04_configure_icons.sh.tmpl | chezmoi execute-template | zsh
+  spicetify:
+    cmds:
+      - home/.chezmoiscripts/run_onchange_08_spicetify.sh
   services:
     cmds:
       - home/.chezmoiscripts/run_onchange_05a_configure_launch_agents.sh
