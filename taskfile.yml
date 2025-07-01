@@ -28,11 +28,11 @@ tasks:
       - cat home/.chezmoiscripts/run_onchange_01h_deps_krew.sh.tmpl | chezmoi execute-template | zsh
   icons:
     cmds:
-      - cat home/.chezmoiscripts/run_onchange_04_configure_icons.sh.tmpl | chezmoi execute-template | zsh
+      - cat home/.chezmoiscripts/run_onchange_06_customize_icons.sh.tmpl | chezmoi execute-template | zsh
   spicetify:
     cmds:
-      - home/.chezmoiscripts/run_onchange_08_spicetify.sh
+      - home/.chezmoiscripts/run_onchange_05_terminal_fish.sh
   services:
     cmds:
-      - home/.chezmoiscripts/run_onchange_05a_configure_launch_agents.sh
-      - home/.chezmoiscripts/run_onchange_05b_configure_brew_services.sh
+      - home/.chezmoiscripts/run_onchange_04_configure_services_brew.sh
+      - home/.chezmoiscripts/run_onchange_04_configure_services_launch_agents.sh
