@@ -35,4 +35,3 @@ tasks:
   services:
     cmds:
       - home/.chezmoiscripts/run_onchange_04_configure_services_brew.sh
-      - home/.chezmoiscripts/run_onchange_04_configure_services_launch_agents.sh
