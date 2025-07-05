@@ -78,6 +78,39 @@ defaults write NSGlobalDomain com.apple.springing.enabled -bool true
 echo "Finder: Shorten the spring loading delay for directories"
 defaults write NSGlobalDomain com.apple.springing.delay -float 0.2
 
+
+
+# Set Column View Options
+# Tested on macOS 15.5
+# Requires: Nothing. Takes immediate effect
+#
+# disable grouping
+# Requires: Nothing. Takes immediate effect
+defaults write "FXPreferredGroupBy" "com.apple.finder" 'Kind'
+
+# View Options
+# ColumnShowIcons    : Show preview column
+# ShowPreview        : Show icons
+# ShowIconThumbnails : Show icon preview
+# ArrangeBy          : Sort by
+#   dnam : Name
+#   kipl : Kind
+#   ludt : Date Last Opened
+#   pAdd : Date Added
+#   modd : Date Modified
+#   ascd : Date Created
+#   logs : Size
+#   labl : Tags
+#
+# Requires: killall Finder
+# Doesn't quite work. Once ColumnShowIcons it won't turn it back on
+/usr/libexec/PlistBuddy \
+    -c "Set :StandardViewOptions:ColumnViewOptions:ColumnShowIcons bool    true" \
+    -c "Set :StandardViewOptions:ColumnViewOptions:FontSize        16"    \
+    -c "Set :StandardViewOptions:ColumnViewOptions:ShowPreview     bool    true"  \
+    -c "Set :StandardViewOptions:ColumnViewOptions:ArrangeBy       string  dnam"  \
+    ~/Library/Preferences/com.apple.finder.plist
+
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
