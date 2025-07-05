@@ -31,7 +31,7 @@ defaults write com.apple.finder ShowPathbar -bool true
 # Toggles menu item View > "Show/Hide Status Bar"
 # Requires closing of finder windows
 # Tested on macOS 12.4
-echo "Finder: Show Status bar in Finder"
+echo "Finder: Hide Status bar in Finder"
 defaults write com.apple.finder 'ShowStatusBar' -bool false
 
 # Toggles "Finder > Preferences > Advanced > "Show all filename extensions"
