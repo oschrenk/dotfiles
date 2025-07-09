@@ -23,6 +23,8 @@ bind \cg fzf_commits
 bind \cb fzf_branches
 bind \cw fzf_watch
 bind \cz fzf_zoxide
+bind -e \ct
+bind \ct transcribe
 
 # fish 4.x binds ctrl+dash
 #  which clashes with my tmux binding for h-split
