@@ -3,11 +3,7 @@
 return {
   "obsidian-nvim/obsidian.nvim",
   cmd = {
-    "ObsidianToday",
-    "ObsidianDailies",
-    "ObsidianQuickSwitch",
-    "ObsidianNew",
-    "ObsidianTags",
+    "Obsidian",
   },
   keys = {
     {
@@ -53,13 +49,13 @@ return {
     {
       "<leader>od",
       mode = { "n", "x", "o" },
-      "<cmd>ObsidianDailies<CR>",
+      "<cmd>Obsidian dailies<CR>",
       desc = "Dailies",
     },
     {
       "<leader>os",
       mode = { "n", "x", "o" },
-      "<cmd>ObsidianQuickSwitch<CR>",
+      "<cmd>Obsidian quick_switch<CR>",
       desc = "Switch",
     },
   },
@@ -77,6 +73,7 @@ return {
   },
   opts = {
     log_level = vim.log.levels.WARN,
+    legacy_commands = false,
     workspaces = {
       {
         name = "personal",
