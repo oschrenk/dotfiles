@@ -21,7 +21,6 @@ bind \cp fzf_projects
 bind \co fzf_nvim
 bind \cg fzf_commits
 bind \cb fzf_branches
-bind \cw fzf_watch
 bind \cz fzf_zoxide
 bind -e \ct
 bind \ct transcribe
