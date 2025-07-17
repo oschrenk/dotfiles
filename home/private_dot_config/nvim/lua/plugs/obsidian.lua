@@ -1,4 +1,4 @@
--- https://github.com/epwalsh/obsidian.nvim
+-- https://github.com/obsidian-nvim/obsidian.nvim
 -- interact with Obsidian
 return {
   "obsidian-nvim/obsidian.nvim",
