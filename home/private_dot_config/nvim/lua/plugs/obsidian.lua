@@ -49,10 +49,22 @@ return {
       desc = "Dailies",
     },
     {
+      "<leader>op",
+      mode = { "n", "x", "o" },
+      "<cmd>:Obsidian workspace personal<CR>",
+      desc = "Switch to personal workspace",
+    },
+    {
+      "<leader>ow",
+      mode = { "n", "x", "o" },
+      "<cmd>:Obsidian workspace work<CR>",
+      desc = "Switch to work workspace",
+    },
+    {
       "<leader>os",
       mode = { "n", "x", "o" },
       "<cmd>Obsidian quick_switch<CR>",
-      desc = "Switch",
+      desc = "Search",
     },
   },
   ft = "markdown",
