@@ -36,7 +36,6 @@ return {
     local wk = require("which-key")
     wk.setup(opts)
     wk.add({
-      { "<leader>a", icon = { icon = "󰚩" }, group = "Avante" },
       { "<leader>b", icon = { icon = "" }, group = "Buffer" },
       { "<leader>f", icon = { icon = "󰦅" }, group = "Find" },
       { "<leader>g", icon = { icon = "󰘭" }, group = "Git" },
