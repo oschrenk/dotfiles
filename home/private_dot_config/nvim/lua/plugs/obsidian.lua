@@ -154,6 +154,9 @@ return {
     statusline = {
       enabled = false,
     },
+    footer = {
+      enabled = false,
+    },
     ui = {
       enable = false,
     },
