@@ -143,6 +143,9 @@ return {
         end,
       },
     },
+    statusline = {
+      enabled = false,
+    },
     ui = {
       enable = false,
     },
