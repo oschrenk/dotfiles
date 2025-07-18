@@ -1,4 +1,4 @@
-function upgrade --description "Upgrade homebrew, mas, nvim, tpm, fisher"
+function upgrade --description "Upgrade homebrew, mas, nvim, tpm"
     # upgrade homebrew
     brew upgrade
 
@@ -11,7 +11,4 @@ function upgrade --description "Upgrade homebrew, mas, nvim, tpm, fisher"
 
     # upgrade tmux plugins
     $XDG_CONFIG_HOME/tmux/plugins/tpm/bin/update_plugins all
-
-    # upgrade fisher plugins
-    fisher update
 end
