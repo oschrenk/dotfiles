@@ -11,6 +11,7 @@
     "DISABLE_AUTOUPDATER": "1",
     "DISABLE_TELEMETRY": "1",
   },
+  "autoUpdates": false,
   "theme": "dark",
   "includeCoAuthoredBy": false,
   "verbose": false
