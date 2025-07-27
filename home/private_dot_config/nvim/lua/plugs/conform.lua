@@ -37,6 +37,7 @@ return {
     formatters_by_ft = {
       fish = { "fish_indent" },
       go = { "gofmt" },
+      -- brew install prettierd prettier
       javascript = { "prettierd", "prettier", stop_after_first = true },
       -- brew install black
       json = { "jq" },
@@ -45,6 +46,8 @@ return {
       lua = { "stylua" },
       -- brew install black
       python = { "black" },
+      -- brew install coursier
+      -- coursier install scalafmt
       scala = { "scalafmt" },
       -- brew install shellcheck
       sh = { "shellcheck" },
