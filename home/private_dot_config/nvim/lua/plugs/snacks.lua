@@ -2,6 +2,9 @@
 -- collection of QoL plugins for Neovim
 return {
   "folke/snacks.nvim",
+  -- should not be lazy loaded
+  lazy = false,
+  priority = 1000,
   opts = {
     picker = {},
     explorer = {},
