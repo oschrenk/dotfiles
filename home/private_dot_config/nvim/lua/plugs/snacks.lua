@@ -1,3 +1,5 @@
+-- https://github.com/folke/snacks.nvim
+-- collection of QoL plugins for Neovim
 return {
   "folke/snacks.nvim",
   opts = {
