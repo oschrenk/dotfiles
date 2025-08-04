@@ -39,6 +39,7 @@ return {
       go = { "gofmt" },
       -- brew install prettierd prettier
       javascript = { "prettierd", "prettier", stop_after_first = true },
+      javascriptreact = { "prettierd", "prettier", stop_after_first = true },
       -- brew install black
       json = { "jq" },
       -- brew install ktfmt
@@ -53,14 +54,29 @@ return {
       sh = { "shellcheck" },
       -- brew install swiftformat
       swift = { "swiftformat" },
+      tailwindcss = { "prettierd", "prettier", stop_after_first = true },
       terraform = { "terraform_fmt" },
       -- cargo install taplo-cli
       toml = { "taplo" },
-      typescript = { "prettier" },
+      typescript = { "prettierd", "prettier", stop_after_first = true },
+      typescriptreact = { "prettierd", "prettier", stop_after_first = true },
       typst = { "typstyle" },
       -- brew install yamlfmt
       yaml = { "yamlfmt" },
       ["_"] = { "trim_whitespace" },
+    },
+    -- Use a specific prettier parser for a filetype
+    -- Otherwise, prettier will try to infer the parser from the file name
+    ft_parsers = {
+      javascript = "babel",
+      javascriptreact = "babel",
+      tailwindcss = "css",
+      typescript = "typescript",
+      typescriptreact = "typescript",
+    },
+    ext_parsers = {
+      tsx = "typescript",
+      ts = "typescript",
     },
     -- configure your formatters
     formatters = {
