@@ -46,8 +46,6 @@ cask "spotify"            # audio client
 # Only on Personal machine
 {{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
   brew "xcodes"      # xcode & runtimes manager
-  # xcode takes a lot of time/space to install,
-  # do it later in the process
   mas "XCode", id: 497799835
   mas "Apple Developer", id: 640199958
 {{- end }}
