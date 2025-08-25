@@ -5,6 +5,11 @@ tasks:
   brew:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01a_deps_brewfiles.sh.tmpl | chezmoi execute-template | zsh
+  brew-diff:
+    cmds:
+      - echo '-xxx => locally installed but not in brewfile'
+      - diff -u <(brew leaves | sort) <(chezmoi execute-template --file apps/Brewfile.tmpl | grep brew | grep -v '^#' | grep -v '^[[:space:]]*$' | cut -d'"' -f2 | sort)
+    silent: true
   cargo:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01b_deps_cargofile.sh.tmpl | chezmoi execute-template | zsh
