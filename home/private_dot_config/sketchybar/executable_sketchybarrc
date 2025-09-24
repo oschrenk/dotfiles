@@ -15,12 +15,6 @@ local mission = require("services.mission").new()
 local pomodoro = require("services.pomodoro").new()
 local sessionizer = require("services.sessionizer").new()
 
--- utilities
-local system = require("utils.system")
-
--- work hostname is not stable so test for personal hostname
-local isPersonal = system.getHostname() == "Olivers-MaxBook.local"
-
 -- bundle configuration into single message
 sbar.begin_config()
 sbar.hotload(true)
@@ -38,6 +32,9 @@ require("items.project").new(icons.project, sessionizer).add("left")
 require("items.clock").new(icons.clock).add("right")
 require("items.weathernative").new(style).add("right")
 require("items.battery").new(icons.battery).add("right")
+require("items.menuitem")
+  .new(style, { name = "OpenVPN Connect,Item-1", update_freq = 30, padding_right = -4 })
+  .add("right")
 require("items.calendar").new(icons.calendar, focus).add("right")
 
 sbar.end_config()
