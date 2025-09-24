@@ -44,11 +44,9 @@ cask "spotify"            # audio client
 # is required by a handful of packages
 
 # Only on Personal machine
-{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
-  brew "xcodes"      # xcode & runtimes manager
-  mas "XCode", id: 497799835
-  mas "Apple Developer", id: 640199958
-{{- end }}
+brew "xcodes"      # xcode & runtimes manager
+mas "XCode", id: 497799835
+mas "Apple Developer", id: 640199958
 
 #######################################
 # Packages
@@ -162,55 +160,50 @@ brew "yq"            # data, process YAML
 brew "zoxide"        # cli, navigate fs
 
 # only on work machine
-# work hostname is flakey, so check if NOT personal machine
-{{- if not (eq .chezmoi.hostname "Olivers-MaxBook") }}
-  brew "flyway"      # database migrations
-  brew "gemini-cli"  # ai, google gemini
-  brew "hadolint"    # docker, linter
-  brew "mysql@8.0"   # mysql
-  brew "skopeo"      # docker, registry inspect
-  brew "sleek"       # sql, formatter
-  brew "snyk-cli"    # scan for security vulnerabilities
-  brew "stern"       # k8s, log "aggregator"
-  brew "websocat"    # cli, websocket
-{{- end }}
+brew "flyway"      # database migrations
+brew "gemini-cli"  # ai, google gemini
+brew "hadolint"    # docker, linter
+brew "mysql@8.0"   # mysql
+brew "skopeo"      # docker, registry inspect
+brew "sleek"       # sql, formatter
+brew "snyk-cli"    # scan for security vulnerabilities
+brew "stern"       # k8s, log "aggregator"
+brew "websocat"    # cli, websocket
 
 # only on personal machine
-{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
-  brew "asciinema"   # a/v, record terminal sessions
-  brew "awscli"      # devops, aws
-  brew "coursier"    # jvm, scala, artifact fetching
-  brew "doctl"       # devops, Digital Ocean
-  brew "doggo"       # network, dns client
-  brew "exiftool"    # a/v, read/write exif
-  brew "ffmpeg"      # a/v, convert audio/video
-  brew "flac"        # a/v, flac codec
-  brew "gemini-cli"  # ai, gemini
-  brew "httrack"     # network, copy websites offline
-  brew "huggingface-cli" # ai, hugging face
-  brew "lame"        # a/v, mp3 codec
-  brew "libmp3splt"  # a/v, split mp3, off, flac files
-  brew "logcli"      # O11y, query loki
-  brew "maven"       # jvm, package manager
-  brew "meli"        # terminal, email client
-  brew "mosh"        # network, better shell for roaming
-  brew "ngrep"       # network packet analyzer
-  brew "nmap"        # network,port scanning
-  brew "oschrenk/personal/hullcaster" # podcast client
-  brew "oschrenk/personal/postgrestools" # postgres, lsp
-  brew "oschrenk/personal/mcp-server-macos-use" # mcp, macOS
-  brew "pandoc"      # docs, document converter
-  brew "sbt"         # jvm, scala
-  brew "scala"       # jvm, scala
-  brew "tectonic"    # tex
-  brew "tfenv"       # devops, terraform version manager
-  brew "typst"       # typst, tex alternative (rust based)
-  brew "uv"          # python package manager
-  brew "w3m"         # terminal, text based browser
-  brew "x264"        # a/v, h264 encoder
-  brew "xvid"        # a/v, mp4 lib
-  brew "yt-dlp"      # a/v, download youtube video/audio
-{{- end }}
+brew "asciinema"   # a/v, record terminal sessions
+brew "awscli"      # devops, aws
+brew "coursier"    # jvm, scala, artifact fetching
+brew "doctl"       # devops, Digital Ocean
+brew "doggo"       # network, dns client
+brew "exiftool"    # a/v, read/write exif
+brew "ffmpeg"      # a/v, convert audio/video
+brew "flac"        # a/v, flac codec
+brew "gemini-cli"  # ai, gemini
+brew "httrack"     # network, copy websites offline
+brew "huggingface-cli" # ai, hugging face
+brew "lame"        # a/v, mp3 codec
+brew "libmp3splt"  # a/v, split mp3, off, flac files
+brew "logcli"      # O11y, query loki
+brew "maven"       # jvm, package manager
+brew "meli"        # terminal, email client
+brew "mosh"        # network, better shell for roaming
+brew "ngrep"       # network packet analyzer
+brew "nmap"        # network,port scanning
+brew "oschrenk/personal/hullcaster" # podcast client
+brew "oschrenk/personal/postgrestools" # postgres, lsp
+brew "oschrenk/personal/mcp-server-macos-use" # mcp, macOS
+brew "pandoc"      # docs, document converter
+brew "sbt"         # jvm, scala
+brew "scala"       # jvm, scala
+brew "tectonic"    # tex
+brew "tfenv"       # devops, terraform version manager
+brew "typst"       # typst, tex alternative (rust based)
+brew "uv"          # python package manager
+brew "w3m"         # terminal, text based browser
+brew "x264"        # a/v, h264 encoder
+brew "xvid"        # a/v, mp4 lib
+brew "yt-dlp"      # a/v, download youtube video/audio
 
 #######################################
 # Apps
@@ -221,22 +214,20 @@ brew "zoxide"        # cli, navigate fs
 # brew "mas"        # app store apps
 
 # Only on Personal machine
-{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
-  mas "Affinity Designer 2", id: 1616831348  # vector editing
-  mas "Affinity Photo 2", id: 1616822987     # raster editing
-  mas "Affinity Publisher 2", id: 1606941598 # book publishing
-  mas "Due", id: 524373870                   # reminders on steroid
-  mas "Health Auto Export", id: 1115567069   # export apple health data
-  mas "HomeControl", id: 1547121417          # apple home
-  mas "Keynote", id: 409183694               # make slides
-  mas "NextDNS", id: 1464122853              # dns blocking
-  mas "NordVPN", id: 905953485               # NordVPN
-  mas "Numbers", id: 409203825               # excel
-  mas "Pages", id: 409201541                 # docs
-  mas 'Parcel', id: 639968404                # Shipment tracking
-  mas "Reeder 5", id: 1529448980             # rss
-  mas "1Password for Safari", id: 1569813296   # 1Password extension
-{{- end }}
+mas "Affinity Designer 2", id: 1616831348  # vector editing
+mas "Affinity Photo 2", id: 1616822987     # raster editing
+mas "Affinity Publisher 2", id: 1606941598 # book publishing
+mas "Due", id: 524373870                   # reminders on steroid
+mas "Health Auto Export", id: 1115567069   # export apple health data
+mas "HomeControl", id: 1547121417          # apple home
+mas "Keynote", id: 409183694               # make slides
+mas "NextDNS", id: 1464122853              # dns blocking
+mas "NordVPN", id: 905953485               # NordVPN
+mas "Numbers", id: 409203825               # excel
+mas "Pages", id: 409201541                 # docs
+mas 'Parcel', id: 639968404                # Shipment tracking
+mas "Reeder 5", id: 1529448980             # rss
+mas "1Password for Safari", id: 1569813296   # 1Password extension
 
 #######################################
 # Fonts
@@ -275,34 +266,31 @@ cask "yellowdot"              # Hide screen/audio indicator
 cask "zen"                    # Browser, firefox-based
 
 # Only on Personal machine
-{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
-  cask "8bitdo-ultimate-software" # controller
-  cask "blender"               # 3d editor
-  cask "calibre"               # ebook manager
-  cask "db-browser-for-sqlite" # sqlite client
-  cask "discord"               # discord client
-  cask "elgato-control-center" # elgato software to control lights
-  cask "handbrake-app"         # video transcoder
-  cask "hex-fiend"             # hex editor
-  cask "iina"                  # video client
-  cask "keycastr"              # shows key strokes on screen
-  cask "knockknock"            # identify background tasks/processes
-  cask "mochi"                 # study notes and flashcards
-  cask "numi"                  # calculator
-  cask "omnidisksweeper"       # cleanup disk space
-  cask "onyx"                  # macos maintenance
-  cask "rode-central"          # rode companion app (for AI-1)
-  cask "signal"                # signal messaging
-  cask "slack"                 # slack office communication
-  cask "telegram"              # telegram messaging
-  cask "the-unarchiver"        # unarchiving most archive files
-  cask "transmission"          # torrent client
-  cask "utm"                   # virtual machines for macos
-  cask "vlc"                   # video client
-  cask "whatsapp"              # whatsapp messaging
-  cask "xld"                   # cd ripper
-  cask "zoom"                  # video conferencing
-{{- end }}
+cask "8bitdo-ultimate-software" # controller
+cask "blender"               # 3d editor
+cask "calibre"               # ebook manager
+cask "db-browser-for-sqlite" # sqlite client
+cask "discord"               # discord client
+cask "elgato-control-center" # elgato software to control lights
+cask "handbrake-app"         # video transcoder
+cask "hex-fiend"             # hex editor
+cask "iina"                  # video client
+cask "keycastr"              # shows key strokes on screen
+cask "knockknock"            # identify background tasks/processes
+cask "mochi"                 # study notes and flashcards
+cask "numi"                  # calculator
+cask "omnidisksweeper"       # cleanup disk space
+cask "onyx"                  # macos maintenance
+cask "rode-central"          # rode companion app (for AI-1)
+cask "signal"                # signal messaging
+cask "slack"                 # slack office communication
+cask "telegram"              # telegram messaging
+cask "the-unarchiver"        # unarchiving most archive files
+cask "transmission"          # torrent client
+cask "utm"                   # virtual machines for macos
+cask "vlc"                   # video client
+cask "whatsapp"              # whatsapp messaging
+cask "zoom"                  # video conferencing
 
 #######################################
 # Visual Studio
@@ -318,16 +306,10 @@ vscode "redhat.vscode-yaml"          # Yaml, Syntax
 vscode "mk12.better-git-line-blame"  # git blame
 
 # only on work machine
-# work hostname is flakey, so check if NOT personal machine
-{{- if not (eq .chezmoi.hostname "Olivers-MaxBook")
-     }}
-  vscode "ms-vsliveshare.vsliveshare" # collaborate with others
-  vscode "GitLab.gitlab-workflow"     # gitlab
-{{- end }}
+vscode "ms-vsliveshare.vsliveshare" # collaborate with others
+vscode "GitLab.gitlab-workflow"     # gitlab
 
 # only on personal machiniie
-{{- if eq .chezmoi.hostname "Olivers-MaxBook" }}
-  vscode "scala-lang.scala"            # Scala, Syntax
-  vscode "scalameta.metals"            # Scala, Metals
-{{- end }}
+vscode "scala-lang.scala"            # Scala, Syntax
+vscode "scalameta.metals"            # Scala, Metals
 
