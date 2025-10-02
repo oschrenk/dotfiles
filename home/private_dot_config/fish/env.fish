@@ -52,7 +52,7 @@ fish_add_path --prepend $GOPATH/bin
 fish_add_path --prepend $HOME/.rbenv/shims
 
 # JVM
-set -x JAVA_HOME (/usr/libexec/java_home -v 17)
+set -x JAVA_HOME (/usr/libexec/java_home -v 21)
 set -x SCALA_HOME /usr/local/opt/scala/
 
 # Android
