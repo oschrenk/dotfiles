@@ -81,9 +81,6 @@ set -x SWIFTLY_HOME_DIR "$XDG_DATA_HOME/swiftly"
 set -x SWIFTLY_BIN_DIR "$SWIFTLY_HOME_DIR/bin"
 fish_add_path $SWIFTLY_BIN_DIR
 
-# wakatime
-set -x WAKATIME_HOME "$XDG_CONFIG_HOME/wakatime"
-
 # whisper cli via ~/.config/fish/functions/transcribe
 set -x WHISPER_MODEL "$XDG_CACHE_HOME/huggingface/hub/models--distil-whisper--distil-small.en/snapshots/5ced4c93e41c640e72b423d596cc7dc0de3f8419/ggml-distil-small.en.bin"
 
