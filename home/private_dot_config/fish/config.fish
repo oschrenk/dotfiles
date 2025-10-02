@@ -30,4 +30,9 @@ if status --is-interactive
 
     # enable atuin
     atuin init fish | source
+
+    # Google Cloud SDK.
+    if [ -f '/opt/homebrew/share/google-cloud-sdk/path.fish.inc' ]
+        . '/opt/homebrew/share/google-cloud-sdk/path.fish.inc'
+    end
 end
