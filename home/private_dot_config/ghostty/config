@@ -53,7 +53,7 @@ initial-command = /opt/homebrew/bin/fish --login --interactive --init-command "/
 #   https://ghostty.org/docs/config/reference#mouse-hide-while-typing
 # to list valid themes:
 #   ghostty +list-themes
-theme = "GruvboxDark"
+theme = "Gruvbox Dark"
 mouse-hide-while-typing = true
 
 # Clipboard
