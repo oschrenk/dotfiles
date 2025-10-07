@@ -18,9 +18,12 @@ quit-after-last-window-closed = true
 
 # Window Decoration
 # see also https://ghostty.org/docs/config/reference#window-decoration
-window-decoration = false
-window-padding-x = 3
-window-padding-y = 0
+# round-corners in macOS
+window-decoration = auto
+# hide buttons and tabs
+macos-titlebar-style = hidden
+window-padding-x = 5
+window-padding-y = 3
 initial-window = true
 
 # Font Configuration
