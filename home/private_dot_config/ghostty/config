@@ -6,8 +6,8 @@
 # Docs
 #   `ghostty +show-config --default --docs | nvim`
 #
-# Examples:
-#   see https://github.com/search?q=path%3Aghostty%2Fconfig&type=code
+# Resources:
+#   https://github.com/search?q=path%3Aghostty%2Fconfig&type=code
 
 
 
@@ -17,7 +17,7 @@ confirm-close-surface = false
 quit-after-last-window-closed = true
 
 # Window Decoration
-# see also https://ghostty.org/docs/config/reference#window-decoration
+#   https://ghostty.org/docs/config/reference#window-decoration
 # round-corners in macOS
 window-decoration = auto
 # hide buttons and tabs
@@ -37,11 +37,10 @@ font-style-bold-italic = "Regular Italic"
 font-thicken = true
 
 # Cursor
-#  see also https://ghostty.org/docs/config/reference#cursor-style
+#   https://ghostty.org/docs/config/reference#cursor-style
 cursor-style = block
 
 # Shell
-# see also
 #   https://ghostty.org/docs/config/reference#initial-command
 #   https://ghostty.org/docs/config/reference#shell-integration
 shell-integration = fish
@@ -49,7 +48,6 @@ command = /opt/homebrew/bin/fish --login --interactive
 initial-command = /opt/homebrew/bin/fish --login --interactive --init-command "/opt/homebrew/bin/sessionizer start; tmux attach -t home"
 
 # Appearance
-#   see also
 #   https://ghostty.org/docs/config/reference#mouse-hide-while-typing
 # to list valid themes:
 #   ghostty +list-themes
@@ -68,7 +66,7 @@ quick-terminal-autohide = true
 quick-terminal-animation-duration = 0
 
 # Keyboard
-# https://ghostty.org/docs/config/reference#macos-option-as-alt
+#   https://ghostty.org/docs/config/reference#macos-option-as-alt
 macos-option-as-alt = true
 
 # Keybindings
