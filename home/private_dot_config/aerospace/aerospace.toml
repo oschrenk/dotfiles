@@ -13,7 +13,7 @@ after-startup-command = []
 
 # Normalizations. 
 # See: https://nikitabobko.github.io/AeroSpace/guide#normalization
-enable-normalization-flatten-containers = true
+enable-normalization-flatten-containers                         = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
 # The 'accordion-padding' specifies the size of accordion padding
@@ -55,7 +55,7 @@ default-root-container-orientation = 'auto'
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 0
-inner.vertical = 0
+inner.vertical   = 0
 
 # we are trying to match the notch size from the built-in retina display
 # and match sketchybar across both
