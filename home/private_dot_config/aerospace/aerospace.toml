@@ -133,10 +133,6 @@ alt-shift-j = 'move down'
 alt-shift-k = 'move up'
 alt-shift-l = 'move right'
 
-# See: https://nikitabobko.github.io/AeroSpace/commands#resize
-alt-shift-minus = 'resize smart -50'
-alt-shift-equal = 'resize smart +50'
-
 # Switch to workspace
 # Workspace can also be char eg `alt-b = 'workspace b'`
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace
