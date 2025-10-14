@@ -77,10 +77,11 @@ inner.vertical   = 0
 outer.top = [{ monitor."Built-in Retina Display" = 0 }, 32]
 
 [workspace-to-monitor-force-assignment]
-1 = 'main'
-2 = 'main'
-b = 'main'      # Browser on main screen
-m = 'secondary' # Media on secondary screen
+1             = 'main'
+2             = 'main'
+b             = 'main'      # Browser on main screen
+m             = 'secondary' # Media on secondary screen
+".scratchpad" = "main"
 
 #######################################
 # BINDINGS
@@ -117,6 +118,12 @@ m = 'secondary' # Media on secondary screen
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
 [mode.main.binding]
+
+# This toggle the scratchpad window show/hide
+# https://github.com/cristianoliveira/aerospace-scratchpad
+cmd-ctrl-1 = [
+  'exec-and-forget /opt/homebrew/bin/aerospace-scratchpad show Obsidian',
+]
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
