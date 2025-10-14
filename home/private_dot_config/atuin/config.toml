@@ -18,16 +18,23 @@ show_help = false
 # they'll match anywhere in the command.
 #
 # See also https://docs.rs/regex/latest/regex/#syntax
- history_filter = [
+#
+# https://docs.atuin.sh/configuration/config/#history_filter
+history_filter = [
   # ignore downloading videos
-   "^tube",
-   "^sideload",
-   "^stream",
-   "^pad",
+  "^tube",
+  "^sideload",
+  "^stream",
+  "^pad",
   # ignore single char entries
-   "^.$",
-  # ignore ls
-   "^ls$"
+  "^.$",
+  # ignore short commands
+  "^ls$",
+  "^git ap$",
+  "^git c$",
+  "^git l$",
+  "^git s$",
+  "^cd$",
 ]
 
 # default filter to use when searching
