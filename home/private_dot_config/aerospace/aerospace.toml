@@ -176,7 +176,7 @@ esc = ['reload-config', 'mode main']
 # reset layout
 r = [' flatten-workspace-tree', 'mode main']
 # Toggle between floating and tiling layout
-f = ['layout floating tiling', 'mode main']
+f         = ['layout floating tiling', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
 
 alt-shift-h = ['join-with left', 'mode main']
@@ -204,165 +204,178 @@ alt-shift-l = ['join-with right', 'mode main']
 #--------------------------------------
 
 [[on-window-detected]]
-if.app-id = 'com.google.Chrome'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'org.mozilla.firefox'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser' # Arc
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'md.obsidian'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
 if.app-id = 'com.neovide.neovide'
-run = 'move-node-to-workspace 1'
+run       = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
 if.app-id = 'org.alacritty'
-run = 'move-node-to-workspace 1'
+run       = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run = 'move-node-to-workspace 1'
+run       = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
 if.app-id = 'com.jetbrains.intellij.ce'
-run = ['move-node-to-workspace 1']
+run       = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.window-title-regex-substring = 'Merge Revisions'
-run = ['move-node-to-workspace 1']
+run                             = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.app-id = 'org.jkiss.dbeaver.core.product'
-run = ['move-node-to-workspace 1']
+run       = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
-run = ['move-node-to-workspace 1']
+run       = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.dt.Xcode'
-run = ['move-node-to-workspace 1']
+run       = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.app-id = 'com.seriflabs.affinitydesigner2'
-run = 'move-node-to-workspace 2'
+run       = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.seriflabs.affinitypublisher2'
-run = 'move-node-to-workspace 2'
+run       = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.seriflabs.affinityphoto2'
-run = 'move-node-to-workspace 2'
+run       = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.msteedman.mochi'
-run = 'move-node-to-workspace 2'
+run       = 'move-node-to-workspace 2'
 
 # workspace.2 (=secondary)
 #--------------------------------------
 
 [[on-window-detected]]
 if.app-id = 'com.docker.docker'
-run = 'move-node-to-workspace 2'
+run       = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.utmapp.UTM'
-run = 'move-node-to-workspace 2'
+run       = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
-run = 'move-node-to-workspace 2'
+run       = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.reminders'
-run = 'move-node-to-workspace 2'
+run       = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.valvesoftware.steam'
-run = 'move-node-to-workspace 2'
+run       = 'move-node-to-workspace 2'
+
+# workspace.B (=Browser)
+#--------------------------------------
+
+[[on-window-detected]]
+if.app-id = 'com.google.Chrome'
+run       = 'move-node-to-workspace b'
+
+[[on-window-detected]]
+if.app-id = 'org.mozilla.firefox'
+run       = 'move-node-to-workspace b'
+
+[[on-window-detected]]
+if.app-id = 'company.thebrowser.Browser' # Arc
+run       = 'move-node-to-workspace b'
 
 # workspace.M (=Media and Messenger)
 #--------------------------------------
 
 [[on-window-detected]]
 if.app-id = 'com.tdesktop.Telegram'
-run = 'move-node-to-workspace m'
+run       = 'move-node-to-workspace m'
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
-run = 'move-node-to-workspace m'
+run       = 'move-node-to-workspace m'
 
 [[on-window-detected]]
 if.app-id = 'org.whispersystems.signal-desktop'
-run = 'move-node-to-workspace m'
+run       = 'move-node-to-workspace m'
 
 [[on-window-detected]]
 if.app-id = 'net.whatsapp.WhatsApp'
-run = 'move-node-to-workspace m'
+run       = 'move-node-to-workspace m'
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
-run = 'move-node-to-workspace m'
+run       = 'move-node-to-workspace m'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'
-run = 'move-node-to-workspace m'
+run       = 'move-node-to-workspace m'
 
 [[on-window-detected]]
 if.app-id = 'com.openai.chat'
-run = 'move-node-to-workspace m'
+run       = 'move-node-to-workspace m'
 
+# workspace.O (=Obsidian)
+#--------------------------------------
+
+[[on-window-detected]]
+if.app-id = 'md.Obsidian'
+run       = 'move-node-to-workspace o'
 
 #++++++++++++++++++++++++++++++++++++++
 # WINDOWS.floating
 #++++++++++++++++++++++++++++++++++++++
 
 [[on-window-detected]]
+if.app-id = 'md.obsidian'
+run       = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.phocusllp.duemac'
+run       = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'com.1password.1password'
-run = 'layout floating'
+run       = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-run = 'layout floating'
+run       = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Preview'
-run = 'layout floating'
+run       = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'cx.c3.theunarchiver'
-run = 'layout floating'
+run       = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.AppStore'
-run = 'layout floating'
+run       = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'org.videolan.vlc'
-run = 'layout floating'
+run       = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.ActivityMonitor'
-run = 'layout floating'
+run       = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.colliderli.iina'
-run = 'layout floating'
+run       = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
-run = 'layout floating'
+run       = 'layout floating'
 
 # Macrofactor (iOS app; keeps flickering)
 [[on-window-detected]]
 if.app-id = 'com.sbs.diet'
-run = 'layout floating'
+run       = 'layout floating'
