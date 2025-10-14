@@ -3,7 +3,7 @@
 -- by defauly a project root is defined as the directory containing .git directory
 return {
   "notjedi/nvim-rooter.lua",
-  event = "BufReadPost",
+  lazy = false,
   config = function()
     require("nvim-rooter").setup({
       rooter_patterns = { "build.sbt", ".git" },
