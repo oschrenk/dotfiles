@@ -1,0 +1,55 @@
+;; Configuration guide
+;; https://github.com/jtroo/kanata/wiki/Configuration-guide
+
+;; Kanata Simulator
+;; https://jtroo.github.io/
+
+;; Inspiration
+;; https://github.com/jussapaavo/dotfiles/blob/926599ddbac5a0e8a75cb5acbffa1fc7d9921d2f/src/dot_config/kanata/config.kbd#L32
+
+;; configuation
+(defcfg
+  ;; if `yes`, process keys that are not defined in defsrc
+  ;; useful if you are only mapping a few keys in defsrc
+  ;; (for now) i'm setting it to `no`, to learn kanata
+  process-unmapped-keys no
+)
+
+
+;; physical hardware as source
+(defsrc
+  esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv     1    2    3    4    5    6    7    8    9    0    -    =   bspc
+  tab     q    w    e    r    t    y    u    i    o    p    [    ]   \
+  caps    a    s    d    f    g    h    j    k    l    ;    '        ret
+  lsft    z    x    c    v    b    n    m    ,    .    /         ▲   rsft
+  fn   lctl lalt lmet           spc            rmet ralt     ◀   ▼   ▶
+)
+
+;; variables
+(defvar
+  tap-time 200
+  hold-time 200
+)
+
+;; aliases
+(defalias
+  ;; esc when press, lctl when held
+  cap (tap-hold $tap-time $hold-time esc lctl)
+
+  ;; Shell commands
+  ;; cmd requires special binary and `danger-enable-cmd` defcfg option
+  ;; beep (cmd say "beep")
+)
+
+;; logical layer as target
+(deflayer querty
+  esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  grv     1    2    3    4    5    6    7    8    9    0    -    =   bspc
+  tab     q    w    e    r    t    y    u    i    o    p    [    ]   \
+  @cap    a    s    d    f    g    h    j    k    l    ;    '        ret
+  lsft    z    x    c    v    b    n    m    ,    .    /         ▲   rsft
+  fn   lctl lalt lmet           spc            rmet ralt     ◀   ▼   ▶
+)
+
+
