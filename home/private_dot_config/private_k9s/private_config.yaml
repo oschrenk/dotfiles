@@ -5,6 +5,12 @@ k9s:
   maxConnRetry: 5
   readOnly: false
   noExitOnCtrlC: false
+  clusters:
+    timewax:
+      namespace:
+        favorites:
+          - staging
+          - production
   ui:
     enableMouse: true
     headless: false
