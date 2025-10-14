@@ -50,8 +50,10 @@ return {
         "tsx",
         "typescript",
         "vim",
+        "xml",
         "yaml",
       },
+
       -- `textobjects` via nvim-treesitter/nvim-treesitter-context
       textobjects = {
         select = {
