@@ -11,34 +11,20 @@ return {
       mode = { "n", "x", "o" },
       desc = "Today (Work)",
       function()
-        local switch_workspace = require("obsidian.commands.workspace")
-        switch_workspace({}, { args = "work" })
-        local note = require("obsidian.daily").today()
-        note:open({ sync = true })
-
-        vim.cmd("1/## Tasks/1")
-        vim.cmd("noh")
-        local old_option = vim.opt.scrolloff
-        vim.opt.scrolloff = 0
-        vim.cmd("normal! zt")
-        vim.opt.scrolloff = old_option
+        -- switch workspace
+        require("obsidian.commands.workspace")({ args = "work" })
+        -- open note
+        require("obsidian.commands.today")({ args = 0 })
       end,
     },
     {
       "<leader>oT",
       mode = { "n", "x", "o" },
       function()
-        local switch_workspace = require("obsidian.commands.workspace")
-        switch_workspace({}, { args = "personal" })
-        local note = require("obsidian.daily").today()
-        note:open({ sync = true })
-
-        vim.cmd("1/## Tasks/1")
-        vim.cmd("noh")
-        local old_option = vim.opt.scrolloff
-        vim.opt.scrolloff = 0
-        vim.cmd("normal! zt")
-        vim.opt.scrolloff = old_option
+        -- switch workspace
+        require("obsidian.commands.workspace")({ args = "personal" })
+        -- open note
+        require("obsidian.commands.today")({ args = 0 })
       end,
       desc = "Today (Personal)",
     },
