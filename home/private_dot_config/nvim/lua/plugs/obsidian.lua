@@ -96,7 +96,7 @@ return {
     },
 
     ---@return table
-    note_frontmatter_func = function(note)
+    frontmatter_func = function(note)
       local out = {}
 
       local isDaily = false
