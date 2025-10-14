@@ -21,6 +21,40 @@ return {
       ["gs"] = "actions.change_sort",
       ["gx"] = "actions.open_external",
       ["g."] = "actions.toggle_hidden",
+      ["yp"] = {
+        desc = "Copy path relative to project root",
+        callback = function()
+          local oil = require("oil")
+          local entry = oil.get_cursor_entry()
+          local dir = oil.get_current_dir()
+          if not entry or not dir then
+            return
+          end
+
+          -- find root
+          local root = vim.fs.root(dir, { ".git", "go.mod", "README.md" })
+          if not root then
+            root = vim.fn.getcwd() -- fallback to cwd
+          end
+
+          -- relativize
+          local relpath = dir:gsub("^" .. vim.pesc(root) .. "/?", "")
+          if relpath ~= "" and not relpath:match("/$") then
+            relpath = relpath .. "/"
+          end
+
+          local fullpath = relpath .. entry.name
+          vim.fn.setreg("+", fullpath)
+          vim.notify("Copied: " .. fullpath, vim.log.levels.INFO)
+        end,
+      },
+      ["yP"] = {
+        desc = "Copy absolute path to clipboard",
+        callback = function()
+          require("oil.actions").copy_entry_path.callback()
+          vim.fn.setreg("+", vim.fn.getreg(vim.v.register))
+        end,
+      },
     },
     -- Skip the confirmation popup for simple operations
     -- simple means:
