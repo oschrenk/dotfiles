@@ -46,10 +46,10 @@ return {
         size = 15.0,
       },
       color = palette.white,
-      width = 30,
+      width = 36,
       align = "center",
-      padding_left = 2,
-      padding_right = 2,
+      padding_left = 0,
+      padding_right = 0,
       y_offset = 0,
     },
     label = {
@@ -60,12 +60,13 @@ return {
         size = 14.0,
       },
       color = palette.white,
-      padding_left = 2,
+      padding_left = 0,
       padding_right = 2,
       y_offset = 0,
     },
     background = {
       color = palette.black,
+      -- for hover menus
       corner_radius = 5,
     },
     graph = {
