@@ -44,3 +44,8 @@ history_filter = [
 # directory	        Search just from current directory
 # Ctrl+r toggles
 filter_mode = "host"
+
+# enable sync v2
+# https://docs.atuin.sh/configuration/config/#sync
+[sync]
+records = true
