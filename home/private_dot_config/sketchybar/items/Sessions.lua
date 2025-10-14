@@ -53,7 +53,7 @@ function Sessions.new(icons, style)
       end
 
       session:subscribe({ "mouse.clicked" }, function(_)
-        sbar.exec("open -b org.alacritty")
+        sbar.exec("open -b com.mitchellh.ghostty")
       end)
 
       session:subscribe({ "forced", "routine", "system_woke", "tmux_sessions_update" }, function(_)
