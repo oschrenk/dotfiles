@@ -364,6 +364,14 @@ if.app-id = 'com.apple.Preview'
 run       = 'layout floating'
 
 [[on-window-detected]]
+if.app-id = 'com.apple.FaceTime'
+run       = 'layout floating'
+
+[[on-window-detected]]
+if.app-id = 'com.apple.ScreenContinuity'
+run       = 'layout floating'
+
+[[on-window-detected]]
 if.app-id = 'cx.c3.theunarchiver'
 run       = 'layout floating'
 
