@@ -344,8 +344,9 @@ run       = 'move-node-to-workspace o'
 #++++++++++++++++++++++++++++++++++++++
 
 [[on-window-detected]]
-if.app-id = 'md.obsidian'
-run       = 'layout floating'
+if.app-id               = 'md.obsidian'
+check-further-callbacks = true
+run                     = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.phocusllp.duemac'
