@@ -1,7 +1,7 @@
 {
   "ccVersion": "2.0.25",
   "ccInstallationDir": null,
-  "lastModified": "2025-10-23T01:52:52.309Z",
+  "lastModified": "2025-10-23T02:15:44.050Z",
   "changesApplied": true,
   "settings": {
     "themes": [
@@ -15,8 +15,8 @@
           "claudeShimmer": "rgb(254,128,25)",
           "claudeBlue_FOR_SYSTEM_SPINNER": "rgb(147,165,255)",
           "claudeBlueShimmer_FOR_SYSTEM_SPINNER": "rgb(177,195,255)",
-          "permission": "rgb(177,185,249)",
-          "permissionShimmer": "rgb(207,215,255)",
+          "permission": "rgb(69,132,136)",
+          "permissionShimmer": "rgb(131,165,153)",
           "planMode": "rgb(72,150,140)",
           "ide": "rgb(71,130,200)",
           "promptBorder": "rgb(124,111,100)",
@@ -25,8 +25,8 @@
           "inverseText": "rgb(40,40,40)",
           "inactive": "rgb(124,111,100)",
           "subtle": "rgb(80,73,69)",
-          "suggestion": "rgb(177,185,249)",
-          "remember": "rgb(177,185,249)",
+          "suggestion": "rgb(69,132,136)",
+          "remember": "rgb(131,165,153)",
           "background": "rgb(104,157,106)",
           "success": "rgb(152,151,26)",
           "error": "rgb(204,36,29)",
@@ -685,4 +685,3 @@
     }
   }
 }
-
