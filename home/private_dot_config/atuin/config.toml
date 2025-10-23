@@ -37,6 +37,31 @@ history_filter = [
   "^cd$",
 ]
 
+# Matches history against a set of default regex, and will not save it if we get a match. Defaults include
+# 
+# - AWS key id
+# - Github pat (old and new)
+# - Slack oauth tokens (bot, user)
+# - Slack webhooks
+# - Stripe live/test keys
+# - Atuin login command
+# - Cloud environment variable patterns (AWS_ACCESS_KEY_ID, AWS_SECRET_ACCESS_KEY, AZURE_STORAGE_CLASS_KEY, GOOGLE_SERVICE_ACCOUNT_KEY)
+# - Netlify authentication tokens
+# - Npm pat
+# - Pulumi pat
+#
+# default = true
+#
+# https://docs.atuin.sh/configuration/config/#secrets_filter
+secrets_filter = true
+
+# Exclude directories from history tracking
+
+# Note that these regular expressions are unanchored, i.e. if they don't start
+# with ^ or end with $, they'll match anywhere in the command.
+# see https://docs.atuin.sh/configuration/config/#cwd_filter
+cwd_filter = []
+
 # default filter to use when searching
 # global (default)	Search from all hosts, all sessions, all directories
 # host	            Search just from this host
