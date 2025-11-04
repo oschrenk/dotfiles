@@ -1,33 +1,76 @@
-#!/bin/bash
+#!/usr/bin/env bash
+set -euo pipefail
 
-# --- your existing logic, unchanged ---
+# helper: compute relative path portably
+relpath() {
+    local target="$1"
+    local base="$2"
+
+    # try GNU realpath
+    if realpath --relative-to="$base" "$target" >/dev/null 2>&1; then
+        realpath --relative-to="$base" "$target"
+        return
+    fi
+
+    # try python3
+    if command -v python3 >/dev/null 2>&1; then
+        python3 -c "import os,sys; print(os.path.relpath(sys.argv[1], sys.argv[2]))" "$target" "$base"
+        return
+    fi
+
+    # try python (older)
+    if command -v python >/dev/null 2>&1; then
+        python -c "import os,sys; print(os.path.relpath(sys.argv[1], sys.argv[2]))" "$target" "$base"
+        return
+    fi
+
+    # fallback to absolute path if none available
+    echo "$target"
+}
+
+# Get the current session and window
 current_session=$(tmux display-message -p '#S')
 current_window=$(tmux display-message -p '#I')
 
+# Get list of all pane IDs in the current window
 pane_ids=$(tmux list-panes -t "${current_session}:${current_window}" -F '#{pane_id}')
+
 results=()
 
+# Loop through each pane and check for neovim instances
 for pane_id in $pane_ids; do
-    pane_pid=$(tmux display-message -p -t "$pane_id" '#{pane_pid}')
-    all_descendants=$(pgrep -P "$pane_pid" 2>/dev/null)
+    # Get the PID of the process in this pane
+    pane_pid=$(tmux display-message -p -t "$pane_id" '#{pane_pid}' 2>/dev/null || true)
+    [[ -z "$pane_pid" ]] && continue
+
+    # Find (direct) children of the pane process; pgrep -P may return empty
+    all_descendants=$(pgrep -P "$pane_pid" 2>/dev/null || true)
     nvim_pids=""
 
-    pane_command=$(ps -p "$pane_pid" -o comm= 2>/dev/null)
-    [[ "$pane_command" == "nvim" ]] && nvim_pids="$pane_pid"
+    # Check the pane itself
+    pane_command=$(ps -p "$pane_pid" -o comm= 2>/dev/null || true)
+    if [[ "$pane_command" == "nvim" ]]; then
+        nvim_pids="$pane_pid"
+    fi
 
+    # Check all descendants (non-recursive pgrep -P only); include whatever we get
     for desc_pid in $all_descendants; do
-        desc_command=$(ps -p "$desc_pid" -o comm= 2>/dev/null)
+        desc_command=$(ps -p "$desc_pid" -o comm= 2>/dev/null || true)
         if [[ "$desc_command" == "nvim" ]]; then
             nvim_pids="$nvim_pids $desc_pid"
-            nvim_children=$(pgrep -P "$desc_pid" "nvim" 2>/dev/null)
+            nvim_children=$(pgrep -P "$desc_pid" 2>/dev/null || true)
             nvim_pids="$nvim_pids $nvim_children"
         fi
     done
 
+    # For each nvim process, try to find its socket and query current buffer
     for nvim_pid in $nvim_pids; do
-        nvim_socket=$(find /var/folders /tmp -name "nvim.${nvim_pid}.*" -type s 2>/dev/null | head -n 1)
+        # search common socket locations; adapt if your sockets live elsewhere
+        nvim_socket=$(find /var/folders /tmp -name "nvim.${nvim_pid}.*" -type s 2>/dev/null | head -n 1 || true)
+
         if [[ -n "$nvim_socket" ]]; then
-            current_file=$(nvim --server "$nvim_socket" --headless --remote-expr "expand('%:p')" 2>/dev/null | cat)
+            current_file=$(nvim --server "$nvim_socket" --headless --remote-expr "expand('%:p')" 2>/dev/null || true)
+            current_file="${current_file//$'\r'/}"  # strip CR if any
             if [[ -n "$current_file" ]] && [[ -f "$current_file" ]]; then
                 results+=("$current_file")
             fi
@@ -35,17 +78,37 @@ for pane_id in $pane_ids; do
     done
 done
 
-# --- handle results ---
-results=($(printf "%s\n" "${results[@]}" | sort -u))
+# dedupe & sort
+IFS=$'\n' read -r -d '' -a results < <(printf "%s\n" "${results[@]}" | sort -u && printf '\0')
+
 count=${#results[@]}
 current_pane=$(tmux display-message -p '#{pane_id}')
+pane_cwd=$(tmux display-message -p -t "$current_pane" '#{pane_current_path}')
 
 if (( count == 0 )); then
     tmux display-message "No Neovim buffers found."
 elif (( count == 1 )); then
-    # Insert directly into current pane (no Enter)
-    tmux send-keys -t "$current_pane" "${results[0]}"
+    # Compute relative path and insert (no Enter)
+    rel_path=$(relpath "${results[0]}" "$pane_cwd")
+    tmux send-keys -t "$current_pane" "$rel_path"
 else
-    # Open new pane for selection
-    tmux split-window -v -p 30 "printf '%s\n' \"${results[@]}\" | fzf --reverse --prompt='Select file: ' | tmux load-buffer - && tmux send-keys -t $current_pane \"\$(tmux show-buffer)\""
+    # write relative paths to a temp file, one per line
+    tmpfile=$(mktemp)
+    trap 'rm -f "$tmpfile"' EXIT
+
+    for f in "${results[@]}"; do
+        printf '%s\n' "$(relpath "$f" "$pane_cwd")" >> "$tmpfile"
+    done
+
+    # open split, run fzf there, load selection into tmux buffer and send to original pane (no Enter)
+    # The commands inside the quotes run in the new pane's shell.
+    tmux split-window -v -p 30 \
+        "selected=\$(cat '$tmpfile' | fzf --reverse --prompt='Select file: ' --no-multi --read0 2>/dev/null || cat '$tmpfile' | fzf --reverse --prompt='Select file: '); \
+         if [[ -n \"\$selected\" ]]; then \
+             tmux load-buffer -- \"\$selected\"; \
+             tmux send-keys -t '$current_pane' \"\$(tmux show-buffer)\"; \
+         fi; \
+         rm -f '$tmpfile'"
+
+    # note: no Enter is sent; the selected text is inserted exactly at cursor
 fi
