@@ -130,6 +130,11 @@ cmd-ctrl-1 = [
   'exec-and-forget /opt/homebrew/bin/aerospace-scratchpad show Obsidian',
 ]
 
+cmd-ctrl-2 = [
+  'exec-and-forget /Users/oliver/.config/aerospace/finder-move.sh',
+  'exec-and-forget /Users/oliver/.config/aerospace/move-frontmost.sh',
+]
+
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
 alt-slash = 'layout tiles horizontal vertical'
 alt-comma = 'layout accordion horizontal vertical'
