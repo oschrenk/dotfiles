@@ -11,7 +11,7 @@ if [ "$BUNDLE_ID" = "com.apple.finder" ]; then
   osascript <<OSA
 tell application id "$BUNDLE_ID"
   if (count windows) = 0 then
-    make new Finder window
+    make new Finder window to (path to downloads folder)
   end if
   activate
 end tell
