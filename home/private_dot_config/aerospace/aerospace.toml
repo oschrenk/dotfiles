@@ -127,12 +127,13 @@ m             = 'secondary' # Media on secondary screen
 # This toggle the scratchpad window show/hide
 # https://github.com/cristianoliveira/aerospace-scratchpad
 cmd-ctrl-1 = [
-  'exec-and-forget /opt/homebrew/bin/aerospace-scratchpad show Obsidian',
+  'exec-and-forget /Users/oliver/.config/aerospace/make-frontmost.sh md.obsidian',
+  'exec-and-forget /Users/oliver/.config/aerospace/position-frontmost.sh',
 ]
 
 cmd-ctrl-2 = [
-  'exec-and-forget /Users/oliver/.config/aerospace/finder-move.sh',
-  'exec-and-forget /Users/oliver/.config/aerospace/move-frontmost.sh',
+  'exec-and-forget /Users/oliver/.config/aerospace/make-frontmost.sh com.apple.finder',
+  'exec-and-forget /Users/oliver/.config/aerospace/position-frontmost.sh',
 ]
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
