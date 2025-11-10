@@ -8,12 +8,8 @@
     "out-tsc/**"
   ],
   "env": {
-    "DISABLE_AUTOUPDATER": 1,
-    "DISABLE_BUG_COMMAND": 1,
-    "DISABLE_ERROR_REPORTING": 1,
-    "DISABLE_TELEMETRY": 1
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1
   },
-  "autoUpdates": false,
   "theme": "dark",
   "includeCoAuthoredBy": false,
   "verbose": false
