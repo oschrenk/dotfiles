@@ -1,2 +1,11 @@
+.claude.json
+.claude.json.backup
+debug/
+file-history/
+history.jsonl
+plugins/
+projects/
+session-env/
+shell-snapshots/
 statsig*
 todos/
