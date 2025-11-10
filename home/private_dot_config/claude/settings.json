@@ -3,8 +3,10 @@
     "**/*"
   ],
   "excludePatterns": [
-    "node_modules/**",
+    ".release/**",
+    "build/**",
     "dist/**",
+    "node_modules/**",
     "out-tsc/**"
   ],
   "env": {
