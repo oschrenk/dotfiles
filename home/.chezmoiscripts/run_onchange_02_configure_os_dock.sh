@@ -64,7 +64,6 @@ for item in \
   "Homerow" \
   "Karabiner-Elements" \
   "Neovide" \
-  "Neovide" \
   "Telegram" \
   ; do
   if (dockutil --find "$item" > /dev/null 2>&1); then
