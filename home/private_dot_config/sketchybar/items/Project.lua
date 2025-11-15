@@ -22,8 +22,12 @@ function Project.new(icons, sessionizer)
       update_freq = 30,
     })
 
-    local onComplete = function(current_session)
-      local todoPath = current_session.path .. "/" .. "TODO.md"
+    local onComplete = function(maybe_session)
+      if maybe_session == nil then
+        project:set({ drawing = false })
+        return
+      end
+      local todoPath = maybe_session.path .. "/" .. "TODO.md"
       local f = io.open(todoPath, "r")
       if f ~= nil then
         io.close(f)
