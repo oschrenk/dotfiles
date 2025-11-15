@@ -3,7 +3,7 @@ local sbar = require("sketchybar")
 local Sessions = {}
 
 -- @param icons Plugin specific icons
--- @param style Plugin specific icons
+-- @param style Plugin specific colors
 function Sessions.new(icons, style)
   local self = {}
 
