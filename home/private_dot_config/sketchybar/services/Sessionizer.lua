@@ -14,6 +14,10 @@ function Sessionizer.new()
   self.currentSession = function(onComplete)
     local cmd = "/opt/homebrew/bin/sessionizer sessions --json"
     sbar.exec(cmd, function(sessions)
+      if sessions == "" or sessions == "[]" then
+        onComplete(nil)
+        return
+      end
       local session = nil
       for _, v in pairs(sessions) do
         if v.attached then
