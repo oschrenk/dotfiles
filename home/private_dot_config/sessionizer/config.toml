@@ -11,4 +11,8 @@ path = "$HOME/Downloads"
 directories = ["$HOME/Projects"]
 
 # manual entries outside of search directories
-entries = ["$HOME/.local/share/chezmoi", "$HOME/Obsidian/memex"]
+entries = [
+  "$HOME/.local/share/chezmoi",
+  "$HOME/Obsidian/memex",
+  "$HOME/.config/nvim",
+]
