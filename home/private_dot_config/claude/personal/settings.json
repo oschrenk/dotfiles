@@ -1,4 +1,8 @@
 {
+  "env": {
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+  },
+  "includeCoAuthoredBy": false,
   "includePatterns": [
     "**/*"
   ],
@@ -9,10 +13,7 @@
     "node_modules/**",
     "out-tsc/**"
   ],
-  "env": {
-    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": 1
-  },
   "theme": "dark",
-  "includeCoAuthoredBy": false,
-  "verbose": false
+  "verbose": false,
+  "alwaysThinkingEnabled": false
 }
