@@ -1,5 +1,6 @@
 [base]
-ignore = [".build", "node_modules", "private"]
+ignore          = [".build", "node_modules", "private"]
+rooter_patterns = ["build.sbt", ".git"]
 
 [default]
 name = "home"
