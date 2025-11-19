@@ -1,8 +1,10 @@
+.claude
 .claude.json
 .claude.json.backup
 debug/
 file-history/
 history.jsonl
+plans
 plugins/
 projects/
 session-env/
