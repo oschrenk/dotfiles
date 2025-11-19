@@ -33,7 +33,6 @@ set -gx WGETRC "$XDG_CONFIG_HOME"/wgetrc
 set -gx RIPGREP_CONFIG_PATH $XDG_CONFIG_HOME/ripgrep/ripgreprc
 set -gx K9S_CONFIG_DIR $XDG_CONFIG_HOME/k9s
 set -gx K9S_CONFIG_DIR $XDG_CONFIG_HOME/k9s
-set -gx CLAUDE_CONFIG_DIR $XDG_CONFIG_HOME/claude
 
 #############################
 # PATH
@@ -85,6 +84,11 @@ fish_add_path $SWIFTLY_BIN_DIR
 
 # whisper cli via ~/.config/fish/functions/transcribe
 set -x WHISPER_MODEL "$XDG_CACHE_HOME/huggingface/hub/models--distil-whisper--distil-small.en/snapshots/5ced4c93e41c640e72b423d596cc7dc0de3f8419/ggml-distil-small.en.bin"
+
+# Claude
+set -gx CLAUDE_CONFIG_DIR $XDG_CONFIG_HOME/claude/personal
+# claude aggresively updates itself, let's turn that off
+set -gx CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC 1
 
 #############################
 # homebrew
