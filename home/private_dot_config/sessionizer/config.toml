@@ -9,4 +9,6 @@ path = "$HOME/Downloads"
 # recursively search git directories
 directories = ["$HOME/Projects"]
 
-entries = ["$HOME/.local/share/chezmoi"]
+# manual entries outside of search directories
+# still need to be git directories (as of sessionizer 0.7.2)
+entries = ["$HOME/.local/share/chezmoi", "$HOME/Obsidian/memex"]
