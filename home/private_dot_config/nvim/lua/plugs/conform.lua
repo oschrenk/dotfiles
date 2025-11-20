@@ -52,6 +52,8 @@ return {
       scala = { "scalafmt" },
       -- brew install shellcheck
       sh = { "shellcheck" },
+      -- brew install sqlfluff
+      sql = { "sqlfluff" },
       -- brew install swiftformat
       swift = { "swiftformat" },
       tailwindcss = { "prettierd", "prettier", stop_after_first = true },
