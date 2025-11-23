@@ -70,6 +70,13 @@ format       = '[with $symbol ]($style)'
 style        = 'white'
 symbol       = '🐳'
 
+[custom.claude]
+description  = "Shows an AI emoji if the current directory has AI context files."
+detect_files = ["CLAUDE.md"]
+format       = '[with $symbol ]($style)'
+style        = 'white'
+symbol       = '🤖'
+
 # define custom colors
 [palettes.gruvbox]
 aqua   = '#8ec07c'
