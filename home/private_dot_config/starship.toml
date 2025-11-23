@@ -63,13 +63,6 @@ stashed    = "[x$count ](bold purple)"
 [cmd_duration]
 style = 'bold yellow'
 
-[custom.docker]
-description  = "Shows the docker symbol if the current directory has Dockerfile or docker-compose.yml files"
-detect_files = ["Dockerfile", "docker-compose.yml", "docker-compose.yaml"]
-format       = '[with $symbol ]($style)'
-style        = 'white'
-symbol       = '🐳'
-
 [custom.claude]
 description  = "Shows an AI emoji if the current directory has AI context files."
 detect_files = ["CLAUDE.md"]
