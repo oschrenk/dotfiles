@@ -53,8 +53,8 @@ for pane_id in $pane_ids; do
 
     # For each nvim process, try to find its socket and query current buffer
     for nvim_pid in $nvim_pids; do
-        # search common socket locations; adapt if your sockets live elsewhere
-        nvim_socket=$(find /var/folders /tmp -name "nvim.${nvim_pid}.*" -type s 2>/dev/null | head -n 1 || true)
+        # query the nvim process directly for its socket
+        nvim_socket=$(lsof -p "$nvim_pid" -a -U 2>/dev/null | awk '/nvim\.[0-9]+\.0$/ {print $NF}')
 
         if [[ -n "$nvim_socket" ]]; then
             current_file=$(nvim --server "$nvim_socket" --headless --remote-expr "expand('%:p')" 2>/dev/null || true)
