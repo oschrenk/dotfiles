@@ -12,18 +12,6 @@ relpath() {
         return
     fi
 
-    # try python3
-    if command -v python3 >/dev/null 2>&1; then
-        python3 -c "import os,sys; print(os.path.relpath(sys.argv[1], sys.argv[2]))" "$target" "$base"
-        return
-    fi
-
-    # try python (older)
-    if command -v python >/dev/null 2>&1; then
-        python -c "import os,sys; print(os.path.relpath(sys.argv[1], sys.argv[2]))" "$target" "$base"
-        return
-    fi
-
     # fallback to absolute path if none available
     echo "$target"
 }
