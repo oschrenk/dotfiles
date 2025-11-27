@@ -6,13 +6,19 @@ relpath() {
     local target="$1"
     local base="$2"
 
-    # try GNU realpath
-    if realpath --relative-to="$base" "$target" >/dev/null 2>&1; then
-        realpath --relative-to="$base" "$target"
+    # try grealpath (GNU realpath via Homebrew on macOS)
+    if command -v grealpath >/dev/null 2>&1; then
+        grealpath --relative-to="$base" "$target"
         return
     fi
 
-    # fallback to absolute path if none available
+    # try GNU realpath (Linux)
+    if command -v realpath >/dev/null 2>&1 && realpath --relative-to="$base" "$target" 2>/dev/null; then
+        return
+    fi
+
+    # GNU realpath not available
+    echo "Error: GNU realpath is not available. Please look into 'brew info coreutils'" >&2
     echo "$target"
 }
 
