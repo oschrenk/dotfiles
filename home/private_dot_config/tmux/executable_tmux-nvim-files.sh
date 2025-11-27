@@ -88,21 +88,28 @@ elif (( count == 1 )); then
 else
     # write relative paths to a temp file, one per line
     tmpfile=$(mktemp)
-    trap 'rm -f "$tmpfile"' EXIT
 
     for f in "${results[@]}"; do
         printf '%s\n' "$(relpath "$f" "$pane_cwd")" >> "$tmpfile"
     done
 
-    # open split, run fzf there, load selection into tmux buffer and send to original pane (no Enter)
-    # The commands inside the quotes run in the new pane's shell.
-    tmux split-window -v -p 30 \
-        "selected=\$(cat '$tmpfile' | fzf --reverse --prompt='Select file: ' --no-multi --read0 2>/dev/null || cat '$tmpfile' | fzf --reverse --prompt='Select file: '); \
-         if [[ -n \"\$selected\" ]]; then \
-             tmux load-buffer -- \"\$selected\"; \
-             tmux send-keys -t '$current_pane' \"\$(tmux show-buffer)\"; \
-         fi; \
-         rm -f '$tmpfile'"
+    # Create a script to run in the split pane
+    script=$(mktemp)
+    cat > "$script" << 'SCRIPT_EOF'
+#!/usr/bin/env bash
+tmpfile="$1"
+current_pane="$2"
 
-    # note: no Enter is sent; the selected text is inserted exactly at cursor
+selected=$(cat "$tmpfile" | fzf --reverse --prompt='Select file: ' --no-multi)
+
+if [[ -n "$selected" ]]; then
+    tmux send-keys -t "$current_pane" "$selected"
+fi
+
+rm -f "$tmpfile" "$0"
+SCRIPT_EOF
+    chmod +x "$script"
+
+    # open split, run the script
+    tmux split-window -v -p 30 "$script" "$tmpfile" "$current_pane"
 fi
