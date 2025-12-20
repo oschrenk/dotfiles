@@ -1,5 +1,6 @@
 # vim: syntax=ruby filetype=ruby
-jx         # json viewer
-sleek      # sql formatter
-taplo-cli  # toml formatter
-typstyle   # formatter for the typst language
+git-context # manage mixed git repositories
+jx          # json viewer
+sleek       # sql formatter
+taplo-cli   # toml formatter
+typstyle    # formatter for the typst language
