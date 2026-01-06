@@ -3,6 +3,21 @@
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
   },
   "includeCoAuthoredBy": false,
+  "enabledPlugins": {
+    "gopls-lsp@claude-plugins-official": true,
+    "frontend-design@claude-plugins-official": true,
+    "code-review@claude-plugins-official": true,
+    "commit-commands@claude-plugins-official": true,
+    "security-guidance@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "atlassian@claude-plugins-official": true,
+    "playwright@claude-plugins-official": true,
+    "pr-review-toolkit@claude-plugins-official": true,
+    "gitlab@claude-plugins-official": true,
+    "slack@claude-plugins-official": true,
+    "swift-lsp@claude-plugins-official": true,
+    "lua-lsp@claude-plugins-official": true
+  },
   "alwaysThinkingEnabled": true,
   "includePatterns": [
     "**/*"
@@ -15,8 +30,5 @@
     "out-tsc/**"
   ],
   "theme": "dark",
-  "verbose": false,
-  "enabledPlugins": {
-    "gopls-lsp@claude-plugins-official": true
-  }
+  "verbose": false
 }
