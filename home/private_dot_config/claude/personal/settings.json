@@ -3,6 +3,7 @@
     "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
   },
   "includeCoAuthoredBy": false,
+  "alwaysThinkingEnabled": true,
   "includePatterns": [
     "**/*"
   ],
@@ -15,5 +16,4 @@
   ],
   "theme": "dark",
   "verbose": false,
-  "alwaysThinkingEnabled": false
 }
