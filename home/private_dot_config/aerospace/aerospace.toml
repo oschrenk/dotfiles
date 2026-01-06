@@ -402,7 +402,16 @@ run       = 'layout floating'
 if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
 run       = 'layout floating'
 
-# Macrofactor (iOS app; keeps flickering)
+#++++++++++++++++++++++++++++++++++++++
+# iOS Apps
+#++++++++++++++++++++++++++++++++++++++
+
+# Macrofactor (keeps flickering)
 [[on-window-detected]]
 if.app-id = 'com.sbs.diet'
+run       = 'layout floating'
+
+# Spirit Island
+[[on-window-detected]]
+if.app-id = 'com.handelabra.SpiritIsland'
 run       = 'layout floating'
