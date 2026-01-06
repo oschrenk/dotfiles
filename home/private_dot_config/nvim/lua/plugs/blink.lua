@@ -21,12 +21,9 @@ return {
         require("cmp-browser-source").start_server()
       end,
     },
-    -- https://github.com/Kaiser-Yang/blink-cmp-git
-    -- source for git
-    {
-      "Kaiser-Yang/blink-cmp-git",
-      dependencies = { "nvim-lua/plenary.nvim" },
-    },
+    -- https://github.com/Dynge/gitmoji.nvim
+    -- source for gitmoji on :
+    "Dynge/gitmoji.nvim",
   },
 
   -- use a release tag to download pre-built binaries
@@ -59,7 +56,7 @@ return {
       default = {
         "browser",
         "buffer",
-        "git",
+        "gitmoji",
         "lsp",
         "path",
         "snippets",
@@ -94,25 +91,25 @@ return {
             return items
           end,
         },
-        git = {
-          module = "blink-cmp-git",
-          name = "Git",
-          enabled = function()
-            return vim.tbl_contains({ "gitcommit" }, vim.bo.filetype)
-          end,
-          opts = {
-            git_centers = {
-              gitlab = {
-                pull_request = {
-                  enable = function()
-                    local enable = require("blink-cmp-git.default.gitlab").issue.enable()
-                    local utils = require("blink-cmp-git.utils")
-                    return enable or utils.get_repo_remote_url():find("git.timewax.com", 1, true)
-                  end,
-                },
-              },
+        gitmoji = {
+          name = "gitmoji",
+          module = "gitmoji.blink",
+          opts = { -- gitmoji config values goes here
+            completion = {
+              append_space = true,
+              complete_as = "text",
             },
+            filetypes = { "gitcommit", "jj" },
           },
+          transform_items = function(_, items)
+            for _, item in ipairs(items) do
+              item.kind_icon = ""
+              if item.labelDetails then
+                item.labelDetails.detail = nil
+              end
+            end
+            return items
+          end,
         },
       },
     },
