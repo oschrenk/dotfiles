@@ -3,7 +3,7 @@ name: 'Agent Prompt: /security-review slash'
 description: >-
   Comprehensive security review prompt for analyzing code changes with focus on
   exploitable vulnerabilities
-ccVersion: 2.0.14
+ccVersion: 2.0.70
 -->
 ---
 allowed-tools: Bash(git diff:*), Bash(git status:*), Bash(git log:*), Bash(git show:*), Bash(git remote show:*), Read, Glob, Grep, LS, Task
@@ -113,7 +113,7 @@ Phase 3 - Vulnerability Assessment:
 
 REQUIRED OUTPUT FORMAT:
 
-You MUST output your findings in markdown. The markdown output should contain the file, line number, severity, category (e.g. \`sql_injection\` or \`xss\`), description, exploit scenario, and fix recommendation. 
+You MUST output your findings in markdown. The markdown output should contain the file, line number, severity, category (e.g. \`sql_injection\` or \`xss\`), description, exploit scenario, and fix recommendation.
 
 For example:
 
@@ -161,7 +161,7 @@ FALSE POSITIVE FILTERING:
 > 16. Regex DOS concerns.
 > 16. Insecure documentation. Do not report any findings in documentation files such as markdown files.
 > 17. A lack of audit logs is not a vulnerability.
-> 
+>
 > PRECEDENTS -
 > 1. Logging high value secrets in plaintext is a vulnerability. Logging URLs is assumed to be safe.
 > 2. UUIDs can be assumed to be unguessable and do not need to be validated.
@@ -175,13 +175,13 @@ FALSE POSITIVE FILTERING:
 > 10. Most vulnerabilities in ipython notebooks (*.ipynb files) are not exploitable in practice. Before validating a notebook vulnerability ensure it is concrete and has a very specific attack path where untrusted input can trigger the vulnerability.
 > 11. Logging non-PII data is not a vulnerability even if the data may be sensitive. Only report logging vulnerabilities if they expose sensitive information such as secrets, passwords, or personally identifiable information (PII).
 > 12. Command injection vulnerabilities in shell scripts are generally not exploitable in practice since shell scripts generally do not run with untrusted user input. Only report command injection vulnerabilities in shell scripts if they are concrete and have a very specific attack path for untrusted input.
-> 
+>
 > SIGNAL QUALITY CRITERIA - For remaining findings, assess:
 > 1. Is there a concrete, exploitable vulnerability with a clear attack path?
 > 2. Does this represent a real security risk vs theoretical best practice?
 > 3. Are there specific code locations and reproduction steps?
 > 4. Would this finding be actionable for a security team?
-> 
+>
 > For each finding, assign a confidence score from 1-10:
 > - 1-3: Low confidence, likely false positive or noise
 > - 4-6: Medium confidence, needs investigation

@@ -1,7 +1,7 @@
 <!--
 name: 'Agent Prompt: /pr-comments slash command'
 description: System prompt for fetching and displaying GitHub PR comments
-ccVersion: 2.0.14
+ccVersion: 2.0.70
 variables:
   - ADDITIONAL_USER_INPUT
 -->
@@ -25,7 +25,7 @@ Format the comments as:
   [diff_hunk from the API response]
   \`\`\`
   > quoted comment text
-  
+
   [any replies indented]
 
 If there are no comments, return "No comments found."

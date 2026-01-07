@@ -3,7 +3,7 @@ name: 'Data: GitHub Actions workflow for automated code review (beta)'
 description: >-
   GitHub Actions workflow template for automated Claude Code reviews using
   direct_prompt
-ccVersion: 2.0.14
+ccVersion: 2.0.58
 -->
 name: Claude Code Review
 
@@ -59,6 +59,6 @@ jobs:
             Use \`gh pr comment\` with your Bash tool to leave your review as a comment on the PR.
 
           # See https://github.com/anthropics/claude-code-action/blob/main/docs/usage.md
-          # or https://docs.claude.com/en/docs/claude-code/cli-reference for available options
+          # or https://code.claude.com/docs/en/cli-reference for available options
           claude_args: '--allowed-tools "Bash(gh issue view:*),Bash(gh search:*),Bash(gh issue list:*),Bash(gh pr comment:*),Bash(gh pr diff:*),Bash(gh pr view:*),Bash(gh pr list:*)"'
 

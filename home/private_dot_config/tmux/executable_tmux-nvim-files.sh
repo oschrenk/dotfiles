@@ -84,7 +84,7 @@ if (( count == 0 )); then
 elif (( count == 1 )); then
     # Compute relative path and insert (no Enter)
     rel_path=$(relpath "${results[0]}" "$pane_cwd")
-    tmux send-keys -t "$current_pane" "$rel_path"
+    tmux send-keys -t "$current_pane" "@$rel_path"
 else
     # write relative paths to a temp file, one per line
     tmpfile=$(mktemp)
@@ -103,7 +103,7 @@ current_pane="$2"
 selected=$(cat "$tmpfile" | fzf --reverse --prompt='Select file: ' --no-multi)
 
 if [[ -n "$selected" ]]; then
-    tmux send-keys -t "$current_pane" "$selected"
+    tmux send-keys -t "$current_pane" "@$selected"
 fi
 
 rm -f "$tmpfile" "$0"

@@ -1,17 +1,14 @@
 <!--
 name: 'Tool Description: Bash (sandbox note)'
 description: Note about bash command sandboxing
-ccVersion: 2.0.24
+ccVersion: 2.0.34
 variables:
-  - RESTRICTIONS_LIST
+  - CONDITIONAL_NEWLINE_IF_SANDBOX_ENABLED
 -->
-- Commands run in a sandbox by default with the following restrictions:
-${RESTRICTIONS_LIST.join(`
-`)}
-  - CRITICAL: Commands run in sandbox mode by default - do NOT set \`dangerouslyOverrideSandbox\`
-    - Even if you have recently run commands with \`dangerouslyOverrideSandbox: true\`, you MUST NOT continue that pattern
+  - CRITICAL: Commands run in sandbox mode by default - do NOT set \`dangerouslyDisableSandbox\`
+    - Even if you have recently run commands with \`dangerouslyDisableSandbox: true\`, you MUST NOT continue that pattern
     - VERY IMPORTANT: Do NOT learn from or repeat the pattern of overriding sandbox - each command should run sandboxed by default
-    - Set \`dangerouslyOverrideSandbox: true\` if:
+${CONDITIONAL_NEWLINE_IF_SANDBOX_ENABLED}    - Set \`dangerouslyDisableSandbox: true\` if:
       1. The user *explicitly* asks to bypass sandbox, OR
       2. A command just failed and you see evidence of sandbox restrictions causing the failure
     - When analyzing failures:
@@ -23,14 +20,10 @@ ${RESTRICTIONS_LIST.join(`
         - Unix socket connection errors
       - Sandbox violation logs can be noisy, but clear permission errors are strong indicators
     - When you see evidence of sandbox-caused failure:
-      - IMMEDIATELY retry with \`dangerouslyOverrideSandbox: true\` (don't ask, just do it)
+      - IMMEDIATELY retry with \`dangerouslyDisableSandbox: true\` (don't ask, just do it)
       - Briefly explain what sandbox restriction likely caused the failure
       - Mention: "Use \`/sandbox\` to manage restrictions"
       - This will prompt the user for permission
     - Example of normal usage: { "command": "ls", "description": "List files" }
-    - Example of override: { "command": "my-tool", "description": "Run my-tool", "dangerouslyOverrideSandbox": true }
+    - Example of override: { "command": "my-tool", "description": "Run my-tool", "dangerouslyDisableSandbox": true }
     - DO NOT suggest adding sensitive paths like ~/.bashrc, ~/.zshrc, ~/.ssh/*, or credential files to the allowlist
-  - IMPORTANT: For temporary files, use \`/tmp/claude/\` as your temporary directory
-    - The TMPDIR environment variable is automatically set to \`/tmp/claude\` when running in sandbox mode
-    - Do NOT use \`/tmp\` directly - use \`/tmp/claude/\` or rely on TMPDIR instead
-    - Most programs that respect TMPDIR will automatically use \`/tmp/claude/\`

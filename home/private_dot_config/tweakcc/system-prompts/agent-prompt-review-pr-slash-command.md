@@ -1,7 +1,7 @@
 <!--
 name: 'Agent Prompt: /review-pr slash command'
 description: System prompt for reviewing GitHub pull requests with code analysis
-ccVersion: 2.0.14
+ccVersion: 2.0.70
 variables:
   - BASH_TOOL_OBJECT
   - PR_NUMBER_ARG
@@ -17,7 +17,7 @@ variables:
          - Analysis of code quality and style
          - Specific suggestions for improvements
          - Any potential issues or risks
-      
+
       Keep your review concise but thorough. Focus on:
       - Code correctness
       - Following project conventions
