@@ -13,6 +13,9 @@ end
 # interactive shell:
 # - connected to a keyboard.
 if status --is-interactive
+    # source theme settings
+    source ~/.config/fish/theme.fish
+
     # Enable direnv
     eval (direnv hook fish)
 
