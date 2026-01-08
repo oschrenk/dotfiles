@@ -82,11 +82,11 @@ inner.vertical   = 0
 outer.top = [{ monitor."Built-in Retina Display" = 0 }, 32]
 
 [workspace-to-monitor-force-assignment]
-1             = 'main'
-2             = 'main'
-b             = 'main'      # Browser on main screen
-m             = 'secondary' # Media on secondary screen
-".scratchpad" = "main"
+1 = 'main'
+2 = 'main'
+b = 'main'      # Browser on main screen
+t = 'main'      # Terminal on main screen
+m = 'secondary' # Media on secondary screen
 
 #######################################
 # BINDINGS
@@ -160,7 +160,6 @@ alt-2 = 'workspace 2'
 alt-3 = 'workspace 3'
 alt-b = 'workspace b' # browser
 alt-m = 'workspace m' # media
-alt-o = 'workspace o' # obsidian
 alt-t = 'workspace t' # terminal
 
 # Move to workspace
@@ -169,9 +168,8 @@ alt-t = 'workspace t' # terminal
 alt-shift-1 = ['move-node-to-workspace 1', 'workspace 1'] # primary
 alt-shift-2 = ['move-node-to-workspace 2', 'workspace 2'] # secondary
 alt-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
-alt-shift-b = ['move-node-to-workspace b', 'workspace b'] # media
+alt-shift-b = ['move-node-to-workspace b', 'workspace b'] # browser
 alt-shift-m = ['move-node-to-workspace m', 'workspace m'] # media
-alt-shift-o = ['move-node-to-workspace 4', 'workspace o']
 alt-shift-t = ['move-node-to-workspace t', 'workspace t'] # tiling
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
@@ -226,14 +224,6 @@ if.app-id = 'com.neovide.neovide'
 run       = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-id = 'org.alacritty'
-run       = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-id = 'com.mitchellh.ghostty'
-run       = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
 if.app-id = 'com.jetbrains.intellij.ce'
 run       = ['move-node-to-workspace 1']
 
@@ -252,22 +242,6 @@ run       = ['move-node-to-workspace 1']
 [[on-window-detected]]
 if.app-id = 'com.apple.dt.Xcode'
 run       = ['move-node-to-workspace 1']
-
-[[on-window-detected]]
-if.app-id = 'com.seriflabs.affinitydesigner2'
-run       = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.seriflabs.affinitypublisher2'
-run       = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.seriflabs.affinityphoto2'
-run       = 'move-node-to-workspace 2'
-
-[[on-window-detected]]
-if.app-id = 'com.msteedman.mochi'
-run       = 'move-node-to-workspace 2'
 
 # workspace.2 (=secondary)
 #--------------------------------------
@@ -291,6 +265,29 @@ run       = 'move-node-to-workspace 2'
 [[on-window-detected]]
 if.app-id = 'com.valvesoftware.steam'
 run       = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.seriflabs.affinityphoto2'
+run       = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.seriflabs.affinitydesigner2'
+run       = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.seriflabs.affinitypublisher2'
+run       = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-id = 'com.msteedman.mochi'
+run       = 'move-node-to-workspace 2'
+
+# workspace.T (=Terminal)
+#--------------------------------------
+
+[[on-window-detected]]
+if.app-id = 'com.mitchellh.ghostty'
+run       = 'move-node-to-workspace t'
 
 # workspace.B (=Browser)
 #--------------------------------------
@@ -337,13 +334,6 @@ run       = 'move-node-to-workspace m'
 [[on-window-detected]]
 if.app-id = 'com.openai.chat'
 run       = 'move-node-to-workspace m'
-
-# workspace.O (=Obsidian)
-#--------------------------------------
-
-[[on-window-detected]]
-if.app-id = 'md.Obsidian'
-run       = 'move-node-to-workspace o'
 
 #++++++++++++++++++++++++++++++++++++++
 # WINDOWS.floating
