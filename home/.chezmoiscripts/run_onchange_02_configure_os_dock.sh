@@ -75,6 +75,13 @@ for item in \
   fi
 done
 
+# Group windows by application
+# helps with aerospace
+# Tested on macOS 26.2
+# Requires 'killall Dock'
+echo "Mission Control: Group windows by application"
+defaults write com.apple.dock expose-group-apps -bool true
+
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
