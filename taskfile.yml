@@ -8,7 +8,11 @@ tasks:
   brew-diff:
     cmds:
       - echo '-xxx => locally installed but not in brewfile'
-      - diff -u <(brew leaves | sort) <(chezmoi execute-template --file apps/Brewfile.tmpl | grep brew | grep -v '^#' | grep -v '^[[:space:]]*$' | cut -d'"' -f2 | sort)
+      - echo '+xxx => in brewfile but not locally installed'
+      - echo 'Checking Formulae'
+      - diff -u <(brew info --json=v2 --installed | jq -r '.formulae[] | select(.installed[0].installed_on_request == true) | .name' | sort) <(chezmoi execute-template --file apps/Brewfile.tmpl | grep -E '^brew ' | cut -d'"' -f2 | sed 's|.*/||' | sort) | grep -E '^[+-][^+-]' || true
+      - echo 'Checking Casks'
+      - diff -u <(brew list --cask | sort) <(chezmoi execute-template --file apps/Brewfile.tmpl | grep -E '^cask ' | cut -d'"' -f2 | sed 's|.*/||' | sort) | grep -E '^[+-][^+-]' || true
     silent: true
   cargo:
     cmds:
