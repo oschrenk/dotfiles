@@ -3,12 +3,11 @@
 #######################################
 # Taps
 #######################################
+tap "cristianoliveira/tap"    # aerospace-scratchpad
 tap "felixkratz/formulae"     # sketchybar
 tap "nikitabobko/tap"         # aerospace
-tap "noahgorstein/tap"        # jqp
 tap "oschrenk/made"           # tools created by myself
 tap "oschrenk/personal"       # casks/formula managed by me
-tap "supabase/tap"            # supabase
 tap "txn2/tap"                # kubefwd
 
 # You can list all packages installed via `brew leaves`
@@ -53,6 +52,7 @@ mas "Apple Developer", id: 640199958
 #######################################
 
 brew "age"           # cryptography, encryption tool
+brew "cristianoliveira/tap/aerospace-scratchpad" # aerospace, scratchpad
 brew "atuin"         # cli, improved shell history
 brew "blueutil"      # system, get/set bluetooth from terminal
 brew "oven-sh/bun/bun" # javascript runtime
@@ -60,19 +60,18 @@ brew "chrome-cli"    # cli, control chrome via cli
 brew "cloc"          # generic, count lines of code
 brew "coreutils"     # system, generic, GNU core utilities
 brew "croc"          # cryptography, secure data transfer
+brew "curl"          # cli, download things
 brew "direnv"        # cli, auto load env
 brew "displayplacer" # hardware, arrange monitors
 brew "dockutil"      # macos, manage the dock
 brew "domain-check"  # cli, check domains
 brew "fd"            # system, generic, fast find alternative
-brew "felixkratz/formulae/sketchybar" # macos, custom statusbar
 brew "fileicon"      # macos, manage icons
 brew "findutils"     # system, generic, GNU g-prefixed `find`, xargs`
 brew "fnm"           # javascript, version manger
 brew "gawk"          # system, generic, GNU awk utility
 brew "gh"            # cli, interact with github
 brew "git"           # git, dvcs
-brew "gitmoji"       # git, gitmoji
 brew "git-crypt"     # git, encrypt secrets in git
 brew "git-delta"     # git, better looking diffs
 brew "git-extras"    # git, nice git extras
@@ -81,8 +80,9 @@ brew "git-open"      # git, open git[hub/lab] urls
 brew "glab"          # git, gitlab cli
 brew "glow"          # cli, render markdown in terminal
 brew "go"            # go, language
-brew "gopls"         # go, lsp
 brew "go-task"       # generic, go-based task runner
+brew "golangci-lint" # go, linter runner
+brew "gopls"         # go, lsp
 brew "gradle"        # kotlin, build tool
 brew "helm"          # k8s, package manager
 brew "htop"          # cli, Improved top
@@ -93,12 +93,13 @@ brew "jd"            # data, diff JSON
 brew "jira-cli"      # cli, interact with jira
 brew "jq"            # data, process JSON
 brew "k9s"           # k8s, cluster manager
+brew "kanata"        # system, keyboard mapper
 brew "kotlin"        # kotlin
 brew "krew"          # k8s, kubectl package manager
 brew "ktfmt"         # kotlin, formatter
 brew "ktlint"        # kotlin, formatter
 brew "kube-linter"   # k8s, lint k8s yaml and helm
-brew "kubectl"       # k8s, cli
+brew "kubernetes-cli"# k8s, cli
 brew "kubectx"       # k8s, switch k8s contexts
 brew "kubescape"     # k8s, scan cluster for security issues
 brew "kustomize"     # k8s, resource transformers
@@ -115,11 +116,11 @@ brew "mdq"           # jq but for Markdown
 brew "miller"        # data, process CSV
 brew "minikube"      # k8s, run local k8s
 brew "minisign"      # cryptography, sign files and verify signatures
-brew "noahgorstein/tap/jqp" # data, tui playground for jq
 brew "node"          # javascript, language
 brew "ollama"        # ai, create, run llm
 brew "openjdk@17"    # jvm, sdk
 brew "openjdk@21"    # jvm, sdk
+brew "openjdk"       # jvm, sdk
 brew "oschrenk/made/cutter" # web, extract cookies
 brew "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
 brew "oschrenk/made/mission" # macos, task managment
@@ -135,15 +136,17 @@ brew "poetry"        # python, package manager
 brew "prettier"      # generic, code formatter
 brew "prettierd"     # generic, code formatter
 brew "pyenv"         # python, version manager
-brew "python"        # python, language
+brew "python@3.13"   # python, language
+brew "python@3.14"   # python, language
+brew "rclone"        # cli, sync files
 brew "ripgrep"       # system, generic, recursive search
 brew "rust"          # rust, language
 brew "shellcheck"    # shell, linter
+brew "sketchybar"    # macos, custom statusbar
 brew "smartmontools" # hardware, harddrive, read ssd info
 brew "spicetify-cli" # spotify ricing
 brew "sqlfluff"      # sql, formatter
 brew "stylua"        # lua formatter
-brew "supabase/tap/supabase" # supabase, cli
 brew "swift"         # swift, language
 brew "swiftformat"   # swift, format
 brew "swiftlint"     # swift, lint, requires Xcode
@@ -157,6 +160,7 @@ brew "tweakcc"       # claude, customize
 brew "typescript"    # typescript, language
 brew "typescript-language-server" # typescript, lsp
 brew "watch"         # system, issue commands at regular interval
+brew "xq"          # data, process xml
 brew "yamlfmt"       # yaml, formatter
 brew "yarn"          # javascript, package manager
 brew "yq"            # data, process YAML
@@ -164,13 +168,14 @@ brew "zoxide"        # cli, navigate fs
 
 # only on work machine
 brew "flyway"      # database migrations
-brew "gemini-cli"  # ai, google gemini
 brew "hadolint"    # docker, linter
-brew "mysql@8.0"   # mysql
+brew "kubelogin"   # k8s, openid auth plugin
+brew "mysql-client@8.0" # mysql, client
 brew "skopeo"      # docker, registry inspect
 brew "sleek"       # sql, formatter
 brew "snyk-cli"    # scan for security vulnerabilities
 brew "stern"       # k8s, log "aggregator"
+brew "velero"      # k8s, backup/recovery
 brew "websocat"    # cli, websocket
 
 # only on personal machine
@@ -181,9 +186,7 @@ brew "doggo"       # network, dns client
 brew "exiftool"    # a/v, read/write exif
 brew "ffmpeg"      # a/v, convert audio/video
 brew "flac"        # a/v, flac codec
-brew "gemini-cli"  # ai, gemini
 brew "httrack"     # network, copy websites offline
-brew "huggingface-cli" # ai, hugging face
 brew "lame"        # a/v, mp3 codec
 brew "libmp3splt"  # a/v, split mp3, off, flac files
 brew "logcli"      # O11y, query loki
@@ -192,12 +195,10 @@ brew "meli"        # terminal, email client
 brew "mosh"        # network, better shell for roaming
 brew "ngrep"       # network packet analyzer
 brew "nmap"        # network,port scanning
-brew "oschrenk/personal/hullcaster" # podcast client
-brew "oschrenk/personal/postgrestools" # postgres, lsp
-brew "oschrenk/personal/mcp-server-macos-use" # mcp, macOS
 brew "pandoc"      # docs, document converter
 brew "sbt"         # jvm, scala
 brew "scala"       # jvm, scala
+brew "tag"         # terminal, interact with macOS file tags
 brew "tectonic"    # tex
 brew "tfenv"       # devops, terraform version manager
 brew "typst"       # typst, tex alternative (rust based)
@@ -247,6 +248,7 @@ cask "font-jetbrains-mono-nerd-font"
 cask "font-open-sans"
 cask "font-roboto-mono"
 cask "font-roboto-mono-nerd-font"
+cask "font-sf-pro"
 cask "oschrenk/personal/font-sf-mono-nerd-font"
 
 #######################################
@@ -268,9 +270,7 @@ cask "keyboardcleantool"      # disables keyboard for cleaning
 cask "monodraw"               # draw ascii diagrams
 cask "neovide-app"            # neovim desktop app
 cask "pika"                   # Color Picker
-cask "sequel-ace"             # MySQL client
 cask "shortcat"               # macos, vim picker
-cask "superwhisper"           # ai, local voice
 cask "yellowdot"              # Hide screen/audio indicator
 cask "zen"                    # Browser, firefox-based
 
@@ -285,6 +285,7 @@ cask "hex-fiend"             # hex editor
 cask "iina"                  # video client
 cask "keycastr"              # shows key strokes on screen
 cask "knockknock"            # identify background tasks/processes
+cask "live-home-3d"          # home designer
 cask "mochi"                 # study notes and flashcards
 cask "numi"                  # calculator
 cask "omnidisksweeper"       # cleanup disk space
@@ -292,6 +293,7 @@ cask "onyx"                  # macos maintenance
 cask "rode-central"          # rode companion app (for AI-1)
 cask "signal"                # signal messaging
 cask "slack"                 # slack office communication
+cask "steam"                 # games
 cask "telegram"              # telegram messaging
 cask "the-unarchiver"        # unarchiving most archive files
 cask "transmission"          # torrent client
@@ -299,6 +301,9 @@ cask "utm"                   # virtual machines for macos
 cask "vlc"                   # video client
 cask "whatsapp"              # whatsapp messaging
 cask "zoom"                  # video conferencing
+
+# Only on Work machine
+cask "openvpn-connect"       # vpn
 
 #######################################
 # Visual Studio
