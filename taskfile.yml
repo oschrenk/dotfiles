@@ -1,7 +1,7 @@
 version: '3'
 tasks:
   apps:
-    deps: [brew, cargo, go, krew, lua, node, ollama, huggingface]
+    deps: [brew, cargo, go, krew, lua, node, ollama]
   brew:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01a_deps_brewfiles.sh.tmpl | chezmoi execute-template | zsh
@@ -35,9 +35,6 @@ tasks:
   krew:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01h_deps_krew.sh.tmpl | chezmoi execute-template | zsh
-  huggingface:
-    cmds:
-      - cat home/.chezmoiscripts/run_onchange_01i_deps_huggingface.sh.tmpl | chezmoi execute-template | zsh
   icons:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_06_customize_icons.sh.tmpl | chezmoi execute-template | zsh
