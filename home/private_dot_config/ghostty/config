@@ -25,6 +25,7 @@ macos-titlebar-style = hidden
 window-padding-x = 5
 window-padding-y = 3
 initial-window = true
+macos-window-shadow = false
 
 # Font Configuration
 #   to list valid fonts `ghostty +list-fonts`
