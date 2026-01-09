@@ -1,4 +1,5 @@
 # vim: filetype=ruby
+github.com/Dicklesworthstone/beads_viewer/cmd/bv@latest # ai, beads, viewer
 github.com/air-verse/air@latest               # watch file changes
 github.com/catilac/plistwatch@latest          # watch plist changes
 github.com/dbohdan/recur@latest               # repeat commands
