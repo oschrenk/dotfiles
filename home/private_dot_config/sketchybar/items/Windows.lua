@@ -6,6 +6,7 @@ local Windows = {}
 -- @param style Plugin specific icons
 function Windows.new(icons, style)
   local self = {}
+  local question_window_id = nil -- Track which window has a question
 
   self.add = function(position)
     local cmd = "/opt/homebrew/bin/sessionizer windows --json"
@@ -22,29 +23,25 @@ function Windows.new(icons, style)
         sbar.exec(cmd, function(windows)
           local w = windows[i]
           if w ~= nil then
-            if w.active_clients > 0 then
-              if w.active then
-                window:set({
-                  icon = {
-                    color = style.active,
-                  },
-                  label = {
-                    drawing = false,
-                  },
-                  drawing = true,
-                })
-              else
-                window:set({
-                  icon = {
-                    string = icons.dot,
-                    color = style.inactive,
-                  },
-                  label = {
-                    drawing = false,
-                  },
-                  drawing = true,
-                })
-              end
+            -- Determine the color based on state
+            local color = style.inactive
+            if w.id == question_window_id then
+              color = 0xFFFF9500 -- Orange for question state
+            elseif w.active then
+              color = style.active
+            end
+
+            if w.active_clients > 0 or w.id == question_window_id then
+              window:set({
+                icon = {
+                  string = icons.dot,
+                  color = color,
+                },
+                label = {
+                  drawing = false,
+                },
+                drawing = true,
+              })
             else
               window:set({
                 icon = {
@@ -63,12 +60,22 @@ function Windows.new(icons, style)
         end)
       end
 
-      window:subscribe(
-        { "forced", "routine", "system_woke", "tmux_sessions_update", "tmux_windows_update" },
-        function(_)
-          update()
+      window:subscribe({
+        "forced",
+        "routine",
+        "system_woke",
+        "tmux_sessions_update",
+        "tmux_windows_update",
+        "ai_agent_waiting",
+        "ai_agent_done",
+      }, function(env)
+        if env.SENDER == "ai_agent_waiting" and env.WINDOW_ID then
+          question_window_id = env.WINDOW_ID
+        elseif env.SENDER == "ai_agent_done" then
+          question_window_id = nil
         end
-      )
+        update()
+      end)
     end
   end
 
