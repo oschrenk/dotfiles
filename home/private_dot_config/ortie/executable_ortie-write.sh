@@ -1,12 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env sh
 # Write token to macOS Keychain
+#
 # Ortie pipes JSON token data to stdin
+# But... `security` doesn't support stdin, 
+# so we store it in $token and then place it
 
-# Read all of stdin - cat reads everything until EOF
+# read stdin until EOF
 token=$(cat)
 
-# Debug: show what we received
-echo "Received ${#token} bytes" >&2
-
-# Store in Keychain (-U means update if exists, create if not)
+# store in keychain 
+#   -U means update if exists, create if not
 security add-generic-password -s "ortie-token" -a "personal" -w "$token" -U
