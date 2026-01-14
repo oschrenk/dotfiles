@@ -2,6 +2,12 @@
 
 {{- $recipient := promptStringOnce . "recipient" "Age public key" -}}
 
+{{- $name := promptStringOnce . "name" "Full name" -}}
+
+{{- $email := promptStringOnce . "email" "Email address" -}}
+
+{{- $google_oauth_client_id := promptStringOnce . "google_oauth_client_id" "Google OAuth Client ID" -}}
+
 
 encryption = "age"
 
@@ -11,3 +17,8 @@ encryption = "age"
 [age]
   identity = {{ $identity | quote }}
   recipient = {{ $recipient | quote }}
+
+[data]
+  name = {{ $name | quote }}
+  email = {{ $email | quote }}
+  google_oauth_client_id = {{ $google_oauth_client_id | quote }}

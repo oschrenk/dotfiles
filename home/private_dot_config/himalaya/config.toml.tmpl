@@ -1,0 +1,105 @@
+#######################################################
+###[ Global configuration ]############################
+#######################################################
+
+# Default display name for all accounts.
+# Used to build the full email address of an account:
+# "<display-name>" <example@localhost>
+#
+display-name = "{{ .name }}"
+
+# Default signature for all accounts.
+# Put at the bottom of all messages.
+# Can be a path or a string. Supports TOML multilines.
+#
+#signature = "/path/to/signature/file"
+#signature = """
+#  Thanks you,
+#  Regards
+#"""
+# signature = "Regards,\n"
+
+# Default signature delimiter for all accounts.
+# Delimits end of the message body from the signature.
+signature-delim = "-- \n"
+
+# Default downloads directory path for all accounts.
+downloads-dir = "~/Downloads"
+
+# Customizes charset used to build accounts listing table.
+# Defaults to markdown table style.
+#
+# See <https://docs.rs/comfy-table/latest/comfy_table/presets/index.html>.
+account.list.table.preset = "||  |-|||           "
+
+# Color of NAME column of account listing table
+account.list.table.name-color = "green"
+
+# Color of BACKENDS column of the account listing table
+account.list.table.backends-color = "blue"
+
+# Color of DEFAULT column of the account listing table
+account.list.table.default-color = "black"
+
+######################################################
+###[ Account configuration ]##########################
+######################################################
+
+# The account name MUST be unique.
+[accounts.personal]
+
+# Defaultness of the account.
+# If true, account will be used by default
+default = true
+
+# Email address associated to the current account.
+email = "{{ .email }}"
+
+# Display name of account.
+# This and email are used to build full email address:
+# "<display-name>" <example@localhost>
+display-name = "{{ .name }}"
+
+# Setup
+# 1. visit https://console.developers.google.com/
+# 2. create project
+# 3. create OAuth 2.0 Client ID
+# 4. create web app
+# 5. himalaya configure -a personal
+
+folder.aliases.inbox  = "INBOX"
+folder.aliases.sent   = "[Gmail]/Sent Mail"
+folder.aliases.drafts = "[Gmail]/Drafts"
+folder.aliases.trash  = "[Gmail]/Trash"
+
+backend.type        = "imap"
+backend.host        = "imap.gmail.com"
+backend.port        = 993
+backend.login       = "{{ .email }}"
+backend.auth.type   = "oauth2"
+backend.auth.method = "xoauth2"
+
+backend.auth.client-id             = "{{ .google_oauth_client_id }}"
+backend.auth.client-secret.command = "{{ .chezmoi.homeDir }}/.config/himalaya/client-secret.sh"
+backend.auth.access-token.command  = "ortie token -a personal show --auto-refresh"
+backend.auth.refresh-token.raw     = "NOT NEEDED with auto-refresh????"
+
+backend.auth.auth-url  = "https://accounts.google.com/o/oauth2/v2/auth"
+backend.auth.token-url = "https://www.googleapis.com/oauth2/v3/token"
+backend.auth.pkce      = true
+backend.auth.scope     = "https://mail.google.com/"
+
+message.send.backend.type                       = "smtp"
+message.send.backend.host                       = "smtp.gmail.com"
+message.send.backend.port                       = 465
+message.send.backend.login                      = "{{ .email }}"
+message.send.backend.auth.type                  = "oauth2"
+message.send.backend.auth.method                = "xoauth2"
+message.send.backend.auth.client-id             = "{{ .google_oauth_client_id }}"
+message.send.backend.auth.client-secret.command = "{{ .chezmoi.homeDir }}/.config/himalaya/client-secret.sh"
+message.send.backend.auth.access-token.command  = "ortie token -a personal show --auto-refresh"
+message.send.backend.auth.refresh-token.raw     = "not needed???"
+message.send.backend.auth.auth-url              = "https://accounts.google.com/o/oauth2/v2/auth"
+message.send.backend.auth.token-url             = "https://www.googleapis.com/oauth2/v3/token"
+message.send.backend.auth.pkce                  = true
+message.send.backend.auth.scope                 = "https://mail.google.com/"
