@@ -1,5 +1,6 @@
 # vim: syntax=ruby filetype=ruby
 git-context # manage mixed git repositories
+himalaya --locked --features oauth2 # terminal, email client
 jx          # json viewer
 ortie       # oauth2 cli
 sleek       # sql formatter
