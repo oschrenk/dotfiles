@@ -3,18 +3,14 @@
 # Make this current account the default 
 default = true
 
-# To safely store the secrets do:
-# security add-generic-password -s meli-cli -a MELI \
-#  -w '{"email":"...","client_id":"...", "client_secret":"...", "refresh_token": "..."}'
-
 # Client credentials
-client-id             = "315969532241-rt7um0u2qsp8rgp1nvu31qifvo3cu8qi.apps.googleusercontent.com"
+client-id = "315969532241-rt7um0u2qsp8rgp1nvu31qifvo3cu8qi.apps.googleusercontent.com"
 client-secret.command = "/Users/oliver/.config/ortie/client-secret.sh"
 
 # Endpoints, given by your OAuth provider.
 endpoints.authorization = "https://accounts.google.com/o/oauth2/auth"
-endpoints.token         = "https://www.googleapis.com/oauth2/v3/token"
-endpoints.redirection   = "http://localhost:9999/"
+endpoints.token = "https://www.googleapis.com/oauth2/v3/token"
+endpoints.redirection = "http://localhost:9999/"
 
 # Access token scopes
 scopes = ["https://mail.google.com"]
@@ -32,24 +28,26 @@ pkce = true
 auto-refresh = true
 
 # Access token storage
-#
-storage.read.command  = ["/Users/oliver/.config/ortie/ortie-read.sh"]
+storage.read.command = ["/Users/oliver/.config/ortie/ortie-read.sh"]
 storage.write.command = ["/Users/oliver/.config/ortie/ortie-write.sh"]
 
 # Hooks
+# you can use 
+#  - *.command (via cargo feature "command") or
+#  - *.notify.summary|body (via cargo feature "notify")
 #
-#on-issue-access-token.success.command = []
-#on-issue-access-token.success.notify.summary = "Ortie"
-#on-issue-access-token.success.notify.body = "Issued access token (expires in $EXPIRES_IN)"
+# success.* supports:
+#  $ACCESS_TOKEN
+#  $EXPIRES_IN
+#  $REFRESH_TOKEN
+#  $SCOPE
 #
-#on-issue-access-token.error.command = []
-#on-issue-access-token.error.notify.summary = "Ortie"
-#on-issue-access-token.error.notify.body = "[$ERROR] Issue access token error\n$ERROR_DESCRIPTION"
+# error.* supports:
+#  $ERROR
+#  $ERROR_DESCRIPTION
 #
-#on-refresh-access-token.success.command = []
-#on-refresh-access-token.success.notify.summary = "Ortie"
-#on-refresh-access-token.success.notify.body = "Refreshed access token (expires in $EXPIRES_IN)"
-#
-#on-refresh-access-token.error.command = []
-#on-refresh-access-token.error.notify.summary = "Ortie"
-#on-refresh-access-token.error.notify.body = "[$ERROR] Refresh access token error\n$ERROR_DESCRIPTION"
+# Events:
+#   on-issue-access-token.success.command = []
+#   on-issue-access-token.error.command = []
+#   on-refresh-access-token.success.command = []
+#   on-refresh-access-token.error.command = []
