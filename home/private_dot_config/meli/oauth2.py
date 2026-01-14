@@ -1,7 +1,6 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 #
 # Copyright 2012 Google Inc.
-# Copyright 2020 Manos Pitsidianakis
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,6 +20,12 @@ To use this script, you'll need to have registered with Google as an OAuth
 application and obtained an OAuth client ID and client secret.
 See https://developers.google.com/identity/protocols/OAuth2 for instructions on
 registering and for documentation of the APIs invoked by this code.
+
+NOTE: The OAuth2 OOB flow isn't a thing anymore. You will need to set the
+application type to "Web application" and then add
+https://google.github.io/gmail-oauth2-tools/html/oauth2.dance.html as an
+authorised redirect URI. This is necessary for seeing the authorisation code on
+a page in your browser.
 
 This script has 3 modes of operation.
 
@@ -64,15 +69,17 @@ IMAPFE and pass it as the second argument to the AUTHENTICATE command.
 import base64
 import imaplib
 import json
-from optparse import OptionParser
+import optparse
 import smtplib
+import ssl
 import sys
-import urllib.request, urllib.parse, urllib.error
+import urllib.parse
+import urllib.request
 
 
 def SetupOptionParser():
   # Usage message is the module's docstring.
-  parser = OptionParser(usage=__doc__)
+  parser = optparse.OptionParser(usage=__doc__)
   parser.add_option('--generate_oauth2_token',
                     action='store_true',
                     dest='generate_oauth2_token',
@@ -127,8 +134,8 @@ def SetupOptionParser():
 GOOGLE_ACCOUNTS_BASE_URL = 'https://accounts.google.com'
 
 
-# Hardcoded dummy redirect URI for non-web apps.
-REDIRECT_URI = 'urn:ietf:wg:oauth:2.0:oob'
+# Hardcoded redirect URI.
+REDIRECT_URI = 'https://google.github.io/gmail-oauth2-tools/html/oauth2.dance.html'
 
 
 def AccountsUrl(command):
@@ -163,7 +170,7 @@ def FormatUrlParams(params):
     A URL query string version of the given parameters.
   """
   param_fragments = []
-  for param in sorted(iter(params.items()), key=lambda x: x[0]):
+  for param in sorted(params.items(), key=lambda x: x[0]):
     param_fragments.append('%s=%s' % (param[0], UrlEscape(param[1])))
   return '&'.join(param_fragments)
 
@@ -185,6 +192,8 @@ def GeneratePermissionUrl(client_id, scope='https://mail.google.com/'):
   params['redirect_uri'] = REDIRECT_URI
   params['scope'] = scope
   params['response_type'] = 'code'
+  params['access_type'] = 'offline'
+  params['prompt'] = 'consent'
   return '%s?%s' % (AccountsUrl('o/oauth2/auth'),
                     FormatUrlParams(params))
 
@@ -212,7 +221,7 @@ def AuthorizeTokens(client_id, client_secret, authorization_code):
   params['grant_type'] = 'authorization_code'
   request_url = AccountsUrl('o/oauth2/token')
 
-  response = urllib.request.urlopen(request_url, urllib.parse.urlencode(params).encode()).read()
+  response = urllib.request.urlopen(request_url, urllib.parse.urlencode(params).encode('utf-8')).read()
   return json.loads(response)
 
 
@@ -236,7 +245,7 @@ def RefreshToken(client_id, client_secret, refresh_token):
   params['grant_type'] = 'refresh_token'
   request_url = AccountsUrl('o/oauth2/token')
 
-  response = urllib.request.urlopen(request_url, urllib.parse.urlencode(params).encode()).read()
+  response = urllib.request.urlopen(request_url, urllib.parse.urlencode(params).encode('utf-8')).read()
   return json.loads(response)
 
 
@@ -255,47 +264,44 @@ def GenerateOAuth2String(username, access_token, base64_encode=True):
   """
   auth_string = 'user=%s\1auth=Bearer %s\1\1' % (username, access_token)
   if base64_encode:
-    auth_string = base64.b64encode(bytes(auth_string, 'utf-8'))
+    auth_string = base64.b64encode(auth_string.encode('utf-8'))
   return auth_string
 
 
-def TestImapAuthentication(user, auth_string):
+def TestImapAuthentication(auth_string):
   """Authenticates to IMAP with the given auth_string.
 
   Prints a debug trace of the attempted IMAP connection.
 
   Args:
-    user: The Gmail username (full email address)
     auth_string: A valid OAuth2 string, as returned by GenerateOAuth2String.
         Must not be base64-encoded, since imaplib does its own base64-encoding.
   """
-  print()
-  imap_conn = imaplib.IMAP4_SSL('imap.gmail.com')
+  print
+  imap_conn = imaplib.IMAP4_SSL('imap.gmail.com', ssl_context=ssl.create_default_context())
   imap_conn.debug = 4
   imap_conn.authenticate('XOAUTH2', lambda x: auth_string)
   imap_conn.select('INBOX')
 
 
-def TestSmtpAuthentication(user, auth_string):
+def TestSmtpAuthentication(auth_string):
   """Authenticates to SMTP with the given auth_string.
 
   Args:
-    user: The Gmail username (full email address)
     auth_string: A valid OAuth2 string, not base64-encoded, as returned by
         GenerateOAuth2String.
   """
-  print()
-  smtp_conn = smtplib.SMTP('smtp.gmail.com', 587)
+  print
+  smtp_conn = smtplib.SMTP_SSL('smtp.gmail.com', context=ssl.create_default_context())
   smtp_conn.set_debuglevel(True)
   smtp_conn.ehlo('test')
-  smtp_conn.starttls()
-  smtp_conn.docmd('AUTH', 'XOAUTH2 ' + base64.b64encode(auth_string))
+  smtp_conn.docmd('AUTH', 'XOAUTH2 ' + base64.b64encode(auth_string.encode('utf-8')).decode('utf-8'))
 
 
 def RequireOptions(options, *args):
   missing = [arg for arg in args if getattr(options, arg) is None]
   if missing:
-    print('Missing options: %s' % ' '.join(missing), file=sys.stderr)
+    print('Missing options: %s' % ' '.join(missing))
     sys.exit(-1)
 
 
@@ -330,12 +336,12 @@ def main(argv):
     print('Access Token Expiration Seconds: %s' % response['expires_in'])
   elif options.test_imap_authentication:
     RequireOptions(options, 'user', 'access_token')
-    TestImapAuthentication(options.user,
+    TestImapAuthentication(
         GenerateOAuth2String(options.user, options.access_token,
                              base64_encode=False))
   elif options.test_smtp_authentication:
     RequireOptions(options, 'user', 'access_token')
-    TestSmtpAuthentication(options.user,
+    TestSmtpAuthentication(
         GenerateOAuth2String(options.user, options.access_token,
                              base64_encode=False))
   else:
