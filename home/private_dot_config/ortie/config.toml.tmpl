@@ -1,11 +1,11 @@
 [accounts.personal]
 
-# Make this current account the default 
+# Make this current account the default
 default = true
 
 # Client credentials
-client-id = "315969532241-rt7um0u2qsp8rgp1nvu31qifvo3cu8qi.apps.googleusercontent.com"
-client-secret.command = "/Users/oliver/.config/ortie/client-secret.sh"
+client-id = "{{ .google_oauth_client_id }}"
+client-secret.command = "{{ .chezmoi.homeDir }}/.config/ortie/client-secret.sh"
 
 # Endpoints, given by your OAuth provider.
 endpoints.authorization = "https://accounts.google.com/o/oauth2/auth"
@@ -28,11 +28,11 @@ pkce = true
 auto-refresh = true
 
 # Access token storage
-storage.read.command = ["/Users/oliver/.config/ortie/ortie-read.sh"]
-storage.write.command = ["/Users/oliver/.config/ortie/ortie-write.sh"]
+storage.read.command = ["{{ .chezmoi.homeDir }}/.config/ortie/ortie-read.sh"]
+storage.write.command = ["{{ .chezmoi.homeDir }}/.config/ortie/ortie-write.sh"]
 
 # Hooks
-# you can use 
+# you can use
 #  - *.command (via cargo feature "command") or
 #  - *.notify.summary|body (via cargo feature "notify")
 #
