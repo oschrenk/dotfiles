@@ -29,7 +29,7 @@ pkce = true
 
 # Automatically refreshes expired access token when using `ortie token
 # show` command.
-auto-refresh = false
+auto-refresh = true
 
 # Access token storage
 #
