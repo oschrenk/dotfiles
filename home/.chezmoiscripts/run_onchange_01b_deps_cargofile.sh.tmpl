@@ -1,4 +1,11 @@
 #!/bin/zsh
 
 # Cargofile hash: {{ include "../apps/Cargofile" | sha256sum }}
-cargo install $(cat {{ joinPath .chezmoi.sourceDir "../apps/Cargofile" | quote }} | cut -d "#" -f 1 | paste -s -d ' ' - )
+
+while IFS= read -r line; do
+  # Skip empty lines and comments
+  [[ -z "$line" || "$line" =~ ^[[:space:]]*# ]] && continue
+
+  # Strip inline comments and install
+  cargo install $(echo "$line" | cut -d "#" -f 1)
+done < {{ joinPath .chezmoi.sourceDir "../apps/Cargofile" | quote }}
