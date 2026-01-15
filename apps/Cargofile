@@ -1,4 +1,5 @@
 # vim: syntax=ruby filetype=ruby
+comodoro --locked --git https://github.com/pimalaya/comodoro.git # terminal, timer
 git-context # manage mixed git repositories
 himalaya --locked --features oauth2 # terminal, email client
 jx          # json viewer
