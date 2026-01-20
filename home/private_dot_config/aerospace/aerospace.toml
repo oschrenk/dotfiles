@@ -84,6 +84,7 @@ outer.top = [{ monitor."Built-in Retina Display" = 0 }, 32]
 [workspace-to-monitor-force-assignment]
 1 = 'main'
 2 = 'main'
+a = 'main'      # Browser on main screen
 b = 'main'      # Browser on main screen
 t = 'main'      # Terminal on main screen
 m = 'secondary' # Media on secondary screen
@@ -301,8 +302,17 @@ if.app-id = 'org.mozilla.firefox'
 run       = 'move-node-to-workspace b'
 
 [[on-window-detected]]
-if.app-id = 'company.thebrowser.Browser' # Arc
+if.app-id = 'com.apple.Safari'
 run       = 'move-node-to-workspace b'
+
+[[on-window-detected]]
+# Arc
+if.app-id = 'company.thebrowser.Browser'
+# arc gets it's own workspace onyl because
+# it has wrong corner radius for macOS 26,
+# will probably never be re-compiled to match
+# and it's ugly when being behind another browser
+run = 'move-node-to-workspace a'
 
 # workspace.M (=Media and Messenger)
 #--------------------------------------
