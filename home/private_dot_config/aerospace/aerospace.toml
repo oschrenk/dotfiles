@@ -120,6 +120,12 @@ m = 'secondary' # Media on secondary screen
 # MAIN.bindings
 #++++++++++++++++++++++++++++++++++++++
 
+[exec]
+inherit-env-vars = true
+
+[exec.env-vars]
+XDG_CONFIG_HOME = '/Users/oliver/.config'
+
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
 # 'main' binding mode must be always presented
@@ -128,13 +134,13 @@ m = 'secondary' # Media on secondary screen
 # This toggle the scratchpad window show/hide
 # https://github.com/cristianoliveira/aerospace-scratchpad
 cmd-ctrl-1 = [
-  'exec-and-forget /Users/oliver/.config/aerospace/make-frontmost.sh md.obsidian',
-  'exec-and-forget /Users/oliver/.config/aerospace/position-frontmost.sh',
+  'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/make-frontmost.sh md.obsidian',
+  'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/position-frontmost.sh',
 ]
 
 cmd-ctrl-2 = [
-  'exec-and-forget /Users/oliver/.config/aerospace/make-frontmost.sh com.apple.finder',
-  'exec-and-forget /Users/oliver/.config/aerospace/position-frontmost.sh',
+  'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/make-frontmost.sh com.apple.finder',
+  'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/position-frontmost.sh',
 ]
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
