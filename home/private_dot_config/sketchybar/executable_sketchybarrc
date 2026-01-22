@@ -10,9 +10,10 @@ local icons = require("icons")
 local style = require("style")
 
 -- services
+local claude = require("services.claude").new()
+local comodoro = require("services.comodoro").new()
 local focus = require("services.focus").new()
 local mission = require("services.mission").new()
-local pomodoro = require("services.pomodoro").new()
 local sessionizer = require("services.sessionizer").new()
 
 -- bundle configuration into single message
@@ -27,7 +28,12 @@ require("items.windows").new(icons.windows, style.windows).add("left")
 require("items.mission").new(mission, focus, icons.mission).add("left")
 require("items.project").new(icons.project, sessionizer).add("left")
 
--- require("items.pomodoro").new(pomodoro, style.pomodoro).add("center")
+-- we manually center arround the dynamic island
+local clockWidth = 110
+local dynamicIslandWidth = 184
+require("items.claude").new(claude, 100).add("center")
+require("items.spacer").new(dynamicIslandWidth).add("center")
+require("items.comodoro").new(comodoro, style.pomodoro).add("center", clockWidth)
 
 require("items.clock").new(icons.clock).add("right")
 require("items.weathernative").new(style).add("right")
