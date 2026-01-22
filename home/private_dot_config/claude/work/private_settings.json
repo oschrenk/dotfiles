@@ -1,52 +1,58 @@
 {
+  "alwaysThinkingEnabled": true,
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true
+  },
   "hooks": {
-    "PreToolUse": [
+    "Notification": [
       {
-        "matcher": "AskUserQuestion",
         "hooks": [
           {
-            "type": "command",
-            "command": "sketchybar --trigger ai_agent_waiting WINDOW_ID=$(tmux display-message -p '#{window_id}')"
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "AskUserQuestion",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "sketchybar --trigger ai_agent_done WINDOW_ID=$(tmux display-message -p '#{window_id}')"
-          }
-        ]
-      }
-    ],
-    "PreCompact": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bd prime"
+            "command": "sketchybar --trigger ai_agent_waiting SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')",
+            "type": "command"
           }
         ]
       }
     ],
     "SessionStart": [
       {
-        "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "bd prime"
+            "command": "beans prime"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "beans prime"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "command": "sketchybar --trigger ai_agent_done SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "command": "sketchybar --trigger ai_agent_done SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')",
+            "type": "command"
           }
         ]
       }
     ]
-  },
-  "alwaysThinkingEnabled": true,
-  "enabledPlugins": {
-    "typescript-lsp@claude-plugins-official": true
   }
 }

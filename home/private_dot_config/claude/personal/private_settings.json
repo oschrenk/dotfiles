@@ -39,24 +39,32 @@
         ]
       }
     ],
-    "PreCompact": [
+    "Stop": [
       {
-        "matcher": "",
         "hooks": [
           {
-            "type": "command",
-            "command": "bd prime"
+            "command": "sketchybar --trigger ai_agent_done SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')",
+            "type": "command"
           }
         ]
       }
     ],
     "SessionStart": [
       {
-        "matcher": "",
         "hooks": [
           {
             "type": "command",
-            "command": "bd prime"
+            "command": "beans prime"
+          }
+        ]
+      }
+    ],
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "beans prime"
           }
         ]
       }
