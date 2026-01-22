@@ -1,10 +1,11 @@
 local palette = {
   black = 0xff000000,
   blue = 0xff8aa499,
-  green = 0xffb9bb46,
   grey = 0xff484848,
-  red = 0xffe85841,
+
   white = 0xffe8dcb7,
+  green = 0xffb9bb46,
+  red = 0xffe85841,
   yellow = 0xfff1bf4f,
 }
 
