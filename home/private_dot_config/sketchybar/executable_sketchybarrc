@@ -40,9 +40,6 @@ require("items.comodoro").new(comodoro, style.pomodoro).add("center", clockWidth
 require("items.clock").new(icons.clock).add("right")
 require("items.weathernative").new(style).add("right")
 require("items.battery").new(icons.battery).add("right")
-require("items.menuitem")
-  .new(style, { name = "OpenVPN Connect,Item-1", update_freq = 30, padding_right = -4 })
-  .add("right")
 require("items.calendar").new(icons.calendar, focus).add("right")
 
 sbar.end_config()
