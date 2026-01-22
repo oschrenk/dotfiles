@@ -19,7 +19,7 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "AskUserQuestion",
+        "matcher": "AskUserQuestion|Write|Edit|Bash",
         "hooks": [
           {
             "type": "command",
@@ -30,7 +30,7 @@
     ],
     "PostToolUse": [
       {
-        "matcher": "AskUserQuestion",
+        "matcher": "AskUserQuestion|Write|Edit|Bash",
         "hooks": [
           {
             "type": "command",
