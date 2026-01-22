@@ -23,18 +23,20 @@ sbar.hotload(true)
 sbar.bar(style.bar)
 sbar.default(style.default)
 
+-- left
 require("items.sessions").new(icons.sessions, style.sessions).add("left")
 require("items.windows").new(icons.windows, style.windows).add("left")
 require("items.mission").new(mission, focus, icons.mission).add("left")
 require("items.project").new(icons.project, sessionizer).add("left")
 
--- we manually center arround the dynamic island
+-- center (manually arround the dynamic island)
 local clockWidth = 110
 local dynamicIslandWidth = 184
 require("items.claude").new(claude, 100).add("center")
 require("items.spacer").new(dynamicIslandWidth).add("center")
 require("items.comodoro").new(comodoro, style.pomodoro).add("center", clockWidth)
 
+-- right
 require("items.clock").new(icons.clock).add("right")
 require("items.weathernative").new(style).add("right")
 require("items.battery").new(icons.battery).add("right")
