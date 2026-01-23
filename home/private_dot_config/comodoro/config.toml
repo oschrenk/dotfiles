@@ -59,4 +59,8 @@ precision = "minute"
 # hooks.on-work-begin.notify.body    = "Work started!"
 
 # fully qualified path so that launchd service finds sketchybar
-hooks.on-work-begin.command = "/opt/homebrew/bin/sketchybar --trigger comodoro_hook cycle=work event=begin"
+hooks.on-work-begin.command       = "/opt/homebrew/bin/sketchybar --trigger comodoro_hook cycle=work event=begin"
+hooks.on-work-pause.command       = "/opt/homebrew/bin/sketchybar --trigger comodoro_hook cycle=work event=pause"
+hooks.on-work-end.command         = "/opt/homebrew/bin/sketchybar --trigger comodoro_hook cycle=work event=end"
+hooks.on-short-rest-begin.command = "/opt/homebrew/bin/sketchybar --trigger comodoro_hook cycle=rest event=begin"
+hooks.on-short-rest-pause.command = "/opt/homebrew/bin/sketchybar --trigger comodoro_hook cycle=rest event=pause"
