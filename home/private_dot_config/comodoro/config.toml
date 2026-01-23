@@ -1,0 +1,62 @@
+[accounts.personal]
+
+# Defaultness of the account
+default = true
+
+# Enables Unix socket client and server.
+# Requires Unix system.
+unix-socket.path = "/tmp/comodoro.sock"
+
+# Makes Unix socket the default client choice.
+unix-socket.default = true
+
+# Enables TCP client and server.
+# Requires the cargo feature "tcp".
+#tcp.host = "127.0.0.1"
+#tcp.port = 1234
+
+# Makes TCP the default client choice.
+#tcp.default = true
+
+# A cycle is a step in the timer lifetime, 
+# represented by a name and a duration.
+#
+# 1500s = 25m
+#  300s = 5m
+cycles = [
+  { name = "Work", duration = 1500 },
+  { name = "Short rest", duration = 300 },
+  { name = "Work", duration = 1500 },
+  { name = "Short rest", duration = 300 },
+]
+
+# Forces the timer to stop after the given amount of loops.
+cycles-count = 2
+
+# Customize the timer precision.
+# Available options: second, minute, hour.
+precision = "minute"
+
+# A hook can be either 
+# - a shell command via *.command 
+# - a system notification via .notify.summary|body
+# 
+# Names follow the format 
+#    "on-{name}-{event}" 
+# where "name" is the
+# kebab-case version of the cycle name, 
+# and "event" the type of event:
+# - begin, 
+# - running, 
+# - set, 
+# - pause, 
+# - resume, 
+# - end
+#
+# Examples
+#    hooks.on-work-begin.command = "echo 'Work started!' >> /tmp/comodoro.log"
+# hooks.on-work-begin.notify.summary = "Comodoro"
+# hooks.on-work-begin.notify.body    = "Work started!"
+
+# fully qualified path so that launchd service finds sketchybar
+hooks.on-work-begin.command = "/opt/homebrew/bin/sketchybar --trigger comodoro_hook cycle=work event=begin"

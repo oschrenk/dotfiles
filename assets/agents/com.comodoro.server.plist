@@ -4,11 +4,16 @@
   <dict>
     <key>Label</key>
     <string>com.comodoro.server</string>
+    <key>EnvironmentVariables</key>
+    <dict>
+      <key>HOME</key>
+      <string>/Users/oliver</string>
+    </dict>
     <key>ProgramArguments</key>
     <array>
-      <string>/Users/oliver/.local/share/cargo/bin/comodoro</string>
-      <string>server</string>
-      <string>start</string>
+      <string>/bin/sh</string>
+      <string>-c</string>
+      <string>rm -f /tmp/comodoro.sock; exec /Users/oliver/.local/share/cargo/bin/comodoro -c /Users/oliver/.config/comodoro/config.toml server start</string>
     </array>
     <key>RunAtLoad</key>
     <true/>
