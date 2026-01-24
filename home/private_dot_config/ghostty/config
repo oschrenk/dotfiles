@@ -47,7 +47,7 @@ cursor-style = block
 #   https://ghostty.org/docs/config/reference#shell-integration
 shell-integration = fish
 command = /opt/homebrew/bin/fish --login --interactive
-initial-command = /opt/homebrew/bin/fish --login --interactive --init-command "/opt/homebrew/bin/sessionizer start; tmux attach -t home"
+initial-command = /opt/homebrew/bin/fish --login --interactive --init-command "/opt/homebrew/bin/sessionizer start; tmux attach -t config"
 
 # Appearance
 #   https://ghostty.org/docs/config/reference#mouse-hide-while-typing
