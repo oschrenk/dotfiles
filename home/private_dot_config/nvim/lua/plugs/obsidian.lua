@@ -52,6 +52,12 @@ return {
       "<cmd>Obsidian quick_switch<CR>",
       desc = "Search",
     },
+    {
+      "<leader>on",
+      mode = { "n", "x", "o" },
+      "<cmd>Obsidian new<CR>",
+      desc = "New note",
+    },
   },
   ft = "markdown",
   -- if you only want to load obsidian.nvim for markdown files actually in your vault:
