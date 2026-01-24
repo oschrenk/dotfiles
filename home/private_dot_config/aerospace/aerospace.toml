@@ -134,13 +134,12 @@ XDG_CONFIG_HOME = '/Users/oliver/.config'
 # This toggle the scratchpad window show/hide
 # https://github.com/cristianoliveira/aerospace-scratchpad
 cmd-ctrl-1 = [
-  'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/make-frontmost.sh md.obsidian',
-  'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/position-frontmost.sh',
-]
-
-cmd-ctrl-2 = [
   'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/make-frontmost.sh com.apple.finder',
-  'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/position-frontmost.sh',
+  'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/position-frontmost.sh center',
+]
+cmd-ctrl-2 = [
+  'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/make-frontmost.sh md.obsidian',
+  'exec-and-forget ${XDG_CONFIG_HOME}/aerospace/position-frontmost.sh center',
 ]
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#layout
