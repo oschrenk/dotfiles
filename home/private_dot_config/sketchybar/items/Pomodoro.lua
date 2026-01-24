@@ -110,7 +110,6 @@ function Pomodoro.new(pomodoro, style)
     })
 
     spacer:subscribe({ "routine", "forced", "pomodoro" }, function(env)
-      print(env.pomodoro_event)
       pomodoro.status(callback)
     end)
 
