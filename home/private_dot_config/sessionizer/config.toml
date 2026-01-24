@@ -1,18 +1,14 @@
 [base]
-ignore          = [".build", "node_modules", "private"]
-rooter_patterns = ["build.sbt", ".git"]
+ignore = [".build", "node_modules", "private"]
+rooter_patterns = ["build.sbt", ".git", "README.md"]
 
 [default]
-name = "home"
-path = "$HOME/Downloads"
+name = "config"
+path = "$HOME/.config"
 
 [search]
 # recursively search git directories
 directories = ["$HOME/Projects"]
 
 # manual entries outside of search directories
-entries = [
-  "$HOME/.local/share/chezmoi",
-  "$HOME/Obsidian/memex",
-  "$HOME/.config/nvim",
-]
+entries = ["$HOME/.local/share/chezmoi", "$HOME/Obsidian/memex"]
