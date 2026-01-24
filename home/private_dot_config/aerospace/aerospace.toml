@@ -13,7 +13,7 @@ after-startup-command = []
 
 # Normalizations. 
 # See: https://nikitabobko.github.io/AeroSpace/guide#normalization
-enable-normalization-flatten-containers                         = true
+enable-normalization-flatten-containers = true
 enable-normalization-opposite-orientation-for-nested-containers = true
 
 # The 'accordion-padding' specifies the size of accordion padding
@@ -60,7 +60,7 @@ automatically-unhide-macos-hidden-apps = true
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
 inner.horizontal = 0
-inner.vertical   = 0
+inner.vertical = 0
 
 # we are trying to match the notch size from the built-in retina display
 # and match sketchybar across both
@@ -199,7 +199,7 @@ esc = ['reload-config', 'mode main']
 # reset layout
 r = [' flatten-workspace-tree', 'mode main']
 # Toggle between floating and tiling layout
-f         = ['layout floating tiling', 'mode main']
+f = ['layout floating tiling', 'mode main']
 backspace = ['close-all-windows-but-current', 'mode main']
 
 alt-shift-h = ['join-with left', 'mode main']
@@ -228,88 +228,88 @@ alt-shift-l = ['join-with right', 'mode main']
 
 [[on-window-detected]]
 if.app-id = 'com.neovide.neovide'
-run       = 'move-node-to-workspace 1'
+run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
 if.app-id = 'com.jetbrains.intellij.ce'
-run       = ['move-node-to-workspace 1']
+run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.window-title-regex-substring = 'Merge Revisions'
-run                             = ['move-node-to-workspace 1']
+run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.app-id = 'org.jkiss.dbeaver.core.product'
-run       = ['move-node-to-workspace 1']
+run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.app-id = 'com.microsoft.VSCode'
-run       = ['move-node-to-workspace 1']
+run = ['move-node-to-workspace 1']
 
 [[on-window-detected]]
 if.app-id = 'com.apple.dt.Xcode'
-run       = ['move-node-to-workspace 1']
+run = ['move-node-to-workspace 1']
 
 # workspace.2 (=secondary)
 #--------------------------------------
 
 [[on-window-detected]]
 if.app-id = 'com.docker.docker'
-run       = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.utmapp.UTM'
-run       = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.iCal'
-run       = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.reminders'
-run       = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.valvesoftware.steam'
-run       = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.seriflabs.affinityphoto2'
-run       = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.seriflabs.affinitydesigner2'
-run       = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.seriflabs.affinitypublisher2'
-run       = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-id = 'com.msteedman.mochi'
-run       = 'move-node-to-workspace 2'
+run = 'move-node-to-workspace 2'
 
 # workspace.T (=Terminal)
 #--------------------------------------
 
 [[on-window-detected]]
 if.app-id = 'com.mitchellh.ghostty'
-run       = 'move-node-to-workspace t'
+run = 'move-node-to-workspace t'
 
 # workspace.B (=Browser)
 #--------------------------------------
 
 [[on-window-detected]]
 if.app-id = 'com.google.Chrome'
-run       = 'move-node-to-workspace b'
+run = 'move-node-to-workspace b'
 
 [[on-window-detected]]
 if.app-id = 'org.mozilla.firefox'
-run       = 'move-node-to-workspace b'
+run = 'move-node-to-workspace b'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Safari'
-run       = 'move-node-to-workspace b'
+run = 'move-node-to-workspace b'
 
 [[on-window-detected]]
 # Arc
@@ -325,88 +325,88 @@ run = 'move-node-to-workspace a'
 
 [[on-window-detected]]
 if.app-id = 'com.tdesktop.Telegram'
-run       = 'move-node-to-workspace m'
+run = 'move-node-to-workspace m'
 
 [[on-window-detected]]
 if.app-id = 'com.spotify.client'
-run       = 'move-node-to-workspace m'
+run = 'move-node-to-workspace m'
 
 [[on-window-detected]]
 if.app-id = 'org.whispersystems.signal-desktop'
-run       = 'move-node-to-workspace m'
+run = 'move-node-to-workspace m'
 
 [[on-window-detected]]
 if.app-id = 'net.whatsapp.WhatsApp'
-run       = 'move-node-to-workspace m'
+run = 'move-node-to-workspace m'
 
 [[on-window-detected]]
 if.app-id = 'com.tinyspeck.slackmacgap'
-run       = 'move-node-to-workspace m'
+run = 'move-node-to-workspace m'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.mail'
-run       = 'move-node-to-workspace m'
+run = 'move-node-to-workspace m'
 
 [[on-window-detected]]
 if.app-id = 'com.openai.chat'
-run       = 'move-node-to-workspace m'
+run = 'move-node-to-workspace m'
 
 #++++++++++++++++++++++++++++++++++++++
 # WINDOWS.floating
 #++++++++++++++++++++++++++++++++++++++
 
 [[on-window-detected]]
-if.app-id               = 'md.obsidian'
+if.app-id = 'md.obsidian'
 check-further-callbacks = true
-run                     = 'layout floating'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.phocusllp.duemac'
-run       = 'layout floating'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.1password.1password'
-run       = 'layout floating'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.finder'
-run       = 'layout floating'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.Preview'
-run       = 'layout floating'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.FaceTime'
-run       = 'layout floating'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.ScreenContinuity'
-run       = 'layout floating'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'cx.c3.theunarchiver'
-run       = 'layout floating'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.AppStore'
-run       = 'layout floating'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'org.videolan.vlc'
-run       = 'layout floating'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.apple.ActivityMonitor'
-run       = 'layout floating'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'com.colliderli.iina'
-run       = 'layout floating'
+run = 'layout floating'
 
 [[on-window-detected]]
 if.app-id = 'org.pqrs.Karabiner-Elements.Settings'
-run       = 'layout floating'
+run = 'layout floating'
 
 #++++++++++++++++++++++++++++++++++++++
 # iOS Apps
@@ -415,9 +415,9 @@ run       = 'layout floating'
 # Macrofactor (keeps flickering)
 [[on-window-detected]]
 if.app-id = 'com.sbs.diet'
-run       = 'layout floating'
+run = 'layout floating'
 
 # Spirit Island
 [[on-window-detected]]
 if.app-id = 'com.handelabra.SpiritIsland'
-run       = 'layout floating'
+run = 'layout floating'
