@@ -341,3 +341,5 @@ vendor/
 TODO.md
 .scannerwork
 
+
+**/.claude/settings.local.json
