@@ -1,79 +1,69 @@
 [accounts.default]
 default = true
-root    = "~/Projects"
+root = "~/Projects"
 
 repos.forks = [
   { url = "git@github.com:oschrenk/mcp-server-macos-use.git" },
   { url = "git@github.com:oschrenk/nvim-md-todo-toggle.git" },
   { url = "git@github.com:oschrenk/obsidian-electron-window-tweaker.git" },
   { url = "git@github.com:oschrenk/obsidian-hider.git" },
-  { url = "git@github.com:oschrenk/obsidian-journal.git" },
   { url = "git@github.com:oschrenk/tui-datepicker.git" },
 ]
-repos.inspire = [{ url = "https://github.com/pramodShehan5/vaccination-api" }]
-repos.learn.go = [{ url = "git@github.com:ThePrimeagen/fem-htmx-proj.git" }]
-repos.learn.java = [
-  { url = "https://github.com/hazelcast/hazelcast-scala.wiki.git" },
-]
-repos.learn.kotlin = [
-  { url = "https://github.com/arrow-kt/backend-arrow-example" },
+
+repos.sandbox = [
   { url = "git@github.com:oschrenk/cart.kt.git" },
   { url = "git@github.com:oschrenk/errors.kt.git" },
-  { url = "https://github.com/nomisRev/ktor-arrow-example" },
 ]
-repos.oschrenk = [
-  { url = "git@github.com:oschrenk/career.git" },
-  { url = "git@gitlab.com:oschrenk/invoices.git" },
-  { url = "git@github.com:oschrenk/timewax-cart.git" },
-]
-repos.personal."/" = [
-  { url = "git@github.com:oschrenk/feeds.git" },
-  { url = "git@github.com:oschrenk/health.git" },
-  { url = "git@github.com:oschrenk/icons.git" },
-]
-repos.personal.golang = [
-  { url = "git@github.com:oschrenk/750words.git" },
-  { url = "git@github.com:oschrenk/bunq.git" },
-  { url = "git@github.com:oschrenk/cutter.git" },
-  { url = "git@github.com:oschrenk/dayone.git" },
-  { url = "git@github.com:oschrenk/dutch-cities-gps.git" },
-  { url = "git@github.com:oschrenk/mission.git", name = "guatex" },
-  { url = "git@github.com:oschrenk/infuse.git" },
-  { url = "git@github.com:oschrenk/librelink.git" },
-  { url = "git@github.com:oschrenk/mission.git" },
-  { url = "git@github.com:oschrenk/noteplan.git" },
-  { url = "git@github.com:oschrenk/pomodoro.git" },
-  { url = "git@github.com:oschrenk/sessionizer.git" },
-]
-repos.personal.ops = [
+
+repos.ops = [
   { url = "git@github.com:oschrenk/bramble.git" },
+  { url = "git@github.com:oschrenk/feeds.git" },
   { url = "git@github.com:oschrenk/homebrew-made.git" },
   { url = "git@github.com:oschrenk/homebrew-personal.git" },
   { url = "git@github.com:oschrenk/namecheap.git" },
   { url = "git@github.com:oschrenk/pi-gen.git" },
-  { url = "git@github.com:oschrenk/sf-mono-nerd-font.git" },
-  { url = "git@github.com:oschrenk/up.git" },
 ]
-repos.personal.react = [{ url = "git@github.com:oschrenk/kessel.git" }]
-repos.personal.scala = [
-  { url = "git@github.com:Justdwiwt/ScalaDemo.git" },
-  { url = "git@github.com:rockthejvm/scalar-2024-zio-workshop.git", name = "scalar-2024-zio-workshop-original" },
-  { url = "git@github.com:rockthejvm/scalar-2024-zio-workshop.git" },
-  { url = "git@github.com:rockthejvm/zio-course.git" },
-]
-repos.personal.sites = [
-  { url = "git@github.com:oschrenk/oschrenk.dev.git" },
-  { url = "git@github.com:oschrenk/scrumoji.git" },
-]
-repos.personal.swift = [
-  { url = "git@github.com:oschrenk/ChangeMonitor.git" },
-  { url = "git@github.com:oschrenk/Contacts.git" },
+
+repos.tools = [
+  { url = "git@github.com:oschrenk/bunq.git" },
+  { url = "git@github.com:oschrenk/cutter.git" },
+  { url = "git@github.com:oschrenk/health.git" },
   { url = "git@github.com:oschrenk/helenite.swift.git" },
+  { url = "git@github.com:oschrenk/infuse.git" },
+  { url = "git@github.com:oschrenk/librelink.git" },
+  { url = "git@github.com:oschrenk/mission.git" },
+  { url = "git@github.com:oschrenk/pomodoro.git" },
+  { url = "git@github.com:oschrenk/sessionizer.git" },
   { url = "git@github.com:oschrenk/keyboard.swift.git" },
   { url = "git@github.com:oschrenk/nightshift.swift.git" },
   { url = "git@github.com:oschrenk/plan.swift.git" },
+  { url = "git@github.com:oschrenk/up.git" },
   { url = "git@github.com:oschrenk/wallpaper.swift.git" },
 ]
+
+repos.apps = [
+  { url = "git@github.com:oschrenk/ChangeMonitor.git" },
+  { url = "git@github.com:oschrenk/Contacts.git" },
+  { url = "git@github.com:oschrenk/kessel.git" },
+]
+
+repos.sites = [
+  { url = "git@github.com:oschrenk/oschrenk.dev.git" },
+  { url = "git@github.com:oschrenk/scrumoji.git" },
+]
+
+repos.resources = [
+  { url = "git@github.com:oschrenk/icons.git" },
+  { url = "git@github.com:oschrenk/dutch-cities-gps.git" },
+  { url = "git@github.com:oschrenk/sf-mono-nerd-font.git" },
+]
+
+repos.oschrenk = [
+  { url = "git@github.com:oschrenk/career.git" },
+  { url = "git@gitlab.com:oschrenk/invoices.git" },
+  { url = "git@gitlab.com:oschrenk/invoices.tps.git" },
+]
+
 repos.timewax = [
   { url = "git@git.timewax.com:nodejs/all-node-apps.git" },
   { url = "git@git.timewax.com:python/all-python2-apps.git" },
