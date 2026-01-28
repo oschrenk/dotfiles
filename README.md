@@ -97,12 +97,10 @@ After casks are installed you can already start important apps and configure the
   - `brew services start sketchybar`
 
 Login:
-
 - Discord
 - Slack
 
 Link device:
-
 - Signal
 - Telegram
 - Whatsapp
