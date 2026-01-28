@@ -76,8 +76,6 @@ After casks are installed you can already start important apps and configure the
   - open profiles, and log into services
 - Atuin
   - `atuin login`
-- Hammerspoon
-  - Preferences. Apply accessibility settings.
 - Karabiner Elements.
   - Open. Read "System Extensions Blocked" popup. Click on "Open Security Preferences" and press "Allow".
 - IntelliJ.
