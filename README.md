@@ -105,6 +105,18 @@ Link device:
 - Telegram
 - Whatsapp
 
+## Setup git projects
+
+Setup all git projects
+
+* requires ssh key (via 1Password)
+* requires `arbol`
+
+```
+mkdir ~/Projects
+arbol sync
+```
+
 ## Scoped runs
 
 - `task brew` Install taps/brews/apps
