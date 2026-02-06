@@ -1,8 +1,22 @@
 {
   "alwaysThinkingEnabled": true,
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true
   },
+  "env": {
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+  },
+  "excludePatterns": [
+    ".release/**",
+    "build/**",
+    "dist/**",
+    "node_modules/**",
+    "out-tsc/**"
+  ],
   "hooks": {
     "Notification": [
       {
