@@ -4,6 +4,11 @@
     "commit": "",
     "pr": ""
   },
+  "includePatterns": [
+    "**/*"
+  ],
+  "theme": "dark",
+  "verbose": false,
   "enabledPlugins": {
     "gopls-lsp@claude-plugins-official": true,
     "lua-lsp@claude-plugins-official": true,
@@ -73,11 +78,5 @@
         ]
       }
     ]
-  },
-  "includeCoAuthoredBy": false,
-  "includePatterns": [
-    "**/*"
-  ],
-  "theme": "dark",
-  "verbose": false
+  }
 }
