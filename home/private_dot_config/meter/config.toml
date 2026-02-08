@@ -1,0 +1,8 @@
+[accounts.personal]
+default          = true
+path             = "$HOME/.config/claude/personal"
+keychain_service = "Claude Code-credentials-804fbf04"
+
+[accounts.work]
+path             = "$HOME/.config/claude/work"
+keychain_service = "Claude Code-credentials-b1002bd9"
