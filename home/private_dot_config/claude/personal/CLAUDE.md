@@ -6,7 +6,10 @@
 
 # Settings and Config Location
 
-NEVER hardcode paths like `~/.claude/` for your own config/settings. ALWAYS check the `$CLAUDE_CONFIG_DIR` environment variable first and use that path. Your settings.json, statusline scripts, and other config files live at `$CLAUDE_CONFIG_DIR`.
+**CRITICAL — READ THIS BEFORE EVERY FILE ACCESS:**
+- NEVER hardcode `~/.claude/` or `$HOME/.claude/` or any assumed path. This INCLUDES `.credentials.json`, `settings.json`, statusline scripts, and ANY file that belongs to Claude Code.
+- ALWAYS run `echo "$CLAUDE_CONFIG_DIR"` first and use that resolved path as the base directory.
+- If you catch yourself typing `~/.claude/` STOP and use `$CLAUDE_CONFIG_DIR` instead. No exceptions.
 
 # Clipboard
 
