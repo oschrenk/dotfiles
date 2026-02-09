@@ -1,29 +1,18 @@
 {
-  "alwaysThinkingEnabled": true,
+  "env": {
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+  },
   "attribution": {
     "commit": "",
     "pr": ""
   },
-  "enabledPlugins": {
-    "typescript-lsp@claude-plugins-official": true
-  },
-  "env": {
-    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
-  },
-  "excludePatterns": [
-    ".release/**",
-    "build/**",
-    "dist/**",
-    "node_modules/**",
-    "out-tsc/**"
-  ],
   "hooks": {
     "Notification": [
       {
         "hooks": [
           {
-            "command": "sketchybar --trigger ai_agent_waiting SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')",
-            "type": "command"
+            "type": "command",
+            "command": "sketchybar --trigger ai_agent_waiting SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')"
           }
         ]
       }
@@ -52,8 +41,8 @@
       {
         "hooks": [
           {
-            "command": "sketchybar --trigger ai_agent_done SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')",
-            "type": "command"
+            "type": "command",
+            "command": "sketchybar --trigger ai_agent_done SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')"
           }
         ]
       }
@@ -62,11 +51,22 @@
       {
         "hooks": [
           {
-            "command": "sketchybar --trigger ai_agent_done SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')",
-            "type": "command"
+            "type": "command",
+            "command": "sketchybar --trigger ai_agent_done SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')"
           }
         ]
       }
     ]
-  }
+  },
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true
+  },
+  "alwaysThinkingEnabled": true,
+  "excludePatterns": [
+    ".release/**",
+    "build/**",
+    "dist/**",
+    "node_modules/**",
+    "out-tsc/**"
+  ]
 }
