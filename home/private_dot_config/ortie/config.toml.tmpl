@@ -8,7 +8,7 @@ client-id = "{{ .google_oauth_client_id }}"
 client-secret.command = "{{ .chezmoi.homeDir }}/.config/ortie/client-secret.sh"
 
 # Endpoints, given by your OAuth provider.
-endpoints.authorization = "https://accounts.google.com/o/oauth2/auth"
+endpoints.authorization = "https://accounts.google.com/o/oauth2/auth?access_type=offline&prompt=consent"
 endpoints.token = "https://www.googleapis.com/oauth2/v3/token"
 endpoints.redirection = "http://localhost:9999/"
 
