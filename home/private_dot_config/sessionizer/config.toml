@@ -11,4 +11,8 @@ path = "$HOME/.config"
 directories = ["$HOME/Projects"]
 
 # manual entries outside of search directories
-entries = ["$HOME/.local/share/chezmoi", "$HOME/Obsidian/memex"]
+entries = [
+  "$HOME/.local/share/chezmoi",
+  { path = "$HOME/Obsidian/memex", name = "interest/memex" },
+  '$HOME/Library/Mobile Documents/com~apple~CloudDocs/Calibre',
+]
