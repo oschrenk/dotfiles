@@ -1,5 +1,5 @@
 [base]
-ignore = [".build", "node_modules", "private"]
+ignore          = [".build", "node_modules", "private"]
 rooter_patterns = ["build.sbt", ".git", "README.md"]
 
 [default]
@@ -12,7 +12,8 @@ directories = ["$HOME/Projects"]
 
 # manual entries outside of search directories
 entries = [
-  "$HOME/.local/share/chezmoi",
-  { path = "$HOME/Obsidian/memex", name = "interest/memex" },
-  '$HOME/Library/Mobile Documents/com~apple~CloudDocs/Calibre',
+  { name = "config/chezmoi", path = "$HOME/.local/share/chezmoi" },
+  { name = "interests/books", path = "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Calibre" },
+  { name = "interests/memex", path = "$HOME/Obsidian/memex" },
+  { name = "interests/spanish", path = "$HOME/Obsidian/memex/20 Areas/Interests/Spanish" },
 ]
