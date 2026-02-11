@@ -11,6 +11,10 @@
 - ALWAYS run `echo "$CLAUDE_CONFIG_DIR"` first and use that resolved path as the base directory.
 - If you catch yourself typing `~/.claude/` STOP and use `$CLAUDE_CONFIG_DIR` instead. No exceptions.
 
+# Releases
+
+When the user asks to create a release, check for `DEVELOPMENT.md`, `README.md`, and `taskfile.yml` (or `Taskfile.yml`, `Makefile`, etc.) in the project root. Read those files first to find the project's release procedure before taking any manual steps.
+
 # Clipboard
 
 To copy text to the clipboard, pipe data to the platform-specific command:
@@ -19,3 +23,4 @@ To copy text to the clipboard, pipe data to the platform-specific command:
 - Linux: `echo "text" | xclip -selection clipboard`
 - Windows: `echo "text" | clip`
 - WSL2: `echo "text" | clip.exe`
+
