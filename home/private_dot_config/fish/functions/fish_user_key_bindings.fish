@@ -17,7 +17,7 @@
 fzf_key_bindings
 
 # fzf related user functions
-bind \cp fzf_projects
+bind \cp sessionizer_cd
 bind \co fzf_nvim
 bind \cg fzf_commits
 bind \cb fzf_branches
