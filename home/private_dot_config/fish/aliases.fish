@@ -15,6 +15,9 @@ alias k kubectl
 alias r rg
 alias t task
 
+alias o /Applications/Obsidian.app/Contents/MacOS/Obsidian
+alias obsidian /Applications/Obsidian.app/Contents/MacOS/Obsidian
+
 alias ios 'open /Applications/Xcode.app/Contents/Developer/Applications/Simulator.app'
 
 # git
