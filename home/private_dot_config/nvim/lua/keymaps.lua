@@ -21,7 +21,8 @@ end
 -- Disable scrolling
 -- https://neovim.io/doc/user/scroll.html
 vim.keymap.set({ "n", "v" }, "<C-e>", "<Nop>")
-vim.keymap.set({ "n", "v" }, "<C-d>", "<Nop>")
+-- quit on Ctrl+D
+vim.keymap.set({ "n", "v" }, "<C-d>", "<cmd>q<cr>")
 vim.keymap.set({ "n", "v" }, "<C-f>", "<Nop>")
 vim.keymap.set({ "n", "v" }, "<C-y>", "<Nop>")
 vim.keymap.set({ "n", "v" }, "<C-u>", "<Nop>")
