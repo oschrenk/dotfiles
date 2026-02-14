@@ -78,5 +78,17 @@
     "dist/**",
     "node_modules/**",
     "out-tsc/**"
-  ]
+  ],
+  "permissions": {
+    "allow": [
+      "Bash(/opt/homebrew/bin/plan today *)",
+      "Bash(/opt/homebrew/bin/plan on *)",
+      "Bash(/opt/homebrew/bin/plan next *)",
+      "Bash(/opt/homebrew/bin/plan calendars *)",
+      "Bash(/opt/homebrew/bin/plan hours *)",
+      "Bash(/opt/homebrew/bin/reminders show *)",
+      "Bash(/opt/homebrew/bin/reminders show-all *)",
+      "Bash(/opt/homebrew/bin/reminders show-lists *)"
+    ]
+  }
 }
