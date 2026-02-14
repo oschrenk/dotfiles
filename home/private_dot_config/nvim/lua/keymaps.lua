@@ -1,10 +1,8 @@
 -- ============================
 -- Keyboard mappings
 -- ============================
--- noremap:
--- silent:
-local opts = { noremap = true, silent = true }
-local map = vim.api.nvim_set_keymap
+local map = vim.keymap.set
+local opts = { silent = true }
 
 -- Leader/local leader
 vim.g.mapleader = [[ ]]
@@ -20,13 +18,13 @@ end
 
 -- Disable scrolling
 -- https://neovim.io/doc/user/scroll.html
-vim.keymap.set({ "n", "v" }, "<C-e>", "<Nop>")
+map({ "n", "v" }, "<C-e>", "<Nop>")
 -- quit on Ctrl+D
-vim.keymap.set({ "n", "v" }, "<C-d>", "<cmd>q<cr>")
-vim.keymap.set({ "n", "v" }, "<C-f>", "<Nop>")
-vim.keymap.set({ "n", "v" }, "<C-y>", "<Nop>")
-vim.keymap.set({ "n", "v" }, "<C-u>", "<Nop>")
-vim.keymap.set({ "n", "v" }, "<C-b>", "<Nop>")
+map({ "n", "v" }, "<C-d>", "<cmd>q<cr>")
+map({ "n", "v" }, "<C-f>", "<Nop>")
+map({ "n", "v" }, "<C-y>", "<Nop>")
+map({ "n", "v" }, "<C-u>", "<Nop>")
+map({ "n", "v" }, "<C-b>", "<Nop>")
 
 -- do not enter Ex mode by accident
 map("n", "Q", "<Nop>", opts)
