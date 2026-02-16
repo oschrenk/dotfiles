@@ -1,6 +1,6 @@
 [accounts.default]
 default = true
-root = "~/Projects"
+root    = "~/Projects"
 
 repos.forks = [
   { url = "git@github.com:oschrenk/mcp-server-macos-use.git" },
@@ -25,19 +25,24 @@ repos.ops = [
 ]
 
 repos.tools = [
+  { url = "git@github.com:oschrenk/arbol.git" },
+  { url = "git@github.com:oschrenk/bump.git" },
   { url = "git@github.com:oschrenk/bunq.git" },
   { url = "git@github.com:oschrenk/cutter.git" },
+  { url = "git@github.com:oschrenk/display.swift.git" },
   { url = "git@github.com:oschrenk/health.git" },
   { url = "git@github.com:oschrenk/helenite.swift.git" },
   { url = "git@github.com:oschrenk/infuse.git" },
-  { url = "git@github.com:oschrenk/librelink.git" },
-  { url = "git@github.com:oschrenk/mission.git" },
-  { url = "git@github.com:oschrenk/pomodoro.git" },
-  { url = "git@github.com:oschrenk/sessionizer.git" },
   { url = "git@github.com:oschrenk/keyboard.swift.git" },
+  { url = "git@github.com:oschrenk/librelink.git" },
+  { url = "git@github.com:oschrenk/meter.git" },
+  { url = "git@github.com:oschrenk/mission.git" },
   { url = "git@github.com:oschrenk/nightshift.swift.git" },
   { url = "git@github.com:oschrenk/plan.swift.git" },
+  { url = "git@github.com:oschrenk/pomodoro.git" },
+  { url = "git@github.com:oschrenk/sessionizer.git" },
   { url = "git@github.com:oschrenk/up.git" },
+  { url = "git@github.com:oschrenk/usbi.git" },
   { url = "git@github.com:oschrenk/wallpaper.swift.git" },
 ]
 
