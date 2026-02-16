@@ -6,6 +6,13 @@
     "commit": "",
     "pr": ""
   },
+  "permissions": {
+    "allow": [
+      "Bash(dora *)"
+    ],
+    "deny": [],
+    "ask": []
+  },
   "hooks": {
     "Notification": [
       {
@@ -62,13 +69,6 @@
     "typescript-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
-  "permissions": {
-    "allow": [
-      "Bash(dora *)"
-    ],
-    "deny": [],
-    "ask": []
-  },
   "excludePatterns": [
     ".release/**",
     "build/**",
