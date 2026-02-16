@@ -12,11 +12,22 @@ directories = ["$HOME/Projects"]
 
 # manual entries outside of search directories
 entries = [
-  { name = "config/chezmoi", path = "$HOME/.local/share/chezmoi" },
-  { name = "interests/5parsecs", path = "$HOME/Obsidian/memex/20 Areas/Interests/5 Parsecs" },
-  { name = "interests/books", path = "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Calibre" },
-  { name = "interests/coffee", path = "$HOME/Obsidian/memex/20 Areas/Interests/Coffee" },
-  { name = "interests/memex", path = "$HOME/Obsidian/memex" },
-  { name = "interests/miniatures", path = "$HOME/Obsidian/memex/20 Areas/Interests/Miniatures" },
-  { name = "interests/spanish", path = "$HOME/Obsidian/memex/20 Areas/Interests/Spanish" },
+  { name = "config/arbol", path = "$HOME/.config/arbol", layout = "two-columns-claude" },
+  { name = "config/chezmoi", path = "$HOME/.local/share/chezmoi", layout = "two-columns-claude" },
+  { name = "config/claude", path = "$HOME/.config/claude", layout = "two-columns-claude" },
+  { name = "config/nvim", path = "$HOME/.config/nvim", layout = "two-columns-claude" },
+  { name = "claude/personal", path = "$HOME/.config/claude/personal", layout = "two-columns-claude" },
+  { name = "claude/work", path = "$HOME/.config/claude/personal", layout = "two-columns-claude" },
+  { name = "interests/5parsecs", path = "$HOME/Obsidian/memex/20 Areas/Interests/5 Parsecs", layout = "two-columns-claude" },
+  { name = "interests/books", path = "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Calibre", layout = "two-columns-claude" },
+  { name = "interests/coffee", path = "$HOME/Obsidian/memex/20 Areas/Interests/Coffee", layout = "two-columns-claude" },
+  { name = "interests/homelab", path = "$HOME/Obsidian/memex/20 Areas/Interests/Homelab", layout = "two-columns-claude" },
+  { name = "interests/memex", path = "$HOME/Obsidian/memex", layout = "two-columns-claude" },
+  { name = "interests/miniatures", path = "$HOME/Obsidian/memex/20 Areas/Interests/Miniatures", layout = "two-columns-claude" },
+  { name = "interests/spanish", path = "$HOME/Obsidian/memex/20 Areas/Interests/Spanish", layout = "two-columns-claude" },
+  { name = "self/finances", path = "$HOME/Obsidian/memex/20 Areas/Finances", layout = "two-columns-claude" },
+  { name = "self/health", path = "$HOME/Obsidian/memex/20 Areas/Physical Health", layout = "two-columns-claude" },
+  { name = "self/plan", path = "$HOME/Obsidian/memex/20 Areas/Plan", layout = "two-columns-claude" },
+  { name = "people/liza", path = "$HOME/Obsidian/memex/80 People/Liza Noriega/", layout = "two-columns-claude" },
+
 ]
