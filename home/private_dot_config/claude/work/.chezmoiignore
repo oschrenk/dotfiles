@@ -2,6 +2,7 @@
 .claude
 .claude.json
 .claude.json.backup
+backups/
 debug/
 file-history/
 history.jsonl
