@@ -12,6 +12,10 @@ NEVER hardcode paths like `~/.claude/` for your own config/settings. ALWAYS chec
 
 When the user asks to create a release, check for `DEVELOPMENT.md`, `README.md`, and `taskfile.yml` (or `Taskfile.yml`, `Makefile`, etc.) in the project root. Read those files first to find the project's release procedure before taking any manual steps.
 
+# Proposals and Suggestions
+
+When presenting options, suggestions, or changes for the user to approve (e.g. file renames, folder restructuring, config changes), ALWAYS use the AskUserQuestion tool instead of listing suggestions in plain text. Let the user confirm interactively rather than dumping a table and asking "want me to do these?"
+
 # Clipboard
 
 To copy text to the clipboard, pipe data to the platform-specific command:
