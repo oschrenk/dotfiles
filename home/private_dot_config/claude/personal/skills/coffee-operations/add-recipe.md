@@ -1,26 +1,15 @@
----
-name: add-recipe
-description: Add a new coffee recipe to your personal catalog. Stores recipes organized by brewer, with variants for different bean types.
----
-
 # Add Recipe
 
-Add a new coffee recipe to the user's personal catalog at `20 Areas/Interests/Coffee/Recipes/`.
+Add a new coffee recipe to the user's catalog. Refer to SKILL.md for file paths.
 
-## Approach
-
-Be conversational. Don't force rigid multiple-choice for things that are naturally free-text (recipe name, parameters, steps). Use AskUserQuestion sparingly for true choices, and let the user describe things in their own words.
-
-## Instructions
-
-### Step 1: Brewer
+## Step 1: Brewer
 
 **Question - Brewer:**
 - Header: "Brewer"
 - Question: "Which brewer is this recipe for?"
 - Options: Switch, V60, Aeropress, Chemex (user can specify "Other")
 
-### Step 2: Conversational Details
+## Step 2: Conversational Details
 
 After brewer selection, ask in natural language (NOT multiple choice):
 
@@ -29,9 +18,9 @@ After brewer selection, ask in natural language (NOT multiple choice):
 Let the user respond freely. Extract:
 - Recipe name
 - Source (Personal / YouTube / Blog / Friend / etc.)
-- Inspiration credit if mentioned (e.g., "inspired by Tetsu Kasuya")
+- Inspiration credit if mentioned
 
-### Step 3: Recipe Parameters
+## Step 3: Recipe Parameters
 
 Ask conversationally:
 
@@ -39,17 +28,16 @@ Ask conversationally:
 
 **Important:**
 - Recipes may have multiple temperatures (bloom temp, pour temp, bypass temp)
-- Don't assume single temp - capture all temps mentioned
-- Grind setting is for Ode SSP MP unless user specifies different grinder
+- Don't assume single temp — capture all temps mentioned
 - Let the user describe steps naturally, then format them
 
-### Step 4: Equipment & Accessories
+## Step 4: Equipment & Accessories
 
 Ask:
 
 > "Any specific equipment or accessories? (filters, Lilidrip, WDT tool, etc.)"
 
-### Step 5: Variants (optional)
+## Step 5: Variants (optional)
 
 **Question - Variants:**
 - Header: "Variants"
@@ -60,7 +48,7 @@ If yes, ask for adjustments conversationally.
 
 ## Recipe File Format
 
-Save to: `20 Areas/Interests/Coffee/Recipes/[Brewer]/[Name].md`
+Save to: `[Base]/Recipes/[Brewer]/[Name].md` (see SKILL.md for base path)
 
 ```markdown
 ---

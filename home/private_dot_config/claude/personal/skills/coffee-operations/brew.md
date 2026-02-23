@@ -1,43 +1,8 @@
----
-name: brew-coffee
-description: Dial in a coffee recipe for your beans. Uses your default setup (Fellow Ode SSP MP + Hario Switch) and asks about serving size, bean details, and flavor goals to generate a tailored recipe.
----
-
 # Brew Coffee
 
-Act as a World Brewers Cup Champion and expert sensory judge. Help the user dial in a coffee bean for their setup.
+Dial in a coffee bean for the user's setup. Refer to SKILL.md for gear defaults and file paths.
 
-## User Gear & Defaults
-
-### Equipment
-
-**Grinders:**
-- Fellow Ode with SSP MP burrs (primary)
-  - Grind reference: Espresso ~3 | Medium ~7 | Medium-coarse ~9
-  - Pour-over range: typically 6-9
-- 1Zpresso K Ultra (hand grinder)
-
-**Brewers:**
-- Hario Switch (primary - hybrid immersion/percolation)
-- V60
-- Aeropress
-
-**Kettle:** Fellow Stagg EKG (variable temp)
-
-**Accessories:**
-- Lilidrip Sakura (bed raiser for Switch)
-- Hario V2 filters (tabbed)
-
-### Defaults
-
-- **Primary setup:** Ode SSP MP + Switch
-- **Dose:** 24g for two people, 15g for one person
-- **Water:** Tap mixed with demineralized water
-- **Skill level:** Intermediate
-
-## Instructions
-
-### Step 1: Quick Setup Check
+## Step 1: Quick Setup Check
 
 Use AskUserQuestion to confirm or adjust the session:
 
@@ -65,13 +30,11 @@ Use AskUserQuestion to confirm or adjust the session:
   - "Straight tap" - No mixing today
   - "Special prep" - Different mineral content
 
-### Step 2: Recipe Selection
+## Step 2: Recipe Selection
 
-Before generating a recipe, check the user's recipe catalog:
+Check the user's recipe catalog before generating anything.
 
-**Location:** `20 Areas/Interests/Coffee/Recipes/[Brewer]/`
-
-1. Use Glob to find recipes for the selected brewer (e.g., `20 Areas/Interests/Coffee/Recipes/Switch/*.md`)
+1. Use Glob to find recipes for the selected brewer (e.g., `[Base]/Recipes/Switch/*.md` — see SKILL.md for base path)
 2. Read the found recipe files to get their names and summaries
 3. Present available recipes plus a "Generate new" option
 
@@ -89,11 +52,11 @@ Before generating a recipe, check the user's recipe catalog:
 - Skip to output (no need for flavor goals questions)
 
 **If user selects "Generate new":**
-- Continue to Step 3 (Bean Information)
+- Continue to Step 3
 
-### Step 3: Bean Information
+## Step 3: Bean Information
 
-**Question 4 - Bean details:**
+**Question - Bean details:**
 - Header: "Bean"
 - Question: "Tell me about the bean (roast, origin, process, any tasting notes on the bag)"
 - Options:
@@ -103,9 +66,9 @@ Before generating a recipe, check the user's recipe catalog:
   - "Medium natural" - Sweet, fruity body
   - (User will likely select "Other" to give specifics)
 
-### Step 4: Flavor Goals (Comprehensive)
+## Step 4: Flavor Goals
 
-**Question 5 - Target profile:**
+**Question - Target profile:**
 - Header: "Goal"
 - Question: "What are you aiming for with this cup?"
 - Options:
@@ -114,7 +77,7 @@ Before generating a recipe, check the user's recipe catalog:
   - "Sweet & smooth" - Mellow, approachable
   - "Full body" - Rich, heavy mouthfeel
 
-**Question 6 - Past issues (optional):**
+**Question - Past issues (optional):**
 - Header: "Issues"
 - Question: "Any problems with this bean previously?"
 - Options:
@@ -123,9 +86,9 @@ Before generating a recipe, check the user's recipe catalog:
   - "Too bitter/harsh" - Over-extracted last time
   - "Weak/watery" - Lacking body or strength
 
-### Step 5: Output Style
+## Step 5: Output Style
 
-**Question 7 - Recipe format:**
+**Question - Recipe format:**
 - Header: "Style"
 - Question: "How detailed should the recipe be?"
 - Options:
@@ -138,7 +101,7 @@ Before generating a recipe, check the user's recipe catalog:
 1. **Strategy:** Why this recipe suits this bean on the Switch
 2. **Recipe:**
    - Dose / Ratio / Total water
-   - Grind setting (Ode SSP MP - use calibration: medium ~7, medium-coarse ~9)
+   - Grind setting (Ode SSP MP - use calibration from SKILL.md)
    - Water temp (°C primary, °F secondary)
 3. **Step-by-Step:**
    - Bloom details (time, water amount, agitation)
@@ -157,7 +120,7 @@ Single temp:
 ```
 Dose:     Xg
 Water:    Xg (1:XX ratio)
-Grind:    X on Ode SSP MP (e.g., 7 = medium, 9 = medium-coarse)
+Grind:    X on Ode SSP MP
 Temp:     XX°C
 
 Steps:
@@ -186,49 +149,6 @@ X:XX  |  Target finish
 Notes: [One line adjustment tip]
 ```
 
-## After Brewing: Logging
+## After Brewing
 
-After providing the recipe, ask if the user wants to log results:
-
-**Question 8 - Log results?**
-- Header: "Log"
-- Question: "Want to save this to your coffee journal?"
-- Options:
-  - "Yes, log it" - Save recipe and prompt for tasting notes
-  - "Not now" - Skip logging
-
-**If logging:**
-- Location: `20 Areas/Interests/Coffee/Brews/YYYY-MM-DD.md`
-- Use the Write tool to create/append to the daily brew log
-- Follow this template format:
-
-```markdown
-# ☕️ {{date}}
-
-- Beans: #beans/[origin-roaster]
-- Recipe: #recipe/[method]
-- Water Recipe: #water/[type]
-- Grinder: Fellow Ode SSP MP
-- Grind Size: [setting from recipe]
-- Total Dissolved Solids:
-- Temperature: [temp from recipe]
-- Yield: [water amount]
-- Concentration:
-- Aroma:
-- Flavour:
-- Aftertaste:
-- Acidity:
-- Sweetness:
-- Bitterness:
-- Weight: [dose]
-- Texture:
-- Afterfeel:
-- Balance:
-```
-
-- After creating the log, ask for tasting notes to fill in the sensory fields
-- If the file already exists for today, append a new brew entry with a time stamp
-
-## Goal
-
-Maximize the bean's potential using the user's equipment. Prioritize practical, actionable guidance for an intermediate brewer.
+Ask if the user wants to log results. If yes, read `log.md` in this skill directory and follow its instructions.
