@@ -3,6 +3,7 @@ comodoro --locked --git https://github.com/pimalaya/comodoro.git # terminal, tim
 git-context # manage mixed git repositories
 himalaya --locked --features oauth2 # terminal, email client
 jx          # json viewer
+mirador --locked --features oauth2 --git https://github.com/pimalaya/mirador.git # email wathcer
 ortie       # oauth2 cli
 slack-cli   # slack cli
 sleek       # sql formatter
