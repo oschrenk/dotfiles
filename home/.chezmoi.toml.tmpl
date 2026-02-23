@@ -4,9 +4,11 @@
 
 {{- $name := promptStringOnce . "name" "Full name" -}}
 
-{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $personal_email := promptStringOnce . "personal.email" "Personal email address" -}}
 
-{{- $google_oauth_client_id := promptStringOnce . "google_oauth_client_id" "Google OAuth Client ID" -}}
+{{- $personal_google_oauth_client_id := promptStringOnce . "personal.google_oauth_client_id" "Personal Google OAuth Client ID" -}}
+
+{{- $work_email := promptStringOnce . "work.email" "Work email address" -}}
 
 
 encryption = "age"
@@ -20,5 +22,10 @@ encryption = "age"
 
 [data]
   name = {{ $name | quote }}
-  email = {{ $email | quote }}
-  google_oauth_client_id = {{ $google_oauth_client_id | quote }}
+
+[data.personal]
+  email = {{ $personal_email | quote }}
+  google_oauth_client_id = {{ $personal_google_oauth_client_id | quote }}
+
+[data.work]
+  email = {{ $work_email | quote }}

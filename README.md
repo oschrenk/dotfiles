@@ -37,11 +37,15 @@ chezmoi init oschrenk/dotfiles
 ```
 
 Certain files require age decryption. You will be asked a few questions.
-These answers are stored in 1Password under "Chezmoi / Age / Key"
+These answers are stored in 1Password under
+- "Chezmoi / Age / Key" and
+- "Meli / Personal / Oauth"
 
 ```
 Age identity file location?
 Age public key?
+...
+Personal Google OAuth Client ID?
 ```
 
 Pull binary assets

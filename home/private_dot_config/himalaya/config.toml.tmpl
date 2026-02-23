@@ -53,7 +53,7 @@ account.list.table.default-color = "black"
 default = true
 
 # Email address associated to the current account.
-email = "{{ .email }}"
+email = "{{ .personal.email }}"
 
 # Display name of account.
 # This and email are used to build full email address:
@@ -75,11 +75,11 @@ folder.aliases.trash = "[Gmail]/Trash"
 backend.type = "imap"
 backend.host = "imap.gmail.com"
 backend.port = 993
-backend.login = "{{ .email }}"
+backend.login = "{{ .personal.email }}"
 backend.auth.type = "oauth2"
 backend.auth.method = "xoauth2"
 
-backend.auth.client-id = "{{ .google_oauth_client_id }}"
+backend.auth.client-id = "{{ .personal.google_oauth_client_id }}"
 backend.auth.client-secret.command = "{{ .chezmoi.homeDir }}/.config/himalaya/client-secret.sh"
 backend.auth.access-token.command = "ortie token -a personal show --auto-refresh"
 backend.auth.refresh-token.raw = "NOT NEEDED with auto-refresh????"
@@ -92,10 +92,10 @@ backend.auth.scope = "https://mail.google.com/"
 message.send.backend.type = "smtp"
 message.send.backend.host = "smtp.gmail.com"
 message.send.backend.port = 465
-message.send.backend.login = "{{ .email }}"
+message.send.backend.login = "{{ .personal.email }}"
 message.send.backend.auth.type = "oauth2"
 message.send.backend.auth.method = "xoauth2"
-message.send.backend.auth.client-id = "{{ .google_oauth_client_id }}"
+message.send.backend.auth.client-id = "{{ .personal.google_oauth_client_id }}"
 message.send.backend.auth.client-secret.command = "{{ .chezmoi.homeDir }}/.config/himalaya/client-secret.sh"
 message.send.backend.auth.access-token.command = "ortie token -a personal show --auto-refresh"
 message.send.backend.auth.refresh-token.raw = "not needed???"
