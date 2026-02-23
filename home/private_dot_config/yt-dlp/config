@@ -2,3 +2,4 @@
 -f "bv*[vcodec^=avc]+ba[ext=m4a]/b[ext=mp4]/b"
 --ignore-errors
 --continue
+--replace-in-metadata "title" "[^\w\s\-\.]" ""
