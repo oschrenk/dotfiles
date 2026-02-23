@@ -17,7 +17,7 @@ entries = [
   { name = "config/claude", path = "$HOME/.config/claude", layout = "two-columns-claude" },
   { name = "config/nvim", path = "$HOME/.config/nvim", layout = "two-columns-claude" },
   { name = "claude/personal", path = "$HOME/.config/claude/personal", layout = "two-columns-claude" },
-  { name = "claude/work", path = "$HOME/.config/claude/personal", layout = "two-columns-claude" },
+  { name = "claude/work", path = "$HOME/.config/claude/work", layout = "two-columns-claude" },
   { name = "interests/5parsecs", path = "$HOME/Obsidian/memex/20 Areas/Interests/5 Parsecs", layout = "two-columns-claude" },
   { name = "interests/books", path = "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Calibre", layout = "two-columns-claude" },
   { name = "interests/coffee", path = "$HOME/Obsidian/memex/20 Areas/Interests/Coffee", layout = "two-columns-claude" },
