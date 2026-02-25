@@ -1,5 +1,8 @@
 function evict-icloud --description "Fill disk to force macOS to evict iCloud files"
-    set -l buffer_gb (math (count $argv) > 0 && echo $argv[1] || echo 10)
+    set -l buffer_gb 10
+    if test (count $argv) -gt 0
+        set buffer_gb $argv[1]
+    end
     set -l outfile hugefile
     set -l bs (math "15 * 1024 * 1024")
 
