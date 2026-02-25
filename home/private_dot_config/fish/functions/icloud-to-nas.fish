@@ -277,23 +277,12 @@ function icloud-to-nas
     end
     echo ""
 
-    # Ctrl+C handling: set flag so the loop can exit cleanly
-    set -l interrupted false
-    function _itn_on_sigint --on-signal INT
-        set interrupted true
-    end
-
     set -l count 0
     set -l migrated 0
     set -l skipped 0
     set -l failed 0
 
     while read -l file
-        if test "$interrupted" = true
-            _itn_warn "Interrupted — stopping after current file"
-            break
-        end
-
         set count (math "$count + 1")
         set -l rel_path (string replace "$source_abs/" "" "$file")
 
@@ -313,7 +302,6 @@ function icloud-to-nas
         end
     end <"$file_list"
 
-    functions -e _itn_on_sigint
     rm -f "$file_list"
 
     echo ""
@@ -322,8 +310,5 @@ function icloud-to-nas
     _itn_log "Free space: "(_itn_free_space_gb)" GB"
     if test $failed -gt 0
         _itn_warn "Re-run the same command to retry failed files"
-    end
-    if test "$interrupted" = true
-        _itn_warn "Interrupted early — re-run to continue"
     end
 end
