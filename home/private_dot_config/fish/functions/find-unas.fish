@@ -21,7 +21,7 @@ function find-unas
     # Convert hex netmask to CIDR prefix length
     set -l bits 0
     for byte in (string sub -s 3 -- $mask | fold -w2)
-        for bit in (echo "obase=2;ibase=16;$(echo $byte | tr a-f A-F)" | bc | grep -o 1)
+        for bit in (echo "obase=2;ibase=16;"(echo $byte | tr a-f A-F) | bc | grep -o 1)
             set bits (math $bits + 1)
         end
     end
