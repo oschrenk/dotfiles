@@ -40,10 +40,13 @@ defaults write com.apple.dock 'magnification' -bool false
 # Dock: Unpin apps from dock
 # requires https://github.com/kcrawford/dockutil
 for item in \
+  "1 Password" \
+  Arc \
 	Calendar \
 	Contacts \
 	FaceTime \
 	Keynote \
+  "Hand Mirror" \
 	Launchpad \
 	Mail \
 	Maps \
