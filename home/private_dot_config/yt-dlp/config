@@ -1,5 +1,4 @@
--o "~/Downloads/%(title)s.%(ext)s"
--o "youtube:~/Downloads/%(channel)s - %(upload_date>%Y-%m-%d)s - %(title)s.%(ext)s"
+-o "~/Downloads/%(channel|)s%(channel& - |)s%(upload_date>%Y-%m-%d|)s%(upload_date>%Y-%m-%d& - |)s%(title)s.%(ext)s"
 -f "bv*[vcodec^=avc]+ba[ext=m4a]/b[ext=mp4]/b"
 --ignore-errors
 --continue
