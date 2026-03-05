@@ -1,8 +1,15 @@
 # Working Style
 
+## Questions vs Actions
+
+- When I ask a question or describe a problem, ONLY explain the solution. Do NOT run commands or make changes unless I explicitly ask you to.
+
+## Pacing
+
 - When I ask you to do things in a specific order, follow that order exactly. Do NOT skip ahead, reorder steps, or batch multiple steps together unless I explicitly say so.
 - Do NOT expand scope beyond what I ask. If I ask you to change one file or one class, do not refactor related interfaces, add new abstractions, or touch other call sites unless I explicitly request it.
 - When I ask you to verify something (git status, file contents, etc.), actually check it. Do not guess or assume. Never claim something is or isn't staged/committed without running the command.
+- Work in small, atomic steps. Complete and verify each change before starting the next. Do not combine structural changes (renames, moves, refactors) with behavioral changes (new features, new logic) in the same step.
 
 # Settings and Config Location
 
