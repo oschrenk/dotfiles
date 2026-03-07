@@ -62,10 +62,11 @@ clipboard-write = allow
 clipboard-trim-trailing-spaces = true
 
 # Quick Terminal
-quick-terminal-position = right
-quick-terminal-screen = mouse
-quick-terminal-autohide = true
 quick-terminal-animation-duration = 0
+quick-terminal-autohide = true
+quick-terminal-position = center
+quick-terminal-screen = mouse
+quick-terminal-size = "50%,50%"
 
 # Keyboard
 #   https://ghostty.org/docs/config/reference#macos-option-as-alt
