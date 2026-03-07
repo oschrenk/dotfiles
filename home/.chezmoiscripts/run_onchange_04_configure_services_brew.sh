@@ -2,6 +2,6 @@
 
 # manually select services
 # for an overview do `brew services list`
-for SERVICE in "sketchybar" "mission" "ollama"; do
+for SERVICE in "sketchybar"; do
   brew services start "$SERVICE"
 done
