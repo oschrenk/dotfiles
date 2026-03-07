@@ -37,39 +37,11 @@ defaults write com.apple.dock 'tilesize' -int 56
 echo "Dock: Disable magnification"
 defaults write com.apple.dock 'magnification' -bool false
 
-# Dock: Unpin apps from dock
+# Dock: Unpin all apps except Finder
 # requires https://github.com/kcrawford/dockutil
-for item in \
-  "1 Password" \
-  Arc \
-	Calendar \
-	Contacts \
-	FaceTime \
-	Keynote \
-  "Hand Mirror" \
-	Launchpad \
-	Mail \
-	Maps \
-	Messages \
-	Music \
-	News \
-	Notes \
-	Numbers \
-	Pages \
-	Photos \
-	Podcasts \
-	Reminders \
-	Safari \
-	TV \
-  Freeform \
-	"App Store" \
-	"System Settings" \
-  "Homerow" \
-  "Karabiner-Elements" \
-  "Neovide" \
-  "Slack" \
-  "Telegram" \
-  ; do
+for app in /Applications/*.app; do
+  item="$(basename "$app" .app)"
+  [ "$item" = "Finder" ] && continue
   if (dockutil --find "$item" > /dev/null 2>&1); then
     echo "Dock: Unpinning $item from dock"
     dockutil --no-restart --remove "$item"
