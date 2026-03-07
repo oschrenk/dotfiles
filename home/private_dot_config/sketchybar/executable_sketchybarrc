@@ -13,6 +13,7 @@ local style = require("style")
 local claude = require("services.claude").new()
 local comodoro = require("services.comodoro").new()
 local focus = require("services.focus").new()
+local meter = require("services.meter").new()
 local mission = require("services.mission").new()
 local sessionizer = require("services.sessionizer").new()
 
@@ -30,9 +31,9 @@ require("items.mission").new(mission, focus, icons.mission).add("left")
 require("items.project").new(icons.project, sessionizer).add("left")
 
 -- center (manually arround the dynamic island)
-local clockWidth = 110
+local clockWidth = 100
 local dynamicIslandWidth = 184
-require("items.claude").new(claude, 100).add("center")
+require("items.meter").new(meter, 100).add("center")
 require("items.spacer").new(dynamicIslandWidth).add("center")
 require("items.comodoro").new(comodoro, style.pomodoro).add("center", clockWidth)
 

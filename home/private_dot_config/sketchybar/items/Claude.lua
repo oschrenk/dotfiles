@@ -44,9 +44,12 @@ function Claude.new(claude)
       label = { string = "0" },
     })
 
-    self.output:subscribe({ "routine", "forced", "system_woke", "tmux_sessions_update", "ai_agent_done" }, function(_)
-      claude.usage(callback)
-    end)
+    self.output:subscribe(
+      { "routine", "forced", "system_woke", "tmux_sessions_update", "ai_agent_done", "ai_agent_waiting" },
+      function(_)
+        claude.usage(callback)
+      end
+    )
   end
 
   return self
