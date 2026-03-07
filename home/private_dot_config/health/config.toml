@@ -1,0 +1,3 @@
+[accounts.default]
+# Make this current account the default
+default = true
