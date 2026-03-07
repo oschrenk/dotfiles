@@ -1,35 +1,39 @@
 {
-  "env": {
-    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
-  },
+  "alwaysThinkingEnabled": true,
   "attribution": {
     "commit": "",
     "pr": ""
   },
-  "permissions": {
-    "allow": [
-      "Bash(dora *)"
-    ],
-    "deny": [],
-    "ask": []
+  "enabledPlugins": {
+    "typescript-lsp@claude-plugins-official": true
   },
+  "env": {
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1"
+  },
+  "excludePatterns": [
+    ".release/**",
+    "build/**",
+    "dist/**",
+    "node_modules/**",
+    "out-tsc/**"
+  ],
   "hooks": {
     "Notification": [
       {
         "hooks": [
           {
-            "type": "command",
-            "command": "sketchybar --trigger ai_agent_waiting SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')"
+            "command": "sketchybar --trigger ai_agent_waiting SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')",
+            "type": "command"
           }
         ]
       }
     ],
-    "SessionStart": [
+    "PermissionRequest": [
       {
         "hooks": [
           {
-            "type": "command",
-            "command": "beans prime"
+            "command": "/Users/oliver/Frameworks/go/bin/arto notify hook",
+            "type": "command"
           }
         ]
       }
@@ -38,18 +42,18 @@
       {
         "hooks": [
           {
-            "type": "command",
-            "command": "beans prime"
+            "command": "beans prime",
+            "type": "command"
           }
         ]
       }
     ],
-    "UserPromptSubmit": [
+    "SessionStart": [
       {
         "hooks": [
           {
-            "type": "command",
-            "command": "sketchybar --trigger ai_agent_done SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')"
+            "command": "beans prime",
+            "type": "command"
           }
         ]
       }
@@ -58,22 +62,28 @@
       {
         "hooks": [
           {
-            "type": "command",
-            "command": "sketchybar --trigger ai_agent_done SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')"
+            "command": "sketchybar --trigger ai_agent_done SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')",
+            "type": "command"
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "command": "sketchybar --trigger ai_agent_done SESSION_ID=$(tmux display-message -p '#{session_id}') WINDOW_ID=$(tmux display-message -p '#{window_id}')",
+            "type": "command"
           }
         ]
       }
     ]
   },
-  "enabledPlugins": {
-    "typescript-lsp@claude-plugins-official": true
-  },
-  "alwaysThinkingEnabled": true,
-  "excludePatterns": [
-    ".release/**",
-    "build/**",
-    "dist/**",
-    "node_modules/**",
-    "out-tsc/**"
-  ]
+  "permissions": {
+    "allow": [
+      "Bash(dora *)"
+    ],
+    "ask": [],
+    "deny": []
+  }
 }
