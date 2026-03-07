@@ -71,26 +71,24 @@ key_shift='$'
 
 askToRestartApps() {
   for app in $*; do
-    while true; do
+    if pgrep -xq "$app"; then
       read -p "Do you want to restart $app? [y/(n)]: " yn
       case $yn in
-          [Yy]* ) killall "$app" > /dev/null 2>&1 ;open -a "$app"; break;;
-          [Nn]* ) break;;
-          * ) echo "Invalid answer; defaulting to no."; break;;
+          [Yy]* ) killall "$app" > /dev/null 2>&1; open -a "$app";;
+          * ) ;;
       esac
-    done
+    fi
   done
 }
 
 killProcess() {
   for process in $*; do
-    while true; do
+    if pgrep -xq "$process"; then
       read -p "Do you want to restart $process? [y/(n)]: " yn
       case $yn in
-          [Yy]* ) killall "$process" > /dev/null 2>&1 ; break;;
-          [Nn]* ) break;;
-          * ) echo "Invalid answer; defaulting to no."; break;;
+          [Yy]* ) killall "$process" > /dev/null 2>&1;;
+          * ) ;;
       esac
-    done
+    fi
   done
 }
