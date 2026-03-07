@@ -40,9 +40,14 @@ fi
 mkdir -p "$SPICETIFY_THEMES_PATH"
 cd "$SPICETIFY_THEMES_PATH" || exit 
 
+if [ -d "$GRUVIFY_REPO_NAME" ] && [ ! -d "$GRUVIFY_REPO_NAME/.git" ]; then
+  echo "Removing incomplete clone..."
+  rm -rf "$GRUVIFY_REPO_NAME"
+fi
+
 if [ ! -d "$GRUVIFY_REPO_NAME/.git" ]; then
   echo "Cloning repository..."
-  git clone "$REPO_URL" "$GRUVIFY_REPO_NAME"
+  git clone "$GRUVIFY_REPO_URL" "$GRUVIFY_REPO_NAME"
 else
   echo "Repository exists, pulling latest changes..."
   cd "$GRUVIFY_REPO_NAME" && git pull
@@ -52,6 +57,7 @@ fi
 # Build
 #######################################
 
+cd "$SPICETIFY_THEMES_PATH/$GRUVIFY_REPO_NAME"
 sass user.sass user.css
 
 #######################################
@@ -62,4 +68,4 @@ sass user.sass user.css
 # there can be various error cases that I haven't scripted out yet
 
 spicetify config current_theme Gruvify
-spicetify apply
+spicetify backup apply || spicetify apply
