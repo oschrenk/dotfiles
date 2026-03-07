@@ -6,3 +6,4 @@ cd /tmp/SbarLua/ || exit
 make install 
 rm -rf /tmp/SbarLua/
 
+luarocks install lua-tz
