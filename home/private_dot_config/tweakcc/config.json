@@ -1,15 +1,15 @@
 {
-  "ccVersion": "2.0.74",
+  "ccVersion": "2.1.71",
   "ccInstallationPath": null,
-  "lastModified": "2026-01-07T17:53:56.401Z",
-  "changesApplied": true,
+  "lastModified": "2026-03-07T13:17:52.033Z",
+  "changesApplied": false,
   "settings": {
     "themes": [
       {
-        "name": "Gruvbox Dark",
+        "name": "Gruvbox Dark:q",
         "id": "dark",
         "colors": {
-          "autoAccept": "rgb(167,133,255)",
+          "autoAccept": "rgb(165,133,255)",
           "bashBorder": "rgb(177,98,134)",
           "claude": "rgb(214,93,14)",
           "claudeShimmer": "rgb(254,128,25)",
@@ -811,10 +811,49 @@
     "misc": {
       "showTweakccVersion": true,
       "showPatchesApplied": true,
-      "expandThinkingBlocks": true
+      "expandThinkingBlocks": true,
+      "enableConversationTitle": true,
+      "hideStartupBanner": false,
+      "hideCtrlGToEdit": false,
+      "hideStartupClawd": false,
+      "increaseFileReadLimit": false,
+      "suppressLineNumbers": true,
+      "suppressRateLimitOptions": false,
+      "mcpConnectionNonBlocking": true,
+      "mcpServerBatchSize": null,
+      "statuslineThrottleMs": null,
+      "statuslineUseFixedInterval": false,
+      "tableFormat": "default",
+      "enableSwarmMode": true,
+      "enableSessionMemory": true,
+      "enableRememberSkill": false,
+      "tokenCountRounding": null,
+      "autoAcceptPlanMode": false,
+      "allowBypassPermissionsInSudo": false,
+      "suppressNativeInstallerWarning": false,
+      "filterScrollEscapeSequences": false,
+      "enableWorktreeMode": true,
+      "enableContextLimitOverride": false,
+      "enableModelCustomizations": true
     },
     "toolsets": [],
     "defaultToolset": null,
-    "planModeToolset": null
+    "planModeToolset": null,
+    "subagentModels": {
+      "plan": null,
+      "explore": "haiku",
+      "generalPurpose": null
+    },
+    "inputPatternHighlighters": [],
+    "inputPatternHighlightersTestText": "Type test text here to see highlighting",
+    "claudeMdAltNames": [
+      "AGENTS.md",
+      "Overview.md",
+      "GEMINI.md",
+      "QWEN.md",
+      "IFLOW.md",
+      "WARP.md",
+      "copilot-instructions.md"
+    ]
   }
 }
