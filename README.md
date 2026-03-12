@@ -5,10 +5,17 @@ These are my dotfiles.
 ## Install new machine
 
 Name your machine
-> On your Mac, choose "System Settings", "General" in the sidebar, click "About" on the right.
-> Type a new name in the Name field.
 
-> On your Mac the local hostname is the computer’s name with `.local` added, and any spaces are replaced with hyphens
+```sh
+# The primary hostname (used in terminal prompts, etc.)
+sudo scutil --set HostName "my-mac"
+
+# The Bonjour/local network name (what appears as "my-mac.local")
+sudo scutil --set LocalHostName "my-mac"
+
+# The "friendly" name shown in Finder, System Settings, AirDrop
+sudo scutil --set ComputerName "My Mac"
+```
 
 Check chezmois idea of the hostname via:
 ```
@@ -17,7 +24,7 @@ chezmoi execute-template '{{ .chezmoi.hostname }}'
 
 Install homebrew and bootstrap requirements
 
-```
+```sh
 # install homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 # temporary setup path in zsh until we have fish
@@ -28,15 +35,15 @@ brew install chezmoi git git-lfs age 1password 1password-cli
 git lfs install
 ```
 
-Setup 1Password and sync the vaults.
-
-Initialize chezmoi.
+- Setup 1Password and sync the vaults
+- Initialize chezmoi
 
 ```
 chezmoi init oschrenk/dotfiles
 ```
 
 Certain files require age decryption. You will be asked a few questions.
+
 These answers are stored in 1Password under
 - "Chezmoi / Age / Key" and
 - "Meli / Personal / Oauth"
@@ -69,6 +76,7 @@ Downloading and compiling all the various applications and packages will take ro
 After casks are installed you can already start important apps and configure them
 
 - App Store
+  - log into iCloud if needed
 - 1Password
   - Security > Touch Id
   - Security > Apple Watch.
