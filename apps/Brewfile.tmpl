@@ -22,6 +22,7 @@ tap "txn2/tap"                # kubefwd
 # to already configure and use services and applications while brew
 # keeps installing other packages
 
+brew "atuin"              # cli, improved shell history
 brew "chezmoi"            # dotfiles manager
 brew "fish"               # shell
 brew "fzf"                # fuzzy finder
@@ -55,18 +56,15 @@ mas "Apple Developer", id: 640199958
 
 brew "age"           # cryptography, encryption tool
 brew "cristianoliveira/tap/aerospace-scratchpad" # aerospace, scratchpad
-brew "atuin"         # cli, improved shell history
 brew "blueutil"      # system, get/set bluetooth from terminal
 brew "oven-sh/bun/bun" # javascript runtime
 brew "chrome-cli"    # cli, control chrome via cli
-brew "cloc"          # generic, count lines of code
 brew "coreutils"     # system, generic, GNU core utilities
 brew "croc"          # cryptography, secure data transfer
 brew "curl"          # cli, download things
 brew "direnv"        # cli, auto load env
-brew "displayplacer" # hardware, arrange monitors
+brew "displayplacer" # macos, arrange monitors
 brew "dockutil"      # macos, manage the dock
-brew "domain-check"  # cli, check domains
 brew "fd"            # system, generic, fast find alternative
 brew "fileicon"      # macos, manage icons
 brew "findutils"     # system, generic, GNU g-prefixed `find`, xargs`
@@ -130,7 +128,7 @@ brew "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbook
 brew "oschrenk/made/meter" # claude, usage
 brew "oschrenk/made/mission" # macos, task managment
 brew "oschrenk/made/nightshift" # hardware, control Night Shift
-brew "oschrenk/made/plan" # productivity, fetch next event
+brew "oschrenk/made/plan" # cli, fetch next event
 brew "oschrenk/made/sessionizer" # tmux, manage sessions
 brew "oschrenk/made/wallpaper" # macos, set wallpaper
 brew "oschrenk/personal/dora" # ai, navigate code with scip
@@ -176,17 +174,17 @@ brew "xq"            # data, process xml
 brew "yamlfmt"       # yaml, formatter
 brew "yarn"          # javascript, package manager
 brew "yq"            # data, process YAML
-brew "zola"          # blogging engine
+brew "zola"          # web, blogging engine
 brew "zoxide"        # cli, navigate fs
 
 # only on work machine
-brew "flyway"      # database migrations
+brew "flyway"      # sql, database migrations
 brew "hadolint"    # docker, linter
 brew "kubelogin"   # k8s, openid auth plugin
 brew "mysql-client@8.0" # mysql, client
 brew "skopeo"      # docker, registry inspect
 brew "sleek"       # sql, formatter
-brew "snyk-cli"    # scan for security vulnerabilities
+brew "snyk-cli"    # security, cli, scan for security vulnerabilities
 brew "stern"       # k8s, log "aggregator"
 brew "velero"      # k8s, backup/recovery
 brew "websocat"    # cli, websocket
@@ -202,11 +200,10 @@ brew "flac"        # a/v, flac codec
 brew "httrack"     # network, copy websites offline
 brew "lame"        # a/v, mp3 codec
 brew "libmp3splt"  # a/v, split mp3, off, flac files
-brew "logcli"      # O11y, query loki
-brew "maven"       # jvm, package manager
+brew "logcli"      # o11y, query loki
 brew "meli"        # terminal, email client
 brew "mosh"        # network, better shell for roaming
-brew "ngrep"       # network packet analyzer
+brew "ngrep"       # network, packet analyzer
 brew "nmap"        # network,port scanning
 brew "pandoc"      # docs, document converter
 brew "poppler"     # pdf, engine and extractor
@@ -216,7 +213,6 @@ brew "tag"         # terminal, interact with macOS file tags
 brew "tfenv"       # devops, terraform version manager
 brew "typst"       # typst, tex alternative (rust based)
 brew "uv"          # python package manager
-brew "w3m"         # terminal, text based browser
 brew "x264"        # a/v, h264 encoder
 brew "xvid"        # a/v, mp4 lib
 brew "yt-dlp"      # a/v, download youtube video/audio
