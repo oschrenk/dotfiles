@@ -25,9 +25,6 @@ if status --is-interactive
     # enable starship
     starship init fish | source
 
-    # enable zoxide
-    zoxide init fish | source
-
     # atuin: disable automatic keybindings
     set -gx ATUIN_NOBIND true
 
