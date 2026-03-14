@@ -80,4 +80,7 @@ macos-option-as-alt = true
 keybind = super+n=unbind
 # dont' create new tabs
 keybind = super+t=unbind
+# dont' hide
+keybind = super+h=ignore
+# open quick terminal
 keybind = global:super+grave_accent=toggle_quick_terminal
