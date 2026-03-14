@@ -68,8 +68,17 @@ quick-terminal-position = center
 quick-terminal-screen = mouse
 quick-terminal-size = "50%,50%"
 
-# Keyboard
-#   https://ghostty.org/docs/config/reference#macos-option-as-alt
+##########################
+# SPLITS
+##########################
+split-divider-color=e7dbb6
+unfocused-split-fill=e7dbb6
+unfocused-split-opacity=0.95
+
+##########################
+# KEYBOARD
+##########################
+# https://ghostty.org/docs/config/reference#macos-option-as-alt
 macos-option-as-alt = true
 
 # Keybindings
@@ -80,7 +89,26 @@ macos-option-as-alt = true
 keybind = super+n=unbind
 # dont' create new tabs
 keybind = super+t=unbind
-# dont' hide
-keybind = super+h=ignore
+# move splits
+keybind = super+h=goto_split:left
+keybind = super+i=goto_split:up
+keybind = super+j=goto_split:down
+keybind = super+l=goto_split:right
+keybind = super+up=resize_split:up,10
+keybind = super+down=resize_split:down,10
+keybind = super+left=resize_split:left,10
+keybind = super+right=resize_split:right,10
+keybind = super+s=activate_key_table:splits
+keybind = splits/-=new_split:down
+keybind = chain=goto_split:down
+keybind = chain=deactivate_key_table
+keybind = splits/shift+\=new_split:right
+keybind = chain=goto_split:right
+keybind = chain=deactivate_key_table
+keybind = splits/shift+\=new_split:right
+
+# reload config
+keybind = super+r=reload_config
+
 # open quick terminal
 keybind = global:super+grave_accent=toggle_quick_terminal
