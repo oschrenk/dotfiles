@@ -10,12 +10,14 @@ function Clock.new(icons)
   local clocks = {}
   local fmt <const> = "%a %d %b %H:%M"
   local GT <const> = "guatemala"
+  local NL <const> = "netherlands"
   local VN <const> = "vietnam"
 
   local updateClocks = function()
     local now = os.time()
 
     clocks[GT]:set({ label = tz.date(fmt, now, "America/Guatemala") })
+    clocks[NL]:set({ label = tz.date(fmt, now, "Europe/Amsterdam") })
     clocks[VN]:set({ label = tz.date(fmt, now, "Asia/Ho_Chi_Minh") })
   end
 
@@ -45,7 +47,10 @@ function Clock.new(icons)
       icon = icons.guatemala,
       position = "popup." .. clock.name,
     })
-
+    clocks[NL] = sbar.add("item", {
+      icon = icons.netherlands,
+      position = "popup." .. clock.name,
+    })
     clocks[VN] = sbar.add("item", {
       icon = icons.vietnam,
       position = "popup." .. clock.name,

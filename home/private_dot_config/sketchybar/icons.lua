@@ -46,6 +46,7 @@ local symbols = {
 local emojis = {
   ["comet"] = "☄️",
   ["guatemala"] = "🇬🇹",
+  ["netherlands"] = "🇳🇱",
   ["vietnam"] = "🇻🇳",
 }
 
@@ -76,6 +77,7 @@ return {
   clock = {
     clock = symbols["clock"],
     guatemala = emojis["guatemala"],
+    netherlands = emojis["netherlands"],
     vietnam = emojis["vietnam"],
   },
   sessions = {
