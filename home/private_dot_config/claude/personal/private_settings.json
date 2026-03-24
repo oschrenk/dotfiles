@@ -18,7 +18,8 @@
       "Bash(/opt/homebrew/bin/reminders edit *)",
       "Bash(/opt/homebrew/bin/reminders show *)",
       "Bash(/opt/homebrew/bin/reminders show-all *)",
-      "Bash(/opt/homebrew/bin/reminders show-lists *)"
+      "Bash(/opt/homebrew/bin/reminders show-lists *)",
+      "Bash(lightpanda fetch:*)"
     ]
   },
   "hooks": {
@@ -73,6 +74,5 @@
     "dist/**",
     "node_modules/**",
     "out-tsc/**"
-  ],
-  "effortLevel": "medium"
+  ]
 }
