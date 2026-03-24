@@ -10,8 +10,10 @@ Use `lightpanda` instead of the WebFetch tool to fetch website content. Lightpan
 ## Basic Usage
 
 ```bash
-lightpanda fetch --dump markdown <URL>
+lightpanda fetch --dump markdown '<URL>'
 ```
+
+**IMPORTANT: Always single-quote the URL** to prevent shell interpretation of `?`, `&`, `#`, and other special characters in query strings.
 
 ## Dump Formats
 
@@ -36,7 +38,7 @@ Use `--strip_mode` to remove noise from the output:
 For most use cases, strip everything:
 
 ```bash
-lightpanda fetch --dump markdown --strip_mode full <URL>
+lightpanda fetch --dump markdown --strip_mode full '<URL>'
 ```
 
 ## Wait Strategies
@@ -52,12 +54,12 @@ By default, lightpanda waits up to 5000ms for the `done` event. Adjust if needed
 For heavy SPAs that need more time:
 
 ```bash
-lightpanda fetch --dump markdown --wait_ms 10000 <URL>
+lightpanda fetch --dump markdown --wait_ms 10000 '<URL>'
 ```
 
 ## Workflow
 
-1. Run `lightpanda fetch --dump markdown --strip_mode full <URL>` via Bash
+1. Run `lightpanda fetch --dump markdown --strip_mode full '<URL>'` via Bash
 2. The output is the rendered page content in markdown
 3. Process the content as needed for the user's task
 
