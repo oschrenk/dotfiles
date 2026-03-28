@@ -66,109 +66,147 @@ mas "Apple Developer", id: 640199958
 # Packages
 #######################################
 #
+# core (cli)
 brew "blueutil"      # system, get/set bluetooth from terminal
-brew "oven-sh/bun/bun" # javascript runtime
-brew "coreutils"     # system, generic, GNU core utilities
+brew "coreutils"     # system, GNU core utilities
+brew "curl"          # system, download things
+brew "direnv"        # system, auto load env
+brew "gawk"          # system, GNU awk utility
+brew "htop"          # system, improved top
+brew "lsd"           # system, "better" ls
+brew "page"          # system, Use Neovim as pager
+brew "rclone"        # system, sync files
+brew "rsync"         # system, sync files
+brew "tree"          # system, print file tree
+brew "watch"         # system, issue commands at regular interval
+brew "smartmontools" # hardware, harddrive, read ssd info
+brew "telnet"        # network, telnet protocol
+
+# extra (cli)
+brew "shellcheck"    # shell, linter
+brew "witr"          # cli, why is this running
+
+# crypto
 brew "croc"          # cryptography, secure data transfer
-brew "curl"          # cli, download things
-brew "direnv"        # cli, auto load env
-brew "fnm"           # javascript, version manger
-brew "gawk"          # system, generic, GNU awk utility
-brew "gh"            # cli, interact with github
+brew "minisign"      # cryptography, sign files and verify signatures
+
+# productivity
+brew "keith/formulae/reminders-cli" # cli, reminders
+brew "glow"          # cli, render markdown in terminal
+brew "oschrenk/personal/obsidian-headless" # cli
+brew "oschrenk/personal/msgvault" # cli, archive email
+brew "oschrenk/made/plan" # cli, fetch next event
+brew "zola"          # web, blogging engine
+
+# ai
+brew "llm"           # ai, llm on cli
+brew "oschrenk/personal/dora" # ai, navigate code with scip
+brew "oschrenk/made/meter" # ai, claude, measure usage
+brew "tweakcc"       # ai, claude, customize
+
+# data
+brew "jd"            # data, diff JSON
+brew "jq"            # data, process JSON
+brew "mdq"           # data, process markdown like jq
+brew "miller"        # data, process CSV
+brew "xq"            # data, process xml
+brew "yq"            # data, process YAML
+
+# database
+brew "lazysql"       # cli, sql
+brew "libpq"         # postgres, cli
+brew "pgformatter"   # postgres, formatter
+
+# development
+brew "prettier"      # generic, code formatter
+brew "prettierd"     # generic, code formatter
+brew "go-task"       # generic, go-based task runner
+brew "yamlfmt"       # yaml, formatter
+
+# git
 brew "git"           # git, dvcs
 brew "git-crypt"     # git, encrypt secrets in git
 brew "git-delta"     # git, better looking diffs
 brew "git-extras"    # git, nice git extras
 brew "git-lfs"       # git, large file storage
 brew "git-open"      # git, open git[hub/lab] urls
+brew "gh"            # cli, interact with github
 brew "glab"          # git, gitlab cli
-brew "glow"          # cli, render markdown in terminal
+brew "oschrenk/made/arbol" # git, repository manager
+brew "oschrenk/made/infuse" # git, repository mixer
+
+# golang
 brew "go"            # go, language
-brew "go-task"       # generic, go-based task runner
 brew "golangci-lint" # go, linter runner
 brew "gopls"         # go, lsp
+
+# k8
 brew "helm"          # k8s, package manager
-brew "htop"          # cli, Improved top
-brew "hurl"          # network, run/test http requests
-brew "jd"            # data, diff JSON
-brew "jq"            # data, process JSON
-brew "keith/formulae/reminders-cli" # cli, reminders
-brew "kotlin"        # kotlin
+brew "k9s"           # k8s, cluster manager
 brew "krew"          # k8s, kubectl package manager
-brew "ktfmt"         # kotlin, formatter
-brew "ktlint"        # kotlin, formatter
 brew "kube-linter"   # k8s, lint k8s yaml and helm
-brew "kubernetes-cli"# k8s, cli
 brew "kubectx"       # k8s, switch k8s contexts
+brew "kubernetes-cli"# k8s, cli
 brew "kubescape"     # k8s, scan cluster for security issues
 brew "kustomize"     # k8s, resource transformers
-brew "lazysql"       # cli, sql
-brew "libpq"         # postgres cli
-brew "llm"           # llm on cli
-brew "lsd"           # cli, "better" ls
-brew "lua"           # lua, programming language
-brew "lua-language-server" # lua, lsp
-brew "luarocks"      # lua, package manager
-brew "mdq"           # jq but for Markdown
-brew "miller"        # data, process CSV
 brew "minikube"      # k8s, run local k8s
-brew "minisign"      # cryptography, sign files and verify signatures
+brew "txn2/tap/kubefwd" # k8s, bulk port forwarding
+
+# kotlin
+brew "kotlin"        # kotlin
+brew "ktfmt"         # kotlin, formatter
+brew "ktlint"        # kotlin, formatter
+
+# lua
+brew "lua"                 # lua, programming language
+brew "lua-language-server" # lua, lsp
+brew "luarocks"            # lua, package manager
+brew "stylua"              # lua formatter
+
+# web (javascript, typescript, css, ...)
+brew "fnm"           # javascript, version manger
+brew "hurl"          # network, run/test http requests
 brew "node"          # javascript, language
+brew "oschrenk/made/cutter" # web, extract cookies
+brew "oven-sh/bun/bun" # javascript runtime
+brew "sass/sass/sass" # js, sass
+brew "typescript"    # typescript, language
+brew "typescript-language-server" # typescript, lsp
+brew "yarn"          # javascript, package manager
+
+# jvm
 brew "openjdk@17"    # jvm, sdk
 brew "openjdk@21"    # jvm, sdk
 brew "openjdk"       # jvm, sdk
-brew "oschrenk/made/arbol" # git, repository manager
-brew "oschrenk/made/cutter" # web, extract cookies
-brew "oschrenk/made/infuse" # git, repository mixer
-brew "oschrenk/made/meter" # claude, usage
-brew "oschrenk/made/plan" # cli, fetch next event
-brew "oschrenk/personal/dora" # ai, navigate code with scip
-brew "oschrenk/personal/obsidian-headless" # cli
-brew "oschrenk/personal/msgvault" # cli, archive email
 brew "oschrenk/personal/scip" # cli, source indexer
 brew "oschrenk/personal/scip-typescript" # cli, index ts
-brew "page"          # cli, Use Neovim as pager
-brew "pgformatter"   # postgres, formatter
+
+# pkl
 brew "pkl"           # pkl, language
 brew "pkl-lsp"       # pkl, lsp
+
+# python
 brew "poetry"        # python, package manager
-brew "prettier"      # generic, code formatter
-brew "prettierd"     # generic, code formatter
 brew "pyenv"         # python, version manager
 brew "python@3.13"   # python, language
 brew "python@3.14"   # python, language
-brew "rclone"        # cli, sync files
-brew "rsync"         # cli, sync files
+
+# rust
 brew "rust"          # rust, language
-brew "shellcheck"    # shell, linter
-brew "sass/sass/sass" # js, sass
-brew "smartmontools" # hardware, harddrive, read ssd info
-brew "stylua"        # lua formatter
+
+# swift
 brew "swift"         # swift, language
 brew "swiftformat"   # swift, format
 brew "swiftlint"     # swift, lint, requires Xcode
 brew "swiftly"       # swift, toolchain manager
-brew "telnet"        # network, telnet protocol
-brew "tree"          # cli, print file tree
-brew "txn2/tap/kubefwd" # k8s, bulk port forwarding
-brew "tweakcc"       # claude, customize
-brew "typescript"    # typescript, language
-brew "typescript-language-server" # typescript, lsp
-brew "watch"         # system, issue commands at regular interval
-brew "witr"          # cli, why is this running
-brew "xq"            # data, process xml
-brew "yamlfmt"       # yaml, formatter
-brew "yarn"          # javascript, package manager
-brew "yq"            # data, process YAML
-brew "zola"          # web, blogging engine
 
 # only on work machine
 {{ if has "work" .tags -}}
+brew "awscli"      # devops, aws
 brew "flyway"    # sql, database migrations
 brew "gradle"    # kotlin, build tool
 brew "hadolint"  # docker, linter
 brew "jira-cli"  # cli, interact with jira
-brew "k9s"       # k8s, cluster manager
 brew "kubelogin" # k8s, openid auth plugin
 brew "logcli"    # o11y, query loki
 brew "mysql-client@8.0" # mysql, client
@@ -184,7 +222,6 @@ brew "websocat"  # cli, websocket
 
 # only on personal machine
 brew "asciinema"   # a/v, record terminal sessions
-brew "awscli"      # devops, aws
 brew "coursier"    # jvm, scala, artifact fetching
 brew "doggo"       # network, dns client
 brew "exiftool"    # a/v, read/write exif
@@ -285,7 +322,10 @@ cask "oschrenk/personal/font-sf-mono-nerd-font"
 # claude is shared
 cask "claude"                 # Claude Desktop
 cask "container"              # cli, containerization from Apple
+
+{{ if has "work" .tags -}}
 cask "gcloud-cli"             # cloud, google cloud cli including gcloud
+{{ end -}}
 
 {{ if has "gui" .tags -}}
 cask "8bitdo-ultimate-software" # controller
