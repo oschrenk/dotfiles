@@ -3,10 +3,12 @@
 #######################################
 # Taps
 #######################################
+# taps are shared, as any package "might" be needed
+#
 tap "cristianoliveira/tap"    # aerospace-scratchpad
 tap "felixkratz/formulae"     # sketchybar
-tap "keith/formulae"          # reminders-cli
 tap "nikitabobko/tap"         # aerospace
+tap "keith/formulae"          # reminders-cli
 tap "oschrenk/made"           # tools created by myself
 tap "oschrenk/personal"       # casks/formula managed by me
 tap "sass/sass"               # sass
@@ -17,22 +19,24 @@ tap "txn2/tap"                # kubefwd
 #######################################
 # Bootstrap priorities
 #######################################
-
 # having these installed early in the bootstrapping process allows
 # to already configure and use services and applications while brew
 # keeps installing other packages
-
-brew "atuin"              # cli, improved shell history
-brew "chezmoi"            # dotfiles manager
-brew "fd"            # system, generic, fast find alternative
-brew "findutils"     # system, generic, GNU g-prefixed `find`, xargs`
-brew "fish"               # shell
-brew "fzf"                # fuzzy finder
+#
+brew "atuin"     # cli, improved shell history
+brew "chezmoi"   # dotfiles manager
+brew "fd"        # system, generic, fast find alternative
+brew "findutils" # system, generic, GNU g-prefixed `find`, xargs`
+brew "fish"      # shell
+brew "fzf"       # fuzzy finder
 brew "oschrenk/made/sessionizer" # tmux, manage sessions
-brew "neovim"             # editor
-brew "ripgrep"       # system, generic, recursive search
-brew "starship"           # prompt
-brew "tmux"          # cli, terminal multiplexer
+brew "neovim"    # editor
+brew "ripgrep"   # system, generic, recursive search
+brew "starship"  # prompt
+brew "mas"       # Mac App Store command-line interface
+brew "tmux"      # cli, terminal multiplexer
+
+{{ if has "gui" .tags -}}
 cask "1password"          # password manager
 cask "1password-cli"      # password manager
 cask "aerospace"          # window manager
@@ -42,6 +46,7 @@ cask "intellij-idea"      # jetbrains ide
 cask "karabiner-elements" # customize keyboard
 cask "obsidian"           # notes
 cask "spotify"            # audio client
+{{ end -}}
 
 #######################################
 # Xcode
@@ -50,27 +55,24 @@ cask "spotify"            # audio client
 # Installing XCode is VERY slow, but it
 # is required by a handful of packages
 
+{{ if has "gui" .tags -}}
 # Only on Personal machine
 brew "xcodes"      # xcode & runtimes manager
 mas "XCode", id: 497799835
 mas "Apple Developer", id: 640199958
+{{ end -}}
 
 #######################################
 # Packages
 #######################################
 
 brew "age"           # cryptography, encryption tool
-brew "cristianoliveira/tap/aerospace-scratchpad" # aerospace, scratchpad
 brew "blueutil"      # system, get/set bluetooth from terminal
 brew "oven-sh/bun/bun" # javascript runtime
-brew "chrome-cli"    # cli, control chrome via cli
 brew "coreutils"     # system, generic, GNU core utilities
 brew "croc"          # cryptography, secure data transfer
 brew "curl"          # cli, download things
 brew "direnv"        # cli, auto load env
-brew "displayplacer" # macos, arrange monitors
-brew "dockutil"      # macos, manage the dock
-brew "fileicon"      # macos, manage icons
 brew "fnm"           # javascript, version manger
 brew "gawk"          # system, generic, GNU awk utility
 brew "gh"            # cli, interact with github
@@ -90,13 +92,10 @@ brew "gradle"        # kotlin, build tool
 brew "helm"          # k8s, package manager
 brew "htop"          # cli, Improved top
 brew "hurl"          # network, run/test http requests
-brew "iconsur"       # macos, fetch icons
-brew "infat"         # macos, set default filetypes
 brew "jd"            # data, diff JSON
 brew "jira-cli"      # cli, interact with jira
 brew "jq"            # data, process JSON
 brew "k9s"           # k8s, cluster manager
-brew "kanata"        # system, keyboard mapper
 brew "keith/formulae/reminders-cli" # cli, reminders
 brew "kotlin"        # kotlin
 brew "krew"          # k8s, kubectl package manager
@@ -114,8 +113,6 @@ brew "lsd"           # cli, "better" ls
 brew "lua"           # lua, programming language
 brew "lua-language-server" # lua, lsp
 brew "luarocks"      # lua, package manager
-brew "mas"           # Mac App Store command-line interface
-brew "m1ddc"         # hardware, monitor control
 brew "mdq"           # jq but for Markdown
 brew "miller"        # data, process CSV
 brew "minikube"      # k8s, run local k8s
@@ -127,12 +124,8 @@ brew "openjdk"       # jvm, sdk
 brew "oschrenk/made/arbol" # git, repository manager
 brew "oschrenk/made/cutter" # web, extract cookies
 brew "oschrenk/made/infuse" # git, repository mixer
-brew "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
 brew "oschrenk/made/meter" # claude, usage
-brew "oschrenk/made/mission" # macos, task managment
-brew "oschrenk/made/nightshift" # hardware, control Night Shift
 brew "oschrenk/made/plan" # cli, fetch next event
-brew "oschrenk/made/wallpaper" # macos, set wallpaper
 brew "oschrenk/personal/dora" # ai, navigate code with scip
 brew "oschrenk/personal/obsidian-headless" # cli
 brew "oschrenk/personal/msgvault" # cli, archive email
@@ -152,10 +145,8 @@ brew "rclone"        # cli, sync files
 brew "rsync"         # cli, sync files
 brew "rust"          # rust, language
 brew "shellcheck"    # shell, linter
-brew "sketchybar"    # macos, custom statusbar
 brew "sass/sass/sass" # js, sass
 brew "smartmontools" # hardware, harddrive, read ssd info
-brew "spicetify-cli" # spotify ricing
 brew "sqlfluff"      # sql, formatter
 brew "stylua"        # lua formatter
 brew "swift"         # swift, language
@@ -217,16 +208,35 @@ brew "xvid"        # a/v, mp4 lib
 brew "yt-dlp"      # a/v, download youtube video/audio
 
 #######################################
+# BREWS (GUI-dependent)
+#######################################
+{{ if has "gui" .tags -}}
+brew "cristianoliveira/tap/aerospace-scratchpad" # aerospace, scratchpad
+brew "chrome-cli"    # cli, control chrome via cli
+brew "displayplacer" # macos, arrange monitors
+brew "dockutil"      # macos, manage the dock
+brew "fileicon"      # macos, manage icons
+brew "iconsur"       # macos, fetch icons
+brew "infat"         # macos, set default filetypes
+brew "kanata"        # system, keyboard mapper
+brew "m1ddc"         # hardware, monitor control
+brew "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
+brew "oschrenk/made/mission" # macos, task managment
+brew "oschrenk/made/nightshift" # hardware, control Night Shift
+brew "oschrenk/made/wallpaper" # macos, set wallpaper
+brew "sketchybar"    # macos, custom statusbar
+brew "spicetify-cli" # spotify ricing
+{{ end -}}
+
+#######################################
 # Apps
 #######################################
-
-# Only on Personal machine
+{{ if has "gui" .tags -}}
 mas "Affinity Designer 2", id: 1616831348  # vector editing
 mas "Affinity Photo 2", id: 1616822987     # raster editing
 mas "Affinity Publisher 2", id: 1606941598 # book publishing
 mas "DeskRest", id: 6751417411             # health
 mas "Due", id: 524373870                   # reminders on steroid
-mas "Health Auto Export", id: 1115567069   # export apple health data
 mas "Keynote", id: 409183694               # make slides
 mas "Klack", id: 6446206067                # keyboard
 mas "NextDNS", id: 1464122853              # dns blocking
@@ -235,10 +245,15 @@ mas "Numbers", id: 409203825               # excel
 mas "Pages", id: 409201541                 # docs
 mas 'Parcel', id: 375589283                # Shipment tracking
 mas "Reeder", id: 1529448980               # rss
+{{ end -}}
+
+# install on server for access to health data
+mas "Health Auto Export", id: 1115567069   # export apple health data
 
 #######################################
 # Safari extensions
 #######################################
+{{ if has "gui" .tags -}}
 mas "1Password for Safari", id: 1569813296
 mas "Dark Reader for Safari", id: 1438243180
 mas "DeArrow", id: 6451469297
@@ -246,10 +261,12 @@ mas "Obsidian Web Clipper", id: 6720708363
 mas "SponsorBlock", id: 1573461917
 mas "Vimlike", id: 1584519802
 mas "uBlock Origin Lite", id: 6745342698
+{{ end -}}
 
 #######################################
 # Fonts
 #######################################
+# fonts are cheap
 
 cask "sf-symbols"  # preview sf symbols
 cask "font-jetbrains-mono-nerd-font"
@@ -263,13 +280,16 @@ cask "oschrenk/personal/font-sf-mono-nerd-font"
 # Casks
 #######################################
 
-cask "antinote"               # notes with SoulverCore
+# claude is shared
 cask "claude"                 # Claude Desktop
 cask "container"              # cli, containerization from Apple
+cask "gcloud-cli"             # cloud, google cloud cli including gcloud
+
+{{ if has "gui" .tags -}}
+cask "antinote"               # notes with SoulverCore
 cask "dbeaver-community"      # sql client
 cask "docker-desktop"         # docker client
 cask "firefox"                # browser
-cask "gcloud-cli"             # cloud, google cloud cli including gcloud
 cask "google-chrome"          # browser
 cask "jdk-mission-control"    # monitor java applications
 cask "huggingchat"            # chat client for local llm
@@ -281,8 +301,6 @@ cask "shortcat"               # macos, vim picker
 cask "yellowdot"              # Hide screen/audio indicator
 cask "zen"                    # Browser, firefox-based
 
-# Only on Personal machine
-cask "8bitdo-ultimate-software" # controller
 cask "blender"               # 3d editor
 cask "calibre"               # ebook manager
 cask "discord"               # discord client
@@ -308,6 +326,10 @@ cask "utm"                   # virtual machines for macos
 cask "vlc"                   # video client
 cask "whatsapp"              # whatsapp messaging
 
+# Only on Personal machine
+cask "8bitdo-ultimate-software" # controller
+
 # Only on Work machine
 cask "openvpn-connect"       # vpn
+{{ end -}}
 
