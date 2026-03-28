@@ -1,12 +1,16 @@
 #!/bin/zsh
 #
-# Krewfile hash: {{ include "../apps/Krewfile" | sha256sum }}
+# Krewfile hash: {{ include "../apps/Krewfile.tmpl" | sha256sum }}
 #
-filepath={{ joinPath .chezmoi.sourceDir "../apps/Krewfile"| quote }}
+tmpfile=$(mktemp /tmp/chezmoi-krew.XXXXXX)
+
+cat {{ joinPath .chezmoi.sourceDir "../apps/Krewfile.tmpl" | quote }} | chezmoi execute-template > $tmpfile
 
 # installing the plugins
-for plugin in $(cat $filepath | cut -d "#" -f 1)
+for plugin in $(cat $tmpfile | cut -d "#" -f 1)
 do
   echo "\nInstalling: $plugin\n"
   kubectl krew install $plugin
 done
+
+rm $tmpfile
