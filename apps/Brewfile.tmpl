@@ -272,9 +272,6 @@ brew "spicetify-cli" # spotify ricing
 # Apps
 #######################################
 {{ if has "gui" .tags -}}
-mas "Affinity Designer 2", id: 1616831348  # vector editing
-mas "Affinity Photo 2", id: 1616822987     # raster editing
-mas "Affinity Publisher 2", id: 1606941598 # book publishing
 mas "DeskRest", id: 6751417411             # health
 mas "Due", id: 524373870                   # reminders on steroid
 mas "Keynote", id: 409183694               # make slides
@@ -329,50 +326,56 @@ cask "gcloud-cli"             # cloud, google cloud cli including gcloud
 {{ end -}}
 
 {{ if has "gui" .tags -}}
-cask "8bitdo-ultimate-software" # controller
 cask "antinote"               # notes with SoulverCore
-cask "dbeaver-community"      # sql client
-cask "docker-desktop"         # docker client
-cask "firefox"                # browser
-cask "google-chrome"          # browser
-cask "jdk-mission-control"    # monitor java applications
-cask "huggingchat"            # chat client for local llm
-cask "keyboardcleantool"      # disables keyboard for cleaning
-cask "monodraw"               # draw ascii diagrams
-cask "neovide-app"            # neovim desktop app
-cask "pika"                   # Color Picker
-cask "shortcat"               # macos, vim picker
-cask "yellowdot"              # Hide screen/audio indicator
-cask "zen"                    # Browser, firefox-based
-
-cask "blender"               # 3d editor
 cask "calibre"               # ebook manager
 cask "discord"               # discord client
-cask "elgato-control-center" # elgato software to control lights
+cask "firefox"                # browser
+cask "google-chrome"          # browser
 cask "handbrake-app"         # video transcoder
 cask "hex-fiend"             # hex editor
+cask "huggingchat"            # chat client for local llm
 cask "iina"                  # video client
+cask "jdk-mission-control"    # monitor java applications
+cask "keyboardcleantool"      # disables keyboard for cleaning
 cask "keycastr"              # shows key strokes on screen
 cask "knockknock"            # identify background tasks/processes
-cask "live-home-3d"          # home designer
 cask "mochi"                 # study notes and flashcards
+cask "monodraw"               # draw ascii diagrams
+cask "neovide-app"            # neovim desktop app
 cask "numi"                  # calculator
 cask "omnidisksweeper"       # cleanup disk space
 cask "onyx"                  # macos maintenance
-cask "rode-central"          # rode companion app (for AI-1)
+cask "pika"                   # Color Picker
+cask "shortcat"               # macos, vim picker
 cask "signal"                # signal messaging
 cask "slack"                 # slack office communication
-cask "steam"                 # games
 cask "telegram"              # telegram messaging
 cask "the-unarchiver"        # unarchiving most archive files
 cask "transmission"          # torrent client
-cask "utm"                   # virtual machines for macos
 cask "vlc"                   # video client
 cask "whatsapp"              # whatsapp messaging
+cask "yellowdot"              # Hide screen/audio indicator
+cask "zen"                    # Browser, firefox-based
+
+  # Only on thicc machine (MacBook Pro)
+  {{ if has "thicc" .tags -}}
+  cask "8bitdo-ultimate-software" # controller
+  cask "blender"               # 3d editor
+  cask "elgato-control-center" # elgato software to control lights
+  cask "live-home-3d"          # home designer
+  cask "rode-central"          # rode companion app (for AI-1)
+  cask "steam"                 # games
+  mas "Affinity Designer 2", id: 1616831348  # vector editing
+  mas "Affinity Photo 2", id: 1616822987     # raster editing
+  mas "Affinity Publisher 2", id: 1606941598 # book publishing
+  {{ end -}} # of has "thicc"
 
   # Only on Work machine
   {{ if has "work" .tags -}}
+  cask "dbeaver-community"      # sql client
+  cask "docker-desktop"         # docker client
   cask "openvpn-connect"       # vpn
+  cask "utm"                   # virtual machines for macos
   {{ end -}} # of has "work"
 {{ end -}} # of has "gui"
 
