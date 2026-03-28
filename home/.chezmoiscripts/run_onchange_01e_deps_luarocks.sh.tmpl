@@ -1,5 +1,11 @@
 #!/bin/zsh
 #
-# Luarocks hash: {{ include "../apps/Luarocks" | sha256sum }}
+# Luarocks hash: {{ include "../apps/Luarocks.tmpl" | sha256sum }}
 
-luarocks install $(cat {{ joinPath .chezmoi.sourceDir "../apps/Luarocks" | quote }} | cut -d "#" -f 1 | paste -s -d ' ' - )
+tmpfile=$(mktemp /tmp/chezmoi-luarocks.XXXXXX)
+
+cat {{ joinPath .chezmoi.sourceDir "../apps/Luarocks.tmpl" | quote }} | chezmoi execute-template > $tmpfile
+
+luarocks install $(cat $tmpfile | cut -d "#" -f 1 | paste -s -d ' ' - )
+
+rm $tmpfile
