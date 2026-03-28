@@ -51,10 +51,9 @@ cask "spotify"            # audio client
 #######################################
 # Xcode
 #######################################
-
 # Installing XCode is VERY slow, but it
 # is required by a handful of packages
-
+#
 {{ if has "gui" .tags -}}
 # Only on Personal machine
 brew "xcodes"      # xcode & runtimes manager
@@ -65,7 +64,7 @@ mas "Apple Developer", id: 640199958
 #######################################
 # Packages
 #######################################
-
+#
 brew "age"           # cryptography, encryption tool
 brew "blueutil"      # system, get/set bluetooth from terminal
 brew "oven-sh/bun/bun" # javascript runtime
@@ -88,14 +87,11 @@ brew "go"            # go, language
 brew "go-task"       # generic, go-based task runner
 brew "golangci-lint" # go, linter runner
 brew "gopls"         # go, lsp
-brew "gradle"        # kotlin, build tool
 brew "helm"          # k8s, package manager
 brew "htop"          # cli, Improved top
 brew "hurl"          # network, run/test http requests
 brew "jd"            # data, diff JSON
-brew "jira-cli"      # cli, interact with jira
 brew "jq"            # data, process JSON
-brew "k9s"           # k8s, cluster manager
 brew "keith/formulae/reminders-cli" # cli, reminders
 brew "kotlin"        # kotlin
 brew "krew"          # k8s, kubectl package manager
@@ -147,14 +143,12 @@ brew "rust"          # rust, language
 brew "shellcheck"    # shell, linter
 brew "sass/sass/sass" # js, sass
 brew "smartmontools" # hardware, harddrive, read ssd info
-brew "sqlfluff"      # sql, formatter
 brew "stylua"        # lua formatter
 brew "swift"         # swift, language
 brew "swiftformat"   # swift, format
 brew "swiftlint"     # swift, lint, requires Xcode
 brew "swiftly"       # swift, toolchain manager
 brew "telnet"        # network, telnet protocol
-brew "traefik"       # k8s, reverse proxy
 brew "tree"          # cli, print file tree
 brew "txn2/tap/kubefwd" # k8s, bulk port forwarding
 brew "tweakcc"       # claude, customize
@@ -167,17 +161,26 @@ brew "yamlfmt"       # yaml, formatter
 brew "yarn"          # javascript, package manager
 brew "yq"            # data, process YAML
 brew "zola"          # web, blogging engine
+
 # only on work machine
-brew "flyway"      # sql, database migrations
-brew "hadolint"    # docker, linter
-brew "kubelogin"   # k8s, openid auth plugin
+{{ if has "work" .tags -}}
+brew "flyway"    # sql, database migrations
+brew "gradle"    # kotlin, build tool
+brew "hadolint"  # docker, linter
+brew "jira-cli"  # cli, interact with jira
+brew "k9s"       # k8s, cluster manager
+brew "kubelogin" # k8s, openid auth plugin
+brew "logcli"    # o11y, query loki
 brew "mysql-client@8.0" # mysql, client
-brew "skopeo"      # docker, registry inspect
-brew "sleek"       # sql, formatter
-brew "snyk-cli"    # security, cli, scan for security vulnerabilities
-brew "stern"       # k8s, log "aggregator"
-brew "velero"      # k8s, backup/recovery
-brew "websocat"    # cli, websocket
+brew "skopeo"    # docker, registry inspect
+brew "sleek"     # sql, formatter
+brew "snyk-cli"  # security, cli, scan for security vulnerabilities
+brew "sqlfluff"  # sql, formatter
+brew "stern"     # k8s, log "aggregator"
+brew "traefik"   # k8s, reverse proxy
+brew "velero"    # k8s, backup/recovery
+brew "websocat"  # cli, websocket
+{{ end -}}
 
 # only on personal machine
 brew "asciinema"   # a/v, record terminal sessions
@@ -190,7 +193,6 @@ brew "flac"        # a/v, flac codec
 brew "httrack"     # network, copy websites offline
 brew "lame"        # a/v, mp3 codec
 brew "libmp3splt"  # a/v, split mp3, off, flac files
-brew "logcli"      # o11y, query loki
 brew "meli"        # terminal, email client
 brew "mosh"        # network, better shell for roaming
 brew "ngrep"       # network, packet analyzer
@@ -286,6 +288,7 @@ cask "container"              # cli, containerization from Apple
 cask "gcloud-cli"             # cloud, google cloud cli including gcloud
 
 {{ if has "gui" .tags -}}
+cask "8bitdo-ultimate-software" # controller
 cask "antinote"               # notes with SoulverCore
 cask "dbeaver-community"      # sql client
 cask "docker-desktop"         # docker client
@@ -326,10 +329,9 @@ cask "utm"                   # virtual machines for macos
 cask "vlc"                   # video client
 cask "whatsapp"              # whatsapp messaging
 
-# Only on Personal machine
-cask "8bitdo-ultimate-software" # controller
-
-# Only on Work machine
-cask "openvpn-connect"       # vpn
-{{ end -}}
+  # Only on Work machine
+  {{ if has "work" .tags -}}
+  cask "openvpn-connect"       # vpn
+  {{ end -}} # of has "work"
+{{ end -}} # of has "gui"
 
