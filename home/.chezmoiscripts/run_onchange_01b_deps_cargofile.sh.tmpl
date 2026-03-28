@@ -1,6 +1,10 @@
 #!/bin/zsh
 
-# Cargofile hash: {{ include "../apps/Cargofile" | sha256sum }}
+# Cargofile hash: {{ include "../apps/Cargofile.tmpl" | sha256sum }}
+
+tmpfile=$(mktemp /tmp/chezmoi-cargo.XXXXXX)
+
+cat {{ joinPath .chezmoi.sourceDir "../apps/Cargofile.tmpl" | quote }} | chezmoi execute-template > $tmpfile
 
 while IFS= read -r line; do
   # Skip empty lines and comments
@@ -8,4 +12,6 @@ while IFS= read -r line; do
 
   # Strip inline comments and install
   cargo install $(echo "$line" | cut -d "#" -f 1)
-done < {{ joinPath .chezmoi.sourceDir "../apps/Cargofile" | quote }}
+done < $tmpfile
+
+rm $tmpfile
