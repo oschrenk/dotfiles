@@ -93,10 +93,13 @@ brew "minisign"      # cryptography, sign files and verify signatures
 # productivity
 brew "keith/formulae/reminders-cli" # cli, reminders
 brew "glow"          # cli, render markdown in terminal
-brew "oschrenk/personal/obsidian-headless" # cli
-brew "oschrenk/personal/msgvault" # cli, archive email
 brew "oschrenk/made/plan" # cli, fetch next event
 brew "zola"          # web, blogging engine
+
+{{ if has "server" .tags -}}
+brew "oschrenk/personal/obsidian-headless" # cli
+brew "oschrenk/personal/msgvault" # cli, archive email
+{{ end -}}
 
 # ai
 brew "llm"           # ai, llm on cli

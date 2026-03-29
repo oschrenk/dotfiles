@@ -12,7 +12,11 @@
 
 {{- $tags := list -}}
 {{- if eq .chezmoi.hostname "Olivers-MaxBook" -}}
-{{-   $tags = list "gui" "work" "thicc" -}}
+{{-   $tags = list "gui" "work" "thicc" "server" -}}
+{{- else if eq .chezmoi.hostname "Olivers-MacBook-Air" -}}
+{{-   $tags = list "gui" "work" -}}
+{{- else if eq .chezmoi.hostname "Olivers-Mac-mini" -}}
+{{-   $tags = list -}}
 {{- end -}}
 
 encryption = "age"
