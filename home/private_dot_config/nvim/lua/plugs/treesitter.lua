@@ -33,7 +33,6 @@ return {
       "javascript",
       "jq",
       "json",
-      "kanata",
       "kdl",
       "kotlin",
       "lua",
@@ -117,19 +116,5 @@ return {
         mapping[2](mapping[3], "textobjects")
       end)
     end
-
-    -- custom parser: kanata
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "TSUpdate",
-      callback = function()
-        require("nvim-treesitter.parsers").kanata = {
-          install_info = {
-            url = "https://github.com/postsolar/tree-sitter-kanata",
-            branch = "master",
-          },
-        }
-      end,
-    })
-    vim.treesitter.language.register("kanata", { "kbd" })
   end,
 }
