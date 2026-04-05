@@ -139,6 +139,17 @@ function clean-macos -d "Clean macOS caches and unused data"
         end
     end
 
+    # Arc browser cache
+    _clean_confirm ~/Library/Caches/Arc/User\ Data "Arc browser cache"; or return 1
+
+    # App logs (top 5 by size)
+    if test -d ~/Library/Logs
+        for dir in (du -sh ~/Library/Logs/*/ 2>/dev/null | sort -rh | head -5 | awk '{print $2}')
+            set -l name (basename "$dir")
+            _clean_confirm "$dir" "Logs: $name"; or return 1
+        end
+    end
+
     printf "\n✅ Done!\n"
 end
 
