@@ -4,6 +4,10 @@
 github.com/Gelio/go-global-update@v0.2.5 # bootstrap, check for updates
 #
 # pinned versions
+# - check for updates:
+#   `go-global-update --dry-run 2>&1 | grep -v oschrenk | grep -v up-to-date | grep -Ev "^meter|^tui-datepicker"`
+#   - meter: own package, published to proxy but built from local dirty checkout
+#   - tui-datepicker: own package, built from local (devel) checkout
 #
 github.com/air-verse/air@v1.65.0              # watch file changes
 github.com/catilac/plistwatch@latest          # watch plist changes
