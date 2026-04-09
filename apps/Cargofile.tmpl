@@ -1,15 +1,21 @@
 # vim: syntax=ruby filetype=ruby
 #
+# bootstrap
 cargo-update --version 20.0.0 # bootstrap, check for updates
 #
-comodoro --locked --git https://github.com/pimalaya/comodoro.git # terminal, timer
-firemark    # cli, watermark images/pdf
-git-stack # git, manage stack pr's
-himalaya --locked --features oauth2 # terminal, email client
-jx          # json viewer
-mirador --locked --features oauth2 --git https://github.com/pimalaya/mirador.git # email wathcer
-ortie       # oauth2 cli
-slack-cli   # slack cli
-sleek       # sql formatter
-taplo-cli   # toml formatter
-typstyle    # formatter for the typst language
+# pinned versions
+# - check for updates: `cargo install-update --list | grep Yes`
+#
+comodoro --locked --version 1.0.0 # terminal, timer
+firemark --version 0.1.3    # cli, watermark images/pdf
+git-stack --version 0.10.20 # git, manage stack pr's
+himalaya --locked --version 1.2.0 --features oauth2 # terminal, email client
+jx --version 0.8.1          # json viewer
+ortie --version 1.1.0       # oauth2 cli
+slack-cli --version 0.1.1   # slack cli
+sleek --version 0.5.0       # sql formatter
+taplo-cli --version 0.10.0  # toml formatter
+typstyle --version 0.14.4   # formatter for the typst language
+#
+# not on crates.io, version not pinned, cargo-update won't track this
+mirador --locked --features oauth2 --git https://github.com/pimalaya/mirador.git # email watcher
