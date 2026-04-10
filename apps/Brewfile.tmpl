@@ -362,7 +362,6 @@ cask "transmission"          # torrent client
 cask "vlc"                   # video client
 cask "whatsapp"              # whatsapp messaging
 cask "yellowdot"              # Hide screen/audio indicator
-cask "zen"                    # Browser, firefox-based
 
   # Only on thicc machine (MacBook Pro)
   {{ if has "thicc" .tags -}}
@@ -381,7 +380,6 @@ cask "zen"                    # Browser, firefox-based
   cask "dbeaver-community"      # sql client
   cask "docker-desktop"         # docker client
   cask "openvpn-connect"       # vpn
-  cask "utm"                   # virtual machines for macos
   {{ end -}} # of has "work"
 {{ end -}} # of has "gui"
 
