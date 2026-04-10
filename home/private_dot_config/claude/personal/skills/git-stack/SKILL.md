@@ -40,7 +40,8 @@ git stack --protected
 
 | Goal | Command |
 |------|---------|
-| Show current stack | `git stack` |
+| Show current stack | `git stack --stack current` |
+| Show current stack (branches only) | `git stack --stack current --show-commits none` |
 | Show all stacks | `git stack --stack all` |
 | Show with commit details | `git stack --show-commits unprotected` |
 | Show dependents too | `git stack --stack dependents` |
@@ -51,39 +52,41 @@ git stack --protected
 **Rebase the current stack onto its base:**
 
 ```bash
-git stack --rebase
+git stack --rebase --stack current
 ```
 
 **Pull the parent branch and rebase onto it:**
 
 ```bash
-git stack --pull
+git stack --pull --stack current
 ```
 
 **Sync all local branches with remote** (fetch + rebase):
 
 ```bash
-git sync
+git stack sync
 ```
 
-**Push all ready branches:**
+**Push all ready branches** (pushes one level at a time — run repeatedly for deep stacks):
 
 ```bash
-git stack --push
+git stack --push --stack current
 ```
 
 **Rebase + squash fixup commits:**
 
 ```bash
-git stack --rebase --fixup squash
+git stack --rebase --fixup squash --stack current
 ```
 
 **Dry-run any operation:**
 
 ```bash
-git stack --rebase -n
-git sync -n
+git stack --rebase --stack current -n
+git stack sync -n
 ```
+
+**Scope with `--stack`:** Always use `--stack current` to limit operations to the current stack. Other values: `dependents`, `descendants`, `all`.
 
 ## Navigating the Stack
 
@@ -173,7 +176,7 @@ Key config fields (in `.git/config` or `~/.gitconfig`):
 **After merging a PR — sync and rebase the rest of the stack:**
 
 ```bash
-git sync
+git stack sync
 ```
 
 **Start work on top of an in-progress branch:**
