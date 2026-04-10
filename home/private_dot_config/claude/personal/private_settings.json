@@ -22,6 +22,7 @@
       "Bash(lightpanda fetch:*)"
     ]
   },
+  "model": "sonnet",
   "hooks": {
     "PreToolUse": [
       {
