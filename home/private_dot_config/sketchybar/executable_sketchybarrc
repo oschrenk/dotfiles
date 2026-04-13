@@ -31,11 +31,11 @@ require("items.mission").new(mission, focus, icons.mission).add("left")
 require("items.project").new(icons.project, sessionizer).add("left")
 
 -- center (manually arround the dynamic island)
-local clockWidth = 100
-local dynamicIslandWidth = 184
-require("items.meter").new(meter, 100).add("center")
-require("items.spacer").new(dynamicIslandWidth).add("center")
-require("items.comodoro").new(comodoro, style.pomodoro).add("center", clockWidth)
+-- local clockWidth = 100
+-- local dynamicIslandWidth = 184
+-- require("items.meter").new(meter, 100).add("center")
+-- require("items.spacer").new(dynamicIslandWidth).add("center")
+-- require("items.comodoro").new(comodoro, style.pomodoro).add("center", clockWidth)
 
 -- right
 require("items.clock").new(icons.clock).add("right")
