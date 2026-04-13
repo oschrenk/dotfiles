@@ -10,7 +10,12 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nix-darwin, ... }: {
+  outputs = { nix-darwin, nixpkgs, ... }: {
+    # Official Nix formatter: https://github.com/NixOS/nixfmt
+    # nixfmt-rfc-style in nixpkgs is the same tool, just a confusing alias
+    # Run with: nix fmt
+    formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt;
+
     darwinConfigurations = {
       "Olivers-MaxBook" = nix-darwin.lib.darwinSystem {
         modules = [
