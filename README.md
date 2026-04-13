@@ -4,49 +4,30 @@ These are my dotfiles.
 
 ## Bootstrap
 
-Install Nix
+Name machine first — `hostname` is used by `nix-darwin` and `chezmoi` templating
 
 ```sh
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+./hostname.sh
 ```
 
-Install nix-darwin
+Then install Nix, Homebrew, and chezmoi
 
 ```sh
-nix run nix-darwin -- switch --flake ~/nix#$(hostname -s)
+./bootstrap.sh
 ```
 
-Install homebrew
+## nix-darwin
+
+Once the nix-darwin flake is set up, apply it with
 
 ```sh
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# temporary setup path in zsh until we have fish
-eval "$(/opt/homebrew/bin/brew shellenv)"
+sudo nix run nix-darwin -- switch --flake ~/nix#$(hostname -s)
 ```
 
-Install chezmoi and requirements
+Subsequent runs use
 
 ```sh
-brew install chezmoi git git-lfs age 1password-cli
-git lfs install
-```
-
-Name your machine
-
-```sh
-# The primary hostname (used in terminal prompts, etc.)
-sudo scutil --set HostName "my-mac"
-
-# The Bonjour/local network name (what appears as "my-mac.local")
-sudo scutil --set LocalHostName "my-mac"
-
-# The "friendly" name shown in Finder, System Settings, AirDrop
-sudo scutil --set ComputerName "My Mac"
-```
-
-Check chezmois idea of the hostname via:
-```
-chezmoi execute-template '{{ .chezmoi.hostname }}'
+darwin-rebuild switch --flake ~/nix#$(hostname -s)
 ```
 
 Setup 1Password and sync the vaults, then initialize chezmoi
