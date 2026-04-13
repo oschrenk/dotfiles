@@ -23,6 +23,7 @@
           modules = [
             ./modules/accessibility.nix
             ./modules/common.nix
+            ./modules/desktop.nix
             ./modules/dock.nix
             ./modules/finder.nix
             ./modules/hotkeys.nix
