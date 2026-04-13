@@ -21,19 +21,19 @@
       darwinConfigurations = {
         "Olivers-MaxBook" = nix-darwin.lib.darwinSystem {
           modules = [
-            ./modules/accessibility.nix
             ./modules/common.nix
-            ./modules/desktop.nix
-            ./modules/dock.nix
-            ./modules/finder.nix
-            ./modules/hotkeys.nix
-            ./modules/keyboard.nix
-            ./modules/menubar.nix
             ./modules/pam.nix
-            ./modules/screenshots.nix
-            ./modules/siri.nix
-            ./modules/spotlight.nix
-            ./modules/timemachine.nix
+            ./modules/system/accessibility.nix
+            ./modules/system/desktop.nix
+            ./modules/system/dock.nix
+            ./modules/system/finder.nix
+            ./modules/system/hotkeys.nix
+            ./modules/system/keyboard.nix
+            ./modules/system/menubar.nix
+            ./modules/system/screenshots.nix
+            ./modules/system/siri.nix
+            ./modules/system/spotlight.nix
+            ./modules/system/timemachine.nix
             ./hosts/maxbook.nix
           ];
         };
