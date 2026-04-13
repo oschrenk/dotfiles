@@ -16,6 +16,7 @@
         modules = [
           ./modules/common.nix
           ./modules/finder.nix
+          ./modules/pam.nix
           ./hosts/maxbook.nix
         ];
       };
