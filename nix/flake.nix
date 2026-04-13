@@ -15,6 +15,7 @@
       "Olivers-MaxBook" = nix-darwin.lib.darwinSystem {
         modules = [
           ./modules/common.nix
+          ./modules/finder.nix
           ./hosts/maxbook.nix
         ];
       };
