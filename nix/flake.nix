@@ -32,6 +32,8 @@
             ./modules/pam.nix
             ./modules/screenshots.nix
             ./modules/siri.nix
+            ./modules/spotlight.nix
+            ./modules/timemachine.nix
             ./hosts/maxbook.nix
           ];
         };
