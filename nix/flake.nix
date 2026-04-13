@@ -30,6 +30,7 @@
             ./modules/keyboard.nix
             ./modules/menubar.nix
             ./modules/pam.nix
+            ./modules/screenshots.nix
             ./hosts/maxbook.nix
           ];
         };
