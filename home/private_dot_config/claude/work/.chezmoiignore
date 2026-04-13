@@ -9,6 +9,7 @@ history.jsonl
 paste-cache/
 plans
 plugins/
+private_sessions/
 projects/
 security_warnings*
 session-env/
