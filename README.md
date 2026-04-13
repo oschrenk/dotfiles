@@ -4,6 +4,18 @@ These are my dotfiles.
 
 ## Bootstrap
 
+Install Nix
+
+```sh
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+```
+
+Install nix-darwin
+
+```sh
+nix run nix-darwin -- switch --flake ~/nix#$(hostname -s)
+```
+
 Install homebrew
 
 ```sh
