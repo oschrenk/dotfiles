@@ -33,6 +33,16 @@ darwin-rebuild switch --flake "$(dirname $(chezmoi source-path))/nix#$(hostname 
 darwin-rebuild switch --flake (dirname (chezmoi source-path))"/nix#"(hostname -s)
 ```
 
+## Formatting
+
+Uses [nixfmt](https://github.com/NixOS/nixfmt) (the official Nix formatter, aliased as `nixfmt-rfc-style` in nixpkgs).
+
+Must be run from the `nix/` directory — `nix fmt` requires a `flake.nix` in the current directory. Use the task runner from the repo root:
+
+```sh
+task nix-fmt
+```
+
 ## Adding a new machine
 
 1. Create `hosts/<machine>.nix` with at least `system.stateVersion`
