@@ -48,7 +48,7 @@ tasks:
     desc: Format all nix files
     dir: nix
     cmds:
-      - nix fmt
+      - nix fmt --no-warn-dirty
   nix:
     desc: Apply nix-darwin configuration
     cmds:

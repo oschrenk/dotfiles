@@ -25,7 +25,7 @@
     magnification = false;
 
     # Clear all pinned apps (replaces dockutil unpinning)
-    persistent-apps = [];
+    persistent-apps = [ ];
 
     # Group windows by application — helps with aerospace
     # Requires: killall Dock

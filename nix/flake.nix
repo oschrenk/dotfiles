@@ -10,24 +10,26 @@
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { nix-darwin, nixpkgs, ... }: {
-    # Official Nix formatter: https://github.com/NixOS/nixfmt
-    # nixfmt-rfc-style in nixpkgs is the same tool, just a confusing alias
-    # Run with: nix fmt
-    formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt;
+  outputs =
+    { nix-darwin, nixpkgs, ... }:
+    {
+      # Official Nix formatter: https://github.com/NixOS/nixfmt
+      # nixfmt-rfc-style in nixpkgs is the same tool, just a confusing alias
+      # Run with: nix fmt
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
 
-    darwinConfigurations = {
-      "Olivers-MaxBook" = nix-darwin.lib.darwinSystem {
-        modules = [
-          ./modules/common.nix
-          ./modules/dock.nix
-          ./modules/finder.nix
-          ./modules/hotkeys.nix
-          ./modules/keyboard.nix
-          ./modules/pam.nix
-          ./hosts/maxbook.nix
-        ];
+      darwinConfigurations = {
+        "Olivers-MaxBook" = nix-darwin.lib.darwinSystem {
+          modules = [
+            ./modules/common.nix
+            ./modules/dock.nix
+            ./modules/finder.nix
+            ./modules/hotkeys.nix
+            ./modules/keyboard.nix
+            ./modules/pam.nix
+            ./hosts/maxbook.nix
+          ];
+        };
       };
     };
-  };
 }
