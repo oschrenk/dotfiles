@@ -20,14 +20,6 @@ echo "Time Machine: Exclude directories from Time Machine backups"
 tmutil addexclusion ~/Downloads
 tmutil addexclusion ~/Movies
 
-#######################################
-# ACCESSIBILITY
-#######################################
-
-echo "Accessibility: Use ⌘+scroll gesture to Zoom"
-defaults write "com.apple.universalaccess" "closeViewScrollWheelToggle" '1'
-defaults write "com.apple.driver.AppleBluetoothMultitouch.trackpad" "HIDScrollZoomModifierMask" '1048576'
-
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
