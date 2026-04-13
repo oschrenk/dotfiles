@@ -2,7 +2,22 @@
 
 These are my dotfiles.
 
-## Install new machine
+## Bootstrap
+
+Install homebrew
+
+```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+# temporary setup path in zsh until we have fish
+eval "$(/opt/homebrew/bin/brew shellenv)"
+```
+
+Install chezmoi and requirements
+
+```sh
+brew install chezmoi git git-lfs age 1password-cli
+git lfs install
+```
 
 Name your machine
 
@@ -22,21 +37,7 @@ Check chezmois idea of the hostname via:
 chezmoi execute-template '{{ .chezmoi.hostname }}'
 ```
 
-Install homebrew and bootstrap requirements
-
-```sh
-# install homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-# temporary setup path in zsh until we have fish
-eval "$(/opt/homebrew/bin/brew shellenv)"
-
-# install chezmoi and requirements
-brew install chezmoi git git-lfs age 1password-cli
-git lfs install
-```
-
-- Setup 1Password and sync the vaults
-- Initialize chezmoi
+Setup 1Password and sync the vaults, then initialize chezmoi
 
 ```
 chezmoi init oschrenk/dotfiles
