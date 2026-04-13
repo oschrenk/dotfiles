@@ -28,6 +28,7 @@
             ./modules/finder.nix
             ./modules/hotkeys.nix
             ./modules/keyboard.nix
+            ./modules/menubar.nix
             ./modules/pam.nix
             ./hosts/maxbook.nix
           ];
