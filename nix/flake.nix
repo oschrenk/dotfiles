@@ -17,6 +17,7 @@
           ./modules/common.nix
           ./modules/dock.nix
           ./modules/finder.nix
+          ./modules/hotkeys.nix
           ./modules/keyboard.nix
           ./modules/pam.nix
           ./hosts/maxbook.nix
