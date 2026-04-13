@@ -12,14 +12,6 @@ echo "Keyboard shortcut: Disable ^→, and ^← to switch spaces"
 plutil -replace AppleSymbolicHotKeys.79.enabled -bool NO ~/Library/Preferences/com.apple.symbolichotkeys.plist
 plutil -replace AppleSymbolicHotKeys.81.enabled -bool NO ~/Library/Preferences/com.apple.symbolichotkeys.plist
 
-#######################################
-# TIME MACHINE
-#######################################
-
-echo "Time Machine: Exclude directories from Time Machine backups"
-tmutil addexclusion ~/Downloads
-tmutil addexclusion ~/Movies
-
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
