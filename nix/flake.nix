@@ -21,6 +21,7 @@
       darwinConfigurations = {
         "Olivers-MaxBook" = nix-darwin.lib.darwinSystem {
           modules = [
+            ./modules/accessibility.nix
             ./modules/common.nix
             ./modules/dock.nix
             ./modules/finder.nix
