@@ -9,11 +9,11 @@
   system.defaults.NSGlobalDomain = {
     # Key repeat rate — default: 2 (30ms), normal minimum: 2
     # Experiment with speeds: https://mac-os-key-repeat.vercel.app/
-    KeyRepeat = 3;
+    KeyRepeat = 5;
 
     # Initial key repeat delay — default: 68 (1020ms), normal minimum: 15 (225ms)
     # Experiment with speeds: https://mac-os-key-repeat.vercel.app/
-    InitialKeyRepeat = 5;
+    InitialKeyRepeat = 10;
 
     # Disable auto capitalization
     NSAutomaticCapitalizationEnabled = false;
