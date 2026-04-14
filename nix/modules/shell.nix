@@ -18,6 +18,7 @@
   # Register the user so nix-darwin can manage their shell
   users.knownUsers = [ config.system.primaryUser ];
   users.users.${config.system.primaryUser} = {
+    # uid 501 is the first user on macOS — reliable in practice
     uid = 501;
     home = "/Users/${config.system.primaryUser}";
     shell = pkgs.fish;
