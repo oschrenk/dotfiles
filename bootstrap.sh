@@ -27,10 +27,14 @@ fi
 # ensure brew is on PATH in this session
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# Install chezmoi and requirements
-step "Installing chezmoi and requirements..."
-brew install chezmoi git git-lfs age 1password-cli
-git lfs install
-
 echo
-echo "Done."
+echo "Done. Next steps:"
+echo
+echo "  1. Run nix-darwin (installs chezmoi, git, git-lfs, age, fish via Homebrew):"
+echo "     sudo nix run nix-darwin -- switch --flake <dotfiles>/nix#\$(hostname -s)"
+echo
+echo "  2. Set up git-lfs:"
+echo "     git lfs install"
+echo
+echo "  3. Initialize chezmoi:"
+echo "     chezmoi init oschrenk/dotfiles"
