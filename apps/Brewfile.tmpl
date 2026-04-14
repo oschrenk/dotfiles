@@ -259,7 +259,7 @@ brew "yt-dlp"      # a/v, download youtube video/audio
 # BREWS (GUI-dependent)
 #######################################
 {{ if has "gui" .tags -}}
-brew "alcove"        # macos, notch helper
+cask "alcove"        # macos, notch helper
 brew "cristianoliveira/tap/aerospace-scratchpad" # aerospace, scratchpad
 brew "chrome-cli"    # cli, control chrome via cli
 brew "displayplacer" # macos, arrange monitors
@@ -326,8 +326,8 @@ cask "oschrenk/personal/font-sf-mono-nerd-font"
 # Casks
 #######################################
 
-# claude is shared
-cask "container"              # cli, containerization from Apple
+cask "claude-code"            # ai, claude
+brew "container"              # cli, containerization from Apple
 
 {{ if has "work" .tags -}}
 cask "gcloud-cli"             # cloud, google cloud cli including gcloud
