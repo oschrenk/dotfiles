@@ -24,6 +24,7 @@
             ./modules/common.nix
             ./modules/homebrew.nix
             ./modules/pam.nix
+            ./modules/shell.nix
             ./modules/system/accessibility.nix
             ./modules/system/desktop.nix
             ./modules/system/dock.nix

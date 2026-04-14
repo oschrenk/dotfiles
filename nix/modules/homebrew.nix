@@ -8,7 +8,6 @@ let
   bootstrap = [
     "age" # cryptography, encryption tool
     "chezmoi" # dotfiles manager
-    "fish" # shell
     "git" # git, dvcs
     "git-lfs" # git, large file storage
   ];
