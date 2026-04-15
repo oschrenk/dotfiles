@@ -16,29 +16,13 @@ tap "txn2/tap"                # kubefwd
 
 # You can list all packages installed via `brew leaves`
 
-{{ if has "gui" .tags -}}
-cask "1password"          # password manager
-cask "aerospace"          # window manager
-cask "arc"                # chromium based browser
-cask "ghostty"            # terminal
-cask "intellij-idea"      # jetbrains ide
-cask "karabiner-elements" # customize keyboard
-cask "obsidian"           # notes
-cask "spotify"            # audio client
-{{ end -}}
-
 #######################################
 # Xcode
 #######################################
 # Installing XCode is VERY slow, but it
 # is required by a handful of packages
 #
-{{ if has "gui" .tags -}}
-# Only on Personal machine
-brew "xcodes"      # xcode & runtimes manager
-mas "XCode", id: 497799835
-mas "Apple Developer", id: 640199958
-{{ end -}}
+# NOTE: managed by nix (modules/brew/gui.nix)
 
 #######################################
 # Packages
@@ -232,73 +216,6 @@ brew "xvid"        # a/v, mp4 lib
 brew "yt-dlp"      # a/v, download youtube video/audio
 
 #######################################
-# BREWS (GUI-dependent)
-#######################################
-{{ if has "gui" .tags -}}
-cask "alcove"        # macos, notch helper
-brew "cristianoliveira/tap/aerospace-scratchpad" # aerospace, scratchpad
-brew "chrome-cli"    # cli, control chrome via cli
-brew "displayplacer" # macos, arrange monitors
-brew "fileicon"      # macos, manage icons
-brew "iconsur"       # macos, fetch icons
-brew "infat"         # macos, set default filetypes
-brew "kanata"        # system, keyboard mapper
-brew "m1ddc"         # hardware, monitor control
-brew "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
-brew "oschrenk/made/mission" # macos, task managment
-brew "oschrenk/made/nightshift" # hardware, control Night Shift
-brew "oschrenk/made/wallpaper" # macos, set wallpaper
-brew "sketchybar"    # macos, custom statusbar
-brew "spicetify-cli" # spotify ricing
-{{ end -}}
-
-#######################################
-# Apps
-#######################################
-{{ if has "gui" .tags -}}
-mas "DeskRest", id: 6751417411             # health
-mas "Due", id: 524373870                   # reminders on steroid
-mas "Keynote", id: 409183694               # make slides
-mas "Klack", id: 6446206067                # keyboard
-mas "NextDNS", id: 1464122853              # dns blocking
-mas "NordVPN", id: 905953485               # NordVPN
-# mas "Numbers", id: 409203825               # excel
-# mas "Pages", id: 409201541                 # docs
-mas 'Parcel', id: 375589283                # Shipment tracking
-mas "Reeder", id: 1529448980               # rss
-{{ end -}}
-
-# install on server for access to health data
-mas "Health Auto Export", id: 1115567069   # export apple health data
-
-#######################################
-# Safari extensions
-#######################################
-{{ if has "gui" .tags -}}
-mas "1Password for Safari", id: 1569813296
-mas "Dark Reader for Safari", id: 1438243180
-mas "DeArrow", id: 6451469297
-mas "Obsidian Web Clipper", id: 6720708363
-mas "SponsorBlock", id: 1573461917
-mas "Vimlike", id: 1584519802
-mas "uBlock Origin Lite", id: 6745342698
-{{ end -}}
-
-#######################################
-# Fonts
-#######################################
-# fonts are cheap
-
-cask "sf-symbols"  # preview sf symbols
-cask "font-jetbrains-mono-nerd-font"
-cask "font-maple-mono-nf"
-cask "font-open-sans"
-cask "font-roboto-mono"
-cask "font-roboto-mono-nerd-font"
-cask "font-sf-pro"
-cask "oschrenk/personal/font-sf-mono-nerd-font"
-
-#######################################
 # Casks
 #######################################
 
@@ -307,56 +224,29 @@ brew "container"              # cli, containerization from Apple
 
 {{ if has "work" .tags -}}
 cask "gcloud-cli"             # cloud, google cloud cli including gcloud
+cask "dbeaver-community"      # sql client
+cask "docker-desktop"         # docker client
+cask "openvpn-connect"        # vpn
 {{ end -}}
 
-{{ if has "gui" .tags -}}
-cask "antinote"               # notes with SoulverCore
-cask "calibre"               # ebook manager
-cask "discord"               # discord client
-cask "firefox"                # browser
-cask "google-chrome"          # browser
-cask "handbrake-app"         # video transcoder
-cask "hex-fiend"             # hex editor
-cask "huggingchat"            # chat client for local llm
-cask "iina"                  # video client
-cask "jdk-mission-control"    # monitor java applications
-cask "keyboardcleantool"      # disables keyboard for cleaning
-cask "keycastr"              # shows key strokes on screen
-cask "knockknock"            # identify background tasks/processes
-cask "mochi"                 # study notes and flashcards
-cask "monodraw"               # draw ascii diagrams
-cask "neovide-app"            # neovim desktop app
-cask "numi"                  # calculator
-cask "omnidisksweeper"       # cleanup disk space
-cask "onyx"                  # macos maintenance
-cask "pika"                   # Color Picker
-cask "shortcat"               # macos, vim picker
-cask "signal"                # signal messaging
-cask "slack"                 # slack office communication
-cask "telegram"              # telegram messaging
-cask "the-unarchiver"        # unarchiving most archive files
-cask "transmission"          # torrent client
-cask "vlc"                   # video client
-cask "whatsapp"              # whatsapp messaging
-cask "yellowdot"              # Hide screen/audio indicator
+#######################################
+# Apps
+#######################################
 
-  # Only on thicc machine (MacBook Pro)
-  {{ if has "thicc" .tags -}}
-  cask "8bitdo-ultimate-software" # controller
-  cask "elgato-control-center" # elgato software to control lights
-  cask "live-home-3d"          # home designer
-  cask "rode-central"          # rode companion app (for AI-1)
-  cask "steam"                 # games
-  mas "Affinity Designer 2", id: 1616831348  # vector editing
-  mas "Affinity Photo 2", id: 1616822987     # raster editing
-  mas "Affinity Publisher 2", id: 1606941598 # book publishing
-  {{ end -}} # of has "thicc"
+# install on server for access to health data
+mas "Health Auto Export", id: 1115567069   # export apple health data
 
-  # Only on Work machine
-  {{ if has "work" .tags -}}
-  cask "dbeaver-community"      # sql client
-  cask "docker-desktop"         # docker client
-  cask "openvpn-connect"       # vpn
-  {{ end -}} # of has "work"
-{{ end -}} # of has "gui"
-
+#######################################
+# Thicc machine (MacBook Pro)
+#######################################
+# NOTE: will move to nix hosts/maxbook.nix
+{{ if has "thicc" .tags -}}
+cask "8bitdo-ultimate-software" # controller
+cask "elgato-control-center" # elgato software to control lights
+cask "live-home-3d"          # home designer
+cask "rode-central"          # rode companion app (for AI-1)
+cask "steam"                 # games
+mas "Affinity Designer 2", id: 1616831348  # vector editing
+mas "Affinity Photo 2", id: 1616822987     # raster editing
+mas "Affinity Publisher 2", id: 1606941598 # book publishing
+{{ end -}}

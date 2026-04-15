@@ -44,6 +44,13 @@ in
 
     taps = [
       "oschrenk/made" # tools created by oschrenk
+      "oschrenk/personal" # personal casks and fonts
+      "nikitabobko/tap" # aerospace
+      "felixkratz/formulae" # sketchybar
+      "cristianoliveira/tap" # aerospace-scratchpad
+      "keith/formulae" # reminders-cli
+      "sass/sass" # sass
+      "txn2/tap" # kubefwd
     ];
 
     brews = bootstrap ++ core;

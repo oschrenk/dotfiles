@@ -1,6 +1,11 @@
 { ... }:
 
 {
+  imports = [
+    ../modules/brew/fonts.nix
+    ../modules/brew/gui.nix
+  ];
+
   # MaxBook-specific configuration
 
   # Apple Silicon — use x86_64-darwin for Intel Macs
