@@ -236,17 +236,3 @@ cask "openvpn-connect"        # vpn
 # install on server for access to health data
 mas "Health Auto Export", id: 1115567069   # export apple health data
 
-#######################################
-# Thicc machine (MacBook Pro)
-#######################################
-# NOTE: will move to nix hosts/maxbook.nix
-{{ if has "thicc" .tags -}}
-cask "8bitdo-ultimate-software" # controller
-cask "elgato-control-center" # elgato software to control lights
-cask "live-home-3d"          # home designer
-cask "rode-central"          # rode companion app (for AI-1)
-cask "steam"                 # games
-mas "Affinity Designer 2", id: 1616831348  # vector editing
-mas "Affinity Photo 2", id: 1616822987     # raster editing
-mas "Affinity Publisher 2", id: 1606941598 # book publishing
-{{ end -}}
