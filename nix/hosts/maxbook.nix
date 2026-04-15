@@ -6,6 +6,7 @@
     ../modules/brew/fonts.nix
     ../modules/brew/gui.nix
     ../modules/brew/server.nix
+    ../modules/brew/work.nix
   ];
 
   # MaxBook-specific configuration
