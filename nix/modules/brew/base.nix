@@ -159,6 +159,7 @@
 
     # a/v + personal
     "asciinema" # a/v, record terminal sessions
+    "container" # cli, containerization from Apple
     "coursier" # jvm, scala, artifact fetching
     "doggo" # network, dns client
     "exiftool" # a/v, read/write exif
@@ -176,6 +177,7 @@
     "poppler" # pdf, engine and extractor
     "sbt" # jvm, scala
     "scala" # jvm, scala
+    "speedtest-cli" # network, speedtest
     "tag" # terminal, interact with macOS file tags
     "tfenv" # devops, terraform version manager
     "typst" # typst, tex alternative (rust based)
@@ -183,7 +185,6 @@
     "x264" # a/v, h264 encoder
     "xvid" # a/v, mp4 lib
     "yt-dlp" # a/v, download youtube video/audio
-    "container" # cli, containerization from Apple
   ];
 
   homebrew.casks = [
