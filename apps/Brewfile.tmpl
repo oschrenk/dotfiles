@@ -168,25 +168,6 @@ brew "swiftformat"   # swift, format
 brew "swiftlint"     # swift, lint, requires Xcode
 brew "swiftly"       # swift, toolchain manager
 
-# only on work machine
-{{ if has "work" .tags -}}
-brew "awscli"      # devops, aws
-brew "flyway"    # sql, database migrations
-brew "gradle"    # kotlin, build tool
-brew "hadolint"  # docker, linter
-brew "jira-cli"  # cli, interact with jira
-brew "kubelogin" # k8s, openid auth plugin
-brew "logcli"    # o11y, query loki
-brew "mysql-client@8.0" # mysql, client
-brew "skopeo"    # docker, registry inspect
-brew "sleek"     # sql, formatter
-brew "snyk-cli"  # security, cli, scan for security vulnerabilities
-brew "sqlfluff"  # sql, formatter
-brew "stern"     # k8s, log "aggregator"
-brew "traefik"   # k8s, reverse proxy
-brew "velero"    # k8s, backup/recovery
-brew "websocat"  # cli, websocket
-{{ end -}}
 
 brew "asciinema"   # a/v, record terminal sessions
 brew "coursier"    # jvm, scala, artifact fetching
@@ -221,12 +202,6 @@ brew "yt-dlp"      # a/v, download youtube video/audio
 cask "claude-code"            # ai, claude
 brew "container"              # cli, containerization from Apple
 
-{{ if has "work" .tags -}}
-cask "gcloud-cli"             # cloud, google cloud cli including gcloud
-cask "dbeaver-community"      # sql client
-cask "docker-desktop"         # docker client
-cask "openvpn-connect"        # vpn
-{{ end -}}
 
 #######################################
 # Apps
