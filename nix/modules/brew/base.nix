@@ -3,6 +3,24 @@
 # Homebrew packages installed on every machine regardless of role.
 {
   homebrew.brews = [
+    # bootstrap — required before chezmoi can run
+    "age" # cryptography, encryption tool
+    "chezmoi" # dotfiles manager
+    "git" # git, dvcs
+    "git-lfs" # git, large file storage
+
+    # core — essential tools, machine usable without anything else
+    "atuin" # cli, improved shell history
+    "fd" # system, fast find alternative
+    "findutils" # system, GNU g-prefixed find, xargs
+    "fzf" # cli, fuzzy finder
+    "mas" # cli, Mac App Store interface
+    "neovim" # editor
+    "oschrenk/made/sessionizer" # tmux, manage sessions
+    "ripgrep" # system, recursive search
+    "starship" # shell, prompt
+    "tmux" # cli, terminal multiplexer
+
     # core (cli)
     "blueutil" # system, get/set bluetooth from terminal
     "coreutils" # system, GNU core utilities
@@ -168,6 +186,7 @@
   ];
 
   homebrew.casks = [
+    "1password-cli" # password manager, cli
     "claude-code" # ai, claude
   ];
 
