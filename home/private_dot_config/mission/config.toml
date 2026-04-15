@@ -6,12 +6,12 @@ path = "$HOME/Obsidian/memex"
 
 [[journals.default]]
 vault     = "memex"
-path      = "$HOME/Obsidian/memex/10 Journals/Personal"
+path      = "$HOME/Obsidian/memex/40 Journals/Personal"
 extension = "md"
 
 [[journals.work]]
 vault     = "memex"
-path      = "$HOME/Obsidian/memex/10 Journals/Work"
+path      = "$HOME/Obsidian/memex/40 Journals/Work"
 extension = "md"
 
 [sketchybar]
