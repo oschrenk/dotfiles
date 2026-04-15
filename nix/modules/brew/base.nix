@@ -47,6 +47,7 @@
 
     # productivity
     "keith/formulae/reminders-cli" # cli, reminders
+    "keith/formulae/zap" # cli, uninstall macOS apps
     "glow" # cli, render markdown in terminal
     "oschrenk/made/plan" # cli, fetch next event
     "zola" # web, blogging engine
