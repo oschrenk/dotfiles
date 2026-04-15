@@ -4,7 +4,6 @@
 # Import this module in the host file for any GUI machine.
 {
   homebrew.brews = [
-    "xcodes" # xcode & runtimes manager
     "cristianoliveira/tap/aerospace-scratchpad" # aerospace, scratchpad
     "chrome-cli" # cli, control chrome via cli
     "displayplacer" # macos, arrange monitors
@@ -19,10 +18,10 @@
     "oschrenk/made/wallpaper" # macos, set wallpaper
     "sketchybar" # macos, custom statusbar
     "spicetify-cli" # spotify ricing
+    "xcodes" # xcode & runtimes manager
   ];
 
   homebrew.casks = [
-    # apps
     "1password" # password manager
     "aerospace" # window manager
     "alcove" # macos, notch helper
@@ -39,22 +38,26 @@
     "iina" # video client
     "intellij-idea" # jetbrains ide
     "jdk-mission-control" # monitor java applications
+    "jdownloader" # download manager
     "karabiner-elements" # customize keyboard
     "keyboardcleantool" # disables keyboard for cleaning
     "keycastr" # shows key strokes on screen
     "knockknock" # identify background tasks/processes
+    "lulu" # firewall, block unknown outgoing connections
     "mochi" # study notes and flashcards
     "monodraw" # draw ascii diagrams
     "neovide-app" # neovim desktop app
     "numi" # calculator
     "obsidian" # notes
     "omnidisksweeper" # cleanup disk space
+    "openoats" # meeting note-taker, transcribes calls
     "onyx" # macos maintenance
     "pika" # color picker
     "shortcat" # macos, vim picker
     "signal" # signal messaging
     "slack" # slack office communication
     "spotify" # audio client
+    "tailscale-app" # vpn, mesh network
     "telegram" # telegram messaging
     "the-unarchiver" # unarchiving most archive files
     "transmission" # torrent client

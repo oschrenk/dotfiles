@@ -5,7 +5,7 @@
 {
   homebrew.casks = [
     "font-jetbrains-mono-nerd-font"
-    "font-maple-mono-nf"
+    "font-maple-mono-normal-nf"
     "font-open-sans"
     "font-roboto-mono"
     "font-roboto-mono-nerd-font"
