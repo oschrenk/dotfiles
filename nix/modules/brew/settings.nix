@@ -12,8 +12,7 @@
       #   none      — don't remove anything (safe during migration)
       #   uninstall — remove unlisted packages
       #   zap       — remove unlisted packages + associated data
-      # TODO: switch to "zap" once fully migrated from chezmoi Brewfile
-      cleanup = "none";
+      cleanup = "zap";
       # Update Homebrew on each activation
       autoUpdate = true;
     };
