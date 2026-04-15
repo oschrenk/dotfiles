@@ -58,11 +58,6 @@ brew "glow"          # cli, render markdown in terminal
 brew "oschrenk/made/plan" # cli, fetch next event
 brew "zola"          # web, blogging engine
 
-{{ if has "server" .tags -}}
-brew "oschrenk/personal/obsidian-headless" # cli
-brew "oschrenk/personal/msgvault" # cli, archive email
-{{ end -}}
-
 # ai
 brew "llm"           # ai, llm on cli
 brew "ollama"        # ai, local models
@@ -201,7 +196,6 @@ brew "yt-dlp"      # a/v, download youtube video/audio
 
 cask "claude-code"            # ai, claude
 brew "container"              # cli, containerization from Apple
-
 
 #######################################
 # Apps

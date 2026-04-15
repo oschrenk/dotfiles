@@ -4,6 +4,7 @@
   imports = [
     ../modules/brew/fonts.nix
     ../modules/brew/gui.nix
+    ../modules/brew/server.nix
   ];
 
   # MaxBook-specific configuration
