@@ -174,9 +174,6 @@
     # terraform
     "tfenv" # devops, terraform version manager
 
-    # typst
-    "typst" # typst, tex alternative (rust based)
-
     # a/v + personal
     "asciinema" # a/v, record terminal sessions
     "container" # cli, containerization from Apple
