@@ -1,1 +1,1 @@
-source "$(nix-direnv-find)/share/nix-direnv/direnvrc"
+source "$(nix eval --raw nixpkgs#nix-direnv)/share/nix-direnv/direnvrc"
