@@ -143,10 +143,6 @@
     "oschrenk/personal/scip" # cli, source indexer
     "oschrenk/personal/scip-typescript" # cli, index ts
 
-    # pkl
-    "pkl" # pkl, language
-    "pkl-lsp" # pkl, lsp
-
     # python
     "poetry" # python, package manager
     "pyenv" # python, version manager
