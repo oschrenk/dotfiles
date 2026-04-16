@@ -54,8 +54,9 @@
     # ai
     "llm" # ai, llm on cli
     "ollama" # ai, local models
-    "oschrenk/personal/dora" # ai, navigate code with scip
     "oschrenk/made/meter" # ai, claude, measure usage
+    "oschrenk/personal/dora" # ai, navigate code with scip
+    "oschrenk/personal/lightpanda" # ai, headless browser
     "tweakcc" # ai, claude, customize
 
     # data
