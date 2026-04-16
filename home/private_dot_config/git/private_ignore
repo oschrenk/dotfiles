@@ -341,5 +341,8 @@ vendor/
 TODO.md
 .scannerwork
 
-
+# Claude
 **/.claude/settings.local.json
+
+# direnv
+.direnv/
