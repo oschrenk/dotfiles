@@ -60,3 +60,56 @@ task nix-fmt
   - See: https://github.com/nix-darwin/nix-darwin/blob/master/CHANGELOG.md
 - `nixpkgs-unstable` — used to avoid nix-darwin modules breaking on missing nixpkgs features
 - All changes are applied via `darwin-rebuild switch`, analogous to `chezmoi apply`
+
+## Dev Shells
+
+Per-project development environments via [nix-direnv](https://github.com/nix-direnv/nix-direnv).
+
+### Basic setup
+
+Add a `flake.nix` to the project:
+
+```nix
+{
+  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
+  outputs =
+    { nixpkgs, ... }:
+    {
+      devShells.aarch64-darwin.default = nixpkgs.legacyPackages.aarch64-darwin.mkShell {
+        packages = with nixpkgs.legacyPackages.aarch64-darwin; [
+          kotlin
+          ktfmt
+          ktlint
+        ];
+      };
+    };
+}
+```
+
+Add `use flake` to `.envrc` or `.envrc.local`. First activation downloads packages; subsequent ones are instant from cache.
+
+### For company repos (can't commit flake.nix)
+
+Add to local gitignore (not committed):
+
+```bash
+echo "flake.nix" >> .git/info/exclude
+echo "flake.lock" >> .git/info/exclude
+```
+
+### Symlinked flake.nix (via infuse)
+
+Nix resolves symlinks and checks git tracking against the wrong repo, causing:
+
+```
+error: Path '.../flake.nix' does not exist in Git repository "/path/to/project"
+```
+
+Workaround — resolve the symlink before passing to nix in `.envrc.local`:
+
+```bash
+use flake "$(dirname $(readlink -f ./flake.nix))"
+```
+
+This points nix at the infuse-managed repo where `flake.nix` is actually tracked.
