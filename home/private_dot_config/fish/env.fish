@@ -91,6 +91,9 @@ set -gx CLAUDE_CONFIG_DIR $XDG_CONFIG_HOME/claude/personal
 # claude aggresively updates itself, let's turn that off
 set -gx CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC 1
 
+# Lightpanda
+set -gx LIGHTPANDA_DISABLE_TELEMETRY true
+
 #############################
 # homebrew
 #############################
