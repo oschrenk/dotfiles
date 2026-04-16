@@ -1,0 +1,17 @@
+{
+  "search_directories": [
+    "~"
+  ],
+  "ignored_directories": [
+    "~/.Trash",
+    "~/Applications",
+    "~/Downloads",
+    "~/Library",
+    "~/Movies",
+    "~/Music",
+    "~/Pictures"
+  ],
+  "whitelist_patterns": [],
+  "threads": 2,
+  "debounce_duration": "2s"
+}

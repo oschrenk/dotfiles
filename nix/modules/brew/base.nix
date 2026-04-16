@@ -92,6 +92,7 @@
     "oschrenk/made/arbol" # git, repository manager
     "oschrenk/made/infuse" # git, repository mixer
     "worktrunk" # git, worktree management
+    "IohannRabeson/tap/tmignore-rs" # git, ignore files in tmux
 
     # golang
     "go" # go, language
