@@ -45,11 +45,15 @@
     "minisign" # cryptography, sign files and verify signatures
 
     # productivity
-    "keith/formulae/reminders-cli" # cli, reminders
-    "keith/formulae/zap" # cli, uninstall macOS apps
     "glow" # cli, render markdown in terminal
     "oschrenk/made/plan" # cli, fetch next event
     "zola" # web, blogging engine
+
+    # macos
+    "keith/formulae/reminders-cli" # cli, reminders
+    "keith/formulae/zap" # cli, uninstall macOS apps
+    "IohannRabeson/tap/tmignore-rs" # git, ignore files in tmux
+    "tag" # terminal, interact with macOS file tags
 
     # ai
     "llm" # ai, llm on cli
@@ -92,7 +96,6 @@
     "oschrenk/made/arbol" # git, repository manager
     "oschrenk/made/infuse" # git, repository mixer
     "worktrunk" # git, worktree management
-    "IohannRabeson/tap/tmignore-rs" # git, ignore files in tmux
 
     # golang
     "go" # go, language
@@ -179,7 +182,6 @@
     "sbt" # jvm, scala
     "scala" # jvm, scala
     "speedtest-cli" # network, speedtest
-    "tag" # terminal, interact with macOS file tags
     "tfenv" # devops, terraform version manager
     "typst" # typst, tex alternative (rust based)
     "uv" # python package manager
