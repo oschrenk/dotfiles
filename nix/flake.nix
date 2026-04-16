@@ -22,6 +22,7 @@
         "Olivers-MaxBook" = nix-darwin.lib.darwinSystem {
           modules = [
             ./modules/common.nix
+            ./modules/packages.nix
             ./modules/brew/settings.nix
             ./modules/pam.nix
             ./modules/shell.nix
