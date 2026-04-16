@@ -4,7 +4,6 @@
 # Import this module in the host file for any work machine.
 {
   homebrew.brews = [
-    "awscli" # devops, aws
     "flyway" # sql, database migrations
     "gradle" # kotlin, build tool
     "hadolint" # docker, linter
