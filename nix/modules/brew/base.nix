@@ -113,11 +113,6 @@
     "minikube" # k8s, run local k8s
     "txn2/tap/kubefwd" # k8s, bulk port forwarding
 
-    # kotlin
-    "kotlin" # kotlin
-    "ktfmt" # kotlin, formatter
-    "ktlint" # kotlin, formatter
-
     # lua
     "lua" # lua, programming language
     "lua-language-server" # lua, lsp
