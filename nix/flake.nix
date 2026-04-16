@@ -25,17 +25,17 @@
             ./modules/brew/settings.nix
             ./modules/pam.nix
             ./modules/shell.nix
-            ./modules/system/accessibility.nix
-            ./modules/system/desktop.nix
-            ./modules/system/dock.nix
-            ./modules/system/finder.nix
-            ./modules/system/hotkeys.nix
-            ./modules/system/keyboard.nix
-            ./modules/system/menubar.nix
-            ./modules/system/screenshots.nix
-            ./modules/system/siri.nix
-            ./modules/system/spotlight.nix
-            ./modules/system/timemachine.nix
+            ./modules/system/defaults/accessibility.nix
+            ./modules/system/defaults/desktop.nix
+            ./modules/system/defaults/dock.nix
+            ./modules/system/defaults/finder.nix
+            ./modules/system/defaults/hotkeys.nix
+            ./modules/system/defaults/keyboard.nix
+            ./modules/system/defaults/menubar.nix
+            ./modules/system/defaults/screenshots.nix
+            ./modules/system/defaults/siri.nix
+            ./modules/system/defaults/spotlight.nix
+            ./modules/system/defaults/timemachine.nix
             ./hosts/maxbook.nix
           ];
         };
