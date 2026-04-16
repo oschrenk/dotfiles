@@ -1,0 +1,1 @@
+source "$(nix-direnv-find)/share/nix-direnv/direnvrc"

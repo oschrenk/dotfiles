@@ -25,7 +25,6 @@
     "blueutil" # system, get/set bluetooth from terminal
     "coreutils" # system, GNU core utilities
     "curl" # system, download things
-    "direnv" # system, auto load env
     "gawk" # system, GNU awk utility
     "htop" # system, improved top
     "lsd" # system, "better" ls
