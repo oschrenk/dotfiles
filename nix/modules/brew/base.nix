@@ -171,9 +171,6 @@
     "pandoc" # docs, document converter
     "poppler" # pdf, engine and extractor
 
-    # terraform
-    "tfenv" # devops, terraform version manager
-
     # a/v + personal
     "asciinema" # a/v, record terminal sessions
     "container" # cli, containerization from Apple
