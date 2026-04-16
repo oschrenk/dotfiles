@@ -148,10 +148,6 @@
     # rust
     "rust" # rust, language
 
-    # scala
-    "sbt" # jvm, scala
-    "scala" # jvm, scala
-
     # swift
     "swiftformat" # swift, format
     "swiftlint" # swift, lint, requires Xcode
