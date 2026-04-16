@@ -34,7 +34,6 @@
     "tree" # system, print file tree
     "watch" # system, issue commands at regular interval
     "smartmontools" # hardware, harddrive, read ssd info
-    "telnet" # network, telnet protocol
 
     # extra (cli)
     "shellcheck" # shell, linter
@@ -137,6 +136,7 @@
     "yarn" # javascript, package manager
 
     # jvm
+    "coursier" # jvm, scala, artifact fetching
     "openjdk@17" # jvm, sdk
     "openjdk@21" # jvm, sdk
     "openjdk" # jvm, sdk
@@ -152,39 +152,49 @@
     "pyenv" # python, version manager
     "python@3.13" # python, language
     "python@3.14" # python, language
+    "uv" # python package manager
 
     # rust
     "rust" # rust, language
+
+    # scala
+    "sbt" # jvm, scala
+    "scala" # jvm, scala
 
     # swift
     "swiftformat" # swift, format
     "swiftlint" # swift, lint, requires Xcode
     "swiftly" # swift, toolchain manager
 
-    # a/v + personal
-    "asciinema" # a/v, record terminal sessions
-    "container" # cli, containerization from Apple
-    "coursier" # jvm, scala, artifact fetching
+    # network
     "doggo" # network, dns client
-    "exiftool" # a/v, read/write exif
-    "ffmpeg" # a/v, convert audio/video
-    "flac" # a/v, flac codec
-    "gallery-dl" # a/v, download gallery
     "httrack" # network, copy websites offline
-    "lame" # a/v, mp3 codec
-    "libmp3splt" # a/v, split mp3, ogg, flac files
     "meli" # terminal, email client
     "mosh" # network, better shell for roaming
     "ngrep" # network, packet analyzer
     "nmap" # network, port scanning
+    "speedtest-cli" # network, speedtest
+    "telnet" # network, telnet protocol
+
+    # docs
     "pandoc" # docs, document converter
     "poppler" # pdf, engine and extractor
-    "sbt" # jvm, scala
-    "scala" # jvm, scala
-    "speedtest-cli" # network, speedtest
+
+    # terraform
     "tfenv" # devops, terraform version manager
+
+    # typst
     "typst" # typst, tex alternative (rust based)
-    "uv" # python package manager
+
+    # a/v + personal
+    "asciinema" # a/v, record terminal sessions
+    "container" # cli, containerization from Apple
+    "exiftool" # a/v, read/write exif
+    "ffmpeg" # a/v, convert audio/video
+    "flac" # a/v, flac codec
+    "gallery-dl" # a/v, download gallery
+    "lame" # a/v, mp3 codec
+    "libmp3splt" # a/v, split mp3, ogg, flac files
     "x264" # a/v, h264 encoder
     "xvid" # a/v, mp4 lib
     "yt-dlp" # a/v, download youtube video/audio
