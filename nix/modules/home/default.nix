@@ -4,6 +4,7 @@
   imports = [
     ./git.nix
     ./starship.nix
+    ./atuin.nix
   ];
 
   home.username = username;

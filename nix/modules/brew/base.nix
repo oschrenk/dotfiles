@@ -8,7 +8,6 @@
     "chezmoi" # dotfiles manager
 
     # core — essential tools, machine usable without anything else
-    "atuin" # cli, improved shell history
     "fd" # system, fast find alternative
     "findutils" # system, GNU g-prefixed find, xargs
     "fzf" # cli, fuzzy finder
