@@ -8,10 +8,18 @@
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     # pin nix-darwin to the same nixpkgs to avoid a second copy on disk
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager.url = "github:nix-community/home-manager";
+    # pin home-manager to the same nixpkgs to avoid a second copy on disk
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
-    { nix-darwin, nixpkgs, ... }:
+    {
+      nix-darwin,
+      nixpkgs,
+      home-manager,
+      ...
+    }:
     {
       # Official Nix formatter: https://github.com/NixOS/nixfmt
       # nixfmt-rfc-style in nixpkgs is the same tool, just a confusing alias
@@ -38,6 +46,8 @@
             ./modules/system/defaults/spotlight.nix
             ./modules/system/defaults/timemachine.nix
             ./hosts/maxbook.nix
+            home-manager.darwinModules.home-manager
+            ./modules/home-manager.nix
           ];
         };
       };

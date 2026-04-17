@@ -61,6 +61,36 @@ task nix-fmt
 - `nixpkgs-unstable` — used to avoid nix-darwin modules breaking on missing nixpkgs features
 - All changes are applied via `darwin-rebuild switch`, analogous to `chezmoi apply`
 
+## Home Manager
+
+User-level configuration via [home-manager](https://github.com/nix-community/home-manager), integrated into nix-darwin so `darwin-rebuild switch` applies both system and user config in one step.
+
+### Structure
+
+```
+nix/
+  modules/home-manager.nix  — wires HM into nix-darwin, derives username from system.primaryUser
+  modules/home/
+    default.nix             — entry point: home.username, home.homeDirectory, home.stateVersion
+    git.nix                 — programs.git (aliases, delta, lfs, ignores, attributes)
+    starship.nix            — programs.starship
+    atuin.nix               — programs.atuin
+```
+
+### What HM manages
+
+| Tool | Binary | Config |
+|------|--------|--------|
+| git + delta + git-lfs | nixpkgs (via HM) | `modules/home/git.nix` |
+| starship | nixpkgs (via HM) | `modules/home/starship.nix` |
+| atuin | nixpkgs (via HM) | `modules/home/atuin.nix` |
+
+chezmoi remains responsible for secrets, neovim, fish, and anything requiring direct editing.
+
+### Notes
+
+- `home.stateVersion` — set once to the HM version at first apply, never change it. Tells HM which backwards-incompatible state migrations to skip.
+
 ## Dev Shells
 
 Per-project development environments via [nix-direnv](https://github.com/nix-direnv/nix-direnv).
