@@ -87,9 +87,45 @@ nix/
 
 chezmoi remains responsible for secrets, neovim, fish, and anything requiring direct editing.
 
+### Supported programs
+
+HM has `programs.<name>` modules for these tools (among many others):
+
+```
+atuin  bat  direnv  fish  fzf  gh  git  htop  jq  neovim  ripgrep  starship  tmux  zoxide
+```
+
+Full list: https://home-manager-options.extranix.com — search by program name.
+
+Tools without a HM module can still be managed via `home.file` for stable, secret-free configs.
+
 ### Notes
 
 - `home.stateVersion` — set once to the HM version at first apply, never change it. Tells HM which backwards-incompatible state migrations to skip.
+
+## Pinning and updating packages
+
+All package versions are pinned by `nix/flake.lock`. To update:
+
+```fish
+# Update all inputs to their latest commits
+cd nix && nix flake update
+
+# Update a single input (e.g. nixpkgs only)
+cd nix && nix flake update nixpkgs
+
+# Then apply
+task nix
+```
+
+To pin an input to a specific commit (e.g. for a known-good nixpkgs):
+
+```nix
+# in flake.nix
+nixpkgs.url = "github:NixOS/nixpkgs/abc123def456";
+```
+
+Commit `flake.lock` after updates so the pinned state is reproducible across machines.
 
 ## Dev Shells
 
