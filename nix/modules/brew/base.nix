@@ -16,7 +16,6 @@
     "neovim" # editor
     "oschrenk/made/sessionizer" # tmux, manage sessions
     "ripgrep" # system, recursive search
-    "starship" # shell, prompt
     "tmux" # cli, terminal multiplexer
 
     # core (cli)

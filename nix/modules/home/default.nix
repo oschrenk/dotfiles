@@ -3,6 +3,7 @@
 {
   imports = [
     ./git.nix
+    ./starship.nix
   ];
 
   home.username = username;
