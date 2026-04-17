@@ -72,7 +72,7 @@ nix/
   modules/home-manager.nix  — wires HM into nix-darwin, derives username from system.primaryUser
   modules/home/
     default.nix             — entry point: home.username, home.homeDirectory, home.stateVersion
-    git.nix                 — programs.git (aliases, delta, lfs, ignores, attributes)
+    git.nix                 — programs.git + programs.delta (aliases, lfs, ignores, attributes)
     starship.nix            — programs.starship
     atuin.nix               — programs.atuin
 ```

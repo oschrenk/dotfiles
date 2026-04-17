@@ -2,7 +2,7 @@
 
 {
   imports = [
-    # each tool migration adds its import here
+    ./git.nix
   ];
 
   home.username = username;

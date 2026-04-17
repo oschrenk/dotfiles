@@ -6,8 +6,6 @@
     # bootstrap — required before chezmoi can run
     "age" # cryptography, encryption tool
     "chezmoi" # dotfiles manager
-    "git" # git, dvcs
-    "git-lfs" # git, large file storage
 
     # core — essential tools, machine usable without anything else
     "atuin" # cli, improved shell history
@@ -87,7 +85,6 @@
 
     # git
     "git-crypt" # git, encrypt secrets in git
-    "git-delta" # git, better looking diffs
     "git-extras" # git, nice git extras
     "git-open" # git, open git[hub/lab] urls
     "gh" # cli, interact with github
