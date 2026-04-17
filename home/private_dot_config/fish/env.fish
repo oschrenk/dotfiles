@@ -10,6 +10,13 @@
 #        (making it an "environment variable").
 
 #############################
+# NIX
+#############################
+
+# nix-darwin with useUserPackages installs HM packages here
+fish_add_path /etc/profiles/per-user/$USER/bin
+
+#############################
 # WELL KNOWN
 #############################
 
