@@ -39,6 +39,14 @@
     ACTION=="add", SUBSYSTEM=="usb", TEST=="power/control", ATTR{bDeviceClass}!="08", ATTR{power/control}="auto"
   '';
 
-  # CPU frequency governor — scales with load
+  # CPU frequency governor — schedutil integrates with the kernel scheduler,
+  # scales frequency proportionally to load (better than ondemand's threshold approach)
   powerManagement.cpuFreqGovernor = "schedutil";
+
+  # Disable ARM boost — nvmd enables arm_boost=1 by default, which turbos the Pi4
+  # from 1.5GHz to 1.8GHz. Not worth the extra power for a headless home server.
+  hardware.raspberry-pi.config.pi4.base-dt-params.arm_boost = {
+    enable = true;
+    value = "0";
+  };
 }
