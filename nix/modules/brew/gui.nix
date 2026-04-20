@@ -55,6 +55,7 @@
     "openoats" # meeting note-taker, transcribes calls
     "oschrenk/personal/mud" # markdown viewer
     "pika" # color picker
+    "raspberry-pi-imager" # flash raspberry pi images
     "shortcat" # macos, vim picker
     "signal" # signal messaging
     "slack" # slack office communication
