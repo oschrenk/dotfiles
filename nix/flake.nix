@@ -63,6 +63,16 @@
             ./hosts/pi-1.nix
           ];
         };
+
+        "pi-2" = nixos-raspberrypi.lib.nixosSystem {
+          specialArgs = inputs;
+          modules = [
+            nixos-raspberrypi.nixosModules.raspberry-pi-4.base
+            ./modules/nixos/base.nix
+            ./modules/nixos/pi4-hardware.nix
+            ./hosts/pi-2.nix
+          ];
+        };
       };
 
       darwinConfigurations = {
