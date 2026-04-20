@@ -50,8 +50,9 @@
     "numi" # calculator
     "obsidian" # notes
     "omnidisksweeper" # cleanup disk space
-    "openoats" # meeting note-taker, transcribes calls
     "onyx" # macos maintenance
+    "openoats" # meeting note-taker, transcribes calls
+    "oschrenk/personal/mud" # markdown viewer
     "pika" # color picker
     "shortcat" # macos, vim picker
     "signal" # signal messaging
