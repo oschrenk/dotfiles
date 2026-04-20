@@ -18,6 +18,17 @@
   # allow wheel group to use nix as trusted user — required for remote nixos-rebuild
   nix.settings.trusted-users = [ "@wheel" ];
 
+  # mDNS — advertise hostname on local network so Macs can reach pi-1.local etc.
+  # without needing static /etc/hosts entries or a DNS server
+  services.avahi = {
+    enable = true;
+    nssmdns4 = true;   # lets the Pi itself resolve .local names
+    publish = {
+      enable = true;
+      addresses = true; # broadcast this host's IP under its hostname
+    };
+  };
+
   # Use systemd-networkd instead of the default shell-script network stack —
   # more reliable, faster boot, better suited for headless servers
   networking.useNetworkd = true;
