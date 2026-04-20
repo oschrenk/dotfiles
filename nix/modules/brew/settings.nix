@@ -21,6 +21,7 @@
       "cristianoliveira/tap" # aerospace-scratchpad
       "felixkratz/formulae" # sketchybar
       "IohannRabeson/tap" # tmignore-rs
+      "johannesnagl/tap" # showmd
       "keith/formulae" # reminders-cli
       "nikitabobko/tap" # aerospace
       "oschrenk/made" # tools created by oschrenk
