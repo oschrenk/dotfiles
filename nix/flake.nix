@@ -111,6 +111,7 @@
             ./modules/system/defaults/siri.nix
             ./modules/system/defaults/spotlight.nix
             ./modules/system/defaults/timemachine.nix
+            ./modules/system/defaults/apps/com.apple.iCal.nix
             ./modules/system/defaults/apps/com.apple.mail.nix
             ./hosts/maxbook.nix
             home-manager.darwinModules.home-manager
