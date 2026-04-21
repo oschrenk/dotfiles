@@ -117,6 +117,7 @@
             ./modules/system/defaults/apps/com.reederapp.5.macos.nix
             ./modules/system/defaults/apps/com.jetbrains.intellij.nix
             ./modules/system/defaults/apps/com.nordvpn.nordvpn.nix
+            ./modules/system/defaults/apps/com.sproutcube.shortcat.nix
             ./modules/system/defaults/apps/company.thebrowser.browser.nix
             ./modules/system/defaults/apps/com.colliderli.iina.nix
             ./modules/system/defaults/apps/com.apple.mail.nix
