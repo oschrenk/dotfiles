@@ -1,6 +1,29 @@
 #!/bin/sh
 
-source ~/.local/share/chezmoi/home/.chezmoiscripts/run_onchange_03_configure_apps__helper.sh
+# modifier key legend: @ = command, ^ = control, ~ = option, $ = shift
+key_cmd='@'
+
+# Adds an app to the custom keyboard shortcuts allowlist (only once)
+# see https://github.com/ymendel/dotfiles/issues/1
+allowCustomKeyboardShortcutsForApp() {
+    local appName="$1"
+    if ! ( defaults read com.apple.universalaccess "com.apple.custommenu.apps" 2>/dev/null | grep -q "$appName" )
+    then
+        defaults write com.apple.universalaccess "com.apple.custommenu.apps" -array-add "$appName"
+    fi
+}
+
+askToRestartApps() {
+  for app in $*; do
+    if pgrep -xq "$app"; then
+      read -p "Do you want to restart $app? [y/(n)]: " yn
+      case $yn in
+          [Yy]* ) killall "$app" > /dev/null 2>&1; open -a "$app";;
+          * ) ;;
+      esac
+    fi
+  done
+}
 
 #######################################
 # KEYBOARD
