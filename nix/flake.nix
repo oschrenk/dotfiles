@@ -113,6 +113,8 @@
             ./modules/system/defaults/timemachine.nix
             ./modules/system/defaults/apps/com.apple.ical.nix
             ./modules/system/defaults/apps/com.apple.maps.nix
+            ./modules/system/defaults/apps/com.google.chrome.nix
+            ./modules/system/defaults/apps/com.reederapp.5.macos.nix
             ./modules/system/defaults/apps/com.jetbrains.intellij.nix
             ./modules/system/defaults/apps/com.nordvpn.nordvpn.nix
             ./modules/system/defaults/apps/company.thebrowser.browser.nix
