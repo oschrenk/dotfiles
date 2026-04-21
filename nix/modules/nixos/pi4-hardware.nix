@@ -53,6 +53,12 @@
     };
   };
 
+  # Disable ACT (green) and PWR (red) LEDs
+  systemd.tmpfiles.rules = [
+    "w /sys/class/leds/ACT/trigger - - - - none"
+    "w /sys/class/leds/PWR/trigger - - - - none"
+  ];
+
   # Disable HDMI + enable PCIe ASPM
   boot.kernelParams = [
     "video=HDMI-A-1:d" # HDMI off (saves ~25mA, takes effect after reboot)
