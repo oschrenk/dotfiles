@@ -21,6 +21,7 @@
     # pin home-manager to the same nixpkgs to avoid a second copy on disk
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
+    opnix.url = "github:brizzbuzz/opnix";
   };
 
   outputs =
@@ -30,6 +31,7 @@
       nixpkgs,
       home-manager,
       nixos-raspberrypi,
+      opnix,
       ...
     }@inputs:
     {
@@ -40,8 +42,7 @@
 
       # Bootstrap image — SSH key baked in, flash to USB, deploy pi-1 on first boot
       # Build: nix build .#packages.aarch64-linux.pi-image
-      packages.aarch64-linux.pi-image =
-        self.nixosConfigurations.pi.config.system.build.sdImage;
+      packages.aarch64-linux.pi-image = self.nixosConfigurations.pi.config.system.build.sdImage;
 
       nixosConfigurations = {
         # Bootstrap image config — uses nvmd sd-image module for proper RPi4 firmware
@@ -58,8 +59,10 @@
           specialArgs = inputs;
           modules = [
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
+            opnix.nixosModules.default
             ./modules/nixos/base.nix
             ./modules/nixos/pi4-hardware.nix
+            ./modules/nixos/secrets.nix
             ./hosts/pi-1.nix
           ];
         };
@@ -68,8 +71,10 @@
           specialArgs = inputs;
           modules = [
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
+            opnix.nixosModules.default
             ./modules/nixos/base.nix
             ./modules/nixos/pi4-hardware.nix
+            ./modules/nixos/secrets.nix
             ./hosts/pi-2.nix
           ];
         };
@@ -78,8 +83,10 @@
           specialArgs = inputs;
           modules = [
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
+            opnix.nixosModules.default
             ./modules/nixos/base.nix
             ./modules/nixos/pi4-hardware.nix
+            ./modules/nixos/secrets.nix
             ./hosts/pi-3.nix
           ];
         };

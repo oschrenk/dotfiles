@@ -1,4 +1,5 @@
-{ ... }: {
+{ ... }:
+{
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
@@ -14,7 +15,10 @@
 
   security.sudo.wheelNeedsPassword = false;
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
   # allow wheel group to use nix as trusted user — required for remote nixos-rebuild
   nix.settings.trusted-users = [ "@wheel" ];
 
@@ -22,7 +26,7 @@
   # without needing static /etc/hosts entries or a DNS server
   services.avahi = {
     enable = true;
-    nssmdns4 = true;   # lets the Pi itself resolve .local names
+    nssmdns4 = true; # lets the Pi itself resolve .local names
     publish = {
       enable = true;
       addresses = true; # broadcast this host's IP under its hostname
@@ -49,8 +53,6 @@
 
   system.stateVersion = "25.05";
 
-  # Tailscale — enabled but requires auth key to connect
-  # TODO: inject auth key via opnix (1Password)
   services.tailscale.enable = true;
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
 }
