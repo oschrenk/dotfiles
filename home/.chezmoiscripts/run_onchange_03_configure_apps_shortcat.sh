@@ -14,10 +14,10 @@ source ~/.local/share/chezmoi/home/.chezmoiscripts/run_onchange_03_configure_app
 
 echo "shortcat: Use Ctrl+F"
 echo "requires \"Settings > Keyboard > Keyboard Shortcuts > Windows > General > Fill\" to be deselected"
-/usr/libexec/PlistBuddy -c "Delete ':KeyboardShortcuts_toggleShortcat'" -c "Add ':KeyboardShortcuts_toggleShortcat' string '{"carbonModifiers":4096,"carbonKeyCode":3}'" "$HOME/Library/Preferences/com.sproutcube.Shortcat.plist"
+defaults write "com.sproutcube.Shortcat" "KeyboardShortcuts_toggleShortcat" '{"carbonModifiers":4096,"carbonKeyCode":3}'
 
 ###########################################################
 # Kill affected applications                              #
 ###########################################################
 
-askToRestartApps "IINA"
+askToRestartApps "Shortcat"
