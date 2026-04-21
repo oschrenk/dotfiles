@@ -112,6 +112,7 @@
             ./modules/system/defaults/spotlight.nix
             ./modules/system/defaults/timemachine.nix
             ./modules/system/defaults/apps/com.apple.ical.nix
+            ./modules/system/defaults/apps/company.thebrowser.browser.nix
             ./modules/system/defaults/apps/com.colliderli.iina.nix
             ./modules/system/defaults/apps/com.apple.mail.nix
             ./modules/system/defaults/apps/com.apple.safari.nix
