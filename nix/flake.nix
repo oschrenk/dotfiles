@@ -113,6 +113,7 @@
             ./modules/system/defaults/timemachine.nix
             ./modules/system/defaults/apps/com.apple.ical.nix
             ./modules/system/defaults/apps/com.apple.mail.nix
+            ./modules/system/defaults/apps/com.apple.safari.nix
             ./hosts/maxbook.nix
             home-manager.darwinModules.home-manager
             ./modules/home-manager.nix
