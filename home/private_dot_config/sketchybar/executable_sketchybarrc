@@ -39,8 +39,7 @@ require("items.project").new(icons.project, sessionizer).add("left")
 
 -- right
 require("items.clock").new(icons.clock).add("right")
-require("items.weathernative").new(style).add("right")
-require("items.battery").new(icons.battery).add("right")
+require("items.battery").new().add("right")
 require("items.calendar").new(icons.calendar, focus).add("right")
 
 sbar.end_config()

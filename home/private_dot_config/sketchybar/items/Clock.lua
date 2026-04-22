@@ -27,7 +27,7 @@ function Clock.new(icons)
       update_freq = 30,
       icon = icons.clock,
       background = {
-        padding_left = 5,
+        padding_left = 0,
         -- avoid being under macOS's screen/audio recording bubble
         -- or YellowDot app's bubble
         -- since the clock is the most right, add some padding right

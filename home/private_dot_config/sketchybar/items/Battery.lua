@@ -1,14 +1,39 @@
+-- Battery indicator using BatteryMono.ttf (per-percent glyphs).
+--
+-- Glyph map:
+--   U+F000 + pct  →  battery at exact charge level (pct = 0..100)
+--   U+F065        →  100% battery with charging bolt
+
 local sbar = require("sketchybar")
 
+local FONT_FAMILY = "BatteryMono"
+local FONT_STYLE = "Regular"
+local FONT_SIZE = 24.0
+
+local function pct_to_glyph(pct)
+  pct = math.max(0, math.min(101, math.floor(pct)))
+  return utf8.char(0xF000 + pct)
+end
+
+local CHARGING_GLYPH = pct_to_glyph(101) -- U+F065
+
 local Battery = {}
-function Battery.new(icons)
+
+function Battery.new()
   local self = {}
 
   self.add = function(position)
     local battery = sbar.add("item", {
       position = position,
-      label = { drawing = false },
-      update_freq = 300,
+      label = {
+        drawing = false,
+      },
+      icon = {
+        font = { family = FONT_FAMILY, style = FONT_STYLE, size = FONT_SIZE },
+        color = 0xffe8dcb7, -- palette.white
+        string = pct_to_glyph(0),
+      },
+      update_freq = 120,
     })
 
     battery:subscribe("mouse.clicked", function(_)
@@ -17,30 +42,13 @@ function Battery.new(icons)
 
     battery:subscribe({ "routine", "power_source_change", "system_woke" }, function()
       sbar.exec("pmset -g batt", function(batt_info)
-        local icon = "!"
+        local charging = string.find(batt_info, "AC Power") ~= nil
+        local _, _, charge_str = batt_info:find("(%d+)%%")
+        local pct = charge_str and tonumber(charge_str) or 0
 
-        if string.find(batt_info, "AC Power") then
-          icon = icons.charging
-        else
-          local found, _, charge = batt_info:find("(%d+)%%")
-          if found then
-            charge = tonumber(charge)
-          end
+        local glyph = charging and CHARGING_GLYPH or pct_to_glyph(pct)
 
-          if found and charge > 80 then
-            icon = icons._100
-          elseif found and charge > 60 then
-            icon = icons._75
-          elseif found and charge > 40 then
-            icon = icons._50
-          elseif found and charge > 20 then
-            icon = icons._25
-          else
-            icon = icons._0
-          end
-        end
-
-        battery:set({ icon = icon })
+        battery:set({ icon = { string = glyph } })
       end)
     end)
   end
