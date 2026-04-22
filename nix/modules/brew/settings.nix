@@ -28,6 +28,7 @@
       "oschrenk/personal" # personal casks and fonts
       "sass/sass" # sass
       "txn2/tap" # kubefwd
+      "yapstudios/tap" # sfsym
     ];
   };
 }
