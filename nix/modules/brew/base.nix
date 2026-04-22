@@ -56,6 +56,7 @@
     "oschrenk/made/meter" # ai, claude, measure usage
     "oschrenk/personal/dora" # ai, navigate code with scip
     "oschrenk/personal/lightpanda" # ai, headless browser
+    "rtk" # ai, token proxy
     "tweakcc" # ai, claude, customize
 
     # data
