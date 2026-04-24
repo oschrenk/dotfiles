@@ -1,6 +1,12 @@
 {
   networking.hostName = "pi-1";
 
+  # Pin hostnames to static IPs to bypass unreliable Avahi DNS on UNAS.
+  # Update and redeploy if IPs change.
+  networking.hosts = {
+    "192.168.1.241" = [ "unas.local" ];
+  };
+
   services.onepassword-secrets.secrets.tailscaleAuthKey = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/2imqxgbvx6htswijyuswh72kye/pi-1";
     owner = "root";
