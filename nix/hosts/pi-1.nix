@@ -53,6 +53,9 @@
     mode = "0600";
   };
 
+  services.backup-healthcheck.enable = true;
+  # defaults: port = 8099, maxAge = 90000 (25h), timestampFile = /var/lib/backup-status/beszel
+
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS_SD";
     fsType = "ext4";
