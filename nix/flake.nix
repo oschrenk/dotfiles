@@ -65,6 +65,7 @@
             ./modules/nixos/secrets.nix
             ./modules/nixos/beszel-hub.nix
             ./modules/nixos/beszel-agent.nix
+            ./modules/nixos/restic-beszel.nix
             ./hosts/pi-1.nix
           ];
         };

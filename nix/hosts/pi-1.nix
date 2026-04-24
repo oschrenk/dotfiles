@@ -32,6 +32,27 @@
     mode = "0600";
   };
 
+  # SMB credentials for CIFS mount (username=, password=, domain= file format)
+  services.onepassword-secrets.secrets.unasCredentials = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/nlu6b76afi6kmgrjovrlw7bnrq/smb credentials";
+    owner = "root";
+    mode = "0600";
+  };
+
+  # Restic repository encryption password
+  services.onepassword-secrets.secrets.resticPassword = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/mvunkul72kvdmvdkbycvsg7ogq/password";
+    owner = "root";
+    mode = "0600";
+  };
+
+  # ntfy topic URL — treated as a secret since the topic name is the only access control
+  services.onepassword-secrets.secrets.ntfyUrl = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/5gsl762zsgopnb7noenx44teey/homelab-backups";
+    owner = "root";
+    mode = "0600";
+  };
+
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS_SD";
     fsType = "ext4";
