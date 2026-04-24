@@ -1,5 +1,15 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
+let
+  cfg = config.services.restic-beszel;
+in
 {
+  options.services.restic-beszel.backupSchedule = lib.mkOption {
+    type        = lib.types.str;
+    default     = "daily";
+    description = "OnCalendar value for the restic timer. Override per-host without touching this module.";
+  };
+
+  config = {
   # CIFS mount for the Unifi UNAS Personal-Drive share (per-user share for homelab-backup).
   # Note: the UNAS also exposes a global "Backups" share, but that is not per-user.
   # Personal-Drive is the correct target for isolated, per-user backup storage.
@@ -60,7 +70,7 @@
     passwordFile = "/var/lib/opnix/secrets/resticPassword";
 
     timerConfig = {
-      OnCalendar = "daily";
+      OnCalendar = cfg.backupSchedule;
       Persistent = true; # run missed backups after downtime
     };
 
@@ -136,5 +146,6 @@
           "$NTFY_URL"
       '';
     };
+  };
   };
 }
