@@ -67,6 +67,7 @@
             ./modules/nixos/beszel-agent.nix
             ./modules/nixos/backup-healthcheck.nix
             ./modules/nixos/restic-beszel.nix
+            ./modules/nixos/gatus.nix
             ./hosts/pi-1.nix
           ];
         };
