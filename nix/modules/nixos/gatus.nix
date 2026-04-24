@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  shimPort = config.services.backup-healthcheck.port;
+  shimPort = config.services.backup-healthcheck.checks.beszel.port;
   opnixUnit = "opnix-secrets.service";
 in
 {
@@ -20,7 +20,7 @@ in
   };
 
   systemd.services.gatus = {
-    after = [ "gatus-env.service" "backup-healthcheck.socket" ];
+    after = [ "gatus-env.service" "backup-healthcheck-beszel.socket" ];
     requires = [ "gatus-env.service" ];
   };
 
