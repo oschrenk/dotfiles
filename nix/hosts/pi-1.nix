@@ -53,8 +53,10 @@
     mode = "0600";
   };
 
-  services.backup-healthcheck.enable = true;
-  # defaults: port = 8099, maxAge = 90000 (25h), timestampFile = /var/lib/backup-status/beszel
+  services.backup-healthcheck.checks = {
+    # port 8099: localhost-only HTTP shim for beszel backup freshness.
+    beszel = { port = 8099; };
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS_SD";
