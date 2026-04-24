@@ -109,7 +109,7 @@ in
           -H "Tags: white_check_mark" \
           -d "$STATS in $DURATION" \
           "$NTFY_URL"
-        touch ${config.services.backup-healthcheck.timestampFile} || true
+        touch ${config.services.backup-healthcheck.statusDir}/beszel || true
       fi
     '';
 
