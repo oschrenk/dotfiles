@@ -7,6 +7,12 @@
     mode = "0600";
   };
 
+  services.onepassword-secrets.secrets.beszelAgentKey = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/pr3tmmcv6crtd36wqyqh3vdnmu/Public Key";
+    owner = "beszel-agent";
+    mode = "0600";
+  };
+
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS_SD";
     fsType = "ext4";

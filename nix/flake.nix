@@ -64,6 +64,7 @@
             ./modules/nixos/pi4-hardware.nix
             ./modules/nixos/secrets.nix
             ./modules/nixos/beszel-hub.nix
+            ./modules/nixos/beszel-agent.nix
             ./hosts/pi-1.nix
           ];
         };
@@ -76,6 +77,7 @@
             ./modules/nixos/base.nix
             ./modules/nixos/pi4-hardware.nix
             ./modules/nixos/secrets.nix
+            ./modules/nixos/beszel-agent.nix
             ./hosts/pi-2.nix
           ];
         };
@@ -88,6 +90,7 @@
             ./modules/nixos/base.nix
             ./modules/nixos/pi4-hardware.nix
             ./modules/nixos/secrets.nix
+            ./modules/nixos/beszel-agent.nix
             ./hosts/pi-3.nix
           ];
         };
