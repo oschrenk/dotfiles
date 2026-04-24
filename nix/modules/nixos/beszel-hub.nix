@@ -1,16 +1,19 @@
 { lib, pkgs, ... }:
 let
+  # Default beszel agent port. Must match services.beszel.agent configuration
+  # on each pi. Extracted here so a port change is one edit, not three.
+  agentPort = 45876;
   systemsConfig = pkgs.writeText "beszel-systems.yml" ''
     systems:
       - name: "pi-1"
         host: "100.125.174.68"
-        port: 45876
+        port: ${toString agentPort}
       - name: "pi-2"
         host: "100.116.52.68"
-        port: 45876
+        port: ${toString agentPort}
       - name: "pi-3"
         host: "100.104.10.48"
-        port: 45876
+        port: ${toString agentPort}
   '';
 in
 {
