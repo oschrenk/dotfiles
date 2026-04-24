@@ -7,6 +7,19 @@
     mode = "0600";
   };
 
+  services.onepassword-secrets.secrets.beszelHubAdmin = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/pr3tmmcv6crtd36wqyqh3vdnmu/notesPlain";
+    owner = "beszel-hub";
+    mode = "0600";
+  };
+
+  services.onepassword-secrets.secrets.beszelHubKey = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/pr3tmmcv6crtd36wqyqh3vdnmu/Private Key";
+    path = "/var/lib/beszel-hub/beszel_data/id_ed25519";
+    owner = "beszel-hub";
+    mode = "0600";
+  };
+
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS_SD";
     fsType = "ext4";

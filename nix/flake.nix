@@ -63,6 +63,7 @@
             ./modules/nixos/base.nix
             ./modules/nixos/pi4-hardware.nix
             ./modules/nixos/secrets.nix
+            ./modules/nixos/beszel-hub.nix
             ./hosts/pi-1.nix
           ];
         };
