@@ -122,9 +122,9 @@ in
     };
 
     # DNS: open 53 on all interfaces — LAN clients need to reach it.
-    # Web UI: tailscale0 only — admin interface, no reason to expose on LAN.
+    # Web UI: no explicit rule needed — tailscale0 is a trustedInterface (base.nix)
+    # so all ports are implicitly reachable over Tailscale without an explicit rule.
     networking.firewall.allowedUDPPorts = [ cfg.dnsPort ];
     networking.firewall.allowedTCPPorts = [ cfg.dnsPort ];
-    networking.firewall.interfaces.tailscale0.allowedTCPPorts = [ cfg.httpPort ];
   };
 }
