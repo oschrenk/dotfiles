@@ -75,6 +75,8 @@ in
   # intact so the pi's own DNS goes through resolved, not AdGuard.
   services.adguard-home.bindHosts = [ lanIp tailscaleIp ];
 
+  services.homelab-proxy.domain = "pi-1.local";
+
   services.backup-healthcheck.checks = {
     # port 8099: localhost-only HTTP shim for beszel backup freshness.
     beszel  = { port = 8099; };
