@@ -65,13 +65,13 @@
             ./modules/nixos/secrets.nix
             ./modules/nixos/traefik.nix
             ./modules/nixos/homepage.nix
-            ./modules/nixos/beszel-hub.nix
-            ./modules/nixos/beszel-agent.nix
-            ./modules/nixos/backup-healthcheck.nix
-            ./modules/nixos/restic-beszel.nix
+            ./modules/nixos/beszel/hub.nix
+            ./modules/nixos/beszel/agent.nix
+            ./modules/nixos/restic/healthcheck.nix
+            ./modules/nixos/restic/beszel.nix
             ./modules/nixos/gatus.nix
-            ./modules/nixos/adguard-home.nix
-            ./modules/nixos/restic-adguard.nix
+            ./modules/nixos/adguard.nix
+            ./modules/nixos/restic/adguard.nix
             ./hosts/pi-1.nix
           ];
         };
@@ -84,7 +84,7 @@
             ./modules/nixos/base.nix
             ./modules/nixos/pi4-hardware.nix
             ./modules/nixos/secrets.nix
-            ./modules/nixos/beszel-agent.nix
+            ./modules/nixos/beszel/agent.nix
             ./hosts/pi-2.nix
           ];
         };
@@ -97,7 +97,7 @@
             ./modules/nixos/base.nix
             ./modules/nixos/pi4-hardware.nix
             ./modules/nixos/secrets.nix
-            ./modules/nixos/beszel-agent.nix
+            ./modules/nixos/beszel/agent.nix
             ./hosts/pi-3.nix
           ];
         };
