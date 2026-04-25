@@ -65,7 +65,9 @@ in
           name = "Services / AdGuard";
           url = "http://127.0.0.1:${toString config.services.adguard-home.httpPort}/";
           interval = "5m";
-          conditions = [ "[STATUS] == 200" ];
+          # Any non-5xx response means AdGuard is alive — / redirects (302) and all
+          # endpoints require auth (401), but either proves the service is running.
+          conditions = [ "[STATUS] < 500" ];
           alerts = [{ type = "custom"; description = "AdGuard Home web UI unreachable — DNS likely down"; }];
         }
       ];
