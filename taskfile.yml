@@ -59,7 +59,7 @@ tasks:
     desc: Apply nix-darwin configuration to maxbook
     deps: [nix-guard-local]
     cmds:
-      - sudo /run/current-system/sw/bin/darwin-rebuild switch --flake "./nix#{{.HOSTNAME}}" --option accept-flake-config true
+      - sudo /run/current-system/sw/bin/darwin-rebuild switch --flake "./nix#{{.HOSTNAME}}" --option accept-flake-config true --option warn-dirty false
     vars:
       HOSTNAME:
         sh: hostname -s
@@ -71,19 +71,19 @@ tasks:
     deps: [nix-guard-local]
     dir: nix
     cmds:
-      - nix run nixpkgs#nixos-rebuild -- switch --flake .#pi-1 --target-host oliver@pi-1.local --build-host oliver@pi-1.local --sudo
+      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --flake .#pi-1 --target-host oliver@pi-1.local --build-host oliver@pi-1.local --sudo
   nix-pi-2:
     desc: Apply NixOS configuration to pi-2
     deps: [nix-guard-local]
     dir: nix
     cmds:
-      - nix run nixpkgs#nixos-rebuild -- switch --flake .#pi-2 --target-host oliver@pi-2.local --build-host oliver@pi-2.local --sudo
+      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --flake .#pi-2 --target-host oliver@pi-2.local --build-host oliver@pi-2.local --sudo
   nix-pi-3:
     desc: Apply NixOS configuration to pi-3
     deps: [nix-guard-local]
     dir: nix
     cmds:
-      - nix run nixpkgs#nixos-rebuild -- switch --flake .#pi-3 --target-host oliver@pi-3.local --build-host oliver@pi-3.local --sudo
+      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --flake .#pi-3 --target-host oliver@pi-3.local --build-host oliver@pi-3.local --sudo
   nix-fmt:
     desc: Format all nix files
     dir: nix
