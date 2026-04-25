@@ -46,7 +46,9 @@ in
       enable          = true;
       mutableSettings = false;
       settings = {
-        http.address = "0.0.0.0:${toString cfg.httpPort}";
+        http.address = "127.0.0.1:${toString cfg.httpPort}"; # localhost only — Traefik proxies externally
+        # Trust Traefik's X-Forwarded-For headers so AdGuard sees real client IPs.
+        trusted_proxies = [ "127.0.0.1" "::1" ];
         dns = {
           bind_hosts    = cfg.bindHosts;
           anonymize_client_ip = false;

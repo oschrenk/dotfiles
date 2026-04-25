@@ -19,7 +19,7 @@ in
 {
   services.beszel.hub = {
     enable = true;
-    host = "0.0.0.0"; # default 127.0.0.1 blocks Tailscale access
+    host = "127.0.0.1"; # localhost only — Traefik proxies externally
     port = 8090;
     # Initial admin credentials -- only applied on first run when no user exists.
     # Stored as a two-line systemd env file in 1Password notesPlain field.
