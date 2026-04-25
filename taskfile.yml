@@ -58,7 +58,7 @@ tasks:
   nix:
     desc: Apply nix-darwin configuration
     cmds:
-      - sudo /run/current-system/sw/bin/darwin-rebuild switch --flake "./nix#{{.HOSTNAME}}"
+      - sudo /run/current-system/sw/bin/darwin-rebuild switch --flake "./nix#{{.HOSTNAME}}" --option accept-flake-config true
     vars:
       HOSTNAME:
         sh: hostname -s
