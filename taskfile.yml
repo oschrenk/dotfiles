@@ -32,6 +32,16 @@ tasks:
   agents:
     cmds:
       - home/.chezmoiscripts/run_onchange_04_configure_services_launch_agents.sh
+  nix:
+    desc: Apply nix configuration to all machines
+    deps: [nix-max, nix-pi]
+  nix-max:
+    desc: Apply nix-darwin configuration to maxbook
+    cmds:
+      - sudo /run/current-system/sw/bin/darwin-rebuild switch --flake "./nix#{{.HOSTNAME}}" --option accept-flake-config true
+    vars:
+      HOSTNAME:
+        sh: hostname -s
   nix-pi:
     desc: Apply NixOS configuration to all pis
     deps: [nix-pi-1, nix-pi-2, nix-pi-3]
@@ -55,10 +65,3 @@ tasks:
     dir: nix
     cmds:
       - nix fmt --no-warn-dirty
-  nix:
-    desc: Apply nix-darwin configuration
-    cmds:
-      - sudo /run/current-system/sw/bin/darwin-rebuild switch --flake "./nix#{{.HOSTNAME}}" --option accept-flake-config true
-    vars:
-      HOSTNAME:
-        sh: hostname -s
