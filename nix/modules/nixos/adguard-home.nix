@@ -49,6 +49,9 @@ in
         http.address = "0.0.0.0:${toString cfg.httpPort}";
         dns = {
           bind_hosts    = cfg.bindHosts;
+          # Anonymize client IPs in query logs — privacy over debuggability.
+          # Real IPs are not needed for homelab troubleshooting; device names suffice.
+          anonymize_client_ip = true;
           port          = cfg.dnsPort;
           # Quad9 used as bootstrap to resolve the DoH upstream hostname itself.
           bootstrap_dns = [ "9.9.9.9" "149.112.112.112" ];
@@ -81,6 +84,11 @@ in
           # positives on banking sites and CDNs. Add as id 4 and 5 after validating
           # no breakage on your network.
         ];
+
+        querylog = {
+          # "168h" = 7 days. Go's time.ParseDuration has no "d" unit — largest is "h".
+          interval = "168h";
+        };
 
         # Both username and password come from opnix at service start — neither is
         # hardcoded here. Placeholders are replaced by the ExecStartPre script below.
