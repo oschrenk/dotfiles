@@ -64,6 +64,7 @@
             ./modules/nixos/pi4-hardware.nix
             ./modules/nixos/secrets.nix
             ./modules/nixos/traefik.nix
+            ./modules/nixos/homepage.nix
             ./modules/nixos/beszel-hub.nix
             ./modules/nixos/beszel-agent.nix
             ./modules/nixos/backup-healthcheck.nix
