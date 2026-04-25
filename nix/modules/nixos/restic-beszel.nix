@@ -79,11 +79,10 @@ in
       "--keep-weekly 4"
     ];
 
-    # Stop beszel-hub before backup for a guaranteed consistent SQLite snapshot.
-    # PocketBase WAL mode makes online copies usually safe, but stopping is cleaner.
-    # Also records start time for duration calculation in the cleanup command.
+    # beszel-hub is NOT stopped before backup. PocketBase uses WAL mode which makes
+    # online backups safe — a consistent snapshot is guaranteed by SQLite's WAL.
+    # The data (uptime graphs) is low-value enough that a missed second is acceptable.
     backupPrepareCommand = ''
-      systemctl stop beszel-hub
       date +%s > /tmp/restic-beszel-start
     '';
 
@@ -97,7 +96,6 @@ in
     # comes from the backup step; prune also emits "processed" lines which would
     # match a naive grep — using --since "@$START" avoids that ambiguity.
     backupCleanupCommand = ''
-      systemctl start beszel-hub
       if [ "$SERVICE_RESULT" = "success" ]; then
         NTFY_URL="$(cat /var/lib/opnix/secrets/ntfyUrl)"
         START="$(cat /tmp/restic-beszel-start 2>/dev/null || echo 0)"
