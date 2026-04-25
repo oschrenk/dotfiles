@@ -28,6 +28,7 @@ in
     enable = true;
     environmentFile = "/run/gatus.env";
     settings = {
+      web.port = 8080;  # Gatus default — explicit so the port is easy to find
       alerting.custom = {
         url = "$NTFY_URL";
         method = "POST";
