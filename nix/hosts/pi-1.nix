@@ -1,3 +1,9 @@
+let
+  # Host network addresses. Referenced by any service that needs to bind or
+  # connect to a specific interface. Update here if IPs change.
+  lanIp       = "192.168.1.7";
+  tailscaleIp = "100.125.174.68";
+in
 {
   networking.hostName = "pi-1";
 
@@ -52,6 +58,22 @@
     owner = "root";
     mode = "0600";
   };
+
+  services.onepassword-secrets.secrets.adguardUsername = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/x2e3npasfpczengdmzxxglby2a/username";
+    owner     = "root";
+    mode      = "0600";
+  };
+
+  services.onepassword-secrets.secrets.adguardPasswordHash = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/x2e3npasfpczengdmzxxglby2a/bcrypt password";
+    owner     = "root";
+    mode      = "0600";
+  };
+
+  # Bind only on LAN and tailscale — keeps resolved's stub (127.0.0.53:53)
+  # intact so the pi's own DNS goes through resolved, not AdGuard.
+  services.adguard-home.bindHosts = [ lanIp tailscaleIp ];
 
   services.backup-healthcheck.checks = {
     # port 8099: localhost-only HTTP shim for beszel backup freshness.

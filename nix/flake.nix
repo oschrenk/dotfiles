@@ -68,6 +68,7 @@
             ./modules/nixos/backup-healthcheck.nix
             ./modules/nixos/restic-beszel.nix
             ./modules/nixos/gatus.nix
+            ./modules/nixos/adguard-home.nix
             ./hosts/pi-1.nix
           ];
         };
