@@ -32,11 +32,28 @@ tasks:
   agents:
     cmds:
       - home/.chezmoiscripts/run_onchange_04_configure_services_launch_agents.sh
+  nix-setup-local:
+    desc: Create nix/local.nix interactively (machine-local, never committed, run once per machine)
+    dir: nix
+    cmds:
+      - ./setup-local.sh
   nix:
     desc: Apply nix configuration to all machines
     deps: [nix-max, nix-pi]
+  nix-guard-local:
+    internal: true
+    cmds:
+      - test -f nix/local.nix || (echo "nix/local.nix not found — run 'task nix-setup-local' first" && exit 1)
+      # Nix flakes only evaluate files in the git index. --intent-to-add registers
+      # the path without staging any content, making local.nix visible to Nix.
+      - git add --intent-to-add nix/local.nix 2>/dev/null || true
+      # --assume-unchanged stops git tracking changes to this file: git status
+      # won't show it and git add . won't stage it. An explicit
+      # `git add nix/local.nix` would still stage it — be careful.
+      - git update-index --assume-unchanged nix/local.nix 2>/dev/null || true
   nix-max:
     desc: Apply nix-darwin configuration to maxbook
+    deps: [nix-guard-local]
     cmds:
       - sudo /run/current-system/sw/bin/darwin-rebuild switch --flake "./nix#{{.HOSTNAME}}" --option accept-flake-config true
     vars:
@@ -47,16 +64,19 @@ tasks:
     deps: [nix-pi-1, nix-pi-2, nix-pi-3]
   nix-pi-1:
     desc: Apply NixOS configuration to pi-1
+    deps: [nix-guard-local]
     dir: nix
     cmds:
       - nix run nixpkgs#nixos-rebuild -- switch --flake .#pi-1 --target-host oliver@pi-1.local --build-host oliver@pi-1.local --sudo
   nix-pi-2:
     desc: Apply NixOS configuration to pi-2
+    deps: [nix-guard-local]
     dir: nix
     cmds:
       - nix run nixpkgs#nixos-rebuild -- switch --flake .#pi-2 --target-host oliver@pi-2.local --build-host oliver@pi-2.local --sudo
   nix-pi-3:
     desc: Apply NixOS configuration to pi-3
+    deps: [nix-guard-local]
     dir: nix
     cmds:
       - nix run nixpkgs#nixos-rebuild -- switch --flake .#pi-3 --target-host oliver@pi-3.local --build-host oliver@pi-3.local --sudo

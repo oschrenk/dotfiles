@@ -18,6 +18,12 @@ Then install Nix, Homebrew, and chezmoi
 
 ## nix-darwin
 
+Create the machine-local identity file (name, email, SSH key, timezone — never committed):
+
+```sh
+task nix-setup-local
+```
+
 Once the nix-darwin flake is set up, apply it with
 
 ```sh
@@ -27,7 +33,7 @@ sudo nix run nix-darwin -- switch --flake "~/nix#$(hostname -s)"
 Subsequent runs use
 
 ```sh
-darwin-rebuild switch --flake "~/nix#$(hostname -s)"
+task nix-max
 ```
 
 Setup 1Password and sync the vaults, then initialize chezmoi

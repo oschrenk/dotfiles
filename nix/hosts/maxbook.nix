@@ -2,12 +2,17 @@
 
 {
   imports = [
-    ../modules/brew/base.nix
-    ../modules/brew/fonts.nix
-    ../modules/brew/gui.nix
-    ../modules/brew/server.nix
-    ../modules/brew/work.nix
+    ../modules/darwin/brew/base.nix
+    ../modules/darwin/brew/fonts.nix
+    ../modules/darwin/brew/gui.nix
+    ../modules/darwin/brew/server.nix
+    ../modules/darwin/brew/work.nix
   ];
+
+  # PAM / Touch ID for sudo (survives macOS upgrades via sudo_local)
+  # See: https://github.com/nix-darwin/nix-darwin/pull/1344
+  security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local.reattach = true;
 
   # MaxBook-specific configuration
 

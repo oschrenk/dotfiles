@@ -106,33 +106,34 @@
       darwinConfigurations = {
         "Olivers-MaxBook" = nix-darwin.lib.darwinSystem {
           modules = [
+            ./local.nix
+            ./options.nix
             ./modules/common.nix
             ./modules/packages.nix
-            ./modules/brew/settings.nix
-            ./modules/pam.nix
+            ./modules/darwin/brew/settings.nix
             ./modules/shell.nix
-            ./modules/system/defaults/accessibility.nix
-            ./modules/system/defaults/desktop.nix
-            ./modules/system/defaults/dock.nix
-            ./modules/system/defaults/finder.nix
-            ./modules/system/defaults/hotkeys.nix
-            ./modules/system/defaults/keyboard.nix
-            ./modules/system/defaults/menubar.nix
-            ./modules/system/defaults/screenshots.nix
-            ./modules/system/defaults/siri.nix
-            ./modules/system/defaults/spotlight.nix
-            ./modules/system/defaults/timemachine.nix
-            ./modules/system/defaults/apps/com.apple.ical.nix
-            ./modules/system/defaults/apps/com.apple.maps.nix
-            ./modules/system/defaults/apps/com.google.chrome.nix
-            ./modules/system/defaults/apps/com.reederapp.5.macos.nix
-            ./modules/system/defaults/apps/com.jetbrains.intellij.nix
-            ./modules/system/defaults/apps/com.nordvpn.nordvpn.nix
-            ./modules/system/defaults/apps/com.sproutcube.shortcat.nix
-            ./modules/system/defaults/apps/company.thebrowser.browser.nix
-            ./modules/system/defaults/apps/com.colliderli.iina.nix
-            ./modules/system/defaults/apps/com.apple.mail.nix
-            ./modules/system/defaults/apps/com.apple.safari.nix
+            ./modules/darwin/defaults/system/accessibility.nix
+            ./modules/darwin/defaults/system/desktop.nix
+            ./modules/darwin/defaults/system/dock.nix
+            ./modules/darwin/defaults/system/finder.nix
+            ./modules/darwin/defaults/system/hotkeys.nix
+            ./modules/darwin/defaults/system/keyboard.nix
+            ./modules/darwin/defaults/system/menubar.nix
+            ./modules/darwin/defaults/system/screenshots.nix
+            ./modules/darwin/defaults/system/siri.nix
+            ./modules/darwin/defaults/system/spotlight.nix
+            ./modules/darwin/defaults/system/timemachine.nix
+            ./modules/darwin/defaults/apps/com.apple.ical.nix
+            ./modules/darwin/defaults/apps/com.apple.maps.nix
+            ./modules/darwin/defaults/apps/com.google.chrome.nix
+            ./modules/darwin/defaults/apps/com.reederapp.5.macos.nix
+            ./modules/darwin/defaults/apps/com.jetbrains.intellij.nix
+            ./modules/darwin/defaults/apps/com.nordvpn.nordvpn.nix
+            ./modules/darwin/defaults/apps/com.sproutcube.shortcat.nix
+            ./modules/darwin/defaults/apps/company.thebrowser.browser.nix
+            ./modules/darwin/defaults/apps/com.colliderli.iina.nix
+            ./modules/darwin/defaults/apps/com.apple.mail.nix
+            ./modules/darwin/defaults/apps/com.apple.safari.nix
             ./hosts/maxbook.nix
             home-manager.darwinModules.home-manager
             ./modules/home-manager.nix
