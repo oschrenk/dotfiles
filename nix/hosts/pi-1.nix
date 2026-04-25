@@ -75,7 +75,8 @@ in
   # intact so the pi's own DNS goes through resolved, not AdGuard.
   services.adguard-home.bindHosts = [ lanIp tailscaleIp ];
 
-  services.homelab-proxy.domain = "pi-1.local";
+  services.homelab-proxy.domain  = "pi-1.local";
+  services.homelab-proxy.localIp = tailscaleIp;
 
   # DNS rewrites: Tailscale clients resolve *.pi-1.local via AdGuard.
   # mDNS (.local) does not work over Tailscale — AdGuard must answer these.

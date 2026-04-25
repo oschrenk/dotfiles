@@ -2,6 +2,8 @@
 let
   cfg = config.services.homelab-proxy;
 
+  entrypointHttp = "web";
+
   # Port references — pulled from each service's own module options where possible.
   # Gatus settings is a free-form attrset; .web.port is accessible but not a typed option.
   beszelPort  = config.services.beszel.hub.port;          # beszel-hub.nix
@@ -11,7 +13,7 @@ let
   mkRouter = name: {
     rule = "Host(`${name}.${cfg.domain}`)";
     service = name;
-    entryPoints = [ "web" ];
+    entryPoints = [ entrypointHttp ];
   };
 
   mkService = port: {
@@ -29,28 +31,43 @@ in
       default     = 8081;
       description = "Port nginx serves the homepage on (localhost only).";
     };
+    localIp = lib.mkOption {
+      type        = lib.types.str;
+      description = "IP this host resolves to. Used for /etc/hosts entries for ACME HTTP-01.";
+    };
   };
 
-  config.services.traefik = {
-    enable = true;
-    staticConfigOptions = {
-      entryPoints.web.address = ":80";
-      # api omitted — dashboard is off by default
-    };
-    dynamicConfigOptions.http = {
-      routers = {
-        homepage = { rule = "Host(`${cfg.domain}`)"; service = "homepage"; entryPoints = [ "web" ]; };
-        beszel   = mkRouter "beszel";
-        gatus    = mkRouter "gatus";
-        adguard  = mkRouter "adguard";
+  config = {
+    services.traefik = {
+      enable = true;
+      staticConfigOptions = {
+        entryPoints.${entrypointHttp}.address = ":80";
+        # api omitted — dashboard is off by default
       };
-      services = {
-        homepage = mkService cfg.homepagePort;
-        beszel   = mkService beszelPort;
-        gatus    = mkService gatusPort;
-        adguard  = mkService adguardPort;
+      dynamicConfigOptions.http = {
+        routers = {
+          homepage = { rule = "Host(`${cfg.domain}`)"; service = "homepage"; entryPoints = [ entrypointHttp ]; };
+          beszel   = mkRouter "beszel";
+          gatus    = mkRouter "gatus";
+          adguard  = mkRouter "adguard";
+        };
+        services = {
+          homepage = mkService cfg.homepagePort;
+          beszel   = mkService beszelPort;
+          gatus    = mkService gatusPort;
+          adguard  = mkService adguardPort;
+        };
       };
     };
+
+    # Needed so step-ca can resolve homelab subdomains during HTTP-01 challenge verification.
+    # Generated here (not pi-1.nix) so adding a new service to traefik gets the entry for free.
+    networking.hosts.${cfg.localIp} = [
+      cfg.domain
+      "beszel.${cfg.domain}"
+      "gatus.${cfg.domain}"
+      "adguard.${cfg.domain}"
+    ];
   };
 
   # No firewall rule needed: tailscale0 is a trustedInterface (base.nix).
