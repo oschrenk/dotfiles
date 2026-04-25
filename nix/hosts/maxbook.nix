@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 {
   imports = [
@@ -20,7 +20,7 @@
   nixpkgs.hostPlatform = "aarch64-darwin";
 
   # Primary user for user-scoped defaults (e.g. Finder, NSGlobalDomain)
-  system.primaryUser = "oliver";
+  system.primaryUser = config.my.personal.username;
 
   # Set once to the nix-darwin version used when first applying.
   # Never change this — it tells nix-darwin how to handle state migrations.
