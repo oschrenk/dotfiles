@@ -1,4 +1,4 @@
-{ ... }:
+{ osConfig, ... }:
 
 {
   # delta: better-looking diffs (separate module in HM 25.11)
@@ -27,6 +27,8 @@
     lfs.enable = true;
 
     settings = {
+      user.name = osConfig.my.personal.name;
+
       alias = {
         a = "add";
         # add from root dir
