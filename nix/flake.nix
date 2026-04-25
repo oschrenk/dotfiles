@@ -1,15 +1,6 @@
 {
   description = "Oliver's nix-darwin configuration";
 
-  nixConfig = {
-    extra-substituters = [
-      "https://nixos-raspberrypi.cachix.org"
-    ];
-    extra-trusted-public-keys = [
-      "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI="
-    ];
-  };
-
   inputs = {
     # unstable ensures nix-darwin modules and packages don't break on missing
     # nixpkgs features; switch to nixpkgs-stable if you prefer slower updates
@@ -49,6 +40,8 @@
         "pi" = nixos-raspberrypi.lib.nixosSystem {
           specialArgs = inputs;
           modules = [
+            ./local.nix
+            ./options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             nixos-raspberrypi.nixosModules.sd-image
             ./modules/nixos/base.nix
@@ -58,6 +51,8 @@
         "pi-1" = nixos-raspberrypi.lib.nixosSystem {
           specialArgs = inputs;
           modules = [
+            ./local.nix
+            ./options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
             ./modules/nixos/base.nix
@@ -79,6 +74,8 @@
         "pi-2" = nixos-raspberrypi.lib.nixosSystem {
           specialArgs = inputs;
           modules = [
+            ./local.nix
+            ./options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
             ./modules/nixos/base.nix
@@ -92,6 +89,8 @@
         "pi-3" = nixos-raspberrypi.lib.nixosSystem {
           specialArgs = inputs;
           modules = [
+            ./local.nix
+            ./options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
             ./modules/nixos/base.nix

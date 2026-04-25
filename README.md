@@ -18,6 +18,15 @@ Then install Nix, Homebrew, and chezmoi
 
 ## nix-darwin
 
+Configure `/etc/nix/nix.custom.conf` (Determinate Nix preserves this across upgrades):
+
+```sh
+echo 'trusted-users = oliver' | sudo tee -a /etc/nix/nix.custom.conf
+echo 'extra-substituters = https://nixos-raspberrypi.cachix.org' | sudo tee -a /etc/nix/nix.custom.conf
+echo 'extra-trusted-public-keys = nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=' | sudo tee -a /etc/nix/nix.custom.conf
+sudo launchctl kickstart -k system/systems.determinate.nix-daemon
+```
+
 Create the machine-local identity file (name, email, SSH key, timezone — never committed):
 
 ```sh
@@ -151,6 +160,18 @@ task nix-unguard-local
 git rebase --interactive HEAD~N
 task nix-guard-local
 ```
+
+### Nix binary cache warnings ("ignoring untrusted substituter")
+
+Binary caches defined in a flake's `nixConfig` are ignored unless the invoking user is trusted and `accept-flake-config` is set. The fix is to add the cache directly to `/etc/nix/nix.custom.conf` (which Determinate Nix preserves across upgrades) and restart the daemon:
+
+```sh
+echo 'extra-substituters = https://example.cachix.org' | sudo tee -a /etc/nix/nix.custom.conf
+echo 'extra-trusted-public-keys = example.cachix.org-1:...' | sudo tee -a /etc/nix/nix.custom.conf
+sudo launchctl kickstart -k system/systems.determinate.nix-daemon
+```
+
+---
 
 ## Steam & Rosetta
 
