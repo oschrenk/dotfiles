@@ -77,8 +77,15 @@ in
 
   services.backup-healthcheck.checks = {
     # port 8099: localhost-only HTTP shim for beszel backup freshness.
-    beszel = { port = 8099; };
+    beszel  = { port = 8099; };
+    # port 8100: localhost-only HTTP shim for adguard backup freshness.
+    adguard = { port = 8100; };
   };
+
+  # Stagger to avoid concurrent NAS access (both default to "daily" = midnight).
+  # 30min gap is enough for either backup to finish before the other starts.
+  services.restic-beszel.backupSchedule  = "*-*-* 01:00:00";
+  services.restic-adguard.backupSchedule = "*-*-* 01:30:00";
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS_SD";

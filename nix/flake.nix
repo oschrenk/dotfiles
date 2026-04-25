@@ -69,6 +69,7 @@
             ./modules/nixos/restic-beszel.nix
             ./modules/nixos/gatus.nix
             ./modules/nixos/adguard-home.nix
+            ./modules/nixos/restic-adguard.nix
             ./hosts/pi-1.nix
           ];
         };
