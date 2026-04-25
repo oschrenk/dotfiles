@@ -1,16 +1,14 @@
-{ ... }:
+{ config, ... }:
 {
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
   };
 
-  users.users.oliver = {
+  users.users.${config.my.personal.username} = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFZ0G3UHhaDSkbGrbopLIIrp5CRh48opdepjUQQPTJ+r"
-    ];
+    openssh.authorizedKeys.keys = [ config.my.personal.sshKey ];
   };
 
   security.sudo.wheelNeedsPassword = false;
@@ -49,7 +47,7 @@
   # resolved must also stay up so services restarted during deploy can still resolve hostnames
   systemd.services.systemd-resolved.stopIfChanged = false;
 
-  time.timeZone = "America/Guatemala";
+  time.timeZone = config.my.personal.timezone;
 
   system.stateVersion = "25.05";
 
