@@ -41,7 +41,7 @@ tasks:
     desc: Apply nix configuration to all machines
     deps: [nix-max, nix-pi]
   nix-guard-local:
-    internal: true
+    desc: Register nix/local.nix in git index so Nix can evaluate it (run after nix-unguard-local)
     cmds:
       - test -f nix/local.nix || (echo "nix/local.nix not found — run 'task nix-setup-local' first" && exit 1)
       # Nix flakes only evaluate files in the git index. --intent-to-add registers
@@ -51,6 +51,10 @@ tasks:
       # won't show it and git add . won't stage it. An explicit
       # `git add nix/local.nix` would still stage it — be careful.
       - git update-index --assume-unchanged nix/local.nix 2>/dev/null || true
+  nix-unguard-local:
+    desc: Remove nix/local.nix from git index so git operations (rebase, stash) work cleanly
+    cmds:
+      - git restore --staged nix/local.nix 2>/dev/null || true
   nix-max:
     desc: Apply nix-darwin configuration to maxbook
     deps: [nix-guard-local]

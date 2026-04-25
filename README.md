@@ -140,6 +140,18 @@ arbol sync
 - `task node` Install node tools
 - `task ollama` Install ollama models
 
+## Troubleshooting
+
+### git rebase fails with "Entry 'nix/local.nix' not uptodate"
+
+`nix/local.nix` has an empty blob staged via `--intent-to-add` that disagrees with the working tree, blocking autostash. Unguard it, rebase, then guard again:
+
+```sh
+task nix-unguard-local
+git rebase --interactive HEAD~N
+task nix-guard-local
+```
+
 ## Steam & Rosetta
 
 `brew install steam`
