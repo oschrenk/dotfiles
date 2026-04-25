@@ -49,9 +49,7 @@ in
         http.address = "0.0.0.0:${toString cfg.httpPort}";
         dns = {
           bind_hosts    = cfg.bindHosts;
-          # Anonymize client IPs in query logs — privacy over debuggability.
-          # Real IPs are not needed for homelab troubleshooting; device names suffice.
-          anonymize_client_ip = true;
+          anonymize_client_ip = false;
           port          = cfg.dnsPort;
           # Quad9 used as bootstrap to resolve the DoH upstream hostname itself.
           bootstrap_dns = [ "9.9.9.9" "149.112.112.112" ];
