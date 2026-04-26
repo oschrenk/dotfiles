@@ -69,6 +69,7 @@
             ./modules/nixos/adguard.nix
             ./modules/nixos/restic/adguard.nix
             ./modules/nixos/restic/step-ca.nix
+            ./sites/home.lan.nix
             ./hosts/pi-1.nix
           ];
         };

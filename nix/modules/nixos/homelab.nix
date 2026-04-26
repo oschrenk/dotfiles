@@ -29,13 +29,15 @@ in
       description = "Port nginx serves the homepage on (localhost only).";
     };
     routes = lib.mkOption {
-      type = lib.types.listOf (lib.types.submodule {
-        options = {
-          name = lib.mkOption { type = lib.types.str; };
-          port = lib.mkOption { type = lib.types.port; };
-        };
-      });
-      default = [];
+      type = lib.types.listOf (
+        lib.types.submodule {
+          options = {
+            name = lib.mkOption { type = lib.types.str; };
+            port = lib.mkOption { type = lib.types.port; };
+          };
+        }
+      );
+      default = [ ];
       description = "Services to expose via Traefik.";
     };
   };
@@ -68,10 +70,22 @@ in
             entryPoints = [ entrypointHttps ];
             tls.certResolver = certResolver;
           };
-        } // builtins.listToAttrs (map (r: { name = r.name; value = mkRouter r.name; }) cfg.routes);
+        }
+        // builtins.listToAttrs (
+          map (r: {
+            name = r.name;
+            value = mkRouter r.name;
+          }) cfg.routes
+        );
         services = {
           homepage = mkService cfg.homepagePort;
-        } // builtins.listToAttrs (map (r: { name = r.name; value = mkService r.port; }) cfg.routes);
+        }
+        // builtins.listToAttrs (
+          map (r: {
+            name = r.name;
+            value = mkService r.port;
+          }) cfg.routes
+        );
       };
     };
 
