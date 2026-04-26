@@ -14,24 +14,24 @@ in
 {
   options.services.homelab-ca = {
     port = lib.mkOption {
-      type        = lib.types.port;
-      default     = 8443;
+      type = lib.types.port;
+      default = 8443;
       description = "Port step-ca listens on. Read by traefik.nix for the ACME URL.";
     };
   };
 
   config = {
     services.step-ca = {
-      enable  = true;
+      enable = true;
       address = "127.0.0.1";
-      port    = cfg.port;
+      port = cfg.port;
       # settings required by module but ignored — ExecStart overrides with opnix-provided ca.json.
-      settings = {};
+      settings = { };
       intermediatePasswordFile = "/run/step-ca-password";
     };
 
     systemd.services.step-ca = {
-      after    = [ "opnix-secrets.service" ];
+      after = [ "opnix-secrets.service" ];
       requires = [ "opnix-secrets.service" ];
       serviceConfig = {
         # DynamicUser=true creates a private symlink namespace; its dynamic UID conflicts
@@ -46,10 +46,10 @@ in
 
     users.users.step-ca = {
       isSystemUser = true;
-      group        = "step-ca";
-      home         = "/var/lib/step-ca";
+      group = "step-ca";
+      home = "/var/lib/step-ca";
     };
-    users.groups.step-ca = {};
+    users.groups.step-ca = { };
 
     # Fix ownership of .step/ created by bootstrap (runs as root) on every boot.
     systemd.tmpfiles.rules = [

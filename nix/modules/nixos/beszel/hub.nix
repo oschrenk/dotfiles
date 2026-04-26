@@ -54,7 +54,9 @@ in
       # changes when the config changes, so the unit changes too -- triggering an
       # automatic restart on deploy. The service has ReadWritePaths=dataDir so
       # beszel-hub user can write here without root or activation scripts.
-      ExecStartPre = lib.mkBefore [ "${pkgs.coreutils}/bin/cp ${systemsConfig} /var/lib/beszel-hub/beszel_data/config.yml" ];
+      ExecStartPre = lib.mkBefore [
+        "${pkgs.coreutils}/bin/cp ${systemsConfig} /var/lib/beszel-hub/beszel_data/config.yml"
+      ];
       # Override DynamicUser so the static beszel-hub user above is used instead.
       # Required because opnix can only chown files to users that already exist at
       # activation time -- dynamic users are created on-demand by systemd at service

@@ -1,12 +1,17 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
-  cfg       = config.services.restic-adguard;
+  cfg = config.services.restic-adguard;
   statusDir = config.services.backup-healthcheck.statusDir;
 in
 {
   options.services.restic-adguard.backupSchedule = lib.mkOption {
-    type        = lib.types.str;
-    default     = "daily";
+    type = lib.types.str;
+    default = "daily";
     description = "OnCalendar value for the restic timer. Override per-host to stagger with other backups.";
   };
 
@@ -15,14 +20,20 @@ in
       # AdGuard uses DynamicUser=true — systemd stores data in /var/lib/private/AdGuardHome
       # and bind-mounts it to /var/lib/AdGuardHome only while the service is running.
       # Backing up the private path directly avoids depending on the bind mount being active.
-      paths        = [ "/var/lib/private/AdGuardHome" ];
-      repository   = "/mnt/unas_backup/restic-pi1";  # same repo as beszel
+      paths = [ "/var/lib/private/AdGuardHome" ];
+      repository = "/mnt/unas_backup/restic-pi1"; # same repo as beszel
       passwordFile = "/var/lib/opnix/secrets/resticPassword";
-      timerConfig  = { OnCalendar = cfg.backupSchedule; Persistent = true; };
+      timerConfig = {
+        OnCalendar = cfg.backupSchedule;
+        Persistent = true;
+      };
       # Retention policy intentionally mirrors restic-beszel.nix — change both
       # together if adjusting. 7 daily + 4 weekly snapshots.
-      pruneOpts    = [ "--keep-daily 7" "--keep-weekly 4" ];
-      initialize   = true;
+      pruneOpts = [
+        "--keep-daily 7"
+        "--keep-weekly 4"
+      ];
+      initialize = true;
 
       # AdGuard Home is NOT stopped before backup, unlike beszel-hub. Reasons:
       #   1. DNS availability: stopping takes the whole network's DNS down for ~30s.
@@ -69,7 +80,7 @@ in
     systemd.services.restic-backups-adguard = {
       unitConfig = {
         RequiresMountsFor = "/mnt/unas_backup";
-        OnFailure         = "restic-backups-adguard-notify-failure.service";
+        OnFailure = "restic-backups-adguard-notify-failure.service";
       };
     };
 
@@ -78,7 +89,7 @@ in
     systemd.services.restic-backups-adguard-notify-failure = {
       description = "Notify on restic-backups-adguard failure";
       serviceConfig = {
-        Type      = "oneshot";
+        Type = "oneshot";
         ExecStart = pkgs.writeShellScript "restic-adguard-notify-failure" ''
           NTFY_URL="$(cat /var/lib/opnix/secrets/ntfyUrl)"
           ${pkgs.curl}/bin/curl -s -o /dev/null \

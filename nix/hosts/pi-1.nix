@@ -1,7 +1,7 @@
 let
   # Host network addresses. Referenced by any service that needs to bind or
   # connect to a specific interface. Update here if IPs change.
-  lanIp       = "192.168.1.7";
+  lanIp = "192.168.1.7";
   tailscaleIp = "100.125.174.68";
 in
 {
@@ -24,18 +24,21 @@ in
   # AdGuard
   # Bind only on LAN and tailscale — keeps resolved's stub (127.0.0.53:53)
   # intact so the pi's own DNS goes through resolved, not AdGuard.
-  services.adguard-home.bindHosts = [ lanIp tailscaleIp ];
+  services.adguard-home.bindHosts = [
+    lanIp
+    tailscaleIp
+  ];
 
   services.onepassword-secrets.secrets.adguardUsername = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/x2e3npasfpczengdmzxxglby2a/username";
-    owner     = "root";
-    mode      = "0600";
+    owner = "root";
+    mode = "0600";
   };
 
   services.onepassword-secrets.secrets.adguardPasswordHash = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/x2e3npasfpczengdmzxxglby2a/bcrypt password";
-    owner     = "root";
-    mode      = "0600";
+    owner = "root";
+    mode = "0600";
   };
 
   # DNS rewrites: Tailscale clients resolve *.pi-1.local via AdGuard.
@@ -54,7 +57,7 @@ in
   ];
 
   # Homelab proxy
-  services.homelab-proxy.domain  = "pi-1.local";
+  services.homelab-proxy.domain = "pi-1.local";
   services.homelab-proxy.localIp = tailscaleIp;
 
   # Beszel
@@ -89,23 +92,23 @@ in
   # Root CA cert — traefik's lego client trusts it via LEGO_CA_CERTIFICATES (traefik.nix).
   services.onepassword-secrets.secrets.stepCaConfig = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/zf43l4tp5emchhsa75o5i46b5u/ql6hn7chrecivmrns4wextxvfe";
-    path      = "/run/step-ca.json";
-    owner     = "step-ca";
-    mode      = "0600";
+    path = "/run/step-ca.json";
+    owner = "step-ca";
+    mode = "0600";
   };
 
   services.onepassword-secrets.secrets.stepCaPassword = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/zf43l4tp5emchhsa75o5i46b5u/password";
-    path      = "/run/step-ca-password";
-    owner     = "root";
-    mode      = "0600";
+    path = "/run/step-ca-password";
+    owner = "root";
+    mode = "0600";
   };
 
   services.onepassword-secrets.secrets.stepCaRootCert = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/zf43l4tp5emchhsa75o5i46b5u/pu4k27p33n2a5g4mlwztdzzmeq";
-    path      = "/run/step-ca-root.crt";
-    owner     = "root";
-    mode      = "0644";
+    path = "/run/step-ca-root.crt";
+    owner = "root";
+    mode = "0644";
   };
 
   # Backups
@@ -125,18 +128,24 @@ in
 
   # Stagger to avoid concurrent NAS access (both default to "daily" = midnight).
   # 30min gap is enough for either backup to finish before the other starts.
-  services.restic-beszel.backupSchedule   = "*-*-* 01:00:00";
-  services.restic-adguard.backupSchedule  = "*-*-* 01:30:00";
-  services.restic-step-ca.backupSchedule  = "*-*-* 02:00:00";
+  services.restic-beszel.backupSchedule = "*-*-* 01:00:00";
+  services.restic-adguard.backupSchedule = "*-*-* 01:30:00";
+  services.restic-step-ca.backupSchedule = "*-*-* 02:00:00";
 
   services.backup-healthcheck.checks = {
     # port 8099: localhost-only HTTP shim for beszel backup freshness.
-    beszel  = { port = 8099; };
+    beszel = {
+      port = 8099;
+    };
     # port 8100: localhost-only HTTP shim for adguard backup freshness.
-    adguard = { port = 8100; };
+    adguard = {
+      port = 8100;
+    };
   };
 
-  services.backup-healthcheck.checks.step-ca = { port = 8101; };
+  services.backup-healthcheck.checks.step-ca = {
+    port = 8101;
+  };
 
   # Storage
   fileSystems."/" = {

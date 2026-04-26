@@ -20,7 +20,11 @@ in
   };
 
   systemd.services.gatus = {
-    after = [ "gatus-env.service" "backup-healthcheck-beszel.socket" "backup-healthcheck-adguard.socket" ];
+    after = [
+      "gatus-env.service"
+      "backup-healthcheck-beszel.socket"
+      "backup-healthcheck-adguard.socket"
+    ];
     requires = [ "gatus-env.service" ];
   };
 
@@ -29,7 +33,7 @@ in
     environmentFile = "/run/gatus.env";
     settings = {
       web.address = "127.0.0.1"; # localhost only — Traefik proxies externally
-      web.port    = 8080;  # Gatus default — explicit so the port is easy to find
+      web.port = 8080; # Gatus default — explicit so the port is easy to find
       alerting.custom = {
         url = "$NTFY_URL";
         method = "POST";
@@ -52,14 +56,24 @@ in
           url = "http://127.0.0.1:${toString shimPort}/";
           interval = "1h";
           conditions = [ "[STATUS] == 200" ];
-          alerts = [{ type = "custom"; description = "backup stale or missing (>25h)"; }];
+          alerts = [
+            {
+              type = "custom";
+              description = "backup stale or missing (>25h)";
+            }
+          ];
         }
         {
           name = "Backup / adguard-home";
           url = "http://127.0.0.1:${toString config.services.backup-healthcheck.checks.adguard.port}/";
           interval = "1h";
           conditions = [ "[STATUS] == 200" ];
-          alerts = [{ type = "custom"; description = "backup stale or missing (>25h)"; }];
+          alerts = [
+            {
+              type = "custom";
+              description = "backup stale or missing (>25h)";
+            }
+          ];
         }
         {
           name = "Services / AdGuard";
@@ -68,7 +82,12 @@ in
           # Any non-5xx response means AdGuard is alive — / redirects (302) and all
           # endpoints require auth (401), but either proves the service is running.
           conditions = [ "[STATUS] < 500" ];
-          alerts = [{ type = "custom"; description = "AdGuard Home web UI unreachable — DNS likely down"; }];
+          alerts = [
+            {
+              type = "custom";
+              description = "AdGuard Home web UI unreachable — DNS likely down";
+            }
+          ];
         }
       ];
     };

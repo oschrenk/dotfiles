@@ -1,12 +1,17 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
-  cfg       = config.services.restic-step-ca;
+  cfg = config.services.restic-step-ca;
   statusDir = config.services.backup-healthcheck.statusDir;
 in
 {
   options.services.restic-step-ca.backupSchedule = lib.mkOption {
-    type        = lib.types.str;
-    default     = "daily";
+    type = lib.types.str;
+    default = "daily";
     description = "OnCalendar value for the restic timer. Override per-host to stagger with other backups.";
   };
 
@@ -15,12 +20,18 @@ in
       # Backs up the full .step/ tree: certs, secrets (private keys), config, db.
       # The private keys are the critical part — losing them means re-bootstrapping
       # the CA and re-trusting the root cert on every device.
-      paths        = [ "/var/lib/step-ca/.step" ];
-      repository   = "/mnt/unas_backup/restic-pi1";
+      paths = [ "/var/lib/step-ca/.step" ];
+      repository = "/mnt/unas_backup/restic-pi1";
       passwordFile = "/var/lib/opnix/secrets/resticPassword";
-      timerConfig  = { OnCalendar = cfg.backupSchedule; Persistent = true; };
-      pruneOpts    = [ "--keep-daily 7" "--keep-weekly 4" ];
-      initialize   = true;
+      timerConfig = {
+        OnCalendar = cfg.backupSchedule;
+        Persistent = true;
+      };
+      pruneOpts = [
+        "--keep-daily 7"
+        "--keep-weekly 4"
+      ];
+      initialize = true;
 
       backupPrepareCommand = ''
         date +%s > /run/restic-step-ca-start
@@ -49,14 +60,14 @@ in
     systemd.services.restic-backups-step-ca = {
       unitConfig = {
         RequiresMountsFor = "/mnt/unas_backup";
-        OnFailure         = "restic-backups-step-ca-notify-failure.service";
+        OnFailure = "restic-backups-step-ca-notify-failure.service";
       };
     };
 
     systemd.services.restic-backups-step-ca-notify-failure = {
       description = "Notify on restic-backups-step-ca failure";
       serviceConfig = {
-        Type      = "oneshot";
+        Type = "oneshot";
         ExecStart = pkgs.writeShellScript "restic-step-ca-notify-failure" ''
           NTFY_URL="$(cat /var/lib/opnix/secrets/ntfyUrl)"
           ${pkgs.curl}/bin/curl -s -o /dev/null \

@@ -1,15 +1,20 @@
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   cfg = config.services.adguard-home;
 in
 {
   options.services.adguard-home = {
     dnsPort = lib.mkOption {
-      type    = lib.types.port;
+      type = lib.types.port;
       default = 53;
     };
     httpPort = lib.mkOption {
-      type    = lib.types.port;
+      type = lib.types.port;
       default = 3000;
     };
     # Interfaces AdGuard binds DNS on. Defaults to all interfaces (0.0.0.0).
@@ -17,7 +22,7 @@ in
     # systemd-resolved's stub listener on 127.0.0.53:53, which lets resolved
     # keep handling the host's own DNS while AdGuard serves LAN clients.
     bindHosts = lib.mkOption {
-      type    = lib.types.listOf lib.types.str;
+      type = lib.types.listOf lib.types.str;
       default = [ "0.0.0.0" ];
       description = "List of IPs AdGuard binds DNS on.";
     };
@@ -43,21 +48,27 @@ in
     # Collected data (query logs, stats) lives in data/ and is NEVER touched by
     # mutableSettings — only AdGuardHome.yaml is overwritten.
     services.adguardhome = {
-      enable          = true;
+      enable = true;
       mutableSettings = false;
       settings = {
         http.address = "127.0.0.1:${toString cfg.httpPort}"; # localhost only — Traefik proxies externally
         # Trust Traefik's X-Forwarded-For headers so AdGuard sees real client IPs.
-        trusted_proxies = [ "127.0.0.1" "::1" ];
+        trusted_proxies = [
+          "127.0.0.1"
+          "::1"
+        ];
         dns = {
-          bind_hosts    = cfg.bindHosts;
+          bind_hosts = cfg.bindHosts;
           anonymize_client_ip = false;
-          port          = cfg.dnsPort;
+          port = cfg.dnsPort;
           # Quad9 used as bootstrap to resolve the DoH upstream hostname itself.
-          bootstrap_dns = [ "9.9.9.9" "149.112.112.112" ];
-          upstream_dns  = [ "https://dns.quad9.net/dns-query" ];
+          bootstrap_dns = [
+            "9.9.9.9"
+            "149.112.112.112"
+          ];
+          upstream_dns = [ "https://dns.quad9.net/dns-query" ];
         };
-        filters_update_interval = 24;  # hours; AdGuard refreshes lists automatically
+        filters_update_interval = 24; # hours; AdGuard refreshes lists automatically
 
         # id fields must be stable integers — AdGuard Home uses them as persistent
         # filter identifiers. Never reuse an id even if a filter is removed; just
@@ -72,14 +83,26 @@ in
         #   https://oisd.nl                                   — OISD list info
         filters = [
           # Conservative, well-maintained. Good baseline with very few false positives.
-          { id = 1; enabled = true; name = "AdGuard DNS filter";
-            url = "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt"; }
+          {
+            id = 1;
+            enabled = true;
+            name = "AdGuard DNS filter";
+            url = "https://adguardteam.github.io/AdGuardSDNSFilter/Filters/filter.txt";
+          }
           # Excellent curation, extremely low false positive rate. Covers most trackers.
-          { id = 2; enabled = true; name = "OISD Basic";
-            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt"; }
+          {
+            id = 2;
+            enabled = true;
+            name = "OISD Basic";
+            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_2.txt";
+          }
           # Mobile-specific ad networks. Conservative enough to include from the start.
-          { id = 3; enabled = true; name = "AdGuard Mobile Ads";
-            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_4.txt"; }
+          {
+            id = 3;
+            enabled = true;
+            name = "AdGuard Mobile Ads";
+            url = "https://adguardteam.github.io/HostlistsRegistry/assets/filter_4.txt";
+          }
           # HaGeZi Pro and EasyPrivacy omitted — more aggressive, can cause false
           # positives on banking sites and CDNs. Add as id 4 and 5 after validating
           # no breakage on your network.
@@ -94,7 +117,12 @@ in
         # hardcoded here. Placeholders are replaced by the ExecStartPre script below.
         # Reason: opnix secrets are only available at runtime, not at Nix eval time,
         # so they cannot be embedded in the Nix store.
-        users = [{ name = "ADGUARD_USERNAME_PLACEHOLDER"; password = "ADGUARD_PASSWORD_PLACEHOLDER"; }];
+        users = [
+          {
+            name = "ADGUARD_USERNAME_PLACEHOLDER";
+            password = "ADGUARD_PASSWORD_PLACEHOLDER";
+          }
+        ];
       };
     };
 
@@ -106,21 +134,23 @@ in
     # treat '$' as special, so bcrypt hashes (e.g. $2b$10$...) pass through intact.
     # sed would mangle them. Python would pull in an unnecessary runtime dependency.
     systemd.services.adguardhome = {
-      after    = [ "opnix-secrets.service" ];
+      after = [ "opnix-secrets.service" ];
       requires = [ "opnix-secrets.service" ];
       # '+' prefix: run this script as root regardless of the service user.
       # Required because opnix secrets are owner=root mode=0600 — the adguardhome
       # service user cannot read them without privilege escalation.
-      serviceConfig.ExecStartPre = "+" + pkgs.writeShellScript "adguardhome-inject-credentials" ''
-        USERNAME=$(cat /var/lib/opnix/secrets/adguardUsername)
-        HASH=$(cat /var/lib/opnix/secrets/adguardPasswordHash)
-        ${pkgs.gawk}/bin/awk -v user="$USERNAME" -v hash="$HASH" \
-          '{gsub(/ADGUARD_USERNAME_PLACEHOLDER/, user);
-            gsub(/ADGUARD_PASSWORD_PLACEHOLDER/, hash); print}' \
-          /var/lib/AdGuardHome/AdGuardHome.yaml \
-          > /tmp/adguardhome.yaml
-        mv /tmp/adguardhome.yaml /var/lib/AdGuardHome/AdGuardHome.yaml
-      '';
+      serviceConfig.ExecStartPre =
+        "+"
+        + pkgs.writeShellScript "adguardhome-inject-credentials" ''
+          USERNAME=$(cat /var/lib/opnix/secrets/adguardUsername)
+          HASH=$(cat /var/lib/opnix/secrets/adguardPasswordHash)
+          ${pkgs.gawk}/bin/awk -v user="$USERNAME" -v hash="$HASH" \
+            '{gsub(/ADGUARD_USERNAME_PLACEHOLDER/, user);
+              gsub(/ADGUARD_PASSWORD_PLACEHOLDER/, hash); print}' \
+            /var/lib/AdGuardHome/AdGuardHome.yaml \
+            > /tmp/adguardhome.yaml
+          mv /tmp/adguardhome.yaml /var/lib/AdGuardHome/AdGuardHome.yaml
+        '';
     };
 
     # DNS: open 53 on all interfaces — LAN clients need to reach it.

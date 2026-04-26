@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  cfg  = config.services.homelab-proxy;
+  cfg = config.services.homelab-proxy;
   html = ''
     <!DOCTYPE html>
     <html lang="en">
@@ -31,7 +31,13 @@ in
   services.nginx = {
     enable = true;
     virtualHosts."homelab-homepage" = {
-      listen = [{ addr = "127.0.0.1"; port = cfg.homepagePort; ssl = false; }];
+      listen = [
+        {
+          addr = "127.0.0.1";
+          port = cfg.homepagePort;
+          ssl = false;
+        }
+      ];
       root = pkgs.writeTextDir "index.html" html;
       locations."/".index = "index.html";
     };
