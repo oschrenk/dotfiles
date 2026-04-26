@@ -47,6 +47,7 @@ nix/
       base.nix           - user settings, SSH, networking, timezone via my.personal.*
       pi4-hardware.nix   - RPi4-specific hardware config
       secrets.nix        - opnix secret management
+      step-ca.nix        - local ACME CA (homelab-ca options)
       traefik.nix        - reverse proxy
       homepage.nix       - homelab dashboard
       adguard.nix        - DNS / ad blocking

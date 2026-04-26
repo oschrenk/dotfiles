@@ -58,6 +58,7 @@
             ./modules/nixos/base.nix
             ./modules/nixos/pi4-hardware.nix
             ./modules/nixos/secrets.nix
+            ./modules/nixos/step-ca.nix
             ./modules/nixos/traefik.nix
             ./modules/nixos/homepage.nix
             ./modules/nixos/beszel/hub.nix

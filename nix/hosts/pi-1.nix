@@ -78,6 +78,27 @@ in
   services.homelab-proxy.domain  = "pi-1.local";
   services.homelab-proxy.localIp = tailscaleIp;
 
+  # step-ca — see nix/modules/nixos/step-ca.nix for bootstrap instructions.
+  # Prerequisites before deploying:
+  #   1. Bootstrap has been run on the Pi (step ca init + provisioner add acme)
+  #   2. ca.json content is stored in 1Password (opnix reference below)
+  #   3. Intermediate key password is stored in 1Password (opnix reference below)
+  # Ownership of .step/ is fixed automatically by systemd-tmpfiles on every boot.
+  services.onepassword-secrets.secrets.stepCaConfig = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/zf43l4tp5emchhsa75o5i46b5u/ql6hn7chrecivmrns4wextxvfe";
+    path      = "/run/step-ca.json";
+    owner     = "step-ca";
+    mode      = "0600";
+  };
+
+  # step-ca intermediate key password — written to tmpfs on boot, never on persistent disk
+  services.onepassword-secrets.secrets.stepCaPassword = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/zf43l4tp5emchhsa75o5i46b5u/password";
+    path      = "/run/step-ca-password";
+    owner     = "root";
+    mode      = "0600";
+  };
+
   # DNS rewrites: Tailscale clients resolve *.pi-1.local via AdGuard.
   # mDNS (.local) does not work over Tailscale — AdGuard must answer these.
   #

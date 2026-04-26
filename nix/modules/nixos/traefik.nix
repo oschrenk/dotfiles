@@ -2,7 +2,11 @@
 let
   cfg = config.services.homelab-proxy;
 
-  entrypointHttp = "web";
+  entrypointHttp  = "web";
+  entrypointHttps = "websecure";
+  certResolver    = "internal";
+  acmeStorage     = "/var/lib/traefik/acme.json";
+  caUrl           = "https://127.0.0.1:${toString config.services.homelab-ca.port}/acme/acme/directory";
 
   # Port references — pulled from each service's own module options where possible.
   # Gatus settings is a free-form attrset; .web.port is accessible but not a typed option.
