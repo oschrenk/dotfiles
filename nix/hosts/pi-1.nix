@@ -123,8 +123,11 @@ in
 
   # Stagger to avoid concurrent NAS access (both default to "daily" = midnight).
   # 30min gap is enough for either backup to finish before the other starts.
-  services.restic-beszel.backupSchedule  = "*-*-* 01:00:00";
-  services.restic-adguard.backupSchedule = "*-*-* 01:30:00";
+  services.restic-beszel.backupSchedule   = "*-*-* 01:00:00";
+  services.restic-adguard.backupSchedule  = "*-*-* 01:30:00";
+  services.restic-step-ca.backupSchedule  = "*-*-* 02:00:00";
+
+  services.backup-healthcheck.checks.step-ca = { port = 8101; };
 
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS_SD";

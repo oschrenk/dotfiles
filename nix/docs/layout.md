@@ -59,6 +59,7 @@ nix/
         adguard.nix      - backup: adguard data
         beszel.nix       - backup: beszel data
         healthcheck.nix  - backup completion notifications
+        step-ca.nix      - backup: step-ca keys and config
 
   docs/
     layout.md            - this file: architecture overview
