@@ -1,11 +1,12 @@
-# Bootstrap (once, before first deploy) — see plans/ca.md for full instructions.
+# Bootstrap record (ran once; CA is already initialised — do not re-run).
+# See plans/ca.md for full context.
 #   sudo mkdir -p /var/lib/step-ca/.step
 #   sudo env STEPPATH=/var/lib/step-ca/.step nix-shell -p step-cli --run \
 #     "step ca init --name 'pi-1 homelab CA' --dns 'pi-1.local' --dns 'localhost' \
 #      --address '127.0.0.1:8443' --provisioner admin --deployment-type standalone"
 #   sudo env STEPPATH=/var/lib/step-ca/.step nix-shell -p step-cli --run \
 #     "step ca provisioner add acme --type ACME"
-# Store ca.json and root_ca.crt in 1Password; update opnix refs in pi-1.nix.
+# ca.json and root_ca.crt are stored in 1Password; opnix refs are in pi-1.nix.
 
 { config, lib, ... }:
 let

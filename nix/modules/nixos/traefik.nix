@@ -30,7 +30,7 @@ in
   options.services.homelab-proxy = {
     domain = lib.mkOption {
       type = lib.types.str;
-      description = "Base domain for all homelab services (e.g. pi-1.local).";
+      description = "Base domain for all homelab services (e.g. pi-1.lan).";
     };
     homepagePort = lib.mkOption {
       type = lib.types.port;
