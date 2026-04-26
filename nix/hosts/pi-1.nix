@@ -7,7 +7,7 @@
   };
 
   my.domain.homelab = {
-    name = "pi-1.local";
+    name = "home.lan";
     hostName = "pi-1";
   };
 
