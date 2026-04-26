@@ -1,6 +1,7 @@
 { config, lib, ... }:
 let
-  cfg = config.services.homelab-proxy;
+  cfg = config.services.homelab;
+  domain = config.my.domain.homelab.name;
 
   entrypointHttp = "web";
   entrypointHttps = "websecure";
@@ -9,14 +10,8 @@ let
   # 'localhost' not '127.0.0.1': Go TLS requires a DNS SAN; step-ca has 'localhost' but no IP SAN.
   caUrl = "https://localhost:${toString config.services.homelab-ca.port}/acme/acme/directory";
 
-  # Port references — pulled from each service's own module options where possible.
-  # Gatus settings is a free-form attrset; .web.port is accessible but not a typed option.
-  beszelPort = config.services.beszel.hub.port; # beszel-hub.nix
-  adguardPort = config.services.adguard-home.httpPort; # adguard-home.nix
-  gatusPort = config.services.gatus.settings.web.port; # gatus.nix
-
   mkRouter = name: {
-    rule = "Host(`${name}.${cfg.domain}`)";
+    rule = "Host(`${name}.${domain}`)";
     service = name;
     entryPoints = [ entrypointHttps ];
     tls.certResolver = certResolver;
@@ -27,19 +22,21 @@ let
   };
 in
 {
-  options.services.homelab-proxy = {
-    domain = lib.mkOption {
-      type = lib.types.str;
-      description = "Base domain for all homelab services (e.g. pi-1.lan).";
-    };
+  options.services.homelab = {
     homepagePort = lib.mkOption {
       type = lib.types.port;
       default = 8081;
       description = "Port nginx serves the homepage on (localhost only).";
     };
-    localIp = lib.mkOption {
-      type = lib.types.str;
-      description = "IP this host resolves to. Used for /etc/hosts entries for ACME HTTP-01.";
+    routes = lib.mkOption {
+      type = lib.types.listOf (lib.types.submodule {
+        options = {
+          name = lib.mkOption { type = lib.types.str; };
+          port = lib.mkOption { type = lib.types.port; };
+        };
+      });
+      default = [];
+      description = "Services to expose via Traefik.";
     };
   };
 
@@ -66,21 +63,15 @@ in
       dynamicConfigOptions.http = {
         routers = {
           homepage = {
-            rule = "Host(`${cfg.domain}`)";
+            rule = "Host(`${domain}`)";
             service = "homepage";
             entryPoints = [ entrypointHttps ];
             tls.certResolver = certResolver;
           };
-          beszel = mkRouter "beszel";
-          gatus = mkRouter "gatus";
-          adguard = mkRouter "adguard";
-        };
+        } // builtins.listToAttrs (map (r: { name = r.name; value = mkRouter r.name; }) cfg.routes);
         services = {
           homepage = mkService cfg.homepagePort;
-          beszel = mkService beszelPort;
-          gatus = mkService gatusPort;
-          adguard = mkService adguardPort;
-        };
+        } // builtins.listToAttrs (map (r: { name = r.name; value = mkService r.port; }) cfg.routes);
       };
     };
 
@@ -90,22 +81,6 @@ in
       requires = [ "opnix-secrets.service" ];
       environment.LEGO_CA_CERTIFICATES = "/run/step-ca-root.crt";
     };
-
-    # DNS rewrite: Tailscale clients resolve *.${cfg.domain} via AdGuard.
-    # Generated here so it derives from cfg.domain and cfg.localIp automatically.
-    # user_rules is used for consistency; unlike .local, .lan has no mDNS interception issue.
-    services.adguardhome.settings.user_rules = [
-      "||${cfg.domain}^$dnsrewrite=NOERROR;A;${cfg.localIp}"
-    ];
-
-    # Needed so step-ca can resolve homelab subdomains during HTTP-01 challenge verification.
-    # Generated here (not pi-1.nix) so adding a new service to traefik gets the entry for free.
-    networking.hosts.${cfg.localIp} = [
-      cfg.domain
-      "beszel.${cfg.domain}"
-      "gatus.${cfg.domain}"
-      "adguard.${cfg.domain}"
-    ];
   };
 
   # No firewall rule needed: tailscale0 is a trustedInterface (base.nix).

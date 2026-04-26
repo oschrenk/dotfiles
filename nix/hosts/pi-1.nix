@@ -1,10 +1,16 @@
-let
-  # Host network addresses. Referenced by any service that needs to bind or
-  # connect to a specific interface. Update here if IPs change.
-  lanIp = "192.168.1.7";
-  tailscaleIp = "100.125.174.68";
-in
+{ config, ... }:
 {
+  # Host network addresses. Update here if IPs change.
+  my.host."pi-1" = {
+    lanIp = "192.168.1.7";
+    tailscaleIp = "100.125.174.68";
+  };
+
+  my.domain.homelab = {
+    name = "pi-1.local";
+    hostName = "pi-1";
+  };
+
   # Networking
   networking.hostName = "pi-1";
 
@@ -25,8 +31,8 @@ in
   # Bind only on LAN and tailscale — keeps resolved's stub (127.0.0.53:53)
   # intact so the pi's own DNS goes through resolved, not AdGuard.
   services.adguard-home.bindHosts = [
-    lanIp
-    tailscaleIp
+    config.my.host."pi-1".lanIp
+    config.my.host."pi-1".tailscaleIp
   ];
 
   services.onepassword-secrets.secrets.adguardUsername = {
@@ -40,10 +46,6 @@ in
     owner = "root";
     mode = "0600";
   };
-
-  # Homelab proxy
-  services.homelab-proxy.domain = "pi-1.local";
-  services.homelab-proxy.localIp = tailscaleIp;
 
   # Beszel
   services.onepassword-secrets.secrets.beszelAgentKey = {
@@ -74,7 +76,7 @@ in
   };
 
   # step-ca
-  # Root CA cert — traefik's lego client trusts it via LEGO_CA_CERTIFICATES (traefik.nix).
+  # Root CA cert — traefik's lego client trusts it via LEGO_CA_CERTIFICATES (homelab.nix).
   services.onepassword-secrets.secrets.stepCaConfig = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/zf43l4tp5emchhsa75o5i46b5u/ql6hn7chrecivmrns4wextxvfe";
     path = "/run/step-ca.json";

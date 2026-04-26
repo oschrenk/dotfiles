@@ -1,13 +1,14 @@
 { config, pkgs, ... }:
 let
-  cfg = config.services.homelab-proxy;
+  cfg = config.services.homelab;
+  domain = config.my.domain.homelab.name;
   html = ''
     <!DOCTYPE html>
     <html lang="en">
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>${cfg.domain}</title>
+      <title>${domain}</title>
       <style>
         body { font-family: system-ui, sans-serif; max-width: 400px; margin: 4rem auto; padding: 0 1rem; }
         ul { list-style: none; padding: 0; }
@@ -17,11 +18,11 @@ let
       </style>
     </head>
     <body>
-      <h1>${cfg.domain}</h1>
+      <h1>${domain}</h1>
       <ul>
-        <li><a href="https://beszel.${cfg.domain}">Beszel</a></li>
-        <li><a href="https://gatus.${cfg.domain}">Gatus</a></li>
-        <li><a href="https://adguard.${cfg.domain}">AdGuard Home</a></li>
+        <li><a href="https://beszel.${domain}">Beszel</a></li>
+        <li><a href="https://gatus.${domain}">Gatus</a></li>
+        <li><a href="https://adguard.${domain}">AdGuard Home</a></li>
       </ul>
     </body>
     </html>
