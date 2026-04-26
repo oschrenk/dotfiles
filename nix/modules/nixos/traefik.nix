@@ -91,6 +91,13 @@ in
       environment.LEGO_CA_CERTIFICATES = "/run/step-ca-root.crt";
     };
 
+    # DNS rewrite: Tailscale clients resolve *.${cfg.domain} via AdGuard.
+    # Generated here so it derives from cfg.domain and cfg.localIp automatically.
+    # user_rules is used for consistency; unlike .local, .lan has no mDNS interception issue.
+    services.adguardhome.settings.user_rules = [
+      "||${cfg.domain}^$dnsrewrite=NOERROR;A;${cfg.localIp}"
+    ];
+
     # Needed so step-ca can resolve homelab subdomains during HTTP-01 challenge verification.
     # Generated here (not pi-1.nix) so adding a new service to traefik gets the entry for free.
     networking.hosts.${cfg.localIp} = [

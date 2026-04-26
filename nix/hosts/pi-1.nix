@@ -41,21 +41,6 @@ in
     mode = "0600";
   };
 
-  # DNS rewrites: Tailscale clients resolve *.pi-1.local via AdGuard.
-  # mDNS (.local) does not work over Tailscale — AdGuard must answer these.
-  #
-  # Why user_rules instead of dns.rewrites:
-  #   AdGuard Home treats .local as mDNS-reserved (RFC 6762) and silently strips
-  #   any entries in dns.rewrites that match *.local during startup normalisation.
-  #   The store YAML has the rewrites, but /var/lib/AdGuardHome/AdGuardHome.yaml
-  #   ends up with rewrites: [] after AdGuard processes the file.
-  #   user_rules with the $dnsrewrite modifier bypass this normalisation entirely.
-  #
-  # Wildcard pattern: ||pi-1.local^ matches pi-1.local and every subdomain.
-  services.adguardhome.settings.user_rules = [
-    "||pi-1.local^$dnsrewrite=NOERROR;A;${tailscaleIp}"
-  ];
-
   # Homelab proxy
   services.homelab-proxy.domain = "pi-1.local";
   services.homelab-proxy.localIp = tailscaleIp;
