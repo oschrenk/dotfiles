@@ -19,9 +19,9 @@ let
     <body>
       <h1>${cfg.domain}</h1>
       <ul>
-        <li><a href="http://beszel.${cfg.domain}">Beszel</a></li>
-        <li><a href="http://gatus.${cfg.domain}">Gatus</a></li>
-        <li><a href="http://adguard.${cfg.domain}">AdGuard Home</a></li>
+        <li><a href="https://beszel.${cfg.domain}">Beszel</a></li>
+        <li><a href="https://gatus.${cfg.domain}">Gatus</a></li>
+        <li><a href="https://adguard.${cfg.domain}">AdGuard Home</a></li>
       </ul>
     </body>
     </html>

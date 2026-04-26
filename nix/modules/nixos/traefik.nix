@@ -6,7 +6,8 @@ let
   entrypointHttps = "websecure";
   certResolver    = "internal";
   acmeStorage     = "/var/lib/traefik/acme.json";
-  caUrl           = "https://127.0.0.1:${toString config.services.homelab-ca.port}/acme/acme/directory";
+  # 'localhost' not '127.0.0.1': Go TLS requires a DNS SAN; step-ca has 'localhost' but no IP SAN.
+  caUrl           = "https://localhost:${toString config.services.homelab-ca.port}/acme/acme/directory";
 
   # Port references — pulled from each service's own module options where possible.
   # Gatus settings is a free-form attrset; .web.port is accessible but not a typed option.
@@ -15,9 +16,10 @@ let
   gatusPort   = config.services.gatus.settings.web.port;  # gatus.nix
 
   mkRouter = name: {
-    rule = "Host(`${name}.${cfg.domain}`)";
-    service = name;
-    entryPoints = [ entrypointHttp ];
+    rule             = "Host(`${name}.${cfg.domain}`)";
+    service          = name;
+    entryPoints      = [ entrypointHttps ];
+    tls.certResolver = certResolver;
   };
 
   mkService = port: {
@@ -45,12 +47,30 @@ in
     services.traefik = {
       enable = true;
       staticConfigOptions = {
-        entryPoints.${entrypointHttp}.address = ":80";
+        entryPoints.${entrypointHttp} = {
+          address = ":80";
+          http.redirections.entryPoint = {
+            to     = entrypointHttps;
+            scheme = "https";
+          };
+        };
+        entryPoints.${entrypointHttps}.address = ":443";
+        certificatesResolvers.${certResolver}.acme = {
+          email         = config.my.personal.email;
+          storage       = acmeStorage;
+          caServer      = caUrl;
+          httpChallenge.entryPoint = entrypointHttp;
+        };
         # api omitted — dashboard is off by default
       };
       dynamicConfigOptions.http = {
         routers = {
-          homepage = { rule = "Host(`${cfg.domain}`)"; service = "homepage"; entryPoints = [ entrypointHttp ]; };
+          homepage = {
+            rule             = "Host(`${cfg.domain}`)";
+            service          = "homepage";
+            entryPoints      = [ entrypointHttps ];
+            tls.certResolver = certResolver;
+          };
           beszel   = mkRouter "beszel";
           gatus    = mkRouter "gatus";
           adguard  = mkRouter "adguard";
@@ -62,6 +82,13 @@ in
           adguard  = mkService adguardPort;
         };
       };
+    };
+
+    # Trust step-ca's TLS cert when lego connects to the internal ACME endpoint.
+    systemd.services.traefik = {
+      after    = [ "opnix-secrets.service" ];
+      requires = [ "opnix-secrets.service" ];
+      environment.LEGO_CA_CERTIFICATES = "/run/step-ca-root.crt";
     };
 
     # Needed so step-ca can resolve homelab subdomains during HTTP-01 challenge verification.
