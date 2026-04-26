@@ -1,4 +1,5 @@
 {
+  # Networking
   networking.hostName = "pi-2";
 
   # Pin hostnames to static IPs to bypass unreliable Avahi DNS on UNAS.
@@ -7,18 +8,21 @@
     "192.168.1.241" = [ "unas.local" ];
   };
 
+  # Tailscale
   services.onepassword-secrets.secrets.tailscaleAuthKey = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/2imqxgbvx6htswijyuswh72kye/pi-2";
     owner = "root";
     mode = "0600";
   };
 
+  # Beszel
   services.onepassword-secrets.secrets.beszelAgentKey = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/pr3tmmcv6crtd36wqyqh3vdnmu/Public Key";
     owner = "beszel-agent";
     mode = "0600";
   };
 
+  # Storage
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS_SD";
     fsType = "ext4";

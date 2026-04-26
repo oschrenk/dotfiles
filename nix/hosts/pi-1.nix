@@ -5,6 +5,7 @@ let
   tailscaleIp = "100.125.174.68";
 in
 {
+  # Networking
   networking.hostName = "pi-1";
 
   # Pin hostnames to static IPs to bypass unreliable Avahi DNS on UNAS.
@@ -13,12 +14,50 @@ in
     "192.168.1.241" = [ "unas.local" ];
   };
 
+  # Tailscale
   services.onepassword-secrets.secrets.tailscaleAuthKey = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/2imqxgbvx6htswijyuswh72kye/pi-1";
     owner = "root";
     mode = "0600";
   };
 
+  # AdGuard
+  # Bind only on LAN and tailscale — keeps resolved's stub (127.0.0.53:53)
+  # intact so the pi's own DNS goes through resolved, not AdGuard.
+  services.adguard-home.bindHosts = [ lanIp tailscaleIp ];
+
+  services.onepassword-secrets.secrets.adguardUsername = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/x2e3npasfpczengdmzxxglby2a/username";
+    owner     = "root";
+    mode      = "0600";
+  };
+
+  services.onepassword-secrets.secrets.adguardPasswordHash = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/x2e3npasfpczengdmzxxglby2a/bcrypt password";
+    owner     = "root";
+    mode      = "0600";
+  };
+
+  # DNS rewrites: Tailscale clients resolve *.pi-1.local via AdGuard.
+  # mDNS (.local) does not work over Tailscale — AdGuard must answer these.
+  #
+  # Why user_rules instead of dns.rewrites:
+  #   AdGuard Home treats .local as mDNS-reserved (RFC 6762) and silently strips
+  #   any entries in dns.rewrites that match *.local during startup normalisation.
+  #   The store YAML has the rewrites, but /var/lib/AdGuardHome/AdGuardHome.yaml
+  #   ends up with rewrites: [] after AdGuard processes the file.
+  #   user_rules with the $dnsrewrite modifier bypass this normalisation entirely.
+  #
+  # Wildcard pattern: ||pi-1.local^ matches pi-1.local and every subdomain.
+  services.adguardhome.settings.user_rules = [
+    "||pi-1.local^$dnsrewrite=NOERROR;A;${tailscaleIp}"
+  ];
+
+  # Homelab proxy
+  services.homelab-proxy.domain  = "pi-1.local";
+  services.homelab-proxy.localIp = tailscaleIp;
+
+  # Beszel
   services.onepassword-secrets.secrets.beszelAgentKey = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/pr3tmmcv6crtd36wqyqh3vdnmu/Public Key";
     owner = "beszel-agent";
@@ -38,6 +77,7 @@ in
     mode = "0600";
   };
 
+  # NAS
   # SMB credentials for CIFS mount (username=, password=, domain= file format)
   services.onepassword-secrets.secrets.unasCredentials = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/nlu6b76afi6kmgrjovrlw7bnrq/smb credentials";
@@ -45,40 +85,8 @@ in
     mode = "0600";
   };
 
-  # Restic repository encryption password
-  services.onepassword-secrets.secrets.resticPassword = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/mvunkul72kvdmvdkbycvsg7ogq/password";
-    owner = "root";
-    mode = "0600";
-  };
-
-  # ntfy topic URL — treated as a secret since the topic name is the only access control
-  services.onepassword-secrets.secrets.ntfyUrl = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/5gsl762zsgopnb7noenx44teey/homelab-backups";
-    owner = "root";
-    mode = "0600";
-  };
-
-  services.onepassword-secrets.secrets.adguardUsername = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/x2e3npasfpczengdmzxxglby2a/username";
-    owner     = "root";
-    mode      = "0600";
-  };
-
-  services.onepassword-secrets.secrets.adguardPasswordHash = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/x2e3npasfpczengdmzxxglby2a/bcrypt password";
-    owner     = "root";
-    mode      = "0600";
-  };
-
-  # Bind only on LAN and tailscale — keeps resolved's stub (127.0.0.53:53)
-  # intact so the pi's own DNS goes through resolved, not AdGuard.
-  services.adguard-home.bindHosts = [ lanIp tailscaleIp ];
-
-  services.homelab-proxy.domain  = "pi-1.local";
-  services.homelab-proxy.localIp = tailscaleIp;
-
-  # step-ca secrets — see step-ca.nix for bootstrap instructions.
+  # step-ca
+  # Root CA cert — traefik's lego client trusts it via LEGO_CA_CERTIFICATES (traefik.nix).
   services.onepassword-secrets.secrets.stepCaConfig = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/zf43l4tp5emchhsa75o5i46b5u/ql6hn7chrecivmrns4wextxvfe";
     path      = "/run/step-ca.json";
@@ -93,7 +101,6 @@ in
     mode      = "0600";
   };
 
-  # Root CA cert — traefik's lego client trusts it via LEGO_CA_CERTIFICATES (traefik.nix).
   services.onepassword-secrets.secrets.stepCaRootCert = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/zf43l4tp5emchhsa75o5i46b5u/pu4k27p33n2a5g4mlwztdzzmeq";
     path      = "/run/step-ca-root.crt";
@@ -101,26 +108,19 @@ in
     mode      = "0644";
   };
 
-  # DNS rewrites: Tailscale clients resolve *.pi-1.local via AdGuard.
-  # mDNS (.local) does not work over Tailscale — AdGuard must answer these.
-  #
-  # Why user_rules instead of dns.rewrites:
-  #   AdGuard Home treats .local as mDNS-reserved (RFC 6762) and silently strips
-  #   any entries in dns.rewrites that match *.local during startup normalisation.
-  #   The store YAML has the rewrites, but /var/lib/AdGuardHome/AdGuardHome.yaml
-  #   ends up with rewrites: [] after AdGuard processes the file.
-  #   user_rules with the $dnsrewrite modifier bypass this normalisation entirely.
-  #
-  # Wildcard pattern: ||pi-1.local^ matches pi-1.local and every subdomain.
-  services.adguardhome.settings.user_rules = [
-    "||pi-1.local^$dnsrewrite=NOERROR;A;${tailscaleIp}"
-  ];
+  # Backups
+  # Restic repository encryption password
+  services.onepassword-secrets.secrets.resticPassword = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/mvunkul72kvdmvdkbycvsg7ogq/password";
+    owner = "root";
+    mode = "0600";
+  };
 
-  services.backup-healthcheck.checks = {
-    # port 8099: localhost-only HTTP shim for beszel backup freshness.
-    beszel  = { port = 8099; };
-    # port 8100: localhost-only HTTP shim for adguard backup freshness.
-    adguard = { port = 8100; };
+  # ntfy topic URL — treated as a secret since the topic name is the only access control
+  services.onepassword-secrets.secrets.ntfyUrl = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/5gsl762zsgopnb7noenx44teey/homelab-backups";
+    owner = "root";
+    mode = "0600";
   };
 
   # Stagger to avoid concurrent NAS access (both default to "daily" = midnight).
@@ -129,8 +129,16 @@ in
   services.restic-adguard.backupSchedule  = "*-*-* 01:30:00";
   services.restic-step-ca.backupSchedule  = "*-*-* 02:00:00";
 
+  services.backup-healthcheck.checks = {
+    # port 8099: localhost-only HTTP shim for beszel backup freshness.
+    beszel  = { port = 8099; };
+    # port 8100: localhost-only HTTP shim for adguard backup freshness.
+    adguard = { port = 8100; };
+  };
+
   services.backup-healthcheck.checks.step-ca = { port = 8101; };
 
+  # Storage
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS_SD";
     fsType = "ext4";
