@@ -84,6 +84,10 @@ tasks:
     dir: nix
     cmds:
       - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --flake .#pi-3 --target-host oliver@pi-3.local --build-host oliver@pi-3.local --sudo
+  tailscale-unas:
+    desc: Install and configure Tailscale on UNAS2
+    cmds:
+      - ssh root@unas.local env "TAILSCALE_AUTHKEY=$(op read 'op://2udkjdngrnb6jlr62cd7iq33de/2imqxgbvx6htswijyuswh72kye/unas')" sh -s < scripts/setup-tailscale-unas.sh
   nix-fmt:
     desc: Format all nix files
     dir: nix
