@@ -113,11 +113,11 @@
     mode = "0600";
   };
 
-  # Stagger to avoid concurrent NAS access (both default to "daily" = midnight).
-  # 30min gap is enough for either backup to finish before the other starts.
+  # Stagger to avoid concurrent NAS access. Backups complete in 10-30s so
+  # 15-minute intervals are sufficient; this also leaves 01:45 free for pi-3.
   services.restic-beszel.backupSchedule = "*-*-* 01:00:00";
-  services.restic-adguard.backupSchedule = "*-*-* 01:30:00";
-  services.restic-step-ca.backupSchedule = "*-*-* 02:00:00";
+  services.restic-adguard.backupSchedule = "*-*-* 01:15:00";
+  services.restic-step-ca.backupSchedule = "*-*-* 01:30:00";
 
   services.backup-healthcheck.checks = {
     # port 8099: localhost-only HTTP shim for beszel backup freshness.
