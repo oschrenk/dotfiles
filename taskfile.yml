@@ -63,6 +63,18 @@ tasks:
     vars:
       HOSTNAME:
         sh: hostname -s
+  nix-builder-restart:
+    desc: Restart the linux-builder VM
+    cmds:
+      - sudo launchctl kickstart -k system/org.nixos.linux-builder
+  nix-builder-force:
+    desc: Force reset the linux-builder VM (recreates working dir, disk, and fixes key permissions)
+    cmds:
+      - sudo mkdir -p /var/lib/linux-builder
+      - sudo rm -f /var/lib/linux-builder/nixos.qcow2
+      - sudo launchctl kickstart -k system/org.nixos.linux-builder
+      - sleep 30
+      - sudo chmod 644 /etc/nix/builder_ed25519
   nix-pi:
     desc: Apply NixOS configuration to all pis
     deps: [nix-pi-1, nix-pi-2, nix-pi-3]
@@ -71,19 +83,19 @@ tasks:
     deps: [nix-guard-local]
     dir: nix
     cmds:
-      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --flake .#pi-1 --target-host oliver@pi-1.local --build-host oliver@pi-1.local --sudo
+      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --flake .#pi-1 --target-host oliver@pi-1.local --build-host builder@linux-builder --sudo
   nix-pi-2:
     desc: Apply NixOS configuration to pi-2
     deps: [nix-guard-local]
     dir: nix
     cmds:
-      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --flake .#pi-2 --target-host oliver@pi-2.local --build-host oliver@pi-2.local --sudo
+      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --flake .#pi-2 --target-host oliver@pi-2.local --build-host builder@linux-builder --sudo
   nix-pi-3:
     desc: Apply NixOS configuration to pi-3
     deps: [nix-guard-local]
     dir: nix
     cmds:
-      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --flake .#pi-3 --target-host oliver@pi-3.local --build-host oliver@pi-3.local --sudo
+      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --flake .#pi-3 --target-host oliver@pi-3.local --build-host builder@linux-builder --sudo
   tailscale-unas:
     desc: Install and configure Tailscale on UNAS2
     cmds:
