@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 {
   # Disable WiFi and audio via kernel module blacklist
   boot.blacklistedKernelModules = [
@@ -52,6 +52,11 @@
       value = "255";
     };
   };
+
+  # RPi kernel caps ASLR randomness at 18 bits; NixOS default is 33.
+  # nixos-raspberrypi sets this to 18 but NixOS's default overrides it.
+  # See: nvmd/nixos-raspberrypi modules/raspberrypi.nix
+  boot.kernel.sysctl."vm.mmap_rnd_bits" = lib.mkForce 18;
 
   # Disable ACT (green) and PWR (red) LEDs
   systemd.tmpfiles.rules = [
