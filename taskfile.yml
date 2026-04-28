@@ -88,6 +88,21 @@ tasks:
     desc: Install and configure Tailscale on UNAS2
     cmds:
       - ssh root@unas.local env "TAILSCALE_AUTHKEY=$(op read 'op://2udkjdngrnb6jlr62cd7iq33de/2imqxgbvx6htswijyuswh72kye/unas')" sh -s < scripts/setup-tailscale-unas.sh
+  nix-update:
+    desc: Update all flake inputs (nixpkgs, nixos-raspberrypi, etc.)
+    dir: nix
+    cmds:
+      - nix flake update
+  nix-update-nixpkgs:
+    desc: Update only the nixpkgs input
+    dir: nix
+    cmds:
+      - nix flake update nixpkgs
+  nix-update-rpi:
+    desc: Update only the nixos-raspberrypi input (RPi kernel/firmware)
+    dir: nix
+    cmds:
+      - nix flake update nixos-raspberrypi
   nix-fmt:
     desc: Format all nix files
     dir: nix
