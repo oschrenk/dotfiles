@@ -15,14 +15,6 @@
     mode = "0600";
   };
 
-  # Jellyfin
-  # SMB credentials for //unas.local/Media (authenticated share)
-  services.onepassword-secrets.secrets.unasMediaCredentials = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/4temigio7v65dpjob7wflknb6i/smb credentials";
-    owner = "root";
-    mode = "0600";
-  };
-
   # Beszel
   services.onepassword-secrets.secrets.beszelAgentKey = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/pr3tmmcv6crtd36wqyqh3vdnmu/Public Key";
