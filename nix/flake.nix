@@ -136,7 +136,7 @@
             ./modules/darwin/defaults/apps/com.colliderli.iina.nix
             ./modules/darwin/defaults/apps/com.apple.mail.nix
             ./modules/darwin/defaults/apps/com.apple.safari.nix
-            ./modules/darwin/linux-builder.nix
+            # ./modules/darwin/linux-builder.nix  # disabled: no longer needed since switching to pre-built MongoDB binaries
             ./hosts/maxbook.nix
             home-manager.darwinModules.home-manager
             ./modules/home-manager.nix
