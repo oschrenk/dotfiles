@@ -83,19 +83,19 @@ tasks:
     deps: [nix-guard-local]
     dir: nix
     cmds:
-      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --flake .#pi-1 --target-host oliver@pi-1.local --build-host builder@linux-builder --sudo
+      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-1 --target-host oliver@pi-1.local --build-host builder@linux-builder --sudo
   nix-pi-2:
     desc: Apply NixOS configuration to pi-2
     deps: [nix-guard-local]
     dir: nix
     cmds:
-      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --flake .#pi-2 --target-host oliver@pi-2.local --build-host builder@linux-builder --sudo
+      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-2 --target-host oliver@pi-2.local --build-host builder@linux-builder --sudo
   nix-pi-3:
     desc: Apply NixOS configuration to pi-3
     deps: [nix-guard-local]
     dir: nix
     cmds:
-      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --flake .#pi-3 --target-host oliver@pi-3.local --build-host builder@linux-builder --sudo
+      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-3 --target-host oliver@pi-3.local --build-host builder@linux-builder --sudo
   tailscale-unas:
     desc: Install and configure Tailscale on UNAS2
     cmds:
