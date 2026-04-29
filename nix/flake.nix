@@ -85,6 +85,7 @@
             ./modules/nixos/pi4-hardware.nix
             ./modules/nixos/secrets.nix
             ./modules/nixos/beszel/agent.nix
+            ./modules/nixos/unifi-os-server.nix
             ./hosts/pi-2.nix
           ];
         };
