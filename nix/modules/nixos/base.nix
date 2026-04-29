@@ -20,6 +20,15 @@
   # allow wheel group to use nix as trusted user — required for remote nixos-rebuild
   nix.settings.trusted-users = [ "@wheel" ];
 
+  # Storage on the Pis is tight (USB stick); without this every nixos-rebuild
+  # accumulates old generations and unreferenced store paths until disk fills.
+  # Weekly GC, keep 14 days of generations as a rollback buffer.
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 14d";
+  };
+
   # mDNS — advertise hostname on local network so Macs can reach pi-1.local etc.
   # without needing static /etc/hosts entries or a DNS server
   services.avahi = {
