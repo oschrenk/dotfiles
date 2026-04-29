@@ -17,6 +17,7 @@
         options = {
           lanIp = lib.mkOption { type = lib.types.str; };
           tailscaleIp = lib.mkOption { type = lib.types.str; };
+          mac = lib.mkOption { type = lib.types.str; };
         };
       }
     );

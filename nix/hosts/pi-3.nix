@@ -1,4 +1,11 @@
 {
+  # Host network addresses. Update here if IPs change.
+  my.host."pi-3" = {
+    lanIp = "192.168.1.229";
+    tailscaleIp = "100.104.10.48";
+    mac = "dc:a6:32:6b:01:20";
+  };
+
   # Networking
   networking.hostName = "pi-3";
 
