@@ -56,6 +56,23 @@
   # resolved must also stay up so services restarted during deploy can still resolve hostnames
   systemd.services.systemd-resolved.stopIfChanged = false;
 
+  # Don't derive IPv6 addresses from the MAC.
+  #
+  # By default, Linux builds an IPv6 address by taking the network prefix
+  # (handed out by your ISP) and gluing the MAC onto it. So if anyone knows
+  # both your prefix and your MAC, they can compute the public IPv6 of this
+  # machine and try to reach it directly.
+  #
+  # Setting addr_gen_mode = 2 tells the kernel to use a stable random
+  # suffix instead. Same address every time on the same network (so services
+  # keep working), but no longer guessable from the MAC alone. This makes it
+  # safe to publish MACs (e.g. in this repo) without leaking IPv6 addresses.
+  #
+  # `all` covers existing interfaces; `default` covers any new ones (e.g.
+  # tailscale0, container bridges) that get added later.
+  boot.kernel.sysctl."net.ipv6.conf.all.addr_gen_mode" = 2;
+  boot.kernel.sysctl."net.ipv6.conf.default.addr_gen_mode" = 2;
+
   time.timeZone = config.my.personal.timezone;
 
   system.stateVersion = "25.05";
