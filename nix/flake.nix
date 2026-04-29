@@ -100,6 +100,7 @@
             ./modules/nixos/pi4-hardware.nix
             ./modules/nixos/secrets.nix
             ./modules/nixos/beszel/agent.nix
+            ./modules/nixos/unifi-network-controller.nix
             ./hosts/pi-3.nix
           ];
         };
