@@ -15,6 +15,12 @@
   # Enable fish — adds nix fish path to /etc/shells
   programs.fish.enable = true;
 
+  # Homebrew installs completions to its own vendor dir, which Nix-managed fish
+  # doesn't include automatically. Add it so e.g. `task` completions work.
+  programs.fish.shellInit = ''
+    set -a fish_complete_path /opt/homebrew/share/fish/vendor_completions.d
+  '';
+
   # Register the user so nix-darwin can manage their shell
   users.knownUsers = [ config.my.personal.username ];
   users.users.${config.my.personal.username} = {
