@@ -65,6 +65,7 @@
     "the-unarchiver" # unarchiving most archive files
     "transmission" # torrent client
     "vlc" # video client
+    "whatcable" # cable identifier
     "whatsapp" # whatsapp messaging
     "yellowdot" # hide screen/audio indicator
   ];

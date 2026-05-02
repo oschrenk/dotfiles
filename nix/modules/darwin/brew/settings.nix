@@ -19,6 +19,7 @@
 
     taps = [
       "cristianoliveira/tap" # aerospace-scratchpad
+      "darrylmorley/whatcable" # whatcable
       "felixkratz/formulae" # sketchybar
       "IohannRabeson/tap" # tmignore-rs
       "johannesnagl/tap" # showmd
