@@ -27,6 +27,7 @@
     "alcove" # macos, notch helper
     "antinote" # notes with SoulverCore
     "arc" # chromium based browser
+    "betterdisplay" # display management
     "calibre" # ebook manager
     "discord" # discord client
     "firefox" # browser
