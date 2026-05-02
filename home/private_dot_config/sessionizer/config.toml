@@ -16,6 +16,7 @@ entries = [
   { name = "config/chezmoi", path = "$HOME/.local/share/chezmoi", layout = "two-columns-claude" },
   { name = "config/claude", path = "$HOME/.config/claude", layout = "two-columns-claude" },
   { name = "config/nvim", path = "$HOME/.config/nvim", layout = "two-columns-claude" },
+  { name = "config/tmux", path = "$HOME/.config/tmux", layout = "two-columns-claude" },
   { name = "claude/personal", path = "$HOME/.config/claude/personal", layout = "two-columns-claude" },
   { name = "claude/work", path = "$HOME/.config/claude/work", layout = "two-columns-claude" },
   { name = "interests/5parsecs", path = "$HOME/Obsidian/memex/20 Areas/Interests/5 Parsecs", layout = "two-columns-claude" },
