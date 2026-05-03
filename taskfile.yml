@@ -96,6 +96,13 @@ tasks:
     dir: nix
     cmds:
       - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-3 --target-host oliver@pi-3.local --build-host builder@linux-builder --sudo
+  nix-hetzner-1:
+    desc: Apply NixOS configuration to hetzner-1
+    # Relies on a `Host hetzner-1` entry in ~/.ssh/config to resolve the public IP and user.
+    deps: [nix-guard-local]
+    dir: nix
+    cmds:
+      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --flake .#hetzner-1 --target-host oliver@hetzner-1 --build-host builder@linux-builder --sudo
   tailscale-unas:
     desc: Install and configure Tailscale on UNAS2
     cmds:

@@ -13,6 +13,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
     opnix.url = "github:brizzbuzz/opnix";
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -23,6 +25,7 @@
       home-manager,
       nixos-raspberrypi,
       opnix,
+      disko,
       ...
     }@inputs:
     {
@@ -103,6 +106,20 @@
             ./modules/nixos/beszel/agent.nix
             ./modules/nixos/unifi-network-controller.nix
             ./hosts/pi-3.nix
+          ];
+        };
+
+        "hetzner-1" = nixpkgs.lib.nixosSystem {
+          system = "aarch64-linux";
+          specialArgs = inputs;
+          modules = [
+            ./local.nix
+            ./options.nix
+            disko.nixosModules.default
+            ./modules/nixos/base.nix
+            ./modules/nixos/hetzner-cloud-hardware.nix
+            ./modules/nixos/hetzner-cloud-disko.nix
+            ./hosts/hetzner-1.nix
           ];
         };
       };
