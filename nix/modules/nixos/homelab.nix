@@ -95,8 +95,10 @@ in
       requires = [ "opnix-secrets.service" ];
       environment.LEGO_CA_CERTIFICATES = "/run/step-ca-root.crt";
     };
-  };
 
-  # No firewall rule needed: tailscale0 is a trustedInterface (base.nix).
-  # Port 80 intentionally NOT in allowedTCPPorts — keeps it off LAN.
+    # tailscale0 is a trustedInterface (base.nix), so Tailscale traffic bypasses
+    # the firewall entirely. For LAN clients we open 443 explicitly. Port 80 is
+    # intentionally NOT in allowedTCPPorts — clients on LAN must use https://.
+    networking.firewall.allowedTCPPorts = [ 443 ];
+  };
 }
