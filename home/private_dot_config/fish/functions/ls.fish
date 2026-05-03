@@ -6,7 +6,7 @@ if command ls --version 1>/dev/null 2>/dev/null
     function ls --description "List contents of directory"
         set -l param --color=auto
         if isatty 1
-            set param $param --indicator-style=classify
+            set param $param -F
         end
         command ls $param $argv
     end
