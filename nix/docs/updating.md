@@ -22,6 +22,7 @@ Update one input:
 
 ```sh
 nix flake update nixpkgs
+nix flake update nix-darwin
 nix flake update nixos-raspberrypi
 ```
 

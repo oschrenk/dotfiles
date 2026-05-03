@@ -115,6 +115,11 @@ tasks:
     dir: nix
     cmds:
       - nix flake update nixos-raspberrypi
+  nix-update-darwin:
+    desc: Update only the nix-darwin input
+    dir: nix
+    cmds:
+      - nix flake update nix-darwin
   nix-fmt:
     desc: Format all nix files
     dir: nix
