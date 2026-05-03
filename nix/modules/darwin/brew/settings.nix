@@ -15,6 +15,13 @@
       cleanup = "zap";
       # Update Homebrew on each activation
       autoUpdate = true;
+      # Env vars passed to `brew bundle` during activation. Activation runs
+      # under sudo so user shell env is not inherited.
+      extraEnv = {
+        HOMEBREW_NO_ENV_HINTS = "1";
+        HOMEBREW_NO_ANALYTICS = "1";
+        HOMEBREW_NO_UPDATE_REPORT_NEW = "1";
+      };
     };
 
     taps = [
