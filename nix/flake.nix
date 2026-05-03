@@ -116,9 +116,11 @@
             ./local.nix
             ./options.nix
             disko.nixosModules.default
+            opnix.nixosModules.default
             ./modules/nixos/base.nix
             ./modules/nixos/hetzner-cloud-hardware.nix
             ./modules/nixos/hetzner-cloud-disko.nix
+            ./modules/nixos/secrets.nix
             ./hosts/hetzner-1.nix
           ];
         };
