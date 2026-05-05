@@ -10,7 +10,6 @@
     "fileicon" # macos, manage icons
     "iconsur" # macos, fetch icons
     "infat" # macos, set default filetypes
-    "kanata" # system, keyboard mapper
     "m1ddc" # hardware, monitor control
     "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
     "oschrenk/made/mission" # macos, task management
