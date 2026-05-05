@@ -79,7 +79,6 @@
     "Due" = 524373870; # reminders on steroids
     "Keynote" = 409183694; # make slides
     "Klack" = 6446206067; # keyboard
-    "NextDNS" = 1464122853; # dns blocking
     "NordVPN" = 905953485;
     "Parcel" = 375589283; # shipment tracking
     "Reeder" = 1529448980; # rss
