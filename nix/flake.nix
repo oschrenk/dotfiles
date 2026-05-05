@@ -158,6 +158,7 @@
             ./modules/darwin/defaults/apps/com.apple.mail.nix
             ./modules/darwin/defaults/apps/com.apple.safari.nix
             ./modules/darwin/linux-builder.nix
+            ./modules/darwin/kanata.nix
             ./hosts/maxbook.nix
             home-manager.darwinModules.home-manager
             ./modules/home-manager.nix
