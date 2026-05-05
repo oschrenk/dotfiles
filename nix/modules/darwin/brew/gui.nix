@@ -41,7 +41,6 @@
     "jdk-mission-control" # monitor java applications
     "jdownloader" # download manager
     "johannesnagl/tap/showmd" # markdown preview
-    "karabiner-elements" # customize keyboard
     "keyboardcleantool" # disables keyboard for cleaning
     "keycastr" # shows key strokes on screen
     "knockknock" # identify background tasks/processes
