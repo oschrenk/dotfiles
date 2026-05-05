@@ -5,6 +5,7 @@
     ./git.nix
     ./starship.nix
     ./atuin.nix
+    ./direnv.nix
   ];
 
   home.username = username;

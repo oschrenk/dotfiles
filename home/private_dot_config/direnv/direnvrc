@@ -1,1 +1,0 @@
-source "$(nix eval --raw nixpkgs#nix-direnv)/share/nix-direnv/direnvrc"
