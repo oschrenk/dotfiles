@@ -83,27 +83,44 @@ macos-option-as-alt = true
 #   https://ghostty.org/docs/config/reference#keybind
 #   ghostty +list-keybinds
 #   [alt|ctrl|shift|super] + key
+#
+# Would love to use splits in favour of tmux but ...
+# - I want to control sketchybar
+# - I would need to update sketchbar either actively
+#   by using pre/post actions in keybind's
+#   but that is bit supported
+# - or by hooking into ghostty window events
+#   which are also not supported
+# - I tried moving the control to Karabiner-Elements
+#   but that also can't issue pre/post actions since
+#   it would need scripting permissions which it doesn't
+#   expose
+#
+# Leaving these here though in case a new idea/feature
+# would allow supporting the switch to splits
+#
+# keybind = super+h=goto_split:left
+# keybind = super+i=goto_split:up
+# keybind = super+j=goto_split:down
+# keybind = super+l=goto_split:right
+# keybind = super+up=resize_split:up,10
+# keybind = super+down=resize_split:down,10
+# keybind = super+left=resize_split:left,10
+# keybind = super+right=resize_split:right,10
+# keybind = super+s=activate_key_table:splits
+# keybind = splits/-=new_split:down
+# keybind = chain=goto_split:down
+# keybind = chain=deactivate_key_table
+# keybind = splits/shift+\=new_split:right
+# keybind = chain=goto_split:right
+# keybind = chain=deactivate_key_table
+# keybind = splits/shift+\=new_split:right
+# keybind = splits/escape=deactivate_key_table
+
 # dont' create new windows
 keybind = super+n=unbind
 # dont' create new tabs
 keybind = super+t=unbind
-# move splits
-keybind = super+h=goto_split:left
-keybind = super+i=goto_split:up
-keybind = super+j=goto_split:down
-keybind = super+l=goto_split:right
-keybind = super+up=resize_split:up,10
-keybind = super+down=resize_split:down,10
-keybind = super+left=resize_split:left,10
-keybind = super+right=resize_split:right,10
-keybind = super+s=activate_key_table:splits
-keybind = splits/-=new_split:down
-keybind = chain=goto_split:down
-keybind = chain=deactivate_key_table
-keybind = splits/shift+\=new_split:right
-keybind = chain=goto_split:right
-keybind = chain=deactivate_key_table
-keybind = splits/shift+\=new_split:right
 
 # reload config
 keybind = super+r=reload_config
