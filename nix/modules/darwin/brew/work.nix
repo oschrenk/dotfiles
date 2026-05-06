@@ -16,7 +16,6 @@
     "snyk-cli" # security, cli, scan for security vulnerabilities
     "sqlfluff" # sql, formatter
     "stern" # k8s, log "aggregator"
-    "traefik" # k8s, reverse proxy
     "velero" # k8s, backup/recovery
     "websocat" # cli, websocket
   ];
