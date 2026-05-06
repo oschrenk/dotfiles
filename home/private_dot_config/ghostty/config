@@ -112,3 +112,7 @@ keybind = super+r=reload_config
 
 # open quick terminal
 keybind = global:super+grave_accent=toggle_quick_terminal
+
+# Send Ctrl+_ (0x1f) when Ctrl+- is pressed.
+# Replaces the deleted Karabiner rule that mapped Ctrl+- -> Ctrl+Shift+-.
+keybind = ctrl+minus=text:\x1f
