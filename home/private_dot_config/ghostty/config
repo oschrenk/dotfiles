@@ -31,7 +31,7 @@ macos-window-shadow = false
 # Font Configuration
 #   to list valid fonts `ghostty +list-fonts`
 font-size = 22
-font-family = "JetBrainsMono Nerd Font Mono"
+font-family = "Maple Mono Normal NF"
 font-style = "ExtraLight"
 font-style-bold = "Regular"
 font-style-italic = "ExtraLight Italic"
