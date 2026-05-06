@@ -167,7 +167,6 @@ arbol sync
 - `task extensions` Install Arc Browser extensions
 - `task go` Install go apps
 - `task icons` Install icons
-- `task lua` Install lua rocks
 - `task node` Install node tools
 - `task ollama` Install ollama models
 

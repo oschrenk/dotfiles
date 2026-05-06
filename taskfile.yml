@@ -1,7 +1,7 @@
 version: '3'
 tasks:
   apps:
-    deps: [cargo, go, krew, lua, node, ollama]
+    deps: [cargo, go, krew, node, ollama]
   cargo:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01b_deps_cargofile.sh.tmpl | chezmoi execute-template | zsh
@@ -11,9 +11,6 @@ tasks:
   ollama:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01d_deps_ollamafile.sh.tmpl | chezmoi execute-template | zsh
-  lua:
-    cmds:
-      - cat home/.chezmoiscripts/run_onchange_01e_deps_luarocks.sh.tmpl | chezmoi execute-template | zsh
   node:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01g_deps_node.sh.tmpl | chezmoi execute-template | zsh
