@@ -133,6 +133,8 @@
             ./options.nix
             ./modules/common.nix
             ./modules/packages.nix
+            opnix.darwinModules.default
+            ./modules/darwin/secrets.nix
             ./modules/darwin/brew/settings.nix
             ./modules/shell.nix
             ./modules/darwin/defaults/system/accessibility.nix

@@ -45,7 +45,27 @@ Subsequent runs use
 task nix-max
 ```
 
-Setup 1Password and sync the vaults, then initialize chezmoi
+## opnix bootstrap
+
+Some secrets (currently the atuin sync key) are sourced from 1Password via
+[opnix](https://github.com/brizzbuzz/opnix).
+The bootstrap is per-machine and the
+token never lands in git.
+
+Service account is "Service Account / opnix-bootstrap"
+
+Place the token at `/etc/opnix-token`:
+
+```sh
+sudo install -m 0600 -o root -g wheel /dev/null /etc/opnix-token
+sudo $EDITOR /etc/opnix-token
+```
+
+kickstart service manually:
+
+```sh
+sudo launchctl kickstart -k system/org.nixos.opnix-secrets
+```
 
 ```
 chezmoi init oschrenk/dotfiles
@@ -96,7 +116,9 @@ After casks are installed you can already start important apps and configure the
 - Arc
   - open profiles, and log into services
 - Atuin
-  - `atuin login`
+  - The sync key is provisioned by opnix from 1Password (`Bootstrap` vault),
+    so no key transfer between machines is needed. Run `atuin login` and
+    enter username + password.
 - Karabiner Elements.
   - Open. Read "System Extensions Blocked" popup. Click on "Open Security Preferences" and press "Allow".
 - IntelliJ.
