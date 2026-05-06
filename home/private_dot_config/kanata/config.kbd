@@ -17,8 +17,13 @@
 
 
 ;; physical hardware as source
+;; F-row mapped to media keys directly because macOS's fn-layer (the
+;; thing that turns F1 into brightness when fnState=0) only applies to
+;; the built-in Apple keyboard. kanata's virtual HID device looks like
+;; an external keyboard to macOS, so the fn-layer translation never
+;; applies to keys kanata emits. We replicate it manually.
 (defsrc
-  esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
   grv     1    2    3    4    5    6    7    8    9    0    -    =   bspc
   tab     q    w    e    r    t    y    u    i    o    p    [    ]   \
   caps    a    s    d    f    g    h    j    k    l    ;    '        ret
@@ -37,19 +42,40 @@
   ;; esc when press, lctl when held
   cap (tap-hold $tap-time $hold-time esc lctl)
 
+  ;; Hyper: physical lctl produces ctrl+cmd+option+shift while held.
+  ;; Used as a unique global modifier (sketchybar, app shortcuts).
+  ;; Note: caps still gives plain Ctrl via @cap above.
+  hyper (multi lctl lmet lalt lsft)
+
+  ;; Spotlight via macOS default shortcut Cmd+Space.
+  ;; kanata has no built-in spotlight key; mctl/lpad/eject are the only
+  ;; macOS-native consumer keys exposed.
+  spot (macro M-spc)
+
   ;; Shell commands
   ;; cmd requires special binary and `danger-enable-cmd` defcfg option
   ;; beep (cmd say "beep")
 )
 
 ;; logical layer as target
+;;
+;; F5 (dictation) and F6 (focus mode) are passed through as plain f5/f6
+;; because kanata doesn't expose the macOS-internal HID consumer codes
+;; for these. Karabiner-Elements DriverKit can send them; kanata's
+;; macOS consumer-key support is limited to mctl/lpad/eject + the
+;; standard brightness/volume/media keys.
+;;
+;; TODO: open kanata issues to request:
+;;   - dictation key (NX_KEYTYPE_DICTATION) support
+;;   - focus / Do Not Disturb key support
+;;   https://github.com/jtroo/kanata/issues
 (deflayer querty
-  esc    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12
+  brdn brup mctl @spot f5   f6   prev pp   next mute vold volu
   grv     1    2    3    4    5    6    7    8    9    0    -    =   bspc
   tab     q    w    e    r    t    y    u    i    o    p    [    ]   \
   @cap    a    s    d    f    g    h    j    k    l    ;    '        ret
   lsft    z    x    c    v    b    n    m    ,    .    /         ▲   rsft
-  fn   lctl lalt lmet           spc            rmet ralt     ◀   ▼   ▶
+  fn   @hyper lalt lmet           spc            rmet ralt     ◀   ▼   ▶
 )
 
 

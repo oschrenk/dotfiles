@@ -49,14 +49,49 @@ Add `/run/current-system/sw/bin/kanata` (resolve the symlink with `readlink -f` 
 
 ## Iteration
 
-Edit `home/private_dot_config/kanata/config.kbd` in the chezmoi source, then:
+Edit `home/private_dot_config/kanata/config.kbd` in the chezmoi source, then apply and restart the daemon:
 
 ```sh
-chezmoi apply
+chezmoi apply ~/.config/kanata/config.kbd
 sudo launchctl kickstart -k system/org.nixos.kanata
 ```
 
 Daemon label is `org.nixos.kanata` (nix-darwin's auto-prefixed default), not upstream's `dev.kanata.kanata`.
+
+Validate the config without restarting the daemon:
+
+```sh
+kanata --cfg ~/.config/kanata/config.kbd --check
+```
+
+Check daemon status (running, last exit code, last fork PID):
+
+```sh
+sudo launchctl print system/org.nixos.kanata | head -20
+sudo launchctl print system/org.nixos.karabiner-vhid-daemon | head -20
+```
+
+## Logs
+
+Both daemons write stdout and stderr to `/var/log` (paths set in `nix/modules/darwin/kanata.nix`):
+
+| Daemon                                | Log path                            |
+| ------------------------------------- | ----------------------------------- |
+| kanata                                | `/var/log/kanata.log`               |
+| Karabiner VirtualHID userspace daemon | `/var/log/karabiner-vhid-daemon.log`|
+
+Tail them:
+
+```sh
+sudo tail -f /var/log/kanata.log
+sudo tail -f /var/log/karabiner-vhid-daemon.log
+```
+
+Common signals in `kanata.log`:
+
+- `process unmapped keys: false` and `entering the processing loop` on a clean start
+- `connect_failed asio.system:2`: the userspace VHID daemon isn't running. Check `karabiner-vhid-daemon.log` and verify the system extension is active (`systemextensionsctl list | grep pqrs`)
+- Parse errors point at the offending line in `config.kbd`; `kanata --cfg ... --check` produces the same diagnostics without touching the running daemon
 
 ## Removing the driver
 
