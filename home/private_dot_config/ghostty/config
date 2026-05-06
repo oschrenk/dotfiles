@@ -9,8 +9,6 @@
 # Resources:
 #   https://github.com/search?q=path%3Aghostty%2Fconfig&type=code
 
-
-
 # Window behaviour
 #   don't confirm closing/quitting
 confirm-close-surface = false
