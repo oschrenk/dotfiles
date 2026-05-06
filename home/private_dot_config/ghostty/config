@@ -72,8 +72,8 @@ quick-terminal-size = "50%,50%"
 # SPLITS
 ##########################
 split-divider-color=e7dbb6
-unfocused-split-fill=e7dbb6
-unfocused-split-opacity=0.95
+unfocused-split-fill=000000
+unfocused-split-opacity=0.75
 
 ##########################
 # KEYBOARD
