@@ -93,6 +93,16 @@ Common signals in `kanata.log`:
 - `connect_failed asio.system:2`: the userspace VHID daemon isn't running. Check `karabiner-vhid-daemon.log` and verify the system extension is active (`systemextensionsctl list | grep pqrs`)
 - Parse errors point at the offending line in `config.kbd`; `kanata --cfg ... --check` produces the same diagnostics without touching the running daemon
 
+## Caps lock LED stuck on
+
+Kanata intercepts `caps` before macOS sees it, so the LED never toggles. No kanata-side config for this. Unload, press caps physically, reload:
+
+```sh
+sudo launchctl bootout system/org.nixos.kanata
+# press caps once
+sudo launchctl bootstrap system /Library/LaunchDaemons/org.nixos.kanata.plist
+```
+
 ## Removing the driver
 
 ```sh
