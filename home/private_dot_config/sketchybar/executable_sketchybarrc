@@ -1,6 +1,9 @@
 #!/usr/bin/env lua
 
-package.cpath = package.cpath .. ";/Users/" .. os.getenv("USER") .. "/.local/share/sketchybar_lua/?.so"
+-- chezmoi-managed lua sources live in ~/.config/sketchybar/; Nix Home Manager
+-- only provisions sbarlua + lua-tz on package.path, so we extend it to find
+-- icons, style, items/, services/, utils/...
+package.path = package.path .. ";/Users/" .. os.getenv("USER") .. "/.config/sketchybar/?.lua"
 
 -- dependencies
 local sbar = require("sketchybar")

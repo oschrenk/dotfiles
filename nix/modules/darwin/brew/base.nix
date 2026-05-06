@@ -112,7 +112,6 @@
     # lua
     "lua" # lua, programming language
     "lua-language-server" # lua, lsp
-    "luarocks" # lua, package manager
     "stylua" # lua formatter
 
     # web (javascript, typescript, css, ...)

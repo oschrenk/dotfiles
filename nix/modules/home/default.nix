@@ -6,6 +6,7 @@
     ./starship.nix
     ./atuin.nix
     ./direnv.nix
+    ./sketchybar.nix
   ];
 
   home.username = username;

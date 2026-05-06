@@ -2,14 +2,9 @@
 
 ## Requirements
 
-[SbarLua](https://github.com/FelixKratz/SbarLua). Install via
-
-```sh
-git clone https://github.com/FelixKratz/SbarLua.git /tmp/SbarLua && cd /tmp/SbarLua/ && make install && rm -rf /tmp/SbarLua
-
-# for timezone calculations
-luarocks install lua-tz
-```
+sketchybar, [SbarLua](https://github.com/FelixKratz/SbarLua), and `lua-tz` are
+provisioned declaratively by nix-darwin + Nix Home Manager via `programs.sketchybar`
+in `nix/modules/home/sketchybar.nix`. No manual install needed.
 
 ## Debugging
 
@@ -24,10 +19,10 @@ Tailing logs
 
 ```
 # stdout
-tail -f /opt/homebrew/var/log/sketchybar/sketchybar.out.log
+tail -f ~/Library/Logs/sketchybar/sketchybar.out.log
 
 # stderr
-tail -f /opt/homebrew/var/log/sketchybar/sketchybar.errlog
+tail -f ~/Library/Logs/sketchybar/sketchybar.err.log
 ```
 
 ## Handling clicks
