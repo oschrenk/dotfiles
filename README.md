@@ -7,13 +7,13 @@ These are my dotfiles.
 Name machine first — `hostname` is used by `nix-darwin` and `chezmoi` templating
 
 ```sh
-./hostname.sh
+./scripts/hostname.sh
 ```
 
 Then install Nix, Homebrew, and chezmoi
 
 ```sh
-./bootstrap.sh
+./scripts/bootstrap.sh
 ```
 
 ## nix-darwin
