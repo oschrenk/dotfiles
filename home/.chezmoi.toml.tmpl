@@ -2,8 +2,6 @@
 
 {{- $personal_email := promptStringOnce . "personal.email" "Personal email address" -}}
 
-{{- $personal_google_oauth_client_id := promptStringOnce . "personal.google_oauth_client_id" "Personal Google OAuth Client ID" -}}
-
 {{- $work_email := promptStringOnce . "work.email" "Work email address" -}}
 
 {{- $tags := list -}}
@@ -24,7 +22,6 @@
 
 [data.personal]
   email = {{ $personal_email | quote }}
-  google_oauth_client_id = {{ $personal_google_oauth_client_id | quote }}
 
 [data.work]
   email = {{ $work_email | quote }}
