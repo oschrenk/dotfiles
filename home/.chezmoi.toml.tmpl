@@ -1,21 +1,11 @@
 {{- $home := .chezmoi.homeDir -}}
 {{- $identity := output "cat" (joinPath $home ".local/share/identity/data.toml") | fromToml -}}
 
-{{- $tags := list -}}
-{{- if eq .chezmoi.hostname "Olivers-MaxBook" -}}
-{{-   $tags = list "gui" "work" "thicc" "server" -}}
-{{- else if eq .chezmoi.hostname "Olivers-MacBook-Air" -}}
-{{-   $tags = list "gui" "work" -}}
-{{- else if eq .chezmoi.hostname "Olivers-Mac-mini" -}}
-{{-   $tags = list -}}
-{{- end -}}
-
 [diff]
   pager = "delta"
 
 [data]
   name = {{ $identity.name | quote }}
-  tags = {{ $tags | toJson }}
 
 [data.personal]
   email = {{ $identity.personal.email | quote }}
