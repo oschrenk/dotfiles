@@ -6,9 +6,8 @@
 nix/
   flake.nix              - entry point; wires hosts to modules
   options.nix            - shared options.* namespace
-  local.nix              - gitignored; sets my.personal.* values
-  local.nix.template     - placeholder for documentation
-  setup-local.sh         - script: prompts for local.nix values
+  identity.nix           - committed; sets my.personal.* values
+  setup-identity.sh      - script: prompts for identity.nix values (only needed when forking or identity changes)
 
   hosts/
     maxbook.nix          - darwin host
@@ -68,7 +67,7 @@ nix/
 
 ## Identity namespace: options.my.personal.*
 
-All machine-specific identity values flow through a single shared namespace declared in `options.nix` and set in the gitignored `local.nix`:
+All identity values flow through a single shared namespace declared in `options.nix` and set in `identity.nix`:
 
 | Option | Type | Used by |
 |--------|------|---------|
@@ -80,15 +79,15 @@ All machine-specific identity values flow through a single shared namespace decl
 
 `my.personal.*` is deliberately namespaced to leave room for future areas: `my.work.*`, `my.homelab.*`, etc.
 
-## local.nix
+## identity.nix
 
-`local.nix` is the **only file that is never committed**. It contains settings for the local machine. It is:
+`identity.nix` holds personal identity values (name, email, SSH public key, timezone, username) used across all hosts. It is:
 
-- Created once per machine by running `task nix-setup-local` (which runs `setup-local.sh`)
-- Gitignored: keeps the public repo secret-free
-- Required: a missing `local.nix` causes a build failure (file not found)
+- Committed to the repo (none of these values are secret — they appear in every git commit author line, on `github.com/<user>.keys`, etc.)
+- The only file that needs editing on identity changes (job change, key rotation)
+- Optionally regenerated via `task nix-setup-identity` (interactive prompts with sensible defaults)
 
-On a fresh machine: run `task nix-setup-local` before the first `darwin-rebuild` or `nixos-rebuild`.
+If you fork this repo, edit `identity.nix` directly or run `task nix-setup-identity` to fill in your values.
 
 ## Pattern
 

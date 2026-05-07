@@ -30,7 +30,7 @@ sudo launchctl kickstart -k system/systems.determinate.nix-daemon
 Create the machine-local identity file (name, email, SSH key, timezone — never committed):
 
 ```sh
-task nix-setup-local
+task nix-setup-identity
 ```
 
 Once the nix-darwin flake is set up, apply it with
@@ -67,7 +67,7 @@ kickstart service manually:
 sudo launchctl kickstart -k system/org.nixos.opnix-secrets
 ```
 
-Initialize chezmoi (requires `task nix-setup-local` and `task nix-max` to have run first — chezmoi reads identity from `~/.local/share/identity/data.toml`, written by home-manager):
+Initialize chezmoi (requires `task nix-max` to have run first so home-manager has written `~/.local/share/identity/data.toml`):
 
 ```
 chezmoi init oschrenk/dotfiles
@@ -160,16 +160,6 @@ arbol sync
 - `task ollama` Install ollama models
 
 ## Troubleshooting
-
-### git rebase fails with "Entry 'nix/local.nix' not uptodate"
-
-`nix/local.nix` has an empty blob staged via `--intent-to-add` that disagrees with the working tree, blocking autostash. Unguard it, rebase, then guard again:
-
-```sh
-task nix-unguard-local
-git rebase --interactive HEAD~N
-task nix-guard-local
-```
 
 ### Nix binary cache warnings ("ignoring untrusted substituter")
 

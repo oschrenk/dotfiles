@@ -2,13 +2,13 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-OUT="$SCRIPT_DIR/local.nix"
+OUT="$SCRIPT_DIR/identity.nix"
 
 echo "Creating $OUT"
 echo ""
 echo "This file sets personal identity values (name, email, SSH key, timezone)"
-echo "used across all nix configurations on this machine. Run once per machine."
-echo "Never stage or commit it — but ultimately that's on you."
+echo "used across all nix configurations. Run once when forking the repo or"
+echo "when identity values change."
 echo ""
 echo "Press Enter to accept a detected value, or type to override."
 echo ""

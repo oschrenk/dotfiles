@@ -43,7 +43,7 @@
         "pi" = nixos-raspberrypi.lib.nixosSystem {
           specialArgs = inputs;
           modules = [
-            ./local.nix
+            ./identity.nix
             ./options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             nixos-raspberrypi.nixosModules.sd-image
@@ -54,7 +54,7 @@
         "pi-1" = nixos-raspberrypi.lib.nixosSystem {
           specialArgs = inputs;
           modules = [
-            ./local.nix
+            ./identity.nix
             ./options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
@@ -80,7 +80,7 @@
         "pi-2" = nixos-raspberrypi.lib.nixosSystem {
           specialArgs = inputs;
           modules = [
-            ./local.nix
+            ./identity.nix
             ./options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
@@ -96,7 +96,7 @@
         "pi-3" = nixos-raspberrypi.lib.nixosSystem {
           specialArgs = inputs;
           modules = [
-            ./local.nix
+            ./identity.nix
             ./options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
@@ -113,7 +113,7 @@
           system = "aarch64-linux";
           specialArgs = inputs;
           modules = [
-            ./local.nix
+            ./identity.nix
             ./options.nix
             disko.nixosModules.default
             opnix.nixosModules.default
@@ -129,7 +129,7 @@
       darwinConfigurations = {
         "Olivers-MaxBook" = nix-darwin.lib.darwinSystem {
           modules = [
-            ./local.nix
+            ./identity.nix
             ./options.nix
             ./modules/common.nix
             ./modules/packages.nix
