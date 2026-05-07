@@ -10,7 +10,6 @@
     # core — essential tools, machine usable without anything else
     "fd" # system, fast find alternative
     "findutils" # system, GNU g-prefixed find, xargs
-    "fzf" # cli, fuzzy finder
     "mas" # cli, Mac App Store interface
     "neovim" # editor
     "oschrenk/made/sessionizer" # tmux, manage sessions
