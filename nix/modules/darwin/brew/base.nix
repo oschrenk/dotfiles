@@ -115,7 +115,6 @@
     "hurl" # network, run/test http requests
     "node" # javascript, language
     "oschrenk/made/cutter" # web, extract cookies
-    "oven-sh/bun/bun" # javascript runtime
     "sass/sass/sass" # js, sass
     "typescript" # typescript, language
     "typescript-language-server" # typescript, lsp
