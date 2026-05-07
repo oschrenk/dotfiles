@@ -4,7 +4,6 @@
 {
   homebrew.brews = [
     # bootstrap — required before chezmoi can run
-    "age" # cryptography, encryption tool
     "chezmoi" # dotfiles manager
 
     # core — essential tools, machine usable without anything else

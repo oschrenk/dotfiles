@@ -30,7 +30,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 echo
 echo "Done. Next steps:"
 echo
-echo "  1. Run nix-darwin (installs chezmoi, git, git-lfs, age, fish via Homebrew):"
+echo "  1. Run nix-darwin (installs chezmoi, git, git-lfs, fish via Homebrew):"
 echo "     sudo nix run nix-darwin -- switch --flake <dotfiles>/nix#\$(hostname -s)"
 echo
 echo "  2. Set up git-lfs:"
