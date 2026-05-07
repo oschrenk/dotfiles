@@ -7,6 +7,7 @@
     ./atuin.nix
     ./direnv.nix
     ./fzf.nix
+    ./ripgrep.nix
     ./sketchybar.nix
   ];
 

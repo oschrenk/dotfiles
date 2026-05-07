@@ -13,7 +13,6 @@
     "mas" # cli, Mac App Store interface
     "neovim" # editor
     "oschrenk/made/sessionizer" # tmux, manage sessions
-    "ripgrep" # system, recursive search
     "tmux" # cli, terminal multiplexer
 
     # core (cli)
