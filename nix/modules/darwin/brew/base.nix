@@ -133,8 +133,6 @@
     "oschrenk/personal/scip-typescript" # cli, index ts
 
     # python
-    "poetry" # python, package manager
-    "pyenv" # python, version manager
     "python@3.13" # python, language
     "python@3.14" # python, language
     "uv" # python package manager
