@@ -31,10 +31,11 @@ prompt() {
   fi
 }
 
-prompt "username" "$_username" username
-prompt "name    " "$_name"     name
-prompt "email   " "$_email"    email
-prompt "timezone" "$_timezone" timezone
+prompt "username  " "$_username" username
+prompt "name      " "$_name"     name
+prompt "email     " "$_email"    email
+prompt "work email" ""            workEmail
+prompt "timezone  " "$_timezone" timezone
 prompt "SSH public key (full ssh-ed25519 ... line)" "$_sshKey" sshKey
 
 cat > "$OUT" <<EOF
@@ -45,6 +46,7 @@ cat > "$OUT" <<EOF
   my.personal.email    = "$email";
   my.personal.timezone = "$timezone";
   my.personal.sshKey   = "$sshKey";
+  my.work.email        = "$workEmail";
 }
 EOF
 

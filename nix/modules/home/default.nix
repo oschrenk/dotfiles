@@ -5,6 +5,7 @@
     ./git.nix
     ./starship.nix
     ./atuin.nix
+    ./identity.nix
     ./direnv.nix
     ./fzf.nix
     ./ripgrep.nix

@@ -11,6 +11,10 @@
     sshKey = lib.mkOption { type = lib.types.str; };
   };
 
+  options.my.work = {
+    email = lib.mkOption { type = lib.types.str; };
+  };
+
   options.my.host = lib.mkOption {
     type = lib.types.attrsOf (
       lib.types.submodule {
