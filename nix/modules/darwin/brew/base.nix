@@ -61,7 +61,6 @@
     "jq" # data, process JSON (read/transform)
     "jsongrep" # data, process JSON (read only)
     "mdq" # data, process markdown like jq
-    "miller" # data, process CSV
     "xq" # data, process xml
     "yq" # data, process YAML
 
