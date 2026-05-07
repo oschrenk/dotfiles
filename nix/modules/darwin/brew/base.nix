@@ -55,7 +55,6 @@
     "oschrenk/personal/dora" # ai, navigate code with scip
     "oschrenk/personal/lightpanda" # ai, headless browser
     "rtk" # ai, token proxy
-    "tweakcc" # ai, claude, customize
 
     # data
     "jd" # data, diff JSON
