@@ -67,21 +67,10 @@ kickstart service manually:
 sudo launchctl kickstart -k system/org.nixos.opnix-secrets
 ```
 
+Initialize chezmoi (requires `task nix-setup-local` and `task nix-max` to have run first — chezmoi reads identity from `~/.local/share/identity/data.toml`, written by home-manager):
+
 ```
 chezmoi init oschrenk/dotfiles
-```
-
-Certain files require age decryption. You will be asked a few questions.
-
-These answers are stored in 1Password under
-- "Chezmoi / Age / Key" and
-- "Meli / Personal / Oauth"
-
-```
-Age identity file location?
-Age public key?
-...
-Personal Google OAuth Client ID?
 ```
 
 Pull binary assets
