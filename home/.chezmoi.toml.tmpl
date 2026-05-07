@@ -1,8 +1,5 @@
-{{- $name := promptStringOnce . "name" "Full name" -}}
-
-{{- $personal_email := promptStringOnce . "personal.email" "Personal email address" -}}
-
-{{- $work_email := promptStringOnce . "work.email" "Work email address" -}}
+{{- $home := .chezmoi.homeDir -}}
+{{- $identity := output "cat" (joinPath $home ".local/share/identity/data.toml") | fromToml -}}
 
 {{- $tags := list -}}
 {{- if eq .chezmoi.hostname "Olivers-MaxBook" -}}
@@ -17,11 +14,8 @@
   pager = "delta"
 
 [data]
-  name = {{ $name | quote }}
+  name = {{ $identity.name | quote }}
   tags = {{ $tags | toJson }}
 
 [data.personal]
-  email = {{ $personal_email | quote }}
-
-[data.work]
-  email = {{ $work_email | quote }}
+  email = {{ $identity.personal.email | quote }}

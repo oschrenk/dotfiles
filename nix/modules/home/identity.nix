@@ -5,9 +5,6 @@ let
 
     [personal]
     email = "${osConfig.my.personal.email}"
-
-    [work]
-    email = "${osConfig.my.work.email}"
   '';
 in
 {

@@ -147,7 +147,6 @@
     # network
     "doggo" # network, dns client
     "httrack" # network, copy websites offline
-    "meli" # terminal, email client
     "mosh" # network, better shell for roaming
     "ngrep" # network, packet analyzer
     "nmap" # network, port scanning
