@@ -4,6 +4,11 @@
     enable = true;
 
     shellAliases = {
+      # ls → lsd
+      ls = "lsd";
+      ll = "lsd -l";
+      la = "lsd -la";
+
       # Navigation
       ".." = "cd ..";
       "..." = "cd ../..";

@@ -19,7 +19,6 @@
     "curl" # system, download things
     "gawk" # system, GNU awk utility
     "htop" # system, improved top
-    "lsd" # system, "better" ls
     "page" # system, use Neovim as pager
     "rclone" # system, sync files
     "rsync" # system, sync files
