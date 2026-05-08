@@ -80,7 +80,6 @@
     "git-extras" # git, nice git extras
     "git-open" # git, open git[hub/lab] urls
     "gh" # cli, interact with github
-    "glab" # git, gitlab cli
     "oschrenk/made/arbol" # git, repository manager
     "oschrenk/made/infuse" # git, repository mixer
     "worktrunk" # git, worktree management
