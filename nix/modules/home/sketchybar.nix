@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 
 {
   programs.sketchybar = {
@@ -23,5 +23,13 @@
     ];
     # config is left at its default of null — Nix Home Manager does not write
     # to ~/.config/sketchybar; chezmoi continues to manage the lua sources.
+  };
+
+  # sessionizer (brew) shells out to `tmux`, which now lives in the nix profile
+  # rather than /opt/homebrew/bin. launchd's default PATH excludes nix dirs, so
+  # without this, sessionizer can't find tmux when invoked from sketchybar and
+  # the Sessions/Windows items render as empty.
+  launchd.agents.sketchybar.config.EnvironmentVariables = {
+    PATH = "/etc/profiles/per-user/${config.home.username}/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin";
   };
 }
