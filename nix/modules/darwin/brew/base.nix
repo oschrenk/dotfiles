@@ -12,7 +12,6 @@
     "mas" # cli, Mac App Store interface
     "neovim" # editor
     "oschrenk/made/sessionizer" # tmux, manage sessions
-    "tmux" # cli, terminal multiplexer
 
     # core (cli)
     "blueutil" # system, get/set bluetooth from terminal

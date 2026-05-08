@@ -9,6 +9,7 @@
     ./direnv.nix
     ./fish.nix
     ./fzf.nix
+    ./tmux.nix
     ./ripgrep.nix
     ./sketchybar.nix
   ];
