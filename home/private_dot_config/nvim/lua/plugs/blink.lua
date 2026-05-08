@@ -2,13 +2,24 @@
 -- https://github.com/Saghen/blink.cmp
 return {
   "saghen/blink.cmp",
+  build = function()
+    require("blink.cmp").build():wait(60000)
+  end,
   dependencies = {
+    -- https://github.com/saghen/blink.lib
+    -- required by blink.cmp v2
+    "saghen/blink.lib",
+
     -- https://github.com/saghen/blink.compat
     "saghen/blink.compat",
 
     -- https://github.com/andersevenrud/cmp-tmux
     -- source for tmux
     "andersevenrud/cmp-tmux",
+
+    -- https://github.com/Dynge/gitmoji.nvim
+    -- source for gitmoji on :
+    "Dynge/gitmoji.nvim",
 
     -- https://github.com/wxxxcxx/cmp-browser-source
     -- source for browser
@@ -21,13 +32,7 @@ return {
         require("cmp-browser-source").start_server()
       end,
     },
-    -- https://github.com/Dynge/gitmoji.nvim
-    -- source for gitmoji on :
-    "Dynge/gitmoji.nvim",
   },
-
-  -- use a release tag to download pre-built binaries
-  version = "1.*",
 
   ---@module 'blink.cmp'
   ---@type blink.cmp.Config
