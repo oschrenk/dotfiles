@@ -10,9 +10,6 @@ return {
     -- required by blink.cmp v2
     "saghen/blink.lib",
 
-    -- https://github.com/saghen/blink.compat
-    "saghen/blink.compat",
-
     -- https://github.com/mgalliou/blink-cmp-tmux
     -- source for tmux
     "mgalliou/blink-cmp-tmux",
