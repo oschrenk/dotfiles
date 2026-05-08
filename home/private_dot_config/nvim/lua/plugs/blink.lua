@@ -21,15 +21,17 @@ return {
     -- source for gitmoji on :
     "Dynge/gitmoji.nvim",
 
-    -- https://github.com/wxxxcxx/cmp-browser-source
-    -- source for browser
+    -- https://github.com/oschrenk/blink-cmp-browser
+    -- source for browser (native blink.cmp source, port of cmp-browser-source)
     -- relies on Chrome extension
     -- https://chromewebstore.google.com/detail/completion-source-provide/dgfnehmpeggdlmbblgjfbfioegibajlb
+    -- start_server() binds the WebSocket listener at nvim startup so the Chrome
+    -- extension can push on page load before blink lazily instantiates the source.
     {
-      "wxxxcxx/cmp-browser-source",
+      "oschrenk/blink-cmp-browser",
+      dir = "/Users/oliver/Projects/tools/blink-cmp-browser",
       config = function()
-        -- starts server on default port 18998
-        require("cmp-browser-source").start_server()
+        require("blink-cmp-browser").start_server()
       end,
     },
   },
@@ -70,8 +72,7 @@ return {
       providers = {
         browser = {
           name = "browser",
-          module = "blink.compat.source",
-          opts = {},
+          module = "blink-cmp-browser",
           transform_items = function(_, items)
             for _, item in ipairs(items) do
               item.kind_icon = ""
