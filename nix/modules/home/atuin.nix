@@ -7,8 +7,10 @@
     # run atuin daemon as a launchd agent (background sync, faster DB writes, in-memory search index)
     daemon.enable = true;
 
-    # fish config handles keybinds manually via ATUIN_NOBIND
-    enableFishIntegration = false;
+    # ATUIN_NOBIND=true is set in fish loginShellInit so atuin init skips its
+    # default keybindings; the custom Ctrl-R binding lives in
+    # functions/fish_user_key_bindings.fish.
+    enableFishIntegration = true;
 
     settings = {
       # if false, enter and tab both return to shell without executing

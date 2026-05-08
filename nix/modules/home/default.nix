@@ -7,6 +7,7 @@
     ./atuin.nix
     ./identity.nix
     ./direnv.nix
+    ./fish.nix
     ./fzf.nix
     ./ripgrep.nix
     ./sketchybar.nix

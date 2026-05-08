@@ -13,10 +13,8 @@
 #   bind -a | grep preset | sort
 #   bind -a | grep preset | grep ctrl | sort
 
-# load fzf shell integration (defines fzf_key_bindings + __fzf_parse_commandline,
-# installs Ctrl-T / Ctrl-R / Alt-C). Sourced here because fish is chezmoi-managed,
-# so HM's programs.fzf.enableFishIntegration is a no-op.
-fzf --fish | source
+# fzf shell integration (Ctrl-T / Ctrl-R / Alt-C) is emitted by HM via
+# programs.fzf.enableFishIntegration; the bindings below extend it.
 
 # fzf related user functions
 bind \cp sessionizer_cd
