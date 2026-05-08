@@ -30,6 +30,7 @@ return {
       config = function()
         require("blink-cmp-browser").start_server()
       end,
+      version = "v0.1",
     },
   },
 
