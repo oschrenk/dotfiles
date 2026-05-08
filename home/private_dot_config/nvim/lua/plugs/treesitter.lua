@@ -37,6 +37,7 @@ return {
       "kotlin",
       "lua",
       "markdown",
+      "nix",
       "markdown_inline",
       "python",
       "regex",

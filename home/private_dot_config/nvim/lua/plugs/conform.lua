@@ -65,6 +65,8 @@ return {
       typst = { "typstyle" },
       -- brew install yamlfmt
       yaml = { "yamlfmt" },
+      -- nix run nixpkgs#nixfmt-rfc-style
+      nix = { "nixfmt" },
       ["_"] = { "trim_whitespace" },
     },
     -- Use a specific prettier parser for a filetype
