@@ -13,9 +13,9 @@ return {
     -- https://github.com/saghen/blink.compat
     "saghen/blink.compat",
 
-    -- https://github.com/andersevenrud/cmp-tmux
+    -- https://github.com/mgalliou/blink-cmp-tmux
     -- source for tmux
-    "andersevenrud/cmp-tmux",
+    "mgalliou/blink-cmp-tmux",
 
     -- https://github.com/Dynge/gitmoji.nvim
     -- source for gitmoji on :
@@ -84,8 +84,7 @@ return {
         },
         tmux = {
           name = "tmux",
-          module = "blink.compat.source",
-          opts = {},
+          module = "blink-cmp-tmux",
           transform_items = function(_, items)
             for _, item in ipairs(items) do
               item.kind_icon = ""
