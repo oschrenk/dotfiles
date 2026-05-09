@@ -13,6 +13,7 @@
     ./tmux.nix
     ./ripgrep.nix
     ./sketchybar.nix
+    ./gitwatch.nix
   ];
 
   home.username = username;
