@@ -77,8 +77,6 @@
 
     # git
     "git-crypt" # git, encrypt secrets in git
-    "git-extras" # git, nice git extras
-    "git-open" # git, open git[hub/lab] urls
     "gh" # cli, interact with github
     "oschrenk/made/arbol" # git, repository manager
     "oschrenk/made/infuse" # git, repository mixer

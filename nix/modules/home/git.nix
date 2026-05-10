@@ -1,6 +1,12 @@
-{ osConfig, ... }:
+{ osConfig, pkgs, ... }:
 
 {
+  # git-extras: subcommands like `git summary`, `git ignore`, `git browse`, `git changelog`.
+  # Auto-discovered by git as `git-<name>` binaries on PATH; no config wiring needed.
+  home.packages = [
+    pkgs.git-extras
+  ];
+
   # delta: better-looking diffs (separate module in HM 25.11)
   programs.delta = {
     enable = true;
