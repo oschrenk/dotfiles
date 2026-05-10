@@ -22,7 +22,6 @@
 
   homebrew.casks = [
     "dbeaver-community" # sql client
-    "docker-desktop" # docker client
     "gcloud-cli" # cloud, google cloud cli including gcloud
     "openvpn-connect" # vpn
   ];
