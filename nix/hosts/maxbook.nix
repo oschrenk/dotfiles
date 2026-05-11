@@ -28,6 +28,15 @@
   # Or see: https://github.com/nix-darwin/nix-darwin/blob/master/CHANGELOG.md
   system.stateVersion = 6;
 
+  # Reload the prefs database into the running session so system.defaults and
+  # CustomUserPreferences apply on darwin-rebuild without a logout. The -u flag
+  # means user-level. Undocumented private-framework binary, so behavior may
+  # change between macOS releases. Some prefs still need a killall (Dock,
+  # Finder, SystemUIServer, cfprefsd) or app restart to pick up plist changes.
+  system.activationScripts.postUserActivation.text = ''
+    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+  '';
+
   # MaxBook-specific apps (MacBook Pro with extra peripherals)
   homebrew.casks = [
     "8bitdo-ultimate-software" # controller
