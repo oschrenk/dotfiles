@@ -33,7 +33,6 @@
     "google-chrome" # browser
     "handbrake-app" # video transcoder
     "hex-fiend" # hex editor
-    "huggingchat" # chat client for local llm
     "iina" # video client
     "intellij-idea" # jetbrains ide
     "jdk-mission-control" # monitor java applications
