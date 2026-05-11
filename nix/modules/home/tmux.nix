@@ -99,6 +99,12 @@ in
       # see https://ryantravitz.com/blog/2023-02-18-pull-of-the-undercurl/
       set -sa terminal-overrides ',*:Setulc=\E[58::2::%p1%{65536}%/%d::%p1%{256}%/%{255}%&%d::%p1%{255}%&%d%;m'
 
+      # Forward extended keys (CSI u) to apps inside tmux
+      # test with `tmux show -s extended-keys` and `tmux display -p '#{client_termfeatures}'`
+      set -s extended-keys on
+      set -g extended-keys-format csi-u
+      set -as terminal-features '*:extkeys'
+
       ####################
       # Statusline
       ###################
