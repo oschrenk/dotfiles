@@ -98,6 +98,7 @@
       set -gx K9S_CONFIG_DIR $XDG_CONFIG_HOME/k9s
 
       set -gx MSGVAULT_HOME $XDG_CONFIG_HOME/msgvault
+      set -gx PI_CODING_AGENT_DIR $XDG_CONFIG_HOME/pi
 
       #############################
       # PATH
