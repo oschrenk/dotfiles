@@ -45,65 +45,30 @@ open "x-apple.systempreferences:com.apple.preference.security?Privacy_Accessibil
 open "x-apple.systempreferences:com.apple.preference.security?Privacy_ListenEvent"
 ```
 
-(nixpkgs kanata 1.11.0 does not ship the `--macos-request-permissions` flag upstream documents.)
-
 Add `/run/current-system/sw/bin/kanata` (resolve the symlink with `readlink -f` if the picker rejects it) to both panes. If kanata gets attributed to Terminal instead of itself, add the binary manually via the `+` button. Re-add after `darwin-rebuild` rotates the store path if remapping silently breaks.
 
 ## Iteration
 
-Edit `home/private_dot_config/kanata/config.kbd` in the chezmoi source, then apply and restart the daemon:
+Edit `home/private_dot_config/kanata/config.kbd` in the chezmoi source, then:
 
 ```sh
-chezmoi apply ~/.config/kanata/config.kbd
+chezmoi apply
 sudo launchctl kickstart -k system/org.nixos.kanata
 ```
 
 Daemon label is `org.nixos.kanata` (nix-darwin's auto-prefixed default), not upstream's `dev.kanata.kanata`.
 
-Validate the config without restarting the daemon:
+## Recovery after macOS update
 
-```sh
-kanata --cfg ~/.config/kanata/config.kbd --check
-```
+Symptom: `kanata.log` loops `driver connected: true / connected / driver connected: false`. Running kanata manually may also show `IOHIDDeviceOpen error: (iokit/common) not permitted`. TCC rows can still report the permissions as granted while the kernel check fails.
 
-Check daemon status (running, last exit code, last fork PID):
+What worked (root cause not isolated — try in order, restart the daemon between steps):
 
-```sh
-sudo launchctl print system/org.nixos.kanata | head -20
-sudo launchctl print system/org.nixos.karabiner-vhid-daemon | head -20
-```
+1. Re-toggle kanata in `Privacy > Accessibility` (off then on, or remove + re-add via `+`).
+2. `sudo /Applications/.Karabiner-VirtualHIDDevice-Manager.app/Contents/MacOS/Karabiner-VirtualHIDDevice-Manager forceActivate`
+3. Same as 1 for `Privacy > Input Monitoring`.
 
-## Logs
-
-Both daemons write stdout and stderr to `/var/log` (paths set in `nix/modules/darwin/kanata.nix`):
-
-| Daemon                                | Log path                            |
-| ------------------------------------- | ----------------------------------- |
-| kanata                                | `/var/log/kanata.log`               |
-| Karabiner VirtualHID userspace daemon | `/var/log/karabiner-vhid-daemon.log`|
-
-Tail them:
-
-```sh
-sudo tail -f /var/log/kanata.log
-sudo tail -f /var/log/karabiner-vhid-daemon.log
-```
-
-Common signals in `kanata.log`:
-
-- `process unmapped keys: false` and `entering the processing loop` on a clean start
-- `connect_failed asio.system:2`: the userspace VHID daemon isn't running. Check `karabiner-vhid-daemon.log` and verify the system extension is active (`systemextensionsctl list | grep pqrs`)
-- Parse errors point at the offending line in `config.kbd`; `kanata --cfg ... --check` produces the same diagnostics without touching the running daemon
-
-## Caps lock LED stuck on
-
-Kanata intercepts `caps` before macOS sees it, so the LED never toggles. No kanata-side config for this. Unload, press caps physically, reload:
-
-```sh
-sudo launchctl bootout system/org.nixos.kanata
-# press caps once
-sudo launchctl bootstrap system /Library/LaunchDaemons/org.nixos.kanata.plist
-```
+Kick after each: `sudo launchctl kickstart -k system/org.nixos.kanata`. The launchd log only prints the loop; for real errors, `bootout` and run the binary in the foreground.
 
 ## Removing the driver
 
