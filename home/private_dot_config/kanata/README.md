@@ -12,6 +12,10 @@ Kanata needs a macOS DriverKit system extension that nix-darwin cannot install (
 
 Release page: <https://github.com/pqrs-org/Karabiner-DriverKit-VirtualHIDDevice/releases/tag/v6.2.0>
 
+Pinned to v6.2.0. Kanata's bundled `karabiner-driverkit` crate is built against that release's IPC; pqrs ships protocol changes between minor versions, so newer driver releases are not guaranteed to work. Re-evaluate when kanata's docs bump the supported version.
+
+Download and install:
+
 ```sh
 curl -fLO https://github.com/pqrs-org/Karabiner-DriverKit-VirtualHIDDevice/releases/download/v6.2.0/Karabiner-DriverKit-VirtualHIDDevice-6.2.0.pkg
 open Karabiner-DriverKit-VirtualHIDDevice-6.2.0.pkg
@@ -31,10 +35,8 @@ Verify:
 
 ```sh
 sudo launchctl list | grep org.pqrs
-# expect: org.pqrs.Karabiner-DriverKit-VirtualHIDDevice-<hex>  (the dext)
+# expect: org.pqrs.service.daemon.Karabiner-VirtualHIDDevice-Daemon
 ```
-
-**Caveat (upstream docs are wrong here)**: kanata's [setup-macos.md §2](https://github.com/jtroo/kanata/blob/main/docs/setup-macos.md#2-install-karabiner-driverkit-virtualhiddevice) says to expect `org.pqrs.service.daemon.Karabiner-VirtualHIDDevice-Daemon` listed at this point. That holds only when Karabiner-Elements is also installed (KE ships the userspace daemon's LaunchDaemon plist). On a KE-free, standalone v6.2.0 install, the `.pkg` ships zero plists, the daemon never starts, and kanata flaps with `connect_failed asio.system:2`. See [jtroo/kanata#1264](https://github.com/jtroo/kanata/issues/1264). The nix-darwin module compensates by managing the daemon itself as `launchd.daemons.karabiner-vhid-daemon` (label `org.nixos.karabiner-vhid-daemon`).
 
 ### 3. Grant kanata Input Monitoring + Accessibility
 
