@@ -1,4 +1,8 @@
 version: '3'
+# NIX_SSHOPTS: adds SSH keepalives so nix copy fails fast (90s) 
+# instead of hanging on TCP timeout when remote host is unreachable.
+env:
+  NIX_SSHOPTS: -o ServerAliveInterval=30 -o ServerAliveCountMax=3
 tasks:
   apps:
     deps: [cargo, go, krew, node, ollama]
