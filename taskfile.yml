@@ -53,10 +53,14 @@ tasks:
       - sudo launchctl kickstart -k system/org.nixos.linux-builder
   nix-builder-force:
     desc: Force reset the linux-builder VM (recreates working dir, disk, and fixes key permissions)
+    # bootout/bootstrap (not kickstart) because EX_CONFIG exits put launchd into
+    # an extended-backoff state where kickstart no-ops. Unregistering and
+    # re-registering wipes the error history so RunAtLoad triggers a fresh spawn.
     cmds:
       - sudo mkdir -p /var/lib/linux-builder
       - sudo rm -f /var/lib/linux-builder/nixos.qcow2
-      - sudo launchctl kickstart -k system/org.nixos.linux-builder
+      - sudo launchctl bootout system/org.nixos.linux-builder || true
+      - sudo launchctl bootstrap system /Library/LaunchDaemons/org.nixos.linux-builder.plist
       - sleep 30
       - sudo chmod 644 /etc/nix/builder_ed25519
   nix-pi:
