@@ -13,7 +13,6 @@
     "mysql-client@8.0" # mysql, client
     "skopeo" # docker, registry inspect
     "sleek" # sql, formatter
-    "snyk-cli" # security, cli, scan for security vulnerabilities
     "sqlfluff" # sql, formatter
     "stern" # k8s, log "aggregator"
     "velero" # k8s, backup/recovery
