@@ -4,18 +4,11 @@
 # Import this module in the host file for any work machine.
 {
   homebrew.brews = [
-    "flyway" # sql, database migrations
-    "gradle" # kotlin, build tool
-    "hadolint" # docker, linter
-    "jira-cli" # cli, interact with jira
     "kubelogin" # k8s, openid auth plugin
     "logcli" # o11y, query loki
-    "mysql-client@8.0" # mysql, client
-    "skopeo" # docker, registry inspect
     "sleek" # sql, formatter
     "sqlfluff" # sql, formatter
     "stern" # k8s, log "aggregator"
-    "velero" # k8s, backup/recovery
     "websocat" # cli, websocket
   ];
 
