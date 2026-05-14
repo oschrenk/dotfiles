@@ -2,7 +2,7 @@
 
 Requirements
 
-- `npm i -g sass`
+- sass installed (see also `flake.nix`)
 
 ```
 cd ~/.config/spicetify/Themes
