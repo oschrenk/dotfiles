@@ -4,7 +4,6 @@
 # Import this module in the host file for any GUI machine.
 {
   homebrew.brews = [
-    "cristianoliveira/tap/aerospace-scratchpad" # aerospace, scratchpad
     "chrome-cli" # cli, control chrome via cli
     "displayplacer" # macos, arrange monitors
     "fileicon" # macos, manage icons

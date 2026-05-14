@@ -25,7 +25,6 @@
     };
 
     taps = [
-      "cristianoliveira/tap" # aerospace-scratchpad
       "darrylmorley/whatcable" # whatcable
       "IohannRabeson/tap" # tmignore-rs
       "johannesnagl/tap" # showmd
