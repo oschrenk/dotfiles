@@ -33,8 +33,11 @@
   # means user-level. Undocumented private-framework binary, so behavior may
   # change between macOS releases. Some prefs still need a killall (Dock,
   # Finder, SystemUIServer, cfprefsd) or app restart to pick up plist changes.
-  system.activationScripts.postUserActivation.text = ''
-    /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+  #
+  # nix-darwin removed postUserActivation (all activation now runs as root), so
+  # we run via `sudo -u $USER` to reach the user's cfprefsd from a root script.
+  system.activationScripts.postActivation.text = ''
+    sudo -u ${config.my.personal.username} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
 
   # MaxBook-specific apps (MacBook Pro with extra peripherals)
