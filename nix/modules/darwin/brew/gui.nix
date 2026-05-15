@@ -48,6 +48,7 @@
     "omnidisksweeper" # cleanup disk space
     "onyx" # macos maintenance
     "openoats" # meeting note-taker, transcribes calls
+    "oschrenk/personal/cadova-viewer" # cad model viewer
     "oschrenk/personal/mud" # markdown viewer
     "pika" # color picker
     "raspberry-pi-imager" # flash raspberry pi images
