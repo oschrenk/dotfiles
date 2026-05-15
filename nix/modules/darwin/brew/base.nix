@@ -82,11 +82,6 @@
     "oschrenk/made/infuse" # git, repository mixer
     "worktrunk" # git, worktree management
 
-    # golang
-    "go" # go, language
-    "golangci-lint" # go, linter runner
-    "gopls" # go, lsp
-
     # k8s
     "helm" # k8s, package manager
     "k9s" # k8s, cluster manager
