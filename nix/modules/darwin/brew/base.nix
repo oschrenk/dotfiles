@@ -37,6 +37,7 @@
     # productivity
     "glow" # cli, render markdown in terminal
     "oschrenk/made/plan" # cli, fetch next event
+    "pandoc" # docs, document converter
     "zola" # web, blogging engine
 
     # macos
@@ -82,7 +83,8 @@
     "oschrenk/made/infuse" # git, repository mixer
     "worktrunk" # git, worktree management
 
-    # k8s
+    # container, k8s
+    "container" # cli, containerization from Apple
     "helm" # k8s, package manager
     "k9s" # k8s, cluster manager
     "krew" # k8s, kubectl package manager
@@ -141,13 +143,8 @@
     "speedtest-cli" # network, speedtest
     "telnet" # network, telnet protocol
 
-    # docs
-    "pandoc" # docs, document converter
-    "poppler" # pdf, engine and extractor
-
     # a/v + personal
     "asciinema" # a/v, record terminal sessions
-    "container" # cli, containerization from Apple
     "exiftool" # a/v, read/write exif
     "ffmpeg" # a/v, convert audio/video
     "flac" # a/v, flac codec
