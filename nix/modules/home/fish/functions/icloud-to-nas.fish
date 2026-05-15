@@ -76,7 +76,7 @@ function _itn_download_and_wait -a file size poll_interval max_timeout
         sleep $poll_interval
         set elapsed (math "$elapsed + $poll_interval")
         if test $elapsed -ge $timeout
-            _itn_err "Timeout after {$elapsed}s waiting for download"
+            _itn_err "Timeout after "$elapsed"s waiting for download"
             return 1
         end
         printf "\r  %siCloud → disk... %ds%s  " (set_color brblack) $elapsed (set_color normal)
@@ -123,12 +123,12 @@ function _itn_process_file
     set -l free (_itn_free_space_gb)
     set -l needed_gb (math "floor($size / 1073741824) + 2")
     if test $free -lt (math "$min_free_gb + $needed_gb")
-        _itn_err "Low disk space: {$free} GB free, need ~{$needed_gb} GB + {$min_free_gb} GB buffer"
+        _itn_err "Low disk space: $free GB free, need ~$needed_gb GB + $min_free_gb GB buffer"
         _itn_err "Waiting 30s for evictions to clear, then retrying..."
         sleep 30
         set free (_itn_free_space_gb)
         if test $free -lt (math "$min_free_gb + $needed_gb")
-            _itn_err "Still not enough space ({$free} GB). Stopping."
+            _itn_err "Still not enough space ($free GB). Stopping."
             return 1
         end
     end
@@ -269,9 +269,9 @@ function icloud-to-nas
     echo ""
     _itn_log "Source:       $source_rel"
     _itn_log "Destination:  $nas_dest"
-    _itn_log "Files:        $total_files ({$total_size} GB total)"
+    _itn_log "Files:        $total_files ($total_size GB total)"
     _itn_log "Already done: $already_done"
-    _itn_log "Free space:   "(_itn_free_space_gb)" GB (keeping {$MIN_FREE_GB} GB free)"
+    _itn_log "Free space:   "(_itn_free_space_gb)" GB (keeping $MIN_FREE_GB GB free)"
     if test "$DRY_RUN" = true
         _itn_log (set_color yellow)"DRY RUN — no files will be modified"(set_color normal)
     end
@@ -281,8 +281,21 @@ function icloud-to-nas
     set -l migrated 0
     set -l skipped 0
     set -l failed 0
+    set -l interrupted false
+
+    set -g _itn_interrupted 0
+    function _itn_sigint_handler --on-signal SIGINT
+        set -g _itn_interrupted 1
+    end
 
     while read -l file
+        if test "$_itn_interrupted" = 1
+            echo ""
+            _itn_warn "Interrupted by user, stopping."
+            set interrupted true
+            break
+        end
+
         set count (math "$count + 1")
         set -l rel_path (string replace "$source_abs/" "" "$file")
 
@@ -298,9 +311,18 @@ function icloud-to-nas
             end
         else
             set failed (math "$failed + 1")
+            if test "$_itn_interrupted" = 1
+                echo ""
+                _itn_warn "Interrupted by user, stopping."
+                set interrupted true
+                break
+            end
             _itn_warn "Failed — continuing with next file"
         end
     end <"$file_list"
+
+    functions -e _itn_sigint_handler
+    set -e _itn_interrupted
 
     rm -f "$file_list"
 
@@ -310,5 +332,8 @@ function icloud-to-nas
     _itn_log "Free space: "(_itn_free_space_gb)" GB"
     if test $failed -gt 0
         _itn_warn "Re-run the same command to retry failed files"
+    end
+    if test "$interrupted" = true
+        return 130
     end
 end
