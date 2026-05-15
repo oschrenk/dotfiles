@@ -107,7 +107,6 @@
     "oschrenk/made/cutter" # web, extract cookies
     "typescript" # typescript, language
     "typescript-language-server" # typescript, lsp
-    "yarn" # javascript, package manager
 
     # jvm
     "coursier" # jvm, scala, artifact fetching
