@@ -2,6 +2,15 @@
 
 Keyboard remapper. Replaces Karabiner-Elements.
 
+## Solution
+
+When kanata is dead (`launchctl print system/org.nixos.kanata` shows `active count = 0` and a non-zero `last exit code`), and a plain `kickstart -k` won't bring it back, fully reload the daemon:
+
+```sh
+sudo launchctl bootout system/org.nixos.kanata
+sudo launchctl bootstrap system /Library/LaunchDaemons/org.nixos.kanata.plist
+```
+
 `config.kbd` is the keymap, read by the kanata daemon at `~/.config/kanata/config.kbd`.
 
 ## One-time host setup (not managed by nix)
@@ -69,6 +78,25 @@ What worked (root cause not isolated — try in order, restart the daemon betwee
 3. Same as 1 for `Privacy > Input Monitoring`.
 
 Kick after each: `sudo launchctl kickstart -k system/org.nixos.kanata`. The launchd log only prints the loop; for real errors, `bootout` and run the binary in the foreground.
+
+## Recovery after sleep/wake
+
+Symptom: kanata is still running (`launchctl list | grep kanata` shows it alive, no crash in `/var/log/kanata.log`), but remapping silently stopped after the machine woke from sleep. The log ends with a normal `driver connected: true` at the wake timestamp and then goes quiet — the VHID socket reconnected but kanata's IOHID grab on the physical keyboards did not survive the wake.
+
+Confirm by checking the unified log for a wake event near the time remapping died:
+
+```sh
+log show --predicate 'eventMessage CONTAINS "System Wake"' --last 2h
+```
+
+Fix (guessed; VHID daemon side first):
+
+```sh
+sudo launchctl kickstart -k system/org.nixos.karabiner-vhid-daemon
+sudo launchctl kickstart -k system/org.nixos.kanata
+```
+
+If only the kanata kickstart is needed, the bug is purely on kanata's IOHID side and the VHID restart is redundant. If neither helps, fall back to the macOS-update recovery steps above.
 
 ## Removing the driver
 
