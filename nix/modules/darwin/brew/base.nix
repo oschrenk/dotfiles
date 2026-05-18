@@ -85,7 +85,6 @@
 
     # container, k8s
     "container" # cli, containerization from Apple
-    "helm" # k8s, package manager
     "k9s" # k8s, cluster manager
     "krew" # k8s, kubectl package manager
     "kube-linter" # k8s, lint k8s yaml and helm
