@@ -19,7 +19,8 @@
       "Bash(/opt/homebrew/bin/reminders show *)",
       "Bash(/opt/homebrew/bin/reminders show-all *)",
       "Bash(/opt/homebrew/bin/reminders show-lists *)",
-      "Bash(lightpanda fetch:*)"
+      "Bash(lightpanda fetch:*)",
+      "Bash(nix search:*)"
     ]
   },
   "model": "sonnet",
