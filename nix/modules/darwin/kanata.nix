@@ -69,52 +69,8 @@
 #   `kanata --macos-request-permissions` only registers Accessibility, not
 #   Input Monitoring, and exits silently with no GUI — don't expect a dialog.
 { config, pkgs, lib, ... }:
-let
-  # Pinned to a non-release commit to investigate build-specific issues.
-  #
-  # BROKEN at this rev (1fd7db6, kanata 1.12.0-prerelease-2):
-  #   Bluetooth keyboards are not grabbed. The built-in MacBook keyboard
-  #   gets grabbed and remapped correctly, but events from a paired BT
-  #   keyboard pass through unmodified. Log shows "keyboard grabbed,
-  #   entering event processing loop" with no error, so the failure is
-  #   silent from kanata's perspective. Regression vs nixpkgs 1.11.0
-  #   (release) where BT grab worked. Lots of macOS grab/diagnostic churn
-  #   landed between 1.11.0 and this prerelease (#1989 definputdevices,
-  #   #2015 startup diagnostics, #2031 mouse tap relocation, etc.) — one
-  #   of those likely introduced the regression.
-  #
-  # To bump:
-  #   1. Update rev.
-  #   2. Set hash + cargoDeps.hash to lib.fakeHash, rebuild, and copy the
-  #      "got: sha256-..." values from the error.
-  # cargoDeps is overridden directly (not via cargoHash) because overrideAttrs
-  # doesn't re-thread cargoHash into the vendor derivation built by
-  # rustPlatform.buildRustPackage.
-  # doInstallCheck is off because versionCheckHook greps for `version` in
-  # `kanata --version` output, which still reports the upstream cargo version
-  # (e.g. "1.12.0-prerelease-2"), not our git-sha label.
-  kanata-pinned =
-    let
-      kanataSrc = pkgs.fetchFromGitHub {
-        owner = "jtroo";
-        repo  = "kanata";
-        rev   = "1fd7db64a74a5e66a1780dc60e3993e53d9d003f";
-        hash  = "sha256-rNlzd0YiXEU4Q0KVJNstKUTD78A0pUP+1q3xjOb9uQc=";
-      };
-    in
-    pkgs.kanata.overrideAttrs (old: {
-      version = "git-1fd7db6";
-      src = kanataSrc;
-      cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
-        src = kanataSrc;
-        name = "kanata-git-1fd7db6-vendor";
-        hash = "sha256-dVQhiEj8izA4lv4lZdLHr6rND8Gm8pvAx6mP6MPK1zk=";
-      };
-      doInstallCheck = false;
-    });
-in
 {
-  environment.systemPackages = [ kanata-pinned ];
+  environment.systemPackages = [ pkgs.kanata ];
 
   # Hard-fail rebuild if the v6.2.0 driver isn't installed and activated.
   # Runs before launchd reload so the kanata daemon never lands on a host
@@ -152,7 +108,7 @@ in
   launchd.daemons.kanata = {
     serviceConfig = {
       ProgramArguments = [
-        "${kanata-pinned}/bin/kanata"
+        "${pkgs.kanata}/bin/kanata"
         "-c"
         "/Users/${config.system.primaryUser}/.config/kanata/config.kbd"
       ];
