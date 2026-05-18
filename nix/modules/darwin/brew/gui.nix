@@ -31,6 +31,7 @@
     "ghostty" # terminal
     "google-chrome" # browser
     "handbrake-app" # video transcoder
+    "heroic" # game launcher
     "hex-fiend" # hex editor
     "iina" # video client
     "intellij-idea" # jetbrains ide
