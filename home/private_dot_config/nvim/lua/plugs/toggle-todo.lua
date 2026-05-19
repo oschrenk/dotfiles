@@ -10,6 +10,13 @@ return {
       end,
       desc = "Toggle todo",
     },
+    {
+      "<C-e>",
+      function()
+        require("nvim-md-todo-toggle").add()
+      end,
+      desc = "Add todo",
+    },
   },
   config = function()
     require("nvim-md-todo-toggle").setup({
