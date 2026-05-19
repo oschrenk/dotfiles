@@ -142,8 +142,6 @@
     "telnet" # network, telnet protocol
 
     # music
-    "mpc" # mpd client, cli; used by ~/Music download script to trigger updates
-    "mpd" # music player daemon; managed via `brew services start mpd`
     "rmpc" # mpd client, tui
 
     # a/v + personal

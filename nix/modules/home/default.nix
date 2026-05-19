@@ -15,6 +15,7 @@
     ./sketchybar.nix
     ./gitwatch.nix
     ./aerospace.nix
+    ./mpd.nix
   ];
 
   home.username = username;
