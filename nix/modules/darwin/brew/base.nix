@@ -141,6 +141,9 @@
     "speedtest-cli" # network, speedtest
     "telnet" # network, telnet protocol
 
+    # music
+    "rmpc" # mpd client, tui
+
     # a/v + personal
     "asciinema" # a/v, record terminal sessions
     "exiftool" # a/v, read/write exif
