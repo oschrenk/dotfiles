@@ -23,7 +23,6 @@
       "Bash(nix search:*)"
     ]
   },
-  "model": "sonnet",
   "hooks": {
     "PreToolUse": [
       {
