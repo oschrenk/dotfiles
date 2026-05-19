@@ -63,7 +63,8 @@
     "gopls-lsp@claude-plugins-official": true,
     "lua-lsp@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": false,
+    "kotlin-lsp@claude-plugins-official": false
   },
   "alwaysThinkingEnabled": true,
   "includePatterns": [
