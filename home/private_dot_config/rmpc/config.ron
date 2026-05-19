@@ -1,0 +1,107 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+    theme: "gruvbox",
+
+    // Queue tab without the Lyrics pane; Album Artists tab removed entirely.
+    // Otherwise this is the upstream default tabs layout (assets/example_config.ron).
+    tabs: [
+        (
+            name: "Queue",
+            pane: Split(
+                direction: Horizontal,
+                panes: [
+                    (
+                        size: "35%",
+                        borders: "LEFT | RIGHT | TOP | BOTTOM",
+                        border_symbols: Rounded,
+                        pane: Pane(AlbumArt),
+                    ),
+                    (
+                        size: "65%",
+                        pane: Split(
+                            direction: Vertical,
+                            panes: [
+                                (
+                                    size: "3",
+                                    borders: "ALL",
+                                    border_symbols: Inherited(parent: Rounded, bottom_left: "├", bottom_right: "┤",),
+                                    pane: Split(
+                                        direction: Horizontal,
+                                        panes: [
+                                            (size: "1",   pane: Pane(Empty())),
+                                            (size: "100%", pane: Pane(QueueHeader())),
+                                        ],
+                                    ),
+                                ),
+                                (
+                                    size: "100%",
+                                    borders: "LEFT | RIGHT | BOTTOM",
+                                    border_symbols: Rounded,
+                                    pane: Split(
+                                        direction: Horizontal,
+                                        panes: [
+                                            (size: "1",   pane: Pane(Empty())),
+                                            (size: "100%", pane: Pane(Queue)),
+                                        ],
+                                    ),
+                                ),
+                            ],
+                        ),
+                    ),
+                ],
+            ),
+        ),
+        (
+            name: "Directories",
+            borders: "ALL",
+            border_symbols: Rounded,
+            pane: Split(
+                size: "100%",
+                direction: Vertical,
+                panes: [(pane: Pane(Directories), size: "100%", borders: "ALL", border_symbols: Rounded)],
+            ),
+        ),
+        (
+            name: "Artists",
+            borders: "ALL",
+            border_symbols: Rounded,
+            pane: Split(
+                size: "100%",
+                direction: Vertical,
+                panes: [(pane: Pane(Artists), size: "100%", borders: "ALL", border_symbols: Rounded)],
+            ),
+        ),
+        (
+            name: "Albums",
+            borders: "ALL",
+            border_symbols: Rounded,
+            pane: Split(
+                size: "100%",
+                direction: Vertical,
+                panes: [(pane: Pane(Albums), size: "100%", borders: "ALL", border_symbols: Rounded)],
+            ),
+        ),
+        (
+            name: "Playlists",
+            borders: "ALL",
+            border_symbols: Rounded,
+            pane: Split(
+                size: "100%",
+                direction: Vertical,
+                panes: [(pane: Pane(Playlists), size: "100%", borders: "ALL", border_symbols: Rounded)],
+            ),
+        ),
+        (
+            name: "Search",
+            borders: "ALL",
+            border_symbols: Rounded,
+            pane: Split(
+                size: "100%",
+                direction: Vertical,
+                panes: [(pane: Pane(Search), size: "100%", borders: "ALL", border_symbols: Rounded)],
+            ),
+        ),
+    ],
+)

@@ -1,0 +1,247 @@
+#![enable(implicit_some)]
+#![enable(unwrap_newtypes)]
+#![enable(unwrap_variant_newtypes)]
+(
+  format_tag_separator:         " | ",
+
+  background_color:             "#282828",
+  text_color:                   "#ebdbb2",
+  highlighted_item_style:       (fg: "#ebdbb2", bg: "#3c3836"),
+  current_item_style:           (fg: "#ebdbb2", bg: "#665c54"),
+  borders_style:                (fg: "#928374"),
+  highlight_border_style:       (fg: "#a89984"),
+  preview_label_style:          (fg: "#fabd2f"),
+  preview_metadata_group_style: (fg: "#d79921"),
+
+  level_styles: (
+    info:   (fg: "#83a598", bg: "#1d2021"),
+    warn:   (fg: "#fabd2f", bg: "#1d2021"),
+    error:  (fg: "#fb4934", bg: "#1d2021"),
+    debug:  (fg: "#b8bb26", bg: "#1d2021"),
+    trace:  (fg: "#d3869b", bg: "#1d2021"),
+  ),
+
+  symbols: (
+    song: " ",
+    dir: " ",
+    marker: "󰓎 ",
+    ellipsis: " ",
+    playlist: "󰲸 ",
+  ),
+
+  tab_bar: (
+    active_style: (fg: "#ebdbb2", bg: "#665c54"),
+    inactive_style: (fg: "#ebdbb2", bg: "#3c3836"),
+  ),
+
+  scrollbar: (
+    symbols: ["│", "█", "", ""],
+    track_style: (fg: "#1d2021", modifiers: "Bold"),
+    ends_style: (fg: "#665c54", modifiers: "Bold"),
+    thumb_style: (fg: "#665c54"),
+  ),
+
+  progress_bar: (
+    use_track_when_empty: false,
+    symbols: ["", "█", "", "█", ""],
+    elapsed_style: (fg: "#458588"),
+    thumb_style: (fg: "#458588", bg: "#1d2021"),
+    track_style: (fg: "#1d2021"),
+  ),
+
+  cava: (
+    bar_width: 1,
+    bar_spacing: 0,
+
+    bar_color: Rows([
+      "#cc241d",
+      "#fb4934",
+      "#d65d0e",
+      "#fe8019",
+      "#d79921",
+      "#fabd2f",
+    ]),
+
+    orientation: Horizontal,
+    bar_symbols:          ['▁', '▂', '▃', '▄', '▅', '▆', '▇', '█'],
+    inverted_bar_symbols: ['▔', '🮂', '🮃', '▀', '🮄', '🮅', '🮆', '█'],
+  ),
+
+  song_table_format: [
+    (
+        prop: (kind: Property(Title), default: (kind: Text("Unknown"))),
+        label_prop: (kind: Text("Title")),
+        width: "100%",
+    ),
+    (
+        prop: (kind: Property(Duration), default: (kind: Text("-"))),
+        label_prop: (kind: Text("Duration")),
+        width: "10",
+        alignment: Right,
+    ),
+  ],
+
+  border_symbol_sets: {
+    "letters_in_corners": (
+      top_left: "a",
+      top_right: "b",
+      bottom_left: "c",
+      bottom_right: "d",
+      vertical_left: "|",
+      vertical_right: "|",
+      horizontal_top: "-",
+      horizontal_bottom: "-",
+    ),
+    "a_in_top_left_rest_rounded": (
+      parent: Rounded,
+      top_left: "a",
+    ),
+  },
+
+  layout: Split(
+    direction: Vertical,
+    panes: [
+      (
+        pane: Pane(Tabs),
+        size: "1",
+      ),
+      (
+        pane: Pane(Empty()),
+        size: "1",
+      ),
+      (
+        pane: Component("header"),
+        size: "2",
+      ),
+      (
+        pane: Pane(TabContent),
+        size: "100%",
+      ),
+      (
+        pane: Component("progress_bar"),
+        size: "2",
+      ),
+    ],
+  ),
+  components: {
+    "header": Split(
+      direction: Horizontal,
+      panes: [
+        (
+          pane: Pane(Empty()),
+          size: "1",
+        ),
+        (
+          pane: Split(
+            direction:Horizontal,
+            panes: [
+              (
+                pane: Pane(Empty()),
+                size: "1",
+              ),
+              (
+                pane: Pane(Property(content: [
+                  (kind: Text("󰴍 : "),                    style: (fg: "#928374", modifiers: "Bold")),
+                  (kind: Property(Song(Position)),        style: (fg: "#ebdbb2"),
+                    default: (kind: Text("0"),            style: (fg: "#ebdbb2"))),
+                  (kind: Text(" / "),                     style: (fg: "#928374", modifiers: "Bold")),
+                  (kind: Property(Status(QueueLength())), style: (fg: "#ebdbb2")),
+                ])),
+                size: "15",
+              ),
+              (
+                pane: Pane(Empty()),
+                size: "100%",
+              ),
+              (
+                pane: Pane(Property(content: [
+                  (kind: Property(Status(RepeatV2(on_label: "", off_label: "",
+                    on_style: (fg: "#ebdbb2", modifiers: "Bold"),
+                    off_style: (fg: "#665c54", modifiers: "Bold"))))),
+
+                  (kind: Text(" - "),style: (fg: "#928374", modifiers: "Bold")),
+                  
+                  (kind: Property(Status(RandomV2(on_label: "", off_label: "",
+                    on_style: (fg: "#ebdbb2", modifiers: "Bold"),
+                    off_style: (fg: "#665c54", modifiers: "Bold"))))),
+                  
+                  (kind: Text(" - "),style: (fg: "#928374", modifiers: "Bold")),
+                  
+                  (kind: Property(Status(ConsumeV2(on_label: "󰮈", off_label: "󰚃", oneshot_label: "󰚃",
+                    on_style: (fg: "#ebdbb2", modifiers: "Bold"),
+                    off_style: (fg: "#665c54", modifiers: "Bold"))))),
+                  
+                  (kind: Text(" - "),style: (fg: "#928374", modifiers: "Bold")),
+                  
+                  (kind: Property(Status(SingleV2(on_label: "󰎤", off_label: "󰎦",
+                    oneshot_label: "󰇊", off_oneshot_label: "󱅊",
+                    on_style: (fg: "#ebdbb2", modifiers: "Bold"),
+                    off_style: (fg: "#665c54", modifiers: "Bold"))))),
+                  
+                  (kind: Text(" | "),style: (fg: "#928374", modifiers: "Bold")),
+
+                  (kind: Property(Status(Crossfade)),style: (fg: "#ebdbb2"),
+                    default: (kind: Text("󰴽"), style: (fg: "#665c54"))),
+                ])),
+                size: "17",
+              ),
+              (
+                pane: Pane(Empty()),
+                size: "2",
+              ),
+            ]
+          ),
+          size: "100%",
+          borders: "BOTTOM",
+        ),
+        (
+          pane: Pane(Empty()),
+          size: "1",
+        )
+      ]
+    ),
+    "progress_bar": Split(
+      direction: Horizontal,
+      panes: [
+        (
+          pane: Pane(Empty()),
+          size: "1",
+        ),
+        (
+          pane: Split(
+            direction: Horizontal,
+            panes: [     
+              (
+                pane: Pane(Empty()),
+                size: "1",
+              ),
+              (
+                pane: Pane(ProgressBar),
+                size: "100%",
+              ),
+              (
+                pane: Pane(Empty()),
+                size: "1",
+              ),
+            ]
+          ),
+          borders: "TOP",
+          border_title_alignment: Center,
+          border_title: [
+            (kind: Text("| "),style: (fg: "#ebdbb2", modifiers: "Bold")),
+            (kind: Property(Status(Elapsed)), style: (fg: "#ebdbb2")),
+            (kind: Property(Status(StateV2(playing_label: " 󱦟 ", paused_label: "  ", stopped_label: "  "))),
+              style: (fg: "#ebdbb2")),
+            (kind: Property(Status(Duration)), style: (fg: "#ebdbb2")),
+              (kind: Text(" |"),style: (fg: "#ebdbb2")),
+            ],
+          size: "100%",
+        ),
+        (
+          pane: Pane(Empty()),
+          size: "1",
+        ),
+      ]
+    )
+  }
+)
