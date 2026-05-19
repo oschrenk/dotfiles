@@ -20,7 +20,6 @@
 
   homebrew.casks = [
     "1password" # password manager
-    "aerospace" # window manager
     "alcove" # macos, notch helper
     "antinote" # notes with SoulverCore
     "arc" # chromium based browser

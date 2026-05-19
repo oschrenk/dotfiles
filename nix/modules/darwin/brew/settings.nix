@@ -29,7 +29,6 @@
       "IohannRabeson/tap" # tmignore-rs
       "johannesnagl/tap" # showmd
       "keith/formulae" # reminders-cli
-      "nikitabobko/tap" # aerospace
       "oschrenk/made" # tools created by oschrenk
       "oschrenk/personal" # personal casks and fonts
       "txn2/tap" # kubefwd
