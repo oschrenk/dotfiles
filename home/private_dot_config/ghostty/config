@@ -44,7 +44,10 @@ cursor-style = block
 #   https://ghostty.org/docs/config/reference#initial-command
 #   https://ghostty.org/docs/config/reference#shell-integration
 shell-integration = fish
-command = /run/current-system/sw/bin/fish --login --interactive
+# Quick terminal sets GHOSTTY_QUICK_TERMINAL=1 in the spawned shell's env;
+# branch on it to launch rmpc in that surface and keep a normal login shell
+# everywhere else. Normal new windows go through the else branch unchanged.
+command = /run/current-system/sw/bin/fish -c "if set -q GHOSTTY_QUICK_TERMINAL; exec rmpc; else; exec fish --login --interactive; end"
 initial-command = /run/current-system/sw/bin/fish --login --interactive --init-command "sessionizer start; tmux attach -t config"
 
 # Appearance
