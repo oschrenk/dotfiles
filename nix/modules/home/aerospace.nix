@@ -199,8 +199,8 @@
 
         # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
         alt-tab = "workspace-back-and-forth";
-        # See: https://nikitabobko.github.io/AeroSpace/commands#move-workspace-to-monitor
-        alt-shift-tab = "move-workspace-to-monitor --wrap-around next";
+        # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-monitor
+        alt-shift-tab = "move-node-to-monitor --wrap-around next";
 
         # See: https://nikitabobko.github.io/AeroSpace/commands#mode
         alt-shift-semicolon = "mode service";
