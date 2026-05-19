@@ -20,7 +20,9 @@
       "Bash(/opt/homebrew/bin/reminders show-all *)",
       "Bash(/opt/homebrew/bin/reminders show-lists *)",
       "Bash(lightpanda fetch:*)",
-      "Bash(nix search:*)"
+      "Bash(nix search:*)",
+      "Bash(brew info:*)",
+      "Bash(nix eval:*)"
     ]
   },
   "hooks": {
