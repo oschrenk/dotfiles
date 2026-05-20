@@ -63,7 +63,6 @@
     "yq" # data, process YAML
 
     # database
-    "lazysql" # cli, sql
     "libpq" # postgres, cli
     "pgformatter" # postgres, formatter
 
