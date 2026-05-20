@@ -17,6 +17,7 @@
     ./aerospace.nix
     ./mpd.nix
     ./rmpc.nix
+    ./cottage.nix
   ];
 
   home.username = username;

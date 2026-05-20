@@ -8,6 +8,8 @@
       # gitwatch-rs not in nixpkgs; build from source via our own derivation
       # (upstream flake's rust-flake/rust-overlay chain is broken on darwin)
       gitwatch-rs = prev.callPackage ../pkgs/gitwatch-rs.nix { };
+      # cottage not in nixpkgs; build from source
+      cottage = prev.callPackage ../pkgs/cottage.nix { };
     })
   ];
 
