@@ -67,7 +67,7 @@ quick-terminal-animation-duration = 0
 quick-terminal-autohide = true
 quick-terminal-position = center
 quick-terminal-screen = mouse
-quick-terminal-size = "50%,50%"
+quick-terminal-size = "66%,66%"
 
 ##########################
 # SPLITS
