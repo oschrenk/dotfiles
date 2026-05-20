@@ -16,6 +16,7 @@
     ./gitwatch.nix
     ./aerospace.nix
     ./mpd.nix
+    ./rmpc.nix
   ];
 
   home.username = username;
