@@ -40,6 +40,7 @@
     "keyboardcleantool" # disables keyboard for cleaning
     "keycastr" # shows key strokes on screen
     "knockknock" # identify background tasks/processes
+    "little-snitch" # firewall, monitor and block outgoing connections
     "lulu" # firewall, block unknown outgoing connections
     "mochi" # study notes and flashcards
     "monodraw" # draw ascii diagrams
