@@ -30,6 +30,12 @@ task nix-builder-restart   # Restart the VM
 task nix-builder-force     # Nuke disk + restart (loses build cache)
 ```
 
+### Picking the right recovery
+
+- `Connection refused` on port 31022, no `qemu-system-aarch64` process, `last exit code = 78 EX_CONFIG`, `/var/lib/linux-builder/` empty -> `task nix-builder-force` (qcow2 is missing, needs rebuild)
+- Port 31022 open but SSH banner exchange times out / hangs -> `task nix-builder-force` (qcow2 corrupted, see "Old or corrupted qcow2")
+- `last exit code = 78 EX_CONFIG` but qcow2 exists in `/var/lib/linux-builder/` -> `task nix-builder-restart`
+
 ## Verifying the VM
 
 ```
@@ -140,6 +146,12 @@ mongodb-7_0 = pkgs'.mongodb-7_0.override {
   boost = pkgs'.boost179.override { stdenv = pkgs'.gcc13Stdenv; };
 };
 ```
+
+### Don't run `create-builder` or `launchctl kickstart -k` by hand
+
+`create-builder` places `nixos.qcow2` and `keys/` in cwd. The launchd plist sets `WorkingDirectory=/var/lib/linux-builder`; invoking it outside launchd leaks root-owned files into wherever you ran it (e.g. into the chezmoi repo).
+
+`sudo launchctl kickstart -k system/org.nixos.linux-builder` blocks waiting on launchd respawn-throttle and never returns. Always use `task nix-builder-restart` or `task nix-builder-force`.
 
 ### Old or corrupted qcow2 after killed QEMU
 
