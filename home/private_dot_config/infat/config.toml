@@ -2,6 +2,7 @@
 md = "Neovide"
 mkv = "IINA"
 mp4 = "IINA"
+svg = "Affinity Designer 2"
 webm = "IINA"
 
 [schemes]
@@ -10,3 +11,4 @@ web = "Arc"
 
 [types]
 plain-text = "Neovide"
+video = "IINA"
