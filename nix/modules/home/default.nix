@@ -18,6 +18,7 @@
     ./mpd.nix
     ./rmpc.nix
     ./cottage.nix
+    ./kanata.nix
   ];
 
   home.username = username;

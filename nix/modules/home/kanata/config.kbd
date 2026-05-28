@@ -13,7 +13,37 @@
   ;; useful if you are only mapping a few keys in defsrc
   ;; (for now) i'm setting it to `no`, to learn kanata
   process-unmapped-keys no
+
+  ;; managed-repeat: would let kanata own key repeat instead of macOS,
+  ;; fixing the macOS repeat-under-load bug (`stillllllll` / `aaaaaand`
+  ;; runs). Requires jtroo/kanata PR #2070 -- temporarily disabled while
+  ;; we run master HEAD for the BT-grab fix (#2076). Re-enable once
+  ;; PR #2070 rebases past #2076 (or both land in a release).
+  ;; managed-repeat yes
+  ;; managed-repeat-delay 150
+  ;; managed-repeat-interval 50
+
+  ;; Note: not setting macos-dev-names-include or macos-dev-names-exclude
+  ;; here. Letting kanata enumerate everything via the default path on
+  ;; master (#2076 catch-all). Add an exclude block for the Karabiner
+  ;; VHID if kanata starts grabbing its own output device (would loop).
+  ;;
+  ;; Not setting macos-continue-if-no-devs-found either -- kanata's
+  ;; default (exit if nothing grabbable at startup) is fine because the
+  ;; built-in keyboard is always grabbable at boot.
 )
+
+;; Per-key repeat overrides (PR #2070) -- disabled along with the
+;; managed-repeat options above. defrepeat is unrecognised on master
+;; kanata and would fail config validation.
+;; (defrepeat
+;;   (bspc 120 30)
+;;   (del  120 30)
+;;   (up    120 25)
+;;   (down  120 25)
+;;   (left  120 25)
+;;   (right 120 25)
+;; )
 
 
 ;; physical hardware as source
