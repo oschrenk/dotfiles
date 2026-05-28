@@ -7,10 +7,22 @@
     # run atuin daemon as a launchd agent (background sync, faster DB writes, in-memory search index)
     daemon.enable = true;
 
-    # ATUIN_NOBIND=true is set in fish loginShellInit so atuin init skips its
-    # default keybindings; the custom Ctrl-R binding lives in
-    # functions/fish_user_key_bindings.fish.
     enableFishIntegration = true;
+
+    # Suppress atuin keybindings; don't hijack
+    # - up-arrow (history nav), 
+    # - ctrl-r, or
+    # - `?`.
+    #
+    # atuin >=18 ignores the old ATUIN_NOBIND env var,
+    # so the disable must be passed as init flags here.
+    #
+    # custom bindings live in functions/fish_user_key_bindings.fish.
+    flags = [
+      "--disable-up-arrow"
+      "--disable-ctrl-r"
+      "--disable-ai"
+    ];
 
     settings = {
       # if false, enter and tab both return to shell without executing

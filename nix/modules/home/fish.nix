@@ -200,13 +200,6 @@
       set -x KUBECONFIG (find $HOME/.kube/config.d -name "*.yml" -o -name '*.yaml' | sort | xargs echo | sed 's/ /:/g')
 
       #############################
-      # atuin
-      #############################
-      # disable automatic keybindings; the custom Ctrl-R binding lives in
-      # functions/fish_user_key_bindings.fish
-      set -gx ATUIN_NOBIND true
-
-      #############################
       # 1password plugins
       #############################
       if test -f ~/.config/op/plugins.sh
