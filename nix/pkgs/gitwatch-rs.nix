@@ -17,7 +17,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-aRkfqiZ3x8XGcLEgXJik5QbK53Ex9Vew0fw/gOkCoxw=";
   };
 
-  cargoLock.lockFile = ./gitwatch-rs.Cargo.lock;
+  cargoHash = "sha256-HmOYPhhkYaU5IA7DOuOHzj5WZ2vwr2WUtlVv/rlqpB8=";
 
   nativeBuildInputs = [ pkg-config ];
   buildInputs = [ openssl libgit2 ];

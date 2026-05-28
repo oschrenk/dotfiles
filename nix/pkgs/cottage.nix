@@ -14,7 +14,7 @@ rustPlatform.buildRustPackage rec {
     hash = "sha256-I4vphWQEGjXDhc2MBzWWyRQ/lByLKnLCqgp+dtM3KWU=";
   };
 
-  cargoLock.lockFile = ./cottage.Cargo.lock;
+  cargoHash = "sha256-HBOFfnps9BUZ+KMoPiOPXv+7OW5EPNMBb8rox4/AcFw=";
 
   # tests need network or fixtures we haven't set up
   doCheck = false;
