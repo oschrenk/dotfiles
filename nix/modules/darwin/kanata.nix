@@ -69,8 +69,56 @@
 #   `kanata --macos-request-permissions` only registers Accessibility, not
 #   Input Monitoring, and exits silently with no GUI — don't expect a dialog.
 { config, pkgs, lib, ... }:
+let
+  # Pinned to jtroo/kanata master HEAD (f423a30, 2026-05-25) instead of
+  # upstream `pkgs.kanata` (1.11.0 release) so we get commit 3cfe608e
+  # "fix(macos): restore catch-all device registration for Bluetooth
+  # keyboards (#2076)" -- without that fix, BT keyboards are silently
+  # not grabbed (built-in works, BT events pass through unmodified). The
+  # 1.11.0 release predates the regression entirely, so it also works
+  # for BT; but master has other macOS grab-path improvements landed
+  # since then (#2065 macos-continue-if-no-devs-found, #1989 definput-
+  # devices, startup diagnostics) that are worth keeping.
+  #
+  # We are NOT on PR #2070 (managed-repeat) yet. That PR addresses the
+  # macOS repeat-under-load bug (#1441, #422 -- `stillllllll` runs when
+  # CPU is busy), but at its current head it sits on a master commit
+  # that predates #2076, so BT grab is broken there. Revisit pinning to
+  # PR #2070 (or its successor) once #2070 is rebased onto post-#2076
+  # master, or once both land.
+  #
+  # To bump:
+  #   1. Update rev to the new master SHA (or PR head).
+  #   2. Set hash + cargoDeps.hash to lib.fakeHash, rebuild, and copy the
+  #      "got: sha256-..." values from the error.
+  # cargoDeps is overridden directly (not via cargoHash) because overrideAttrs
+  # doesn't re-thread cargoHash into the vendor derivation built by
+  # rustPlatform.buildRustPackage.
+  # doInstallCheck is off because versionCheckHook greps for `version` in
+  # `kanata --version` output, which still reports the upstream cargo version
+  # (e.g. "1.12.0-prerelease-2"), not our git-sha label.
+  kanata-pinned =
+    let
+      kanataSrc = pkgs.fetchFromGitHub {
+        owner = "jtroo";
+        repo  = "kanata";
+        rev   = "f423a30043a7ae0871d71bc25fe7b816412c73d9";
+        hash  = "sha256-aP9AU60dYui4hBqSkajny77lFBO2/GQ5Ik4PZCWW2b0=";
+      };
+    in
+    pkgs.kanata.overrideAttrs (old: {
+      version = "git-master-f423a30";
+      src = kanataSrc;
+      cargoDeps = pkgs.rustPlatform.fetchCargoVendor {
+        src = kanataSrc;
+        name = "kanata-git-master-f423a30-vendor";
+        hash = "sha256-dVQhiEj8izA4lv4lZdLHr6rND8Gm8pvAx6mP6MPK1zk=";
+      };
+      doInstallCheck = false;
+    });
+in
 {
-  environment.systemPackages = [ pkgs.kanata ];
+  environment.systemPackages = [ kanata-pinned ];
 
   # Hard-fail rebuild if the v6.2.0 driver isn't installed and activated.
   # Runs before launchd reload so the kanata daemon never lands on a host
@@ -108,7 +156,7 @@
   launchd.daemons.kanata = {
     serviceConfig = {
       ProgramArguments = [
-        "${pkgs.kanata}/bin/kanata"
+        "${kanata-pinned}/bin/kanata"
         "-c"
         "/Users/${config.system.primaryUser}/.config/kanata/config.kbd"
       ];
