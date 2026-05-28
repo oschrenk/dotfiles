@@ -33,4 +33,11 @@
   # Set once to the HM version used when first applying.
   # Never change this — it tells HM which backwards-incompatible state migrations to skip.
   home.stateVersion = "25.11";
+
+  # We run 
+  # nixpkgs-unstable with home-manager master
+  #
+  # Right after a NixOS release their version strings disagree. (unstable bumps to the next cycle while HM master lags).
+  # Silence the warning
+  home.enableNixpkgsReleaseCheck = false;
 }
