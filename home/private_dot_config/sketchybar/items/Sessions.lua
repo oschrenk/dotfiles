@@ -36,31 +36,19 @@ function Sessions.new(icons, style)
               color = style.active
             end
 
-            if s.attached or s.id == question_session_id then
-              session:set({
-                icon = {
-                  string = icons.tmux,
-                  color = color,
-                },
-                label = {
-                  string = s.name,
-                  color = color, -- Apply the same color to the label
-                  drawing = s.attached, -- Only show label for attached sessions
-                },
+            session:set({
+              icon = {
+                string = icons.tmux,
+                color = color,
+              },
+              label = {
+                string = s.name,
+                color = color,
+                width = s.attached and "dynamic" or 0,
                 drawing = true,
-              })
-            else
-              session:set({
-                icon = {
-                  string = icons.tmux,
-                  color = style.inactive,
-                },
-                label = {
-                  drawing = false,
-                },
-                drawing = true,
-              })
-            end
+              },
+              drawing = true,
+            })
           else
             session:set({ drawing = false })
           end
