@@ -13,10 +13,7 @@ local icons = require("icons")
 local style = require("style")
 
 -- services
-local claude = require("services.claude").new()
-local comodoro = require("services.comodoro").new()
 local focus = require("services.focus").new()
-local meter = require("services.meter").new()
 local mission = require("services.mission").new()
 local sessionizer = require("services.sessionizer").new()
 
