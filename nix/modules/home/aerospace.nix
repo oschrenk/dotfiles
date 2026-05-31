@@ -291,6 +291,13 @@
         { "if".app-id = "org.whispersystems.signal-desktop"; run = "move-node-to-workspace m"; }
         { "if".app-id = "net.whatsapp.WhatsApp"; run = "move-node-to-workspace m"; }
         { "if".app-id = "com.tinyspeck.slackmacgap"; run = "move-node-to-workspace m"; }
+        # Mail compose windows should float
+        {
+          "if".app-id = "com.apple.mail";
+          "if".window-title-regex-substring = "^(New Message|Re: |Fwd: )";
+          check-further-callbacks = true;
+          run = "layout floating";
+        }
         { "if".app-id = "com.apple.mail"; run = "move-node-to-workspace m"; }
         { "if".app-id = "com.openai.chat"; run = "move-node-to-workspace m"; }
 
