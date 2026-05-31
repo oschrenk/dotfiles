@@ -32,6 +32,7 @@
 
     taps = [
       "darrylmorley/whatcable" # whatcable
+      "eddmann/tap" # whatsapp-cli
       "IohannRabeson/tap" # tmignore-rs
       "johannesnagl/tap" # showmd
       "keith/formulae" # reminders-cli

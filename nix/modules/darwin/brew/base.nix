@@ -35,6 +35,7 @@
     "minisign" # cryptography, sign files and verify signatures
 
     # productivity
+    "eddmann/tap/whatsapp-cli" # cli, WhatsApp from terminal
     "glow" # cli, render markdown in terminal
     "oschrenk/made/plan" # cli, fetch next event
     "pandoc" # docs, document converter
