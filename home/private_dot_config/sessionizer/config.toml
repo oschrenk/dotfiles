@@ -17,6 +17,7 @@ entries = [
   { name = "config/claude", path = "$HOME/.config/claude", layout = "two-columns-claude" },
   { name = "config/nvim", path = "$HOME/.config/nvim", layout = "two-columns-claude" },
   { name = "config/sessionizer", path = "$HOME/.config/sessionizer", layout = "two-columns-claude" },
+  { name = "config/sketchybar", path = "$HOME/.config/sketchybar", layout = "two-columns-claude" },
   { name = "config/tmux", path = "$HOME/.config/tmux", layout = "two-columns-claude" },
   { name = "claude/personal", path = "$HOME/.config/claude/personal", layout = "two-columns-claude" },
   { name = "claude/work", path = "$HOME/.config/claude/work", layout = "two-columns-claude" },
