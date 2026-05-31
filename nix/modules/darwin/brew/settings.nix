@@ -15,6 +15,12 @@
       cleanup = "zap";
       # Update Homebrew on each activation
       autoUpdate = true;
+      # Homebrew 5.1.14 made `brew bundle install --cleanup` interactive by
+      # default. `--force-cleanup` restores non-interactive cleanup so the
+      # activation does not fail under sudo. Drop once this PR lands (it
+      # restructures the invocation into a separate `cleanup` call):
+      # https://github.com/nix-darwin/nix-darwin/pull/1774
+      extraFlags = [ "--force-cleanup" ];
       # Env vars passed to `brew bundle` during activation. Activation runs
       # under sudo so user shell env is not inherited.
       extraEnv = {
