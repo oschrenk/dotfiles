@@ -15,5 +15,6 @@
 
   environment.systemPackages = with pkgs; [
     aerospace
+    zed-editor
   ];
 }

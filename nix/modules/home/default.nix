@@ -19,6 +19,7 @@
     ./rmpc.nix
     ./cottage.nix
     ./kanata.nix
+    ./zed.nix
   ];
 
   home.username = username;
