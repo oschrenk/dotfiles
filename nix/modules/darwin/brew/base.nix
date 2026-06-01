@@ -129,9 +129,6 @@
     "swiftly" # swift, toolchain manager
     "yapstudios/tap/sfsym" # swift, SF Symbols cli
 
-    # cloud
-    "hcloud" # cloud, hetzner cli
-
     # network
     "doggo" # network, dns client
     "httrack" # network, copy websites offline
