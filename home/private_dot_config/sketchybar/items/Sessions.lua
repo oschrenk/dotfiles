@@ -10,6 +10,7 @@ function Sessions.new(icons, style)
 
   self.add = function(position)
     local cmd = "/opt/homebrew/bin/sessionizer sessions --json"
+    local attached = {}
 
     -- support fixed amount of sessions
     for i = 1, 5, 1 do
@@ -23,6 +24,7 @@ function Sessions.new(icons, style)
         sbar.exec(cmd, function(sessions)
           local s = sessions[i]
           if s ~= nil then
+            attached[i] = s.attached
             -- Determine the color based on state
             local color = style.inactive
             if s.id == question_session_id then
@@ -50,6 +52,7 @@ function Sessions.new(icons, style)
               drawing = true,
             })
           else
+            attached[i] = false
             session:set({ drawing = false })
           end
         end)
