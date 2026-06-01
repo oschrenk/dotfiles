@@ -62,6 +62,16 @@ function Sessions.new(icons, style)
         sbar.exec("open -b com.mitchellh.ghostty")
       end)
 
+      session:subscribe("mouse.entered", function(_)
+        session:set({ label = { width = "dynamic" } })
+      end)
+
+      session:subscribe("mouse.exited", function(_)
+        if not attached[i] then
+          session:set({ label = { width = 0 } })
+        end
+      end)
+
       session:subscribe({
         "forced",
         "routine",
