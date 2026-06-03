@@ -4,7 +4,8 @@ local Sessions = {}
 
 -- @param icons Plugin specific icons
 -- @param style Plugin specific colors
-function Sessions.new(icons, style)
+-- @param sessionizer Instance of Sessionizer service
+function Sessions.new(icons, style, sessionizer)
   local self = {}
   local question_session_id = nil -- Track which session has a question
 
@@ -59,7 +60,12 @@ function Sessions.new(icons, style)
       end
 
       session:subscribe({ "mouse.clicked" }, function(_)
-        sbar.exec("open -b com.mitchellh.ghostty")
+        sbar.exec("/opt/homebrew/bin/sessionizer sessions --json", function(sessions)
+          local s = sessions[i]
+          if s ~= nil then
+            sessionizer.open(s.name)
+          end
+        end)
       end)
 
       session:subscribe("mouse.entered", function(_)
