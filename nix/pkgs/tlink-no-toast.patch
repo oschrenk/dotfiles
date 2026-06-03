@@ -1,0 +1,23 @@
+Drop the tmux status-bar toast that fires after a successful switch.
+Upstream has no flag for this; the line is hardcoded in execute_switch.
+Border-flash hook below is left intact intentionally.
+--- a/src/open.rs
++++ b/src/open.rs
+@@ -206,17 +206,6 @@
+
+     log!("execute_switch: switch-client SUCCEEDED — client is attached");
+
+-    // Status-bar toast.
+-    let label = match (&target.window, &target.pane) {
+-        (Some(w), Some(p)) => format!("tlink → {session}:{w}.{p}"),
+-        (Some(w), None) => format!("tlink → {session}:{w}"),
+-        _ => format!("tlink → {session}"),
+-    };
+-    log!("execute_switch: displaying toast '{label}'");
+-    let _ = Command::new("tmux")
+-        .args(["display-message", "-d", "2000", "-t", &tmux_target, &label])
+-        .status();
+-
+     // Flash the active pane border: set a vivid colour, then reset after 1.5 s.
+     // pane-active-border-style is a window option, so target at window level.
+     let win_target = match &target.window {

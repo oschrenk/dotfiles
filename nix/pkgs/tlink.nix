@@ -20,6 +20,10 @@ rustPlatform.buildRustPackage rec {
 
   cargoHash = "sha256-YrcSoRLkvYZTFfeCpyAaGXXYT01dZczr79wsE9rTQSE=";
 
+  # Strip the post-switch tmux status-bar toast (`tlink → <session>`).
+  # Upstream has no flag for it; see patch header for details.
+  patches = [ ./tlink-no-toast.patch ];
+
   nativeBuildInputs = [ pkg-config ];
   buildInputs = [ openssl ];
 
