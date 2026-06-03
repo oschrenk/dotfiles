@@ -1,0 +1,2 @@
+terminal = "Ghostty"
+notification_method = "terminal-notifier"

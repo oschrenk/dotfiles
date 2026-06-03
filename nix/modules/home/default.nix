@@ -20,6 +20,7 @@
     ./cottage.nix
     ./kanata.nix
     ./zed.nix
+    ./tlink.nix
   ];
 
   home.username = username;

@@ -123,6 +123,11 @@ tasks:
     dir: nix
     cmds:
       - nix flake update nix-darwin
+  nix-update-home-manager:
+    desc: Update only the home-manager input
+    dir: nix
+    cmds:
+      - nix flake update home-manager
   nix-fmt:
     desc: Format all nix files
     dir: nix

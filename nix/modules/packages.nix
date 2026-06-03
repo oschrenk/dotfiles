@@ -10,6 +10,8 @@
       gitwatch-rs = prev.callPackage ../pkgs/gitwatch-rs.nix { };
       # cottage not in nixpkgs; build from source
       cottage = prev.callPackage ../pkgs/cottage.nix { };
+      # tlink not in nixpkgs; use upstream prebuilt darwin binary
+      tlink = prev.callPackage ../pkgs/tlink.nix { };
     })
   ];
 
