@@ -69,12 +69,16 @@ function Sessions.new(icons, style, sessionizer)
       end)
 
       session:subscribe("mouse.entered", function(_)
-        session:set({ label = { width = "dynamic" } })
+        sbar.animate("tanh", 30, function()
+          session:set({ label = { width = "dynamic" } })
+        end)
       end)
 
       session:subscribe("mouse.exited", function(_)
         if not attached[i] then
-          session:set({ label = { width = 0 } })
+          sbar.animate("tanh", 30, function()
+            session:set({ label = { width = 0 } })
+          end)
         end
       end)
 
