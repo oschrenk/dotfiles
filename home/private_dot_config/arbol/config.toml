@@ -78,3 +78,5 @@ repos.timewax = [
   { url = "git@git.timewax.com:timewax/frontend.git" },
   { url = "git@git.timewax.com:timewax/translations.git" },
 ]
+
+repos.i25a = [{ url = "git@github.com:oschrenk/i25a.gt.git" }]
