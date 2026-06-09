@@ -120,9 +120,6 @@
     "python@3.14" # python, language
     "uv" # python package manager
 
-    # rust
-    "rust" # rust, language
-
     # swift
     "swiftformat" # swift, format
     "swiftlint" # swift, lint, requires Xcode
