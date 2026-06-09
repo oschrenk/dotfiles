@@ -4,7 +4,26 @@
 # See nix/docs/builder.md for setup, maintenance, and known issues.
 { pkgs, lib, ... }:
 let
-  builder = pkgs.darwin.linux-builder.override {
+  # Pin qemu to 10.2.2 (last nixpkgs rev before 11.0.0). QEMU 11.0.0 asserts
+  # in HVF on macOS 26 (Tahoe): sysreg.c.inc:149 HV_SYS_REG_SMCR_EL1 mismatch.
+  # Likely related to incomplete FEAT_SME2 register handling; revisit once the
+  # upstream fix lands in 11.x. See nix/docs/builder.md.
+  nixpkgsQemu = import
+    (pkgs.fetchFromGitHub {
+      owner = "NixOS";
+      repo = "nixpkgs";
+      rev = "549bd84d6279f9852cae6225e372cc67fb91a4c1";
+      hash = "sha256-hGdgeU2Nk87RAuZyYjyDjFL6LK7dAZN5RE9+hrDTkDU=";
+    })
+    {
+      system = pkgs.stdenv.hostPlatform.system;
+      config = { };
+      overlays = [ ];
+    };
+
+  builderPkgs = pkgs.extend (_final: _prev: { qemu = nixpkgsQemu.qemu; });
+
+  builder = builderPkgs.darwin.linux-builder.override {
     modules = [
       ({ ... }: {
         # Allow passwordless sudo for maintenance commands.
