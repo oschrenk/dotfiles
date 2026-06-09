@@ -2,25 +2,25 @@
 
 {
   imports = [
-    ./git.nix
-    ./starship.nix
+    ./aerospace.nix
     ./atuin.nix
-    ./identity.nix
+    ./cottage.nix
     ./direnv.nix
     ./fish.nix
     ./fzf.nix
-    ./lsd.nix
-    ./tmux.nix
-    ./ripgrep.nix
-    ./sketchybar.nix
+    ./git.nix
     ./gitwatch.nix
-    ./aerospace.nix
-    ./mpd.nix
-    ./rmpc.nix
-    ./cottage.nix
+    ./identity.nix
     ./kanata.nix
-    ./zed.nix
+    ./lsd.nix
+    ./mpd.nix
+    ./ripgrep.nix
+    ./rmpc.nix
+    ./sketchybar.nix
+    ./starship.nix
     ./tlink.nix
+    ./tmux.nix
+    ./zed.nix
   ];
 
   home.username = username;

@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 # Homebrew global settings and taps.
 # Homebrew itself must be installed first (scripts/bootstrap.sh handles this).
@@ -22,11 +22,17 @@
       # https://github.com/nix-darwin/nix-darwin/pull/1774
       extraFlags = [ "--force-cleanup" ];
       # Env vars passed to `brew bundle` during activation. Activation runs
-      # under sudo so user shell env is not inherited.
+      # under `sudo --user=$USER --set-home env ...`, and `env` strips
+      # everything except vars passed explicitly here.
       extraEnv = {
         HOMEBREW_NO_ENV_HINTS = "1";
         HOMEBREW_NO_ANALYTICS = "1";
         HOMEBREW_NO_UPDATE_REPORT_NEW = "1";
+        # Without this, brew bundle falls back to ~/.homebrew/trust.json
+        # (which doesn't exist) and treats every third-party tap as
+        # untrusted. trust.json is rendered declaratively to the XDG path
+        # in nix/modules/home/brew-trust.nix.
+        XDG_CONFIG_HOME = "/Users/${config.my.personal.username}/.config";
       };
     };
 
@@ -36,7 +42,12 @@
       "IohannRabeson/tap" # tmignore-rs
       "johannesnagl/tap" # showmd
       "keith/formulae" # reminders-cli
-      "oschrenk/made" # tools created by oschrenk
+      # Custom SSH clone target. brew's trust check matches taps with custom
+      # remotes against the URL, not user/repo — see brew-trust.nix.
+      {
+        name = "oschrenk/made";
+        clone_target = "git@github.com:oschrenk/homebrew-made";
+      }
       "oschrenk/personal" # personal casks and fonts
       "txn2/tap" # kubefwd
       "yapstudios/tap" # sfsym
