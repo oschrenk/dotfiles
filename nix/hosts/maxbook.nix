@@ -45,14 +45,14 @@
   homebrew.casks = [
     "8bitdo-ultimate-software" # controller
     "elgato-control-center" # elgato software to control lights
-    "live-home-3d" # home designer
+    # "live-home-3d" # home designer
     "rode-central" # rode companion app (for AI-1)
     "steam" # games
   ];
 
   homebrew.masApps = {
-    "Affinity Designer 2" = 1616831348; # vector editing
-    "Affinity Photo 2" = 1616822987; # raster editing
-    "Affinity Publisher 2" = 1606941598; # book publishing
+    # "Affinity Designer 2" = 1616831348; # vector editing
+    # "Affinity Photo 2" = 1616822987; # raster editing
+    # "Affinity Publisher 2" = 1606941598; # book publishing
   };
 }

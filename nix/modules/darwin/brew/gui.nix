@@ -28,9 +28,7 @@
     "discord" # discord client
     "firefox" # browser
     "ghostty" # terminal
-    "google-chrome" # browser
     "handbrake-app" # video transcoder
-    "helium-browser" # chromium-based browser
     "heroic" # game launcher
     "hex-fiend" # hex editor
     "iina" # video client
