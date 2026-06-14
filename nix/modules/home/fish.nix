@@ -153,8 +153,12 @@
 
       # Claude
       set -gx CLAUDE_CONFIG_DIR $XDG_CONFIG_HOME/claude/personal
-      # claude aggresively updates itself, let's turn that off
-      set -gx CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC 1
+      # disable non-essential traffic individually — avoid the bundle var
+      # CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC, which also disables telemetry
+      # and silently strips the Monitor tool
+      set -gx DISABLE_AUTOUPDATER 1
+      set -gx DISABLE_FEEDBACK_COMMAND 1
+      set -gx DISABLE_ERROR_REPORTING 1
 
       # Lightpanda
       set -gx LIGHTPANDA_DISABLE_TELEMETRY true
