@@ -74,7 +74,6 @@
     # apps
     "DeskRest" = 6751417411; # health
     "Due" = 524373870; # reminders on steroids
-    "Keynote" = 409183694; # make slides
     "Klack" = 6446206067; # keyboard
     "NordVPN" = 905953485;
     "Parcel" = 375589283; # shipment tracking
