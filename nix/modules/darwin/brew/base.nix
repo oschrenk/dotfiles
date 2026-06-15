@@ -53,6 +53,7 @@
     "oschrenk/made/meter" # ai, claude, measure usage
     "oschrenk/personal/dora" # ai, navigate code with scip
     "oschrenk/personal/lightpanda" # ai, headless browser
+    "oschrenk/made/team" # ai, claude, agent-to-agent messaging bus
     "rtk" # ai, token proxy
 
     # data
