@@ -8,18 +8,18 @@ let
   # in HVF on macOS 26 (Tahoe): sysreg.c.inc:149 HV_SYS_REG_SMCR_EL1 mismatch.
   # Likely related to incomplete FEAT_SME2 register handling; revisit once the
   # upstream fix lands in 11.x. See nix/docs/builder.md.
-  nixpkgsQemu = import
-    (pkgs.fetchFromGitHub {
-      owner = "NixOS";
-      repo = "nixpkgs";
-      rev = "549bd84d6279f9852cae6225e372cc67fb91a4c1";
-      hash = "sha256-hGdgeU2Nk87RAuZyYjyDjFL6LK7dAZN5RE9+hrDTkDU=";
-    })
-    {
-      system = pkgs.stdenv.hostPlatform.system;
-      config = { };
-      overlays = [ ];
-    };
+  nixpkgsQemuSrc = pkgs.fetchFromGitHub {
+    owner = "NixOS";
+    repo = "nixpkgs";
+    rev = "549bd84d6279f9852cae6225e372cc67fb91a4c1";
+    hash = "sha256-hGdgeU2Nk87RAuZyYjyDjFL6LK7dAZN5RE9+hrDTkDU=";
+  };
+
+  nixpkgsQemu = import nixpkgsQemuSrc {
+    system = pkgs.stdenv.hostPlatform.system;
+    config = { };
+    overlays = [ ];
+  };
 
   builderPkgs = pkgs.extend (_final: _prev: { qemu = nixpkgsQemu.qemu; });
 
@@ -41,6 +41,11 @@ in
   system.activationScripts.postActivation.text = lib.mkAfter ''
     mkdir -p /var/lib/linux-builder
   '';
+
+  # Keep the pinned nixpkgs source in the system closure so nix-collect-garbage
+  # can't reclaim it. Without this, every eval re-fetches ~195 MiB via IFD
+  # because qemu's binary closure doesn't reference its source.
+  environment.etc."nix-gcroots/nixpkgs-qemu-pin".source = nixpkgsQemuSrc;
 
   # Run the linux-builder VM as a persistent launchd daemon.
   # Uses macOS Virtualization framework; starts automatically on boot.
