@@ -7,15 +7,13 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "tlink";
-  # Tracking upstream main: no tagged release past 0.1.4 at time of writing.
-  # Bump rev + hash to update; version string is informational.
-  version = "0.1.4-unstable-2026-06-02";
+  version = "0.1.5";
 
   src = fetchFromGitHub {
     owner = "ahnopologetic";
     repo = "tlink";
-    rev = "d66ae1bb795f93e56e0406986df83537fa2f08d4";
-    hash = "sha256-7+NkkL3XT60auBed5quP+xMym35pLa7ZvgtDP3pdMZk=";
+    rev = "v${version}";
+    hash = "sha256-SiVRE5gWNXtHR2+ovfRwKjLBdrzuxz/luAvcYEt8oHQ=";
   };
 
   cargoHash = "sha256-YrcSoRLkvYZTFfeCpyAaGXXYT01dZczr79wsE9rTQSE=";
