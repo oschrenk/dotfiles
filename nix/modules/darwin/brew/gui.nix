@@ -67,9 +67,10 @@
   ];
 
   homebrew.masApps = {
-    # xcode
-    "XCode" = 497799835;
+    # apple
     "Apple Developer" = 640199958;
+    "TestFlight" = 899247664;
+    "XCode" = 497799835;
 
     # apps
     "DeskRest" = 6751417411; # health
