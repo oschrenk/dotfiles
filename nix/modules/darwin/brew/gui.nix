@@ -34,7 +34,6 @@
     "iina" # video client
     "intellij-idea" # jetbrains ide
     "jdk-mission-control" # monitor java applications
-    "johannesnagl/tap/showmd" # markdown preview
     "keyboardcleantool" # disables keyboard for cleaning
     "keycastr" # shows key strokes on screen
     "knockknock" # identify background tasks/processes

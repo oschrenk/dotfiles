@@ -40,7 +40,6 @@
       "darrylmorley/whatcable" # whatcable
       "eddmann/tap" # whatsapp-cli
       "IohannRabeson/tap" # tmignore-rs
-      "johannesnagl/tap" # showmd
       "keith/formulae" # reminders-cli
       # Custom SSH clone target. brew's trust check matches taps with custom
       # remotes against the URL, not user/repo — see brew-trust.nix.
