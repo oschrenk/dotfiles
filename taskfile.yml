@@ -71,6 +71,16 @@ tasks:
       - sudo launchctl bootstrap system /Library/LaunchDaemons/org.nixos.linux-builder.plist
       - sleep 30
       - sudo chmod 644 /etc/nix/builder_ed25519
+  nix-kanata-force:
+    desc: Force reload the kanata daemon and karabiner-vhid-daemon (bootout + bootstrap)
+    # Same EX_CONFIG/extended-backoff reasoning as nix-builder-force. vhid daemon
+    # cycles first so kanata comes up against a fresh IPC socket; see the
+    # "stuck vhid state" recovery in nix/modules/darwin/kanata.nix.
+    cmds:
+      - sudo launchctl bootout system/org.nixos.karabiner-vhid-daemon || true
+      - sudo launchctl bootstrap system /Library/LaunchDaemons/org.nixos.karabiner-vhid-daemon.plist
+      - sudo launchctl bootout system/org.nixos.kanata || true
+      - sudo launchctl bootstrap system /Library/LaunchDaemons/org.nixos.kanata.plist
   nix-pi:
     desc: Apply NixOS configuration to all pis
     deps: [nix-pi-1, nix-pi-2, nix-pi-3]
