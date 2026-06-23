@@ -143,3 +143,12 @@ tasks:
     dir: nix
     cmds:
       - nix fmt --no-warn-dirty
+  nix-gc:
+    desc: Garbage-collect old generations and dedupe the nix store
+    # sudo run cleans the system/darwin profile; the unprivileged run cleans
+    # the user profile (home-manager, nix-shell roots). `optimise` hardlinks
+    # identical files across the store after GC frees them up.
+    cmds:
+      - sudo nix-collect-garbage -d
+      - nix-collect-garbage -d
+      - nix store optimise
