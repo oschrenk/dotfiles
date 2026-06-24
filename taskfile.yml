@@ -32,7 +32,7 @@ tasks:
       - cat home/.chezmoiscripts/run_onchange_05_configure_wallpaper.sh.tmpl | chezmoi execute-template | zsh
   spicetify:
     cmds:
-      - home/.chezmoiscripts/run_onchange_05_terminal_fish.sh
+      - home/.chezmoiscripts/run_onchange_06_customize_spicetify.sh
   services:
     cmds:
       - home/.chezmoiscripts/run_onchange_04_configure_services_brew.sh
