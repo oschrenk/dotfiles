@@ -26,7 +26,6 @@ return {
     -- extension can push on page load before blink lazily instantiates the source.
     {
       "oschrenk/blink-cmp-browser",
-      dir = "/Users/oliver/Projects/tools/blink-cmp-browser",
       config = function()
         require("blink-cmp-browser").start_server()
       end,
