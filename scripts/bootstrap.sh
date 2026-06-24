@@ -29,7 +29,15 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo
 echo "Done. Nix is installed but NOT on this shell's PATH yet."
-echo "Open a new terminal, or run this in the current shell:"
+echo
+echo "IMPORTANT: before the first nix-darwin switch, grant Terminal Full Disk"
+echo "Access. Without it, activation aborts writing com.apple.universalaccess and"
+echo "leaves your login shell pointed at a fish that is not installed yet (dead"
+echo "terminal). Fix:"
+echo "  System Settings > Privacy & Security > Full Disk Access > enable Terminal,"
+echo "  then quit Terminal (Cmd-Q) and reopen."
+echo
+echo "Get nix on PATH (a fresh terminal does this automatically, or run):"
 echo
 echo "     export PATH=\"/nix/var/nix/profiles/default/bin:\$PATH\""
 echo
