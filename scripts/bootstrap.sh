@@ -31,7 +31,7 @@ echo
 echo "Done. Next steps:"
 echo
 echo "  1. Run nix-darwin (installs chezmoi, git, git-lfs, fish via Homebrew):"
-echo "     sudo nix run nix-darwin -- switch --flake <dotfiles>/nix#\$(hostname -s)"
+echo "     sudo nix run nix-darwin -- switch --flake ./nix#\$(hostname -s)"
 echo
 echo "  2. Set up git-lfs:"
 echo "     git lfs install"
