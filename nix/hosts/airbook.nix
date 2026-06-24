@@ -1,0 +1,47 @@
+{ config, ... }:
+
+{
+  imports = [
+    ../modules/darwin/brew/base.nix
+    ../modules/darwin/brew/fonts.nix
+    ../modules/darwin/brew/gui.nix
+    ../modules/darwin/brew/server.nix
+    ../modules/darwin/brew/trust.nix
+    ../modules/darwin/brew/work.nix
+  ];
+
+  # PAM / Touch ID for sudo (survives macOS upgrades via sudo_local)
+  # See: https://github.com/nix-darwin/nix-darwin/pull/1344
+  security.pam.services.sudo_local.touchIdAuth = true;
+  security.pam.services.sudo_local.reattach = true;
+
+  # AirBook-specific configuration
+
+  # Apple Silicon — use x86_64-darwin for Intel Macs
+  nixpkgs.hostPlatform = "aarch64-darwin";
+
+  # Primary user for user-scoped defaults (e.g. Finder, NSGlobalDomain)
+  system.primaryUser = config.my.personal.username;
+
+  # Set once to the nix-darwin version used when first applying.
+  # Never change this — it tells nix-darwin how to handle state migrations.
+  # Check current version with: nix run nix-darwin -- --version
+  # Or see: https://github.com/nix-darwin/nix-darwin/blob/master/CHANGELOG.md
+  system.stateVersion = 6;
+
+  # Reload the prefs database into the running session so system.defaults and
+  # CustomUserPreferences apply on darwin-rebuild without a logout. The -u flag
+  # means user-level. Undocumented private-framework binary, so behavior may
+  # change between macOS releases. Some prefs still need a killall (Dock,
+  # Finder, SystemUIServer, cfprefsd) or app restart to pick up plist changes.
+  #
+  # nix-darwin removed postUserActivation (all activation now runs as root), so
+  # we run via `sudo -u $USER` to reach the user's cfprefsd from a root script.
+  system.activationScripts.postActivation.text = ''
+    sudo -u ${config.my.personal.username} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+  '';
+
+  # AirBook-specific apps go here (none yet).
+  # homebrew.casks = [ ];
+  # homebrew.masApps = { };
+}
