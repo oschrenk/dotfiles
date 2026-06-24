@@ -201,7 +201,9 @@
       # k8s
       #############################
       # automatically offer all $HOME/.kube/config.d/*.yml as K8s configs
-      set -x KUBECONFIG (find $HOME/.kube/config.d -name "*.yml" -o -name '*.yaml' | sort | xargs echo | sed 's/ /:/g')
+      if test -d $HOME/.kube/config.d
+        set -x KUBECONFIG (find $HOME/.kube/config.d -name "*.yml" -o -name '*.yaml' | sort | xargs echo | sed 's/ /:/g')
+      end
 
       #############################
       # 1password plugins
