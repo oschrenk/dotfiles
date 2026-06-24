@@ -49,8 +49,9 @@ tasks:
     # nix-daemon (running as root via sudo) refuses world-readable SSH keys;
     # force 0600 here. nix-pi-* and nix-hetzner-* flip it back to 0644 for
     # oliver-as-user SSH. Yes, this is silly.
+    # Guarded so hosts without a linux-builder (no key) don't abort the task.
     cmds:
-      - sudo chmod 600 /etc/nix/builder_ed25519
+      - '[ -f /etc/nix/builder_ed25519 ] && sudo chmod 600 /etc/nix/builder_ed25519 || true'
       - sudo /run/current-system/sw/bin/darwin-rebuild switch --flake "./nix#{{.HOSTNAME}}" --option warn-dirty false
     vars:
       HOSTNAME:
