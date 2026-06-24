@@ -26,6 +26,7 @@ repos.ops = [
 
 repos.tools = [
   { url = "git@github.com:oschrenk/arbol.git" },
+  { url = "git@github.com:oschrenk/blink-cmp-browser.git" },
   { url = "git@github.com:oschrenk/bump.git" },
   { url = "git@github.com:oschrenk/bunq.git" },
   { url = "git@github.com:oschrenk/cutter.git" },
