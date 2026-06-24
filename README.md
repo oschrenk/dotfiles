@@ -156,7 +156,7 @@ After casks are installed you can already start important apps and configure the
 - Spotify
   - download "Liked Songs"
 - sketchybar
-  - `brew services start sketchybar`
+  - Managed by Nix Home Manager as a launchd user agent (not brew). Restart with `launchctl kickstart -k gui/$(id -u)/org.nix-community.home.sketchybar`
 
 Login:
 - Discord
