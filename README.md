@@ -45,12 +45,25 @@ Identity values (name, email, SSH key, timezone) live in the committed
 or changing them, edit `nix/identity.nix` directly, or run `task nix-setup-identity`
 (available after the first apply below, since `task` is installed by nix-darwin).
 
+**Before the first apply, grant Terminal Full Disk Access.** Without it,
+activation cannot write the TCC-protected `com.apple.universalaccess` domain, the
+switch aborts, and your login shell is left pointing at a fish that is not
+installed yet (a dead terminal). On a fresh machine the switch runs in
+Terminal.app (Ghostty is not installed yet), so:
+
+- System Settings > Privacy & Security > Full Disk Access > enable Terminal
+- Quit Terminal (Cmd-Q) and reopen
+
 Apply the flake. `task` is not on PATH yet (go-task comes from nix-darwin), and
 the flake is in the `nix/` subdirectory, so run it directly from the repo root:
 
 ```sh
 sudo nix run nix-darwin -- switch --flake "./nix#$(hostname -s)"
 ```
+
+If the switch ever does abort on `universalaccess` and breaks your shell, set
+Terminal to open `/bin/zsh` directly (Settings > General > "Shells open with")
+to recover, grant Full Disk Access, then re-run the switch.
 
 Subsequent runs use the task wrapper:
 
