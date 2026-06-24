@@ -37,6 +37,9 @@ echo "Keyboard shortcut: Disable ^→, and ^← to switch spaces"
 plutil -replace AppleSymbolicHotKeys.79.enabled -bool NO ~/Library/Preferences/com.apple.symbolichotkeys.plist
 plutil -replace AppleSymbolicHotKeys.81.enabled -bool NO ~/Library/Preferences/com.apple.symbolichotkeys.plist
 
+echo "Keyboard shortcut: Disable ^Space (select previous input source) so it's free for tmux"
+plutil -replace AppleSymbolicHotKeys.60.enabled -bool NO ~/Library/Preferences/com.apple.symbolichotkeys.plist
+
 #######################################
 # Calendar
 #######################################
