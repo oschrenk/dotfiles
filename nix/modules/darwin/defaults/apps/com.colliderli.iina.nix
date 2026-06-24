@@ -1,4 +1,4 @@
-{ ... }:
+{ lib, ... }:
 
 # IINA preferences
 #
@@ -38,15 +38,14 @@
     };
   };
 
-  system.activationScripts = {
+  # Must hook into postActivation (a hardcoded nix-darwin activation script):
+  # nix-darwin only runs a fixed set of named activation scripts, so custom
+  # names like `iina-resume-last-position` are silently defined but never
+  # executed. mkAfter keeps these composable with other postActivation users.
+  system.activationScripts.postActivation.text = lib.mkAfter ''
     # Resume last playback position: absent key = resume on, false = resume off
-    iina-resume-last-position.text = ''
-      defaults delete "com.colliderli.iina" "resumeLastPosition" 2>/dev/null || true
-    '';
-
+    defaults delete "com.colliderli.iina" "resumeLastPosition" 2>/dev/null || true
     # yt-dlp enabled: absent key = enabled (when ytdlSearchPath is set), false = disabled
-    iina-ytdl-enabled.text = ''
-      defaults delete "com.colliderli.iina" "ytdlEnabled" 2>/dev/null || true
-    '';
-  };
+    defaults delete "com.colliderli.iina" "ytdlEnabled" 2>/dev/null || true
+  '';
 }
