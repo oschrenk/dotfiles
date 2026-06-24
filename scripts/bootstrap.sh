@@ -28,7 +28,12 @@ fi
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 echo
-echo "Done. Next steps:"
+echo "Done. Nix is installed but NOT on this shell's PATH yet."
+echo "Open a new terminal, or run this in the current shell:"
+echo
+echo "     export PATH=\"/nix/var/nix/profiles/default/bin:\$PATH\""
+echo
+echo "Then, from the repo root (~/.local/share/chezmoi):"
 echo
 echo "  1. Run nix-darwin (installs chezmoi, git, git-lfs, fish via Homebrew):"
 echo "     sudo nix run nix-darwin -- switch --flake ./nix#\$(hostname -s)"
