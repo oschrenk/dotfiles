@@ -38,6 +38,7 @@
     # Brewfile, so brew bundle records it in trust.json itself (Homebrew 6
     # requires tap trust by default). Replaces the old hand-rendered trust.json.
     taps = [
+      { name = "8ta4/extension"; trusted = true; } # extension (install browser extensions)
       { name = "darrylmorley/whatcable"; trusted = true; } # whatcable
       { name = "eddmann/tap"; trusted = true; } # whatsapp-cli
       { name = "IohannRabeson/tap"; trusted = true; } # tmignore-rs
