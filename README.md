@@ -4,13 +4,26 @@ These are my dotfiles.
 
 ## Bootstrap
 
-Name machine first — `hostname` is used by `nix-darwin` and `chezmoi` templating
+The `nix/` flake and `scripts/` live in this repo, so clone it first. The repo
+is public, so clone over HTTPS (the SSH key is provisioned later via 1Password).
+Clone into chezmoi's source directory so a single checkout serves as both the
+flake root and the chezmoi source:
+
+```sh
+# git ships with the Xcode Command Line Tools; this triggers their install
+xcode-select --install
+
+git clone https://github.com/oschrenk/dotfiles.git ~/.local/share/chezmoi
+cd ~/.local/share/chezmoi
+```
+
+Name the machine next (`hostname` is used by `nix-darwin` and `chezmoi` templating):
 
 ```sh
 ./scripts/hostname.sh
 ```
 
-Then install Nix, Homebrew, and chezmoi
+Then install Nix and Homebrew (chezmoi itself is installed later by nix-darwin):
 
 ```sh
 ./scripts/bootstrap.sh
@@ -27,19 +40,19 @@ echo 'extra-trusted-public-keys = nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+R
 sudo launchctl kickstart -k system/systems.determinate.nix-daemon
 ```
 
-Create the machine-local identity file (name, email, SSH key, timezone — never committed):
+Identity values (name, email, SSH key, timezone) live in the committed
+`nix/identity.nix`, so nothing is needed here on your own machines. When forking
+or changing them, edit `nix/identity.nix` directly, or run `task nix-setup-identity`
+(available after the first apply below, since `task` is installed by nix-darwin).
+
+Apply the flake. `task` is not on PATH yet (go-task comes from nix-darwin), and
+the flake is in the `nix/` subdirectory, so run it directly from the repo root:
 
 ```sh
-task nix-setup-identity
+sudo nix run nix-darwin -- switch --flake "./nix#$(hostname -s)"
 ```
 
-Once the nix-darwin flake is set up, apply it with
-
-```sh
-sudo nix run nix-darwin -- switch --flake "~/nix#$(hostname -s)"
-```
-
-Subsequent runs use
+Subsequent runs use the task wrapper:
 
 ```sh
 task nix-max
@@ -67,15 +80,19 @@ kickstart service manually:
 sudo launchctl kickstart -k system/org.nixos.opnix-secrets
 ```
 
-Initialize chezmoi (requires `task nix-max` to have run first so home-manager has written `~/.local/share/identity/data.toml`):
+Initialize chezmoi. The repo is already at chezmoi's source directory from the
+bootstrap clone, so `chezmoi init` reuses it without re-downloading. This
+requires `task nix-max` to have run first, so home-manager has written
+`~/.local/share/identity/data.toml`:
 
-```
-chezmoi init oschrenk/dotfiles
+```sh
+chezmoi init
 ```
 
-Pull binary assets
+Pull binary assets (git-lfs is installed by nix-darwin):
 
-```
+```sh
+git lfs install
 chezmoi cd
 git lfs pull
 ```
