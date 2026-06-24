@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+
+trap 'echo exit; exit' INT TERM
+
+BASEDIR="{{ joinPath .chezmoi.sourceDir | quote }}/../assets/wallpaper"
+
+# wallpaper CLI: oschrenk/made/wallpaper (installed via brew). Skip cleanly if
+# it isn't installed yet (e.g. during early bootstrap before brew bundle runs).
+if ! command -v wallpaper >/dev/null 2>&1; then
+  echo "wallpaper CLI missing; skipping (oschrenk/made/wallpaper)"
+  exit 0
+fi
+
+echo "Setting wallpaper"
+wallpaper set --border-radius 26 --margin-top 32 --border-bottom 1 "$BASEDIR/anime-boy-chill.jpg"

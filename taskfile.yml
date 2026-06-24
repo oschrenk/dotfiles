@@ -27,6 +27,9 @@ tasks:
   icons:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_06_customize_icons.sh.tmpl | chezmoi execute-template | zsh
+  wallpaper:
+    cmds:
+      - cat home/.chezmoiscripts/run_onchange_05_configure_wallpaper.sh.tmpl | chezmoi execute-template | zsh
   spicetify:
     cmds:
       - home/.chezmoiscripts/run_onchange_05_terminal_fish.sh
