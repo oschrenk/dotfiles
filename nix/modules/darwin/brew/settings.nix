@@ -15,11 +15,10 @@
       cleanup = "zap";
       # Update Homebrew on each activation
       autoUpdate = true;
-      # Homebrew 5.1.14 made `brew bundle install --cleanup` interactive by
-      # default. `--force-cleanup` restores non-interactive cleanup so the
-      # activation does not fail under sudo. Drop once this PR lands (it
-      # restructures the invocation into a separate `cleanup` call):
-      # https://github.com/nix-darwin/nix-darwin/pull/1774
+      # `brew bundle install --cleanup` refuses to uninstall non-interactively
+      # without `--force-cleanup`, so this is permanently required. nix-darwin
+      # PR #1774 (which would have restructured this) was closed unmerged; see
+      # follow-up issue nix-darwin#1787.
       extraFlags = [ "--force-cleanup" ];
       # Env vars passed to `brew bundle` during activation. Activation runs
       # under `sudo --user=$USER --set-home env ...`, and `env` strips
@@ -28,23 +27,25 @@
         HOMEBREW_NO_ENV_HINTS = "1";
         HOMEBREW_NO_ANALYTICS = "1";
         HOMEBREW_NO_UPDATE_REPORT_NEW = "1";
-        # Without this, brew bundle falls back to ~/.homebrew/trust.json
-        # (which doesn't exist) and treats every third-party tap as
-        # untrusted. trust.json is rendered declaratively to the XDG path
-        # in nix/modules/home/brew-trust.nix.
+        # Point brew's config dir at the XDG path instead of ~/.homebrew, so
+        # the trust.json brew now manages itself (populated by the
+        # `trusted = true` tap entries below) lives under ~/.config/homebrew.
         XDG_CONFIG_HOME = "/Users/${config.my.personal.username}/.config";
       };
     };
 
+    # trusted = true marks each non-official tap as trusted in the generated
+    # Brewfile, so brew bundle records it in trust.json itself (Homebrew 6
+    # requires tap trust by default). Replaces the old hand-rendered trust.json.
     taps = [
-      "darrylmorley/whatcable" # whatcable
-      "eddmann/tap" # whatsapp-cli
-      "IohannRabeson/tap" # tmignore-rs
-      "keith/formulae" # reminders-cli
-      "oschrenk/made" # personal casks and formulae
-      "oschrenk/personal" # personal casks and fonts
-      "txn2/tap" # kubefwd
-      "yapstudios/tap" # sfsym
+      { name = "darrylmorley/whatcable"; trusted = true; } # whatcable
+      { name = "eddmann/tap"; trusted = true; } # whatsapp-cli
+      { name = "IohannRabeson/tap"; trusted = true; } # tmignore-rs
+      { name = "keith/formulae"; trusted = true; } # reminders-cli
+      { name = "oschrenk/made"; trusted = true; } # personal casks and formulae
+      { name = "oschrenk/personal"; trusted = true; } # personal casks and fonts
+      { name = "txn2/tap"; trusted = true; } # kubefwd
+      { name = "yapstudios/tap"; trusted = true; } # sfsym
     ];
   };
 }
