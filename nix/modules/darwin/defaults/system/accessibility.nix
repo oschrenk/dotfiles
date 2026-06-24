@@ -18,10 +18,19 @@
   };
 
   system.defaults.CustomUserPreferences = {
-    # HIDScrollZoomModifierMask: modifier key for scroll-to-zoom gesture
-    # 1048576 = Command (⌘)
-    # Not exposed as a native nix-darwin option
+    # Modifier key for the scroll-to-zoom gesture. 1048576 = Command (⌘).
+    # Not exposed as native nix-darwin options.
+    #
+    # closeViewScrollWheelModifiersInt is the key the Zoom feature itself reads;
+    # without it closeViewScrollWheelToggle enables the gesture but no modifier
+    # is bound. HIDScrollZoomModifierMask is the trackpad-driver counterpart.
+    "com.apple.universalaccess" = {
+      closeViewScrollWheelModifiersInt = 1048576;
+    };
     "com.apple.driver.AppleBluetoothMultitouch.trackpad" = {
+      HIDScrollZoomModifierMask = 1048576;
+    };
+    "com.apple.AppleMultitouchTrackpad" = {
       HIDScrollZoomModifierMask = 1048576;
     };
   };
