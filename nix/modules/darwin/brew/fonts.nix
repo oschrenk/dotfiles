@@ -10,6 +10,7 @@
     "font-roboto-mono"
     "font-roboto-mono-nerd-font"
     "font-sf-pro"
+    "oschrenk/made/font-battery-mono" # battery glyphs for sketchybar (progress-font)
     "oschrenk/personal/font-sf-mono-nerd-font"
     "sf-symbols" # preview sf symbols
   ];
