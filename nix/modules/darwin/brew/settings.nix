@@ -41,12 +41,7 @@
       "eddmann/tap" # whatsapp-cli
       "IohannRabeson/tap" # tmignore-rs
       "keith/formulae" # reminders-cli
-      # Custom SSH clone target. brew's trust check matches taps with custom
-      # remotes against the URL, not user/repo — see brew-trust.nix.
-      {
-        name = "oschrenk/made";
-        clone_target = "git@github.com:oschrenk/homebrew-made";
-      }
+      "oschrenk/made" # personal casks and formulae
       "oschrenk/personal" # personal casks and fonts
       "txn2/tap" # kubefwd
       "yapstudios/tap" # sfsym
