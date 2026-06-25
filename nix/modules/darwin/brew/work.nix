@@ -4,7 +4,6 @@
 # Import this module in the host file for any work machine.
 {
   homebrew.brews = [
-    "kubelogin" # k8s, openid auth plugin
     "logcli" # o11y, query loki
     "sleek" # sql, formatter
     "sqlfluff" # sql, formatter

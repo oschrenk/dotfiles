@@ -86,14 +86,10 @@
 
     # container, k8s
     "container" # cli, containerization from Apple
-    "k9s" # k8s, cluster manager
-    "krew" # k8s, kubectl package manager
     "kube-linter" # k8s, lint k8s yaml and helm
     "kubectx" # k8s, switch k8s contexts
-    "kubernetes-cli" # k8s, cli
     "kubescape" # k8s, scan cluster for security issues
     "kustomize" # k8s, resource transformers
-    "minikube" # k8s, run local k8s
     "txn2/tap/kubefwd" # k8s, bulk port forwarding
 
     # go

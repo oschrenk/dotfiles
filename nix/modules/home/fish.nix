@@ -20,7 +20,6 @@
       # Applications
       b = "brew";
       c = "chezmoi";
-      k = "kubectl";
       r = "rg";
       t = "task";
       o = "/Applications/Obsidian.app/Contents/MacOS/Obsidian";
