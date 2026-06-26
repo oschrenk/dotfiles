@@ -20,7 +20,6 @@ repos.ops = [
   { url = "git@github.com:oschrenk/feeds.git" },
   { url = "git@github.com:oschrenk/homebrew-made.git" },
   { url = "git@github.com:oschrenk/homebrew-personal.git" },
-  { url = "git@github.com:oschrenk/namecheap.git" },
   { url = "git@github.com:oschrenk/pi-gen.git" },
 ]
 
