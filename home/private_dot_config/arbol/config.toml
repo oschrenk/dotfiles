@@ -77,6 +77,7 @@ repos.timewax = [
   { url = "git@git.timewax.com:timewax/backend.git" },
   { url = "git@git.timewax.com:timewax/devops.git" },
   { url = "git@git.timewax.com:timewax/frontend.git" },
+  { url = "git@git.timewax.com:timewax/office-365-integration/task-queue.git" },
   { url = "git@git.timewax.com:timewax/translations.git" },
 ]
 
