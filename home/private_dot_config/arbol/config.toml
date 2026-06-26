@@ -40,7 +40,6 @@ repos.tools = [
   { url = "git@github.com:oschrenk/nightshift.swift.git" },
   { url = "git@github.com:oschrenk/plan.swift.git" },
   { url = "git@github.com:oschrenk/pomodoro.git" },
-  { url = "git@github.com:oschrenk/progress-font.git" },
   { url = "git@github.com:oschrenk/sessionizer.git" },
   { url = "git@github.com:oschrenk/up.git" },
   { url = "git@github.com:oschrenk/usbi.git" },
@@ -61,6 +60,7 @@ repos.sites = [
 repos.resources = [
   { url = "git@github.com:oschrenk/icons.git" },
   { url = "git@github.com:oschrenk/dutch-cities-gps.git" },
+  { url = "git@github.com:oschrenk/progress-font.git" },
   { url = "git@github.com:oschrenk/sf-mono-nerd-font.git" },
 ]
 
