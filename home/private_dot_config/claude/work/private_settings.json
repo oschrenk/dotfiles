@@ -36,26 +36,6 @@
         ]
       }
     ],
-    "PreCompact": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "beans prime"
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "beans prime"
-          }
-        ]
-      }
-    ],
     "Stop": [
       {
         "hooks": [
