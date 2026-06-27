@@ -92,9 +92,6 @@
     "kustomize" # k8s, resource transformers
     "txn2/tap/kubefwd" # k8s, bulk port forwarding
 
-    # go
-    "go" # go, language; needed by chezmoi 01c_deps_gofile.sh (`go install`)
-
     # rust
     "rust" # rust, language; provides cargo for chezmoi 01b_deps_cargofile.sh (`cargo install`)
 
