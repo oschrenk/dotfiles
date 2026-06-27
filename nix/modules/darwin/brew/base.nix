@@ -124,7 +124,6 @@
     "uv" # python package manager
 
     # swift
-    "swiftly" # swift, toolchain manager
     "yapstudios/tap/sfsym" # swift, SF Symbols cli
 
     # network
