@@ -61,11 +61,13 @@
     "typescript-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
+  "theme": "dark",
   "excludePatterns": [
     ".release/**",
     "build/**",
     "dist/**",
     "node_modules/**",
     "out-tsc/**"
-  ]
+  ],
+  "tui": "fullscreen"
 }
