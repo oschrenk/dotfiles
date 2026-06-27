@@ -33,12 +33,18 @@ askToRestartApps() {
 echo "Keyboard: Set brightness lowest, automatic and turn off after 10s"
 /opt/homebrew/bin/keyboard set --auto-brightness=true --idle-dim-time=10 --brightness=0.01
 
+# Write through `defaults` (cfprefsd), not `plutil` on the file directly:
+# cfprefsd owns this domain and clobbers out-of-band file edits, so plutil
+# writes never took effect. activateSettings -u + the Dock restart below
+# make WindowServer re-read the grabs without a logout.
 echo "Keyboard shortcut: Disable ^→, and ^← to switch spaces"
-plutil -replace AppleSymbolicHotKeys.79.enabled -bool NO ~/Library/Preferences/com.apple.symbolichotkeys.plist
-plutil -replace AppleSymbolicHotKeys.81.enabled -bool NO ~/Library/Preferences/com.apple.symbolichotkeys.plist
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 79 "{enabled=0;}"
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 81 "{enabled=0;}"
 
 echo "Keyboard shortcut: Disable ^Space (select previous input source) so it's free for tmux"
-plutil -replace AppleSymbolicHotKeys.60.enabled -bool NO ~/Library/Preferences/com.apple.symbolichotkeys.plist
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 "{enabled=0;}"
+
+/System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
 #######################################
 # Calendar
