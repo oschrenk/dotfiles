@@ -125,7 +125,6 @@
 
     # swift
     "swiftformat" # swift, format
-    "swiftlint" # swift, lint, requires Xcode
     "swiftly" # swift, toolchain manager
     "yapstudios/tap/sfsym" # swift, SF Symbols cli
 
