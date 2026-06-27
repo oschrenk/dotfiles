@@ -13,7 +13,9 @@ plugins/
 private_sessions/
 projects/
 security_warnings*
+sessions/
 session-env/
 shell-snapshots/
+telemetry/
 statsig*
 todos/
