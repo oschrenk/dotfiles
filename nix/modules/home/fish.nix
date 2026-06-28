@@ -126,9 +126,6 @@
       # Python
       fish_add_path --prepend /opt/homebrew/opt/python@3.12/libexec/bin
 
-      # kubectl krew
-      fish_add_path --prepend $HOME/.krew/bin
-
       # swift
       fish_add_path /opt/homebrew/opt/swift/bin
 
