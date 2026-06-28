@@ -9,7 +9,6 @@
     "displayplacer" # macos, arrange monitors
     "fileicon" # macos, manage icons
     "iconsur" # macos, fetch icons
-    "infat" # macos, set default filetypes
     "m1ddc" # hardware, monitor control
     "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
     "oschrenk/made/mission" # macos, task management

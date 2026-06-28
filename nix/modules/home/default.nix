@@ -11,6 +11,7 @@
     ./git.nix
     ./gitwatch.nix
     ./identity.nix
+    ./infat.nix
     ./kanata.nix
     ./lsd.nix
     ./mpd.nix
