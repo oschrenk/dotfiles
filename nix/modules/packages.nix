@@ -12,11 +12,14 @@
       cottage = prev.callPackage ../pkgs/cottage.nix { };
       # tlink not in nixpkgs; use upstream prebuilt darwin binary
       tlink = prev.callPackage ../pkgs/tlink.nix { };
+      # firemark not in nixpkgs; build from source
+      firemark = prev.callPackage ../pkgs/firemark.nix { };
     })
   ];
 
   environment.systemPackages = with pkgs; [
     aerospace
+    firemark
     git-stack
     taplo
     zed-editor
