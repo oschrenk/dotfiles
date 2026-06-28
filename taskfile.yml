@@ -5,16 +5,13 @@ env:
   NIX_SSHOPTS: -o ServerAliveInterval=30 -o ServerAliveCountMax=3
 tasks:
   apps:
-    deps: [krew, node, ollama]
+    deps: [krew, ollama]
   extensions:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01f_deps_extensions.sh.tmpl | chezmoi execute-template | zsh
   ollama:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01d_deps_ollamafile.sh.tmpl | chezmoi execute-template | zsh
-  node:
-    cmds:
-      - cat home/.chezmoiscripts/run_onchange_01g_deps_node.sh.tmpl | chezmoi execute-template | zsh
   krew:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01h_deps_krew.sh.tmpl | chezmoi execute-template | zsh
