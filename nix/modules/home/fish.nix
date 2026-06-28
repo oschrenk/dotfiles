@@ -129,9 +129,6 @@
       # kubectl krew
       fish_add_path --prepend $HOME/.krew/bin
 
-      # node
-      fish_add_path /opt/homebrew/opt/node@20/bin
-
       # swift
       fish_add_path /opt/homebrew/opt/swift/bin
       set -x SWIFTLY_HOME_DIR "$XDG_DATA_HOME/swiftly"
