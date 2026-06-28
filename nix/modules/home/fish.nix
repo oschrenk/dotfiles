@@ -109,11 +109,6 @@
       # put local bin before
       fish_add_path --prepend $HOME/.local/bin
 
-      # Go
-      set -x GOPATH $HOME/Frameworks/go
-      set -x GOBIN $GOPATH/bin
-      fish_add_path --prepend $GOPATH/bin
-
       # Ruby
       fish_add_path --prepend $HOME/.rbenv/shims
 
@@ -127,10 +122,6 @@
       fish_add_path --append $ANDROID_HOME/tools
       fish_add_path --append $ANDROID_HOME/tools/bin
       fish_add_path --append $ANDROID_HOME/platform-tools
-
-      # Rust
-      set -gx CARGO_HOME $XDG_DATA_HOME/cargo
-      fish_add_path --prepend $CARGO_HOME/bin
 
       # Python
       fish_add_path --prepend /opt/homebrew/opt/python@3.12/libexec/bin

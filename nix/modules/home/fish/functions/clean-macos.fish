@@ -93,23 +93,6 @@ function clean-macos -d "Clean macOS caches and unused data"
     # Android SDK
     _clean_confirm ~/Library/Android/sdk "Android SDK"; or return 1
 
-    # Go module cache
-    if command -q go
-        set -l gomod ~/Frameworks/go/pkg/mod
-        if test -d "$gomod"
-            set -l size (du -sh "$gomod" 2>/dev/null | awk '{print $1}')
-            if test "$size" != 0B
-                read -l -P "Clean Go module cache ($size)? [y/N] " confirm; or return 1
-                if test "$confirm" = y
-                    go clean -modcache
-                    echo "  Deleted."
-                else
-                    echo "  Skipped."
-                end
-            end
-        end
-    end
-
     # Gradle cache
     _clean_confirm ~/.gradle "Gradle cache"; or return 1
 
@@ -126,9 +109,6 @@ function clean-macos -d "Clean macOS caches and unused data"
 
     # Expo cache
     _clean_confirm ~/.expo "Expo cache"; or return 1
-
-    # Cargo registry
-    _clean_confirm ~/.local/share/cargo/registry "Cargo registry cache"; or return 1
 
     # Old JetBrains configs (per-version)
     set -l jb_base ~/Library/Application\ Support/JetBrains
