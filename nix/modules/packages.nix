@@ -14,6 +14,9 @@
       tlink = prev.callPackage ../pkgs/tlink.nix { };
       # firemark not in nixpkgs; build from source
       firemark = prev.callPackage ../pkgs/firemark.nix { };
+      # slack-cli (isaacadams) not in nixpkgs; build from source
+      # (nixpkgs `slack-cli` is a different tool); binary is `slack`
+      slack-cli = prev.callPackage ../pkgs/slack-cli.nix { };
     })
   ];
 
@@ -21,6 +24,7 @@
     aerospace
     firemark
     git-stack
+    slack-cli
     taplo
     zed-editor
   ];
