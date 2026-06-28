@@ -1,7 +1,7 @@
 -- kotlin
--- https://github.com/Hessesian/kotlin-lsp
+-- https://github.com/Hessesian/kmp-lsp (was kotlin-lsp; renamed upstream)
 return {
-  cmd = { vim.fn.expand("~/.local/share/cargo/bin/kotlin-lsp") },
+  cmd = { "kmp-lsp" },
   filetypes = { "kotlin" },
   root_markers = { "build.gradle", "build.gradle.kts", "settings.gradle", "settings.gradle.kts" },
 
