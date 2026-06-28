@@ -18,6 +18,7 @@
   environment.systemPackages = with pkgs; [
     aerospace
     git-stack
+    taplo
     zed-editor
   ];
 }
