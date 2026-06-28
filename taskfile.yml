@@ -5,10 +5,7 @@ env:
   NIX_SSHOPTS: -o ServerAliveInterval=30 -o ServerAliveCountMax=3
 tasks:
   apps:
-    deps: [cargo, krew, node, ollama]
-  cargo:
-    cmds:
-      - cat home/.chezmoiscripts/run_onchange_01b_deps_cargofile.sh.tmpl | chezmoi execute-template | zsh
+    deps: [krew, node, ollama]
   extensions:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01f_deps_extensions.sh.tmpl | chezmoi execute-template | zsh
