@@ -92,9 +92,6 @@
     "kustomize" # k8s, resource transformers
     "txn2/tap/kubefwd" # k8s, bulk port forwarding
 
-    # rust
-    "rust" # rust, language; provides cargo for chezmoi 01b_deps_cargofile.sh (`cargo install`)
-
     # lua
     "lua" # lua, programming language
     "lua-language-server" # lua, lsp
