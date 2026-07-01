@@ -4,26 +4,12 @@
 # See nix/docs/builder.md for setup, maintenance, and known issues.
 { pkgs, lib, ... }:
 let
-  # Pin qemu to 10.2.2 (last nixpkgs rev before 11.0.0). QEMU 11.0.0 asserts
-  # in HVF on macOS 26 (Tahoe): sysreg.c.inc:149 HV_SYS_REG_SMCR_EL1 mismatch.
-  # Likely related to incomplete FEAT_SME2 register handling; revisit once the
-  # upstream fix lands in 11.x. See nix/docs/builder.md.
-  nixpkgsQemuSrc = pkgs.fetchFromGitHub {
-    owner = "NixOS";
-    repo = "nixpkgs";
-    rev = "549bd84d6279f9852cae6225e372cc67fb91a4c1";
-    hash = "sha256-hGdgeU2Nk87RAuZyYjyDjFL6LK7dAZN5RE9+hrDTkDU=";
-  };
-
-  nixpkgsQemu = import nixpkgsQemuSrc {
-    system = pkgs.stdenv.hostPlatform.system;
-    config = { };
-    overlays = [ ];
-  };
-
-  builderPkgs = pkgs.extend (_final: _prev: { qemu = nixpkgsQemu.qemu; });
-
-  builder = builderPkgs.darwin.linux-builder.override {
+  # qemu unpinned: using nixpkgs qemu (11.0.1+). Previously pinned to 10.2.2
+  # because 11.0.0 asserted in HVF on macOS 26 (Tahoe) at sysreg.c.inc:149
+  # (HV_SYS_REG_SMCR_EL1 mismatch, incomplete FEAT_SME2 register handling).
+  # If the builder VM fails to boot with that assertion, restore the pin.
+  # See nix/docs/builder.md.
+  builder = pkgs.darwin.linux-builder.override {
     modules = [
       ({ ... }: {
         # Allow passwordless sudo for maintenance commands.
@@ -41,11 +27,6 @@ in
   system.activationScripts.postActivation.text = lib.mkAfter ''
     mkdir -p /var/lib/linux-builder
   '';
-
-  # Keep the pinned nixpkgs source in the system closure so nix-collect-garbage
-  # can't reclaim it. Without this, every eval re-fetches ~195 MiB via IFD
-  # because qemu's binary closure doesn't reference its source.
-  environment.etc."nix-gcroots/nixpkgs-qemu-pin".source = nixpkgsQemuSrc;
 
   # Run the linux-builder VM as a persistent launchd daemon.
   # Uses macOS Virtualization framework; starts automatically on boot.
