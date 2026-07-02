@@ -1,9 +1,7 @@
 [extensions]
 md = "Neovide"
-mkv = "IINA"
 mp4 = "IINA"
 svg = "Affinity Designer 2"
-webm = "IINA"
 
 [schemes]
 mailto = "Mail"
@@ -12,3 +10,6 @@ web = "Arc"
 [types]
 plain-text = "Neovide"
 video = "IINA"
+# bound by UTI, not extension: mkv/webm resolve to dynamic UTIs so `--ext` fails (error -50)
+"org.matroska.mkv" = "IINA"
+"org.webmproject.webm" = "IINA"
