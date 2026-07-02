@@ -9,8 +9,15 @@
   config,
   ...
 }:
+let
+  # Upstream doesn't link AppKit, so the `info` subcommand panics (NSWorkspace
+  # class not found). Force-link it.
+  infat = pkgs.infat.overrideAttrs (old: {
+    RUSTFLAGS = (old.RUSTFLAGS or "") + " -C link-arg=-framework -C link-arg=AppKit";
+  });
+in
 {
-  home.packages = [ pkgs.infat ];
+  home.packages = [ infat ];
 
   xdg.configFile."infat/config.toml".source = ./infat/config.toml;
 
@@ -19,6 +26,6 @@
   # --robust so a missing target app (e.g. an uninstalled cask) does not fail
   # the whole activation.
   home.activation.infatApply = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
-    run ${pkgs.infat}/bin/infat -c ${config.xdg.configFile."infat/config.toml".source} --robust --quiet
+    run ${infat}/bin/infat -c ${config.xdg.configFile."infat/config.toml".source} --robust --quiet
   '';
 }
