@@ -11,6 +11,17 @@ _Requirements_
 stylua .
 ```
 
+## Nix
+
+`blink.cmp` builds its fuzzy matcher with Rust (`cargo`). If Rust isn't installed,
+get a temporary shell that leaves `PATH` untouched afterwards:
+
+```sh
+nix shell nixpkgs#cargo nixpkgs#rustc
+nvim   # :Lazy update blink.cmp  (or :Lazy build blink.cmp)
+exit
+```
+
 ## Plugin Security (Supply Chain)
 
 Plugins are pinned via `lazy-lock.json`, which records the exact commit hash for every plugin. Commit this file to git — it is the source of truth, equivalent to `package-lock.json`.
