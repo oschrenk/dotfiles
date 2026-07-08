@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 
 # Note: most options accept raw abbreviation strings (types.str), except
 # NewWindowTarget which requires human-readable values. See:
@@ -19,7 +19,7 @@
     #   iCloud Drive
     #   Other
     NewWindowTarget = "Other";
-    NewWindowTargetPath = "file://$HOME/Downloads/";
+    NewWindowTargetPath = "file:///Users/${config.my.personal.username}/Downloads/";
 
     # Toggles View > "Show/Hide Path Bar" — requires closing Finder windows
     ShowPathbar = true;
