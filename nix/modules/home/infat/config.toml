@@ -1,6 +1,7 @@
 [extensions]
 md = "Neovide"
 mp4 = "IINA"
+wmv = "IINA"
 svg = "Affinity Designer 2"
 
 [schemes]
