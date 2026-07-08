@@ -69,7 +69,7 @@
       # host: this host only
       # session: current session only
       # directory: current directory only
-      filter_mode = "host";
+      filter_mode = "global";
 
       # enable sync v2
       # see https://docs.atuin.sh/configuration/config/#sync
