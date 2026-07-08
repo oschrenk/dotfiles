@@ -1,8 +1,12 @@
-{ pkgs, ... }:
+{ pkgs, nixpkgs-zed, ... }:
 
 {
   nixpkgs.overlays = [
     (_final: prev: {
+      # Pin zed-editor to a rev whose build is already cached, so a rolling
+      # nixpkgs bump doesn't trigger a from-source Rust recompile. See the
+      # nixpkgs-zed input in flake.nix.
+      zed-editor = nixpkgs-zed.legacyPackages.${prev.stdenv.hostPlatform.system}.zed-editor;
       # direnv's test suite hangs on macOS sandboxed builds
       direnv = prev.direnv.overrideAttrs (_old: { doCheck = false; });
       # gitwatch-rs not in nixpkgs; build from source via our own derivation
