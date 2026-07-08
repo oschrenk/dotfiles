@@ -60,6 +60,8 @@
       SidebarWidth = 150;
       # Group by Kind (not a native nix-darwin option)
       FXPreferredGroupBy = "Kind";
+      # Disable "Open folders in tabs instead of new windows" — requires killall Finder
+      FinderSpawnTab = false;
     };
   };
 }
