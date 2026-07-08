@@ -153,6 +153,8 @@
       set -gx HOMEBREW_NO_ENV_HINTS 1
       # don't show added formulae/casks after update
       set -gx HOMEBREW_NO_UPDATE_REPORT_NEW 1
+      # don't prompt for confirmation before install/upgrade (ask mode is default since brew 6.0)
+      set -gx HOMEBREW_NO_ASK 1
 
       #############################
       # fzf

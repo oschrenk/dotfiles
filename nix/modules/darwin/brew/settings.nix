@@ -27,6 +27,7 @@
         HOMEBREW_NO_ENV_HINTS = "1";
         HOMEBREW_NO_ANALYTICS = "1";
         HOMEBREW_NO_UPDATE_REPORT_NEW = "1";
+        HOMEBREW_NO_ASK = "1";
         # Point brew's config dir at the XDG path instead of ~/.homebrew, so
         # the trust.json brew now manages itself (populated by the
         # `trusted = true` tap entries below) lives under ~/.config/homebrew.
