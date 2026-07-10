@@ -67,6 +67,10 @@ in
     jrePackage = pkgs'.jdk25_headless;
   };
 
+  # First boot on a Pi 4 exceeds the 90s default start timeout (fresh MongoDB
+  # init + Spring/Tomcat), failing activation spuriously. Widen the window.
+  systemd.services.unifi.serviceConfig.TimeoutStartSec = "5min";
+
   # openFirewall = true opens 6789/8080/8843/8880/3478/5353/10001 but not 8443.
   # 8443 is the primary HTTPS web UI port.
   networking.firewall.allowedTCPPorts = [ 8443 ];
