@@ -1,7 +1,7 @@
 { pkgs, nixpkgs, lib, ... }:
 let
   # nixos-raspberrypi bundles nixpkgs April 7 which has unifi 9.5.21 (insecure CVE).
-  # Import our nixpkgs input to get 10.2.105 and inject it via overlay.
+  # Import our nixpkgs input to get a newer, non-insecure unifi and inject it via overlay.
   pkgs' = import nixpkgs {
     inherit (pkgs) system;
     config.allowUnfreePredicate = pkg: builtins.elem (lib.getName pkg) [
