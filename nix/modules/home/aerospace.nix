@@ -14,6 +14,8 @@
     launchd.enable = true;
 
     settings = {
+      config-version = 2;
+
       # Start AeroSpace at login
       # NOTE: programs.aerospace.launchd.enable forces this to false at the
       # generated-config level; keep it false here too to avoid drift.
