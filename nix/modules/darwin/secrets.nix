@@ -10,7 +10,7 @@
       path = "/Users/oliver/.local/share/atuin/key";
       owner = "oliver";
       group = "staff";
-      mode = "0600";
+      mode = "0400";
     };
 
     secrets.cottageIdentity = {
@@ -18,7 +18,7 @@
       path = "/Users/oliver/.config/cottage/identity";
       owner = "oliver";
       group = "staff";
-      mode = "0600";
+      mode = "0400";
     };
   };
 }
