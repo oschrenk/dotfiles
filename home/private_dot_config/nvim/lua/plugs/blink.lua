@@ -2,6 +2,9 @@
 -- https://github.com/Saghen/blink.cmp
 return {
   "saghen/blink.cmp",
+  -- Rust fuzzy matcher needs `cargo` (not on PATH), so a plain `:Lazy update`
+  -- falls back to Lua. Update with nix providing cargo:
+  --   nix shell nixpkgs#cargo nixpkgs#rustc --command nvim --headless "+Lazy! update blink.cmp" +qa
   build = function()
     require("blink.cmp").build():pwait()
   end,
