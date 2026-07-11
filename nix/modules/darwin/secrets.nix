@@ -12,5 +12,13 @@
       group = "staff";
       mode = "0600";
     };
+
+    secrets.cottageIdentity = {
+      reference = "op://pfu2umtvmdm7k7aefhzrc4pkey/flw2qcdysxrzsbus7kkdgupncy/password";
+      path = "/Users/oliver/.config/cottage/identity";
+      owner = "oliver";
+      group = "staff";
+      mode = "0600";
+    };
   };
 }
