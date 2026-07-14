@@ -58,6 +58,7 @@ repos.sites = [
 ]
 
 repos.resources = [
+  { url = "git@github.com:oschrenk/caddy.git" },
   { url = "git@github.com:oschrenk/icons.git" },
   { url = "git@github.com:oschrenk/dutch-cities-gps.git" },
   { url = "git@github.com:oschrenk/progress-font.git" },
