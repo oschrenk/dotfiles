@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs-zed, ... }:
+{ pkgs, nixpkgs-zed, arbol, ... }:
 
 {
   nixpkgs.overlays = [
@@ -28,6 +28,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    arbol.packages.${pkgs.stdenv.hostPlatform.system}.default
     aerospace
     firemark
     git-stack

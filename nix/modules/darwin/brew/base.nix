@@ -80,7 +80,6 @@
     # git
     "git-crypt" # git, encrypt secrets in git
     "gh" # cli, interact with github
-    "oschrenk/made/arbol" # git, repository manager
     "oschrenk/made/infuse" # git, repository mixer
     "worktrunk" # git, worktree management
 

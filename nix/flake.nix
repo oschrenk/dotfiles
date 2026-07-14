@@ -33,6 +33,8 @@
     opnix.url = "github:brizzbuzz/opnix";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+    arbol.url = "github:oschrenk/arbol";
+    arbol.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
