@@ -33,6 +33,30 @@ darwin-rebuild switch --flake "$(dirname $(chezmoi source-path))/nix#$(hostname 
 darwin-rebuild switch --flake (dirname (chezmoi source-path))"/nix#"(hostname -s)
 ```
 
+## Secrets bootstrap (opnix)
+
+Secrets are pulled from 1Password by [opnix](https://github.com/brizzbuzz/opnix) at
+activation (declared in `modules/darwin/secrets.nix`). opnix authenticates with a
+1Password **service-account token** stored at `/etc/opnix-token`.
+
+This token is **not** managed by Nix — a rebuild will never create it, and if it is
+missing opnix logs a warning and exits 0, silently provisioning nothing. New secrets
+just never appear. `task nix-max` preflights for it and aborts loudly, but on a fresh
+machine you must set it once:
+
+```sh
+sudo opnix token set   # paste the service-account token
+```
+
+The token is a 1Password service-account token (generate/retrieve it from the
+1Password service-accounts settings). After setting it, re-run `task nix-max`, or
+provision immediately without a rebuild:
+
+```sh
+sudo launchctl kickstart -k system/org.nixos.opnix-secrets
+tail /var/log/opnix-secrets.log   # expect "Successfully processed N secrets"
+```
+
 ## Formatting
 
 Uses [nixfmt](https://github.com/NixOS/nixfmt) (the official Nix formatter, aliased as `nixfmt-rfc-style` in nixpkgs).
