@@ -151,6 +151,7 @@
             ./identity.nix
             ./options.nix
             ./modules/common.nix
+            ./modules/darwin/nix.nix
             ./modules/packages.nix
             opnix.darwinModules.default
             ./modules/darwin/secrets.nix

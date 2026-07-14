@@ -64,15 +64,10 @@ in
       ConnectTimeout 120
   '';
 
-  # Register the VM as a remote builder and preserve existing Determinate
-  # Nix custom settings (extra-platforms, cachix, trusted-users).
-  # Determinate does not overwrite nix.custom.conf so it is safe to manage here.
+  # Register the VM as a remote builder. General nix settings (trusted-users,
+  # caches) live in nix.nix; only the builder registration lives here.
+  # This drop-in merges with nix.nix's; Determinate does not overwrite it.
   environment.etc."nix/nix.custom.conf".text = ''
-    trusted-users = oliver
-
-    extra-substituters = https://nixos-raspberrypi.cachix.org
-    extra-trusted-public-keys = nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=
-
     builders-use-substitutes = true
     builders = ssh-ng://builder@linux-builder aarch64-linux /etc/nix/builder_ed25519 4 4 - - trusted
   '';
