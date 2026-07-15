@@ -8,12 +8,12 @@ relpath() {
 
     # try grealpath (GNU realpath via Homebrew on macOS)
     if command -v grealpath >/dev/null 2>&1; then
-        grealpath --relative-to="$base" "$target"
+        grealpath -s --relative-to="$base" "$target"
         return
     fi
 
     # try GNU realpath (Linux)
-    if command -v realpath >/dev/null 2>&1 && realpath --relative-to="$base" "$target" 2>/dev/null; then
+    if command -v realpath >/dev/null 2>&1 && realpath -s --relative-to="$base" "$target" 2>/dev/null; then
         return
     fi
 
