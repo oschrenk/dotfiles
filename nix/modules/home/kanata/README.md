@@ -2,7 +2,7 @@
 
 Keyboard remapper. Replaces Karabiner-Elements.
 
-> Broken right after `task nix-max` or a flake update? Do not investigate the
+> Broken right after `task nix-darwin` or a flake update? Do not investigate the
 > driver or flake.lock. Go straight to [Recovery after a nix update](#recovery-after-a-nix-update). It is a store-path / TCC re-grant, nothing else.
 
 ## Solution
@@ -18,7 +18,7 @@ sudo launchctl bootstrap system /Library/LaunchDaemons/org.nixos.kanata.plist
 
 ## Recovery after a nix update
 
-This is the single most common breakage. Every `task nix-max` that bumps nixpkgs can trigger it.
+This is the single most common breakage. Every `task nix-darwin` that bumps nixpkgs can trigger it.
 
 Symptom: remapping stops working right after a nix update. The daemon still looks alive (`launchctl print system/org.nixos.kanata` shows `state = running`, `active count = 1`) and `kanata.log` looks normal, often looping `virtual_hid_keyboard_ready true`. Nothing in the log says "permission".
 

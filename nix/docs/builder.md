@@ -61,7 +61,7 @@ builders = ssh-ng://builder@linux-builder aarch64-linux /etc/nix/builder_ed25519
 
 After every daemon restart, `/etc/nix/builder_ed25519` is reset to root-owned 600. The key must be `chmod 644` for regular user SSH (used by `nix-pi-*` tasks which run as the user).
 
-Note: `chmod 644` makes SSH reject the key as "too open" when used with sudo. For `task nix-max` (which uses sudo), run `sudo chmod 600 /etc/nix/builder_ed25519` first, then restore to 644 after.
+Note: `chmod 644` makes SSH reject the key as "too open" when used with sudo. For `task nix-darwin` (which uses sudo), run `sudo chmod 600 /etc/nix/builder_ed25519` first, then restore to 644 after.
 
 ### /var/lib/linux-builder must exist before the daemon starts
 
@@ -73,7 +73,7 @@ Fix: `sudo mkdir -p /var/lib/linux-builder`
 
 Determinate Nix creates `/etc/nix/nix.custom.conf` before nix-darwin manages it. nix-darwin refuses to overwrite it.
 
-Fix (one-time, before first `task nix-max`):
+Fix (one-time, before first `task nix-darwin`):
 ```
 sudo mv /etc/nix/nix.custom.conf /etc/nix/nix.custom.conf.before-nix-darwin
 ```
@@ -123,7 +123,7 @@ Note: `qemu-img resize 40G` sets absolute size. `qemu-img info` shows virtual si
 
 ### VM override is a chicken-and-egg problem
 
-Any override to `pkgs.darwin.linux-builder` requires building a custom NixOS image for aarch64-linux. This needs a working Linux builder. Solution: the running builder handles it, but `extra-platforms` must be absent and the SSH key must be 600 when running `task nix-max`.
+Any override to `pkgs.darwin.linux-builder` requires building a custom NixOS image for aarch64-linux. This needs a working Linux builder. Solution: the running builder handles it, but `extra-platforms` must be absent and the SSH key must be 600 when running `task nix-darwin`.
 
 ### Passwordless sudo requires wheel group membership
 

@@ -41,7 +41,7 @@ activation (declared in `modules/darwin/secrets.nix`). opnix authenticates with 
 
 This token is **not** managed by Nix — a rebuild will never create it, and if it is
 missing opnix logs a warning and exits 0, silently provisioning nothing. New secrets
-just never appear. `task nix-max` preflights for it and aborts loudly, but on a fresh
+just never appear. `task nix-darwin` preflights for it and aborts loudly, but on a fresh
 machine you must set it once:
 
 ```sh
@@ -49,7 +49,7 @@ sudo opnix token set   # paste the service-account token
 ```
 
 The token is a 1Password service-account token (generate/retrieve it from the
-1Password service-accounts settings). After setting it, re-run `task nix-max`, or
+1Password service-accounts settings). After setting it, re-run `task nix-darwin`, or
 provision immediately without a rebuild:
 
 ```sh

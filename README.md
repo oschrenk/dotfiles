@@ -68,7 +68,7 @@ to recover, grant Full Disk Access, then re-run the switch.
 Subsequent runs use the task wrapper:
 
 ```sh
-task nix-max
+task nix-darwin
 ```
 
 ## opnix bootstrap
@@ -95,7 +95,7 @@ sudo launchctl kickstart -k system/org.nixos.opnix-secrets
 
 Initialize chezmoi. The repo is already at chezmoi's source directory from the
 bootstrap clone, so `chezmoi init` reuses it without re-downloading. This
-requires `task nix-max` to have run first, so home-manager has written
+requires `task nix-darwin` to have run first, so home-manager has written
 `~/.local/share/identity/data.toml`:
 
 ```sh

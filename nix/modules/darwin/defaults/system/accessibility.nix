@@ -10,7 +10,7 @@
     # fresh machine the first switch runs in Terminal.app (Ghostty is not
     # installed yet), so this silently no-ops and prints:
     #   defaults[...]: Could not write domain com.apple.universalaccess; exiting
-    # Fix: grant Full Disk Access to that terminal, then re-run `task nix-max`.
+    # Fix: grant Full Disk Access to that terminal, then re-run `task nix-darwin`.
     # The preActivation probe below warns up front when this write would fail
     # (it runs before the write, which aborts activation, so a post-check would
     # never execute).

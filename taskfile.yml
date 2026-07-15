@@ -34,9 +34,9 @@ tasks:
       - ./setup-identity.sh
   nix:
     desc: Apply nix configuration to all machines
-    deps: [nix-max, nix-pi]
-  nix-max:
-    desc: Apply nix-darwin configuration to maxbook
+    deps: [nix-darwin, nix-pi]
+  nix-darwin:
+    desc: Apply nix-darwin configuration to the current Mac (auto-selects host via hostname)
     # nix-daemon (running as root via sudo) refuses world-readable SSH keys;
     # force 0600 here. nix-pi-* and nix-hetzner-* flip it back to 0644 for
     # oliver-as-user SSH. Yes, this is silly.
