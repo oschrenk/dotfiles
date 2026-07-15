@@ -40,7 +40,7 @@
     sudo -u ${config.my.personal.username} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
   '';
 
-  # AirBook-specific apps go here (none yet).
+  # AirBook-specific apps go here.
   # homebrew.casks = [ ];
   # homebrew.masApps = { };
 }
