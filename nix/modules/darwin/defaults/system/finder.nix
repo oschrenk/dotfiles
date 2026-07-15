@@ -48,6 +48,10 @@
   };
 
   system.defaults.NSGlobalDomain = {
+    # "Show all filename extensions" — Finder reads this from the global domain,
+    # not com.apple.finder, so system.defaults.finder.AppleShowAllExtensions
+    # above has no effect on the actual checkbox. Set it here to make it stick.
+    AppleShowAllExtensions = true;
     # Enable spring loading for directories (drag over folder to open it)
     "com.apple.springing.enabled" = true;
     # Shorten the spring loading delay
