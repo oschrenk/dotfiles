@@ -107,7 +107,7 @@
         "2" = "main";
         a = "main"; # Browser on main screen
         b = "main"; # Browser on main screen
-        t = "main"; # Terminal on main screen
+        t1 = "main"; # Terminal on main screen
         m = "secondary"; # Media on secondary screen
       };
 
@@ -187,7 +187,7 @@
         alt-3 = "workspace 3";
         alt-b = "workspace b"; # browser
         alt-m = "workspace m"; # media
-        alt-t = "workspace t"; # terminal
+        alt-t = "workspace t1"; # terminal (main)
 
         # Move to workspace
         # Workspace can also be char eg `alt-shift-b = 'move-node-to-workspace b'`
@@ -197,7 +197,7 @@
         alt-shift-3 = [ "move-node-to-workspace 3" "workspace 3" ];
         alt-shift-b = [ "move-node-to-workspace b" "workspace b" ]; # browser
         alt-shift-m = [ "move-node-to-workspace m" "workspace m" ]; # media
-        alt-shift-t = [ "move-node-to-workspace t" "workspace t" ]; # tiling
+        alt-shift-t = [ "move-node-to-workspace t1" "workspace t1" ]; # terminal (main)
 
         # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
         alt-tab = "workspace-back-and-forth";
@@ -269,7 +269,7 @@
 
         # workspace.T (=Terminal)
         #--------------------------------------
-        { "if".app-id = "com.mitchellh.ghostty"; run = "move-node-to-workspace t"; }
+        { "if".app-id = "com.mitchellh.ghostty"; run = "move-node-to-workspace t1"; }
 
         # workspace.B (=Browser)
         #--------------------------------------
