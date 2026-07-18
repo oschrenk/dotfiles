@@ -16,14 +16,14 @@ function Sessionizer.new()
   end
 
   self.sessions = function(onComplete)
-    local cmd = "/opt/homebrew/bin/sessionizer sessions --json"
+    local cmd = "/opt/homebrew/bin/sessionizer sessions --socket-name primary --json"
     sbar.exec(cmd, function(sessions)
       onComplete(sessions)
     end)
   end
 
   self.currentSession = function(onComplete)
-    local cmd = "/opt/homebrew/bin/sessionizer sessions --json"
+    local cmd = "/opt/homebrew/bin/sessionizer sessions --socket-name primary --json"
     sbar.exec(cmd, function(sessions)
       if sessions == "" or sessions == "[]" then
         onComplete(nil)

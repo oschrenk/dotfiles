@@ -9,7 +9,7 @@ function Windows.new(icons, style)
   local question_window_id = nil -- Track which window has a question
 
   self.add = function(position)
-    local cmd = "/opt/homebrew/bin/sessionizer windows --json"
+    local cmd = "/opt/homebrew/bin/sessionizer windows --socket-name primary --json"
 
     -- support fixed amount of windows
     for i = 1, 5, 1 do
