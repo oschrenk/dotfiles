@@ -115,6 +115,11 @@ in
       # Configuration
       ###################
 
+      # Set the outer terminal title to the session name, so aerospace can
+      # route each Ghostty window (title = pool name) to its monitor.
+      set -g set-titles on
+      set -g set-titles-string "#S"
+
       # don't exit from tmux when closing a session
       set -g detach-on-destroy off
 
@@ -216,6 +221,10 @@ in
     };
     "tmux/tmux-nvim-files.sh" = {
       source = ./tmux/scripts/tmux-nvim-files.sh;
+      executable = true;
+    };
+    "tmux/tmux-attach-free.sh" = {
+      source = ./tmux/scripts/tmux-attach-free.sh;
       executable = true;
     };
   };

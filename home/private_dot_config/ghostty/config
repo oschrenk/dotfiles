@@ -45,10 +45,9 @@ cursor-style = block
 #   https://ghostty.org/docs/config/reference#shell-integration
 shell-integration = fish
 # Quick terminal sets GHOSTTY_QUICK_TERMINAL=1 in the spawned shell's env;
-# branch on it to launch rmpc in that surface and keep a normal login shell
-# everywhere else. Normal new windows go through the else branch unchanged.
-command = /run/current-system/sw/bin/fish -c "if set -q GHOSTTY_QUICK_TERMINAL; exec rmpc; else; exec fish --login --interactive; end"
-initial-command = /run/current-system/sw/bin/fish --login --interactive --init-command "sessionizer start; tmux attach -t config"
+# branch on it to launch rmpc there. Every other window runs tmux-attach-free.sh,
+# which gives the window its own isolated tmux socket pool (primary/secondary).
+command = /run/current-system/sw/bin/fish -c "if set -q GHOSTTY_QUICK_TERMINAL; exec rmpc; else; exec ~/.config/tmux/tmux-attach-free.sh; end"
 
 # Appearance
 #   https://ghostty.org/docs/config/reference#mouse-hide-while-typing
@@ -120,8 +119,8 @@ macos-option-as-alt = true
 # keybind = splits/shift+\=new_split:right
 # keybind = splits/escape=deactivate_key_table
 
-# dont' create new windows
-keybind = super+n=unbind
+# new window -> tmux-attach-free.sh picks the next free pool (caps at two)
+keybind = super+n=new_window
 # dont' create new tabs
 keybind = super+t=unbind
 
