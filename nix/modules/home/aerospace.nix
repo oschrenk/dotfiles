@@ -108,6 +108,7 @@
         a = "main"; # Browser on main screen
         b = "main"; # Browser on main screen
         t1 = "main"; # Terminal on main screen
+        t2 = "secondary"; # Terminal on secondary screen
         m = "secondary"; # Media on secondary screen
       };
 
@@ -267,7 +268,9 @@
         { "if".app-id = "com.seriflabs.affinitypublisher2"; run = "move-node-to-workspace 2"; }
         { "if".app-id = "com.msteedman.mochi"; run = "move-node-to-workspace 2"; }
 
-        # workspace.T (=Terminal)
+        # workspace.T (=Terminal) — default all ghostty to t1; the wrapper moves the
+        # secondary pool's window to t2 by window-id (aerospace reads the title
+        # before it's set, so a declarative title rule can't win the detection race).
         #--------------------------------------
         { "if".app-id = "com.mitchellh.ghostty"; run = "move-node-to-workspace t1"; }
 

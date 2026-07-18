@@ -17,7 +17,21 @@ for sock in primary secondary; do
     continue
   fi
 
-  printf '\033]2;%s\007' "$sock"            # set window title early (aerospace, step C)
+  printf '\033]2;%s\007' "$sock"            # title = pool name (used to find our window)
+  # aerospace detects the window before the title is set, so it lands on t1 (the
+  # default rule). Once the title appears, move this exact window to t2 by id.
+  if [ "$sock" = secondary ]; then
+    (
+      n=0
+      while [ "$n" -lt 40 ]; do
+        wid=$(aerospace list-windows --all --format '%{window-id}|%{window-title}' 2>/dev/null \
+              | awk -F'|' '$2 == "secondary" { print $1; exit }')
+        [ -n "$wid" ] && { aerospace move-node-to-workspace --window-id "$wid" t2; break; }
+        n=$((n + 1))
+        sleep 0.1
+      done
+    ) &
+  fi
   sessionizer start --socket-name "$sock" -n "$sock"   # session named after the pool
   # After detach, become a login shell (window stays open). Deliberate exec: the
   # attaching iteration hands off here and must not fall through to the next sock.
