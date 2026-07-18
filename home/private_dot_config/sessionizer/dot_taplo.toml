@@ -1,0 +1,6 @@
+[formatting]
+column_width        = 72
+align_entries       = true
+array_auto_expand   = true
+array_auto_collapse = false
+indent_string       = "  "
