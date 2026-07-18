@@ -10,7 +10,6 @@ function Sessions.new(icons, style, sessionizer)
   local question_session_id = nil -- Track which session has a question
 
   self.add = function(position)
-    local cmd = "/opt/homebrew/bin/sessionizer sessions --socket-name primary --json"
     local attached = {}
 
     -- support fixed amount of sessions
@@ -22,7 +21,7 @@ function Sessions.new(icons, style, sessionizer)
       })
 
       local update = function()
-        sbar.exec(cmd, function(sessions)
+        sessionizer.sessions(function(sessions)
           local s = sessions[i]
           if s ~= nil then
             attached[i] = s.attached
@@ -60,7 +59,7 @@ function Sessions.new(icons, style, sessionizer)
       end
 
       session:subscribe({ "mouse.clicked" }, function(_)
-        sbar.exec("/opt/homebrew/bin/sessionizer sessions --socket-name primary --json", function(sessions)
+        sessionizer.sessions(function(sessions)
           local s = sessions[i]
           if s ~= nil then
             sessionizer.open(s.name)

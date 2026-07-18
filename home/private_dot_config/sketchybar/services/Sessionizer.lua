@@ -2,13 +2,23 @@ local sbar = require("sketchybar")
 local strings = require("utils.strings")
 
 local Sessionizer = {}
-function Sessionizer.new()
+
+-- @param socket optional tmux socket name (tmux -L); nil = default socket
+function Sessionizer.new(socket)
   local self = {}
 
-  -- tlink is installed via home-manager (nix-darwin module flavor, so packages
-  -- live under /etc/profiles/per-user/$USER, not ~/.nix-profile). Sketchybar
-  -- runs under launchd with a minimal PATH, so reference the path explicitly.
+  -- Absolute paths: sketchybar runs under launchd with a minimal PATH. tlink is
+  -- installed via home-manager (nix-darwin flavor), so it lives under the
+  -- per-user profile, not ~/.nix-profile.
+  local bin = "/opt/homebrew/bin/sessionizer"
   local tlink = "/etc/profiles/per-user/" .. os.getenv("USER") .. "/bin/tlink"
+  local socketArg = socket and (" --socket-name " .. socket) or ""
+
+  -- Run a sessionizer subcommand on the configured socket; sbar.exec parses the
+  -- --json output and hands the table to onComplete.
+  local function run(subcommand, onComplete)
+    sbar.exec(bin .. socketArg .. " " .. subcommand, onComplete)
+  end
 
   self.open = function(sessionName)
     local encoded = strings.UrlEncode(sessionName)
@@ -16,15 +26,15 @@ function Sessionizer.new()
   end
 
   self.sessions = function(onComplete)
-    local cmd = "/opt/homebrew/bin/sessionizer sessions --socket-name primary --json"
-    sbar.exec(cmd, function(sessions)
-      onComplete(sessions)
-    end)
+    run("sessions --json", onComplete)
+  end
+
+  self.windows = function(onComplete)
+    run("windows --json", onComplete)
   end
 
   self.currentSession = function(onComplete)
-    local cmd = "/opt/homebrew/bin/sessionizer sessions --socket-name primary --json"
-    sbar.exec(cmd, function(sessions)
+    self.sessions(function(sessions)
       if sessions == "" or sessions == "[]" then
         onComplete(nil)
         return

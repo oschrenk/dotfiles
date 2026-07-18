@@ -15,7 +15,7 @@ local style = require("style")
 -- services
 local focus = require("services.focus").new()
 local mission = require("services.mission").new()
-local sessionizer = require("services.sessionizer").new()
+local sessionizer = require("services.sessionizer").new("primary")
 
 -- bundle configuration into single message
 sbar.begin_config()
@@ -26,7 +26,7 @@ sbar.default(style.default)
 
 -- left
 require("items.sessions").new(icons.sessions, style.sessions, sessionizer).add("left")
-require("items.windows").new(icons.windows, style.windows).add("left")
+require("items.windows").new(icons.windows, style.windows, sessionizer).add("left")
 require("items.mission").new(mission, focus, icons.mission).add("left")
 require("items.project").new(icons.project, sessionizer).add("left")
 

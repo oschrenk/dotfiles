@@ -4,13 +4,12 @@ local Windows = {}
 
 -- @param icons Plugin specific icons
 -- @param style Plugin specific icons
-function Windows.new(icons, style)
+-- @param sessionizer Instance of Sessionizer service
+function Windows.new(icons, style, sessionizer)
   local self = {}
   local question_window_id = nil -- Track which window has a question
 
   self.add = function(position)
-    local cmd = "/opt/homebrew/bin/sessionizer windows --socket-name primary --json"
-
     -- support fixed amount of windows
     for i = 1, 5, 1 do
       local window = sbar.add("item", {
@@ -20,7 +19,7 @@ function Windows.new(icons, style)
       })
 
       local update = function()
-        sbar.exec(cmd, function(windows)
+        sessionizer.windows(function(windows)
           local w = windows[i]
           if w ~= nil then
             -- Determine the color based on state
