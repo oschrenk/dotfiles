@@ -115,10 +115,10 @@ in
       # Configuration
       ###################
 
-      # Set the outer terminal title to the session name, so aerospace can
-      # route each Ghostty window (title = pool name) to its monitor.
+      # Window title = the tmux socket basename (primary/secondary) so the
+      # attach-free wrapper can find each window by it. Session name stays free.
       set -g set-titles on
-      set -g set-titles-string "#S"
+      set -g set-titles-string "#{s|.*/||:socket_path}"
 
       # don't exit from tmux when closing a session
       set -g detach-on-destroy off
