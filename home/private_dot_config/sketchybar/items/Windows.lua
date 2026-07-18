@@ -9,11 +9,12 @@ function Windows.new(icons, style, sessionizer)
   local self = {}
   local question_window_id = nil -- Track which window has a question
 
-  self.add = function(position)
+  self.add = function(position, display)
     -- support fixed amount of windows
     for i = 1, 5, 1 do
       local window = sbar.add("item", {
         position = position,
+        display = display,
         update_freq = 60,
         icon = icons.dot,
       })

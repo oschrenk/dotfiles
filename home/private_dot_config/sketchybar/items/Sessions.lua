@@ -9,13 +9,14 @@ function Sessions.new(icons, style, sessionizer)
   local self = {}
   local question_session_id = nil -- Track which session has a question
 
-  self.add = function(position)
+  self.add = function(position, display)
     local attached = {}
 
     -- support fixed amount of sessions
     for i = 1, 5, 1 do
       local session = sbar.add("item", {
         position = position,
+        display = display,
         update_freq = 60,
         icon = icons.tmux,
       })

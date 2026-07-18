@@ -15,7 +15,9 @@ local style = require("style")
 -- services
 local focus = require("services.focus").new()
 local mission = require("services.mission").new()
-local sessionizer = require("services.sessionizer").new("primary")
+-- one pool per monitor; the secondary bar falls back to the primary pool when empty
+local sessionizerPrimary = require("services.sessionizer").new("primary")
+local sessionizerSecondary = require("services.sessionizer").new("secondary", "primary")
 
 -- bundle configuration into single message
 sbar.begin_config()
@@ -25,10 +27,13 @@ sbar.bar(style.bar)
 sbar.default(style.default)
 
 -- left
-require("items.sessions").new(icons.sessions, style.sessions, sessionizer).add("left")
-require("items.windows").new(icons.windows, style.windows, sessionizer).add("left")
+-- primary pool switcher on the main display (1), secondary pool on the second (2)
+require("items.sessions").new(icons.sessions, style.sessions, sessionizerPrimary).add("left", 1)
+require("items.windows").new(icons.windows, style.windows, sessionizerPrimary).add("left", 1)
+require("items.sessions").new(icons.sessions, style.sessions, sessionizerSecondary).add("left", 2)
+require("items.windows").new(icons.windows, style.windows, sessionizerSecondary).add("left", 2)
 require("items.mission").new(mission, focus, icons.mission).add("left")
-require("items.project").new(icons.project, sessionizer).add("left")
+require("items.project").new(icons.project, sessionizerPrimary).add("left")
 
 -- center (manually arround the dynamic island)
 -- local clockWidth = 100

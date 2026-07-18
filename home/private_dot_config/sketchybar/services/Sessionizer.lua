@@ -3,8 +3,10 @@ local strings = require("utils.strings")
 
 local Sessionizer = {}
 
--- @param socket optional tmux socket name (tmux -L); nil = default socket
-function Sessionizer.new(socket)
+-- @param socket   tmux socket name (tmux -L); nil = default socket
+-- @param fallback optional socket to query when `socket` has no sessions/windows
+--                 (e.g. secondary bar falls back to the primary pool)
+function Sessionizer.new(socket, fallback)
   local self = {}
 
   -- Absolute paths: sketchybar runs under launchd with a minimal PATH. tlink is
@@ -12,12 +14,26 @@ function Sessionizer.new(socket)
   -- per-user profile, not ~/.nix-profile.
   local bin = "/opt/homebrew/bin/sessionizer"
   local tlink = "/etc/profiles/per-user/" .. os.getenv("USER") .. "/bin/tlink"
-  local socketArg = socket and (" --socket-name " .. socket) or ""
 
-  -- Run a sessionizer subcommand on the configured socket; sbar.exec parses the
-  -- --json output and hands the table to onComplete.
+  local function socketArg(sock)
+    return sock and (" --socket-name " .. sock) or ""
+  end
+
+  local function isEmpty(result)
+    return result == nil or result == "" or result == "[]"
+      or (type(result) == "table" and #result == 0)
+  end
+
+  -- Run a sessionizer subcommand on `socket`; if the result is empty and a
+  -- fallback socket is configured, retry there. sbar.exec parses the --json.
   local function run(subcommand, onComplete)
-    sbar.exec(bin .. socketArg .. " " .. subcommand, onComplete)
+    sbar.exec(bin .. socketArg(socket) .. " " .. subcommand, function(result)
+      if fallback and isEmpty(result) then
+        sbar.exec(bin .. socketArg(fallback) .. " " .. subcommand, onComplete)
+      else
+        onComplete(result)
+      end
+    end)
   end
 
   self.open = function(sessionName)
@@ -35,7 +51,7 @@ function Sessionizer.new(socket)
 
   self.currentSession = function(onComplete)
     self.sessions(function(sessions)
-      if sessions == "" or sessions == "[]" then
+      if isEmpty(sessions) then
         onComplete(nil)
         return
       end
