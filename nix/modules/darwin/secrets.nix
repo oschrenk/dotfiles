@@ -20,5 +20,16 @@
       group = "staff";
       mode = "0400";
     };
+
+    # Full jira config — kept out of this public repo, stored in the Bootstrap
+    # vault (the one the opnix service account can read). jira reads it via
+    # JIRA_CONFIG_FILE set in the wrapper.
+    secrets.jiraConfig = {
+      reference = "op://pfu2umtvmdm7k7aefhzrc4pkey/sixufe2idosinhgbqbzuvvukyi/config";
+      path = "/Users/oliver/.config/jira/config.yml";
+      owner = "oliver";
+      group = "staff";
+      mode = "0400";
+    };
   };
 }
