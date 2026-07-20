@@ -19,6 +19,7 @@
     ./rmpc.nix
     ./sketchybar.nix
     ./starship.nix
+    ./ticker.nix
     ./tlink.nix
     ./tmux.nix
     ./zed.nix
