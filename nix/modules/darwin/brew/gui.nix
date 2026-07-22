@@ -62,6 +62,7 @@
     "telegram" # telegram messaging
     "the-unarchiver" # unarchiving most archive files
     "transmission" # torrent client
+    "typewhisper" # ai, speech-to-text dictation
     "vlc" # video client
     "whatcable" # cable identifier
     "whatsapp" # whatsapp messaging
