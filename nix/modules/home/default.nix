@@ -13,7 +13,6 @@
     ./identity.nix
     ./infat.nix
     ./jira.nix
-    ./kanata.nix
     ./lsd.nix
     ./mpd.nix
     ./ripgrep.nix

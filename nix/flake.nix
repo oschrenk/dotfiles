@@ -182,7 +182,6 @@
             ./modules/darwin/defaults/apps/com.apple.mail.nix
             ./modules/darwin/defaults/apps/com.apple.safari.nix
             ./modules/darwin/linux-builder.nix
-            ./modules/darwin/kanata.nix
             ./modules/darwin/java.nix
             ./hosts/maxbook.nix
             home-manager.darwinModules.home-manager
@@ -223,7 +222,6 @@
             ./modules/darwin/defaults/apps/com.colliderli.iina.nix
             ./modules/darwin/defaults/apps/com.apple.mail.nix
             ./modules/darwin/defaults/apps/com.apple.safari.nix
-            ./modules/darwin/kanata.nix
             ./modules/darwin/java.nix
             ./hosts/airbook.nix
             home-manager.darwinModules.home-manager
