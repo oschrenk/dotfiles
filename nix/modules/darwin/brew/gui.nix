@@ -20,6 +20,7 @@
 
   homebrew.casks = [
     "1password" # password manager
+    "8bitdo-ultimate-software" # 8bitdo controller button remapping
     "alcove" # macos, notch helper
     "antinote" # notes with SoulverCore
     "arc" # chromium based browser
