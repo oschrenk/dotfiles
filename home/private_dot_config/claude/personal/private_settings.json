@@ -81,5 +81,6 @@
     "dist/**",
     "node_modules/**",
     "out-tsc/**"
-  ]
+  ],
+  "tui": "fullscreen"
 }
