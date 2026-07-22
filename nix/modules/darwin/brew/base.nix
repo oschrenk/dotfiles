@@ -84,11 +84,6 @@
 
     # container, k8s
     "container" # cli, containerization from Apple
-    "kube-linter" # k8s, lint k8s yaml and helm
-    "kubectx" # k8s, switch k8s contexts
-    "kubescape" # k8s, scan cluster for security issues
-    "kustomize" # k8s, resource transformers
-    "txn2/tap/kubefwd" # k8s, bulk port forwarding
 
     # lua
     "lua" # lua, programming language
