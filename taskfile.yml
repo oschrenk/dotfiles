@@ -108,6 +108,13 @@ tasks:
     desc: Install and configure Tailscale on UNAS2
     cmds:
       - ssh root@unas.local env "TAILSCALE_AUTHKEY=$(op read 'op://2udkjdngrnb6jlr62cd7iq33de/2imqxgbvx6htswijyuswh72kye/unas')" sh -s < scripts/setup-tailscale-unas.sh
+  nix-update-preview:
+    desc: Preview which of my declared packages would change if flake.lock were updated (read-only, does not write flake.lock)
+    cmds:
+      - HOST={{.HOSTNAME}} scripts/pkg-update-preview.sh
+    vars:
+      HOSTNAME:
+        sh: hostname -s
   nix-update:
     desc: Update all flake inputs (nixpkgs, nixos-raspberrypi, etc.)
     dir: nix
