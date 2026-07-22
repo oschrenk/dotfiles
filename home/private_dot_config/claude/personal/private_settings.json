@@ -70,11 +70,11 @@
     "kotlin-lsp@claude-plugins-official": false
   },
   "alwaysThinkingEnabled": true,
+  "theme": "auto",
+  "verbose": false,
   "includePatterns": [
     "**/*"
   ],
-  "theme": "auto",
-  "verbose": false,
   "excludePatterns": [
     ".release/**",
     "build/**",
