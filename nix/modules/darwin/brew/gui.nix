@@ -35,6 +35,7 @@
     "iina" # video client
     "intellij-idea" # jetbrains ide
     "jdk-mission-control" # monitor java applications
+    "karabiner-elements" # keyboard customiser (DriverKit); replaced kanata
     "keyboardcleantool" # disables keyboard for cleaning
     "keycastr" # shows key strokes on screen
     "knockknock" # identify background tasks/processes
