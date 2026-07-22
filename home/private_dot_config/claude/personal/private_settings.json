@@ -73,7 +73,7 @@
   "includePatterns": [
     "**/*"
   ],
-  "theme": "dark",
+  "theme": "auto",
   "verbose": false,
   "excludePatterns": [
     ".release/**",

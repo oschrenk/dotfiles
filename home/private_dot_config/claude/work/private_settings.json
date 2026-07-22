@@ -62,7 +62,7 @@
     "typescript-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
-  "theme": "dark",
+  "theme": "auto",
   "excludePatterns": [
     ".release/**",
     "build/**",
