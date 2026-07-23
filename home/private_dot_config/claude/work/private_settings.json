@@ -13,7 +13,9 @@
     "allow": [
       "Bash(dora *)",
       "Bash(jira issue view *)",
-      "Bash(glab mr view *)"
+      "Bash(glab mr view *)",
+      "Bash(git diff *)",
+      "Bash(grep *)"
     ],
     "deny": [],
     "ask": []

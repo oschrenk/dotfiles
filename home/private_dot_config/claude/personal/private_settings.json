@@ -26,7 +26,9 @@
       "WebSearch",
       "Bash(nix search:*)",
       "Bash(brew info:*)",
-      "Bash(nix eval:*)"
+      "Bash(nix eval:*)",
+      "Bash(git diff *)",
+      "Bash(grep *)"
     ]
   },
   "hooks": {
