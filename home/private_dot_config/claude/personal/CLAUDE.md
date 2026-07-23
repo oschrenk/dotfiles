@@ -53,6 +53,10 @@
 
 When presenting options, suggestions, or changes for the user to approve (e.g. file renames, folder restructuring, config changes), ALWAYS use the AskUserQuestion tool instead of listing suggestions in plain text. Let the user confirm interactively rather than dumping a table and asking "want me to do these?"
 
+# Web
+
+- When fetching/reading a web page (as opposed to searching), always prefer lightpanda via the `fetch-websites` skill instead of the built-in WebFetch. It renders JavaScript and handles SPAs.
+
 # Clipboard
 
 To copy text to the clipboard, pipe data to the platform-specific command:

@@ -23,6 +23,7 @@
       "Bash(/opt/homebrew/bin/reminders show-all *)",
       "Bash(/opt/homebrew/bin/reminders show-lists *)",
       "Bash(lightpanda fetch:*)",
+      "WebSearch",
       "Bash(nix search:*)",
       "Bash(brew info:*)",
       "Bash(nix eval:*)"
