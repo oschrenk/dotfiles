@@ -11,7 +11,9 @@
   },
   "permissions": {
     "allow": [
-      "Bash(dora *)"
+      "Bash(dora *)",
+      "Bash(jira issue view *)",
+      "Bash(glab mr view *)"
     ],
     "deny": [],
     "ask": []
