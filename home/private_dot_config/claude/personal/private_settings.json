@@ -30,6 +30,7 @@
       "Bash(cut *)",
       "Bash(date *)",
       "Bash(dirname *)",
+      "Bash(docker info *)",
       "Bash(echo *)",
       "Bash(file *)",
       "Bash(git blame *)",

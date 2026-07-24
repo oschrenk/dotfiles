@@ -19,6 +19,7 @@
       "Bash(cut *)",
       "Bash(date *)",
       "Bash(dirname *)",
+      "Bash(docker info *)",
       "Bash(dora *)",
       "Bash(echo *)",
       "Bash(file *)",
