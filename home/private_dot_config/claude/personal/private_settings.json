@@ -11,24 +11,29 @@
   },
   "permissions": {
     "allow": [
-      "Bash(/opt/homebrew/bin/plan today *)",
-      "Bash(/opt/homebrew/bin/plan on *)",
-      "Bash(/opt/homebrew/bin/plan next *)",
       "Bash(/opt/homebrew/bin/plan calendars *)",
       "Bash(/opt/homebrew/bin/plan hours *)",
+      "Bash(/opt/homebrew/bin/plan next *)",
+      "Bash(/opt/homebrew/bin/plan on *)",
+      "Bash(/opt/homebrew/bin/plan today *)",
       "Bash(/opt/homebrew/bin/reminders add *)",
       "Bash(/opt/homebrew/bin/reminders delete *)",
       "Bash(/opt/homebrew/bin/reminders edit *)",
       "Bash(/opt/homebrew/bin/reminders show *)",
       "Bash(/opt/homebrew/bin/reminders show-all *)",
       "Bash(/opt/homebrew/bin/reminders show-lists *)",
-      "Bash(lightpanda fetch:*)",
-      "WebSearch",
-      "Bash(nix search:*)",
       "Bash(brew info:*)",
-      "Bash(nix eval:*)",
+      "Bash(echo *)",
+      "Bash(find *)",
       "Bash(git diff *)",
-      "Bash(grep *)"
+      "Bash(go test *)",
+      "Bash(grep *)",
+      "Bash(lightpanda fetch:*)",
+      "Bash(nix eval:*)",
+      "Bash(nix search:*)",
+      "Bash(pbcopy)",
+      "Bash(rg *)",
+      "WebSearch"
     ]
   },
   "hooks": {

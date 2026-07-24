@@ -11,11 +11,17 @@
   },
   "permissions": {
     "allow": [
+      "Bash(./gradlew test *)",
       "Bash(dora *)",
-      "Bash(jira issue view *)",
-      "Bash(glab mr view *)",
+      "Bash(echo *)",
+      "Bash(find *)",
       "Bash(git diff *)",
-      "Bash(grep *)"
+      "Bash(glab mr view *)",
+      "Bash(go test *)",
+      "Bash(grep *)",
+      "Bash(jira issue view *)",
+      "Bash(pbcopy)",
+      "Bash(rg *)"
     ],
     "deny": [],
     "ask": []
