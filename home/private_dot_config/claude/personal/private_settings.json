@@ -23,6 +23,7 @@
       "Bash(/opt/homebrew/bin/reminders show-all *)",
       "Bash(/opt/homebrew/bin/reminders show-lists *)",
       "Bash(brew info:*)",
+      "Bash(cat *)",
       "Bash(echo *)",
       "Bash(find *)",
       "Bash(git diff *)",

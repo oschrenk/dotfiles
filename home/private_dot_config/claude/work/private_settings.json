@@ -12,6 +12,7 @@
   "permissions": {
     "allow": [
       "Bash(./gradlew test *)",
+      "Bash(cat *)",
       "Bash(dora *)",
       "Bash(echo *)",
       "Bash(find *)",
