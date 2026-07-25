@@ -28,4 +28,17 @@
     name = lib.mkOption { type = lib.types.str; };
     hostName = lib.mkOption { type = lib.types.str; };
   };
+
+  # UNAS network-attached storage. Single source of truth for the static
+  # LAN address that pins unas.local across all machines (Avahi is unreliable).
+  options.my.nas = {
+    ip = lib.mkOption {
+      type = lib.types.str;
+      default = "192.168.1.241";
+    };
+    hostName = lib.mkOption {
+      type = lib.types.str;
+      default = "unas.local";
+    };
+  };
 }

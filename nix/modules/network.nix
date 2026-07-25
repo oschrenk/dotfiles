@@ -1,9 +1,9 @@
-{ ... }:
+{ config, ... }:
 
 {
   # nix-darwin has no `networking.hosts` (NixOS-only). Manage /etc/hosts via
   # environment.etc. This REPLACES the file, so the macOS defaults must be
-  # included here. Update and redeploy if IPs change.
+  # included here.
   environment.etc."hosts".text = ''
     ##
     # Host Database
@@ -16,6 +16,6 @@
     ::1             localhost
 
     # Pin hostnames to static IPs to bypass unreliable Avahi DNS on UNAS.
-    192.168.1.241	unas.local
+    ${config.my.nas.ip}	${config.my.nas.hostName}
   '';
 }

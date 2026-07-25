@@ -16,10 +16,7 @@
   networking.hostName = "pi-1";
 
   # Pin hostnames to static IPs to bypass unreliable Avahi DNS on UNAS.
-  # Update and redeploy if IPs change.
-  networking.hosts = {
-    "192.168.1.241" = [ "unas.local" ];
-  };
+  networking.hosts.${config.my.nas.ip} = [ config.my.nas.hostName ];
 
   # Tailscale
   services.onepassword-secrets.secrets.tailscaleAuthKey = {
