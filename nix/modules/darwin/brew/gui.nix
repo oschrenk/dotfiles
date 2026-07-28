@@ -75,6 +75,7 @@
     "XCode" = 497799835;
 
     # apps
+    "Bear" = 1091189122; # notes
     "DeskRest" = 6751417411; # health
     "Due" = 524373870; # reminders on steroids
     "Klack" = 6446206067; # keyboard
