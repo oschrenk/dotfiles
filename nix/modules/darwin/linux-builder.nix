@@ -9,16 +9,7 @@ let
   # (HV_SYS_REG_SMCR_EL1 mismatch, incomplete FEAT_SME2 register handling).
   # If the builder VM fails to boot with that assertion, restore the pin.
   # See nix/docs/builder.md.
-  builder = pkgs.darwin.linux-builder.override {
-    modules = [
-      ({ ... }: {
-        # Allow passwordless sudo for maintenance commands.
-        security.sudo.wheelNeedsPassword = false;
-        # Add builder to wheel so wheelNeedsPassword = false applies.
-        users.users.builder.extraGroups = [ "wheel" ];
-      })
-    ];
-  };
+  builder = pkgs.darwin.linux-builder;
 in
 {
   # Create the working directory for the linux-builder VM before the daemon
