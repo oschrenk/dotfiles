@@ -37,16 +37,19 @@ tasks:
     deps: [nix-darwin, nix-pi]
   nix-darwin:
     desc: Apply nix-darwin configuration to the current Mac (auto-selects host via hostname)
-    # nix-daemon (running as root via sudo) refuses world-readable SSH keys;
-    # force 0600 here. nix-pi-* and nix-hetzner-* flip it back to 0644 for
-    # oliver-as-user SSH. Yes, this is silly.
-    # Guarded so hosts without a linux-builder (no key) don't abort the task.
+    # nix-daemon (running as root via sudo) refuses world-readable SSH keys, so
+    # force 0600 before the build, then restore 0644 after for oliver-as-user
+    # SSH (interactive `ssh builder@linux-builder` and the nix-pi-* builds).
+    # A reboot resets it to 0600 when the builder daemon recreates the key;
+    # a pi task re-fixes it. Guarded so hosts without a linux-builder (no key)
+    # don't abort the task.
     cmds:
       # opnix exits 0 when the token is missing, silently provisioning nothing.
       # Fail loudly here instead so new secrets can't vanish unnoticed.
       - '[ -s /etc/opnix-token ] || { echo "ERROR: /etc/opnix-token is missing or empty — opnix will silently skip all secrets. Run: sudo opnix token set" >&2; exit 1; }'
       - '[ -f /etc/nix/builder_ed25519 ] && sudo chmod 600 /etc/nix/builder_ed25519 || true'
       - sudo /run/current-system/sw/bin/darwin-rebuild switch --flake "./nix#{{.HOSTNAME}}" --option warn-dirty false
+      - '[ -f /etc/nix/builder_ed25519 ] && sudo chmod 644 /etc/nix/builder_ed25519 || true'
     vars:
       HOSTNAME:
         sh: hostname -s
