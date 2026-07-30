@@ -28,6 +28,17 @@
       "Bash(git log *)",
       "Bash(git show *)",
       "Bash(git status *)",
+      "Bash(glab auth status)",
+      "Bash(glab ci get *)",
+      "Bash(glab ci list *)",
+      "Bash(glab ci status)",
+      "Bash(glab ci status *)",
+      "Bash(glab ci trace *)",
+      "Bash(glab mr approvers *)",
+      "Bash(glab mr diff *)",
+      "Bash(glab mr issues *)",
+      "Bash(glab mr list)",
+      "Bash(glab mr list *)",
       "Bash(glab mr view *)",
       "Bash(go test *)",
       "Bash(grep *)",
@@ -108,6 +119,7 @@
     "typescript-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
+  "tui": "fullscreen",
   "theme": "auto",
   "excludePatterns": [
     ".release/**",
@@ -115,6 +127,5 @@
     "dist/**",
     "node_modules/**",
     "out-tsc/**"
-  ],
-  "tui": "fullscreen"
+  ]
 }
