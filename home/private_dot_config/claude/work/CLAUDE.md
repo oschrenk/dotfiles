@@ -10,6 +10,24 @@
 - Do NOT expand scope beyond what I ask. If I ask you to change one file or one class, do not refactor related interfaces, add new abstractions, or touch other call sites unless I explicitly request it.
 - NEVER make factual claims about repository state (commits, branches, staged files, diffs) without first running the relevant git command in that same response. If you haven't run the command yet, say "let me check" — do not speculate.
 - Work in small, atomic steps. Complete and verify each change before starting the next. Do not combine structural changes (renames, moves, refactors) with behavioral changes (new features, new logic) in the same step.
+- A message I send mid-task authorizes only what it names. Do not treat it as approval for other open suggestions; if it's ambiguous which items I approved, ask.
+
+# Commits and Verification
+
+- Commit style: conventional commits (`type(scope): subject`). No ticket numbers in commit messages — MRs are squashed, so the ticket reference lives on the MR.
+- Atomic commits: one commit = one concern. If a file holds changes for two commits, stage per hunk (`git add -p`). Confirm commit boundaries before committing.
+- Pin existing behaviour with a passing test BEFORE changing it. Every commit must be independently deployable — build and tests green, nothing half-wired.
+- NEVER report a test as passing/green/verified unless you ran it and read the fresh result in this session. Do not infer green from "it compiled" or "it mirrors another test". If a test is written but unrun, say exactly that and why.
+
+# Code Comments
+
+- Terse. Keep only the non-obvious "why" (footguns, subtle invariants). No comments that narrate the code, restate the plan, or add KDoc headers repeating what a class/test does.
+- Never put ticket numbers (DEV-xxxx) or plan-step labels in code comments — describe behaviour instead.
+- Tests: name them as plain assertions (no "pin" prefixes). A short Given/When/Then prose comment above each test is welcome — written in domain terms, not implementation jargon.
+
+# Merge Requests
+
+- When creating a GitLab MR, always self-assign it to me in the same flow. Never leave an MR unassigned.
 
 # Settings and Config Location
 
@@ -23,9 +41,8 @@ When the user asks to create a release, check for `DEVELOPMENT.md`, `README.md`,
 
 When presenting options, suggestions, or changes for the user to approve (e.g. file renames, folder restructuring, config changes), ALWAYS use the AskUserQuestion tool instead of listing suggestions in plain text. Let the user confirm interactively rather than dumping a table and asking "want me to do these?"
 
+This applies to discrete decisions. Open-ended advice or explanations (answers to "any ideas how to...") stay prose — end with AskUserQuestion only when there is something concrete to approve. The "Questions vs Actions" rule still wins: a question never authorizes changes by itself.
+
 # Clipboard
 
-To copy text to the clipboard, pipe data to the platform-specific command:
-
-- macOS: `echo "text" | pbcopy`
-- Linux: `echo "text" | xclip -selection clipboard`
+To copy text to the clipboard (macOS): `echo "text" | pbcopy`
