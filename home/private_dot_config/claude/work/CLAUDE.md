@@ -33,6 +33,12 @@
 
 NEVER hardcode paths like `~/.claude/` for your own config/settings. ALWAYS check the `$CLAUDE_CONFIG_DIR` environment variable first and use that path. Your settings.json, statusline scripts, and other config files live at `$CLAUDE_CONFIG_DIR`.
 
+# Local Ticket Copies (`tasks/`)
+
+The `tasks/` directory in any project is my personal store of local text copies of Jira tickets (e.g. `tasks/DEV-3790.md`) — planning notes and ticket context, not code or repo documentation. These files live OUTSIDE the repo (in my infuse overlay under `~/.local/share/infuse/…`) and are symlinked into the project:
+- Never commit them to the repo. A `?? tasks/` in `git status` is expected — do not `git add` it.
+- To edit one, write through to the real symlink target (Edit refuses to write through the symlink — resolve with `realpath` first).
+
 # Releases
 
 When the user asks to create a release, check for `DEVELOPMENT.md`, `README.md`, and `taskfile.yml` (or `Taskfile.yml`, `Makefile`, etc.) in the project root. Read those files first to find the project's release procedure before taking any manual steps.

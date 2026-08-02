@@ -43,7 +43,8 @@ Read the matching file in this skill directory, then follow it. Only read the fi
   wiki markup (`h2.`, `{{}}`, `*bold*`) — it converts inconsistently (`*x*` → italic not bold,
   headings swallow the following line, `*`/`#` lists don't form). Verified via `jira issue view <KEY> --raw`.
 - **Non-interactive.** Always pass `--no-input` on create/edit/comment so the CLI never blocks on a prompt.
-- **Multi-line bodies:** heredoc into the body arg, or write a file and use `-T <file>` (template).
-  `-T` avoids all shell-quoting pain — prefer it for anything long.
+- **Multi-line bodies:** `create` and `comment add` accept `-T`/`--template <file>` (avoids all
+  shell-quoting pain — prefer it for anything long). **`edit` does NOT** — it only reads the body
+  from `-b`, so heredoc a file into it: `-b "$(cat body.md)"`.
 - **`--skip-notify` needs admin rights** — returns `403 Forbidden` for normal users. Omit it.
 - **Verify writes** by viewing the ticket afterward (`jira issue view <KEY> --plain`).

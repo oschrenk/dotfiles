@@ -1,5 +1,13 @@
 # Create or Update an MR
 
+## Standing procedure when asked to "make a PR / MR"
+
+1. **Push the branch first** — `git push -u origin HEAD`. Do this explicitly; never rely on
+   `glab mr create` pushing as a side effect.
+2. Create the MR (self-assigned, see below).
+3. **When done, ask** whether to open it in the browser (`glab mr view <iid> --web`) — offer, don't
+   auto-open unless the user explicitly says to.
+
 ## Create
 
 ```bash
