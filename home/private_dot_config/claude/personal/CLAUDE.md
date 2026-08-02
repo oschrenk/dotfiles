@@ -57,6 +57,13 @@ When presenting options, suggestions, or changes for the user to approve (e.g. f
 
 - When fetching/reading a web page (as opposed to searching), always prefer lightpanda via the `fetch-websites` skill instead of the built-in WebFetch. It renders JavaScript and handles SPAs.
 
+# Shell
+
+- My interactive shell is **fish**, not bash/zsh. Commands you hand me to run myself (e.g. `! ...` in the prompt) must be fish-compatible.
+- fish has **no heredocs** (`<<'EOF'`) and no `$(...)`-nested heredocs. To pass multi-line content (PR bodies, commit messages, file content), write it to a file and reference it with a flag like `--body-file` / `--file`, or use `printf`.
+- Other fish differences to watch for: `set VAR value` (not `VAR=value`), `set -x` for exports, `$status` (not `$?`), `; and`/`; or` (not `&&`/`||` in some contexts — though `&&`/`||` do work in modern fish), and no `export`/`source ~/.bashrc` idioms.
+- Commands I run via the Bash tool execute in a bash-like sandbox, so bash syntax is fine there — the fish caveats only matter for commands you give *me* to paste and run.
+
 # Clipboard
 
 To copy text to the clipboard, pipe data to the platform-specific command:

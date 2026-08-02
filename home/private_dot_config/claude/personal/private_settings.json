@@ -112,6 +112,7 @@
     "kotlin-lsp@claude-plugins-official": false
   },
   "alwaysThinkingEnabled": true,
+  "tui": "fullscreen",
   "theme": "auto",
   "verbose": false,
   "includePatterns": [
@@ -123,6 +124,5 @@
     "dist/**",
     "node_modules/**",
     "out-tsc/**"
-  ],
-  "tui": "fullscreen"
+  ]
 }
