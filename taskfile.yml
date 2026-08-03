@@ -34,12 +34,12 @@ tasks:
       - ./setup-identity.sh
   nix:
     desc: Apply nix configuration to all machines
-    deps: [nix-darwin, nix-pi]
-  nix-darwin:
+    deps: [nix-rebuild-darwin, nix-rebuild-pi]
+  nix-rebuild-darwin:
     desc: Apply nix-darwin configuration to the current Mac (auto-selects host via hostname)
     # nix-daemon (running as root via sudo) refuses world-readable SSH keys, so
     # force 0600 before the build, then restore 0644 after for oliver-as-user
-    # SSH (interactive `ssh builder@linux-builder` and the nix-pi-* builds).
+    # SSH (interactive `ssh builder@linux-builder` and the nix-rebuild-pi-* builds).
     # A reboot resets it to 0600 when the builder daemon recreates the key;
     # a pi task re-fixes it. Guarded so hosts without a linux-builder (no key)
     # don't abort the task.
@@ -69,28 +69,28 @@ tasks:
       - sudo launchctl bootstrap system /Library/LaunchDaemons/org.nixos.linux-builder.plist
       - sleep 30
       - sudo chmod 644 /etc/nix/builder_ed25519
-  nix-pi:
+  nix-rebuild-pi:
     desc: Apply NixOS configuration to all pis
-    deps: [nix-pi-1, nix-pi-2, nix-pi-3]
-  nix-pi-1:
+    deps: [nix-rebuild-pi-1, nix-rebuild-pi-2, nix-rebuild-pi-3]
+  nix-rebuild-pi-1:
     desc: Apply NixOS configuration to pi-1
     dir: nix
     cmds:
       - sudo chmod 644 /etc/nix/builder_ed25519
       - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-1 --target-host oliver@pi-1.local --build-host builder@linux-builder --sudo
-  nix-pi-2:
+  nix-rebuild-pi-2:
     desc: Apply NixOS configuration to pi-2
     dir: nix
     cmds:
       - sudo chmod 644 /etc/nix/builder_ed25519
       - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-2 --target-host oliver@pi-2.local --build-host builder@linux-builder --sudo
-  nix-pi-3:
+  nix-rebuild-pi-3:
     desc: Apply NixOS configuration to pi-3
     dir: nix
     cmds:
       - sudo chmod 644 /etc/nix/builder_ed25519
       - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-3 --target-host oliver@pi-3.local --build-host builder@linux-builder --sudo
-  nix-hetzner-1:
+  nix-rebuild-hetzner-1:
     desc: Apply NixOS configuration to hetzner-1
     # Relies on a `Host hetzner-1` entry in ~/.ssh/config to resolve the public IP and user.
     dir: nix
