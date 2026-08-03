@@ -16,6 +16,10 @@
     settings = {
       config-version = 2;
 
+      # Auto-reload the config when the file changes (AeroSpace #163).
+      # Default is false; enable so we don't need a manual `reload-config`.
+      auto-reload-config = true;
+
       # Start AeroSpace at login
       # NOTE: programs.aerospace.launchd.enable forces this to false at the
       # generated-config level; keep it false here too to avoid drift.
