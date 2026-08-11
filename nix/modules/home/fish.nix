@@ -145,6 +145,14 @@
       set -gx LIGHTPANDA_DISABLE_TELEMETRY true
 
       #############################
+      # gcloud
+      #############################
+      # env equivalents of `gcloud config set survey/disable_prompts` and
+      # `gcloud config set disable_usage_reporting` — apply to every config
+      set -gx CLOUDSDK_SURVEY_DISABLE_PROMPTS 1
+      set -gx CLOUDSDK_CORE_DISABLE_USAGE_REPORTING true
+
+      #############################
       # homebrew
       #############################
       # disable analytics
