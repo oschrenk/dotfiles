@@ -41,6 +41,9 @@
   '';
 
   # AirBook-specific apps go here.
-  # homebrew.casks = [ ];
+  homebrew.casks = [
+    "affinity" # design (v3, free)
+  ];
+
   # homebrew.masApps = { };
 }
