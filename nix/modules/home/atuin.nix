@@ -44,7 +44,7 @@
         "^tube"
         "^sideload"
         "^stream"
-        "^pad"
+        "^ipad"
         # ignore single char entries
         "^.$"
         # ignore short commands
