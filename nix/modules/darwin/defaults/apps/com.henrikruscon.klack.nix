@@ -5,7 +5,7 @@
   system.defaults.CustomUserPreferences = {
     "com.henrikruscon.Klack" = {
       # Typing sound volume (0.0–1.0); keep it subtle
-      volumeSlider = 0.025;
+      volumeSlider = 0.035;
 
       # Switch/keycap sound profile
       activeSwitchSet = "oreo";
