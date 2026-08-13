@@ -13,7 +13,7 @@ Host *
 
   ControlMaster auto
   ControlPath ~/.ssh/-%r@%h:%p
-  ControlPersist 5
+  ControlPersist 1m
 
   # Use a shared channel for all sessions to the same host,
   # instead of always opening a new one. This leads to much
