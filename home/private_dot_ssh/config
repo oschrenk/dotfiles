@@ -1,6 +1,9 @@
 Include config.d/* 
 
 Host *
+  # Route all key auth through 1Password's SSH agent
+  IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
+
   # Always use ssh2
   Protocol 2
   # Conserve bandwith (off by default)
