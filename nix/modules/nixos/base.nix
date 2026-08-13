@@ -1,4 +1,9 @@
-{ config, ... }:
+{
+  config,
+  pkgs,
+  nixpkgs,
+  ...
+}:
 {
   services.openssh = {
     enable = true;
@@ -78,5 +83,14 @@
   system.stateVersion = "25.05";
 
   services.tailscale.enable = true;
+  # The pis build from nixos-raspberrypi's own nixpkgs, which tracks nixos-26.05
+  # and lags the branch head, so they'd land on tailscale 1.98.5 — below the
+  # 1.98.9 that fixes the Jul 2026 advisory batch. Take tailscale from the root
+  # (unstable) nixpkgs instead: 1.102.2, which additionally covers TS-2026-010
+  # (https://tailscale.com/security-bulletins#ts-2026-010) — Tailscale SSH
+  # leaking acceptEnv values via /proc and session logs. We don't enable
+  # Tailscale SSH, so we weren't affected at time of commit; staying current is
+  # the cautious default. No-op on hosts already built from root nixpkgs.
+  services.tailscale.package = nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.tailscale;
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
 }
