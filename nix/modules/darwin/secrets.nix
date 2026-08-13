@@ -1,6 +1,28 @@
-{ ... }:
+{ config, lib, ... }:
+
+let
+  cfg = config.services.onepassword-secrets;
+
+  # opnix only sets owner/group/mode on the secret file, never on its parent.
+  # Its launchd daemon runs as root and MkdirAll's that parent, so whether the
+  # directory ends up root- or user-owned is a race against home-manager's
+  # linkGeneration — and the winner sticks, which makes it look machine-specific.
+  # extraActivation runs before both the launchd and postActivation (home-manager)
+  # phases, so creating the directories here decides it up front.
+  secretDirs = lib.unique (
+    lib.mapAttrsToList (_: secret: {
+      dir = builtins.dirOf secret.path;
+      inherit (secret) owner group;
+    }) (lib.filterAttrs (_: secret: lib.hasPrefix "/Users/" secret.path) cfg.secrets)
+  );
+in
 
 {
+  system.activationScripts.extraActivation.text = lib.concatMapStringsSep "\n" (d: ''
+    mkdir -p '${d.dir}'
+    chown ${d.owner}:${d.group} '${d.dir}'
+  '') secretDirs;
+
   services.onepassword-secrets = {
     enable = true;
     tokenFile = "/etc/opnix-token";
