@@ -38,6 +38,7 @@
     "eddmann/tap/whatsapp-cli" # cli, WhatsApp from terminal
     "glow" # cli, render markdown in terminal
     "oschrenk/made/plan" # cli, fetch next event
+    "oschrenk/personal/anydoc" # docs, convert documents to markdown
     "pandoc" # docs, document converter
     "zola" # web, blogging engine
 
