@@ -1,4 +1,4 @@
-{ pkgs, nixpkgs-zed, arbol, pad, ... }:
+{ pkgs, nixpkgs-zed, arbol, ... }:
 
 {
   nixpkgs.overlays = [
@@ -31,7 +31,6 @@
 
   environment.systemPackages = with pkgs; [
     arbol.packages.${pkgs.stdenv.hostPlatform.system}.default
-    pad.packages.${pkgs.stdenv.hostPlatform.system}.default
     aerospace
     anydoc
     firemark

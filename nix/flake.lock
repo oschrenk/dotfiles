@@ -261,26 +261,6 @@
         "type": "github"
       }
     },
-    "pad": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1786469873,
-        "narHash": "sha256-d4zhwYcziDZpTNfyjYAfMaeoHeXc9bp7j5VKJtWKguM=",
-        "owner": "PerpetualSoftware",
-        "repo": "pad",
-        "rev": "a66c9ab402065865076cc607aa9e140aa15fbd5f",
-        "type": "github"
-      },
-      "original": {
-        "owner": "PerpetualSoftware",
-        "repo": "pad",
-        "type": "github"
-      }
-    },
     "root": {
       "inputs": {
         "arbol": "arbol",
@@ -290,8 +270,7 @@
         "nixos-raspberrypi": "nixos-raspberrypi",
         "nixpkgs": "nixpkgs_2",
         "nixpkgs-zed": "nixpkgs-zed",
-        "opnix": "opnix",
-        "pad": "pad"
+        "opnix": "opnix"
       }
     },
     "systems": {
