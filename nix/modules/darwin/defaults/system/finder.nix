@@ -45,6 +45,9 @@
     # Cover Flow  : Flwv
     # Requires: deletion of ~/.DS_Store
     FXPreferredViewStyle = "clmv";
+
+    # Keep folders on top when sorting by name (Finder windows)
+    _FXSortFoldersFirst = true;
   };
 
   system.defaults.NSGlobalDomain = {
