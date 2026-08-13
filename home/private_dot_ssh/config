@@ -7,8 +7,6 @@ Host *
   # Don't store hostnames and IPs in known_hosts in cleartext
   HashKnownHosts yes
 
-  # Conserve bandwith (off by default)
-  Compression yes
   # number of alive messages
   ServerAliveCountMax 30
   # timeout in seconds for alive message
