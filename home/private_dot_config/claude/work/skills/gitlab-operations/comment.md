@@ -4,6 +4,10 @@ Only post when explicitly asked. When posting review findings: one issue per com
 (so each can be resolved individually), body starting with a `##` heading that summarizes it.
 Verify by fetching discussions afterward (see `view.md`).
 
+**Every body starts with `🤖 `** — emoji, space, then the text — so agent-written comments are
+distinguishable from the user's own. With a `##` heading, the emoji goes after the hashes:
+`## 🤖 Summary of the issue`. Applies to top-level notes, inline comments, and replies.
+
 ## Top-level comment
 
 ```bash
@@ -24,7 +28,7 @@ Write the payload to a scratchpad file:
 
 ```json
 {
-  "body": "## Summary of the issue\n\nDetails...",
+  "body": "## 🤖 Summary of the issue\n\nDetails...",
   "position": {
     "position_type": "text",
     "base_sha": "<base_commit_sha>",

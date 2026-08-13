@@ -41,6 +41,9 @@ Read the matching file in this skill directory, then follow it. Only read the fi
   JSON by default (`--paginate` for full result sets).
 - **Writes need intent.** Don't create MRs, post comments, approve, or merge unless the user
   asked for that action. Verify writes by viewing the result afterward.
+- **Every comment starts with 🤖.** Any note, discussion, or reply you post begins with `🤖 ` —
+  emoji, space, then the body — so readers can tell agent-written comments from the user's own.
+  Top-level notes, inline diff comments, and replies alike; no exceptions, including one-liners.
 - **Multi-line bodies:** write the body to a scratchpad file and use `-d "$(cat file)"` /
   `--input file` — avoids shell-quoting pain.
 
