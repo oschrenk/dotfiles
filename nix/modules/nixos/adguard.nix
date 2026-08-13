@@ -150,6 +150,12 @@ in
             /var/lib/AdGuardHome/AdGuardHome.yaml \
             > /tmp/adguardhome.yaml
           mv /tmp/adguardhome.yaml /var/lib/AdGuardHome/AdGuardHome.yaml
+          # The mv above replaces the inode, so the file ends up root-owned under
+          # the unit's UMask=0077 — unreadable by the DynamicUser the service runs
+          # as. Hand it back to whoever owns the state directory (the dynamic UID,
+          # which varies between starts).
+          chown --reference=/var/lib/AdGuardHome /var/lib/AdGuardHome/AdGuardHome.yaml
+          chmod 0600 /var/lib/AdGuardHome/AdGuardHome.yaml
         '';
     };
 
