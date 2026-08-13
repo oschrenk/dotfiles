@@ -24,15 +24,12 @@
       # kmp-lsp not in nixpkgs; build from source (was the cargo crate
       # kotlin-lsp, since renamed by upstream to kmp-lsp)
       kmp-lsp = prev.callPackage ../pkgs/kmp-lsp.nix { };
-      # anydoc not in nixpkgs; assemble from upstream's prebuilt npm packages
-      anydoc = prev.callPackage ../pkgs/anydoc.nix { };
     })
   ];
 
   environment.systemPackages = with pkgs; [
     arbol.packages.${pkgs.stdenv.hostPlatform.system}.default
     aerospace
-    anydoc
     firemark
     git-stack
     kmp-lsp
