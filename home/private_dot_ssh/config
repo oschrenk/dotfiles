@@ -6,8 +6,6 @@ Host *
 
   # Conserve bandwith (off by default)
   Compression yes
-  # Don't forward X Connections
-  ForwardX11 no
   # number of alive messages
   ServerAliveCountMax 30
   # timeout in seconds for alive message
