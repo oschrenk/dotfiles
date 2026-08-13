@@ -4,6 +4,9 @@ Host *
   # Route all key auth through 1Password's SSH agent
   IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 
+  # Don't store hostnames and IPs in known_hosts in cleartext
+  HashKnownHosts yes
+
   # Conserve bandwith (off by default)
   Compression yes
   # number of alive messages
