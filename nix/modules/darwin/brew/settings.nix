@@ -6,6 +6,7 @@
 {
   homebrew = {
     enable = true;
+    enableFishIntegration = true;
 
     onActivation = {
       # Cleanup strategy for packages no longer declared here:

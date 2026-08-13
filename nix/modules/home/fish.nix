@@ -102,10 +102,6 @@
       #############################
       # PATH
       #############################
-      # put homebrew bin before system bin
-      fish_add_path --prepend /opt/homebrew/sbin
-      fish_add_path --prepend /opt/homebrew/bin
-
       # put local bin before
       fish_add_path --prepend $HOME/.local/bin
 
