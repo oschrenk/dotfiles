@@ -50,6 +50,7 @@
     "openoats" # meeting note-taker, transcribes calls
     "oschrenk/personal/cadova-viewer" # cad model viewer
     "oschrenk/personal/mud" # markdown viewer
+    "oschrenk/personal/readinglist" # browser for safari's reading list
     "pika" # color picker
     "raspberry-pi-imager" # flash raspberry pi images
     "safari-technology-preview" # browser, safari preview builds
