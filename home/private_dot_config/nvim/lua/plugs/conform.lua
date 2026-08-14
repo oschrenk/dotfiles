@@ -92,6 +92,23 @@ return {
         args = { "--meta-style", "$FILENAME" },
         stdin = false,
       },
+      taplo = function(bufnr)
+        local config_file = vim.fs.find(
+          { ".taplo.toml", "taplo.toml" },
+          { upward = true, path = vim.fs.dirname(vim.api.nvim_buf_get_name(bufnr)) }
+        )[1]
+
+        if config_file then
+          return {
+            command = "taplo",
+            args = { "format", "--config", config_file, "-" },
+          }
+        end
+        return {
+          command = "taplo",
+          args = { "format", "-" },
+        }
+      end,
       yamlfmt = function(_)
         local config_file =
           vim.fs.find({ ".yamlfmt.yaml", ".yamlfmt", ".yamlfmt.yml", "yamlfmt.yml" }, { upward = true })[1]
