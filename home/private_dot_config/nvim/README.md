@@ -22,6 +22,34 @@ nvim   # :Lazy update blink.cmp  (or :Lazy build blink.cmp)
 exit
 ```
 
+### Xcode 27 beta linker breaks the build
+
+Nix only provides `cargo`/`rustc` — the linker still comes from whatever
+`xcode-select -p` points at. The Xcode 27 beta linker (`ld-27034`) writes the
+`__LINKEDIT` string table at a 4-byte-aligned offset, but macOS 26/27's loader
+requires 8-byte alignment, so `dlopen` rejects the result:
+
+```
+mis-aligned LINKEDIT string pool, fileOffset=0x001A38BC
+```
+
+`:Lazy build blink.cmp` won't help — it inherits the same active Xcode. Build
+against stable Xcode (26.6, `ld-1267`) instead:
+
+```sh
+cd ~/.local/share/nvim/lazy/blink.cmp
+nix shell nixpkgs#cargo nixpkgs#rustc
+env DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
+    CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang \
+    cargo build --release
+mv target/release/libblink_cmp_fuzzy.dylib \
+   "lib/libblink_cmp_fuzzy.dylib.$(git rev-parse HEAD | cut -c1-7)"
+exit
+```
+
+The library filename is keyed to the checked-out commit, so repeat this after
+every `blink.cmp` update. Verify with `:lua =require('blink.cmp').library_available()`.
+
 ## Plugin Security (Supply Chain)
 
 Plugins are pinned via `lazy-lock.json`, which records the exact commit hash for every plugin. Commit this file to git — it is the source of truth, equivalent to `package-lock.json`.

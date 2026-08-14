@@ -5,8 +5,14 @@ return {
   -- Rust fuzzy matcher needs `cargo` (not on PATH), so a plain `:Lazy update`
   -- falls back to Lua. Update with nix providing cargo:
   --   nix shell nixpkgs#cargo nixpkgs#rustc --command nvim --headless "+Lazy! update blink.cmp" +qa
+  --
+  -- On macOS this still links with whatever `xcode-select -p` points at. The
+  -- Xcode 27 beta linker emits a misaligned __LINKEDIT string table that the
+  -- macOS 26/27 loader rejects ("mis-aligned LINKEDIT string pool"), so the
+  -- build succeeds but the .dylib never loads. See README.md ("Nix" section)
+  -- for the workaround that builds against stable Xcode.
   build = function()
-    require("blink.cmp").build():pwait()
+    require("blink.cmp").build():wait(60000)
   end,
   dependencies = {
     -- https://github.com/saghen/blink.lib
