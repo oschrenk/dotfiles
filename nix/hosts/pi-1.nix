@@ -1,17 +1,5 @@
 { config, ... }:
 {
-  # Host network addresses. Update here if IPs change.
-  my.host."pi-1" = {
-    lanIp = "192.168.1.7";
-    tailscaleIp = "100.125.174.68";
-    mac = "dc:a6:32:6b:00:e8";
-  };
-
-  my.domain.homelab = {
-    name = "home.lan";
-    hostName = "pi-1";
-  };
-
   # Networking
   networking.hostName = "pi-1";
 

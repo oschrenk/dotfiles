@@ -2,8 +2,18 @@
 let
   domain = config.my.domain.homelab.name;
   host = config.my.host.${config.my.domain.homelab.hostName};
+  subdomains = config.my.domain.homelab.subdomains;
 in
 {
+  # subdomains (hosts/network.nix) is what the Macs pin in /etc/hosts, so a route
+  # missing from it would resolve here but nowhere else.
+  assertions = [
+    {
+      assertion = builtins.all (r: builtins.elem r.name subdomains) config.services.homelab.routes;
+      message = "every services.homelab.routes name must appear in my.domain.homelab.subdomains";
+    }
+  ];
+
   services.homelab.routes = [
     {
       name = "beszel";
@@ -16,6 +26,14 @@ in
     {
       name = "gatus";
       port = config.services.gatus.settings.web.port;
+    }
+    # UniFi runs on pi-3, not here, and serves its own self-signed cert on 8443.
+    {
+      name = "unifi";
+      host = config.my.host."pi-3".lanIp;
+      port = 8443;
+      scheme = "https";
+      insecureTls = true;
     }
   ];
 
@@ -32,10 +50,5 @@ in
   # AdGuard Home also reads /etc/hosts before applying dns.rewrites, so this must
   # match the rewrite IP — otherwise AdGuard returns this entry and the rewrite
   # never fires for the apex / listed subdomains.
-  networking.hosts.${host.lanIp} = [
-    domain
-    "beszel.${domain}"
-    "gatus.${domain}"
-    "adguard.${domain}"
-  ];
+  networking.hosts.${host.lanIp} = [ domain ] ++ map (s: "${s}.${domain}") subdomains;
 }

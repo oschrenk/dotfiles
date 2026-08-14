@@ -93,6 +93,7 @@
             ./modules/nixos/restic/adguard.nix
             ./modules/nixos/restic/step-ca.nix
             ./sites/home.lan.nix
+            ./hosts/network.nix
             ./hosts/pi-1.nix
           ];
         };
@@ -108,6 +109,7 @@
             ./modules/nixos/pi4-hardware.nix
             ./modules/nixos/secrets.nix
             ./modules/nixos/beszel/agent.nix
+            ./hosts/network.nix
             ./hosts/pi-2.nix
           ];
         };
@@ -124,6 +126,7 @@
             ./modules/nixos/secrets.nix
             ./modules/nixos/beszel/agent.nix
             ./modules/nixos/unifi-network-controller.nix
+            ./hosts/network.nix
             ./hosts/pi-3.nix
           ];
         };

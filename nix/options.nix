@@ -27,6 +27,11 @@
   options.my.domain.homelab = {
     name = lib.mkOption { type = lib.types.str; };
     hostName = lib.mkOption { type = lib.types.str; };
+    subdomains = lib.mkOption {
+      type = lib.types.listOf lib.types.str;
+      default = [ ];
+      description = "Services fronted by the homelab reverse proxy, as <name>.<domain>.";
+    };
   };
 
   # UNAS network-attached storage. Single source of truth for the static

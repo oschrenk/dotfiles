@@ -23,6 +23,7 @@ let
         <li><a href="https://beszel.${domain}">Beszel</a></li>
         <li><a href="https://gatus.${domain}">Gatus</a></li>
         <li><a href="https://adguard.${domain}">AdGuard Home</a></li>
+        <li><a href="https://unifi.${domain}">UniFi</a></li>
       </ul>
     </body>
     </html>

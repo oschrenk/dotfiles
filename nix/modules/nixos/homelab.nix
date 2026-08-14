@@ -17,8 +17,20 @@ let
     tls.certResolver = certResolver;
   };
 
-  mkService = port: {
-    loadBalancer.servers = [ { url = "http://127.0.0.1:${toString port}"; } ];
+  # Upstreams presenting a self-signed cert (unifi) go through this transport.
+  insecureTransport = "insecure";
+
+  mkService = r: {
+    loadBalancer = {
+      servers = [ { url = "${r.scheme}://${r.host}:${toString r.port}"; } ];
+    } // lib.optionalAttrs r.insecureTls { serversTransport = insecureTransport; };
+  };
+
+  mkLocalService = port: mkService {
+    scheme = "http";
+    host = "127.0.0.1";
+    inherit port;
+    insecureTls = false;
   };
 in
 {
@@ -34,6 +46,21 @@ in
           options = {
             name = lib.mkOption { type = lib.types.str; };
             port = lib.mkOption { type = lib.types.port; };
+            host = lib.mkOption {
+              type = lib.types.str;
+              default = "127.0.0.1";
+              description = "Upstream address. Override for services on another machine.";
+            };
+            scheme = lib.mkOption {
+              type = lib.types.enum [ "http" "https" ];
+              default = "http";
+              description = "Protocol Traefik uses to reach the upstream.";
+            };
+            insecureTls = lib.mkOption {
+              type = lib.types.bool;
+              default = false;
+              description = "Skip upstream certificate verification (self-signed backends).";
+            };
           };
         }
       );
@@ -78,14 +105,15 @@ in
           }) cfg.routes
         );
         services = {
-          homepage = mkService cfg.homepagePort;
+          homepage = mkLocalService cfg.homepagePort;
         }
         // builtins.listToAttrs (
           map (r: {
             name = r.name;
-            value = mkService r.port;
+            value = mkService r;
           }) cfg.routes
         );
+        serversTransports.${insecureTransport}.insecureSkipVerify = true;
       };
     };
 
