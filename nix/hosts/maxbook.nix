@@ -28,16 +28,18 @@
   # Or see: https://github.com/nix-darwin/nix-darwin/blob/master/CHANGELOG.md
   system.stateVersion = 6;
 
-  # Reload the prefs database into the running session so system.defaults and
-  # CustomUserPreferences apply on darwin-rebuild without a logout. The -u flag
-  # means user-level. Undocumented private-framework binary, so behavior may
-  # change between macOS releases. Some prefs still need a killall (Dock,
-  # Finder, SystemUIServer, cfprefsd) or app restart to pick up plist changes.
-  #
-  # nix-darwin removed postUserActivation (all activation now runs as root), so
-  # we run via `sudo -u $USER` to reach the user's cfprefsd from a root script.
   system.activationScripts.postActivation.text = ''
+    # Apply system.defaults and CustomUserPreferences without a logout. The -u flag
+    # means user-level. Undocumented private-framework binary, so behavior may
+    # change between macOS releases. Some prefs still need a killall (Dock,
+    # Finder, SystemUIServer, cfprefsd) or app restart to pick up plist changes.
+    # Activation runs as root since nix-darwin dropped postUserActivation, so
+    # `sudo -u $USER` is what reaches the user's cfprefsd.
     sudo -u ${config.my.personal.username} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
+    # Accept Tailscale SSH, under a stable name so olivers-maxbook keeps resolving.
+    ${config.services.tailscale.package}/bin/tailscale set --ssh --hostname=olivers-maxbook || true
+    # Stay reachable over Tailscale while docked with the lid shut.
+    /usr/bin/pmset -a disablesleep 1
   '';
 
   # MaxBook-specific apps (MacBook Pro with extra peripherals)
