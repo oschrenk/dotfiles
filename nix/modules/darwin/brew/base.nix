@@ -78,7 +78,6 @@
     "tree-sitter-cli" # nvim, requirement
 
     # git
-    "git-crypt" # git, encrypt secrets in git
     "gh" # cli, interact with github
     "oschrenk/made/infuse" # git, repository mixer
     "worktrunk" # git, worktree management
