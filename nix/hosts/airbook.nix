@@ -43,6 +43,7 @@
   # AirBook-specific apps go here.
   homebrew.casks = [
     "affinity" # design (v3, free)
+    "tailscale-app" # vpn, mesh network
   ];
 
   # homebrew.masApps = { };

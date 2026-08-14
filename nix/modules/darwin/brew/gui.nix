@@ -57,7 +57,6 @@
     "signal" # signal messaging
     "slack" # slack office communication
     "spotify" # audio client
-    "tailscale-app" # vpn, mesh network
     "telegram" # telegram messaging
     "the-unarchiver" # unarchiving most archive files
     "transmission" # torrent client

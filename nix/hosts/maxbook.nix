@@ -49,6 +49,10 @@
     "steam" # games
   ];
 
+  # CLI build, not the GUI cask: only this one can run a Tailscale SSH server.
+  # Log in separately with `sudo tailscale up --ssh`.
+  services.tailscale.enable = true;
+
   homebrew.masApps = {
     # "Affinity Designer 2" = 1616831348; # vector editing
     # "Affinity Photo 2" = 1616822987; # raster editing
