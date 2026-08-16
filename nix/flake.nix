@@ -89,6 +89,7 @@
             ./modules/nixos/restic/healthcheck.nix
             ./modules/nixos/restic/beszel.nix
             ./modules/nixos/gatus.nix
+            ./modules/nixos/glance.nix
             ./modules/nixos/adguard.nix
             ./modules/nixos/restic/adguard.nix
             ./modules/nixos/restic/step-ca.nix
@@ -155,6 +156,7 @@
             ./identity.nix
             ./options.nix
             ./modules/common.nix
+            ./hosts/network.nix
             ./modules/network.nix
             ./modules/darwin/nix.nix
             ./modules/packages.nix
@@ -199,6 +201,7 @@
             ./identity.nix
             ./options.nix
             ./modules/common.nix
+            ./hosts/network.nix
             ./modules/network.nix
             ./modules/darwin/nix.nix
             ./modules/packages.nix
