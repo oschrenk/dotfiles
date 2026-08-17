@@ -1,6 +1,13 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   domain = config.my.domain.homelab.name;
+
+  # Glance sizes everything in rem off `:root { font-size: 10px }`, so raising
+  # that one value scales all text. Served from assets-path as /assets/custom.css.
+  assets = pkgs.runCommand "glance-assets" { } ''
+    mkdir -p $out
+    echo ':root { font-size: 11px; }' > $out/custom.css
+  '';
 in
 {
   services.glance = {
@@ -12,7 +19,12 @@ in
         host = "127.0.0.1";
         # The module defaults to 8080, which gatus already uses.
         port = 8082;
+        assets-path = "${assets}";
       };
+
+      branding.hide-footer = true;
+
+      theme.custom-css-file = "/assets/custom.css";
 
       # Glance has no prefers-color-scheme support, so there is no "follow system".
       # Dark is the built-in default; this preset adds a light option to the theme
