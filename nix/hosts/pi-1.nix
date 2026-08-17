@@ -61,6 +61,14 @@
     mode = "0600";
   };
 
+  # Glance
+  # WAQI token for the air-quality widget (read by glance-env, not glance itself).
+  services.onepassword-secrets.secrets.waqiToken = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/Air Quality Open Data Platform/API token";
+    owner = "root";
+    mode = "0600";
+  };
+
   # NAS
   # SMB credentials for CIFS mount (username=, password=, domain= file format)
   services.onepassword-secrets.secrets.unasCredentials = {
