@@ -76,6 +76,18 @@ in
           ];
         }
         {
+          name = "Backup / fusion";
+          url = "http://127.0.0.1:${toString config.services.backup-healthcheck.checks.fusion.port}/";
+          interval = "1h";
+          conditions = [ "[STATUS] == 200" ];
+          alerts = [
+            {
+              type = "custom";
+              description = "backup stale or missing (>25h)";
+            }
+          ];
+        }
+        {
           name = "Services / AdGuard";
           url = "http://127.0.0.1:${toString config.services.adguard-home.httpPort}/";
           interval = "5m";
@@ -86,6 +98,20 @@ in
             {
               type = "custom";
               description = "AdGuard Home web UI unreachable — DNS likely down";
+            }
+          ];
+        }
+        {
+          name = "Services / Fusion";
+          url = "http://127.0.0.1:${toString config.services.fusion.port}/";
+          interval = "5m";
+          # Unauthenticated / returns the login page (200) — any non-5xx proves
+          # the service is up.
+          conditions = [ "[STATUS] < 500" ];
+          alerts = [
+            {
+              type = "custom";
+              description = "Fusion unreachable — RSS sync stopped";
             }
           ];
         }

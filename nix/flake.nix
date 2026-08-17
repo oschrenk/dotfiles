@@ -90,8 +90,10 @@
             ./modules/nixos/gatus.nix
             ./modules/nixos/glance.nix
             ./modules/nixos/adguard.nix
+            ./modules/nixos/fusion.nix
             ./modules/nixos/restic/adguard.nix
             ./modules/nixos/restic/step-ca.nix
+            ./modules/nixos/restic/fusion.nix
             ./sites/home.lan.nix
             ./hosts/network.nix
             ./hosts/pi-1.nix

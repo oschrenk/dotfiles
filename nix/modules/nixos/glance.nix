@@ -66,6 +66,10 @@ in
                           title = "UniFi";
                           url = "https://unifi.${domain}";
                         }
+                        {
+                          title = "Fusion";
+                          url = "https://fusion.${domain}";
+                        }
                       ];
                     }
                   ];

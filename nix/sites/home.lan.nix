@@ -30,6 +30,10 @@ in
       name = "gatus";
       port = config.services.gatus.settings.web.port;
     }
+    {
+      name = "fusion";
+      port = config.services.fusion.port;
+    }
     # UniFi runs on pi-3, not here, and serves its own self-signed cert on 8443.
     {
       name = "unifi";

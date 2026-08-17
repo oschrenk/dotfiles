@@ -53,6 +53,14 @@
     mode = "0600";
   };
 
+  # Fusion
+  # Web login password; also the Fever API password used by Reeder.
+  services.onepassword-secrets.secrets.fusionPassword = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/Fusion/password";
+    owner = "fusion";
+    mode = "0600";
+  };
+
   # NAS
   # SMB credentials for CIFS mount (username=, password=, domain= file format)
   services.onepassword-secrets.secrets.unasCredentials = {
@@ -104,6 +112,8 @@
   services.restic-beszel.backupSchedule = "*-*-* 01:00:00";
   services.restic-adguard.backupSchedule = "*-*-* 01:15:00";
   services.restic-step-ca.backupSchedule = "*-*-* 01:30:00";
+  # 01:45 stays free for pi-3, so fusion goes at 02:00.
+  services.restic-fusion.backupSchedule = "*-*-* 02:00:00";
 
   services.backup-healthcheck.checks = {
     # port 8099: localhost-only HTTP shim for beszel backup freshness.
@@ -118,6 +128,10 @@
 
   services.backup-healthcheck.checks.step-ca = {
     port = 8101;
+  };
+
+  services.backup-healthcheck.checks.fusion = {
+    port = 8102;
   };
 
   # Storage
