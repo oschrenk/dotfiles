@@ -49,26 +49,27 @@ in
                   groups = [
                     {
                       title = "Homelab";
+                      # Sorted by title.
                       links = [
+                        {
+                          title = "AdGuard Home";
+                          url = "https://adguard.${domain}";
+                        }
                         {
                           title = "Beszel";
                           url = "https://beszel.${domain}";
+                        }
+                        {
+                          title = "Fusion";
+                          url = "https://fusion.${domain}";
                         }
                         {
                           title = "Gatus";
                           url = "https://gatus.${domain}";
                         }
                         {
-                          title = "AdGuard Home";
-                          url = "https://adguard.${domain}";
-                        }
-                        {
                           title = "UniFi";
                           url = "https://unifi.${domain}";
-                        }
-                        {
-                          title = "Fusion";
-                          url = "https://fusion.${domain}";
                         }
                       ];
                     }
