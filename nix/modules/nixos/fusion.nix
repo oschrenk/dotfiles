@@ -56,6 +56,7 @@ in
       environment = {
         FUSION_PORT = toString cfg.port;
         FUSION_DB_PATH = cfg.dbPath;
+        FUSION_FEVER_USERNAME = config.my.personal.email;
         FUSION_TRUSTED_PROXIES = "127.0.0.1";
       };
 
