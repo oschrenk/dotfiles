@@ -35,10 +35,12 @@ let
 in
 {
   options.services.homelab = {
-    homepagePort = lib.mkOption {
+    apexPort = lib.mkOption {
       type = lib.types.port;
-      default = 8081;
-      description = "Port nginx serves the homepage on (localhost only).";
+      description = ''
+        Port the apex host (${domain} with no subdomain) is proxied to, on localhost.
+        Required — an unset apex would proxy to a dead port. Set it in the site file.
+      '';
     };
     routes = lib.mkOption {
       type = lib.types.listOf (
@@ -91,9 +93,9 @@ in
       };
       dynamicConfigOptions.http = {
         routers = {
-          homepage = {
+          apex = {
             rule = "Host(`${domain}`)";
-            service = "homepage";
+            service = "apex";
             entryPoints = [ entrypointHttps ];
             tls.certResolver = certResolver;
           };
@@ -105,7 +107,7 @@ in
           }) cfg.routes
         );
         services = {
-          homepage = mkLocalService cfg.homepagePort;
+          apex = mkLocalService cfg.apexPort;
         }
         // builtins.listToAttrs (
           map (r: {

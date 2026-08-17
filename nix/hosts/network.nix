@@ -29,6 +29,6 @@
   my.domain.homelab = {
     name = "home.lan";
     hostName = "pi-1";
-    subdomains = [ "beszel" "gatus" "adguard" "unifi" "glance" ];
+    subdomains = [ "beszel" "gatus" "adguard" "unifi" ];
   };
 }

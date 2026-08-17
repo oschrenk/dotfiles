@@ -47,8 +47,8 @@ nix/
       pi4-hardware.nix   - RPi4-specific hardware config
       secrets.nix        - opnix secret management
       step-ca.nix        - local ACME CA (homelab-ca options)
-      traefik.nix        - reverse proxy
-      homepage.nix       - homelab dashboard
+      homelab.nix        - reverse proxy (traefik), apex + subdomain routes
+      glance.nix         - homelab dashboard (serves the apex)
       adguard.nix        - DNS / ad blocking
       gatus.nix          - health checks
       beszel/

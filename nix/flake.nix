@@ -83,7 +83,6 @@
             ./modules/nixos/secrets.nix
             ./modules/nixos/step-ca.nix
             ./modules/nixos/homelab.nix
-            ./modules/nixos/homepage.nix
             ./modules/nixos/beszel/hub.nix
             ./modules/nixos/beszel/agent.nix
             ./modules/nixos/restic/healthcheck.nix
@@ -187,6 +186,7 @@
             ./modules/darwin/defaults/apps/com.apple.mail.nix
             ./modules/darwin/defaults/apps/com.apple.safari.nix
             ./modules/darwin/defaults/apps/com.henrikruscon.klack.nix
+            ./modules/darwin/homelab-ca.nix
             ./modules/darwin/linux-builder.nix
             ./modules/darwin/java.nix
             ./hosts/maxbook.nix
@@ -232,6 +232,7 @@
             ./modules/darwin/defaults/apps/com.apple.mail.nix
             ./modules/darwin/defaults/apps/com.apple.safari.nix
             ./modules/darwin/defaults/apps/com.henrikruscon.klack.nix
+            ./modules/darwin/homelab-ca.nix
             ./modules/darwin/linux-builder.nix
             ./modules/darwin/java.nix
             ./hosts/airbook.nix

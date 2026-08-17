@@ -14,6 +14,9 @@ in
     }
   ];
 
+  # The apex (${domain} with no subdomain) serves Glance.
+  services.homelab.apexPort = config.services.glance.settings.server.port;
+
   services.homelab.routes = [
     {
       name = "beszel";
@@ -26,10 +29,6 @@ in
     {
       name = "gatus";
       port = config.services.gatus.settings.web.port;
-    }
-    {
-      name = "glance";
-      port = config.services.glance.settings.server.port;
     }
     # UniFi runs on pi-3, not here, and serves its own self-signed cert on 8443.
     {
