@@ -1,6 +1,7 @@
 { config, ... }:
 let
   domain = config.my.domain.homelab.name;
+  publicDomain = config.my.domain.homelab.publicName;
   host = config.my.host.${config.my.domain.homelab.hostName};
   subdomains = config.my.domain.homelab.subdomains;
 in
@@ -51,11 +52,18 @@ in
   services.adguardhome.settings.dns.rewrites = [
     { domain = domain; answer = host.lanIp; }
     { domain = "*.${domain}"; answer = host.lanIp; }
+    # ${publicDomain} answers with the tailnet address so the name resolves the
+    # same at home and on cellular. Reachable only with Tailscale up.
+    { domain = publicDomain; answer = host.tailscaleIp; }
+    { domain = "*.${publicDomain}"; answer = host.tailscaleIp; }
   ];
 
   # Needed so step-ca can resolve homelab subdomains during HTTP-01 challenge verification.
   # AdGuard Home also reads /etc/hosts before applying dns.rewrites, so this must
   # match the rewrite IP — otherwise AdGuard returns this entry and the rewrite
   # never fires for the apex / listed subdomains.
-  networking.hosts.${host.lanIp} = [ domain ] ++ map (s: "${s}.${domain}") subdomains;
+  networking.hosts = {
+    ${host.lanIp} = [ domain ] ++ map (s: "${s}.${domain}") subdomains;
+    ${host.tailscaleIp} = [ publicDomain ] ++ map (s: "${s}.${publicDomain}") subdomains;
+  };
 }

@@ -60,6 +60,13 @@
     mode = "0600";
   };
 
+  # Traefik
+  services.onepassword-secrets.secrets.cloudflareDnsToken = {
+    reference = "op://Homelab/pfm23ham47cqs5noxcxsvqf7ci/kazgl6vaqr4piwcubc33idnyum";
+    owner = "root";
+    mode = "0600";
+  };
+
   # Glance
   services.onepassword-secrets.secrets.waqiToken = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/Air Quality Open Data Platform/API token";

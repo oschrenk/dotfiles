@@ -28,6 +28,7 @@
   # names in /etc/hosts.
   my.domain.homelab = {
     name = "home.lan";
+    publicName = "lab.oschrenk.gt";
     hostName = "pi-1";
     subdomains = [ "beszel" "gatus" "adguard" "unifi" "fusion" ];
   };
