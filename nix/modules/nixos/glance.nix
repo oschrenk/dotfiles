@@ -66,6 +66,24 @@ in
                 {
                   type = "clock";
                   hour-format = "24h";
+                  timezones = [
+                    {
+                      timezone = "America/Guatemala";
+                      label = "Guatemala";
+                    }
+                    {
+                      timezone = "Europe/Amsterdam";
+                      label = "Amsterdam";
+                    }
+                    {
+                      timezone = "Europe/Berlin";
+                      label = "Düsseldorf";
+                    }
+                    {
+                      timezone = "Asia/Ho_Chi_Minh";
+                      label = "Ho Chi Minh";
+                    }
+                  ];
                 }
                 {
                   type = "calendar";
