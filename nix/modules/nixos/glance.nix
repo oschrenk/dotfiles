@@ -2,8 +2,6 @@
 let
   domain = config.my.domain.homelab.name;
 
-  # Glance sizes everything in rem off `:root { font-size: 10px }`, so raising
-  # that one value scales all text. Served from assets-path as /assets/custom.css.
   assets = pkgs.runCommand "glance-assets" { } ''
     mkdir -p $out
     echo ':root { font-size: 11px; }' > $out/custom.css
@@ -11,9 +9,6 @@ let
   opnixUnit = "opnix-secrets.service";
 in
 {
-  # Glance runs with DynamicUser, so opnix can't chown the token to it. Write it
-  # into a root-owned env file instead — systemd reads EnvironmentFile as root,
-  # and glance expands ${WAQI_TOKEN} in its config at load time.
   systemd.services.glance-env = {
     description = "Write Glance environment file from opnix secrets";
     before = [ "glance.service" ];
@@ -86,7 +81,6 @@ in
                   groups = [
                     {
                       title = "Homelab";
-                      # Sorted by title.
                       links = [
                         {
                           title = "AdGuard Home";
@@ -123,11 +117,6 @@ in
                   units = "metric";
                   hour-format = "24h";
                 }
-                # CINCOHILOS (Zone 14) is the only Guatemala City sensor that
-                # still reports — the official US Embassy station in WAQI's
-                # `/search/` index went dark in March 2025. It is an AirNet/Gaia
-                # sensor, so its feed id is `A518311`, not `@518311`, and it
-                # only publishes particulates: no humidity, ozone or pressure.
                 {
                   type = "custom-api";
                   title = "Air Quality";

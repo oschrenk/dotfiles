@@ -11,18 +11,13 @@ in
     port = lib.mkOption {
       type = lib.types.port;
       default = 8083;
-      description = ''
-        Port fusion listens on. Upstream binds all interfaces and offers no
-        bind-host setting, so exposure is controlled by the firewall: only 443
-        is open to the LAN, while tailscale0 is a trustedInterface (base.nix)
-        and can reach this port directly.
-      '';
+      description = "Port fusion listens on.";
     };
 
     dbPath = lib.mkOption {
       type = lib.types.str;
       default = "${dataDir}/fusion.db";
-      description = "SQLite database file. The whole application state lives here.";
+      description = "Path to the SQLite database file.";
     };
   };
 
@@ -33,8 +28,6 @@ in
     };
     users.groups.fusion = { };
 
-    # Fusion reads its password from FUSION_PASSWORD, but opnix stores the bare
-    # value. Same shape as gatus-env: turn the secret into a systemd env file.
     systemd.services.fusion-env = {
       description = "Write fusion environment file from opnix secrets";
       before = [ "fusion.service" ];
@@ -63,8 +56,6 @@ in
       environment = {
         FUSION_PORT = toString cfg.port;
         FUSION_DB_PATH = cfg.dbPath;
-        # Traefik is the only proxy in front of fusion; trusting it means the
-        # login rate limiter sees real client IPs instead of 127.0.0.1.
         FUSION_TRUSTED_PROXIES = "127.0.0.1";
       };
 

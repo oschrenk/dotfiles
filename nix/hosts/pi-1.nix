@@ -54,7 +54,6 @@
   };
 
   # Fusion
-  # Web login password; also the Fever API password used by Reeder.
   services.onepassword-secrets.secrets.fusionPassword = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/Fusion/password";
     owner = "fusion";
@@ -62,7 +61,6 @@
   };
 
   # Glance
-  # WAQI token for the air-quality widget (read by glance-env, not glance itself).
   services.onepassword-secrets.secrets.waqiToken = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/Air Quality Open Data Platform/API token";
     owner = "root";
@@ -120,7 +118,6 @@
   services.restic-beszel.backupSchedule = "*-*-* 01:00:00";
   services.restic-adguard.backupSchedule = "*-*-* 01:15:00";
   services.restic-step-ca.backupSchedule = "*-*-* 01:30:00";
-  # 01:45 stays free for pi-3, so fusion goes at 02:00.
   services.restic-fusion.backupSchedule = "*-*-* 02:00:00";
 
   services.backup-healthcheck.checks = {

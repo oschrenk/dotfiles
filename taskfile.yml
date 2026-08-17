@@ -99,6 +99,8 @@ tasks:
       - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --flake .#hetzner-1 --target-host oliver@hetzner-1 --build-host builder@linux-builder --sudo
   tailscale-unas:
     desc: Install and configure Tailscale on UNAS2
+    # The auth key lives in 1Password: vault "Homelab" → item "Tailscale / AuthKeys" → field "unas".
+    # Keys expire after 90 days; generate a replacement at https://login.tailscale.com/admin/settings/keys
     cmds:
       - ssh root@unas.local env "TAILSCALE_AUTHKEY=$(op read 'op://2udkjdngrnb6jlr62cd7iq33de/2imqxgbvx6htswijyuswh72kye/unas')" sh -s < scripts/setup-tailscale-unas.sh
   nix-update-preview:

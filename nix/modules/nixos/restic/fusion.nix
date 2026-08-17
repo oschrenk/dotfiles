@@ -18,9 +18,6 @@ in
 
   config = {
     services.restic.backups.fusion = {
-      # Back up a snapshot, not the live database. Restic reading fusion.db
-      # mid-write can capture a torn state that won't open; sqlite's own
-      # .backup produces a consistent copy while the service keeps running.
       paths = [ snapshot ];
       repository = "/mnt/unas_backup/restic-pi1";
       passwordFile = "/var/lib/opnix/secrets/resticPassword";
