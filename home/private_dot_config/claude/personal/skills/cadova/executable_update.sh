@@ -2,9 +2,14 @@
 # Refresh the Cadova + Helical reference material bundled in this skill.
 # Run manually when upstream ships a new release.
 #
-#   bash update.sh                       # pins below (Cadova 0.8.1 / Helical 1.0.3)
+#   bash update.sh                       # pins below (Cadova 0.9.1 / Helical 1.0.4)
 #   CADOVA_VERSION=main bash update.sh   # track latest instead
 #   HELICAL_VERSION=1.0.3 bash update.sh # override individually
+#
+# Upstream moved its documentation out of the GitHub wiki and into a DocC
+# catalog that ships inside the repo (Sources/Cadova/Cadova.docc). The wiki is
+# now a single stub page, so this script no longer clones it — it copies the
+# DocC articles out of the source checkout instead. They are already markdown.
 
 set -euo pipefail
 
@@ -12,8 +17,8 @@ SKILL_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SKILL_DIR"
 
 # Keep these in sync with the versions your projects pin in Package.swift.
-CADOVA_VERSION="${CADOVA_VERSION:-0.8.1}"
-HELICAL_VERSION="${HELICAL_VERSION:-1.0.3}"
+CADOVA_VERSION="${CADOVA_VERSION:-0.9.1}"
+HELICAL_VERSION="${HELICAL_VERSION:-1.0.4}"
 
 # clone_or_update <repo-url> <dir> <ref>
 clone_or_update() {
@@ -28,37 +33,36 @@ clone_or_update() {
     fi
 }
 
-echo ">> Refreshing Cadova wiki (wiki/cadova)..."
-if [ -d "wiki/cadova/.git" ]; then
-    git -C wiki/cadova pull --ff-only
-else
-    rm -rf wiki/cadova
-    mkdir -p wiki
-    git clone --depth 1 https://github.com/tomasf/Cadova.wiki.git wiki/cadova
-fi
-
-echo ">> Refreshing Cadova source ($CADOVA_VERSION) — for DocC comments..."
+echo ">> Refreshing Cadova source ($CADOVA_VERSION)..."
 clone_or_update https://github.com/tomasf/Cadova.git sources/cadova "$CADOVA_VERSION"
 
-# Helical (screw threads, bolts, nuts) has no wiki upstream — source only.
+# Helical (screw threads, bolts, nuts) has no prose docs upstream — source only.
 echo ">> Refreshing Helical source ($HELICAL_VERSION)..."
 clone_or_update https://github.com/tomasf/Helical.git sources/helical "$HELICAL_VERSION"
 
-echo ">> Extracting Examples wiki page..."
-if [ -f wiki/cadova/Examples.md ]; then
-    cp wiki/cadova/Examples.md examples.md
-    echo "   examples.md updated"
+echo ">> Extracting DocC articles to docs/..."
+DOCC="sources/cadova/Sources/Cadova/Cadova.docc"
+if [ -d "$DOCC" ]; then
+    rm -rf docs
+    mkdir -p docs
+    cp "$DOCC"/*.md docs/
+    # The style guide is repo-root, not part of the catalog, but it explains the
+    # idioms the API expects you to write in.
+    [ -f sources/cadova/CadovaStyleGuide.md ] && cp sources/cadova/CadovaStyleGuide.md docs/
+    echo "   $(ls docs/*.md | wc -l | tr -d ' ') markdown files in docs/"
 else
-    echo "   WARNING: wiki/cadova/Examples.md not found"
+    echo "   ERROR: $DOCC not found — did the catalog move again?" >&2
+    exit 1
 fi
 
+# Remove material from the old wiki-based layout, if a previous run left it.
+rm -rf wiki examples.md
+
 echo ">> Snapshot of versions:"
-echo "   wiki:    $(git -C wiki/cadova rev-parse --short HEAD)"
 echo "   cadova:  $(git -C sources/cadova rev-parse --short HEAD) ($(git -C sources/cadova describe --tags --always 2>/dev/null || echo 'no tag'))"
 echo "   helical: $(git -C sources/helical rev-parse --short HEAD) ($(git -C sources/helical describe --tags --always 2>/dev/null || echo 'no tag'))"
 
 echo ">> Done. Reference material is in:"
-echo "   - $SKILL_DIR/wiki/cadova/      (Cadova wiki, grep-friendly)"
-echo "   - $SKILL_DIR/sources/cadova/   (Cadova source with DocC comments)"
+echo "   - $SKILL_DIR/docs/             (Cadova guides, markdown — read these first)"
+echo "   - $SKILL_DIR/sources/cadova/   (Cadova source with DocC comments — authoritative API)"
 echo "   - $SKILL_DIR/sources/helical/  (Helical source — bolts, threads, nuts)"
-echo "   - $SKILL_DIR/examples.md       (Examples page for quick scanning)"

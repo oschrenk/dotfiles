@@ -6,122 +6,147 @@ user-invocable: true
 
 # Cadova
 
-Swift DSL for parametric 3D modeling. Pre-1.0 — API may shift between minor versions. This skill bundles a snapshot of upstream docs.
+Swift DSL for parametric 3D modeling. Pre-1.0 — the API shifts between minor
+versions, so **verify against the bundled source rather than recalling an API
+from memory**. This skill bundles a snapshot of upstream docs and source.
 
-## Bundled reference (use these first, before WebFetch)
+Bundled snapshot: **Cadova 0.9.1**, **Helical 1.0.4**. Run `update.sh` to refresh.
 
-- `wiki/` — full Cadova wiki, grep-friendly markdown. Key pages:
-  - `wiki/Getting-Started.md` — Package.swift template, hello-world
-  - `wiki/Core-Concepts:-1.-Geometry.md` through `5.-Model-and-Project.md`
-  - `wiki/Working-with-Parts.md` — multi-part models, materials
-  - `wiki/Troubleshooting.md`
-- `examples.md` — copy of the Examples wiki page (Chamfer, materials, swept text, loft, …) for quick scanning
-- `source/Sources/Cadova/` — Cadova source with inline DocC comments. The authoritative API reference. Grep here when uncertain about method names or parameters.
+## Where to look, in order
 
-When the user asks about a Cadova type, primitive, or operation: **grep `source/Sources/Cadova/` first**, then fall back to the wiki. Avoid inventing method names — Cadova's pre-1.0 API is too easy to hallucinate.
+1. **`docs/`** — 21 guide articles plus the style guide, plain markdown, grep-friendly.
+   This is upstream's own documentation (its DocC catalog), so it is current with
+   the pinned version. Read these before searching the web.
+2. **`sources/cadova/Sources/Cadova/`** — the source, with DocC comments on every
+   public symbol. **The authoritative API reference.** Grep here whenever you are
+   unsure of a method name, a parameter label, or a default.
+3. **`sources/helical/Sources/Helical/`** — Helical (threads, screws, bolts, nuts,
+   washers, holes). No prose docs upstream; source only.
 
-## Hard facts to remember
+Only reach for the web if all three miss. Upstream publishes the same docs at
+<https://cadova.org/docs>.
+
+> Upstream **retired its GitHub wiki** — it is now a single stub page pointing at
+> the DocC catalog. Anything referring to `wiki/` or `examples.md` in this skill
+> is stale; the content moved to `docs/`.
+
+## The guides in `docs/`
+
+| Looking for | Read |
+| --- | --- |
+| First model, Package.swift template | `GettingStarted.md`, `WhatIsCadova.md` |
+| How geometry composes; booleans | `GeometryConcepts.md` |
+| `Vector3D`, `Direction3D`, `Angle`, `°` | `VectorsAndAngles.md` |
+| translate / rotate / scale / mirror | `Transformations.md` |
+| `.aligned(at:)`, `Stack` | `AlignmentAndStacking.md` |
+| Bounding boxes, `measuringBounds` | `MeasuringGeometry.md` |
+| `@Environment`, segmentation, tolerances | `EnvironmentConcepts.md` |
+| Anchors, tags, attaching parts together | `AnchorsAndTags.md` |
+| `Model`, `Project`, output formats | `ModelAndProject.md` |
+| `.extruded`, `.revolved`, edge profiles | `ExtrusionAndRevolution.md` |
+| `BezierPath`, sweeps, `.swept(along:)` | `CurvesAndPaths.md` |
+| Twist, warp, deform, loft | `BendingAndDeforming.md` |
+| Arrays, mirrored copies, patterns | `RepetitionAndPatterns.md` |
+| Splitting a model for printing | `CuttingAndSplitting.md` |
+| Overhangs, tolerances, print orientation | `DesigningFor3DPrinting.md` |
+| Multi-part models, materials, colours | `WorkingWithParts.md` |
+| Worked examples | `Examples.md` |
+| Something crashes or renders wrong | `Troubleshooting.md` |
+| Idioms upstream expects you to write | `CadovaStyleGuide.md` |
+| Caching, the node graph, evaluation | `Internals.md` |
+
+## Source tree map
+
+`sources/cadova/Sources/Cadova/`
+
+| Directory | Holds |
+| --- | --- |
+| `Abstract Layer/2D`, `/3D` | Primitives — `Box`, `Sphere`, `Cylinder`, `Circle`, `Rectangle`, `Text`, … |
+| `Abstract Layer/Operations/` | Everything you chain: `Boolean/`, `Extrude/`, `Loft/`, `Edge Profiling/`, `Transformations/`, `Duplication/`, `Offsetting/`, `Stack.swift`, `Split3D.swift`, `Twist.swift`, `Warp.swift` |
+| `Abstract Layer/Environment/` | `@Environment` values — segmentation, twist rate |
+| `Values/` | `Vector3D`, `Angle`, `BoundingBox`, edge profiles, materials, colours |
+| `Concrete Layer/` | `Model`, `Project`, and the output writers (3MF, STL, SVG) |
+| `Node Layer/` | The evaluation graph. You rarely touch this. |
+
+`sources/helical/Sources/Helical/`: `Bolt/`, `Nut/`, `Screw.swift`, `Thread/`,
+`Washers/`, `Holes/`, `LeadIn.swift`.
+
+Useful greps:
+
+```sh
+grep -rn "func swept" sources/cadova/Sources/Cadova/     # confirm a signature
+grep -rE "public (struct|enum|func|protocol)" sources/cadova/Sources/Cadova/
+grep -rni "chamfer" docs/                                 # concept first
+```
+
+## Hard facts
 
 ### Units: millimeters only
-- All `Double` dimensions are millimeters. There is no `Length`/`Measurement<UnitLength>` type.
+- Every `Double` dimension is millimeters. There is no `Length` or
+  `Measurement<UnitLength>` type.
 - `Measurements2D.area` is mm², `Measurements3D.volume` is mm³.
 - Inches → multiply by `25.4` yourself.
 
-### Entry point: `await Model(...)`
-- `Model` is async. Top-level use requires `await`.
-- The closure body is a result-builder DSL — no `return`, just stack shapes.
-- Running the executable writes `<name>.3mf` to the working directory.
+### `Geometry2D` / `Geometry3D`, not `Shape2D` / `Shape3D`
+`Shape2D` and `Shape3D` are **deprecated** as of 0.9 (`Compatibility.swift`) —
+conform to `Geometry2D` / `Geometry3D` directly. Existing code still compiles,
+with a warning per conformance.
 
 ```swift
-import Cadova
-
-await Model("widget") {
-    Box([10, 10, 5])
-        .subtracting {
-            Sphere(diameter: 10).translated(z: 5)
-        }
+struct KickPlate: Geometry3D {          // not Shape3D
+    var body: any Geometry3D { Box([w, t, h]) }
 }
 ```
 
-### Required Package.swift bits
-- `// swift-tools-version: 6.1` (minimum)
-- `platforms: [.macOS(.v14)]`
-- Target needs `swiftSettings: [.interoperabilityMode(.Cxx)]` — Cadova bridges to Manifold (C++)
-- Pin with `.upToNextMinor(from: "X.Y.Z")` because Cadova is pre-1.0
+### Entry points are async
+- `Model` and `Project` are async — `await` them, including at top level in `main.swift`.
+- Closure bodies are result builders. No `return`; stack geometry.
+- `Project(root:)` takes a `String?` path (or a `URL?`); `Project(packageRelative:)`
+  resolves against the package root. A bare `Model` writes to the working directory.
+- Two models may share a name if their output formats differ (`.3mf` and `.stl`).
 
-### Package.resolved
-- Executable (model) project → commit `Package.resolved` for reproducible builds.
-- Library → gitignore it.
+```swift
+await Project(root: "Build/Caddy") {
+    await Model("caddy") { Cabinet() }                       // → caddy.3mf
+    await Model("caddy", options: .format3D(.stl)) { … }     // → caddy.stl
+    await Model("Nesting", options: .format2D(.svg)) { … }   // → Nesting.svg
+}
+```
 
-## API quick-reference (verified against 0.6.1 source)
+### Booleans take closures, not arrays
+`.adding { }`, `.subtracting { }`, `.intersecting { }` — or the free builders
+`Union { }`, `Difference { }`, `Intersection { }`.
 
-Always grep `source/` to confirm — this list is a starting point, not exhaustive.
+### Package.swift requirements
+- `// swift-tools-version: 6.1` minimum, `platforms: [.macOS(.v14)]`
+- **Every** target touching Cadova needs
+  `swiftSettings: [.interoperabilityMode(.Cxx)]`. Cadova wraps the C++ Manifold
+  kernel and the setting does **not** propagate across a module boundary — a
+  shared library and each executable that imports it both need it.
+- Commit `Package.resolved` for model projects; gitignore it for libraries.
 
-### 2D primitives
-- `Circle(diameter:)`, `Circle(radius:)`
-- `Rectangle([x, y])`, `Rectangle(x:, y:)`
-- `RegularPolygon(sideCount:, widthAcrossFlats:)` (also `circumradius:`, `inradius:`)
-- `Text(_:)` with `.withFont(_:, style:, size:)`
+### Toolchain gotcha
+manifold-swift **below 1.1.1** segfaults on Swift 6.4 when the 3MF writer reads
+`MeshGL.originalIDs` — the runtime cannot resolve a `Sequence` conformance on a
+C++ `std::vector`. STL output is unaffected. Do not pin below 1.1.1.
 
-### 3D primitives
-- `Box([x, y, z])`, `Box(x:, y:, z:)`
-- `Sphere(diameter:)`, `Sphere(radius:)`
-- `Cylinder(diameter:, height:)`, `Cylinder(bottomDiameter:, topDiameter:, height:)`
+## The woodwork repo
 
-### Booleans (closures, not arrays)
-- `.subtracting { ... }` / `.intersecting { ... }` / `.adding { ... }`
-- Or the free functions `Union { }`, `Difference { }`, `Intersection { }`
+`~/Projects/resources/woodwork` — one Swift package, a shared `Woodwork` library
+plus one executable target per furniture project.
 
-### Transforms
-- `.translated(x:, y:, z:)`, `.rotated(x:, y:, z:)` (angles in `Angle` type — `90°` literal works)
-- `.scaled(_:)`, `.mirrored(in:)`
-- `.clonedAt(x:)` — places a copy at offset, keeps original
-
-### 2D → 3D
-- `.extruded(height:)` — basic linear extrusion
-- `.extruded(height:, topEdge:, bottomEdge:)` — with edge profiles
-- `.revolved()` — around Y axis
-
-### Edge profiles (for `topEdge:`/`bottomEdge:` on extrude)
-- `.chamfer(depth:)`, `.chamfer(width:, height:)`
-- `.fillet(radius:)`
-- `.none`
-
-### Rounding (2D)
-- `.rounded(insideRadius:)`, `.rounded(outsideRadius:)`, `.rounded(radius:)`
-
-### Layout
-- `Stack(.x, spacing:) { ... }` / `Stack(.y, …)` / `Stack(.z, …)`
-- Alignment via `.aligned(at: .centerX, .bottom)` etc.
-
-### Materials & color
-- `.colored(.darkOrange)` (CSS color names available)
-- `.withMaterial(.glossyPlastic(.mediumSeaGreen))`, `.steel`, etc.
-
-## Conventions for caddy / parts work
-
-- The user is building parts in `/Users/oliver/Projects/parts/`. Each part is its own Swift executable package.
-- Build via Taskfile.yml — typically `task build` and `task run` (which writes the `.3mf`).
-- Run the executable to view results; `chamfer.3mf` and similar are gitignored.
-- The user opens 3MF in [CadovaViewer](https://github.com/tomasf/CadovaViewer) on macOS for live reload.
+- Build with `task build:<project>`; outputs land in `Build/<Project>/`.
+- Docs, cutlists, and shopping lists live in `Docs/<Project>/`.
+- Open the generated `.3mf` in [CadovaViewer](https://github.com/tomasf/CadovaViewer)
+  for live reload.
+- Adding a project: see `DEVELOPMENT.md`.
 
 ## Refreshing this skill
 
 ```sh
-bash $CLAUDE_CONFIG_DIR/skills/cadova/update.sh
+bash "$CLAUDE_CONFIG_DIR/skills/cadova/update.sh"
 ```
 
-This re-clones the wiki and Cadova source (defaults to latest `main`; set `CADOVA_VERSION=0.6.1` to pin). Re-run after upstream releases a new minor version.
-
-## Useful greps
-
-```sh
-# Find all public symbols
-grep -rE "public (struct|enum|class|func|extension|protocol)" source/Sources/Cadova/
-
-# Find a specific method
-grep -rn "func extruded" source/Sources/Cadova/
-
-# Search wiki for a concept
-grep -rni "alignment" wiki/
-```
+Re-clones Cadova and Helical at the versions pinned at the top of `update.sh`,
+then copies the DocC articles into `docs/`. Set `CADOVA_VERSION=main` to track
+latest. Keep the pins in step with the `Package.swift` of the project you work in.
