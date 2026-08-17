@@ -16,7 +16,6 @@
 # the markers is left untouched — add your own entries there freely.
 let
   domain = config.my.domain.homelab.name;
-  publicDomain = config.my.domain.homelab.publicName;
   homelabHost = config.my.domain.homelab.hostName;
 
   entries = [
@@ -24,17 +23,15 @@ let
       ip = config.my.nas.ip;
       names = [ config.my.nas.hostName ];
     }
-    # Everything under home.lan is served by pi-1's reverse proxy. Pinning them
-    # here means the homelab resolves without AdGuard being the active resolver.
     {
       ip = config.my.host.${homelabHost}.lanIp;
-      names = [ homelabHost domain ] ++ map (s: "${s}.${domain}") config.my.domain.homelab.subdomains;
+      names = [ homelabHost ];
     }
-    # ${publicDomain} is pinned to the tailnet address, so it works off-LAN too
-    # and needs Tailscale up either way.
+    # Everything under ${domain} is served by pi-1's reverse proxy, pinned to its
+    # tailnet address so it works off-LAN too. Needs Tailscale up either way.
     {
       ip = config.my.host.${homelabHost}.tailscaleIp;
-      names = [ publicDomain ] ++ map (s: "${s}.${publicDomain}") config.my.domain.homelab.subdomains;
+      names = [ domain ] ++ map (s: "${s}.${domain}") config.my.domain.homelab.subdomains;
     }
   ];
 

@@ -27,8 +27,7 @@
   # Shared so machines without the Traefik config (the Macs) can still pin the
   # names in /etc/hosts.
   my.domain.homelab = {
-    name = "home.lan";
-    publicName = "lab.oschrenk.gt";
+    name = "lab.oschrenk.gt";
     hostName = "pi-1";
     subdomains = [ "beszel" "gatus" "adguard" "unifi" "fusion" ];
   };

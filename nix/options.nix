@@ -25,13 +25,12 @@
   };
 
   options.my.domain.homelab = {
-    name = lib.mkOption { type = lib.types.str; };
-    publicName = lib.mkOption {
+    name = lib.mkOption {
       type = lib.types.str;
       description = ''
-        Publicly registered domain serving the same routes as `name`, with
-        certificates from Let's Encrypt. Resolves to the reverse proxy's
-        Tailscale address, so it is reachable only over the tailnet.
+        Publicly registered domain serving the homelab, with certificates from
+        Let's Encrypt. Resolves to the reverse proxy's Tailscale address, so it
+        is reachable only over the tailnet.
       '';
     };
     hostName = lib.mkOption { type = lib.types.str; };

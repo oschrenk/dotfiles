@@ -2,23 +2,31 @@
 let
   cfg = config.services.homelab;
   domain = config.my.domain.homelab.name;
-  publicDomain = config.my.domain.homelab.publicName;
 
   entrypointHttp = "web";
   entrypointHttps = "websecure";
-  certResolver = "internal";
-  publicCertResolver = "letsencrypt";
+  certResolver = "letsencrypt";
   acmeStorage = "/var/lib/traefik/acme.json";
   envFile = "/run/traefik.env";
   opnixUnit = "opnix-secrets.service";
-  # 'localhost' not '127.0.0.1': Go TLS requires a DNS SAN; step-ca has 'localhost' but no IP SAN.
-  caUrl = "https://localhost:${toString config.services.homelab-ca.port}/acme/acme/directory";
+
+  # One wildcard for every route, so Certificate Transparency logs don't
+  # enumerate the services.
+  tls = {
+    inherit certResolver;
+    domains = [
+      {
+        main = domain;
+        sans = [ "*.${domain}" ];
+      }
+    ];
+  };
 
   mkRouter = name: {
     rule = "Host(`${name}.${domain}`)";
     service = name;
     entryPoints = [ entrypointHttps ];
-    tls.certResolver = certResolver;
+    inherit tls;
   };
 
   # Upstreams presenting a self-signed cert (unifi) go through this transport.
@@ -35,23 +43,6 @@ let
     host = "127.0.0.1";
     inherit port;
     insecureTls = false;
-  };
-
-  publicTls = {
-    certResolver = publicCertResolver;
-    domains = [
-      {
-        main = publicDomain;
-        sans = [ "*.${publicDomain}" ];
-      }
-    ];
-  };
-
-  mkPublicRouter = name: {
-    rule = "Host(`${name}.${publicDomain}`)";
-    service = name;
-    entryPoints = [ entrypointHttps ];
-    tls = publicTls;
   };
 in
 {
@@ -95,6 +86,7 @@ in
   config = {
     services.traefik = {
       enable = true;
+      environmentFiles = [ envFile ];
       staticConfigOptions = {
         entryPoints.${entrypointHttp} = {
           address = ":80";
@@ -107,16 +99,10 @@ in
         certificatesResolvers.${certResolver}.acme = {
           email = config.my.personal.email;
           storage = acmeStorage;
-          caServer = caUrl;
-          httpChallenge.entryPoint = entrypointHttp;
-        };
-        certificatesResolvers.${publicCertResolver}.acme = {
-          email = config.my.personal.email;
-          storage = acmeStorage;
           dnsChallenge = {
             provider = "cloudflare";
-            # Public resolvers, not the host's: AdGuard rewrites *.${publicDomain}
-            # to a LAN address, which would break lego's propagation check.
+            # Public resolvers, not the host's: AdGuard rewrites *.${domain}
+            # to a tailnet address, which would break lego's propagation check.
             resolvers = [
               "1.1.1.1:53"
               "8.8.8.8:53"
@@ -131,25 +117,13 @@ in
             rule = "Host(`${domain}`)";
             service = "apex";
             entryPoints = [ entrypointHttps ];
-            tls.certResolver = certResolver;
-          };
-          apex-public = {
-            rule = "Host(`${publicDomain}`)";
-            service = "apex";
-            entryPoints = [ entrypointHttps ];
-            tls = publicTls;
+            inherit tls;
           };
         }
         // builtins.listToAttrs (
           map (r: {
             name = r.name;
             value = mkRouter r.name;
-          }) cfg.routes
-        )
-        // builtins.listToAttrs (
-          map (r: {
-            name = "${r.name}-public";
-            value = mkPublicRouter r.name;
           }) cfg.routes
         );
         services = {
@@ -180,9 +154,6 @@ in
       };
     };
 
-    services.traefik.environmentFiles = [ envFile ];
-
-    # Trust step-ca's TLS cert when lego connects to the internal ACME endpoint.
     systemd.services.traefik = {
       after = [
         opnixUnit
@@ -192,10 +163,6 @@ in
         opnixUnit
         "traefik-env.service"
       ];
-      environment.LEGO_CA_CERTIFICATES = "/run/step-ca-root.crt";
-      # Without this, the step-ca root above REPLACES lego's trust store and it
-      # cannot verify Let's Encrypt's own API certificate.
-      environment.LEGO_CA_SYSTEM_CERT_POOL = "true";
     };
 
     # tailscale0 is a trustedInterface (base.nix), so Tailscale traffic bypasses

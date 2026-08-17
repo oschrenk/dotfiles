@@ -82,29 +82,6 @@
     mode = "0600";
   };
 
-  # step-ca
-  # Root CA cert — traefik's lego client trusts it via LEGO_CA_CERTIFICATES (homelab.nix).
-  services.onepassword-secrets.secrets.stepCaConfig = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/zf43l4tp5emchhsa75o5i46b5u/ql6hn7chrecivmrns4wextxvfe";
-    path = "/run/step-ca.json";
-    owner = "step-ca";
-    mode = "0600";
-  };
-
-  services.onepassword-secrets.secrets.stepCaPassword = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/zf43l4tp5emchhsa75o5i46b5u/password";
-    path = "/run/step-ca-password";
-    owner = "root";
-    mode = "0600";
-  };
-
-  services.onepassword-secrets.secrets.stepCaRootCert = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/zf43l4tp5emchhsa75o5i46b5u/pu4k27p33n2a5g4mlwztdzzmeq";
-    path = "/run/step-ca-root.crt";
-    owner = "root";
-    mode = "0644";
-  };
-
   # Backups
   # Restic repository encryption password
   services.onepassword-secrets.secrets.resticPassword = {
@@ -124,7 +101,6 @@
   # 15-minute intervals are sufficient; this also leaves 01:45 free for pi-3.
   services.restic-beszel.backupSchedule = "*-*-* 01:00:00";
   services.restic-adguard.backupSchedule = "*-*-* 01:15:00";
-  services.restic-step-ca.backupSchedule = "*-*-* 01:30:00";
   services.restic-fusion.backupSchedule = "*-*-* 02:00:00";
 
   services.backup-healthcheck.checks = {
@@ -136,10 +112,6 @@
     adguard = {
       port = 8100;
     };
-  };
-
-  services.backup-healthcheck.checks.step-ca = {
-    port = 8101;
   };
 
   services.backup-healthcheck.checks.fusion = {

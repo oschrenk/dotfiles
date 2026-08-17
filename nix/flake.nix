@@ -81,7 +81,6 @@
             ./modules/nixos/base.nix
             ./modules/nixos/pi4-hardware.nix
             ./modules/nixos/secrets.nix
-            ./modules/nixos/step-ca.nix
             ./modules/nixos/homelab.nix
             ./modules/nixos/beszel/hub.nix
             ./modules/nixos/beszel/agent.nix
@@ -92,9 +91,8 @@
             ./modules/nixos/adguard.nix
             ./modules/nixos/fusion.nix
             ./modules/nixos/restic/adguard.nix
-            ./modules/nixos/restic/step-ca.nix
             ./modules/nixos/restic/fusion.nix
-            ./sites/home.lan.nix
+            ./sites/lab.oschrenk.gt.nix
             ./hosts/network.nix
             ./hosts/pi-1.nix
           ];
@@ -188,7 +186,6 @@
             ./modules/darwin/defaults/apps/com.apple.mail.nix
             ./modules/darwin/defaults/apps/com.apple.safari.nix
             ./modules/darwin/defaults/apps/com.henrikruscon.klack.nix
-            ./modules/darwin/homelab-ca.nix
             ./modules/darwin/linux-builder.nix
             ./modules/darwin/java.nix
             ./hosts/maxbook.nix
@@ -234,7 +231,6 @@
             ./modules/darwin/defaults/apps/com.apple.mail.nix
             ./modules/darwin/defaults/apps/com.apple.safari.nix
             ./modules/darwin/defaults/apps/com.henrikruscon.klack.nix
-            ./modules/darwin/homelab-ca.nix
             ./modules/darwin/linux-builder.nix
             ./modules/darwin/java.nix
             ./hosts/airbook.nix
