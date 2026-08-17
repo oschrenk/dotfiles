@@ -27,6 +27,10 @@ tasks:
   agents:
     cmds:
       - home/.chezmoiscripts/run_onchange_04_configure_services_launch_agents.sh
+  bootstrap:infuse:
+    desc: Clone the infuse data repo and give it a commit identity (run once, after 1Password is set up)
+    cmds:
+      - scripts/bootstrap-infuse.sh
   nix-setup-identity:
     desc: Create nix/identity.nix interactively (run once when forking or when identity changes)
     dir: nix
@@ -50,6 +54,10 @@ tasks:
       - '[ -f /etc/nix/builder_ed25519 ] && sudo chmod 600 /etc/nix/builder_ed25519 || true'
       - sudo /run/current-system/sw/bin/darwin-rebuild switch --flake "./nix#{{.HOSTNAME}}" --option warn-dirty false
       - '[ -f /etc/nix/builder_ed25519 ] && sudo chmod 644 /etc/nix/builder_ed25519 || true'
+      # gitwatch-infuse crash-loops when its repo is absent and reports it only
+      # to a logfile nobody reads. Warn, don't fail — a missing clone is not a
+      # reason to hold up the switch.
+      - '[ -d "$HOME/.local/share/infuse/.git" ] || echo "WARNING: ~/.local/share/infuse is missing — gitwatch-infuse will crash-loop. Run: task bootstrap:infuse" >&2'
     vars:
       HOSTNAME:
         sh: hostname -s
