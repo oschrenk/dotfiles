@@ -60,10 +60,10 @@ function Sessions.new(icons, style, sessionizer)
       end
 
       session:subscribe({ "mouse.clicked" }, function(_)
-        sessionizer.sessions(function(sessions)
+        sessionizer.sessions(function(sessions, sock)
           local s = sessions[i]
           if s ~= nil then
-            sessionizer.open(s.name)
+            sessionizer.open(s.name, sock)
           end
         end)
       end)

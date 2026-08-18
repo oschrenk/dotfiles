@@ -26,19 +26,25 @@ function Sessionizer.new(socket, fallback)
 
   -- Run a sessionizer subcommand on `socket`; if the result is empty and a
   -- fallback socket is configured, retry there. sbar.exec parses the --json.
+  -- `onComplete` also receives the socket the result actually came from, so
+  -- callers can open a deeplink against the right tmux server.
   local function run(subcommand, onComplete)
     sbar.exec(bin .. socketArg(socket) .. " " .. subcommand, function(result)
       if fallback and isEmpty(result) then
-        sbar.exec(bin .. socketArg(fallback) .. " " .. subcommand, onComplete)
+        sbar.exec(bin .. socketArg(fallback) .. " " .. subcommand, function(fallbackResult)
+          onComplete(fallbackResult, fallback)
+        end)
       else
-        onComplete(result)
+        onComplete(result, socket)
       end
     end)
   end
 
-  self.open = function(sessionName)
+  -- @param sock socket the session lives on; nil = default tmux server
+  self.open = function(sessionName, sock)
     local encoded = strings.UrlEncode(sessionName)
-    sbar.exec(tlink .. ' open "tmux://' .. encoded .. '"')
+    local query = sock and ("?socket=" .. strings.UrlEncode(sock)) or ""
+    sbar.exec(tlink .. ' open "tmux://' .. encoded .. query .. '"')
   end
 
   self.sessions = function(onComplete)
