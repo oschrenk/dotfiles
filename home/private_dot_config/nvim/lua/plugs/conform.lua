@@ -45,6 +45,8 @@ return {
       -- brew install ktfmt
       kotlin = { "ktfmt", stop_after_first = true },
       lua = { "stylua" },
+      -- brew install rumdl
+      markdown = { "rumdl" },
       -- brew install black
       python = { "black" },
       -- brew install coursier
