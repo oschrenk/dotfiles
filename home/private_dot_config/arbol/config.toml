@@ -16,7 +16,10 @@ repos.forks = [
   { url = "git@github.com:oschrenk/tui-datepicker.git" },
 ]
 
-repos.i25a = [{ url = "git@github.com:oschrenk/i25a.gt.git" }]
+repos.i25a = [
+  { url = "git@github.com:oschrenk/i25a.gt.git" },
+  { url = "git@github.com:oschrenk/vacar.i25a.gt.git" },
+]
 
 repos.ops = [
   { url = "git@github.com:oschrenk/bramble.git" },
