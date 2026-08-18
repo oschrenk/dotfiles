@@ -94,6 +94,9 @@ return {
         args = { "--meta-style", "$FILENAME" },
         stdin = false,
       },
+      rumdl = {
+        args = { "fmt", "--silent", "--stdin-filename", "$FILENAME", "-" },
+      },
       taplo = function(bufnr)
         local config_file = vim.fs.find(
           { ".taplo.toml", "taplo.toml" },
