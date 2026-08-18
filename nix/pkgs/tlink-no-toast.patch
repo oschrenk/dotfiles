@@ -3,7 +3,7 @@ Upstream has no flag for this; the line is hardcoded in execute_switch.
 Border-flash hook below is left intact intentionally.
 --- a/src/open.rs
 +++ b/src/open.rs
-@@ -206,17 +206,6 @@
+@@ -211,17 +211,6 @@
 
      log!("execute_switch: switch-client SUCCEEDED — client is attached");
 
@@ -14,7 +14,7 @@ Border-flash hook below is left intact intentionally.
 -        _ => format!("tlink → {session}"),
 -    };
 -    log!("execute_switch: displaying toast '{label}'");
--    let _ = Command::new("tmux")
+-    let _ = tmux(target.socket.as_deref())
 -        .args(["display-message", "-d", "2000", "-t", &tmux_target, &label])
 -        .status();
 -

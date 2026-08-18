@@ -7,16 +7,18 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "tlink";
-  version = "0.1.5";
+  version = "0.1.5-socket-passthrough";
 
+  # Own fork: adds `?socket=<name>` passthrough so tmux servers on a named
+  # socket (`tmux -L <name>`) are reachable from deeplinks and agent hooks.
   src = fetchFromGitHub {
-    owner = "ahnopologetic";
+    owner = "oschrenk";
     repo = "tlink";
-    rev = "v${version}";
-    hash = "sha256-SiVRE5gWNXtHR2+ovfRwKjLBdrzuxz/luAvcYEt8oHQ=";
+    rev = "983bb2432e84aff5452c31902ca64c3b0fe9da3a";
+    hash = "sha256-usT9lenL8bJPzGdX+mtul4gB7dvLOIteag0pB6Lb6n4=";
   };
 
-  cargoHash = "sha256-YrcSoRLkvYZTFfeCpyAaGXXYT01dZczr79wsE9rTQSE=";
+  cargoHash = "sha256-aOIcXEQoomLMWs2Cs61nHOzTo1Ch6snyFd3qn/CGaf8=";
 
   # Strip the post-switch tmux status-bar toast (`tlink → <session>`).
   # Upstream has no flag for it; see patch header for details.
