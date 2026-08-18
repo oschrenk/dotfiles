@@ -39,4 +39,8 @@
       "x-systemd.idle-timeout=1min" # unmount after 1 min idle — keeps FAT32 partition safe from corruption
     ];
   };
+
+  # Traefik lives on pi-1, so bind beyond localhost. base.nix opens no LAN ports
+  # and trusts tailscale0, so only the tailnet can actually reach it.
+  services.kula.listenAddress = "0.0.0.0";
 }

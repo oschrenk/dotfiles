@@ -29,6 +29,18 @@
   my.domain.homelab = {
     name = "lab.oschrenk.gt";
     hostName = "pi-1";
-    subdomains = [ "beszel" "gatus" "adguard" "unifi" "fusion" ];
+    # One kula per host — it has no hub, so each pi serves its own dashboard.
+    # Flat names: the wildcard cert covers one label, so kula.pi-2.<domain> would
+    # not match.
+    subdomains = [
+      "beszel"
+      "gatus"
+      "adguard"
+      "unifi"
+      "fusion"
+      "kula-pi-1"
+      "kula-pi-2"
+      "kula-pi-3"
+    ];
   };
 }

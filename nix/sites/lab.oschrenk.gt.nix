@@ -34,6 +34,23 @@ in
       name = "fusion";
       port = config.services.fusion.port;
     }
+    # kula runs on every pi. pi-1's is local; the others are reached over the
+    # tailnet, not the LAN — base.nix opens no LAN ports there but trusts
+    # tailscale0, so the tailnet address is the one that answers.
+    {
+      name = "kula-pi-1";
+      port = config.services.kula.port;
+    }
+    {
+      name = "kula-pi-2";
+      host = config.my.host."pi-2".tailscaleIp;
+      port = config.services.kula.port;
+    }
+    {
+      name = "kula-pi-3";
+      host = config.my.host."pi-3".tailscaleIp;
+      port = config.services.kula.port;
+    }
     # UniFi runs on pi-3, not here, and serves its own self-signed cert on 8443.
     {
       name = "unifi";

@@ -117,6 +117,18 @@ in
                           url = "https://gatus.${domain}";
                         }
                         {
+                          title = "Kula pi-1";
+                          url = "https://kula-pi-1.${domain}";
+                        }
+                        {
+                          title = "Kula pi-2";
+                          url = "https://kula-pi-2.${domain}";
+                        }
+                        {
+                          title = "Kula pi-3";
+                          url = "https://kula-pi-3.${domain}";
+                        }
+                        {
                           title = "UniFi";
                           url = "https://unifi.${domain}";
                         }

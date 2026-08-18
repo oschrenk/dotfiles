@@ -115,6 +115,21 @@ in
             }
           ];
         }
+        {
+          name = "Services / Kula pi-1";
+          url = "http://127.0.0.1:${toString config.services.kula.port}/health";
+          interval = "5m";
+          conditions = [ "[STATUS] == 200" ];
+          alerts = [
+            {
+              type = "custom";
+              description = "Kula unreachable on pi-1 — host metrics stopped";
+            }
+          ];
+        }
+        # No check for pi-2/pi-3 kula: those hosts are powered down on purpose,
+        # so an endpoint check would alert on an intended state. Their dashboards
+        # are simply unreachable while off.
       ];
     };
   };
