@@ -1,8 +1,8 @@
 [extensions]
 md = "Neovide"
 mp4 = "IINA"
-wmv = "IINA"
 svg = "Affinity Designer 2"
+wmv = "IINA"
 
 [schemes]
 mailto = "Mail"
@@ -15,3 +15,4 @@ video = "IINA"
 "org.matroska.mkv" = "IINA"
 "org.webmproject.webm" = "IINA"
 "com.microsoft.windows-media-wmv" = "IINA"
+"com.rarlab.rar-archive" = "The Unarchiver"
