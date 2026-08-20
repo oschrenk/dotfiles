@@ -172,6 +172,7 @@
             ./modules/darwin/defaults/system/finder.nix
             ./modules/darwin/defaults/system/hotkeys.nix
             ./modules/darwin/defaults/system/keyboard.nix
+            ./modules/darwin/defaults/system/loginwindow.nix
             ./modules/darwin/defaults/system/menubar.nix
             ./modules/darwin/defaults/system/screenshots.nix
             ./modules/darwin/defaults/system/siri.nix
@@ -217,6 +218,7 @@
             ./modules/darwin/defaults/system/finder.nix
             ./modules/darwin/defaults/system/hotkeys.nix
             ./modules/darwin/defaults/system/keyboard.nix
+            ./modules/darwin/defaults/system/loginwindow.nix
             ./modules/darwin/defaults/system/menubar.nix
             ./modules/darwin/defaults/system/screenshots.nix
             ./modules/darwin/defaults/system/siri.nix
