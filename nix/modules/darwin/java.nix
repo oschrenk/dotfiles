@@ -15,13 +15,11 @@
 # keeps it composable with other modules that also set postActivation.
 {
   system.activationScripts.postActivation.text = lib.mkAfter ''
-    for v in 17 21; do
-      src="/opt/homebrew/opt/openjdk@$v/libexec/openjdk.jdk"
-      dst="/Library/Java/JavaVirtualMachines/openjdk-$v.jdk"
-      if [ -d "$src" ]; then
-        mkdir -p /Library/Java/JavaVirtualMachines
-        ln -sfn "$src" "$dst"
-      fi
-    done
+    src="/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk"
+    dst="/Library/Java/JavaVirtualMachines/openjdk-21.jdk"
+    if [ -d "$src" ]; then
+      mkdir -p /Library/Java/JavaVirtualMachines
+      ln -sfn "$src" "$dst"
+    fi
   '';
 }

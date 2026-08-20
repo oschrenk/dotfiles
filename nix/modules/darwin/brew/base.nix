@@ -99,7 +99,6 @@
 
     # jvm
     "coursier" # jvm, scala, artifact fetching
-    "openjdk@17" # jvm, sdk
     "openjdk@21" # jvm, sdk
     "openjdk" # jvm, sdk
     "oschrenk/personal/scip" # cli, source indexer
