@@ -438,6 +438,8 @@
       ".envrc"
       "TODO.md"
       ".scannerwork"
+      ".rumdl_cache"
+      ".task"
 
       # Claude
       "**/.claude/settings.local.json"
