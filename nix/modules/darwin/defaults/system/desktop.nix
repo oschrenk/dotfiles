@@ -21,4 +21,8 @@
     wvous-bl-corner = 4; # Desktop
     wvous-br-corner = 5; # Start screen saver
   };
+
+  # System Settings > Appearance > "Allow wallpaper tinting in windows".
+  # The key is the negation of the checkbox: true = no tinting.
+  system.defaults.NSGlobalDomain.AppleReduceDesktopTinting = true;
 }
