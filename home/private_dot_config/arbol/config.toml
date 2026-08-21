@@ -77,6 +77,7 @@ repos.tools = [
   { url = "git@github.com:oschrenk/helenite.swift.git" },
   { url = "git@github.com:oschrenk/infuse.git" },
   { url = "git@github.com:oschrenk/keyboard.swift.git" },
+  { url = "git@github.com:oschrenk/legends.git" },
   { url = "git@github.com:oschrenk/librelink.git" },
   { url = "git@github.com:oschrenk/lzsave.git" },
   { url = "git@github.com:oschrenk/meter.git" },
