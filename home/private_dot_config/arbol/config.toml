@@ -83,6 +83,7 @@ repos.tools = [
   { url = "git@github.com:oschrenk/lzsave.git" },
   { url = "git@github.com:oschrenk/meter.git" },
   { url = "git@github.com:oschrenk/mission.git" },
+  { url = "git@github.com:oschrenk/mother.git" },
   { url = "git@github.com:oschrenk/nightshift.swift.git" },
   { url = "git@github.com:oschrenk/plan.swift.git" },
   { url = "git@github.com:oschrenk/pomodoro.git" },
