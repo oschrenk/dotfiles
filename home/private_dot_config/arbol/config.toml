@@ -91,3 +91,7 @@ repos.tools = [
   { url = "git@github.com:oschrenk/usbi.git" },
   { url = "git@github.com:oschrenk/wallpaper.swift.git" },
 ]
+
+repos.wip = [
+  { url = "git@github.com:oschrenk/pulse.git" },
+]
