@@ -66,6 +66,7 @@ repos.timewax = [
 ]
 
 repos.tools = [
+  { url = "git@github.com:oschrenk/applaude.git" },
   { url = "git@github.com:oschrenk/arbol.git" },
   { url = "git@github.com:oschrenk/arto.git" },
   { url = "git@github.com:oschrenk/blink-cmp-browser.git" },
