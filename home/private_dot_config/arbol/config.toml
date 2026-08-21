@@ -86,6 +86,7 @@ repos.tools = [
   { url = "git@github.com:oschrenk/plan.swift.git" },
   { url = "git@github.com:oschrenk/pomodoro.git" },
   { url = "git@github.com:oschrenk/sessionizer.git" },
+  { url = "git@github.com:oschrenk/team.git" },
   { url = "git@github.com:oschrenk/up.git" },
   { url = "git@github.com:oschrenk/usbi.git" },
   { url = "git@github.com:oschrenk/wallpaper.swift.git" },
