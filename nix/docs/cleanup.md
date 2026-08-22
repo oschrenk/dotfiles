@@ -1,6 +1,6 @@
 # Cleaning Up Disk Space
 
-NixOS keeps every previous system generation in `/nix/store` until you explicitly garbage-collect. On a host with limited storage (e.g. a Pi on a USB stick), the store can balloon to many GB of unreachable paths from old generations, cancelled builds, and one-off package installs.
+NixOS keeps every previous system generation in `/nix/store` until you explicitly garbage-collect. On a host with limited storage (e.g. a Pi on a USB stick), the store fills with paths nothing references any more. Old generations account for most of it, with cancelled builds and one-off package installs behind them.
 
 ## Free up space
 
@@ -12,7 +12,7 @@ sudo nix-collect-garbage -d
 
 This removes every store path not referenced by the *current* system: old generations, dangling GC roots, build-time-only dependencies. After it finishes, any rollback to a previous generation is gone, but the running system is untouched.
 
-## Inspect where the bytes are
+## Inspect disk usage
 
 ```sh
 sudo du -sh /nix/store /var/lib /home /tmp /var/tmp 2>/dev/null

@@ -6,9 +6,9 @@ macOS system configuration via [nix-darwin](https://github.com/nix-darwin/nix-da
 
 ```
 nix/
-  flake.nix           — entry point, wires together all host configs
-  modules/common.nix  — shared configuration across all machines
-  hosts/maxbook.nix   — MaxBook-specific configuration
+  flake.nix           entry point, wires together all host configs
+  modules/common.nix  shared configuration across all machines
+  hosts/maxbook.nix   MaxBook-specific configuration
 ```
 
 ## First apply
@@ -39,9 +39,8 @@ Secrets are pulled from 1Password by [opnix](https://github.com/brizzbuzz/opnix)
 activation (declared in `modules/darwin/secrets.nix`). opnix authenticates with a
 1Password **service-account token** stored at `/etc/opnix-token`.
 
-This token is **not** managed by Nix — a rebuild will never create it, and if it is
-missing opnix logs a warning and exits 0, silently provisioning nothing. New secrets
-just never appear. `task nix-rebuild-darwin` preflights for it and aborts loudly, but on a fresh
+Nix does not manage this token. A rebuild will never create it. If it is missing,
+opnix logs a warning and exits 0, so new secrets simply never appear. `task nix-rebuild-darwin` preflights for it and aborts loudly, but on a fresh
 machine you must set it once:
 
 ```sh
@@ -61,7 +60,7 @@ tail /var/log/opnix-secrets.log   # expect "Successfully processed N secrets"
 
 Uses [nixfmt](https://github.com/NixOS/nixfmt) (the official Nix formatter, aliased as `nixfmt-rfc-style` in nixpkgs).
 
-Must be run from the `nix/` directory — `nix fmt` requires a `flake.nix` in the current directory. Use the task runner from the repo root:
+Must be run from the `nix/` directory, since `nix fmt` requires a `flake.nix` in the current directory. Use the task runner from the repo root:
 
 ```sh
 task nix-fmt
@@ -75,15 +74,15 @@ task nix-fmt
 
 ## Known warnings
 
-- `$HOME is not owned by you` — expected when running with `sudo`; nix-darwin switches to `/var/root` as home. Safe to ignore.
+- `$HOME is not owned by you`. Expected under `sudo`, where nix-darwin switches to `/var/root` as home. Safe to ignore.
 
 ## Notes
 
-- `system.stateVersion` — set once to the nix-darwin version at first apply, never change it
+- `system.stateVersion` is set once to the nix-darwin version at first apply. Never change it.
   - Check current version: `nix run nix-darwin -- --version`
   - See: https://github.com/nix-darwin/nix-darwin/blob/master/CHANGELOG.md
-- `nixpkgs-unstable` — used to avoid nix-darwin modules breaking on missing nixpkgs features
-- All changes are applied via `darwin-rebuild switch`, analogous to `chezmoi apply`
+- `nixpkgs-unstable` keeps nix-darwin modules from breaking on missing nixpkgs features
+- Changes apply via `darwin-rebuild switch`, analogous to `chezmoi apply`
 
 ## Home Manager
 
@@ -119,17 +118,17 @@ HM has `programs.<name>` modules for these tools (among many others):
 atuin  bat  direnv  fish  fzf  gh  git  htop  jq  neovim  ripgrep  starship  tmux  zoxide
 ```
 
-Full list: https://home-manager-options.extranix.com — search by program name.
+Full list: https://home-manager-options.extranix.com (search by program name).
 
 Tools without a HM module can still be managed via `home.file` for stable, secret-free configs.
 
 ### Notes
 
-- `home.stateVersion` — set once to the HM version at first apply, never change it. Tells HM which backwards-incompatible state migrations to skip.
+- `home.stateVersion` is set once to the HM version at first apply. Never change it: it tells HM which backwards-incompatible state migrations to skip.
 
 ## Pinning and updating packages
 
-All package versions are pinned by `nix/flake.lock`. To update:
+Package versions are pinned by `nix/flake.lock`. To update:
 
 ```fish
 # Update all inputs to their latest commits
@@ -177,7 +176,7 @@ Add a `flake.nix` to the project:
 }
 ```
 
-Add `use flake` to `.envrc` or `.envrc.local`. First activation downloads packages; subsequent ones are instant from cache.
+Add `use flake` to `.envrc` or `.envrc.local`. First activation downloads packages. Later ones are instant from cache.
 
 ### For company repos (can't commit flake.nix)
 
@@ -196,7 +195,7 @@ Nix resolves symlinks and checks git tracking against the wrong repo, causing:
 error: Path '.../flake.nix' does not exist in Git repository "/path/to/project"
 ```
 
-Workaround — resolve the symlink before passing to nix in `.envrc.local`:
+Workaround: resolve the symlink before passing to nix in `.envrc.local`:
 
 ```bash
 use flake "$(dirname $(readlink -f ./flake.nix))"

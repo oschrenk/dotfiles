@@ -149,7 +149,7 @@ mongodb-7_0 = pkgs'.mongodb-7_0.override {
 
 ### Don't run `create-builder` or `launchctl kickstart -k` by hand
 
-`create-builder` places `nixos.qcow2` and `keys/` in cwd. The launchd plist sets `WorkingDirectory=/var/lib/linux-builder`; invoking it outside launchd leaks root-owned files into wherever you ran it (e.g. into the chezmoi repo).
+`create-builder` places `nixos.qcow2` and `keys/` in cwd. The launchd plist sets `WorkingDirectory=/var/lib/linux-builder`. Invoke it outside launchd and it leaves root-owned files wherever you ran it, the chezmoi repo included.
 
 `sudo launchctl kickstart -k system/org.nixos.linux-builder` blocks waiting on launchd respawn-throttle and never returns. Always use `task nix-builder-restart` or `task nix-builder-force`.
 
