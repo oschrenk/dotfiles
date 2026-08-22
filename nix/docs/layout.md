@@ -1,8 +1,8 @@
 # Config Layout
 
-## Directory tree
+## Directory Tree
 
-```
+```text
 nix/
   flake.nix              - entry point; wires hosts to modules
   options.nix            - shared options.* namespace
@@ -70,7 +70,7 @@ nix/
     cleanup.md           - reclaiming disk space
 ```
 
-## Identity namespace: options.my.personal.*
+## Identity Namespace: `options.my.personal.*`
 
 All identity values flow through a single shared namespace declared in `options.nix` and set in `identity.nix`:
 
@@ -84,7 +84,7 @@ All identity values flow through a single shared namespace declared in `options.
 
 `my.personal.*` is deliberately namespaced to leave room for future areas: `my.work.*`, `my.homelab.*`, etc.
 
-## identity.nix
+## `identity.nix`
 
 `identity.nix` holds personal identity values (name, email, SSH public key, timezone, username) used across all hosts. It is:
 
@@ -105,4 +105,3 @@ The alternative, grouping by layer (`darwin/`, `home/`, `homelab/`), forces you 
 First, `darwin/` and `nixos/` are platform boundaries rather than feature boundaries. Strictly dendritic would have one `shell.nix` configuring fish across both darwin and NixOS, with platform guards inside the file. Platform-specific concerns (Homebrew, PAM, macOS preferences) are hard or impossible to share, so the platform directories are kept as a trade-off: they violate the "one file per feature" ideal but avoid the complexity of mixing darwin and NixOS expressions inside a single module.
 
 Second, within `nixos/`, related files are grouped into subdirectories by tool (`beszel/`, `restic/`) rather than by capability. Strictly dendritic would have a flat `monitoring.nix` or a `backup.nix` that owns everything. The subdirectory grouping is not dendritic. It sorts by tool rather than by capability, but it keeps related files together and makes the layout readable at a glance.
-

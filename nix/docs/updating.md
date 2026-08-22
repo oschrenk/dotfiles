@@ -2,7 +2,7 @@
 
 All commands run from `nix/`.
 
-## What are inputs?
+## What Are Inputs?
 
 The flake has five inputs declared in `flake.nix`:
 
@@ -16,7 +16,7 @@ The flake has five inputs declared in `flake.nix`:
 
 Each input is pinned to a specific commit in `flake.lock`. Nothing changes unless you explicitly update.
 
-## Updating inputs
+## Updating Inputs
 
 Update one input:
 
@@ -36,7 +36,7 @@ After updating, deploy the affected hosts to apply the changes.
 
 Commit `flake.lock` afterwards so every machine builds from the same pins.
 
-## Pinning an input to a commit
+## Pinning an Input to a Commit
 
 To hold an input at a known-good revision, put the commit in its URL:
 
@@ -45,7 +45,7 @@ To hold an input at a known-good revision, put the commit in its URL:
 nixpkgs.url = "github:NixOS/nixpkgs/abc123def456";
 ```
 
-## nixos-raspberrypi has its own nixpkgs
+## `nixos-raspberrypi` Has Its Own `nixpkgs`
 
 `nixos-raspberrypi` bundles its own nixpkgs pin (separate from ours). This is the nixpkgs used for the Pi builds - the RPi kernel and firmware are built against it.
 
@@ -57,7 +57,7 @@ Check which nixpkgs a Pi host is actually using:
 nix eval '.#nixosConfigurations.pi-2.pkgs.path' --raw
 ```
 
-## `follows` for Darwin vs Pi
+## `follows` For Darwin Vs Pi
 
 `nix-darwin` and `home-manager` both already use `follows = "nixpkgs"` in `flake.nix`. This is safe for the Mac because there is no kernel involved - all packages come from the binary cache and nothing needs to recompile when nixpkgs changes.
 
@@ -68,7 +68,7 @@ home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
 Do NOT add `follows` for `nixos-raspberrypi`. nixos-raspberrypi's kernel patches were built and cached against its own nixpkgs pin. Switching that pin invalidates the binary cache and forces a full RPi kernel recompile on the Pi - which takes hours. If a specific package in nixos-raspberrypi's nixpkgs is outdated, use a surgical overlay instead (see below).
 
-## Surgical package overrides
+## Surgical Package Overrides
 
 If a specific package in nixos-raspberrypi's nixpkgs is outdated or insecure, override just that package via `nixpkgs.overlays` instead of updating the whole nixpkgs:
 
@@ -83,7 +83,7 @@ nixpkgs.overlays = [
 
 This keeps the RPi kernel on its tested pin while pulling a specific package from a newer nixpkgs.
 
-## Checking current pins
+## Checking Current Pins
 
 ```sh
 # Show all current input revisions

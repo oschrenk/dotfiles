@@ -1,6 +1,6 @@
 # Homelab Architecture
 
-## Physical layout
+## Physical Layout
 
 How devices are connected at the network hardware level.
 
@@ -29,7 +29,7 @@ graph TD
     Netgear --> pi3
 ```
 
-## Tailscale overlay
+## Tailscale Overlay
 
 All devices are members of the `your-tailnet.ts.net` tailnet and can reach each other directly over WireGuard.
 

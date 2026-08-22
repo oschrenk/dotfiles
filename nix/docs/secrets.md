@@ -1,4 +1,4 @@
-# opnix
+# `opnix`
 
 Secrets pulled from 1Password at activation by
 [opnix](https://github.com/brizzbuzz/opnix), declared in `modules/darwin/secrets.nix`

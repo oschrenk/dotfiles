@@ -1,17 +1,17 @@
-# nix-darwin
+# `nix-darwin`
 
 macOS system configuration via [nix-darwin](https://github.com/nix-darwin/nix-darwin).
 
 ## Structure
 
-```
+```text
 nix/
   flake.nix           entry point, wires together all host configs
   modules/common.nix  shared configuration across all machines
   hosts/maxbook.nix   MaxBook-specific configuration
 ```
 
-## First apply
+## First Apply
 
 Run once to bootstrap nix-darwin (before `darwin-rebuild` is available):
 
@@ -23,7 +23,7 @@ sudo nix run nix-darwin -- switch --flake "$(dirname $(chezmoi source-path))/nix
 sudo nix run nix-darwin -- switch --flake (dirname (chezmoi source-path))"/nix#"(hostname -s)
 ```
 
-## Subsequent applies
+## Subsequent Applies
 
 ```bash
 darwin-rebuild switch --flake "$(dirname $(chezmoi source-path))/nix#$(hostname -s)"
@@ -50,13 +50,13 @@ Must be run from the `nix/` directory, since `nix fmt` requires a `flake.nix` in
 task nix-fmt
 ```
 
-## Adding a new machine
+## Adding a New Machine
 
 1. Create `hosts/<machine>.nix` with at least `system.stateVersion`
 2. Add an entry to `darwinConfigurations` in `flake.nix`
 3. Run the first apply command above on that machine
 
-## Known warnings
+## Known Warnings
 
 - `$HOME is not owned by you`. Expected under `sudo`, where nix-darwin switches to `/var/root` as home. Safe to ignore.
 
@@ -64,7 +64,7 @@ task nix-fmt
 
 - `system.stateVersion` is set once to the nix-darwin version at first apply. Never change it.
   - Check current version: `nix run nix-darwin -- --version`
-  - See: https://github.com/nix-darwin/nix-darwin/blob/master/CHANGELOG.md
+  - See: <https://github.com/nix-darwin/nix-darwin/blob/master/CHANGELOG.md>
 - `nixpkgs-unstable` keeps nix-darwin modules from breaking on missing nixpkgs features
 - Changes apply via `darwin-rebuild switch`, analogous to `chezmoi apply`
 
@@ -74,7 +74,7 @@ User-level configuration via [home-manager](https://github.com/nix-community/hom
 
 ### Structure
 
-```
+```text
 nix/
   modules/home-manager.nix  — wires HM into nix-darwin, derives username from system.primaryUser
   modules/home/
@@ -84,7 +84,7 @@ nix/
     atuin.nix               — programs.atuin
 ```
 
-### What HM manages
+### What HM Manages
 
 | Tool | Binary | Config |
 |------|--------|--------|
@@ -94,15 +94,15 @@ nix/
 
 chezmoi remains responsible for secrets, neovim, fish, and anything requiring direct editing.
 
-### Supported programs
+### Supported Programs
 
 HM has `programs.<name>` modules for these tools (among many others):
 
-```
+```text
 atuin  bat  direnv  fish  fzf  gh  git  htop  jq  neovim  ripgrep  starship  tmux  zoxide
 ```
 
-Full list: https://home-manager-options.extranix.com (search by program name).
+Full list: <https://home-manager-options.extranix.com> (search by program name).
 
 Tools without a HM module can still be managed via `home.file` for stable, secret-free configs.
 
@@ -110,7 +110,7 @@ Tools without a HM module can still be managed via `home.file` for stable, secre
 
 - `home.stateVersion` is set once to the HM version at first apply. Never change it: it tells HM which backwards-incompatible state migrations to skip.
 
-## Pinning and updating packages
+## Pinning and Updating Packages
 
 `nix/flake.lock` pins every input. See [updating.md](updating.md).
 
@@ -118,7 +118,7 @@ Tools without a HM module can still be managed via `home.file` for stable, secre
 
 Per-project development environments via [nix-direnv](https://github.com/nix-direnv/nix-direnv).
 
-### Basic setup
+### Basic Setup
 
 Add a `flake.nix` to the project:
 
@@ -142,7 +142,7 @@ Add a `flake.nix` to the project:
 
 Add `use flake` to `.envrc` or `.envrc.local`. First activation downloads packages. Later ones are instant from cache.
 
-### For company repos (can't commit flake.nix)
+### For Company Repos (Can't Commit `flake.nix`)
 
 Add to local gitignore (not committed):
 
@@ -151,11 +151,11 @@ echo "flake.nix" >> .git/info/exclude
 echo "flake.lock" >> .git/info/exclude
 ```
 
-### Symlinked flake.nix (via infuse)
+### Symlinked `flake.nix` (Via `infuse`)
 
 Nix resolves symlinks and checks git tracking against the wrong repo, causing:
 
-```
+```text
 error: Path '.../flake.nix' does not exist in Git repository "/path/to/project"
 ```
 

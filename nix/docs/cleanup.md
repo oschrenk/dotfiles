@@ -1,8 +1,8 @@
-# Cleaning Up Disk Space
+# Cleaning up Disk Space
 
 NixOS keeps every previous system generation in `/nix/store` until you explicitly garbage-collect. On a host with limited storage (e.g. a Pi on a USB stick), the store fills with paths nothing references any more. Old generations account for most of it, with cancelled builds and one-off package installs behind them.
 
-## Free up space
+## Free up Space
 
 Run on the host that's tight on space:
 
@@ -12,7 +12,7 @@ sudo nix-collect-garbage -d
 
 This removes every store path not referenced by the *current* system: old generations, dangling GC roots, build-time-only dependencies. After it finishes, any rollback to a previous generation is gone, but the running system is untouched.
 
-## Inspect disk usage
+## Inspect Disk Usage
 
 ```sh
 sudo du -sh /nix/store /var/lib /home /tmp /var/tmp 2>/dev/null
@@ -26,13 +26,13 @@ The Pis run `nix-collect-garbage` weekly via `nix.gc.automatic` in `modules/nixo
 
 The Mac runs Determinate Nix (`nix.enable = false` in `modules/common.nix`), which manages its own daemon; nix-darwin's `nix.gc.*` options are disabled there, so manual GC remains the model on macOS.
 
-## When to run it manually
+## When to Run It Manually
 
 - Before a deploy that's likely to pull in a lot of new closure (kernel update, big service rollout)
 - Whenever a host reports >80% disk usage
 - After ripping out a service whose state directory you've also removed
 
-## Where it does NOT help
+## Where It Does NOT Help
 
 - Build cache misses (the *next* `nixos-rebuild` will repopulate the store)
 - Anything outside `/nix/store` (service state, logs, journal). Those need targeted cleanup.
