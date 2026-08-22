@@ -1,4 +1,4 @@
-# Architecture
+# Config Layout
 
 ## Directory tree
 
@@ -61,8 +61,13 @@ nix/
         step-ca.nix      - backup: step-ca keys and config
 
   docs/
-    layout.md            - this file: architecture overview
-    NIX.md               - operational guide: how to apply, add machines, format
+    architecture.md      - physical homelab: hardware, network, DNS
+    layout.md            - this file: how nix/ is organised
+    darwin.md            - applying config on macOS
+    builder.md           - aarch64-linux VM for cross-building
+    secrets.md           - 1Password secrets via opnix
+    updating.md          - flake inputs and pins
+    cleanup.md           - reclaiming disk space
 ```
 
 ## Identity namespace: options.my.personal.*
