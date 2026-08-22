@@ -17,6 +17,7 @@
     ./lsd.nix
     ./mpd.nix
     ./ripgrep.nix
+    ./rumdl.nix
     ./rmpc.nix
     ./sketchybar.nix
     ./starship.nix

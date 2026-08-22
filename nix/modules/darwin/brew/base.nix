@@ -71,7 +71,6 @@
     "prettier" # generic, code formatter
     "prettierd" # generic, code formatter
     "go-task" # generic, go-based task runner
-    "rumdl" # markdown, linter and formatter
     "yamlfmt" # yaml, formatter
 
     # editor
