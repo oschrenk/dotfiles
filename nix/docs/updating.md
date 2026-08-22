@@ -34,6 +34,17 @@ nix flake update
 
 After updating, deploy the affected hosts to apply the changes.
 
+Commit `flake.lock` afterwards so every machine builds from the same pins.
+
+## Pinning an input to a commit
+
+To hold an input at a known-good revision, put the commit in its URL:
+
+```nix
+# in flake.nix
+nixpkgs.url = "github:NixOS/nixpkgs/abc123def456";
+```
+
 ## nixos-raspberrypi has its own nixpkgs
 
 `nixos-raspberrypi` bundles its own nixpkgs pin (separate from ours). This is the nixpkgs used for the Pi builds - the RPi kernel and firmware are built against it.

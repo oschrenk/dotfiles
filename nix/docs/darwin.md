@@ -33,28 +33,12 @@ darwin-rebuild switch --flake "$(dirname $(chezmoi source-path))/nix#$(hostname 
 darwin-rebuild switch --flake (dirname (chezmoi source-path))"/nix#"(hostname -s)
 ```
 
-## Secrets bootstrap (opnix)
+## Secrets
 
-Secrets are pulled from 1Password by [opnix](https://github.com/brizzbuzz/opnix) at
-activation (declared in `modules/darwin/secrets.nix`). opnix authenticates with a
-1Password **service-account token** stored at `/etc/opnix-token`.
+Secrets come from 1Password at activation, via opnix. `/etc/opnix-token` is a
+per-machine manual step, and a missing token fails silently.
 
-Nix does not manage this token. A rebuild will never create it. If it is missing,
-opnix logs a warning and exits 0, so new secrets simply never appear. `task nix-rebuild-darwin` preflights for it and aborts loudly, but on a fresh
-machine you must set it once:
-
-```sh
-sudo opnix token set   # paste the service-account token
-```
-
-The token is a 1Password service-account token (generate/retrieve it from the
-1Password service-accounts settings). After setting it, re-run `task nix-rebuild-darwin`, or
-provision immediately without a rebuild:
-
-```sh
-sudo launchctl kickstart -k system/org.nixos.opnix-secrets
-tail /var/log/opnix-secrets.log   # expect "Successfully processed N secrets"
-```
+See [secrets.md](secrets.md).
 
 ## Formatting
 
@@ -128,27 +112,7 @@ Tools without a HM module can still be managed via `home.file` for stable, secre
 
 ## Pinning and updating packages
 
-Package versions are pinned by `nix/flake.lock`. To update:
-
-```fish
-# Update all inputs to their latest commits
-cd nix && nix flake update
-
-# Update a single input (e.g. nixpkgs only)
-cd nix && nix flake update nixpkgs
-
-# Then apply
-task nix
-```
-
-To pin an input to a specific commit (e.g. for a known-good nixpkgs):
-
-```nix
-# in flake.nix
-nixpkgs.url = "github:NixOS/nixpkgs/abc123def456";
-```
-
-Commit `flake.lock` after updates so the pinned state is reproducible across machines.
+`nix/flake.lock` pins every input. See [updating.md](updating.md).
 
 ## Dev Shells
 
