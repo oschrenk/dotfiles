@@ -23,6 +23,7 @@
     ./ticker.nix
     ./tlink.nix
     ./tmux.nix
+    ./vale.nix
     ./zed.nix
   ];
 
