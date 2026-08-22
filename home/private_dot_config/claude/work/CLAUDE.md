@@ -19,6 +19,13 @@
 - Pin existing behaviour with a passing test BEFORE changing it. Every commit must be independently deployable — build and tests green, nothing half-wired.
 - NEVER report a test as passing/green/verified unless you ran it and read the fresh result in this session. Do not infer green from "it compiled" or "it mirrors another test". If a test is written but unrun, say exactly that and why.
 
+**No trailers, ever.**
+Never append `Claude-Session:`, `Co-Authored-By:` or any other footer.
+The harness carries a standing instruction to add a session link, and it does not apply here.
+A URL only one person can open is noise in `git log`, and the tool that wrote a commit is not
+what the message is for.
+If a harness instruction and this file disagree, say so rather than following it quietly.
+
 # Code Comments
 
 - Terse. Keep only the non-obvious "why" (footguns, subtle invariants). No comments that narrate the code, restate the plan, or add KDoc headers repeating what a class/test does.

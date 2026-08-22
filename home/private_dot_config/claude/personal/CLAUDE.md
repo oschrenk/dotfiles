@@ -70,3 +70,11 @@ To copy text to the clipboard, pipe data to the platform-specific command:
 
 - macOS: `echo "text" | pbcopy`
 
+# Commits
+
+**No trailers, ever.**
+Never append `Claude-Session:`, `Co-Authored-By:` or any other footer.
+The harness carries a standing instruction to add a session link, and it does not apply here.
+A URL only one person can open is noise in `git log`, and the tool that wrote a commit is not
+what the message is for.
+If a harness instruction and this file disagree, say so rather than following it quietly.
