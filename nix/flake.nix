@@ -190,6 +190,7 @@
             ./modules/darwin/defaults/apps/com.apple.mail.nix
             ./modules/darwin/defaults/apps/com.apple.safari.nix
             ./modules/darwin/defaults/apps/com.henrikruscon.klack.nix
+            ./modules/darwin/defaults/apps/io.tailscale.ipn.macsys.nix
             ./modules/darwin/linux-builder.nix
             ./modules/darwin/java.nix
             ./hosts/maxbook.nix
@@ -236,6 +237,7 @@
             ./modules/darwin/defaults/apps/com.apple.mail.nix
             ./modules/darwin/defaults/apps/com.apple.safari.nix
             ./modules/darwin/defaults/apps/com.henrikruscon.klack.nix
+            ./modules/darwin/defaults/apps/io.tailscale.ipn.macsys.nix
             ./modules/darwin/linux-builder.nix
             ./modules/darwin/java.nix
             ./hosts/airbook.nix
