@@ -7,8 +7,7 @@
 # nix can observe. So it is a task you run once, after setting that up.
 #
 # Scope is the data repo only. It does NOT re-create the symlinks that point
-# into it (`plans/`, `CLAUDE.md` in the dotfiles repo) — run `infuse link` by
-# hand for those.
+# into it — run `infuse link` by hand for those.
 
 set -euo pipefail
 

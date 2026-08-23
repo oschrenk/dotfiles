@@ -3,10 +3,6 @@
 # services.mpd takes care of the launchd user agent on darwin and writes
 # mpd.conf from typed options + extraConfig. mpc is just a package install.
 #
-# Pre-rebuild manual steps documented in plans/mpd-mpc-to-hm.md:
-#   - launchctl bootout gui/$UID/org.nixos.mpd  (drop the old user agent)
-#   - rm ~/.config/mpd/mpd.conf                  (let HM write the symlink)
-#
 # Caveat: the nixpkgs mpd 0.24.10 darwin build has no inotify. `auto_update yes`
 # below is therefore a no-op; manual nudge via `mpc update` happens in
 # ~/.config/fish/functions/music.fish.
