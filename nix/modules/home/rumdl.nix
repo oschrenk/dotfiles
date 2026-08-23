@@ -29,14 +29,6 @@
       "MD088",
     ]
 
-    # On by default, switched off here:
-    extend-disable = [
-      # MD013 max line length. Omitting it would not remove the rule, only
-      # leave it at its 80-column default, which is stricter than anything
-      # written here. Off until there is a wrapping style worth enforcing.
-      "MD013",
-    ]
-
     # On by default, nothing to configure, so no sections below:
     #
     #   MD011 https://rumdl.dev/md011/ reversed link syntax. Catches (text)[url]
@@ -54,6 +46,32 @@
     # agree with its own first marker, so a document written entirely in `*` would
     # pass; this makes the marker the same everywhere.
     style = "dash"
+
+    # MD013 - line length and reflow.
+    # https://rumdl.dev/md013/
+    [MD013]
+
+    # No column limit. The rule is here for reflow, not for width.
+    #
+    # At 100 it was unusable: sentence-per-line will not split a sentence, so
+    # every sentence over the limit became a finding that `fmt` could not fix
+    # and only rewording would clear. That was 30 of them across nix/docs.
+    # At 0 the length check is off and every finding is fixable.
+    line-length = 0
+
+    # One sentence per line. Editing a sentence then shows up in the diff as
+    # that one line, rather than reflowing the paragraph and burying the change.
+    reflow = true
+    reflow-mode = "sentence-per-line"
+
+    # Never break inside an inline span, so a command like `nix flake update
+    # nixpkgs` is not split mid-backtick into something uncopyable. Matches the
+    # default; stated because it is what makes reflow safe to run unattended.
+    atomic-spans = true
+
+    # code-spans, code-blocks and ignore-link-urls are deliberately absent. Each
+    # only excludes something from the length check, which line-length = 0 has
+    # already turned off. Verified: adding them back changes no output.
 
     # MD051 - link fragments must reference a real heading.
     # https://rumdl.dev/md051/
