@@ -1,12 +1,15 @@
 # `linux-builder`: `aarch64-linux` VM on macOS
 
-`pkgs.darwin.linux-builder` runs a QEMU/HVF aarch64-linux VM on macOS. Used to cross-compile packages for Raspberry Pi that are not cached (e.g. MongoDB 7.0 - SSPL license means Hydra skips it).
+`pkgs.darwin.linux-builder` runs a QEMU/HVF aarch64-linux VM on macOS.
+Used to cross-compile packages for Raspberry Pi that are not cached (e.g. MongoDB 7.0 - SSPL license means Hydra skips it).
 
 Config: `nix/modules/darwin/linux-builder.nix`
 
 ## How It Works
 
-`create-builder` sets up SSH keys, then calls `run-builder`, which calls `run-nixos-vm`. `run-nixos-vm` starts QEMU with a qcow2 disk at `/var/lib/linux-builder/nixos.qcow2`. The VM boots a minimal NixOS and exposes SSH on `localhost:31022`.
+`create-builder` sets up SSH keys, then calls `run-builder`, which calls `run-nixos-vm`.
+`run-nixos-vm` starts QEMU with a qcow2 disk at `/var/lib/linux-builder/nixos.qcow2`.
+The VM boots a minimal NixOS and exposes SSH on `localhost:31022`.
 
 nix-darwin registers it as a launchd daemon (`system/org.nixos.linux-builder`) that starts on boot.
 
@@ -19,9 +22,11 @@ QEMU_OPTS = "-smp 4 -m 16384"
 `run-nixos-vm` hardcodes `-smp 1 -m 3072`. `QEMU_OPTS` is appended last so our values win - QEMU uses the last occurrence of each flag.
 
 - 4 cores: MongoDB 7.0 compilation needs ~3-4GB RAM per parallel job. 8 jobs OOM'd at 11GB.
-- 16GB: 4 cores x 4GB/job headroom. Host has 32GB so this is safe.
+- 16GB: 4 cores x 4GB/job headroom.
+  Host has 32GB so this is safe.
 
-Builders line: `4 4 - - trusted` - first `4` is max parallel nix builds, second `4` is cores per build (`NIX_BUILD_CORES`). Must match `-smp` or nix will schedule more parallel jobs than the VM has CPUs.
+Builders line: `4 4 - - trusted` - first `4` is max parallel nix builds, second `4` is cores per build (`NIX_BUILD_CORES`).
+Must match `-smp` or nix will schedule more parallel jobs than the VM has CPUs.
 
 ## Tasks
 
@@ -50,7 +55,9 @@ ssh builder@linux-builder sudo -n true && echo "passwordless sudo works"  # veri
 
 ### Do NOT Set `extra-platforms = aarch64-linux`
 
-This tells nix "build aarch64-linux right here on this Mac". Nix then tries to run Linux ELF binaries on macOS and fails with `Undefined error: 0`. Remove it.
+This tells nix "build aarch64-linux right here on this Mac".
+Nix then tries to run Linux ELF binaries on macOS and fails with `Undefined error: 0`.
+Remove it.
 
 The `builders` line alone is sufficient to route aarch64-linux builds to the VM:
 
@@ -60,13 +67,16 @@ builders = ssh-ng://builder@linux-builder aarch64-linux /etc/nix/builder_ed25519
 
 ### SSH Key Permissions (`nix-darwin/nix-darwin#913`)
 
-After every daemon restart, `/etc/nix/builder_ed25519` is reset to root-owned 600. The key must be `chmod 644` for regular user SSH (used by `nix-rebuild-pi-*` tasks which run as the user).
+After every daemon restart, `/etc/nix/builder_ed25519` is reset to root-owned 600.
+The key must be `chmod 644` for regular user SSH (used by `nix-rebuild-pi-*` tasks which run as the user).
 
-Note: `chmod 644` makes SSH reject the key as "too open" when used with sudo. For `task nix-rebuild-darwin` (which uses sudo), run `sudo chmod 600 /etc/nix/builder_ed25519` first, then restore to 644 after.
+Note: `chmod 644` makes SSH reject the key as "too open" when used with sudo.
+For `task nix-rebuild-darwin` (which uses sudo), run `sudo chmod 600 /etc/nix/builder_ed25519` first, then restore to 644 after.
 
 ### `/var/lib/linux-builder` Must Exist Before the Daemon Starts
 
-launchd fails if the working directory doesn't exist. The activation script creates it, but if it races, the daemon starts in `/` and QEMU fails with "Read-only file system".
+launchd fails if the working directory doesn't exist.
+The activation script creates it, but if it races, the daemon starts in `/` and QEMU fails with "Read-only file system".
 
 Fix: `sudo mkdir -p /var/lib/linux-builder`
 
@@ -82,13 +92,17 @@ sudo mv /etc/nix/nix.custom.conf /etc/nix/nix.custom.conf.before-nix-darwin
 
 ### `NIX_SSL_CERT_FILE` Must Be Set in `launchd` `EnvironmentVariables`
 
-`run-nixos-vm` copies `$NIX_SSL_CERT_FILE` into the VM as the CA bundle. If unset, the VM boots with no trusted certs and all TLS fetches (cache.nixos.org, cachix) fail silently.
+`run-nixos-vm` copies `$NIX_SSL_CERT_FILE` into the VM as the CA bundle.
+If unset, the VM boots with no trusted certs and all TLS fetches (cache.nixos.org, cachix) fail silently.
 
 ### Disk Full During Large Builds
 
-MongoDB + dependencies exceed 40GB during compilation. Every source build attempt failed with a full disk. Do not attempt to build MongoDB from source - use the pre-built Raspberry Pi binaries from themattman/mongodb-raspberrypi-binaries instead (see `modules/nixos/unifi-prebuilt.nix`).
+MongoDB + dependencies exceed 40GB during compilation.
+Every source build attempt failed with a full disk.
+Do not attempt to build MongoDB from source - use the pre-built Raspberry Pi binaries from themattman/mongodb-raspberrypi-binaries instead (see `modules/nixos/unifi-prebuilt.nix`).
 
-`virtualisation.diskSize` needs `lib.mkForce` because the builder profile hardcodes 20480. The override must use a module function to get `lib` in scope:
+`virtualisation.diskSize` needs `lib.mkForce` because the builder profile hardcodes 20480.
+The override must use a module function to get `lib` in scope:
 
 ```nix
 builder = pkgs.darwin.linux-builder.override {
@@ -123,15 +137,21 @@ ssh builder@linux-builder sudo blockdev --getsize64 /dev/vda  # should be 429496
 ssh builder@linux-builder df -h /
 ```
 
-Note: `qemu-img resize 40G` sets absolute size. `qemu-img info` shows virtual size. The file size on disk is smaller because qcow2 is sparse.
+Note: `qemu-img resize 40G` sets absolute size.
+`qemu-img info` shows virtual size.
+The file size on disk is smaller because qcow2 is sparse.
 
 ### VM Override Is a Chicken-and-Egg Problem
 
-Any override to `pkgs.darwin.linux-builder` requires building a custom NixOS image for aarch64-linux. This needs a working Linux builder. Solution: the running builder handles it, but `extra-platforms` must be absent and the SSH key must be 600 when running `task nix-rebuild-darwin`.
+Any override to `pkgs.darwin.linux-builder` requires building a custom NixOS image for aarch64-linux.
+This needs a working Linux builder.
+Solution: the running builder handles it, but `extra-platforms` must be absent and the SSH key must be 600 when running `task nix-rebuild-darwin`.
 
 ### Passwordless Sudo Requires Wheel Group Membership
 
-`security.sudo.wheelNeedsPassword = false` only affects the wheel group. The builder user is not in wheel by default. Must add both:
+`security.sudo.wheelNeedsPassword = false` only affects the wheel group.
+The builder user is not in wheel by default.
+Must add both:
 
 ```nix
 security.sudo.wheelNeedsPassword = false;
@@ -140,9 +160,13 @@ users.users.builder.extraGroups = [ "wheel" ];
 
 ### OOM During MongoDB Compilation
 
-MongoDB 7.0 is template-heavy C++. Each parallel g++ job can use 3-4GB. Default VM (3GB RAM, 1 core) is nowhere near enough. Current settings (4 cores, 16GB) give ~4GB/job.
+MongoDB 7.0 is template-heavy C++.
+Each parallel g++ job can use 3-4GB.
+Default VM (3GB RAM, 1 core) is nowhere near enough.
+Current settings (4 cores, 16GB) give ~4GB/job.
 
-MongoDB 7.0 + Boost 1.79 also fail to compile with GCC 15 (nixpkgs default). Override with GCC 13:
+MongoDB 7.0 + Boost 1.79 also fail to compile with GCC 15 (nixpkgs default).
+Override with GCC 13:
 
 ```nix
 mongodb-7_0 = pkgs'.mongodb-7_0.override {
@@ -153,12 +177,16 @@ mongodb-7_0 = pkgs'.mongodb-7_0.override {
 
 ### Don't Run `create-builder` or `launchctl kickstart -k` by Hand
 
-`create-builder` places `nixos.qcow2` and `keys/` in cwd. The launchd plist sets `WorkingDirectory=/var/lib/linux-builder`. Invoke it outside launchd and it leaves root-owned files wherever you ran it, the chezmoi repo included.
+`create-builder` places `nixos.qcow2` and `keys/` in cwd.
+The launchd plist sets `WorkingDirectory=/var/lib/linux-builder`.
+Invoke it outside launchd and it leaves root-owned files wherever you ran it, the chezmoi repo included.
 
-`sudo launchctl kickstart -k system/org.nixos.linux-builder` blocks waiting on launchd respawn-throttle and never returns. Always use `task nix-builder-restart` or `task nix-builder-force`.
+`sudo launchctl kickstart -k system/org.nixos.linux-builder` blocks waiting on launchd respawn-throttle and never returns.
+Always use `task nix-builder-restart` or `task nix-builder-force`.
 
 ### Old or Corrupted `qcow2` After Killed QEMU
 
-If QEMU is killed mid-write the image can corrupt. Symptom: VM boots but SSH hangs at banner exchange.
+If QEMU is killed mid-write the image can corrupt.
+Symptom: VM boots but SSH hangs at banner exchange.
 
 Fix: `task nix-builder-force` (deletes image, loses build cache)

@@ -35,8 +35,8 @@ darwin-rebuild switch --flake (dirname (chezmoi source-path))"/nix#"(hostname -s
 
 ## Secrets
 
-Secrets come from 1Password at activation, via opnix. `/etc/opnix-token` is a
-per-machine manual step, and a missing token fails silently.
+Secrets come from 1Password at activation, via opnix.
+`/etc/opnix-token` is a per-machine manual step, and a missing token fails silently.
 
 See [secrets.md](secrets.md).
 
@@ -44,7 +44,8 @@ See [secrets.md](secrets.md).
 
 Uses [nixfmt](https://github.com/NixOS/nixfmt) (the official Nix formatter, aliased as `nixfmt-rfc-style` in nixpkgs).
 
-Must be run from the `nix/` directory, since `nix fmt` requires a `flake.nix` in the current directory. Use the task runner from the repo root:
+Must be run from the `nix/` directory, since `nix fmt` requires a `flake.nix` in the current directory.
+Use the task runner from the repo root:
 
 ```sh
 task nix-fmt
@@ -58,11 +59,14 @@ task nix-fmt
 
 ## Known Warnings
 
-- `$HOME is not owned by you`. Expected under `sudo`, where nix-darwin switches to `/var/root` as home. Safe to ignore.
+- `$HOME is not owned by you`.
+  Expected under `sudo`, where nix-darwin switches to `/var/root` as home.
+  Safe to ignore.
 
 ## Notes
 
-- `system.stateVersion` is set once to the nix-darwin version at first apply. Never change it.
+- `system.stateVersion` is set once to the nix-darwin version at first apply.
+  Never change it.
   - Check current version: `nix run nix-darwin -- --version`
   - See: <https://github.com/nix-darwin/nix-darwin/blob/master/CHANGELOG.md>
 - `nixpkgs-unstable` keeps nix-darwin modules from breaking on missing nixpkgs features
@@ -108,11 +112,13 @@ Tools without a HM module can still be managed via `home.file` for stable, secre
 
 ### Notes
 
-- `home.stateVersion` is set once to the HM version at first apply. Never change it: it tells HM which backwards-incompatible state migrations to skip.
+- `home.stateVersion` is set once to the HM version at first apply.
+  Never change it: it tells HM which backwards-incompatible state migrations to skip.
 
 ## Pinning and Updating Packages
 
-`nix/flake.lock` pins every input. See [updating.md](updating.md).
+`nix/flake.lock` pins every input.
+See [updating.md](updating.md).
 
 ## Dev Shells
 
@@ -140,7 +146,9 @@ Add a `flake.nix` to the project:
 }
 ```
 
-Add `use flake` to `.envrc` or `.envrc.local`. First activation downloads packages. Later ones are instant from cache.
+Add `use flake` to `.envrc` or `.envrc.local`.
+First activation downloads packages.
+Later ones are instant from cache.
 
 ### For Company Repos (Can't Commit `flake.nix`)
 

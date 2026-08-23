@@ -1,8 +1,6 @@
 # `opnix`
 
-Secrets pulled from 1Password at activation by
-[opnix](https://github.com/brizzbuzz/opnix), declared in `modules/darwin/secrets.nix`
-and `modules/nixos/secrets.nix`.
+Secrets pulled from 1Password at activation by [opnix](https://github.com/brizzbuzz/opnix), declared in `modules/darwin/secrets.nix` and `modules/nixos/secrets.nix`.
 
 - Secrets are written to `/var/lib/opnix/secrets/<name>`
 - One field per file, holding the literal field value
@@ -12,15 +10,14 @@ and `modules/nixos/secrets.nix`.
 
 opnix authenticates with a 1Password **service-account token** at `/etc/opnix-token`.
 
-- **Per machine, and never managed by Nix.** A rebuild will not create it
-- **One service account per context, scoped read-only to one vault.** Homelab uses
-  *Service Account / opnix-bootstrap*; a work machine gets its own, so a compromise
-  there cannot read personal secrets
+- **Per machine, and never managed by Nix.**
+  A rebuild will not create it
+- **One service account per context, scoped read-only to one vault.**
+  Homelab uses *Service Account / opnix-bootstrap*; a work machine gets its own, so a compromise there cannot read personal secrets
 - Rotate it on a schedule and give it an expiry
 
-**A missing token fails silently.** opnix logs a warning and exits 0, so the rebuild
-succeeds and the secrets simply never appear. Always check
-`/var/lib/opnix/secrets/` after the first deploy rather than trusting a green build.
+**A missing token fails silently.** opnix logs a warning and exits 0, so the rebuild succeeds and the secrets simply never appear.
+Always check `/var/lib/opnix/secrets/` after the first deploy rather than trusting a green build.
 
 ## Bootstrap
 
@@ -71,9 +68,8 @@ The tool's own command does the same thing:
 sudo opnix token set
 ```
 
-It needs the `opnix` binary, which arrives with the config. On a brand-new host,
-either write the file directly, or deploy once (it no-ops without a token), set the
-token, and deploy again.
+It needs the `opnix` binary, which arrives with the config.
+On a brand-new host, either write the file directly, or deploy once (it no-ops without a token), set the token, and deploy again.
 
 ## Declaring a Secret
 
@@ -93,15 +89,14 @@ services.tailscale.authKeyFile = "/var/lib/opnix/secrets/tailscaleAuthKey";
 
 ## Building an Env File
 
-opnix writes one value per file, so a service wanting `KEY=value` lines needs them
-assembled. `modules/nixos/gatus.nix` is the pattern:
+opnix writes one value per file, so a service wanting `KEY=value` lines needs them assembled.
+`modules/nixos/gatus.nix` is the pattern:
 
 ```nix
 echo "NTFY_URL=$(cat /var/lib/opnix/secrets/ntfyUrl)" > /run/gatus.env
 ```
 
-Put it in `ExecStartPre` and point the service's `EnvironmentFile` at `/run`, which
-is tmpfs, so the composed file dies with the machine.
+Put it in `ExecStartPre` and point the service's `EnvironmentFile` at `/run`, which is tmpfs, so the composed file dies with the machine.
 
 ## A New Machine
 

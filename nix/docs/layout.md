@@ -86,9 +86,12 @@ All identity values flow through a single shared namespace declared in `options.
 
 ## `identity.nix`
 
-`identity.nix` holds personal identity values (name, email, SSH public key, timezone, username) used across all hosts. It is:
+`identity.nix` holds personal identity values (name, email, SSH public key, timezone, username) used across all hosts.
+It is:
 
-- Committed to the repo. None of these values are secret. They already appear in the author line of every commit and on `github.com/<user>.keys`.
+- Committed to the repo.
+  None of these values are secret.
+  They already appear in the author line of every commit and on `github.com/<user>.keys`.
 - The only file that needs editing on identity changes (job change, key rotation)
 - Optionally regenerated via `task nix-setup-identity` (interactive prompts with sensible defaults)
 
@@ -96,12 +99,20 @@ If you fork this repo, edit `identity.nix` directly or run `task nix-setup-ident
 
 ## Pattern
 
-This configuration follows the [Dendritic pattern](https://discourse.nixos.org/t/the-dendritic-pattern/61271) ([reference repo](https://github.com/mightyiam/dendritic)): modules are organised by **feature/domain** rather than by infrastructure type. It is [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) applied to Nix. One file configures each concern (shell, git, secrets, backup), whether that concern applies to macOS or NixOS.
+This configuration follows the [Dendritic pattern](https://discourse.nixos.org/t/the-dendritic-pattern/61271) ([reference repo](https://github.com/mightyiam/dendritic)): modules are organised by **feature/domain** rather than by infrastructure type.
+It is [Domain-Driven Design](https://en.wikipedia.org/wiki/Domain-driven_design) applied to Nix.
+One file configures each concern (shell, git, secrets, backup), whether that concern applies to macOS or NixOS.
 
-The alternative, grouping by layer (`darwin/`, `home/`, `homelab/`), forces you to scatter a single feature's config across multiple directories. The dendritic approach keeps related things together and makes the "what does this machine do?" question answerable by reading a flat module list.
+The alternative, grouping by layer (`darwin/`, `home/`, `homelab/`), forces you to scatter a single feature's config across multiple directories.
+The dendritic approach keeps related things together and makes the "what does this machine do?" question answerable by reading a flat module list.
 
 **Pragmatic deviations**: this configuration makes two deliberate compromises.
 
-First, `darwin/` and `nixos/` are platform boundaries rather than feature boundaries. Strictly dendritic would have one `shell.nix` configuring fish across both darwin and NixOS, with platform guards inside the file. Platform-specific concerns (Homebrew, PAM, macOS preferences) are hard or impossible to share, so the platform directories are kept as a trade-off: they violate the "one file per feature" ideal but avoid the complexity of mixing darwin and NixOS expressions inside a single module.
+First, `darwin/` and `nixos/` are platform boundaries rather than feature boundaries.
+Strictly dendritic would have one `shell.nix` configuring fish across both darwin and NixOS, with platform guards inside the file.
+Platform-specific concerns (Homebrew, PAM, macOS preferences) are hard or impossible to share, so the platform directories are kept as a trade-off: they violate the "one file per feature" ideal but avoid the complexity of mixing darwin and NixOS expressions inside a single module.
 
-Second, within `nixos/`, related files are grouped into subdirectories by tool (`beszel/`, `restic/`) rather than by capability. Strictly dendritic would have a flat `monitoring.nix` or a `backup.nix` that owns everything. The subdirectory grouping is not dendritic. It sorts by tool rather than by capability, but it keeps related files together and makes the layout readable at a glance.
+Second, within `nixos/`, related files are grouped into subdirectories by tool (`beszel/`, `restic/`) rather than by capability.
+Strictly dendritic would have a flat `monitoring.nix` or a `backup.nix` that owns everything.
+The subdirectory grouping is not dendritic.
+It sorts by tool rather than by capability, but it keeps related files together and makes the layout readable at a glance.
