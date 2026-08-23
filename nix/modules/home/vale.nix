@@ -5,7 +5,12 @@
   ...
 }:
 {
-  home.packages = [ pkgs.vale ];
+  home.packages = [
+    pkgs.vale
+    # Language server, for the nvim integration in nvim/lsp/vale-ls.lua. It
+    # shells out to vale, and reads the same config as the CLI.
+    pkgs.vale-ls
+  ];
 
   # Global fallback config. Vale prefers a .vale.ini found by walking up from
   # the file being linted, and only falls back to this one when a project has
@@ -27,8 +32,10 @@
     [formats]
     COMMIT_EDITMSG = md
 
-    # Both spellings, because git hands the hook one and a direct run takes the other.
-    [{COMMIT_EDITMSG,.git/COMMIT_EDITMSG}]
+    # Leading **/ so the section matches however the path arrives: bare from a
+    # git hook, .git/COMMIT_EDITMSG from the repo root, or absolute, which is
+    # what vale-ls hands over and what a listed spelling silently misses.
+    [**/COMMIT_EDITMSG]
     BasedOnStyles = ai-tells-commits
 
     [*.md]
