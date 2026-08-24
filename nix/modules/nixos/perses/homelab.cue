@@ -6,9 +6,9 @@ import (
 )
 
 dashboard & {
-	#name:    "caddy-temperature"
+	#name:    "homelab"
 	#project: "homelab"
-	#display: name: "Caddy Temperature"
+	#display: name: "Homelab"
 	#duration: "1d"
 
 	#panelGroups: {

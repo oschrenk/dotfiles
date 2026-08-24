@@ -85,6 +85,7 @@
             ./modules/nixos/beszel/hub.nix
             ./modules/nixos/beszel/agent.nix
             ./modules/nixos/restic/healthcheck.nix
+            ./modules/nixos/restic/mount.nix
             ./modules/nixos/restic/beszel.nix
             ./modules/nixos/gatus.nix
             ./modules/nixos/glance.nix
@@ -114,6 +115,9 @@
             ./modules/nixos/kula.nix
             ./modules/nixos/prometheus.nix
             ./modules/nixos/perses.nix
+            ./modules/nixos/restic/healthcheck.nix
+            ./modules/nixos/restic/mount.nix
+            ./modules/nixos/restic/prometheus.nix
             ./hosts/network.nix
             ./hosts/pi-2.nix
           ];
