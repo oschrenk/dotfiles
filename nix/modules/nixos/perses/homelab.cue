@@ -95,8 +95,9 @@ dashboard & {
 						}
 						queries: [
 							// Only the 8-port switch supplies PoE; the 5-port draws none.
-							// Ports are unnamed in the controller, so the series are
-							// "Port N" until they are labelled there.
+							// The series names come from the port names set on the switch
+							// in the controller, so re-cabling is a rename there rather
+							// than an edit here.
 							{
 								kind: "TimeSeriesQuery"
 								spec: plugin: {
