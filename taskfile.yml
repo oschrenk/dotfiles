@@ -76,6 +76,20 @@ tasks:
           percli dac build -f homelab.cue -m stdout
         } > homelab.gen.yaml
       - percli lint -f homelab.gen.yaml
+  prometheus-cost-backfill:
+    desc: Recompute the PoE cost recording rules over PoE history that predates them (pi-2)
+    # Recording rules only emit samples from the moment they land, so the cost panels
+    # start empty while the watts behind them go back to the start of retention. This
+    # recomputes the rules from data already in the TSDB and installs the blocks.
+    #
+    # START is optional: left empty, the script derives it from the first sample of
+    # the source metric. Do not default it to the retention window — promtool
+    # allocates per 2h window whether or not the window holds data, and a 90-day
+    # range exhausted memory on pi-2 badly enough to take sshd with it.
+    #
+    # Override for a narrower range: task prometheus-cost-backfill START=2026-08-24T00:00:00Z
+    cmds:
+      - ssh -o ServerAliveInterval=15 -o ServerAliveCountMax=4 oliver@pi-2.local sudo bash -s -- '{{.START}}' '{{.END}}' < scripts/prometheus-cost-backfill.sh
   nix-builder-up:
     desc: Start the linux-builder VM if it is not already running, and wait for it
     # The daemon is RunAtLoad=false / KeepAlive=false, so it is not running unless
