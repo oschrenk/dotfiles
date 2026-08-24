@@ -90,6 +90,16 @@ tasks:
     # Override for a narrower range: task prometheus-cost-backfill START=2026-08-24T00:00:00Z
     cmds:
       - ssh -o ServerAliveInterval=15 -o ServerAliveCountMax=4 oliver@pi-2.local sudo bash -s -- '{{.START}}' '{{.END}}' < scripts/prometheus-cost-backfill.sh
+  fx-backfill:
+    desc: Backfill GTQ-per-EUR daily history into Prometheus on pi-2
+    # One sample per day, because that is how often the rate exists. Query it as
+    # last_over_time(fx_rate{base="EUR",quote="GTQ"}[36h]) — a bare fx_rate is
+    # outside Prometheus' 5m lookback for all but 5 minutes of each day.
+    #
+    # Days defaults to 90 to match retention; more than that is written and then
+    # swept on the next compaction. Override: task fx-backfill DAYS=30
+    cmds:
+      - scripts/fx-backfill.sh {{.DAYS | default 90}}
   nix-builder-up:
     desc: Start the linux-builder VM if it is not already running, and wait for it
     # The daemon is RunAtLoad=false / KeepAlive=false, so it is not running unless
