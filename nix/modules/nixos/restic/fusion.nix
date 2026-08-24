@@ -19,7 +19,7 @@ in
   config = {
     services.restic.backups.fusion = {
       paths = [ snapshot ];
-      repository = "/mnt/unas_backup/restic-pi1";
+      repository = "/mnt/unas_homelab/restic";
       passwordFile = "/var/lib/opnix/secrets/resticPassword";
       timerConfig = {
         OnCalendar = cfg.backupSchedule;
@@ -60,7 +60,7 @@ in
 
     systemd.services.restic-backups-fusion = {
       unitConfig = {
-        RequiresMountsFor = "/mnt/unas_backup";
+        RequiresMountsFor = "/mnt/unas_homelab";
         OnFailure = "restic-backups-fusion-notify-failure.service";
       };
     };

@@ -30,7 +30,7 @@ in
     # Mount point uses underscore (_), not dash (-). systemd escapes `-` in path
     # components as `\x2d` in unit names, making it painful to reference the unit
     # via systemctl (e.g. for testing). Underscore requires no escaping.
-    fileSystems."/mnt/unas_backup" = {
+    fileSystems."/mnt/unas_homelab" = {
       device = "//unas.local/Personal-Drive";
       fsType = "cifs";
       options = [
@@ -51,10 +51,10 @@ in
     #
     #   Success:
     #     sudo systemctl start restic-backups-beszel.service
-    #     sudo restic -r /mnt/unas_backup/restic-pi1 --password-file /var/lib/opnix/secrets/resticPassword snapshots
+    #     sudo restic -r /mnt/unas_homelab/restic --password-file /var/lib/opnix/secrets/resticPassword snapshots
     #
     #   Failure (simulates NAS unreachable — takes ~30s for mount timeout):
-    #     sudo iptables -A OUTPUT -d 192.168.1.241 -j DROP && sudo umount /mnt/unas_backup
+    #     sudo iptables -A OUTPUT -d 192.168.1.241 -j DROP && sudo umount /mnt/unas_homelab
     #     sudo systemctl start restic-backups-beszel.service
     #     sudo iptables -D OUTPUT -d 192.168.1.241 -j DROP
     #     WARNING: -A stacks rules; -D only removes one copy. Run multiple times if needed.
@@ -65,13 +65,13 @@ in
     environment.systemPackages = [
       pkgs.cifs-utils
       # restic for interactive use: manual backups and snapshot inspection, e.g.:
-      # sudo restic -r /mnt/unas_backup/restic-pi1 --password-file /var/lib/opnix/secrets/resticPassword snapshots
+      # sudo restic -r /mnt/unas_homelab/restic --password-file /var/lib/opnix/secrets/resticPassword snapshots
       pkgs.restic
     ];
 
     services.restic.backups.beszel = {
       paths = [ "${config.services.beszel.hub.dataDir}/beszel_data" ];
-      repository = "/mnt/unas_backup/restic-pi1";
+      repository = "/mnt/unas_homelab/restic";
       passwordFile = "/var/lib/opnix/secrets/resticPassword";
 
       timerConfig = {
@@ -128,7 +128,7 @@ in
     # dependency failures (e.g. NAS unreachable) where ExecStopPost never runs.
     systemd.services.restic-backups-beszel = {
       unitConfig = {
-        RequiresMountsFor = "/mnt/unas_backup";
+        RequiresMountsFor = "/mnt/unas_homelab";
         OnFailure = "restic-backups-beszel-notify-failure.service";
       };
     };

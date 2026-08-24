@@ -21,7 +21,7 @@ in
       # and bind-mounts it to /var/lib/AdGuardHome only while the service is running.
       # Backing up the private path directly avoids depending on the bind mount being active.
       paths = [ "/var/lib/private/AdGuardHome" ];
-      repository = "/mnt/unas_backup/restic-pi1"; # same repo as beszel
+      repository = "/mnt/unas_homelab/restic"; # same repo as beszel
       passwordFile = "/var/lib/opnix/secrets/resticPassword";
       timerConfig = {
         OnCalendar = cfg.backupSchedule;
@@ -79,7 +79,7 @@ in
     # dependency failures (e.g. NAS unreachable) where ExecStopPost never runs.
     systemd.services.restic-backups-adguard = {
       unitConfig = {
-        RequiresMountsFor = "/mnt/unas_backup";
+        RequiresMountsFor = "/mnt/unas_homelab";
         OnFailure = "restic-backups-adguard-notify-failure.service";
       };
     };
