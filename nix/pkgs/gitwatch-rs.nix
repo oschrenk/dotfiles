@@ -8,16 +8,17 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "gitwatch-rs";
-  version = "0.1.1";
+  version = "0.1.1-unstable-2026-08-24";
 
+  # fork: adds --skip-if-merging and --pull-before-push
   src = fetchFromGitHub {
-    owner = "croissong";
+    owner = "oschrenk";
     repo = "gitwatch-rs";
-    tag = "v${version}";
-    hash = "sha256-aRkfqiZ3x8XGcLEgXJik5QbK53Ex9Vew0fw/gOkCoxw=";
+    rev = "79f3071364f33679ecbd06060ce8afdb4081335a";
+    hash = "sha256-ILXMhp6CfBxi7kltBtU0nIhiKwlKzN4W099ssLSp1HQ=";
   };
 
-  cargoHash = "sha256-HmOYPhhkYaU5IA7DOuOHzj5WZ2vwr2WUtlVv/rlqpB8=";
+  cargoHash = "sha256-tPXL7Mgy69hXHR/zz4/qJnNKO+E98L00KEgpqEhGCJ0=";
 
   nativeBuildInputs = [ pkg-config ];
   buildInputs = [ openssl libgit2 ];

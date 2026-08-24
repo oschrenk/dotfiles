@@ -75,7 +75,7 @@ in
 
     services.gitwatch.infuse = {
       repo_path = "${config.home.homeDirectory}/.local/share/infuse";
-      args = [ "--debounce-seconds=3" "--remote=origin" ];
+      args = [ "--debounce-seconds=3" "--remote=origin" "--pull-before-push" "--skip-if-merging" ];
       extraPackages = [ pkgs.git ];
       environment = {
         SSH_AUTH_SOCK = "${config.home.homeDirectory}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
