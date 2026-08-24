@@ -34,7 +34,12 @@ in
         # Give the VM more CPUs and RAM for parallel builds.
         # run-nixos-vm hardcodes -m 3072 and -smp 1; QEMU_OPTS is appended last
         # so these values win (QEMU uses the last occurrence of each flag).
-        QEMU_OPTS = "-smp 4 -m 8192";
+        #
+        # -machine overrides run-nixos-vm's hardcoded `virt,gic-version=2,accel=hvf:tcg`.
+        # HVF cannot emulate GICv2 — Apple's hypervisor exposes GICv3 only. qemu 11.1.0
+        # rejects the combination outright ("HVF does not support GICv2 emulation")
+        # instead of falling back to TCG, so the VM fails to start at all.
+        QEMU_OPTS = "-smp 4 -m 8192 -machine virt,gic-version=3,accel=hvf:tcg";
       };
       StandardOutPath = "/var/log/linux-builder.log";
       StandardErrorPath = "/var/log/linux-builder.log";
