@@ -27,11 +27,13 @@ in
         OnCalendar = cfg.backupSchedule;
         Persistent = true;
       };
-      # Retention policy intentionally mirrors restic-beszel.nix — change both
-      # together if adjusting. 7 daily + 4 weekly snapshots.
+      # Retention policy intentionally mirrors restic-beszel.nix and restic-fusion.nix,
+      # and the offsite copy in restic/offsite.nix — change all four together if
+      # adjusting. 7 daily + 4 weekly + 3 monthly snapshots.
       pruneOpts = [
         "--keep-daily 7"
         "--keep-weekly 4"
+        "--keep-monthly 3"
         # Matches the 5-minute schedule gap in hosts/pi-1.nix: a job may absorb one
         # slot of delay from its predecessor and no more. Without it restic fails
         # immediately on a held lock, and `forget --prune` takes an exclusive one.

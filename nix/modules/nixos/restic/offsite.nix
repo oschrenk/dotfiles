@@ -91,8 +91,9 @@ in
         COPIED="$(grep -c 'snapshot .* saved' "$LOG" || true)"
 
         # Retention applies to R2 only — RESTIC_REPOSITORY is the destination, and
-        # forget has no notion of the copy source. Deliberately longer than the local
-        # 7d/4w so the bucket keeps history the UNAS repo has already pruned.
+        # forget has no notion of the copy source. Matches the local policy, so the
+        # bucket is a mirror rather than a longer archive. Copy only ever adds
+        # snapshots, so lengthening this later is enough to make it one again.
         ${restic} forget --prune \
           --retry-lock 5m \
           --keep-daily 7 \
