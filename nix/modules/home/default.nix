@@ -12,6 +12,7 @@
     ./ghostty.nix
     ./git.nix
     ./gitwatch.nix
+    ./glow.nix
     ./identity.nix
     ./infat.nix
     ./jira.nix
