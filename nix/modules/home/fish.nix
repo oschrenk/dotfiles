@@ -94,6 +94,10 @@
       # Mirrors what programs.ripgrep sets via home.sessionVariables. Fish doesn't
       # source hm-session-vars.sh, so we declare it here too. Same path, no drift.
       set -gx RIPGREP_CONFIG_PATH $XDG_CONFIG_HOME/ripgrep/ripgreprc
+      # k9s itself comes from the work project's devshell, not from brew or nix
+      # — the same arrangement as glab and jira-cli-go. 59176416 removed the
+      # global k8s toolchain; this export stays because the config it points at
+      # is still the one k9s reads inside that shell.
       set -gx K9S_CONFIG_DIR $XDG_CONFIG_HOME/k9s
 
       set -gx MSGVAULT_HOME $XDG_CONFIG_HOME/msgvault
