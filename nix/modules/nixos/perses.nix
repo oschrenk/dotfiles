@@ -28,6 +28,10 @@ let
           name: "Homelab"
     '';
 
+    # proxy, not directUrl. directUrl means the *browser* connects to the address
+    # itself, so a loopback address resolves to the viewer's own machine and every
+    # panel fails to load. With a proxy the Perses server makes the request, which
+    # is what keeps Prometheus bound to 127.0.0.1 and unexposed.
     "02-datasource.yaml" = ''
       kind: "GlobalDatasource"
       metadata:
@@ -37,7 +41,10 @@ let
         plugin:
           kind: "PrometheusDatasource"
           spec:
-            directUrl: "http://127.0.0.1:${toString config.services.prometheus.port}"
+            proxy:
+              kind: "HTTPProxy"
+              spec:
+                url: "http://127.0.0.1:${toString config.services.prometheus.port}"
     '';
 
     # Without a binding the account authenticates but sees nothing: reads are
@@ -63,6 +70,12 @@ let
           - kind: "User"
             name: "${username}"
     '';
+
+    # Built from nix/perses/caddy-temperature.cue by `task perses-dashboards`.
+    # Committed rather than generated during the nix build: `percli dac build`
+    # needs the cue binary and network access to the CUE module registry, neither
+    # of which belongs in a nix derivation.
+    "05-dashboard.yaml" = builtins.readFile ./perses/caddy-temperature.gen.yaml;
   };
 
   resourceDir = pkgs.linkFarm "perses-resources" (

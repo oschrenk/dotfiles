@@ -16,6 +16,7 @@
     ./jira.nix
     ./lsd.nix
     ./mpd.nix
+    ./perses.nix
     ./ripgrep.nix
     ./rumdl.nix
     ./rmpc.nix
