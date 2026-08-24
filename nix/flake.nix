@@ -93,6 +93,7 @@
             ./modules/nixos/kula.nix
             ./modules/nixos/restic/adguard.nix
             ./modules/nixos/restic/fusion.nix
+            ./modules/nixos/restic/offsite.nix
             ./sites/lab.oschrenk.gt.nix
             ./hosts/network.nix
             ./hosts/pi-1.nix

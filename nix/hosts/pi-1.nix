@@ -90,6 +90,20 @@
     mode = "0600";
   };
 
+  # Cloudflare R2 credentials for the offsite copy. Two fields rather than one env
+  # file: opnix maps one reference to one file, and restic-offsite exports them itself.
+  services.onepassword-secrets.secrets.resticR2KeyId = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/hnl4j5q3h43foayyjunhq4md5m/Access Key ID";
+    owner = "root";
+    mode = "0600";
+  };
+
+  services.onepassword-secrets.secrets.resticR2Secret = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/hnl4j5q3h43foayyjunhq4md5m/Secret Access Key";
+    owner = "root";
+    mode = "0600";
+  };
+
   # ntfy topic URL — treated as a secret since the topic name is the only access control
   services.onepassword-secrets.secrets.ntfyUrl = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/5gsl762zsgopnb7noenx44teey/homelab-backups";
@@ -116,6 +130,12 @@
 
   services.backup-healthcheck.checks.fusion = {
     port = 8102;
+  };
+
+  # port 8103: offsite copy to R2. maxAge is the default 25h — the copy runs daily
+  # at 03:00, an hour after the last local backup.
+  services.backup-healthcheck.checks.offsite = {
+    port = 8103;
   };
 
   # Storage
