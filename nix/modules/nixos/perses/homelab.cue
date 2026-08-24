@@ -46,25 +46,46 @@ dashboard & {
 						y:       10
 						width:   8
 						height:  10
-						content: {"$ref": "#/spec/panels/poe"}
+						content: {"$ref": "#/spec/panels/unasDisk"}
 					},
 					{
 						x:       8
 						y:       10
 						width:   8
 						height:  10
-						content: {"$ref": "#/spec/panels/cost"}
+						content: {"$ref": "#/spec/panels/networkRx"}
 					},
 					{
 						x:       16
 						y:       10
 						width:   8
 						height:  10
-						content: {"$ref": "#/spec/panels/costByPort"}
+						content: {"$ref": "#/spec/panels/networkTx"}
 					},
 					{
 						x:       0
 						y:       20
+						width:   8
+						height:  10
+						content: {"$ref": "#/spec/panels/poe"}
+					},
+					{
+						x:       8
+						y:       20
+						width:   8
+						height:  10
+						content: {"$ref": "#/spec/panels/cost"}
+					},
+					{
+						x:       16
+						y:       20
+						width:   8
+						height:  10
+						content: {"$ref": "#/spec/panels/costByPort"}
+					},
+					{
+						x:       0
+						y:       30
 						width:   8
 						height:  10
 						content: {"$ref": "#/spec/panels/fx"}
@@ -243,6 +264,107 @@ dashboard & {
 									spec: {
 										query:            "unpoller_unas_disk_temperature_celsius"
 										seriesNameFormat: "{{name}} disk {{slot_id}}"
+									}
+								}
+							},
+						]
+					}
+				}
+
+				// UNAS only, deliberately. The pis report kula_disk_*_bytes_per_second too,
+				// but they idle around 100 KB/s while the NAS sustains ~10 MB/s, and on one
+				// linear axis that gap flattens the pi lines into the baseline.
+				//
+				// Left in the exporter's own kbps rather than converted to bytes: nothing
+				// here needs to be comparable with kula, and unpoller's byte-labelled
+				// figures are the ones that lie about units, not these.
+				unasDisk: {
+					kind: "Panel"
+					spec: {
+						display: {
+							name:        "UNAS disk throughput"
+							description: "Both bays, read and write, as the UNAS reports them. The two drives mirror each other, so the write lines should track closely - a sustained divergence is worth a look. Read and write are plotted together because the interesting states are asymmetric: a scrub reads on both spindles, a restic run writes."
+						}
+						plugin: {
+							kind: "TimeSeriesChart"
+							spec: {}
+						}
+						queries: [
+							{
+								kind: "TimeSeriesQuery"
+								spec: plugin: {
+									kind: "PrometheusTimeSeriesQuery"
+									spec: {
+										query:            "unpoller_unas_disk_read_kbps"
+										seriesNameFormat: "disk {{slot_id}} read"
+									}
+								}
+							},
+							{
+								kind: "TimeSeriesQuery"
+								spec: plugin: {
+									kind: "PrometheusTimeSeriesQuery"
+									spec: {
+										query:            "unpoller_unas_disk_write_kbps"
+										seriesNameFormat: "disk {{slot_id}} write"
+									}
+								}
+							},
+						]
+					}
+				}
+
+				// Derived from the byte counters rather than the ready-made kula_network_*_mbps
+				// gauges, because "mbps" does not say whether it means megabits or megabytes
+				// and the two differ by 8x. rate() over the counter is unambiguously bytes/s.
+				//
+				// end0 only: tailscale0 carries the same packets a second time, tunnelled,
+				// so including both interfaces double-counts every tailnet byte.
+				networkRx: {
+					kind: "Panel"
+					spec: {
+						display: {
+							name:        "Network in by host"
+							description: "Bytes per second arriving on each pi's physical interface, averaged over 5m. Only the pis report this - unpoller gives per-port switch counters, which measure the same traffic again from the other end of the cable."
+						}
+						plugin: {
+							kind: "TimeSeriesChart"
+							spec: {}
+						}
+						queries: [
+							{
+								kind: "TimeSeriesQuery"
+								spec: plugin: {
+									kind: "PrometheusTimeSeriesQuery"
+									spec: {
+										query:            "rate(kula_network_rx_bytes_total{interface=\"end0\"}[5m])"
+										seriesNameFormat: "{{host}}"
+									}
+								}
+							},
+						]
+					}
+				}
+
+				networkTx: {
+					kind: "Panel"
+					spec: {
+						display: {
+							name:        "Network out by host"
+							description: "Bytes per second leaving each pi's physical interface, averaged over 5m. Same end0-only filter as the inbound panel, for the same reason."
+						}
+						plugin: {
+							kind: "TimeSeriesChart"
+							spec: {}
+						}
+						queries: [
+							{
+								kind: "TimeSeriesQuery"
+								spec: plugin: {
+									kind: "PrometheusTimeSeriesQuery"
+									spec: {
+										query:            "rate(kula_network_tx_bytes_total{interface=\"end0\"}[5m])"
+										seriesNameFormat: "{{host}}"
 									}
 								}
 							},
