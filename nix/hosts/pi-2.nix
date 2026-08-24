@@ -76,6 +76,22 @@
     port = 8099;
   };
 
+  # unpoller
+  # Owned by the unpoller service user, not root: inputunifi opens the file itself
+  # via its file:// reference, and the ExecStart wrapper reads the UNAS one as the
+  # same user.
+  services.onepassword-secrets.secrets.unpollerUnasPassword = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/4rysqwcs2u5st5xzoy22gfz7au/password";
+    owner = "unpoller";
+    mode = "0400";
+  };
+
+  services.onepassword-secrets.secrets.unpollerUnifiPassword = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/spjanmeqbrmygc5e2ijapwzkhe/password";
+    owner = "unpoller";
+    mode = "0400";
+  };
+
   # Perses
   services.onepassword-secrets.secrets.persesEncryptionKey = {
     reference = "op://2udkjdngrnb6jlr62cd7iq33de/nnur4ctpce2l3dfoqettgcr3ay/encryption key";
