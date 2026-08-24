@@ -10,11 +10,11 @@ spec:
   display:
     name: Homelab
   panels:
-    "0_0":
+    temperature:
       kind: Panel
       spec:
         display:
-          name: CPU temperature by host
+          name: Temperature by host
         plugin:
           kind: TimeSeriesChart
           spec: {}
@@ -25,18 +25,59 @@ spec:
                 kind: PrometheusTimeSeriesQuery
                 spec:
                   query: kula_cpu_temperature_celsius
-                  seriesNameFormat: '{{host}}'
+                  seriesNameFormat: '{{host}} cpu'
+          - kind: TimeSeriesQuery
+            spec:
+              plugin:
+                kind: PrometheusTimeSeriesQuery
+                spec:
+                  query: unpoller_unas_cpu_temperature_celsius
+                  seriesNameFormat: '{{name}} cpu'
+          - kind: TimeSeriesQuery
+            spec:
+              plugin:
+                kind: PrometheusTimeSeriesQuery
+                spec:
+                  query: unpoller_unas_disk_temperature_celsius
+                  seriesNameFormat: '{{name}} disk {{slot_id}}'
+    poe:
+      kind: Panel
+      spec:
+        display:
+          name: PoE draw by port
+        plugin:
+          kind: TimeSeriesChart
+          spec: {}
+        queries:
+          - kind: TimeSeriesQuery
+            spec:
+              plugin:
+                kind: PrometheusTimeSeriesQuery
+                spec:
+                  query: unpoller_device_port_poe_watts > 0
+                  seriesNameFormat: '{{port_name}}'
+          - kind: TimeSeriesQuery
+            spec:
+              plugin:
+                kind: PrometheusTimeSeriesQuery
+                spec:
+                  query: sum(unpoller_device_port_poe_watts)
+                  seriesNameFormat: total
   layouts:
     - kind: Grid
       spec:
-        display:
-          title: CPU temperature
         items:
           - x: 0
             "y": 0
             width: 24
             height: 12
             content:
-              $ref: '#/spec/panels/0_0'
+              $ref: '#/spec/panels/temperature'
+          - x: 0
+            "y": 12
+            width: 24
+            height: 10
+            content:
+              $ref: '#/spec/panels/poe'
   duration: 1d
 
