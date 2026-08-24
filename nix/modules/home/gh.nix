@@ -13,13 +13,10 @@
       aliases.co = "pr checkout";
     };
 
-    # The token lives in the macOS keychain, so nothing secret lands here.
-    # Note this makes hosts.yml a read-only store symlink: `gh auth login` and
-    # `gh auth switch` can no longer rewrite it.
-    hosts."github.com" = {
-      user = "oschrenk";
-      git_protocol = "ssh";
-      users.oschrenk = { };
-    };
+    # hosts.yml is deliberately left unmanaged. `gh auth login` / `auth switch`
+    # rewrite it, and a read-only store symlink would break that. gh keeps it in
+    # XDG_CONFIG_HOME rather than its state dir (~/.local/state/gh), but it is
+    # an auth ledger, not configuration: the token lives in the macOS keychain
+    # and a fresh machine just needs `gh auth login`.
   };
 }
