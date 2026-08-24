@@ -8,6 +8,7 @@
     ./direnv.nix
     ./fish.nix
     ./fzf.nix
+    ./gh.nix
     ./ghostty.nix
     ./git.nix
     ./gitwatch.nix

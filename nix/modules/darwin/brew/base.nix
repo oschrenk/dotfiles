@@ -77,7 +77,6 @@
     "tree-sitter-cli" # nvim, requirement
 
     # git
-    "gh" # cli, interact with github
     "oschrenk/made/infuse" # git, repository mixer
     "worktrunk" # git, worktree management
 
