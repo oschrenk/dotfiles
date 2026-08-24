@@ -80,9 +80,44 @@ tasks:
     desc: Start the linux-builder VM if it is not already running, and wait for it
     # The daemon is RunAtLoad=false / KeepAlive=false, so it is not running unless
     # something asked for it. kickstart without -k is a no-op when already up.
+    #
+    # kickstart only starts a service launchd already knows about. A plist written by
+    # darwin activation but never bootstrapped is unknown, so kickstart exits 113
+    # ("Could not find service") and every pi rebuild dies before it builds. Register
+    # it and try again — and kickstart after bootstrap, not instead of it, because
+    # RunAtLoad=false means registering alone spawns nothing. Unlike nix-builder-force
+    # this leaves nixos.qcow2 and its build cache untouched.
     cmds:
-      - sudo launchctl kickstart system/org.nixos.linux-builder
+      - |
+        sudo launchctl kickstart system/org.nixos.linux-builder || {
+          sudo launchctl bootstrap system /Library/LaunchDaemons/org.nixos.linux-builder.plist
+          sudo launchctl kickstart system/org.nixos.linux-builder
+        }
       - until nc -z localhost 31022; do sleep 2; done
+  nix-builder-down:
+    desc: Stop the linux-builder VM and wait for it to go away
+    # launchctl stop SIGTERMs QEMU, which closes its block devices before exiting: the
+    # guest sees a power cut, but the image is flushed. That is as clean as this VM
+    # gets — the guest's builder user has no passwordless sudo, so it cannot be told to
+    # halt itself, and QEMU_OPTS configures no monitor socket to send system_powerdown
+    # to. What must not happen is pkill -9: an image killed mid-write costs the whole
+    # build cache to recover, per docs/nix/builder.md.
+    #
+    # KeepAlive=false, so nothing respawns it, and the job stays registered — which
+    # leaves nix-builder-up a plain kickstart afterwards.
+    cmds:
+      # launchctl stop exits 3 here: the job launchd tracks is the create-builder shell
+      # wrapper, and killing it does not reach the QEMU it spawned — the wrapper exits
+      # and QEMU is reparented, still serving 31022. So signal both, and match QEMU on
+      # the builder's own image path rather than `pkill -f qemu-system-aarch64`, which
+      # would take down any other VM on the machine.
+      #
+      # SIGTERM, never -9: QEMU closes its block devices on TERM, so the image is
+      # flushed. An image killed mid-write costs the whole build cache to recover, per
+      # docs/nix/builder.md.
+      - sudo launchctl kill TERM system/org.nixos.linux-builder || true
+      - sudo pkill -f 'file=/private/var/lib/linux-builder/nixos.qcow2' || true
+      - until ! nc -z localhost 31022; do sleep 2; done
   nix-builder-restart:
     desc: Restart the linux-builder VM
     cmds:
