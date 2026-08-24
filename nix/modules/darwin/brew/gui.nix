@@ -5,7 +5,6 @@
 {
   homebrew.brews = [
     "8ta4/extension/extension" # web, install browser extensions (used by chezmoi 01f_deps_extensions)
-    "chrome-cli" # cli, control chrome via cli
     "displayplacer" # macos, arrange monitors
     "fileicon" # macos, manage icons
     "iconsur" # macos, fetch icons
