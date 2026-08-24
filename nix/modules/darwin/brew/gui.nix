@@ -14,7 +14,6 @@
     "oschrenk/made/mission" # macos, task management
     "oschrenk/made/nightshift" # hardware, control Night Shift
     "oschrenk/made/wallpaper" # macos, set wallpaper
-    "spicetify-cli" # spotify ricing
     "xcodes" # xcode & runtimes manager
   ];
 
