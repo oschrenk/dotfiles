@@ -63,8 +63,6 @@
     "yq" # data, process YAML
 
     # database
-    "libpq" # postgres, cli
-    "pgformatter" # postgres, formatter
 
     # development
     "prettier" # generic, code formatter
