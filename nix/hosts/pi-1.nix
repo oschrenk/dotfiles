@@ -111,11 +111,14 @@
     mode = "0600";
   };
 
-  # Stagger to avoid concurrent NAS access. Backups complete in 10-30s so
-  # 15-minute intervals are sufficient; this also leaves 01:45 free for pi-3.
+  # Stagger to avoid overlapping runs. All jobs share one repo, and `forget --prune`
+  # takes an exclusive lock — two prunes at once means the second fails rather than
+  # waits, since restic does not retry locks by default. Jobs finish in 10-60s, so
+  # 5-minute gaps leave ample headroom. The offsite copy trails the last local job.
   services.restic-beszel.backupSchedule = "*-*-* 01:00:00";
-  services.restic-adguard.backupSchedule = "*-*-* 01:15:00";
-  services.restic-fusion.backupSchedule = "*-*-* 02:00:00";
+  services.restic-adguard.backupSchedule = "*-*-* 01:05:00";
+  services.restic-fusion.backupSchedule = "*-*-* 01:10:00";
+  services.restic-offsite.schedule = "*-*-* 01:20:00";
 
   services.backup-healthcheck.checks = {
     # port 8099: localhost-only HTTP shim for beszel backup freshness.
