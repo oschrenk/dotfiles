@@ -120,6 +120,11 @@
   services.restic-fusion.backupSchedule = "*-*-* 01:10:00";
   services.restic-offsite.schedule = "*-*-* 01:20:00";
 
+  # Prometheus on pi-2 scrapes this over the tailnet. The default 127.0.0.1 suits
+  # hosts whose dashboard Traefik proxies locally, which pi-1 is — but that also
+  # made it the one kula endpoint pi-2 could not reach.
+  services.kula.listenAddress = "0.0.0.0";
+
   services.backup-healthcheck.checks = {
     # port 8099: localhost-only HTTP shim for beszel backup freshness.
     beszel = {
