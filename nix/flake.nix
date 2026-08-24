@@ -137,6 +137,9 @@
             ./modules/nixos/beszel/agent.nix
             ./modules/nixos/kula.nix
             ./modules/nixos/unifi-network-controller.nix
+            ./modules/nixos/restic/healthcheck.nix
+            ./modules/nixos/restic/mount.nix
+            ./modules/nixos/restic/unifi.nix
             ./hosts/network.nix
             ./hosts/pi-3.nix
           ];

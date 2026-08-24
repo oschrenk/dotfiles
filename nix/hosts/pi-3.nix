@@ -20,6 +20,37 @@
     mode = "0600";
   };
 
+  # Backups
+  # Same three 1Password items pi-1 and pi-2 use: one shared repo on the UNAS, one
+  # password, one ntfy topic.
+  services.onepassword-secrets.secrets.unasCredentials = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/nlu6b76afi6kmgrjovrlw7bnrq/smb credentials";
+    owner = "root";
+    mode = "0600";
+  };
+
+  services.onepassword-secrets.secrets.resticPassword = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/mvunkul72kvdmvdkbycvsg7ogq/password";
+    owner = "root";
+    mode = "0600";
+  };
+
+  services.onepassword-secrets.secrets.ntfyUrl = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/5gsl762zsgopnb7noenx44teey/homelab-backups";
+    owner = "root";
+    mode = "0600";
+  };
+
+  # Last local job of the night, ahead of pi-1's offsite copy at 01:25, so the
+  # night's controller backup reaches R2 on the same run.
+  services.restic-unifi.backupSchedule = "*-*-* 01:20:00";
+
+  # port 8099: localhost-only HTTP shim for unifi backup freshness. Same port as
+  # pi-2's check — the socket binds 127.0.0.1, so the numbering is per-host.
+  services.backup-healthcheck.checks.unifi = {
+    port = 8099;
+  };
+
   # Storage
   fileSystems."/" = {
     device = "/dev/disk/by-label/NIXOS_SD";
