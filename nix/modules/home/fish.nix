@@ -90,7 +90,6 @@
 
       # force some apps to respect XDG
       set -gx INPUTRC "$XDG_CONFIG_HOME"/readline/inputrc
-      set -gx WGETRC "$XDG_CONFIG_HOME"/wgetrc
       # Mirrors what programs.ripgrep sets via home.sessionVariables. Fish doesn't
       # source hm-session-vars.sh, so we declare it here too. Same path, no drift.
       set -gx RIPGREP_CONFIG_PATH $XDG_CONFIG_HOME/ripgrep/ripgreprc
