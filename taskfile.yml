@@ -61,6 +61,13 @@ tasks:
     vars:
       HOSTNAME:
         sh: hostname -s
+  nix-builder-up:
+    desc: Start the linux-builder VM if it is not already running, and wait for it
+    # The daemon is RunAtLoad=false / KeepAlive=false, so it is not running unless
+    # something asked for it. kickstart without -k is a no-op when already up.
+    cmds:
+      - sudo launchctl kickstart system/org.nixos.linux-builder
+      - until nc -z localhost 31022; do sleep 2; done
   nix-builder-restart:
     desc: Restart the linux-builder VM
     cmds:
@@ -84,18 +91,21 @@ tasks:
     desc: Apply NixOS configuration to pi-1
     dir: nix
     cmds:
+      - task: nix-builder-up
       - sudo chmod 644 /etc/nix/builder_ed25519
       - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-1 --target-host oliver@pi-1.local --build-host builder@linux-builder --sudo
   nix-rebuild-pi-2:
     desc: Apply NixOS configuration to pi-2
     dir: nix
     cmds:
+      - task: nix-builder-up
       - sudo chmod 644 /etc/nix/builder_ed25519
       - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-2 --target-host oliver@pi-2.local --build-host builder@linux-builder --sudo
   nix-rebuild-pi-3:
     desc: Apply NixOS configuration to pi-3
     dir: nix
     cmds:
+      - task: nix-builder-up
       - sudo chmod 644 /etc/nix/builder_ed25519
       - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-3 --target-host oliver@pi-3.local --build-host builder@linux-builder --sudo
   nix-rebuild-hetzner-1:

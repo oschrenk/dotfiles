@@ -19,13 +19,16 @@ in
     mkdir -p /var/lib/linux-builder
   '';
 
-  # Run the linux-builder VM as a persistent launchd daemon.
-  # Uses macOS Virtualization framework; starts automatically on boot.
+  # Run the linux-builder VM as an on-demand launchd daemon. It is needed a few
+  # times a day for pi rebuilds, and idles the rest of the time holding its full
+  # memory allocation — which on a 16 GB machine lands in swap and slows
+  # everything down. The rebuild tasks in taskfile.yml kickstart it and wait for
+  # the port, so it starts when it is actually wanted.
   launchd.daemons.linux-builder = {
     serviceConfig = {
       ProgramArguments = [ "${builder}/bin/create-builder" ];
-      KeepAlive = true;
-      RunAtLoad = true;
+      KeepAlive = false;
+      RunAtLoad = false;
       WorkingDirectory = "/var/lib/linux-builder";
       EnvironmentVariables = {
         # run-nixos-vm copies this file into the VM as the CA bundle.
@@ -39,7 +42,7 @@ in
         # HVF cannot emulate GICv2 — Apple's hypervisor exposes GICv3 only. qemu 11.1.0
         # rejects the combination outright ("HVF does not support GICv2 emulation")
         # instead of falling back to TCG, so the VM fails to start at all.
-        QEMU_OPTS = "-smp 4 -m 8192 -machine virt,gic-version=3,accel=hvf:tcg";
+        QEMU_OPTS = "-smp 4 -m 6144 -machine virt,gic-version=3,accel=hvf:tcg";
       };
       StandardOutPath = "/var/log/linux-builder.log";
       StandardErrorPath = "/var/log/linux-builder.log";
