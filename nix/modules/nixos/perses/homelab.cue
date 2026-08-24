@@ -62,6 +62,13 @@ dashboard & {
 						height:  10
 						content: {"$ref": "#/spec/panels/costByPort"}
 					},
+					{
+						x:       0
+						y:       20
+						width:   8
+						height:  10
+						content: {"$ref": "#/spec/panels/fx"}
+					},
 				]
 			}
 
@@ -158,6 +165,37 @@ dashboard & {
 									spec: {
 										query:            "unpoller_device_memory_utilization_ratio * 100"
 										seriesNameFormat: "{{name}}"
+									}
+								}
+							},
+						]
+					}
+				}
+
+				// last_over_time, not a bare selector. One sample per day is far outside
+				// Prometheus' 5m lookback, so `fx_rate` alone resolves to nothing for all
+				// but five minutes of each day — in range queries as much as instant ones,
+				// which renders an empty panel rather than an obviously broken one. 36h
+				// rather than 24h so a weekend or a holiday does not open a gap.
+				fx: {
+					kind: "Panel"
+					spec: {
+						display: {
+							name:        "GTQ per EUR"
+							description: "GTQ per EUR, one sample per day because that is how often the rate exists. Derived rather than fetched: Banco de Guatemala for GTQ/USD divided by the ECB for EUR/USD, each forward-filled over its own weekends and holidays. Backfilled history only for now - the series stops at the day it was imported until the live exporter in DOTFILES-18 is enabled, and the 90d retention window trims the oldest day as it slides."
+						}
+						plugin: {
+							kind: "TimeSeriesChart"
+							spec: {}
+						}
+						queries: [
+							{
+								kind: "TimeSeriesQuery"
+								spec: plugin: {
+									kind: "PrometheusTimeSeriesQuery"
+									spec: {
+										query:            "last_over_time(fx_rate{base=\"EUR\",quote=\"GTQ\"}[36h])"
+										seriesNameFormat: "GTQ per EUR"
 									}
 								}
 							},
