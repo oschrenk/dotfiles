@@ -28,8 +28,13 @@ in
       pruneOpts = [
         "--keep-daily 7"
         "--keep-weekly 4"
+        # Matches the 5-minute schedule gap in hosts/pi-1.nix: a job may absorb one
+        # slot of delay from its predecessor and no more. Without it restic fails
+        # immediately on a held lock, and `forget --prune` takes an exclusive one.
+        "--retry-lock 5m"
       ];
       initialize = true;
+      extraBackupArgs = [ "--retry-lock 5m" ];
 
       backupPrepareCommand = ''
         date +%s > /run/restic-fusion-start

@@ -82,6 +82,10 @@ in
       pruneOpts = [
         "--keep-daily 7"
         "--keep-weekly 4"
+        # Matches the 5-minute schedule gap in hosts/pi-1.nix: a job may absorb one
+        # slot of delay from its predecessor and no more. Without it restic fails
+        # immediately on a held lock, and `forget --prune` takes an exclusive one.
+        "--retry-lock 5m"
       ];
 
       # beszel-hub is NOT stopped before backup. PocketBase uses WAL mode which makes
@@ -117,6 +121,7 @@ in
       '';
 
       initialize = true; # runs `restic init` on first start if repo is empty
+      extraBackupArgs = [ "--retry-lock 5m" ];
     };
 
     # RequiresMountsFor ensures the service fails immediately if the CIFS mount is

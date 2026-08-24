@@ -85,13 +85,16 @@ in
         # the destination are skipped via their `original` field, so re-runs are cheap.
         LOG="$(mktemp)"
         trap 'rm -f "$LOG"' EXIT
-        ${restic} copy 2>&1 | tee "$LOG"
+        # --retry-lock for the same reason as the local jobs: copy takes a shared lock
+        # on the source, which an overrunning local prune still blocks.
+        ${restic} copy --retry-lock 5m 2>&1 | tee "$LOG"
         COPIED="$(grep -c 'snapshot .* saved' "$LOG" || true)"
 
         # Retention applies to R2 only — RESTIC_REPOSITORY is the destination, and
         # forget has no notion of the copy source. Deliberately longer than the local
         # 7d/4w so the bucket keeps history the UNAS repo has already pruned.
         ${restic} forget --prune \
+          --retry-lock 5m \
           --keep-daily 7 \
           --keep-weekly 4 \
           --keep-monthly 3
