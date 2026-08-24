@@ -8,4 +8,8 @@
     # we want `la = lsd -la`).
     enableFishIntegration = false;
   };
+
+  # Deployed verbatim rather than via `programs.lsd.settings`, which renders the
+  # yaml from an attrset and drops the upstream documentation comments.
+  xdg.configFile."lsd/config.yaml".source = ./lsd/config.yaml;
 }
