@@ -9,6 +9,7 @@ repos.apps = [
 ]
 
 repos.forks = [
+  { url = "git@github.com:oschrenk/gitwatch-rs.git" },
   { url = "git@github.com:oschrenk/mcp-server-macos-use.git" },
   { url = "git@github.com:oschrenk/nvim-md-todo-toggle.git" },
   { url = "git@github.com:oschrenk/obsidian-electron-window-tweaker.git" },
