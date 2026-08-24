@@ -34,15 +34,18 @@ in
         # run-nixos-vm copies this file into the VM as the CA bundle.
         # Without it the VM has no trusted certs and TLS fetches fail.
         NIX_SSL_CERT_FILE = "/etc/ssl/certs/ca-certificates.crt";
-        # Give the VM more CPUs and RAM for parallel builds.
+        # Give the VM more CPUs for parallel builds. RAM stays at run-nixos-vm's
+        # own 3072: the builds this runs are pi closures, which never came close
+        # to 6 GB, and the VM holds that reservation the whole time it is up.
         # run-nixos-vm hardcodes -m 3072 and -smp 1; QEMU_OPTS is appended last
-        # so these values win (QEMU uses the last occurrence of each flag).
+        # so these values win (QEMU uses the last occurrence of each flag). -m is
+        # restated rather than dropped so the VM's size is visible here.
         #
         # -machine overrides run-nixos-vm's hardcoded `virt,gic-version=2,accel=hvf:tcg`.
         # HVF cannot emulate GICv2 — Apple's hypervisor exposes GICv3 only. qemu 11.1.0
         # rejects the combination outright ("HVF does not support GICv2 emulation")
         # instead of falling back to TCG, so the VM fails to start at all.
-        QEMU_OPTS = "-smp 4 -m 6144 -machine virt,gic-version=3,accel=hvf:tcg";
+        QEMU_OPTS = "-smp 4 -m 3072 -machine virt,gic-version=3,accel=hvf:tcg";
       };
       StandardOutPath = "/var/log/linux-builder.log";
       StandardErrorPath = "/var/log/linux-builder.log";
