@@ -52,6 +52,12 @@ in
       port = config.services.kula.port;
     }
     # UniFi runs on pi-3, not here, and serves its own self-signed cert on 8443.
+    # Perses runs on pi-2, reached over the tailnet like the kula backends.
+    {
+      name = "perses";
+      host = config.my.host."pi-2".tailscaleIp;
+      port = config.services.perses.port;
+    }
     {
       name = "unifi";
       host = config.my.host."pi-3".lanIp;

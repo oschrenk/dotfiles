@@ -41,6 +41,7 @@
       "kula-pi-1"
       "kula-pi-2"
       "kula-pi-3"
+      "perses"
     ];
   };
 }

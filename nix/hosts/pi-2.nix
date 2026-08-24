@@ -43,4 +43,17 @@
   # Traefik lives on pi-1, so bind beyond localhost. base.nix opens no LAN ports
   # and trusts tailscale0, so only the tailnet can actually reach it.
   services.kula.listenAddress = "0.0.0.0";
+
+  # Perses
+  services.onepassword-secrets.secrets.persesEncryptionKey = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/nnur4ctpce2l3dfoqettgcr3ay/encryption key";
+    owner = "root";
+    mode = "0600";
+  };
+
+  services.onepassword-secrets.secrets.persesAdminPassword = {
+    reference = "op://2udkjdngrnb6jlr62cd7iq33de/nnur4ctpce2l3dfoqettgcr3ay/password";
+    owner = "root";
+    mode = "0600";
+  };
 }

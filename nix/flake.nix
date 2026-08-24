@@ -113,6 +113,7 @@
             ./modules/nixos/beszel/agent.nix
             ./modules/nixos/kula.nix
             ./modules/nixos/prometheus.nix
+            ./modules/nixos/perses.nix
             ./hosts/network.nix
             ./hosts/pi-2.nix
           ];
