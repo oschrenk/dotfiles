@@ -166,6 +166,11 @@ function __slack_review
     set -l channel '#backend'
     set -q _flag_channel; and set channel $_flag_channel
 
+    # glab comes from the work project's devshell, not from brew or nix — the
+    # same arrangement as jira-cli-go (see nix/modules/home/jira.nix). Outside
+    # that repo it is absent and this subcommand cannot work, which is fine:
+    # the MRs it looks up only exist there.
+    #
     # No argument means glab falls back to the current branch's MR.
     set -l mr (glab mr view $argv[1] -F json 2>/dev/null | jq -r '.title, .web_url')
     if test (count $mr) -lt 2; or test -z "$mr[2]"
