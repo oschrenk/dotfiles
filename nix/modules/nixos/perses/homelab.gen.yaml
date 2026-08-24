@@ -119,12 +119,12 @@ spec:
                 spec:
                   query: unpoller_unas_disk_temperature_celsius
                   seriesNameFormat: '{{name}} disk {{slot_id}}'
-    unasDisk:
+    unasDiskRead:
       kind: Panel
       spec:
         display:
-          name: UNAS disk throughput
-          description: 'Both bays, read and write, as the UNAS reports them. The two drives mirror each other, so the write lines should track closely - a sustained divergence is worth a look. Read and write are plotted together because the interesting states are asymmetric: a scrub reads on both spindles, a restic run writes.'
+          name: UNAS disk read
+          description: Both bays. Reads are the asymmetric half of the pair - a single drive can carry a read on its own, so the two lines diverging here is normal rather than a fault.
         plugin:
           kind: TimeSeriesChart
           spec: {}
@@ -135,14 +135,24 @@ spec:
                 kind: PrometheusTimeSeriesQuery
                 spec:
                   query: unpoller_unas_disk_read_kbps
-                  seriesNameFormat: disk {{slot_id}} read
+                  seriesNameFormat: disk {{slot_id}}
+    unasDiskWrite:
+      kind: Panel
+      spec:
+        display:
+          name: UNAS disk write
+          description: Both bays. The drives mirror, so these two lines should track each other closely - a sustained divergence means one spindle is falling behind and is worth a look.
+        plugin:
+          kind: TimeSeriesChart
+          spec: {}
+        queries:
           - kind: TimeSeriesQuery
             spec:
               plugin:
                 kind: PrometheusTimeSeriesQuery
                 spec:
                   query: unpoller_unas_disk_write_kbps
-                  seriesNameFormat: disk {{slot_id}} write
+                  seriesNameFormat: disk {{slot_id}}
     networkRx:
       kind: Panel
       spec:
@@ -265,19 +275,25 @@ spec:
               $ref: '#/spec/panels/temperature'
           - x: 0
             "y": 10
-            width: 8
+            width: 6
             height: 10
             content:
-              $ref: '#/spec/panels/unasDisk'
-          - x: 8
+              $ref: '#/spec/panels/unasDiskRead'
+          - x: 6
             "y": 10
-            width: 8
+            width: 6
+            height: 10
+            content:
+              $ref: '#/spec/panels/unasDiskWrite'
+          - x: 12
+            "y": 10
+            width: 6
             height: 10
             content:
               $ref: '#/spec/panels/networkRx'
-          - x: 16
+          - x: 18
             "y": 10
-            width: 8
+            width: 6
             height: 10
             content:
               $ref: '#/spec/panels/networkTx'

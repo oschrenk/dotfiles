@@ -44,21 +44,28 @@ dashboard & {
 					{
 						x:       0
 						y:       10
-						width:   8
+						width:   6
 						height:  10
-						content: {"$ref": "#/spec/panels/unasDisk"}
+						content: {"$ref": "#/spec/panels/unasDiskRead"}
 					},
 					{
-						x:       8
+						x:       6
 						y:       10
-						width:   8
+						width:   6
+						height:  10
+						content: {"$ref": "#/spec/panels/unasDiskWrite"}
+					},
+					{
+						x:       12
+						y:       10
+						width:   6
 						height:  10
 						content: {"$ref": "#/spec/panels/networkRx"}
 					},
 					{
-						x:       16
+						x:       18
 						y:       10
-						width:   8
+						width:   6
 						height:  10
 						content: {"$ref": "#/spec/panels/networkTx"}
 					},
@@ -275,15 +282,20 @@ dashboard & {
 				// but they idle around 100 KB/s while the NAS sustains ~10 MB/s, and on one
 				// linear axis that gap flattens the pi lines into the baseline.
 				//
-				// Left in the exporter's own kbps rather than converted to bytes: nothing
-				// here needs to be comparable with kula, and unpoller's byte-labelled
-				// figures are the ones that lie about units, not these.
-				unasDisk: {
+				// Read and write are separate panels rather than four series on one, because
+				// they peak at different times and for different reasons — a scrub reads on
+				// both spindles, a restic run writes — so a shared axis is scaled by whichever
+				// is busy and hides the other.
+				//
+				// Both stay in the exporter's own kbps rather than converted to bytes: nothing
+				// here needs to be comparable with kula, and unpoller's byte-labelled figures
+				// are the ones that lie about units, not these.
+				unasDiskRead: {
 					kind: "Panel"
 					spec: {
 						display: {
-							name:        "UNAS disk throughput"
-							description: "Both bays, read and write, as the UNAS reports them. The two drives mirror each other, so the write lines should track closely - a sustained divergence is worth a look. Read and write are plotted together because the interesting states are asymmetric: a scrub reads on both spindles, a restic run writes."
+							name:        "UNAS disk read"
+							description: "Both bays. Reads are the asymmetric half of the pair - a single drive can carry a read on its own, so the two lines diverging here is normal rather than a fault."
 						}
 						plugin: {
 							kind: "TimeSeriesChart"
@@ -296,17 +308,33 @@ dashboard & {
 									kind: "PrometheusTimeSeriesQuery"
 									spec: {
 										query:            "unpoller_unas_disk_read_kbps"
-										seriesNameFormat: "disk {{slot_id}} read"
+										seriesNameFormat: "disk {{slot_id}}"
 									}
 								}
 							},
+						]
+					}
+				}
+
+				unasDiskWrite: {
+					kind: "Panel"
+					spec: {
+						display: {
+							name:        "UNAS disk write"
+							description: "Both bays. The drives mirror, so these two lines should track each other closely - a sustained divergence means one spindle is falling behind and is worth a look."
+						}
+						plugin: {
+							kind: "TimeSeriesChart"
+							spec: {}
+						}
+						queries: [
 							{
 								kind: "TimeSeriesQuery"
 								spec: plugin: {
 									kind: "PrometheusTimeSeriesQuery"
 									spec: {
 										query:            "unpoller_unas_disk_write_kbps"
-										seriesNameFormat: "disk {{slot_id}} write"
+										seriesNameFormat: "disk {{slot_id}}"
 									}
 								}
 							},
