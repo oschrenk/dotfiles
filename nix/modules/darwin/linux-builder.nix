@@ -1,14 +1,14 @@
 # aarch64-linux builder VM for cross-compiling packages that nixpkgs won't cache
 # (SSPL-licensed packages like MongoDB are skipped by Hydra).
 # Runs a QEMU/HVF NixOS VM on macOS via launchd, accessible as ssh builder@linux-builder.
-# See nix/docs/builder.md for setup, maintenance, and known issues.
+# See docs/nix/builder.md for setup, maintenance, and known issues.
 { pkgs, lib, ... }:
 let
   # qemu unpinned: using nixpkgs qemu (11.0.1+). Previously pinned to 10.2.2
   # because 11.0.0 asserted in HVF on macOS 26 (Tahoe) at sysreg.c.inc:149
   # (HV_SYS_REG_SMCR_EL1 mismatch, incomplete FEAT_SME2 register handling).
   # If the builder VM fails to boot with that assertion, restore the pin.
-  # See nix/docs/builder.md.
+  # See docs/nix/builder.md.
   builder = pkgs.darwin.linux-builder;
 in
 {

@@ -55,7 +55,7 @@
     #
     # At 100 it was unusable: sentence-per-line will not split a sentence, so
     # every sentence over the limit became a finding that `fmt` could not fix
-    # and only rewording would clear. That was 30 of them across nix/docs.
+    # and only rewording would clear. That was 30 of them across docs/nix.
     # At 0 the length check is off and every finding is fixable.
     line-length = 0
 
