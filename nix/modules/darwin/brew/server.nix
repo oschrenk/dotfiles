@@ -8,6 +8,8 @@
     # because it is keg-only and brew bundle autoremoves transitive deps.
     "node@22"
     "oschrenk/personal/obsidian-headless" # cli
-    "oschrenk/personal/msgvault" # cli, archive email
+    # homebrew-core, not the personal tap — the tap formula shadowed core and
+    # pinned 0.7.0 while core ships a current bottle.
+    "msgvault" # cli, archive email and chat
   ];
 }
