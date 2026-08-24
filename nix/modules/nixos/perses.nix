@@ -71,7 +71,7 @@ let
             name: "${username}"
     '';
 
-    # Built from nix/perses/caddy-temperature.cue by `task perses-dashboards`.
+    # Built from perses/homelab.cue by `task perses-dashboards`.
     # Committed rather than generated during the nix build: `percli dac build`
     # needs the cue binary and network access to the CUE module registry, neither
     # of which belongs in a nix derivation.
