@@ -5,7 +5,7 @@
 # Not a nix activation script: `extension install` writes into a running Arc
 # profile and relaunches the browser, which is imperative state nix does not own.
 #
-# Each install relaunches Arc, so this is a `task extensions` you run on purpose,
+# Each install relaunches Arc, so this is a `task customize:extensions` you run on purpose,
 # not something that happens on every rebuild.
 
 set -uo pipefail

@@ -438,7 +438,7 @@ dashboard & {
 				}
 
 				// Costed from the recording rules rather than from a query expression here:
-				// this file is built by `task perses-dashboards`, outside the nix evaluation,
+				// this file is built by `task homelab:perses-dashboards`, outside the nix evaluation,
 				// so it cannot read the tariff from my.electricity. Referencing the recorded
 				// series keeps the rate stated exactly once, in options.nix.
 				cost: {

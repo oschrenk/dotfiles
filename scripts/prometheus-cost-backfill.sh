@@ -6,7 +6,7 @@
 # retention. `promtool tsdb create-blocks-from rules` recomputes the rules against
 # data already in the TSDB and writes real blocks, which closes that gap.
 #
-# Runs on pi-2 as root — see the prometheus-cost-backfill task, which pipes it over
+# Runs on pi-2 as root — see the homelab:prometheus-cost-backfill task, which pipes it over
 # ssh. Takes the start time as its only argument, RFC3339 or a unix timestamp.
 set -euo pipefail
 

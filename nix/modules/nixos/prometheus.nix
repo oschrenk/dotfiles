@@ -60,14 +60,14 @@ in
       ];
 
       # The tariff arithmetic lives here rather than in the Perses panel because
-      # homelab.cue is built by `task perses-dashboards` outside the nix
+      # homelab.cue is built by `task homelab:perses-dashboards` outside the nix
       # evaluation and cannot read config.my.electricity. Recording rules are the
       # one seam where a nix option legitimately becomes a Prometheus series, and
       # they leave the rate stated exactly once in the repo.
       #
       # These are also backfillable: `promtool tsdb create-blocks-from rules`
       # recomputes them over PoE history that predates the rule landing. See the
-      # prometheus-cost-backfill task.
+      # homelab:prometheus-cost-backfill task.
       rules = [
         ''
           groups:

@@ -183,7 +183,7 @@ arbol sync
 
 - `task brew` Install taps/brews/apps
 - `task cargo` Install crates
-- `task extensions` Install Arc Browser extensions
+- `task customize:extensions` Install Arc Browser extensions
 - `task go` Install go apps
 - `task icons` Install icons
 - `task node` Install node tools
