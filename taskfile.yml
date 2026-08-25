@@ -4,29 +4,18 @@ version: '3'
 env:
   NIX_SSHOPTS: -o ServerAliveInterval=30 -o ServerAliveCountMax=3
 tasks:
-  apps:
-    deps: [ollama]
   extensions:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_01f_deps_extensions.sh.tmpl | chezmoi execute-template | zsh
-  ollama:
-    cmds:
-      - cat home/.chezmoiscripts/run_onchange_01d_deps_ollamafile.sh.tmpl | chezmoi execute-template | zsh
   icons:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_06_customize_icons.sh.tmpl | chezmoi execute-template | zsh
   wallpaper:
     cmds:
       - cat home/.chezmoiscripts/run_onchange_05_configure_wallpaper.sh.tmpl | chezmoi execute-template | zsh
-  spicetify:
-    cmds:
-      - home/.chezmoiscripts/run_onchange_06_customize_spicetify.sh
   services:
     cmds:
       - home/.chezmoiscripts/run_onchange_04_configure_services_brew.sh
-  agents:
-    cmds:
-      - home/.chezmoiscripts/run_onchange_04_configure_services_launch_agents.sh
   bootstrap:infuse:
     desc: Clone the infuse data repo and give it a commit identity (run once, after 1Password is set up)
     cmds:

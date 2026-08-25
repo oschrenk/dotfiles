@@ -40,7 +40,6 @@ require("items.project").new(icons.project, sessionizerPrimary).add("left")
 -- local dynamicIslandWidth = 184
 -- require("items.meter").new(meter, 100).add("center")
 -- require("items.spacer").new(dynamicIslandWidth).add("center")
--- require("items.comodoro").new(comodoro, style.pomodoro).add("center", clockWidth)
 
 -- right
 require("items.clock").new(icons.clock).add("right")
