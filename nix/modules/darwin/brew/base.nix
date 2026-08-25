@@ -42,7 +42,6 @@
     # macos
     "keith/formulae/reminders-cli" # cli, reminders
     "keith/formulae/zap" # cli, uninstall macOS apps
-    "IohannRabeson/tap/tmignore-rs" # git, ignore files in tmux
     "tag" # terminal, interact with macOS file tags
 
     # ai

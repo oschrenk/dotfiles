@@ -29,6 +29,7 @@
     ./starship.nix
     ./ticker.nix
     ./tlink.nix
+    ./tmignore.nix
     ./tmux.nix
     ./vale.nix
     ./zed.nix

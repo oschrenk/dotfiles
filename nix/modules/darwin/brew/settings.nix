@@ -43,7 +43,6 @@
       { name = "8ta4/extension"; trusted = true; } # extension (install browser extensions)
       { name = "darrylmorley/whatcable"; trusted = true; } # whatcable
       { name = "eddmann/tap"; trusted = true; } # whatsapp-cli
-      { name = "IohannRabeson/tap"; trusted = true; } # tmignore-rs
       { name = "keith/formulae"; trusted = true; } # reminders-cli
       { name = "oschrenk/made"; trusted = true; } # personal casks and formulae
       { name = "oschrenk/personal"; trusted = true; } # personal casks and fonts
