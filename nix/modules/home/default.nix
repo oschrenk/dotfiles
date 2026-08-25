@@ -3,6 +3,7 @@
 {
   imports = [
     ./aerospace.nix
+    ./arbol.nix
     ./atuin.nix
     ./cottage.nix
     ./direnv.nix

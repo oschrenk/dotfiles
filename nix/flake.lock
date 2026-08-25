@@ -7,11 +7,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1787353392,
-        "narHash": "sha256-nnxMVHIOEMaWSNMmldSiGyoJEMBzClVJkYfl9FhQq2o=",
+        "lastModified": 1787626650,
+        "narHash": "sha256-qjs37W6pyP3vLLD8RS7zTRZeTQ++ZxFwxXLpJSMjLpM=",
         "owner": "oschrenk",
         "repo": "arbol",
-        "rev": "aaa541699acff973cf57070687a273d1a3af7d3a",
+        "rev": "899cd5fa6bc119a48146df199881cd22ac968e99",
         "type": "github"
       },
       "original": {

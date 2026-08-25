@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, arbol, ... }:
 
 {
   home-manager = {
@@ -9,6 +9,7 @@
     # pass username to all HM modules
     extraSpecialArgs = {
       username = config.system.primaryUser;
+      inherit arbol;
     };
     users.${config.system.primaryUser} = import ./home;
   };
