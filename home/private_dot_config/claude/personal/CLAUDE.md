@@ -31,12 +31,29 @@
 - Challenge your own work before presenting it
 
 # Task Management
-1. Plan First: Write plan to tasks/todo.md with checkable items
-2. Verify Plan: Check in before starting implementation
-3. Track Progress: Mark items complete as you go
-4. Explain Changes: High-level summary at each step
-5. Document Results: Add review section to tasks/todo.md
-6. Capture Lessons: Update tasks/lessons.md after corrections
+
+## Workflow
+
+1. Plan First: write the plan into the task file as checkable items
+2. Verify Plan: check in before you start building
+3. Track Progress: mark items complete as you go
+4. Explain Changes: high-level summary at each step
+5. Document Results: add a review section to the task file
+6. Capture Lessons: update `tasks/lessons.md` after corrections
+
+## Task Files
+
+Tasks are one file per task in `tasks/` at the repo root, as `PREFIX-NN-kebab-slug.md`.
+Every task has frontmatter starting at line 1, a Definition of Ready, and a Definition of Done.
+
+Load the `tasks` skill before creating, editing, or closing a task file.
+The skill holds the rules that are expensive to get wrong: numbering is permanent once a task leaves `todo`, numbers are never reused, `rank` is spaced 1000 apart, and subtasks are ordinary tasks with a `parent` key.
+Do not write a task file from memory of this paragraph.
+
+`tasks/` is often symlinked into a shared store and shows as untracked.
+That is expected.
+Never `git add` it.
+
 
 # Core Principles
 - Simplicity First: Make every change as simple as possible. Impact minimal code.
@@ -52,6 +69,11 @@
 # Proposals and Suggestions
 
 When presenting options, suggestions, or changes for the user to approve (e.g. file renames, folder restructuring, config changes), ALWAYS use the AskUserQuestion tool instead of listing suggestions in plain text. Let the user confirm interactively rather than dumping a table and asking "want me to do these?"
+
+# Markdown Formatting
+
+- Do NOT put a horizontal rule (`---`) before headings. Headings already separate sections; the rule adds visual noise and clutters the diff. This applies to files you write and to your replies.
+- Use `---` only when it genuinely marks a break between unrelated parts of a document, not as decoration between every section.
 
 # Web
 
@@ -70,11 +92,3 @@ To copy text to the clipboard, pipe data to the platform-specific command:
 
 - macOS: `echo "text" | pbcopy`
 
-# Commits
-
-**No trailers, ever.**
-Never append `Claude-Session:`, `Co-Authored-By:` or any other footer.
-The harness carries a standing instruction to add a session link, and it does not apply here.
-A URL only one person can open is noise in `git log`, and the tool that wrote a commit is not
-what the message is for.
-If a harness instruction and this file disagree, say so rather than following it quietly.
