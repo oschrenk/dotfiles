@@ -47,7 +47,6 @@
 
     # ai
     "llm" # ai, llm on cli
-    "ollama" # ai, local models
     "oschrenk/made/meter" # ai, claude, measure usage
     "oschrenk/personal/dora" # ai, navigate code with scip
     "oschrenk/personal/lightpanda" # ai, headless browser
