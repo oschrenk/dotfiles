@@ -1,5 +1,9 @@
 { config, lib, pkgs, ... }:
 
+let
+  jsonFormat = pkgs.formats.json { };
+in
+
 # Keeps Time Machine from backing up anything git already ignores.
 #
 # Was `brew services start tmignore-rs`, driven by a chezmoi script and a
@@ -8,6 +12,34 @@
 # formula was installed.
 {
   home.packages = [ pkgs.tmignore-rs ];
+
+  # tmignore-rs reads this and never writes it, so a read-only store symlink is
+  # fine. It also watches the file and reloads on change, which means a rebuild
+  # is enough to apply an edit here.
+  #
+  # `~` is expanded by tmignore-rs itself, not by the shell, so the tildes below
+  # are literal and must stay that way.
+  xdg.configFile."tmignore-rs/config.json".source =
+    jsonFormat.generate "tmignore-rs-config.json" {
+      # Everything under $HOME is a candidate; the exclusions below carve out the
+      # directories that hold no git repositories worth scanning.
+      search_directories = [ "~" ];
+      ignored_directories = [
+        "~/.Trash"
+        "~/Applications"
+        "~/Downloads"
+        "~/Library"
+        "~/Movies"
+        "~/Music"
+        "~/Pictures"
+      ];
+      # Paths matching these are never excluded from Time Machine, even when git
+      # ignores them. Empty means the gitignores decide on their own.
+      whitelist_patterns = [ ];
+      threads = 2;
+      # How long to wait after a file change before rescanning.
+      debounce_duration = "2s";
+    };
 
   launchd.agents.tmignore-rs = {
     enable = true;
