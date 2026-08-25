@@ -32,6 +32,12 @@
     # git-lfs: large file storage (replaces [filter "lfs"] block)
     lfs.enable = true;
 
+    signing = {
+      format = "ssh";
+      key = osConfig.my.personal.sshKey;
+      signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
+    };
+
     settings = {
       user.name = osConfig.my.personal.name;
 
@@ -119,7 +125,10 @@
       column.ui = "auto";
 
       # show unified diff between HEAD and what would be committed at bottom of commit message template
-      commit.verbose = true;
+      commit = {
+        gpgsign = true;
+        verbose = true;
+      };
 
       core.editor = "nvim";
 
@@ -171,7 +180,10 @@
       rerere.enabled = true;
 
       # see https://git-scm.com/docs/git-tag#Documentation/git-tag.txt---sortltkeygt
-      tag.sort = "version:refname";
+      tag = {
+        gpgsign = true;
+        sort = "version:refname";
+      };
 
       # avoid trying to guess defaults for user.email and user.name (since git 2.4.1)
       user.useConfigOnly = true;
