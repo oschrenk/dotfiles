@@ -3,22 +3,15 @@ local strings = require("utils.Strings")
 
 -- Requirements
 --  https://github.com/oschrenk/mission
---  brew tap oschrenk/made
---  brew install mission
+--  installed by nix; `mission` is resolved from sketchybar's PATH
 --
--- To support focus changes, and faster feedback, run the service
---  brew services start mission
---
--- `mission` will watching iCloud and system files (to identify macOS Focus),
---  To work properly we need give to give sketchybar and mission full disk access
---  Then allow sketchybar full disk access
+-- `mission` watches iCloud and system files (to identify macOS Focus).
+--  To work properly, sketchybar needs full disk access
 --   "System Settings" > "Privacy & Security" > "Full Disk Access", allow
---   `/opt/homebrew/bin/mission` and
---   `/opt/homebrew/bin/sketchybar`
+--   `/etc/profiles/per-user/<user>/bin/sketchybar`
 --
---  Then restart both services
---   brew services restart mission
---   brew services restart sketchybar
+--  `mission watch` gives faster feedback on focus changes. There is no
+--  launchd agent for it yet.
 local Mission = {}
 
 -- @param mission Instance of Mission service

@@ -11,7 +11,6 @@
     "iconsur" # macos, fetch icons
     "m1ddc" # hardware, monitor control
     "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
-    "oschrenk/made/mission" # macos, task management
     "oschrenk/made/nightshift" # hardware, control Night Shift
     "oschrenk/made/wallpaper" # macos, set wallpaper
     "xcodes" # xcode & runtimes manager

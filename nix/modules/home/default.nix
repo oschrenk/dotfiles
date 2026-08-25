@@ -18,6 +18,7 @@
     ./infat.nix
     ./jira.nix
     ./lsd.nix
+    ./mission.nix
     ./mpd.nix
     ./perses.nix
     ./ripgrep.nix

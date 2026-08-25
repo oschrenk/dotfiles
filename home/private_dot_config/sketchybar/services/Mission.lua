@@ -3,13 +3,13 @@ local table_util = require("utils.table")
 
 local Mission = {}
 
--- @param config.mission_path Fully qualified path to mission
+-- @param config.mission_path Path to mission, resolved via PATH by default
 -- @param config.options Default options for parsing
 function Mission.new(user_config)
   local self = {}
 
   local defaultConfig = {
-    mission_path = "/opt/homebrew/bin/mission",
+    mission_path = "mission",
     options = {
       "--show-done=false",
       "--show-cancelled=false",

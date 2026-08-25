@@ -32,7 +32,7 @@ function Project.new(icons, sessionizer)
       if f ~= nil then
         io.close(f)
 
-        local cmd = "/opt/homebrew/bin/mission tasks --show-done=false --show-cancelled=false --json" .. " " .. todoPath
+        local cmd = "mission tasks --show-done=false --show-cancelled=false --json" .. " " .. todoPath
 
         sbar.exec(cmd, function(json)
           local maybeTasks = json.tasks

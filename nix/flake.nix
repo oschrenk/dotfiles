@@ -35,6 +35,8 @@
     disko.inputs.nixpkgs.follows = "nixpkgs";
     arbol.url = "github:oschrenk/arbol";
     arbol.inputs.nixpkgs.follows = "nixpkgs";
+    mission.url = "github:oschrenk/mission";
+    mission.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

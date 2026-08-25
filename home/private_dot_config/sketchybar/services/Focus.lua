@@ -10,7 +10,7 @@ function Focus.new()
   self.personal = "com.apple.focus.personal-time"
 
   self.handler = function(onComplete)
-    sbar.exec("/opt/homebrew/bin/mission focus", function(focus)
+    sbar.exec("mission focus", function(focus)
       onComplete(focus:gsub("%s+", ""))
     end)
   end

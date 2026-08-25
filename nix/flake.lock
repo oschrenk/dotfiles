@@ -109,6 +109,26 @@
         "type": "github"
       }
     },
+    "mission": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1787629800,
+        "narHash": "sha256-jSlKZCFhwyv3LADisTUrze7Y3ZIU6Ho+vSPHy1s3FI8=",
+        "owner": "oschrenk",
+        "repo": "mission",
+        "rev": "abdaf2b984e826f68f09051158a536c66fb8ec18",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oschrenk",
+        "repo": "mission",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -266,6 +286,7 @@
         "arbol": "arbol",
         "disko": "disko",
         "home-manager": "home-manager",
+        "mission": "mission",
         "nix-darwin": "nix-darwin",
         "nixos-raspberrypi": "nixos-raspberrypi",
         "nixpkgs": "nixpkgs_2",
