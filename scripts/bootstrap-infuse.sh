@@ -67,7 +67,7 @@ if launchctl print "gui/$(id -u)/$AGENT_LABEL" >/dev/null 2>&1; then
   step "Restarting $AGENT_LABEL"
   launchctl kickstart -k "gui/$(id -u)/$AGENT_LABEL"
 else
-  step "$AGENT_LABEL not loaded yet — it will start after 'task nix-rebuild-darwin'."
+  step "$AGENT_LABEL not loaded yet — it will start after 'task nix:rebuild:darwin'."
 fi
 
 echo

@@ -26,15 +26,15 @@ tasks:
     desc: Clone the infuse data repo and give it a commit identity (run once, after 1Password is set up)
     cmds:
       - scripts/bootstrap-infuse.sh
-  nix-setup-identity:
+  nix:setup:identity:
     desc: Create nix/identity.nix interactively (run once when forking or when identity changes)
     dir: nix
     cmds:
       - ./setup-identity.sh
-  nix:
-    desc: Apply nix configuration to all machines
-    deps: [nix-rebuild-darwin, nix-rebuild-pi]
-  nix-rebuild-darwin:
+  nix:rebuild:
+    desc: Apply nix configuration to the Mac and all three pis
+    deps: [nix:rebuild:darwin, nix:rebuild:pi]
+  nix:rebuild:darwin:
     desc: Apply nix-darwin configuration to the current Mac (auto-selects host via hostname)
     # nix-daemon (running as root via sudo) refuses world-readable SSH keys, so
     # force 0600 before the build, then restore 0644 after for oliver-as-user
@@ -95,7 +95,7 @@ tasks:
     # swept on the next compaction. Override: task homelab:fx-backfill DAYS=30
     cmds:
       - scripts/fx-backfill.sh {{.DAYS | default 90}}
-  nix-builder-up:
+  nix:builder:up:
     desc: Start the linux-builder VM if it is not already running, and wait for it
     # The daemon is RunAtLoad=false / KeepAlive=false, so it is not running unless
     # something asked for it. kickstart without -k is a no-op when already up.
@@ -113,7 +113,7 @@ tasks:
           sudo launchctl kickstart system/org.nixos.linux-builder
         }
       - until nc -z localhost 31022; do sleep 2; done
-  nix-builder-down:
+  nix:builder:down:
     desc: Stop the linux-builder VM and wait for it to go away
     # launchctl stop SIGTERMs QEMU, which closes its block devices before exiting: the
     # guest sees a power cut, but the image is flushed. That is as clean as this VM
@@ -137,11 +137,11 @@ tasks:
       - sudo launchctl kill TERM system/org.nixos.linux-builder || true
       - sudo pkill -f 'file=/private/var/lib/linux-builder/nixos.qcow2' || true
       - until ! nc -z localhost 31022; do sleep 2; done
-  nix-builder-restart:
+  nix:builder:restart:
     desc: Restart the linux-builder VM
     cmds:
       - sudo launchctl kickstart -k system/org.nixos.linux-builder
-  nix-builder-force:
+  nix:builder:force:
     desc: Force reset the linux-builder VM (recreates working dir, disk, and fixes key permissions)
     # bootout/bootstrap (not kickstart) because EX_CONFIG exits put launchd into
     # an extended-backoff state where kickstart no-ops. Unregistering and
@@ -153,31 +153,31 @@ tasks:
       - sudo launchctl bootstrap system /Library/LaunchDaemons/org.nixos.linux-builder.plist
       - sleep 30
       - sudo chmod 644 /etc/nix/builder_ed25519
-  nix-rebuild-pi:
+  nix:rebuild:pi:
     desc: Apply NixOS configuration to all pis
-    deps: [nix-rebuild-pi-1, nix-rebuild-pi-2, nix-rebuild-pi-3]
-  nix-rebuild-pi-1:
+    deps: [nix:rebuild:pi-1, nix:rebuild:pi-2, nix:rebuild:pi-3]
+  nix:rebuild:pi-1:
     desc: Apply NixOS configuration to pi-1
     dir: nix
     cmds:
-      - task: nix-builder-up
+      - task: nix:builder:up
       - sudo chmod 644 /etc/nix/builder_ed25519
       - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-1 --target-host oliver@pi-1.local --build-host builder@linux-builder --sudo
-  nix-rebuild-pi-2:
+  nix:rebuild:pi-2:
     desc: Apply NixOS configuration to pi-2
     dir: nix
     cmds:
-      - task: nix-builder-up
+      - task: nix:builder:up
       - sudo chmod 644 /etc/nix/builder_ed25519
       - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-2 --target-host oliver@pi-2.local --build-host builder@linux-builder --sudo
-  nix-rebuild-pi-3:
+  nix:rebuild:pi-3:
     desc: Apply NixOS configuration to pi-3
     dir: nix
     cmds:
-      - task: nix-builder-up
+      - task: nix:builder:up
       - sudo chmod 644 /etc/nix/builder_ed25519
       - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-3 --target-host oliver@pi-3.local --build-host builder@linux-builder --sudo
-  nix-rebuild-hetzner-1:
+  nix:rebuild:hetzner-1:
     desc: Apply NixOS configuration to hetzner-1
     # Relies on a `Host hetzner-1` entry in ~/.ssh/config to resolve the public IP and user.
     dir: nix
@@ -190,44 +190,44 @@ tasks:
     # Keys expire after 90 days; generate a replacement at https://login.tailscale.com/admin/settings/keys
     cmds:
       - ssh root@unas.local env "TAILSCALE_AUTHKEY=$(op read 'op://2udkjdngrnb6jlr62cd7iq33de/2imqxgbvx6htswijyuswh72kye/unas')" sh -s < scripts/setup-tailscale-unas.sh
-  nix-update-preview:
+  nix:update:preview:
     desc: Preview which of my declared packages would change if flake.lock were updated (read-only, does not write flake.lock)
     cmds:
       - HOST={{.HOSTNAME}} scripts/pkg-update-preview.sh
     vars:
       HOSTNAME:
         sh: hostname -s
-  nix-update:
+  nix:update:
     desc: Update all flake inputs (nixpkgs, nixos-raspberrypi, etc.)
     dir: nix
     cmds:
       - nix flake update
-  nix-update-nixpkgs:
+  nix:update:nixpkgs:
     desc: Update only the nixpkgs input
     dir: nix
     cmds:
       - nix flake update nixpkgs
-  nix-update-rpi:
+  nix:update:rpi:
     desc: Update only the nixos-raspberrypi input (RPi kernel/firmware)
     dir: nix
     cmds:
       - nix flake update nixos-raspberrypi
-  nix-update-darwin:
+  nix:update:darwin:
     desc: Update only the nix-darwin input
     dir: nix
     cmds:
       - nix flake update nix-darwin
-  nix-update-home-manager:
+  nix:update:home-manager:
     desc: Update only the home-manager input
     dir: nix
     cmds:
       - nix flake update home-manager
-  nix-fmt:
+  nix:fmt:
     desc: Format all nix files
     dir: nix
     cmds:
       - nix fmt --no-warn-dirty
-  nix-gc:
+  nix:gc:
     desc: Garbage-collect old generations and dedupe the nix store
     # sudo run cleans the system/darwin profile; the unprivileged run cleans
     # the user profile (home-manager, nix-shell roots). `optimise` hardlinks

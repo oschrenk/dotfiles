@@ -31,15 +31,15 @@ Must match `-smp` or nix will schedule more parallel jobs than the VM has CPUs.
 ## Tasks
 
 ```sh
-task nix-builder-restart   # Restart the VM
-task nix-builder-force     # Nuke disk + restart (loses build cache)
+task nix:builder:restart   # Restart the VM
+task nix:builder:force     # Nuke disk + restart (loses build cache)
 ```
 
 ### Picking the Right Recovery
 
-- `Connection refused` on port 31022, no `qemu-system-aarch64` process, `last exit code = 78 EX_CONFIG`, `/var/lib/linux-builder/` empty -> `task nix-builder-force` (qcow2 is missing, needs rebuild)
-- Port 31022 open but SSH banner exchange times out / hangs -> `task nix-builder-force` (qcow2 corrupted, see "Old or corrupted qcow2")
-- `last exit code = 78 EX_CONFIG` but qcow2 exists in `/var/lib/linux-builder/` -> `task nix-builder-restart`
+- `Connection refused` on port 31022, no `qemu-system-aarch64` process, `last exit code = 78 EX_CONFIG`, `/var/lib/linux-builder/` empty -> `task nix:builder:force` (qcow2 is missing, needs rebuild)
+- Port 31022 open but SSH banner exchange times out / hangs -> `task nix:builder:force` (qcow2 corrupted, see "Old or corrupted qcow2")
+- `last exit code = 78 EX_CONFIG` but qcow2 exists in `/var/lib/linux-builder/` -> `task nix:builder:restart`
 
 ## Verifying the VM
 
@@ -71,7 +71,7 @@ After every daemon restart, `/etc/nix/builder_ed25519` is reset to root-owned 60
 The key must be `chmod 644` for regular user SSH (used by `nix-rebuild-pi-*` tasks which run as the user).
 
 Note: `chmod 644` makes SSH reject the key as "too open" when used with sudo.
-For `task nix-rebuild-darwin` (which uses sudo), run `sudo chmod 600 /etc/nix/builder_ed25519` first, then restore to 644 after.
+For `task nix:rebuild:darwin` (which uses sudo), run `sudo chmod 600 /etc/nix/builder_ed25519` first, then restore to 644 after.
 
 ### `/var/lib/linux-builder` Must Exist Before the Daemon Starts
 
@@ -84,7 +84,7 @@ Fix: `sudo mkdir -p /var/lib/linux-builder`
 
 Determinate Nix creates `/etc/nix/nix.custom.conf` before nix-darwin manages it. nix-darwin refuses to overwrite it.
 
-Fix (one-time, before first `task nix-rebuild-darwin`):
+Fix (one-time, before first `task nix:rebuild:darwin`):
 
 ```sh
 sudo mv /etc/nix/nix.custom.conf /etc/nix/nix.custom.conf.before-nix-darwin
@@ -145,7 +145,7 @@ The file size on disk is smaller because qcow2 is sparse.
 
 Any override to `pkgs.darwin.linux-builder` requires building a custom NixOS image for aarch64-linux.
 This needs a working Linux builder.
-Solution: the running builder handles it, but `extra-platforms` must be absent and the SSH key must be 600 when running `task nix-rebuild-darwin`.
+Solution: the running builder handles it, but `extra-platforms` must be absent and the SSH key must be 600 when running `task nix:rebuild:darwin`.
 
 ### Passwordless Sudo Requires Wheel Group Membership
 
@@ -182,11 +182,11 @@ The launchd plist sets `WorkingDirectory=/var/lib/linux-builder`.
 Invoke it outside launchd and it leaves root-owned files wherever you ran it, the chezmoi repo included.
 
 `sudo launchctl kickstart -k system/org.nixos.linux-builder` blocks waiting on launchd respawn-throttle and never returns.
-Always use `task nix-builder-restart` or `task nix-builder-force`.
+Always use `task nix:builder:restart` or `task nix:builder:force`.
 
 ### Old or Corrupted `qcow2` After Killed QEMU
 
 If QEMU is killed mid-write the image can corrupt.
 Symptom: VM boots but SSH hangs at banner exchange.
 
-Fix: `task nix-builder-force` (deletes image, loses build cache)
+Fix: `task nix:builder:force` (deletes image, loses build cache)

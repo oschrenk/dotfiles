@@ -93,9 +93,9 @@ It is:
   None of these values are secret.
   They already appear in the author line of every commit and on `github.com/<user>.keys`.
 - The only file that needs editing on identity changes (job change, key rotation)
-- Optionally regenerated via `task nix-setup-identity` (interactive prompts with sensible defaults)
+- Optionally regenerated via `task nix:setup:identity` (interactive prompts with sensible defaults)
 
-If you fork this repo, edit `identity.nix` directly or run `task nix-setup-identity` to fill in your values.
+If you fork this repo, edit `identity.nix` directly or run `task nix:setup:identity` to fill in your values.
 
 ## Pattern
 

@@ -19,7 +19,7 @@ PROM_URL=http://127.0.0.1:9090
 command -v promtool >/dev/null || {
   echo "ERROR: promtool not on PATH. It ships in the 'cli' output of the prometheus" >&2
   echo "       package, added to systemPackages in modules/nixos/prometheus.nix." >&2
-  echo "       Run 'task nix-rebuild-pi-2' first." >&2
+  echo "       Run 'task nix:rebuild:pi-2' first." >&2
   exit 1
 }
 

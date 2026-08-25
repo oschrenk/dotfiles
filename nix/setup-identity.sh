@@ -50,4 +50,4 @@ EOF
 
 echo ""
 echo "Written to $OUT"
-echo "Run 'task nix-rebuild-darwin' to apply."
+echo "Run 'task nix:rebuild:darwin' to apply."

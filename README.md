@@ -42,7 +42,7 @@ sudo launchctl kickstart -k system/systems.determinate.nix-daemon
 
 Identity values (name, email, SSH key, timezone) live in the committed
 `nix/identity.nix`, so nothing is needed here on your own machines. When forking
-or changing them, edit `nix/identity.nix` directly, or run `task nix-setup-identity`
+or changing them, edit `nix/identity.nix` directly, or run `task nix:setup:identity`
 (available after the first apply below, since `task` is installed by nix-darwin).
 
 **Before the first apply, grant Terminal Full Disk Access.** Without it,
@@ -68,7 +68,7 @@ to recover, grant Full Disk Access, then re-run the switch.
 Subsequent runs use the task wrapper:
 
 ```sh
-task nix-rebuild-darwin
+task nix:rebuild:darwin
 ```
 
 ## opnix bootstrap
@@ -95,7 +95,7 @@ sudo launchctl kickstart -k system/org.nixos.opnix-secrets
 
 Initialize chezmoi. The repo is already at chezmoi's source directory from the
 bootstrap clone, so `chezmoi init` reuses it without re-downloading. This
-requires `task nix-rebuild-darwin` to have run first, so home-manager has written
+requires `task nix:rebuild:darwin` to have run first, so home-manager has written
 `~/.local/share/identity/data.toml`:
 
 ```sh

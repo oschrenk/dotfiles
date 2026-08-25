@@ -48,7 +48,7 @@ Must be run from the `nix/` directory, since `nix fmt` requires a `flake.nix` in
 Use the task runner from the repo root:
 
 ```sh
-task nix-fmt
+task nix:fmt
 ```
 
 ## Adding a New Machine
