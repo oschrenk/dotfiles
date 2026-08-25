@@ -179,7 +179,6 @@ in
       bind-key r source-file ~/.config/tmux/tmux.conf \; display-message "Config reloaded"
 
       # show session chooser
-      # requires `brew install oschrenk/made/sessionizer`
       bind -n C-Space display-popup -h 33%  -w 33% -E "sessionizer search"
 
       bind-key f run-shell "~/.config/tmux/tmux-nvim-files.sh"

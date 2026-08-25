@@ -33,10 +33,15 @@
     opnix.url = "github:brizzbuzz/opnix";
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+    # Own tools. Deliberately NOT following our nixpkgs: each builds against the
+    # nixpkgs it locked, which is the build oschrenk.cachix.org actually holds
+    # (trusted in modules/darwin/nix.nix). Adding `follows` rebases them onto our
+    # nixpkgs, changes the derivation hash and turns every rebuild into a Go
+    # compile. Their home-manager modules still evaluate against our pkgs, since
+    # home-manager is configured with useGlobalPkgs.
     arbol.url = "github:oschrenk/arbol";
-    arbol.inputs.nixpkgs.follows = "nixpkgs";
     mission.url = "github:oschrenk/mission";
-    mission.inputs.nixpkgs.follows = "nixpkgs";
+    sessionizer.url = "github:oschrenk/sessionizer";
   };
 
   outputs =

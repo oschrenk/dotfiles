@@ -1,6 +1,0 @@
-windows:
-  - layout: "even-horizontal"
-    panes:
-      - focus: false
-      - shell_command: ["claude"]
-        focus: true

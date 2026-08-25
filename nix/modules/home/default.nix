@@ -24,6 +24,7 @@
     ./ripgrep.nix
     ./rumdl.nix
     ./rmpc.nix
+    ./sessionizer.nix
     ./sketchybar.nix
     ./starship.nix
     ./ticker.nix

@@ -1,5 +1,0 @@
-windows:
-  - layout: "even-horizontal"
-    panes:
-      - focus: true
-      - focus: false

@@ -12,7 +12,7 @@ function Sessionizer.new(socket, fallback)
   -- Absolute paths: sketchybar runs under launchd with a minimal PATH. tlink is
   -- installed via home-manager (nix-darwin flavor), so it lives under the
   -- per-user profile, not ~/.nix-profile.
-  local bin = "/opt/homebrew/bin/sessionizer"
+  local bin = "/etc/profiles/per-user/" .. os.getenv("USER") .. "/bin/sessionizer"
   local tlink = "/etc/profiles/per-user/" .. os.getenv("USER") .. "/bin/tlink"
 
   local function socketArg(sock)
