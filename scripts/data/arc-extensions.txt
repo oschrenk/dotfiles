@@ -1,5 +1,3 @@
-# vim: syntax=ruby filetype=ruby
-
 "1Password"=aeblfdkhhhdcdjpifhhbdiojplfjncoa
 "Completion Source Provider"=dgfnehmpeggdlmbblgjfbfioegibajlb
 "Dark Reader"=eimadpbcbfnmbkopoojfekhnkhdbieeh

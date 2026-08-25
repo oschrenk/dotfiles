@@ -2,7 +2,9 @@
 
 trap 'echo exit; exit' INT TERM
 
-BASEDIR="{{ joinPath .chezmoi.sourceDir | quote }}/../assets/icons"
+SCRIPT_DIR="$(cd "$(dirname "${(%):-%N}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+BASEDIR="$REPO_ROOT/assets/icons"
 
 #--------------------------------------
 # docs

@@ -2,7 +2,9 @@
 
 trap 'echo exit; exit' INT TERM
 
-BASEDIR="{{ joinPath .chezmoi.sourceDir | quote }}/../assets/wallpaper"
+SCRIPT_DIR="$(cd "$(dirname "${(%):-%N}")" && pwd)"
+REPO_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+BASEDIR="$REPO_ROOT/assets/wallpaper"
 
 # wallpaper CLI: oschrenk/made/wallpaper (installed via brew). Skip cleanly if
 # it isn't installed yet (e.g. during early bootstrap before brew bundle runs).

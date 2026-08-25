@@ -5,14 +5,20 @@ env:
   NIX_SSHOPTS: -o ServerAliveInterval=30 -o ServerAliveCountMax=3
 tasks:
   extensions:
+    desc: Install the browser extensions listed in scripts/data/arc-extensions.txt into Arc
+    # Each install relaunches Arc, so this is run on purpose, not on every rebuild.
     cmds:
-      - cat home/.chezmoiscripts/run_onchange_01f_deps_extensions.sh.tmpl | chezmoi execute-template | zsh
-  icons:
+      - scripts/install-arc-extensions.sh
+  appearance:icons:
+    desc: Stamp the custom icons in assets/icons onto the installed apps
+    # Needs sudo and App Management permission for the calling shell, and ends
+    # by restarting the Dock so the new icons are picked up.
     cmds:
-      - cat home/.chezmoiscripts/run_onchange_06_customize_icons.sh.tmpl | chezmoi execute-template | zsh
-  wallpaper:
+      - scripts/set-app-icons.sh
+  appearance:wallpaper:
+    desc: Set the desktop wallpaper from assets/wallpaper
     cmds:
-      - cat home/.chezmoiscripts/run_onchange_05_configure_wallpaper.sh.tmpl | chezmoi execute-template | zsh
+      - scripts/set-wallpaper.sh
   services:
     cmds:
       - home/.chezmoiscripts/run_onchange_04_configure_services_brew.sh
