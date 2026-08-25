@@ -128,19 +128,60 @@ A standing index of everything not yet done regenerates itself and is not a task
 Every task has a Definition of Ready listing what must be true before work starts.
 It is the gate on moving from `todo` to `in-progress`.
 
-```markdown
-## Definition of Ready
+The test is whether someone who has never seen the problem could pick the file up and work it without asking a question first.
+An agent will not ask.
+It will guess, and the guess will look confident.
 
-- every entry in `requires` has reached a `done:` status
-- the 1Password item holding the API token exists and is readable
-- it is decided whether the Swift tools build from source or ship prebuilt
-```
+A task is ready when all of these hold.
 
-Write the preconditions that would change the approach if they turned out false.
-A dependency already captured in `requires` does not need repeating here unless something about it needs checking.
+**The problem is stated in observable terms.**
+What is broken, missing, or too expensive right now.
+Write the symptom rather than the remedy, because naming the remedy first hides whether the problem was understood.
+
+**The goal says what changes.**
+The end state, and how the world differs once the task closes.
+One or two sentences, before any plan.
+
+**The Definition of Done exists and is falsifiable.**
+Every check is a command and the result it should produce.
+A task without one is not ready, however clear its plan reads.
+
+**The scope boundary is written down.**
+What this task will not touch, especially the adjacent things that look like they belong.
+Unstated scope is the gap an agent fills on its own.
+
+**The consumers are enumerated.**
+Everything that calls, imports, or reads the thing being changed, found by searching rather than by memory.
+A change that looks local is only local once that search has been run.
+
+**The baseline is captured.**
+For a change to something already working, record the current behaviour first so the result can be compared against it.
+An output saved before the work is worth more than any assertion made after it.
+
+**The open decisions are resolved or marked.**
+Any fork that would change the approach is either decided in the file, or named as one to ask about before proceeding.
+A task that hides a decision gets the agent's preference instead of yours.
+
+**The undo is known.**
+How to get back if the change is wrong, and whether anything about it cannot be undone.
 
 If a Definition of Ready cannot be satisfied, the task stays `todo`.
 That is what blocked looks like, and it is why blocked is derived rather than stored.
+
+```markdown
+## Definition of Ready
+
+- **Problem** sketchybar shows an empty Sessions item, and `sessionizer` cannot find
+  `tmux` when launchd starts it
+- **Goal** sessionizer resolves tmux by absolute path, so the launchd PATH override
+  can be removed
+- **Scope** packaging and config only, no changes to the fuzzy finder or layouts
+- **Consumers** `grep -rn "homebrew/bin/sessionizer\|made/sessionizer" home/ nix/`
+  returns 4 files, all listed below
+- **Baseline** `sessionizer sessions --json > /tmp/before.json`
+- **Open** whether to add a `base.tmux_path` key upstream, or keep the PATH override
+- **Undo** revert the commit and `chezmoi apply` the two lua files
+```
 
 ### Definition of Done
 
@@ -158,6 +199,24 @@ Each is a command and the result it should produce, so someone who did not write
 
 Write it before starting the work, not after.
 Deciding what proof would satisfy you is the point, and reverse-engineering it later defeats it.
+
+A task closes as `done:completed` when all of these hold.
+
+**The checks have been run, and they passed.**
+Run means executed, with the output looked at.
+A check skipped because its outcome seemed obvious is a check that did not run, and reporting it as passed is a false record.
+
+**The checks have been falsified where falsifying them is possible.**
+A check that passes whether or not the work happened proves nothing about the work.
+Undo the change, run the check again, and confirm that it fails.
+Restore the change and confirm that it passes.
+Do this for the checks that carry the result, not for every line.
+Where undoing is impractical or destructive, write in the task which checks went unfalsified and why.
+
+**The specs match the system.**
+Any document describing how the thing works now describes how it works.
+This includes the task file itself, whose plan often drifts from what was built.
+A stale spec does more damage than a missing one, because it gets trusted.
 
 A Definition of Done proves the plan that was written.
 It does not find the plan that was missed, so it is not a substitute for asking what else depends on the thing being changed.
