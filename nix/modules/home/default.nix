@@ -16,6 +16,7 @@
     ./glow.nix
     ./identity.nix
     ./infat.nix
+    ./infuse.nix
     ./jira.nix
     ./lsd.nix
     ./mission.nix

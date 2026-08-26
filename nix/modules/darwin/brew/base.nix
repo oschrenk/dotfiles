@@ -71,7 +71,6 @@
     "tree-sitter-cli" # nvim, requirement
 
     # git
-    "oschrenk/made/infuse" # git, repository mixer
     "worktrunk" # git, worktree management
 
     # container, k8s
