@@ -13,7 +13,7 @@ Edit through the symlink as normal, and never `git add` it.
 An untracked `tasks/` in `git status` is expected, not something to fix.
 
 Older files predate this convention.
-They are in `done/` and `archive/`, carry no `status` field, and put the close note above the frontmatter.
+They are in `done/` and `archive/`, carry no `state` field, and put the close note above the frontmatter.
 Leave them as they are unless asked.
 
 ## Naming
@@ -26,7 +26,7 @@ Leave them as they are unless asked.
 
 ## Numbers Are Permanent
 
-A task still at `status: todo` can be renumbered, so numbering and reading order stay in step while a plan is drawn up.
+A task still at `state: todo` can be renumbered, so numbering and reading order stay in step while a plan is drawn up.
 
 The move to `in-progress`, or a commit naming the task, fixes the number for good.
 After that the number is identity.
@@ -47,7 +47,7 @@ Work arriving late for something underway takes the next free number, even when 
 project: dotfiles
 assignee: oliver
 created: 2026-08-24
-status: todo
+state: todo
 rank: 12000
 requires:
   - DOTFILES-14
@@ -58,15 +58,17 @@ parent: DOTFILES-19
 - `project`: lowercase project name
 - `assignee`: who owns it
 - `created`: absolute date, `YYYY-MM-DD`, never relative
-- `status`: `todo`, `in-progress`, `done:completed`, `done:rejected`
+- `state`: `todo`, `in-progress`, `done:completed`, `done:rejected`
 - `rank`: the order to work in
 - `requires`: optional, hard prerequisites by number
 - `parent`: optional, the task this one is a step of
+- `closed`: set when the task closes, absolute date, `YYYY-MM-DD`
+- `outcome`: set when the task closes, the close note
 
 Frontmatter starts at line 1 so it stays machine-readable.
 Nothing goes above it.
 
-### Status
+### State
 
 - `todo` has not been started, and the number can still move
 - `in-progress` means work has begun, which fixes the number for good
@@ -92,7 +94,7 @@ Something merely worth reading first is a sentence in the body.
 Numbers never change, so a `requires` entry cannot rot.
 
 Blocked is not a field.
-A task is blocked when something it requires is not at a `done:` status.
+A task is blocked when something it requires is not at a `done:` state.
 Derive blocked from the facts rather than storing it alongside them.
 
 ## Subtasks
@@ -104,7 +106,7 @@ A task too big for one commit becomes a parent, and its steps are ordinary tasks
 - a parent holds the ordering and the reasoning, and little else
 - closing a parent does not close its steps, and open steps do not block closing it
 
-When every child of a parent has reached a `done:` status, offer to close the parent.
+When every child of a parent has reached a `done:` state, offer to close the parent.
 Do not close it unprompted.
 
 ## Writing the File
@@ -238,19 +240,31 @@ It does not find the plan that was missed, so it is not a substitute for asking 
 
 ## Closing a Task
 
-Set `status` to `done:completed` or `done:rejected`, then put a close note directly below the frontmatter, above the title:
+Set `state` to `done:completed` or `done:rejected`, then add `closed` and `outcome` to the frontmatter.
+The body is left exactly as it was.
 
 ```markdown
 ---
 project: dotfiles
-status: done:rejected
+state: done:rejected
+rank: 12000
+closed: 2026-08-24
+outcome: >
+  One paragraph on what happened, and what a reader restarting this
+  needs to know that the plan below no longer tells them.
 ---
-
-> **Closed 2026-08-24, unbuilt.** One paragraph on what happened, and what a reader
-> restarting this needs to know that the plan below no longer tells them.
 
 # DOTFILES-20: Certificate and Domain Expiry Alerts
 ```
+
+The close note goes in the frontmatter rather than above the H1 because MD041 requires the first line of a document to be a level 1 heading, and a note above the title breaks that on every closed file at once.
+Weakening the rule to accept it would stop it catching stray prose everywhere else, so the note moves instead.
+
+`outcome` is a folded block scalar, `>`, so the source can be written a sentence per line and still parse as one paragraph.
+Indent every line of it by two spaces.
+Indentation is the only thing that ends the scalar, so a line that loses it ends the note early and the rest of the file is parsed as frontmatter.
+Everything inside is literal, so a note may contain colons, backticks and `#` without escaping.
+A blank line inside the scalar is a paragraph break, which is where a later amendment goes.
 
 A rejected task is worth more than a deleted one when the research behind it was expensive.
 Say what the plan got wrong so nobody rediscovers it.
