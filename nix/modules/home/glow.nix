@@ -1,4 +1,6 @@
-# glow — render markdown in the terminal. Used by the `woman` fish function.
+# glow — render markdown in the terminal.
+# Its only consumer was the `woman` fish function, removed when those notes
+# moved into the Obsidian vault, so nothing calls it automatically now.
 # Migrated from chezmoi (home/private_dot_config/private_glow/).
 { pkgs, ... }:
 {
