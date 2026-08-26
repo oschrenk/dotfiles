@@ -33,6 +33,7 @@
     ./tmignore.nix
     ./tmux.nix
     ./vale.nix
+    ./yt-dlp.nix
     ./zed.nix
   ];
 
