@@ -3,8 +3,6 @@
 # Homebrew packages installed on every machine regardless of role.
 {
   homebrew.brews = [
-    # bootstrap — required before chezmoi can run
-    "chezmoi" # dotfiles manager
 
     # core — essential tools, machine usable without anything else
     "fd" # system, fast find alternative
