@@ -22,6 +22,7 @@
     ./lsd.nix
     ./mission.nix
     ./mpd.nix
+    ./msgvault.nix
     ./op.nix
     ./perses.nix
     ./readline.nix

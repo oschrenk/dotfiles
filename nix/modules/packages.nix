@@ -30,6 +30,9 @@
       # kmp-lsp not in nixpkgs; build from source (was the cargo crate
       # kotlin-lsp, since renamed by upstream to kmp-lsp)
       kmp-lsp = prev.callPackage ../pkgs/kmp-lsp.nix { };
+      # msgvault not in nixpkgs; upstream ships prebuilt darwin archives, and
+      # its own flake would build Go 1.27 from source
+      msgvault = prev.callPackage ../pkgs/msgvault.nix { };
       # tmignore-rs not in nixpkgs; upstream ships prebuilt darwin archives
       tmignore-rs = prev.callPackage ../pkgs/tmignore-rs.nix { };
     })
@@ -50,6 +53,7 @@
     jsongrep
     kmp-lsp
     mdq
+    msgvault
     minisign
     ngrep
     page

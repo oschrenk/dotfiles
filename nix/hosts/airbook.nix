@@ -5,7 +5,6 @@
     ../modules/darwin/brew/base.nix
     ../modules/darwin/brew/fonts.nix
     ../modules/darwin/brew/gui.nix
-    ../modules/darwin/brew/server.nix
     ../modules/darwin/brew/work.nix
   ];
 
