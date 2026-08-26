@@ -27,6 +27,7 @@
     ./mpd.nix
     ./msgvault.nix
     ./neovide.nix
+    ./nvim.nix
     ./op.nix
     ./perses.nix
     ./plan.nix

@@ -63,9 +63,12 @@ Plugins are pinned via `lazy-lock.json`, which records the exact commit hash for
 1. `:Lazy check` — fetch upstream changes without installing
 2. Press `l` on a plugin in the UI to inspect incoming commits
 3. Press `u` on specific plugins to update only those you've reviewed
-4. `chezmoi add ~/.config/nvim/lazy-lock.json` to stage the changes
-5. `chezmoi git diff` to verify exactly which commits changed
-6. `chezmoi git -- commit -m "chore: update plugins"`
+4. `git diff config/nvim/lazy-lock.json` to verify exactly which commits changed
+5. `git commit -m "chore: update plugins"`
+
+`~/.config/nvim` is a symlink to `config/nvim` in the dotfiles repository, so
+`lazy` writes the lockfile straight into the working copy. There is no separate
+step to stage it.
 
 ## Troubleshooting
 
