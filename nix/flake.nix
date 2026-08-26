@@ -42,6 +42,7 @@
     arbol.url = "github:oschrenk/arbol";
     infuse.url = "github:oschrenk/infuse";
     mission.url = "github:oschrenk/mission";
+    plan.url = "github:oschrenk/plan.swift";
     sessionizer.url = "github:oschrenk/sessionizer";
   };
 

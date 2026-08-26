@@ -326,6 +326,22 @@
     },
     "nixpkgs_7": {
       "locked": {
+        "lastModified": 1787631388,
+        "narHash": "sha256-vMiXptXarfSdJb1Gkc+FYVOAibuBRj7qxGa8z68q1Uw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ac6b2166e7a9375683b8e98f860f273222337b16",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_8": {
+      "locked": {
         "lastModified": 1784282293,
         "narHash": "sha256-IpX7tmVJi9seHg5M4Wuexy78bQDlbntVk1HcT9kFts4=",
         "owner": "NixOS",
@@ -359,6 +375,24 @@
         "type": "github"
       }
     },
+    "plan": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_7"
+      },
+      "locked": {
+        "lastModified": 1787771715,
+        "narHash": "sha256-ZuBoq1mCdFXQQZDi6LfFe675CsHY/SD9QOtA9C5BY9k=",
+        "owner": "oschrenk",
+        "repo": "plan.swift",
+        "rev": "57bec945a9192dafd69281c9f8ed57cf0422be1c",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oschrenk",
+        "repo": "plan.swift",
+        "type": "github"
+      }
+    },
     "root": {
       "inputs": {
         "arbol": "arbol",
@@ -371,12 +405,13 @@
         "nixpkgs": "nixpkgs_5",
         "nixpkgs-zed": "nixpkgs-zed",
         "opnix": "opnix",
+        "plan": "plan",
         "sessionizer": "sessionizer"
       }
     },
     "sessionizer": {
       "inputs": {
-        "nixpkgs": "nixpkgs_7"
+        "nixpkgs": "nixpkgs_8"
       },
       "locked": {
         "lastModified": 1787632078,

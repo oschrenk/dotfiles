@@ -2,14 +2,13 @@ local sbar = require("sketchybar")
 local strings = require("utils.strings")
 
 -- Requirements
---   brew install oschrenk/made/plan
+--   plan comes from nix, via programs.plan in the home-manager config
 --
--- To watch for changes and subscribe to events
---   brew services start plan
+-- This item polls on update_freq, so no watcher is needed. `plan watch` also
+-- triggers calendar_changed through its hook, configured in the same module.
 --
 -- Then allow
 --   "System Settings" > "Privacy & Security" > "Full Disk Access", allow plan
---   brew services restart plan
 
 -- this script only work until midnight of a given day
 -- beyond that date and time calculation might be wrong
@@ -28,7 +27,7 @@ function Calendar.new(icons, focus)
 
     local update = function()
       local cmd =
-        "/opt/homebrew/bin/plan next --ignore-tags=timeblock --ignore-all-day-events --ignore-calendar-labels=Events"
+        "plan next --ignore-tags=timeblock --ignore-all-day-events --ignore-calendar-labels=Events"
       sbar.exec(cmd, function(json)
         local event = json[1]
         if event ~= nil then

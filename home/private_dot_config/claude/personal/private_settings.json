@@ -12,11 +12,11 @@
   },
   "permissions": {
     "allow": [
-      "Bash(/opt/homebrew/bin/plan calendars *)",
-      "Bash(/opt/homebrew/bin/plan hours *)",
-      "Bash(/opt/homebrew/bin/plan next *)",
-      "Bash(/opt/homebrew/bin/plan on *)",
-      "Bash(/opt/homebrew/bin/plan today *)",
+      "Bash(plan calendars *)",
+      "Bash(plan hours *)",
+      "Bash(plan next *)",
+      "Bash(plan on *)",
+      "Bash(plan today *)",
       "Bash(/opt/homebrew/bin/reminders add *)",
       "Bash(/opt/homebrew/bin/reminders delete *)",
       "Bash(/opt/homebrew/bin/reminders edit *)",

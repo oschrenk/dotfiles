@@ -6,7 +6,7 @@ user-invocable: true
 
 # Calendar Operations
 
-Access Apple Calendar using the `plan` CLI at `/opt/homebrew/bin/plan`.
+Access Apple Calendar using the `plan` CLI, on `PATH` from nix.
 
 ## Command Mapping
 
@@ -27,9 +27,9 @@ Map user queries to the appropriate command:
 ### today
 
 ```bash
-/opt/homebrew/bin/plan today
-/opt/homebrew/bin/plan today --ignore-calendar-types birthday
-/opt/homebrew/bin/plan today --ignore-all-day-events
+plan today
+plan today --ignore-calendar-types birthday
+plan today --ignore-all-day-events
 ```
 
 ### on \<expression\>
@@ -37,9 +37,9 @@ Map user queries to the appropriate command:
 Date expressions: ISO dates (`"2026-04-03"`), natural language (`"tomorrow"`, `"next tuesday"`, `"last monday"`).
 
 ```bash
-/opt/homebrew/bin/plan on tomorrow
-/opt/homebrew/bin/plan on "next friday"
-/opt/homebrew/bin/plan on "2026-04-03" --ignore-all-day-events
+plan on tomorrow
+plan on "next friday"
+plan on "2026-04-03" --ignore-all-day-events
 ```
 
 ### next
@@ -47,16 +47,16 @@ Date expressions: ISO dates (`"2026-04-03"`), natural language (`"tomorrow"`, `"
 Finds the next upcoming event. `--within` is in minutes (default: 60).
 
 ```bash
-/opt/homebrew/bin/plan next
-/opt/homebrew/bin/plan next --within 240
-/opt/homebrew/bin/plan next --min-num-attendees 1
+plan next
+plan next --within 240
+plan next --min-num-attendees 1
 ```
 
 ### calendars
 
 ```bash
-/opt/homebrew/bin/plan calendars
-/opt/homebrew/bin/plan calendars --format plain
+plan calendars
+plan calendars --format plain
 ```
 
 ### hours \<expression\>
@@ -64,9 +64,9 @@ Finds the next upcoming event. `--within` is in minutes (default: 60).
 Calculates total hours per event on a date.
 
 ```bash
-/opt/homebrew/bin/plan hours today
-/opt/homebrew/bin/plan hours yesterday --select-calendar-labels "Work"
-/opt/homebrew/bin/plan hours today --ignore-all-day-events
+plan hours today
+plan hours yesterday --select-calendar-labels "Work"
+plan hours today --ignore-all-day-events
 ```
 
 ## Output

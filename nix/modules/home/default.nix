@@ -28,6 +28,7 @@
     ./neovide.nix
     ./op.nix
     ./perses.nix
+    ./plan.nix
     ./readline.nix
     ./ripgrep.nix
     ./rumdl.nix
