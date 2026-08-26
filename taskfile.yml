@@ -19,6 +19,13 @@ tasks:
     desc: Set the desktop wallpaper from assets/wallpaper
     cmds:
       - scripts/set-wallpaper.sh
+  customize:keyboard:
+    desc: Set keyboard brightness, disable the space-switching hotkeys, and bind Calendar's list toggle
+    # Ends by restarting the Dock so WindowServer re-reads the hotkey grabs, and
+    # asks before restarting Calendar, so this is run on purpose rather than on
+    # every rebuild.
+    cmds:
+      - scripts/configure-keyboard.sh
   bootstrap:infuse:
     desc: Clone the infuse data repo and give it a commit identity (run once, after 1Password is set up)
     cmds:
