@@ -19,7 +19,6 @@
 
       # Applications
       b = "brew";
-      c = "chezmoi";
       r = "rg";
       t = "task";
       o = "/Applications/Obsidian.app/Contents/MacOS/Obsidian";
@@ -28,9 +27,6 @@
 
       # git
       "," = "cd (git rev-parse --show-toplevel)";
-
-      # chezmoi
-      che = "cd (chezmoi source-path)/..";
 
       # Make user executable
       cux = "chmod u+x";
