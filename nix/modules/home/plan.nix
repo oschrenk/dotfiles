@@ -27,4 +27,10 @@
       }
     ];
   };
+
+  # Output templates. The upstream module writes config.json only, and nothing
+  # reads these unless a caller passes --template-path, so they are plain files
+  # rather than anything the module knows about.
+  xdg.configFile."plan/obsidian.md".source = ./plan/obsidian.md;
+  xdg.configFile."plan/terminal.md".source = ./plan/terminal.md;
 }
