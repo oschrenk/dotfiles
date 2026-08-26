@@ -7,7 +7,6 @@ user-invocable: true
 # Tasks
 
 One flat directory, `tasks/` at the repo root, one file per task.
-`tasks/lessons.md` is in the same directory and is not a task.
 
 `infuse` may symlink `tasks/` into a shared store, in which case it is untracked in the repo.
 Edit through the symlink as normal, and never `git add` it.
@@ -113,10 +112,26 @@ Do not close it unprompted.
 The H1 repeats the ticket ID, separated from the title by a colon:
 
 ```markdown
-# DOTFILES-20: Certificate and domain expiry alerts
+# DOTFILES-20: Certificate and Domain Expiry Alerts
 ```
 
-The separator is always a colon.
+The separator is always a colon, and the title takes title case, which is what `rumdl` enforces.
+
+### Backticks
+
+Tools, binaries, formulae, commands, paths, filenames, config keys and task-runner targets go in backticks, in headings as much as in prose.
+
+In a heading this is not decoration.
+`rumdl`'s MD063 rule rewrites headings to title case, so a bare `tmignore-rs` becomes `Tmignore-Rs` and a bare `spicetify` becomes `Spicetify`.
+Those are names that do not exist, and the rewrite is silent.
+A code span exempts the word, so the backticks fix the lint and the correctness in one move.
+
+`rumdl fmt` rewrites headings and rewraps paragraphs, which has consequences for editing a file after formatting it:
+
+- a script that edits a task file by matching a heading or a sentence verbatim will
+  match nothing after a format run, so assert on the match count rather than trusting
+  `replace` to have done anything
+- write the file, then format it, then read back what you have before editing it again
 
 State the goal in the first paragraph, before any plan.
 
@@ -234,7 +249,7 @@ status: done:rejected
 > **Closed 2026-08-24, unbuilt.** One paragraph on what happened, and what a reader
 > restarting this needs to know that the plan below no longer tells them.
 
-# DOTFILES-20: Certificate and domain expiry alerts
+# DOTFILES-20: Certificate and Domain Expiry Alerts
 ```
 
 A rejected task is worth more than a deleted one when the research behind it was expensive.
