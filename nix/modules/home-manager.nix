@@ -1,4 +1,4 @@
-{ config, arbol, infuse, mission, plan, sessionizer, ... }:
+{ config, arbol, infuse, meter, mission, plan, sessionizer, ... }:
 
 {
   home-manager = {
@@ -9,7 +9,7 @@
     # pass username to all HM modules
     extraSpecialArgs = {
       username = config.system.primaryUser;
-      inherit arbol infuse mission plan sessionizer;
+      inherit arbol infuse meter mission plan sessionizer;
     };
     users.${config.system.primaryUser} = import ./home;
   };

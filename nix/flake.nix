@@ -41,6 +41,7 @@
     # home-manager is configured with useGlobalPkgs.
     arbol.url = "github:oschrenk/arbol";
     infuse.url = "github:oschrenk/infuse";
+    meter.url = "github:oschrenk/meter";
     mission.url = "github:oschrenk/mission";
     plan.url = "github:oschrenk/plan.swift";
     sessionizer.url = "github:oschrenk/sessionizer";

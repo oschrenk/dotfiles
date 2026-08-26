@@ -22,6 +22,7 @@
     ./k9s.nix
     ./karabiner.nix
     ./lsd.nix
+    ./meter.nix
     ./mission.nix
     ./mpd.nix
     ./msgvault.nix
