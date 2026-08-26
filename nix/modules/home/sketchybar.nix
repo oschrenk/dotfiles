@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, osConfig, pkgs, ... }:
 
 {
   programs.sketchybar = {
@@ -21,9 +21,20 @@
         };
       })
     ];
-    # config is left at its default of null — Nix Home Manager does not write
-    # to ~/.config/sketchybar; chezmoi continues to manage the lua sources.
+    # config stays null: home-manager does not write ~/.config/sketchybar. The
+    # lua tree is symlinked in below instead.
   };
+
+  # Out of the store, into the working copy, so editing a lua file and running
+  # `sketchybar --reload` takes effect without a rebuild. A store symlink would
+  # be read-only and would need a rebuild per edit, which is the wrong trade for
+  # a config that is tuned by fiddling.
+  #
+  # sketchybar execs sketchybarrc, so its executable bit has to live in git
+  # rather than being applied at deploy time the way chezmoi's executable_
+  # prefix did.
+  home.file.".config/sketchybar".source =
+    config.lib.file.mkOutOfStoreSymlink "${osConfig.my.personal.dotfiles}/config/sketchybar";
 
   # launchd's default PATH is /usr/bin:/bin:/usr/sbin:/sbin, which excludes the
   # nix profiles. sketchybar's lua shells out to binaries that live there, so
