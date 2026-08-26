@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, osConfig, ... }:
 {
   programs.fish = {
     enable = true;
@@ -27,6 +27,9 @@
 
       # git
       "," = "cd (git rev-parse --show-toplevel)";
+
+      # dotfiles
+      dot = "cd ${osConfig.my.personal.dotfiles}";
 
       # Make user executable
       cux = "chmod u+x";
