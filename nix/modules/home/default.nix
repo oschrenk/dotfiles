@@ -19,6 +19,7 @@
     ./infat.nix
     ./infuse.nix
     ./jira.nix
+    ./k9s.nix
     ./lsd.nix
     ./mission.nix
     ./mpd.nix
