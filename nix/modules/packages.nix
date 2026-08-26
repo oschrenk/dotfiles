@@ -28,10 +28,26 @@
 
   environment.systemPackages = with pkgs; [
     aerospace
+    blueutil
+    doggo
+    exiftool
     firemark
     git-stack
+    htop
+    hurl
+    jq
+    jsongrep
     kmp-lsp
+    mdq
+    minisign
+    ngrep
+    page
+    shellcheck
+    smartmontools
+    speedtest-cli
     taplo
+    tree
+    witr
     zed-editor
   ];
 }

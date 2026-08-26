@@ -13,25 +13,15 @@
     "neovim" # editor
 
     # core (cli)
-    "blueutil" # system, get/set bluetooth from terminal
     "coreutils" # system, GNU core utilities
     "curl" # system, download things
     "gawk" # system, GNU awk utility
-    "htop" # system, improved top
-    "page" # system, use Neovim as pager
     "rclone" # system, sync files
     "rsync" # system, sync files
-    "tree" # system, print file tree
     "watch" # system, issue commands at regular interval
-    "smartmontools" # hardware, harddrive, read ssd info
-
-    # extra (cli)
-    "shellcheck" # shell, linter
-    "witr" # cli, why is this running
 
     # crypto
     "croc" # cryptography, secure data transfer
-    "minisign" # cryptography, sign files and verify signatures
 
     # productivity
     "eddmann/tap/whatsapp-cli" # cli, WhatsApp from terminal
@@ -53,9 +43,6 @@
 
     # data
     "jd" # data, diff JSON
-    "jq" # data, process JSON (read/transform)
-    "jsongrep" # data, process JSON (read only)
-    "mdq" # data, process markdown like jq
     "xq" # data, process xml
     "yq" # data, process YAML
 
@@ -82,7 +69,6 @@
     "stylua" # lua formatter
 
     # web (javascript, typescript, css, ...)
-    "hurl" # network, run/test http requests
     "node" # javascript, language
     "oschrenk/made/cutter" # web, extract cookies
     "typescript" # typescript, language
@@ -104,20 +90,15 @@
     "yapstudios/tap/sfsym" # swift, SF Symbols cli
 
     # network
-    "doggo" # network, dns client
     "httrack" # network, copy websites offline
-    "ngrep" # network, packet analyzer
     "nmap" # network, port scanning
-    "speedtest-cli" # network, speedtest
     "telnet" # network, telnet protocol
 
 
     # a/v + personal
-    "asciinema" # a/v, record terminal sessions
-    "exiftool" # a/v, read/write exif
     "ffmpeg" # a/v, convert audio/video
-    "flac" # a/v, flac codec
-    "gallery-dl" # a/v, download gallery
+    "flac" # a/v, flac codec. kept: libmp3splt needs it, and that has no nixpkgs equivalent
+    "gallery-dl" # a/v, download gallery. kept: nixpkgs build fails on curl-cffi rpath, like yt-dlp
     "lame" # a/v, mp3 codec
     "libmp3splt" # a/v, split mp3, ogg, flac files
     "x264" # a/v, h264 encoder
