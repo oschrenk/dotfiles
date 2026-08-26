@@ -43,11 +43,8 @@ echo "     export PATH=\"/nix/var/nix/profiles/default/bin:\$PATH\""
 echo
 echo "Then, from the repo root (~/.local/share/chezmoi):"
 echo
-echo "  1. Run nix-darwin (installs chezmoi, git, git-lfs, fish via Homebrew):"
+echo "  1. Run nix-darwin (installs git, git-lfs, fish via Homebrew):"
 echo "     sudo nix run nix-darwin -- switch --flake ./nix#\$(hostname -s)"
 echo
-echo "  2. Set up git-lfs:"
-echo "     git lfs install"
-echo
-echo "  3. Initialize chezmoi:"
-echo "     chezmoi init oschrenk/dotfiles"
+echo "  2. Set up git-lfs and fetch the binary assets:"
+echo "     git lfs install && git lfs pull"

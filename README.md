@@ -6,8 +6,9 @@ These are my dotfiles.
 
 The `nix/` flake and `scripts/` live in this repo, so clone it first. The repo
 is public, so clone over HTTPS (the SSH key is provisioned later via 1Password).
-Clone into chezmoi's source directory so a single checkout serves as both the
-flake root and the chezmoi source:
+Clone it anywhere, as long as it matches `my.personal.dotfiles` in
+`nix/identity.nix`. The config trees for neovim, sketchybar and Claude Code are
+symlinked out of the checkout, so that path is what they resolve through:
 
 ```sh
 # git ships with the Xcode Command Line Tools; this triggers their install
@@ -17,13 +18,13 @@ git clone https://github.com/oschrenk/dotfiles.git ~/.local/share/chezmoi
 cd ~/.local/share/chezmoi
 ```
 
-Name the machine next (`hostname` is used by `nix-darwin` and `chezmoi` templating):
+Name the machine next, which `nix-darwin` uses to pick the host configuration:
 
 ```sh
 ./scripts/hostname.sh
 ```
 
-Then install Nix and Homebrew (chezmoi itself is installed later by nix-darwin):
+Then install Nix and Homebrew:
 
 ```sh
 ./scripts/bootstrap.sh
@@ -93,27 +94,13 @@ kickstart service manually:
 sudo launchctl kickstart -k system/org.nixos.opnix-secrets
 ```
 
-Initialize chezmoi. The repo is already at chezmoi's source directory from the
-bootstrap clone, so `chezmoi init` reuses it without re-downloading. This
-requires `task nix:rebuild:darwin` to have run first, so home-manager has written
-`~/.local/share/identity/data.toml`:
-
-```sh
-chezmoi init
-```
-
-Pull binary assets (git-lfs is installed by nix-darwin):
+Pull the binary assets. `git-lfs` is installed by nix-darwin, so this comes after
+the first switch. A fresh clone holds pointer files rather than the real ones, so
+app icons and the Spanish spell files stay broken until this runs:
 
 ```sh
 git lfs install
-chezmoi cd
 git lfs pull
-```
-
-Apply
-
-```
-chezmoi apply
 ```
 
 ## First run
