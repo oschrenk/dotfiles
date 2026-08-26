@@ -14,6 +14,7 @@
     ./git.nix
     ./gitwatch.nix
     ./glow.nix
+    ./ideavim.nix
     ./identity.nix
     ./infat.nix
     ./infuse.nix
