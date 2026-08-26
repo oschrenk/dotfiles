@@ -281,7 +281,6 @@
         # workspace.B (=Browser)
         #--------------------------------------
         { "if".app-id = "com.google.Chrome"; run = "move-node-to-workspace b"; }
-        { "if".app-id = "org.mozilla.firefox"; run = "move-node-to-workspace b"; }
         { "if".app-id = "com.apple.Safari"; run = "move-node-to-workspace b"; }
         {
           # Arc

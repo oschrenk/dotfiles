@@ -25,7 +25,6 @@
     "calibre" # ebook manager
     "discord" # discord client
     "docker-desktop" # container runtime
-    "firefox" # browser
     "ghostty" # terminal
     "handbrake-app" # video transcoder
     "heroic" # game launcher

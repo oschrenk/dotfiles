@@ -77,7 +77,6 @@ sudo fileicon set /Applications/Docker.app "$BASEDIR"/docker.icns
 # docker has app inside app
 sudo fileicon set /Applications/Docker.app/Contents/MacOS/Docker\ Desktop.app "$BASEDIR"/docker.icns
 
-sudo fileicon set /Applications/Firefox.app/ "$BASEDIR"/firefox.icns
 # Google Chat is in user app
 sudo fileicon set ~/Applications/Chrome\ Apps.localized/Google\ Chat.app "$BASEDIR"/google-chat.icns
 sudo fileicon set /Applications/Google\ Chrome.app "$BASEDIR"/google-chrome.icns
