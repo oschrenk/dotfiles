@@ -24,6 +24,7 @@
     ./mpd.nix
     ./op.nix
     ./perses.nix
+    ./readline.nix
     ./ripgrep.nix
     ./rumdl.nix
     ./rmpc.nix
