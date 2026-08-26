@@ -103,7 +103,10 @@ o.swapfile = false
 -- requires +undofile
 -- if path ends in two slashes, file name will use complete path
 -- :help dir
-o.undodir = home .. "/.config/nvim/undo//"
+-- State, not config: stdpath("state") is ~/.local/state/nvim and is where
+-- neovim itself puts undo files by default. Keeping them under ~/.config/nvim
+-- meant 2.3M of history sitting inside the dotfiles tree.
+o.undodir = vim.fn.stdpath("state") .. "/undo//"
 o.undofile = true
 o.undolevels = 500
 o.undoreload = 500
