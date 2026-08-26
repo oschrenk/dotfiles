@@ -5,6 +5,7 @@
     ./aerospace.nix
     ./arbol.nix
     ./atuin.nix
+    ./claude.nix
     ./cottage.nix
     ./direnv.nix
     ./fish.nix
