@@ -17,6 +17,19 @@ echo ""
 echo "Assuming basedir: $BASEDIR"
 
 #--------------------------------------
+# git-lfs
+#--------------------------------------
+# the icons are stored in git-lfs, an un-smudged pointer file makes
+# fileicon fail with "missing value doesn't understand the size message"
+if grep -rqs "^version https://git-lfs" "$BASEDIR"; then
+  echo "Icons are git-lfs pointers, fetching"
+  git -C "$REPO_ROOT" lfs pull || {
+    echo "git lfs pull failed, aborting" >&2
+    exit 1
+  }
+fi
+
+#--------------------------------------
 # fileicon resistant apps
 #--------------------------------------
 # calibre uses it's own image to load the dock item
