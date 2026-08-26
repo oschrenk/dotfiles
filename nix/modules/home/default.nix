@@ -23,6 +23,7 @@
     ./mission.nix
     ./mpd.nix
     ./msgvault.nix
+    ./neovide.nix
     ./op.nix
     ./perses.nix
     ./readline.nix
