@@ -20,6 +20,7 @@
     ./infuse.nix
     ./jira.nix
     ./k9s.nix
+    ./karabiner.nix
     ./lsd.nix
     ./mission.nix
     ./mpd.nix
