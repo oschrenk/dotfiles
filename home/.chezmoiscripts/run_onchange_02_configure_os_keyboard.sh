@@ -55,8 +55,8 @@ allowCustomKeyboardShortcutsForApp "com.apple.iCal"
 
 echo "Calendar: Replace Toggle Calendar Sidebar with ⌘S"
 defaults write com.apple.iCal NSUserKeyEquivalents "{
-        'Show Calender List' = '${key_cmd}s';
-        'Hide Calender List' = '${key_cmd}s';
+        'Show Calendar List' = '${key_cmd}s';
+        'Hide Calendar List' = '${key_cmd}s';
     }"
 
 ###########################################################
