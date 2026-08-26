@@ -1,6 +1,15 @@
-{ pkgs, nixpkgs-zed, ... }:
+{ pkgs, lib, nixpkgs-zed, ... }:
 
 {
+  # Unfree is denied by default. Allow it per package rather than wholesale, so
+  # adding one never quietly permits the next.
+  nixpkgs.config.allowUnfreePredicate =
+    pkg: builtins.elem (lib.getName pkg) [
+      # official AgileBits universal .pkg, unpacked rather than rebuilt, so the
+      # signature the 1Password desktop app checks for app integration is intact
+      "1password-cli"
+    ];
+
   nixpkgs.overlays = [
     (_final: prev: {
       # Pin zed-editor to a rev whose build is already cached, so a rolling
@@ -27,6 +36,7 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    _1password-cli
     aerospace
     blueutil
     doggo

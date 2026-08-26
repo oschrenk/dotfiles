@@ -105,7 +105,6 @@
   ];
 
   homebrew.casks = [
-    "1password-cli" # password manager, cli
     "claude-code" # ai, claude
   ];
 
