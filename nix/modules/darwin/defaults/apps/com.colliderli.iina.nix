@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, pkgs, ... }:
 
 # IINA preferences
 #
@@ -27,8 +27,9 @@
       # Quit when last window is closed
       quitWhenNoOpenedWindow = 1;
 
-      # yt-dlp binary path
-      ytdlSearchPath = "/opt/homebrew/bin/yt-dlp";
+      # yt-dlp binary path. IINA needs an absolute one because a GUI app does
+      # not inherit the login shell PATH.
+      ytdlSearchPath = "${pkgs.yt-dlp}/bin/yt-dlp";
 
       # Don't autoplay next item in playlist
       playlistAutoPlayNext = 0;

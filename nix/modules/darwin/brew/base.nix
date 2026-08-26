@@ -98,12 +98,10 @@
     # a/v + personal
     "ffmpeg" # a/v, convert audio/video
     "flac" # a/v, flac codec. kept: libmp3splt needs it, and that has no nixpkgs equivalent
-    "gallery-dl" # a/v, download gallery. kept: nixpkgs build fails on curl-cffi rpath, like yt-dlp
     "lame" # a/v, mp3 codec
     "libmp3splt" # a/v, split mp3, ogg, flac files
     "x264" # a/v, h264 encoder
     "xvid" # a/v, mp4 lib
-    "yt-dlp" # a/v, download youtube video/audio
   ];
 
   homebrew.casks = [

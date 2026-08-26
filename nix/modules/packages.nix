@@ -32,6 +32,7 @@
     doggo
     exiftool
     firemark
+    gallery-dl
     git-stack
     htop
     hurl
@@ -48,6 +49,7 @@
     taplo
     tree
     witr
+    yt-dlp
     zed-editor
   ];
 }
