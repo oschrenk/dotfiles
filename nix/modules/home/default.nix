@@ -34,6 +34,7 @@
     ./rumdl.nix
     ./rmpc.nix
     ./sessionizer.nix
+    ./ssh.nix
     ./sketchybar.nix
     ./starship.nix
     ./ticker.nix
