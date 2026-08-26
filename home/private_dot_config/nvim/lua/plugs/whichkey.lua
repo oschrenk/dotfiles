@@ -45,7 +45,6 @@ return {
       { "<leader>o", icon = { icon = "" }, group = "Obsidian" },
       { "<leader>p", icon = { icon = "" }, group = "Palette" },
       { "<leader>t", icon = { icon = "󰙨" }, group = "Test" },
-      { "<leader>T", icon = { icon = "󰘳" }, group = "Typr" },
       { "[", group = "prev" },
       { "]", group = "next" },
       { "g", group = "goto" },
