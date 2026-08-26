@@ -22,6 +22,7 @@
     ./lsd.nix
     ./mission.nix
     ./mpd.nix
+    ./op.nix
     ./perses.nix
     ./ripgrep.nix
     ./rumdl.nix
