@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ config, pkgs, ... }:
 {
   home.packages = [ pkgs.rumdl ];
 
@@ -14,6 +14,12 @@
     # the extend-enable list and have no section.
 
     [global]
+
+    # Keep the cache out of the tree being linted. The default is a
+    # .rumdl_cache directory beside the files, which lands wherever rumdl is
+    # pointed, including inside the infuse store when linting the task
+    # symlinks. XDG_CACHE_HOME is where a cache belongs.
+    cache-dir = "${config.xdg.cacheHome}/rumdl"
 
     # Optional rules, off by default, switched on here:
     extend-enable = [

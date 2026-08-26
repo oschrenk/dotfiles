@@ -1,3 +1,7 @@
 # Claude Code writes per-directory state next to the files it works on. The
 # config trees are symlinked into $HOME now, so this lands inside the repo.
 .claude/
+
+# rumdl's lint cache. Also in the global ignore, repeated here so a clone on
+# a machine without it stays clean.
+.rumdl_cache/
