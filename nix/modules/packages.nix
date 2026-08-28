@@ -42,27 +42,40 @@
     _1password-cli
     aerospace
     blueutil
+    coursier # jvm, scala, artifact fetching
+    croc # cryptography, secure data transfer
     doggo
     exiftool
+    fd # system, fast find alternative
+    ffmpeg # a/v, convert audio/video. bundles libx264, libxvid and libmp3lame
     firemark
     gallery-dl
+    gawk # system, GNU awk utility
     git-stack
     htop
+    httrack # network, copy websites offline
     hurl
+    jd-diff-patch # data, diff JSON. provides `jd`
     jq
     jsongrep
     kmp-lsp
+    lua-language-server # lua, lsp
     mdq
-    msgvault
     minisign
+    msgvault
     ngrep
+    nmap # network, port scanning
     page
+    rclone # system, sync files
+    rsync # system, sync files
     shellcheck
     smartmontools
     speedtest-cli
+    stylua # lua formatter
     taplo
     tree
     witr
+    yq-go # data, process YAML. provides `yq`
     yt-dlp
     zed-editor
   ];
