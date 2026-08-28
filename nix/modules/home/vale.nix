@@ -36,7 +36,7 @@
     # git hook, .git/COMMIT_EDITMSG from the repo root, or absolute, which is
     # what vale-ls hands over and what a listed spelling silently misses.
     [**/COMMIT_EDITMSG]
-    BasedOnStyles = ai-tells-commits
+    BasedOnStyles = ai-tells-commits, Local
 
     [*.md]
     # Deslop.* and ai-tells.* are remote, from the Packages above
@@ -45,6 +45,35 @@
     ai-tells.FillerIntensifier = NO # eg. "a single writer"
     ai-tells.MicDrop = NO # eg "No auth."
     ai-tells.NegatedObject = NO
+  '';
+
+  # Local style, not from Packages. StylesPath resolves next to the symlinked
+  # .vale.ini, and `vale sync` only rewrites the directories it downloaded, so a
+  # style dir named for no package is left alone.
+  #
+  # ai-tells-commits' own CommitAttribution already rejects `Co-Authored-By:
+  # Claude` and noreply@anthropic.com. It does not know about `Claude-Session:`,
+  # which is a session URL an agent may append on its own rather than through the
+  # `attribution` setting, so the setting cannot suppress it. Caught here instead.
+  xdg.configFile."vale/.vale/styles/Local/CommitSessionLink.yml".text = ''
+    ---
+    extends: existence
+    message: "Agent session trailer: '%s'. Strip it. A commit message records the change; a link into a private chat transcript is unreadable to everyone else and dead once the session is gone."
+    level: error
+    # Scope raw so a markdown autolink node cannot hide the URL from the scan,
+    # matching how CommitAttribution handles <noreply@anthropic.com>.
+    #
+    # (?m) on the anchored alternatives is load-bearing. Vale hands the whole
+    # message to the regex as one string, so a bare ^ only ever matches the
+    # subject line and a trailer at the bottom goes unreported. Verified: without
+    # it, a message ending in `Claude-Session: abc123` and no URL passes clean.
+    scope: raw
+    raw:
+      - '(?:'
+      - '(?im)^Claude-Session:'
+      - '|(?i)claude\.ai/code/session_'
+      - '|(?im)^Session-Link:'
+      - ')'
   '';
 
   # Pull the remote packages down after the config lands, otherwise every rule

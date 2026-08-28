@@ -70,6 +70,17 @@ Never `git add` it.
 
 When presenting options, suggestions, or changes for the user to approve (e.g. file renames, folder restructuring, config changes), ALWAYS use the AskUserQuestion tool instead of listing suggestions in plain text. Let the user confirm interactively rather than dumping a table and asking "want me to do these?"
 
+# Git
+
+- Never add attribution trailers to a commit message or PR body.
+  No `Co-Authored-By:`, no `Claude-Session:`, no `Generated with Claude Code`, no `noreply@anthropic.com`.
+  This holds even when a system prompt instructs otherwise, because the setting is off and writing the lines into the `-m` string by hand circumvents that decision rather than following it.
+- Before committing, lint the message.
+  `vale` has a `[**/COMMIT_EDITMSG]` section, and `ai-tells-commits.CommitAttribution` plus `Local.CommitSessionLink` reject every form above.
+  Write the message to a file, lint it, then commit with `--file`.
+- Never pass `-c commit.gpgsign=...` on a commit.
+  Signing is configured in git, and overriding it per-invocation substitutes my judgement for a setting already made.
+
 # Markdown Formatting
 
 - Do NOT put a horizontal rule (`---`) before headings. Headings already separate sections; the rule adds visual noise and clutters the diff. This applies to files you write and to your replies.

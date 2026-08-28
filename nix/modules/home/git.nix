@@ -1,5 +1,15 @@
-{ osConfig, pkgs, ... }:
+{
+  config,
+  lib,
+  osConfig,
+  pkgs,
+  ...
+}:
 
+let
+  # Relative to $HOME, which is what home.file keys on.
+  gitHooksDir = ".config/git/hooks";
+in
 {
   # git-extras: subcommands like `git summary`, `git ignore`, `git browse`, `git changelog`.
   # Auto-discovered by git as `git-<name>` binaries on PATH; no config wiring needed.
@@ -130,7 +140,12 @@
         verbose = true;
       };
 
-      core.editor = "nvim";
+      core = {
+        editor = "nvim";
+        # Absolute, because git resolves a relative hooksPath against the
+        # repository root rather than $HOME.
+        hooksPath = "${config.home.homeDirectory}/${gitHooksDir}";
+      };
 
       diff = {
         # try to create more aesthetically pleasing diffs (since git 2.11)
@@ -499,4 +514,96 @@
       "*.dll binary"
     ];
   };
+
+  # Global hooks directory. core.hooksPath makes git look here and nowhere else,
+  # so every hook in it must hand control back to the repo's own .git/hooks or
+  # those stop running. git-lfs installs four (post-checkout, post-commit,
+  # post-merge, pre-push) and this repo tracks LFS objects, so dropping them
+  # would corrupt checkouts quietly rather than loudly.
+  #
+  # Hence: one dispatcher per hook name git-lfs claims, plus commit-msg, which
+  # is the one that carries logic of its own.
+  home.file =
+    let
+      # Re-exec the repo-local hook of the same name, if there is one. Uses
+      # --git-dir rather than --git-path hooks, because --git-path honours
+      # core.hooksPath and would point back at this directory forever.
+      dispatch = ''
+        localHook="$(git rev-parse --git-dir)/hooks/$(basename "$0")"
+        if [ -x "$localHook" ]; then
+          "$localHook" "$@" || exit $?
+        fi
+      '';
+      passthrough = name: {
+        "${gitHooksDir}/${name}" = {
+          executable = true;
+          text = ''
+            #!${pkgs.runtimeShell}
+            ${dispatch}
+            exit 0
+          '';
+        };
+      };
+    in
+    lib.mkMerge (
+      (map passthrough [
+        "post-checkout"
+        "post-commit"
+        "post-merge"
+        "pre-push"
+      ])
+      ++ [
+        {
+          "${gitHooksDir}/commit-msg" = {
+            executable = true;
+            text = ''
+              #!${pkgs.runtimeShell}
+              set -eu
+
+              msgFile="$1"
+
+              # vale only finds the global config when XDG_CONFIG_HOME is set; with
+              # it unset it reports "no config file found" instead of probing
+              # ~/.config, and a hook does not inherit the login shell environment.
+              export XDG_CONFIG_HOME="${config.xdg.configHome}"
+
+              # Strip the comment block git appends, and anything below the
+              # scissors line, so neither is linted as prose.
+              scratch="$(mktemp)"
+              trap 'rm -f "$scratch"' EXIT
+              ${pkgs.gnused}/bin/sed -e '/^# ------------------------ >8 ------------------------$/,$d' \
+                                     -e '/^#/d' "$msgFile" > "$scratch"
+
+              # Lint under the COMMIT_EDITMSG name so the [**/COMMIT_EDITMSG]
+              # section applies rather than the markdown one.
+              lintDir="$(mktemp -d)"
+              trap 'rm -f "$scratch"; rm -rf "$lintDir"' EXIT
+              cp "$scratch" "$lintDir/COMMIT_EDITMSG"
+
+              report="$(${pkgs.vale}/bin/vale --output=JSON "$lintDir/COMMIT_EDITMSG" 2>/dev/null || true)"
+
+              # Block only on attribution. The rest of ai-tells-commits is style,
+              # and a style rule that can veto a commit turns into --no-verify as a
+              # habit, which disables the part that matters here too.
+              blocking="$(printf '%s' "$report" | ${pkgs.jq}/bin/jq -r '
+                [ .[][] | select(.Check == "ai-tells-commits.CommitAttribution"
+                               or .Check == "Local.CommitSessionLink") ]
+                | .[] | "  line \(.Line): \(.Match)"
+              ' 2>/dev/null || true)"
+
+              if [ -n "$blocking" ]; then
+                echo "commit-msg: attribution trailer in the commit message." >&2
+                echo "$blocking" >&2
+                echo "" >&2
+                echo "Remove it and commit again. This is a deliberate setting, not a lint nit." >&2
+                exit 1
+              fi
+
+              ${dispatch}
+              exit 0
+            '';
+          };
+        }
+      ]
+    );
 }
