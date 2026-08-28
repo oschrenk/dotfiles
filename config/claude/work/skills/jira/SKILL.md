@@ -1,5 +1,5 @@
 ---
-name: jira-operations
+name: jira
 description: Manage Jira issues via the jira CLI. View, list, inspect, create, comment on, edit, and link tickets.
 user-invocable: true
 ---

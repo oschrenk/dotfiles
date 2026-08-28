@@ -1,6 +1,6 @@
 # View a Specific Ticket
 
-When a ticket key is provided (e.g. `/jira-operations DEV-3046`):
+When a ticket key is provided (e.g. `/jira DEV-3046`):
 
 ## Steps
 

@@ -1,5 +1,5 @@
 ---
-name: reminders-operations
+name: reminders
 description: Manage macOS Reminders from the command line.
 user-invocable: true
 ---

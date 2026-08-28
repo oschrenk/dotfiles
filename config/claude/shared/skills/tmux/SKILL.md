@@ -1,5 +1,5 @@
 ---
-name: tmux-operations
+name: tmux
 description: "Use when user asks about tmux panes, windows, or layouts — reading pane content, moving processes between panes/windows, splitting, resizing, or rearranging."
 user-invocable: true
 ---

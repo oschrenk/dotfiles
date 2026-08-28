@@ -1,5 +1,5 @@
 ---
-name: gitlab-operations
+name: gitlab
 description: >-
   Work with GitLab merge requests and CI via the glab CLI on git.timewax.com.
   List, view, create, and update MRs, post comments (including inline diff

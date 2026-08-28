@@ -1,5 +1,5 @@
 ---
-name: slack-operations
+name: slack
 description: Send Slack messages from the terminal via the `slack` fish function — post text now or scheduled for a specific time, ping a channel with an MR review request, list and cancel queued messages. Triggers on "post this to #channel", "ask backend to review my MR", "send that at 9am tomorrow", "what Slack messages are scheduled", "cancel that scheduled message".
 user-invocable: true
 ---

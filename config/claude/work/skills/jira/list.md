@@ -11,7 +11,7 @@
    ```bash
    jira issue list --plain --no-headers -a"$(jira me)" -s"In Progress"
    ```
-   Override status with `--status` argument (e.g. `/jira-operations --status "To Do"`).
+   Override status with `--status` argument (e.g. `/jira --status "To Do"`).
 
 3. For each ticket key, fetch the full view:
    ```bash
@@ -36,8 +36,8 @@
 
 | Argument | Meaning | Example |
 |----------|---------|---------|
-| `--status <status>` | Filter by status other than "In Progress" | `/jira-operations --status "To Do"` |
-| `--comments` | Also show comment content | `/jira-operations --comments` |
+| `--status <status>` | Filter by status other than "In Progress" | `/jira --status "To Do"` |
+| `--comments` | Also show comment content | `/jira --comments` |
 
 When `--comments` is specified, for each ticket that has comments, also run:
 ```bash

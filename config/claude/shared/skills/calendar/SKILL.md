@@ -1,5 +1,5 @@
 ---
-name: calendar-operations
+name: calendar
 description: Fetch and display Apple Calendar events.
 user-invocable: true
 ---
