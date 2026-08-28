@@ -75,7 +75,15 @@ in
 
     services.gitwatch.infuse = {
       repo_path = "${config.home.homeDirectory}/.local/share/infuse";
-      args = [ "--debounce-seconds=3" "--remote=origin" "--pull-before-push" "--skip-if-merging" ];
+      # --network-timeout-seconds bounds fetch and push, so a 1Password agent
+      # that never answers ends in a logged error instead of a wedged daemon.
+      args = [
+        "--debounce-seconds=3"
+        "--network-timeout-seconds=60"
+        "--remote=origin"
+        "--pull-before-push"
+        "--skip-if-merging"
+      ];
       extraPackages = [ pkgs.git ];
       environment = {
         SSH_AUTH_SOCK = "${config.home.homeDirectory}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
