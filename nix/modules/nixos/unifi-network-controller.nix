@@ -56,7 +56,16 @@ in
 
   nixpkgs.overlays = [
     (_final: _prev: {
-      unifi = pkgs'.unifi;
+      # Delete this overrideAttrs once nixpkgs carries 10.6.101 or newer, and go
+      # back to a bare pkgs'.unifi. Check with:
+      #   nix eval --raw nixpkgs#unifi.version
+      unifi = pkgs'.unifi.overrideAttrs (_: rec {
+        version = "10.6.101";
+        src = pkgs'.fetchurl {
+          url = "https://dl.ui.com/unifi/${version}/unifi_sysvinit_all.deb";
+          hash = "sha256-tauAnCaAt+wiEG7xnHlC8fo0MzjD7tGCkwPZWyzk/dc=";
+        };
+      });
       mongodb-7_0 = mongodb-rpi;
     })
   ];
