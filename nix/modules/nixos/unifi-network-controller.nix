@@ -10,17 +10,17 @@ let
     ];
   };
 
-  # Pre-built MongoDB 7.0.31 binaries compiled for Raspberry Pi 4 (ARMv8.0, no LSE atomics).
+  # Pre-built MongoDB 7.0.40 binaries compiled for Raspberry Pi 4 (ARMv8.0, no LSE atomics).
   # Official MongoDB 7.x aarch64 binaries require ARMv8.1+ (LSE) and SIGILL on Pi 4.
   # These community binaries are built with -mcpu=cortex-a72 and work on Pi 4.
   # Source: https://github.com/themattman/mongodb-raspberrypi-binaries
   mongodb-rpi = pkgs.stdenv.mkDerivation rec {
     pname = "mongodb";
-    version = "7.0.31";
+    version = "7.0.40";
 
     src = pkgs.fetchurl {
-      url = "https://github.com/themattman/mongodb-raspberrypi-binaries/releases/download/r7.0.31-rpi-unofficial/mongodb.ce.pi4.r7.0.31.tar.gz";
-      sha256 = "ad0e4541147eed95e22628d7f069888916b0df882d7f426be1c2b53dbb411bf7";
+      url = "https://github.com/themattman/mongodb-raspberrypi-binaries/releases/download/r7.0.40-rpi-unofficial/mongodb.ce.pi4.r7.0.40.tar.gz";
+      sha256 = "ebbf873eeee24f2fedf7f418e08d0acd7fd68016ba46a0c6fda18b93fb44e7fa";
     };
 
     nativeBuildInputs = [ pkgs.autoPatchelfHook ];
