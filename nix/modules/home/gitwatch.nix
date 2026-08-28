@@ -75,19 +75,27 @@ in
 
     services.gitwatch.infuse = {
       repo_path = "${config.home.homeDirectory}/.local/share/infuse";
-      # --network-timeout-seconds bounds fetch and push, so a 1Password agent
-      # that never answers ends in a logged error instead of a wedged daemon.
+      # --network-timeout-seconds bounds fetch and push, so an SSH agent that
+      # never answers ends in a logged error instead of a wedged daemon.
+      #
+      # --ssh-key is what keeps it from reaching an agent at all. It names a
+      # deploy key registered on infuse-data alone, so the daemon authenticates
+      # without a person there to unlock anything. Passing it also disables the
+      # agent and the interactive prompts, which is why no SSH_AUTH_SOCK is set
+      # below. libgit2 has no ssh_config parser, so IdentityFile in ~/.ssh/config
+      # would not have worked; the flag is the only way to choose a key here.
+      #
+      # scripts/bootstrap-infuse.sh writes the key from 1Password on a fresh
+      # machine. It stays out of the nix store, which is world-readable.
       args = [
         "--debounce-seconds=3"
         "--network-timeout-seconds=60"
+        "--ssh-key=${config.home.homeDirectory}/.ssh/gitwatch_infuse_ed25519"
         "--remote=origin"
         "--pull-before-push"
         "--skip-if-merging"
       ];
       extraPackages = [ pkgs.git ];
-      environment = {
-        SSH_AUTH_SOCK = "${config.home.homeDirectory}/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock";
-      };
     };
 
     launchd.agents = mapAttrs' (name: cfg:
