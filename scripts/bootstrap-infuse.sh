@@ -60,7 +60,20 @@ else
   git -C "$INFUSE_DIR" config user.email "$EMAIL"
 fi
 
-# 4. Kickstart the gitwatch agent so it picks up the now-existing directory
+# 4. Repo-local signing off. git.nix turns on commit and tag signing globally,
+#    but gitwatch commits through libgit2, which never calls the signer. Leaving
+#    it on would sign only the commits made by hand, so half the history in here
+#    would read as unverified. Off in both cases is the consistent answer.
+for KEY in commit.gpgsign tag.gpgsign; do
+  if [[ "$(git -C "$INFUSE_DIR" config --local --get "$KEY" || true)" == "false" ]]; then
+    step "Repo-local $KEY already false, skipping."
+  else
+    step "Setting repo-local $KEY to false"
+    git -C "$INFUSE_DIR" config "$KEY" false
+  fi
+done
+
+# 5. Kickstart the gitwatch agent so it picks up the now-existing directory
 #    instead of waiting for its next crash-restart. Only if it is loaded — on a
 #    fresh machine this script may run before the first nix-darwin switch.
 if launchctl print "gui/$(id -u)/$AGENT_LABEL" >/dev/null 2>&1; then
