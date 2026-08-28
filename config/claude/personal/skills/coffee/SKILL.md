@@ -1,5 +1,5 @@
 ---
-name: coffee-operations
+name: coffee
 description: Brew coffee, manage recipes, and log brews.
 user-invocable: true
 ---
