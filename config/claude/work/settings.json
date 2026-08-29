@@ -65,17 +65,6 @@
   },
   "model": "opus[1m]",
   "hooks": {
-    "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/Users/oliver/Frameworks/go/bin/claude-compound-allow"
-          }
-        ]
-      }
-    ],
     "Notification": [
       {
         "hooks": [
