@@ -40,19 +40,19 @@ return {
       -- brew install prettierd prettier
       javascript = { "prettierd", "prettier", stop_after_first = true },
       javascriptreact = { "prettierd", "prettier", stop_after_first = true },
-      -- brew install black
+      -- nixpkgs
       json = { "jq" },
       -- brew install ktfmt
       kotlin = { "ktfmt", stop_after_first = true },
+      -- nixpkgs
       lua = { "stylua" },
-      -- brew install rumdl
+      -- nixpkgs, via home-manager
       markdown = { "rumdl" },
       -- brew install black
       python = { "black" },
-      -- brew install coursier
-      -- coursier install scalafmt
+      -- coursier is nixpkgs, then: coursier install scalafmt
       scala = { "scalafmt" },
-      -- brew install shellcheck
+      -- nixpkgs
       sh = { "shellcheck" },
       -- brew install sqlfluff
       sql = { "sqlfluff" },
@@ -60,7 +60,7 @@ return {
       swift = { "swiftformat" },
       tailwindcss = { "prettierd", "prettier", stop_after_first = true },
       terraform = { "terraform_fmt" },
-      -- cargo install taplo-cli
+      -- nixpkgs
       toml = { "taplo" },
       typescript = { "prettierd", "prettier", stop_after_first = true },
       typescriptreact = { "prettierd", "prettier", stop_after_first = true },
