@@ -306,6 +306,15 @@ Writing uses `--front-matter=process`, which re-emits the body byte for byte:
 yq --front-matter=process -i '.state = "in-progress"' tasks/PREFIX-NN-slug.md
 ```
 
+A write that adds a field appends it below the existing ones, past the order above.
+`pick` puts it back, and drops the names it does not find rather than writing nulls:
+
+```sh
+yq --front-matter=process -i \
+  '.state = "todo" | pick(["project","assignee","created","state","rank","requires","parent","closed","outcome"])' \
+  tasks/PREFIX-NN-slug.md
+```
+
 ### Not on a File That Has an `outcome`
 
 A write reflows every block scalar in the frontmatter.
