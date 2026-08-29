@@ -276,6 +276,49 @@ Correcting one that turned out to be wrong keeps the record accurate.
 Rewriting it to match what you wish had happened destroys it.
 The line between those is a judgement call, so ask before editing a closed task.
 
+## Querying Frontmatter
+
+`yq` reads and writes the frontmatter block directly, which is what makes `state`, `rank` and `requires` worth carrying as fields rather than as prose.
+
+One file:
+
+```sh
+yq --front-matter=extract '.rank' tasks/PREFIX-NN-slug.md
+```
+
+Many files, one at a time.
+Passing several paths to `--front-matter=extract` prints the first results and then fails on the last with `did not find expected <document start>`, so loop rather than glob:
+
+```sh
+for f in tasks/PREFIX-*.md; do
+  printf '%-52s %-14s %s\n' "$(basename "$f")" \
+    "$(yq --front-matter=extract '.state // "-"' "$f")" \
+    "$(yq --front-matter=extract '.rank' "$f")"
+done
+```
+
+That one loop answers what to pick up next.
+It also shows which files are missing a `state`, and whether two tasks were given the same `rank`.
+
+Writing uses `--front-matter=process`, which re-emits the body byte for byte:
+
+```sh
+yq --front-matter=process -i '.state = "in-progress"' tasks/PREFIX-NN-slug.md
+```
+
+### Not on a File That Has an `outcome`
+
+A write reflows every block scalar in the frontmatter.
+`outcome` is written a sentence per line and comes back as one line per paragraph, with a blank line added before the closing `---`.
+The YAML parses to the same string and the file still lints, so nothing breaks.
+The diff is the whole note, and the sentence-per-line source is gone.
+
+Use `yq` for the scalar fields, and edit a file with an `outcome` in it by hand.
+Closing sets `state`, `closed` and `outcome` in one go, so closing is a by-hand edit.
+
+`mdq` parses the block too, exposing it under `--output json` as a `front_matter` node with a raw `body` string.
+It has no selector for it, so it cannot filter on these fields.
+
 ## Out of Scope
 
 A task says what to do and how to know it worked.
