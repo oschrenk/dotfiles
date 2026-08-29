@@ -41,7 +41,7 @@ echo "Get nix on PATH (a fresh terminal does this automatically, or run):"
 echo
 echo "     export PATH=\"/nix/var/nix/profiles/default/bin:\$PATH\""
 echo
-echo "Then, from the repo root (~/.local/share/chezmoi):"
+echo "Then, from the repo root (~/Projects/ops/dotfiles):"
 echo
 echo "  1. Run nix-darwin (installs git, git-lfs, fish via Homebrew):"
 echo "     sudo nix run nix-darwin -- switch --flake ./nix#\$(hostname -s)"

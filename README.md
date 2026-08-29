@@ -14,8 +14,8 @@ symlinked out of the checkout, so that path is what they resolve through:
 # git ships with the Xcode Command Line Tools; this triggers their install
 xcode-select --install
 
-git clone https://github.com/oschrenk/dotfiles.git ~/.local/share/chezmoi
-cd ~/.local/share/chezmoi
+git clone https://github.com/oschrenk/dotfiles.git ~/Projects/ops/dotfiles
+cd ~/Projects/ops/dotfiles
 ```
 
 Name the machine next, which `nix-darwin` uses to pick the host configuration:

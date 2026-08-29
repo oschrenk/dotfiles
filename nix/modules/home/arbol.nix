@@ -35,6 +35,7 @@
 
         ops = [
           "git@github.com:oschrenk/bramble.git"
+          "git@github.com:oschrenk/dotfiles.git"
           "git@github.com:oschrenk/feeds.git"
           "git@github.com:oschrenk/homebrew-made.git"
           "git@github.com:oschrenk/homebrew-personal.git"
