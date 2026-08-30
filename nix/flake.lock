@@ -9,7 +9,7 @@
         "narHash": "sha256-qjs37W6pyP3vLLD8RS7zTRZeTQ++ZxFwxXLpJSMjLpM=",
         "owner": "oschrenk",
         "repo": "arbol",
-        "rev": "899cd5fa6bc119a48146df199881cd22ac968e99",
+        "rev": "2c22335a922507bedb8378b6d7fc8eff1f7e8713",
         "type": "github"
       },
       "original": {
@@ -116,7 +116,7 @@
         "narHash": "sha256-Pqiv0v+Ue3E22tQz3ap8AmBtuAzcXhdk18kYKn1b12I=",
         "owner": "oschrenk",
         "repo": "infuse",
-        "rev": "74ee29fd4acaee055fefe4c4ec4ca98cb5b98bc4",
+        "rev": "41bde97ce9ba3186602b642450a723f08406d636",
         "type": "github"
       },
       "original": {
@@ -134,7 +134,7 @@
         "narHash": "sha256-iX7ZmKu/b7HvB/x/nwu+3jFV8Jcs8+qBELnwQ3diarU=",
         "owner": "oschrenk",
         "repo": "meter",
-        "rev": "170c603547a6beaad1183794b56fa3d2e4833401",
+        "rev": "d4b427e8f0c00324524c9076512e8970ae605555",
         "type": "github"
       },
       "original": {
@@ -152,7 +152,7 @@
         "narHash": "sha256-jSlKZCFhwyv3LADisTUrze7Y3ZIU6Ho+vSPHy1s3FI8=",
         "owner": "oschrenk",
         "repo": "mission",
-        "rev": "abdaf2b984e826f68f09051158a536c66fb8ec18",
+        "rev": "c0a3dd714fdd54292e777844c31d75bb0676bfa3",
         "type": "github"
       },
       "original": {
@@ -418,7 +418,7 @@
         "narHash": "sha256-ZuBoq1mCdFXQQZDi6LfFe675CsHY/SD9QOtA9C5BY9k=",
         "owner": "oschrenk",
         "repo": "plan.swift",
-        "rev": "57bec945a9192dafd69281c9f8ed57cf0422be1c",
+        "rev": "f9efcd83aac3d16a32873610bc9ea14d9ffc838f",
         "type": "github"
       },
       "original": {
@@ -453,7 +453,7 @@
         "narHash": "sha256-3PxfEGYJ/GE0gNcemiShf52Kb2Rxp8+MvcMkVClYHoA=",
         "owner": "oschrenk",
         "repo": "sessionizer",
-        "rev": "5f026f01f95346eefcf1d85e0cadc34bb3f8d425",
+        "rev": "33127025ee7ce1f126984f0831bc42f7738a7d34",
         "type": "github"
       },
       "original": {
