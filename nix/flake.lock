@@ -449,11 +449,11 @@
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "lastModified": 1787632078,
-        "narHash": "sha256-3PxfEGYJ/GE0gNcemiShf52Kb2Rxp8+MvcMkVClYHoA=",
+        "lastModified": 1788200383,
+        "narHash": "sha256-HISK2ihQttxWFpGe7lr0QFYPkV9sz2SegmMGRq0UIGQ=",
         "owner": "oschrenk",
         "repo": "sessionizer",
-        "rev": "33127025ee7ce1f126984f0831bc42f7738a7d34",
+        "rev": "f388f03727e1ee0328c4ca4608873b9f27372991",
         "type": "github"
       },
       "original": {

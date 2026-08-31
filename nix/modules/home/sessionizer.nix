@@ -2,11 +2,7 @@
 # Package and config both come from the upstream flake's home-manager module.
 { sessionizer, ... }:
 let
-  # every manual entry opens the same two-pane claude layout
-  entry = name: path: {
-    inherit name path;
-    layout = "two-columns-claude";
-  };
+  entry = name: path: { inherit name path; };
 in
 {
   imports = [ sessionizer.homeModules.sessionizer ];
@@ -27,10 +23,13 @@ in
       ];
     };
 
-    default = {
+    startup = {
       name = "config";
       path = "$HOME/.config";
     };
+
+    # reaches the manual entries and the walked $HOME/Projects alike
+    default.layout = "two-columns-claude";
 
     search = {
       directories = [ "$HOME/Projects" ];

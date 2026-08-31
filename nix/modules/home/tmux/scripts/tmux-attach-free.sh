@@ -32,7 +32,7 @@ for sock in primary secondary; do
       done
     ) &
   fi
-  sessionizer start --socket-name "$sock"   # keep sessionizer's default session name
+  sessionizer start --socket-name "$sock"   # keep sessionizer's startup session name
   # After detach, become a login shell (window stays open). Deliberate exec: the
   # attaching iteration hands off here and must not fall through to the next sock.
   # shellcheck disable=SC2093
