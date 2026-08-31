@@ -1,6 +1,5 @@
 # sessionizer — fuzzy finder for creating and switching between tmux sessions.
 # Package and config both come from the upstream flake's home-manager module.
-# Migrated from chezmoi (home/private_dot_config/sessionizer/).
 { sessionizer, ... }:
 let
   # every manual entry opens the same two-pane claude layout
