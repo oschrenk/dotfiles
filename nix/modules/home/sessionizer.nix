@@ -71,7 +71,7 @@ in
           panes = [
             { focus = false; }
             {
-              shell_command = [ "claude" ];
+              shell_command = [ "claude" "--continue" ];
               focus = true;
             }
           ];
