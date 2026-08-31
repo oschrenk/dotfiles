@@ -24,8 +24,8 @@ in
     };
 
     startup = {
-      name = "config";
-      path = "$HOME/.config";
+      name = "ops/dotfiles";
+      path = "$HOME/Projects/ops/dotfiles";
     };
 
     # reaches the manual entries and the walked $HOME/Projects alike
