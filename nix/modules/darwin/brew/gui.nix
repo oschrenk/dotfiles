@@ -78,6 +78,7 @@
     "Klack" = 6446206067; # keyboard
     "NordVPN" = 905953485;
     "Parcel" = 375589283; # shipment tracking
+    "QuickLook Video" = 6759566961; # quick look video previews
     "Reeder" = 1529448980; # rss
 
     # safari extensions
