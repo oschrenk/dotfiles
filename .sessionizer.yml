@@ -1,9 +1,0 @@
-%YAML 1.1
----
-windows:
-- layout: even-horizontal
-  panes:
-  - focus: false
-  - focus: true
-    shell_command:
-    - claude
