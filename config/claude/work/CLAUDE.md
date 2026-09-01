@@ -59,3 +59,7 @@ This applies to discrete decisions. Open-ended advice or explanations (answers t
 # Clipboard
 
 To copy text to the clipboard (macOS): `echo "text" | pbcopy`
+
+# Communication Style
+
+Use ASD-STE-100 when you speak to the operator.

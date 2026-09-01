@@ -103,3 +103,6 @@ To copy text to the clipboard, pipe data to the platform-specific command:
 
 - macOS: `echo "text" | pbcopy`
 
+# Communication Style
+
+Use ASD-STE-100 when you speak to the operator.
