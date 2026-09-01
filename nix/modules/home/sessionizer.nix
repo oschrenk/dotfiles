@@ -45,6 +45,7 @@ in
         (entry "interests/5parsecs" "$HOME/Obsidian/memex/20 Areas/5 Parsecs")
         (entry "interests/books" "$HOME/Library/Mobile Documents/com~apple~CloudDocs/Calibre")
         (entry "interests/coffee" "$HOME/Obsidian/memex/20 Areas/Coffee")
+        (entry "interests/guatemala" "$HOME/Obsidian/memex/30 Resources/Places/Guatemala")
         (entry "interests/homelab" "$HOME/Obsidian/memex/20 Areas/Homelab")
         (entry "interests/miniatures" "$HOME/Obsidian/memex/20 Areas/Miniatures")
         (entry "interests/people" "$HOME/Obsidian/memex/80 People")
