@@ -25,7 +25,7 @@
     # Prose linting via https://vale.sh
 
     StylesPath = .vale/styles
-    Packages = https://github.com/JMill/deslop/releases/download/v0.3.0/Deslop.zip, https://github.com/tbhb/vale-ai-tells/releases/download/v1.31.0/ai-tells.zip, https://github.com/tbhb/vale-ai-tells/releases/download/v1.31.0/ai-tells-commits.zip
+    Packages = https://github.com/JMill/deslop/releases/download/v0.3.0/Deslop.zip, https://github.com/tbhb/vale-ai-tells/releases/download/v1.31.0/ai-tells.zip, https://github.com/tbhb/vale-ai-tells/releases/download/v1.31.0/ai-tells-commits.zip, https://github.com/Syntaf/vale-llm-slop/releases/download/v0.1.0/STE.zip
 
     MinAlertLevel = warning
 
@@ -39,12 +39,26 @@
     BasedOnStyles = ai-tells-commits, Local
 
     [*.md]
-    # Deslop.* and ai-tells.* are remote, from the Packages above
-    BasedOnStyles = Deslop, ai-tells
+    # Deslop.*, ai-tells.* and STE.* are remote, from the Packages above.
+    # Deslop and ai-tells hunt AI tells; STE constrains grammar. They overlap
+    # on vocabulary and almost nowhere else.
+    BasedOnStyles = Deslop, ai-tells, STE
 
     ai-tells.FillerIntensifier = NO # eg. "a single writer"
     ai-tells.MicDrop = NO # eg "No auth."
     ai-tells.NegatedObject = NO
+
+    # POS-tagged, and 92% of its hits here are artifacts. A menu path reads as
+    # a noun stack, so one "System Settings > Privacy & Security > Full Disk
+    # Access" line raises four alerts. Worse, it clashes head-on with rumdl
+    # MD063 style = "title-case": title case makes the tagger read every heading
+    # word as a proper noun, so "Time Series Aggregation Functions" is a noun
+    # cluster to vale and mandatory to rumdl. ai-tells.NounString covers the
+    # prose case without either failure.
+    STE.NounClusters = NO
+    # Not the ASD dictionary, which is copyright. Plain-English swaps that
+    # Deslop.Substitutions and ai-tells.FormalRegister already make.
+    STE.Dictionary = NO
   '';
 
   # Local style, not from Packages. StylesPath resolves next to the symlinked
