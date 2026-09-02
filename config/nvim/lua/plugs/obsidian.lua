@@ -79,7 +79,8 @@ return {
         name = "personal",
         path = "~/Obsidian/memex",
         overrides = {
-          new_notes_location = "01 Inbox",
+          notes_subdir = "01 Inbox",
+          new_notes_location = "notes_subdir",
           daily_notes = {
             -- Optional, if you daily notes in separate directory.
             folder = "40 Journals/Personal",
@@ -132,7 +133,8 @@ return {
 
       return out
     end,
-    new_notes_location = "01 Inbox",
+    notes_subdir = "01 Inbox",
+    new_notes_location = "notes_subdir",
     templates = {
       folder = "99 Templates",
       date_format = "%Y-%m-%d",
