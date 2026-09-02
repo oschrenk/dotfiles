@@ -26,7 +26,7 @@ Leave them as they are unless asked.
 
 ## Numbers Are Permanent
 
-A task still at `state: todo` can be renumbered, so numbering and reading order stay in step while a plan is drawn up.
+You can renumber a task still at `state: todo`, so numbering and reading order stay in step while a plan is drawn up.
 
 The move to `in-progress`, or a commit naming the task, fixes the number for good.
 After that the number is identity.
@@ -36,7 +36,7 @@ Renumbering breaks all three at once, silently, and the damage only shows when s
 Renaming is fine at any point, and so is rewriting the body.
 Only the number is identity, so the title and the slug can drift without cost.
 
-A number is never reused.
+Never reuse a number.
 A task that turns out to be unnecessary reaches `done:rejected`, and its number stays spent.
 Work arriving late for something underway takes the next free number, even when it belongs earlier in the reading order.
 
@@ -149,40 +149,40 @@ The test is whether someone who has never seen the problem could pick the file u
 An agent will not ask.
 It will guess, and the guess will look confident.
 
-A task is ready when all of these hold.
+A task is ready when you have done all of these.
 
-**The problem is stated in observable terms.**
+**State the problem in observable terms.**
 What is broken, missing, or too expensive right now.
 Write the symptom rather than the remedy, because naming the remedy first hides whether the problem was understood.
 
-**The goal says what changes.**
+**Name the end state.**
 The end state, and how the world differs once the task closes.
 One or two sentences, before any plan.
 
-**The Definition of Done exists and is falsifiable.**
+**Write a falsifiable Definition of Done.**
 Every check is a command and the result it should produce.
 A task without one is not ready, however clear its plan reads.
 
-**The scope boundary is written down.**
+**Write the scope boundary down.**
 What this task will not touch, especially the adjacent things that look like they belong.
 Unstated scope is the gap an agent fills on its own.
 
-**The consumers are enumerated.**
+**Enumerate the consumers.**
 Everything that calls, imports, or reads the thing being changed, found by searching rather than by memory.
-A change that looks local is only local once that search has been run.
+A change that looks local is only local once you run that search.
 
-**The baseline is captured.**
-For a change to something already working, record the current behaviour first so the result can be compared against it.
+**Record the baseline.**
+For a change to something already working, record the current behaviour first so you can compare the result against it.
 An output saved before the work is worth more than any assertion made after it.
 
-**The open decisions are resolved or marked.**
+**Resolve or mark the open decisions.**
 Any fork that would change the approach is either decided in the file, or named as one to ask about before proceeding.
 A task that hides a decision gets the agent's preference instead of yours.
 
-**The undo is known.**
+**Name the undo.**
 How to get back if the change is wrong, and whether anything about it cannot be undone.
 
-If a Definition of Ready cannot be satisfied, the task stays `todo`.
+If you cannot satisfy a Definition of Ready, the task stays `todo`.
 That is what blocked looks like, and it is why blocked is derived rather than stored.
 
 ```markdown
@@ -217,20 +217,20 @@ Each is a command and the result it should produce, so someone who did not write
 Write it before starting the work, not after.
 Deciding what proof would satisfy you is the point, and reverse-engineering it later defeats it.
 
-A task closes as `done:completed` when all of these hold.
+A task closes as `done:completed` when you have done all of these.
 
-**The checks have been run, and they passed.**
+**Run the checks, and make sure they pass.**
 Run means executed, with the output looked at.
 A check skipped because its outcome seemed obvious is a check that did not run, and reporting it as passed is a false record.
 
-**The checks have been falsified where falsifying them is possible.**
+**Falsify the checks where you can.**
 A check that passes whether or not the work happened proves nothing about the work.
 Undo the change, run the check again, and confirm that it fails.
 Restore the change and confirm that it passes.
 Do this for the checks that carry the result, not for every line.
 Where undoing is impractical or destructive, write in the task which checks went unfalsified and why.
 
-**The specs match the system.**
+**Match the specs to the system.**
 Any document describing how the thing works now describes how it works.
 This includes the task file itself, whose plan often drifts from what was built.
 A stale spec does more damage than a missing one, because it gets trusted.
@@ -262,7 +262,7 @@ Weakening the rule to accept it would stop it catching stray prose everywhere el
 
 `outcome` is a folded block scalar, `>`, so the source can be written a sentence per line and still parse as one paragraph.
 Indent every line of it by two spaces.
-Indentation is the only thing that ends the scalar, so a line that loses it ends the note early and the rest of the file is parsed as frontmatter.
+Indentation is the only thing that ends the scalar, so a line that loses it ends the note early and the parser reads the rest of the file as frontmatter.
 Everything inside is literal, so a note may contain colons, backticks and `#` without escaping.
 A blank line inside the scalar is a paragraph break, which is where a later amendment goes.
 
@@ -298,7 +298,7 @@ done
 ```
 
 That one loop answers what to pick up next.
-It also shows which files are missing a `state`, and whether two tasks were given the same `rank`.
+It also shows which files are missing a `state`, and whether two tasks share a `rank`.
 
 Writing uses `--front-matter=process`, which re-emits the body byte for byte:
 
