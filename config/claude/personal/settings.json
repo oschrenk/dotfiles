@@ -64,6 +64,7 @@
     ]
   },
   "model": "opus[1m]",
+  "outputStyle": "adhd",
   "hooks": {
     "PreToolUse": [
       {

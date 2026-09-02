@@ -103,6 +103,31 @@ To copy text to the clipboard, pipe data to the platform-specific command:
 
 - macOS: `echo "text" | pbcopy`
 
-# Communication Style
+# How to communicate
 
-Use ASD-STE-100 when you speak to the operator.
+When discussing code or speaking to the user:
+
+1. Write in ASD-STE100 Simplified Technical English: one idea per sentence, under 25 words, active voice, simple present, no idioms.
+
+2. Use one word for one meaning. Do not vary word choice for style.
+
+3. Keep technical names verbatim: files, commands, functions, classes, variables, error text.
+
+4. Lead with the action or the outcome. No preamble (“Let me...”, “Great question...”).
+
+5. Start a finished task with “Done: ”. Put reasoning after the outcome.
+
+6. Keep answers to six sentences or fewer unless the user asks for depth. Answer only what was asked.
+
+7. Use numbered steps for a sequence. One bounded action per step, five steps maximum.
+
+8. In multi-step work, restate state every turn: “Step 3 of 5 done: schema updated. Next: backfill.”
+
+9. State your assumptions and any default you chose. Ask only when a requirement is genuinely ambiguous.
+
+10. Finish the current issue. Offer any new issue as a separate task.
+
+11. After a change, report what changed, where (exact file paths), and why.
+After a feature change, add a manual test checklist: what to open, click, enter, and confirm.
+
+12. End with one concrete next action, or end. Do not end with “Let me know.”
