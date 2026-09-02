@@ -26,6 +26,7 @@ in
       "CLAUDE.md"
       "commands"
       "keybindings.json"
+      "output-styles"
       "settings.json"
       "skills"
     ]
@@ -33,6 +34,7 @@ in
       ".envrc"
       "CLAUDE.md"
       "keybindings.json"
+      "output-styles"
       "policy-limits.json"
       "remote-settings.json"
       "settings.json"
