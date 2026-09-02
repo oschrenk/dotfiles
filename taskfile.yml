@@ -26,6 +26,13 @@ tasks:
     # every rebuild.
     cmds:
       - scripts/configure-keyboard.sh
+  nvim:blink:
+    desc: Rebuild the blink.cmp Rust fuzzy matcher after a plugin update
+    # The dylib filename is keyed to the checked-out commit, so every
+    # blink.cmp update leaves the previous build unreachable and completion
+    # silently falls back to the Lua matcher.
+    cmds:
+      - scripts/build-blink-fuzzy.sh
   bootstrap:infuse:
     desc: Clone the infuse data repo and give it a commit identity (run once, after 1Password is set up)
     cmds:

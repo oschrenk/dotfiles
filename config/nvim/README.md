@@ -13,14 +13,22 @@ stylua .
 
 ## Nix
 
-`blink.cmp` builds its fuzzy matcher with Rust (`cargo`).
-If Rust isn't installed, get a temporary shell that leaves `PATH` untouched afterwards:
+`blink.cmp` builds its fuzzy matcher with Rust (`cargo`), which is deliberately not on `PATH`.
+The library filename ends in the checked-out commit.
+Every `blink.cmp` update leaves the previous build unreachable, and completion falls back to the slower Lua matcher without an error.
+
+Rebuild it after every update:
 
 ```sh
-nix shell nixpkgs#cargo nixpkgs#rustc
-nvim   # :Lazy update blink.cmp  (or :Lazy build blink.cmp)
-exit
+task nvim:blink
 ```
+
+That runs `scripts/build-blink-fuzzy.sh`.
+The script takes `cargo` and `rustc` from a throwaway `nix shell`, then links against stable Xcode.
+It installs the dylib under the current commit hash and asks neovim whether the library loads.
+It prints `library_available() reports true` on success and exits non-zero otherwise.
+
+Check the state at any time with `:lua =require('blink.cmp').library_available()`.
 
 ### Xcode 27 Beta Linker Breaks the Build
 
@@ -32,22 +40,10 @@ The Xcode 27 beta linker (`ld-27034`) writes the `__LINKEDIT` string table at a 
 mis-aligned LINKEDIT string pool, fileOffset=0x001A38BC
 ```
 
-`:Lazy build blink.cmp` won't help, because it inherits the same active Xcode.
-Build against stable Xcode (26.6, `ld-1267`) instead:
-
-```sh
-cd ~/.local/share/nvim/lazy/blink.cmp
-nix shell nixpkgs#cargo nixpkgs#rustc
-env DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
-    CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER=/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang \
-    cargo build --release
-mv target/release/libblink_cmp_fuzzy.dylib \
-   "lib/libblink_cmp_fuzzy.dylib.$(git rev-parse HEAD | cut -c1-7)"
-exit
-```
-
-The library filename is keyed to the checked-out commit, so repeat this after every `blink.cmp` update.
-Verify with `:lua =require('blink.cmp').library_available()`.
+The build succeeds and the dylib then fails to load.
+So the script asks neovim rather than trusting the cargo exit code.
+`:Lazy build blink.cmp` cannot fix this, because it inherits the same active Xcode.
+The script points `DEVELOPER_DIR` and the cargo linker variable at stable Xcode (26.6, `ld-1267`) instead, and leaves the system-wide `xcode-select` choice alone.
 
 ## Plugin Security (Supply Chain)
 
