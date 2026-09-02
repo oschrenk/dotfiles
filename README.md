@@ -5,10 +5,10 @@ These are my dotfiles.
 ## Bootstrap
 
 The `nix/` flake and `scripts/` live in this repo, so clone it first. The repo
-is public, so clone over HTTPS (the SSH key is provisioned later via 1Password).
+is public, so clone over HTTPS (the 1Password agent supplies the SSH key later).
 Clone it anywhere, as long as it matches `my.personal.dotfiles` in
-`nix/identity.nix`. The config trees for neovim, sketchybar and Claude Code are
-symlinked out of the checkout, so that path is what they resolve through:
+`nix/identity.nix`. home-manager symlinks the config trees for neovim, sketchybar and
+Claude Code out of the checkout, so that path is what they resolve through:
 
 ```sh
 # git ships with the Xcode Command Line Tools; this triggers their install
@@ -44,11 +44,11 @@ sudo launchctl kickstart -k system/systems.determinate.nix-daemon
 Identity values (name, email, SSH key, timezone) live in the committed
 `nix/identity.nix`, so nothing is needed here on your own machines. When forking
 or changing them, edit `nix/identity.nix` directly, or run `task nix:setup:identity`
-(available after the first apply below, since `task` is installed by nix-darwin).
+(available after the first apply below, since nix-darwin installs `task`).
 
 **Before the first apply, grant Terminal Full Disk Access.** Without it,
 activation cannot write the TCC-protected `com.apple.universalaccess` domain, the
-switch aborts, and your login shell is left pointing at a fish that is not
+switch aborts and leaves your login shell pointing at a fish that is not
 installed yet (a dead terminal). On a fresh machine the switch runs in
 Terminal.app (Ghostty is not installed yet), so:
 
@@ -74,10 +74,10 @@ task nix:rebuild:darwin
 
 ## opnix bootstrap
 
-Some secrets (currently the atuin sync key) are sourced from 1Password via
+Some secrets (currently the atuin sync key) come from 1Password via
 [opnix](https://github.com/brizzbuzz/opnix).
 The bootstrap is per-machine and the
-token never lands in git.
+token stays out of git.
 
 Service account is "Service Account / opnix-bootstrap"
 
@@ -94,7 +94,7 @@ kickstart service manually:
 sudo launchctl kickstart -k system/org.nixos.opnix-secrets
 ```
 
-Pull the binary assets. `git-lfs` is installed by nix-darwin, so this comes after
+Pull the binary assets. nix-darwin installs `git-lfs`, so this comes after
 the first switch. A fresh clone holds pointer files rather than the real ones, so
 app icons and the Spanish spell files stay broken until this runs:
 
@@ -105,10 +105,10 @@ git lfs pull
 
 ## First run
 
-Follow the on-screen instructions. You will sometimes be asked for a password.
-Downloading and compiling all the various applications and packages will take roughly 1 hour.
+Follow the on-screen instructions. Enter your password when a step asks for it.
+Downloading and compiling all the applications and packages will take roughly 1 hour.
 
-After casks are installed you can already start important apps and configure them
+After Homebrew installs the casks you can already start important apps and configure them
 
 - App Store
   - log into iCloud if needed
@@ -122,7 +122,7 @@ After casks are installed you can already start important apps and configure the
 - Arc
   - open profiles, and log into services
 - Atuin
-  - The sync key is provisioned by opnix from 1Password (`Bootstrap` vault),
+  - opnix provisions the sync key from 1Password (`Bootstrap` vault),
     so no key transfer between machines is needed. Run `atuin login` and
     enter username + password.
 - Karabiner Elements.
@@ -168,7 +168,7 @@ arbol sync
 
 ## Scoped runs
 
-- `task brew` Install taps/brews/apps
+- `task brew` Install taps, brews and apps
 - `task cargo` Install crates
 - `task customize:extensions` Install Arc Browser extensions
 - `task go` Install go apps
@@ -180,7 +180,7 @@ arbol sync
 
 ### Nix binary cache warnings ("ignoring untrusted substituter")
 
-Binary caches defined in a flake's `nixConfig` are ignored unless the invoking user is trusted and `accept-flake-config` is set. The fix is to add the cache directly to `/etc/nix/nix.custom.conf` (which Determinate Nix preserves across upgrades) and restart the daemon:
+Nix ignores binary caches defined in a flake's `nixConfig` unless the invoking user is trusted and `accept-flake-config` is set. The fix is to add the cache directly to `/etc/nix/nix.custom.conf` (which Determinate Nix preserves across upgrades) and restart the daemon:
 
 ```sh
 echo 'extra-substituters = https://example.cachix.org' | sudo tee -a /etc/nix/nix.custom.conf
