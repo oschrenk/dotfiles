@@ -6,6 +6,9 @@
     ../modules/darwin/brew/fonts.nix
     ../modules/darwin/brew/gui.nix
     ../modules/darwin/brew/work.nix
+    # Sleep on battery, stay awake on charger. Keeps maxbook reachable over
+    # Tailscale while docked with the lid shut.
+    ../modules/darwin/power.nix
   ];
 
   # PAM / Touch ID for sudo (survives macOS upgrades via sudo_local)
@@ -37,8 +40,6 @@
     sudo -u ${config.my.personal.username} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
     # Accept Tailscale SSH, under a stable name so olivers-maxbook keeps resolving.
     ${config.services.tailscale.package}/bin/tailscale set --ssh --hostname=olivers-maxbook || true
-    # Stay reachable over Tailscale while docked with the lid shut.
-    /usr/bin/pmset -a disablesleep 1
   '';
 
   # MaxBook-specific apps (MacBook Pro with extra peripherals)
