@@ -1,22 +1,23 @@
 {
   config,
-  pkgs,
   ...
 }:
 let
-  port = 7979;
-
   # open.er-api.com needs no key and returns GTQ per EUR directly under
   # .rates.GTQ, so no reciprocal in the query and no second request to invert.
   # Base EUR rather than base GTQ deliberately: base GTQ would give EUR-per-GTQ
   # (0.112), which is the same fact in a form nobody can hold in their head.
   target = "https://open.er-api.com/v6/latest/EUR";
-
-  # The metric identity must match the backfilled history exactly, or the live
-  # series and the imported one are two different series that never join. See
-  # scripts/fx-backfill.sh.
-  configFile = (pkgs.formats.yaml { }).generate "json-exporter.yml" {
-    modules.fx.metrics = [
+in
+{
+  config = {
+    # The exporter itself lives in modules/nixos/json-exporter.nix, which several
+    # modules feed. Only the fx module and its scrape job are stated here.
+    #
+    # The metric identity must match the backfilled history exactly, or the live
+    # series and the imported one are two different series that never join. See
+    # scripts/fx-backfill.sh.
+    my.jsonExporter.modules.fx = [
       {
         name = "fx_rate";
         type = "value";
@@ -41,18 +42,6 @@ let
         };
       }
     ];
-  };
-in
-{
-  config = {
-    services.prometheus.exporters.json = {
-      enable = true;
-      inherit port;
-      # Loopback only: Prometheus runs on this host and scrapes over it, same as
-      # unpoller. Nothing outside the box has any business asking for this.
-      listenAddress = "127.0.0.1";
-      inherit configFile;
-    };
 
     services.prometheus.scrapeConfigs = [
       {
@@ -79,7 +68,7 @@ in
           }
           {
             target_label = "__address__";
-            replacement = "127.0.0.1:${toString port}";
+            replacement = "127.0.0.1:${toString config.my.jsonExporter.port}";
           }
         ];
 

@@ -106,6 +106,20 @@ tasks:
     # swept on the next compaction. Override: task homelab:fx-backfill DAYS=30
     cmds:
       - scripts/fx-backfill.sh {{.DAYS | default 90}}
+  homelab:weather-backfill:
+    desc: Backfill outside-weather history for Zona 14 into Prometheus on pi-2
+    # Open-Meteo is hourly; the script interpolates onto the live 5-minute grid so
+    # the imported range is shaped like the scraped one and the panels need no
+    # last_over_time wrapper. 11 of every 12 samples are therefore computed.
+    #
+    # Days defaults to 14. Open-Meteo serves at most 92 past days, and anything
+    # beyond the 90d retention is written and then swept on the next compaction.
+    # Override: task homelab:weather-backfill DAYS=30
+    #
+    # Safe to re-run: it stops at the first live sample rather than drawing over
+    # observations it already has.
+    cmds:
+      - scripts/weather-backfill.sh {{.DAYS | default 14}}
   nix:builder:up:
     desc: Start the linux-builder VM if it is not already running, and wait for it
     # The daemon is RunAtLoad=false / KeepAlive=false, so it is not running unless

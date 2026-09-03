@@ -23,23 +23,30 @@ dashboard & {
 					{
 						x:       0
 						y:       0
-						width:   8
+						width:   6
 						height:  10
 						content: {"$ref": "#/spec/panels/cpu"}
 					},
 					{
-						x:       8
+						x:       6
 						y:       0
-						width:   8
+						width:   6
 						height:  10
 						content: {"$ref": "#/spec/panels/memory"}
 					},
 					{
-						x:       16
+						x:       12
 						y:       0
-						width:   8
+						width:   6
 						height:  10
 						content: {"$ref": "#/spec/panels/temperature"}
+					},
+					{
+						x:       18
+						y:       0
+						width:   6
+						height:  10
+						content: {"$ref": "#/spec/panels/outsideTemperature"}
 					},
 					{
 						x:       0
@@ -271,6 +278,68 @@ dashboard & {
 									spec: {
 										query:            "unpoller_unas_disk_temperature_celsius"
 										seriesNameFormat: "{{name}} disk {{slot_id}}"
+									}
+								}
+							},
+							// The room the caddy stands in, so a warm cabinet can be told
+							// apart from a warm afternoon. Temperature only here — humidity
+							// belongs on the outside panel, not on an axis of hardware
+							// degrees.
+							{
+								kind: "TimeSeriesQuery"
+								spec: plugin: {
+									kind: "PrometheusTimeSeriesQuery"
+									spec: {
+										query:            "weather_temperature_celsius"
+										seriesNameFormat: "{{location}} outside"
+									}
+								}
+							},
+						]
+					}
+				}
+
+				outsideTemperature: {
+					kind: "Panel"
+					spec: {
+						display: {
+							name:        "Outside temperature"
+							description: "Open-Meteo, for the grid cell over Zona 14. Humidity shares the single axis with the two temperatures: here that reads, because Guatemala City sits around 15-30 C against 45-90% humidity, but it is a coincidence of this location rather than a scale that holds anywhere."
+						}
+						plugin: {
+							kind: "TimeSeriesChart"
+							spec: {}
+						}
+						queries: [
+							{
+								kind: "TimeSeriesQuery"
+								spec: plugin: {
+									kind: "PrometheusTimeSeriesQuery"
+									spec: {
+										query:            "weather_temperature_celsius"
+										seriesNameFormat: "temperature"
+									}
+								}
+							},
+							// Diverges from the line above by several degrees on a humid
+							// afternoon, which is the half that explains how the room feels.
+							{
+								kind: "TimeSeriesQuery"
+								spec: plugin: {
+									kind: "PrometheusTimeSeriesQuery"
+									spec: {
+										query:            "weather_apparent_temperature_celsius"
+										seriesNameFormat: "feels like"
+									}
+								}
+							},
+							{
+								kind: "TimeSeriesQuery"
+								spec: plugin: {
+									kind: "PrometheusTimeSeriesQuery"
+									spec: {
+										query:            "weather_relative_humidity_percent"
+										seriesNameFormat: "humidity %"
 									}
 								}
 							},

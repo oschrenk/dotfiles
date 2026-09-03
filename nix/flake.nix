@@ -126,7 +126,9 @@
             ./modules/nixos/prometheus.nix
             ./modules/nixos/perses.nix
             ./modules/nixos/unpoller.nix
+            ./modules/nixos/json-exporter.nix
             ./modules/nixos/fx.nix
+            ./modules/nixos/weather.nix
             ./modules/nixos/restic/healthcheck.nix
             ./modules/nixos/restic/mount.nix
             ./modules/nixos/restic/prometheus.nix
