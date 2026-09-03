@@ -31,8 +31,9 @@ in
       # three hours of samples." At a 60s scrape that is ~180 samples out of ~130,000
       # over the 90-day window.
       #
-      # tasks/DOTFILES-12-prometheus-snapshot-backup.md covers the upgrade to the
-      # admin snapshot API, which loses nothing.
+      # The admin snapshot API loses none of that, and was rejected anyway: it needs
+      # --web.enable-admin-api on permanently, which also exposes delete_series and
+      # clean_tombstones, to serve a job that runs once a night.
       exclude = [
         "${dataDir}/data/wal"
         "${dataDir}/data/chunks_head"

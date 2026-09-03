@@ -70,8 +70,8 @@
   services.restic-prometheus.backupSchedule = "*-*-* 01:15:00";
 
   # Nothing polls this yet — Gatus runs on pi-1 and the healthcheck socket binds
-  # localhost. DOTFILES-05 section 5 makes it cross-host; until then the stamp file
-  # is written and ntfy is the actual notification path.
+  # localhost. The stamp file is written regardless, and ntfy is the actual
+  # notification path.
   services.backup-healthcheck.checks.prometheus = {
     port = 8099;
   };

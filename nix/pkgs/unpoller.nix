@@ -3,7 +3,7 @@
 # nixpkgs is on 3.5.0 (master) / 3.4.1 (pinned); UNAS support landed in v4.0.0 on
 # 2026-08-19. A UNAS Pro is a standalone UniFi OS console with no Network application,
 # so inputunifi cannot poll it — the separate `[unas]` input is the only route, and it
-# is what makes the custom exporter in DOTFILES-13 unnecessary.
+# is what removes any need for a custom exporter.
 #
 # Drop this override once nixpkgs carries 4.x.
 { unpoller, fetchFromGitHub }:

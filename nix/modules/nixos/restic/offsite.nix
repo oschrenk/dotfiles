@@ -13,7 +13,7 @@ let
   source = "/mnt/unas_homelab/restic";
 
   # Cloudflare R2, EU jurisdiction. Bucket names allow no dots, so the domain-ish
-  # name is hyphenated. See tasks/DOTFILES-05-homelab-hardening.md section 1.
+  # name is hyphenated.
   destination = "s3:https://cc43301dd82d0d62d084b2c945273463.eu.r2.cloudflarestorage.com/oschrenk-lab-restic";
 
   # Both repos share one password. They still have different master keys — each is
