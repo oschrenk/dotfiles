@@ -110,6 +110,7 @@
   "enabledPlugins": {
     "typescript-lsp@claude-plugins-official": true
   },
+  "outputStyle": "adhd",
   "alwaysThinkingEnabled": true,
   "tui": "fullscreen",
   "theme": "auto",
