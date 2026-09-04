@@ -71,7 +71,6 @@
     shellcheck
     smartmontools
     speedtest-cli
-    stylua # lua formatter
     taplo
     tree
     witr

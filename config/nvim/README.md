@@ -4,12 +4,15 @@
 
 ### Requirements
 
-- [stylua](https://github.com/JohnnyMorganz/StyLua) Lua formatter, from `nixpkgs`
+- [stylua](https://github.com/JohnnyMorganz/StyLua) Lua formatter, from `programs.stylua` in `nix/modules/home/stylua.nix`
 - [tree-sitter-cli](https://github.com/tree-sitter/tree-sitter) Required by nvim-treesitter (main branch) to compile parsers `brew install tree-sitter-cli`
 
 ```text
 stylua .
 ```
+
+stylua stops at the first config it finds and does not merge, so this file must stay complete.
+It wins over the baseline in `~/.config/stylua/stylua.toml`.
 
 ## Nix
 

@@ -39,6 +39,7 @@
     ./ssh.nix
     ./sketchybar.nix
     ./starship.nix
+    ./stylua.nix
     ./ticker.nix
     ./tlink.nix
     ./tmignore.nix
