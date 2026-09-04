@@ -21,7 +21,6 @@
     "pandoc" # docs, document converter
 
     # macos
-    "keith/formulae/reminders-cli" # cli, reminders
     "keith/formulae/zap" # cli, uninstall macOS apps
     "tag" # terminal, interact with macOS file tags
 

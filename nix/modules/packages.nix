@@ -35,6 +35,8 @@
       msgvault = prev.callPackage ../pkgs/msgvault.nix { };
       # tmignore-rs not in nixpkgs; upstream ships prebuilt darwin archives
       tmignore-rs = prev.callPackage ../pkgs/tmignore-rs.nix { };
+      # ekctl not in nixpkgs; upstream ships a prebuilt universal darwin binary
+      ekctl = prev.callPackage ../pkgs/ekctl.nix { };
     })
   ];
 
@@ -45,6 +47,7 @@
     coursier # jvm, scala, artifact fetching
     croc # cryptography, secure data transfer
     doggo
+    ekctl # calendar and reminders via EventKit, JSON output
     exiftool
     fd # system, fast find alternative
     ffmpeg # a/v, convert audio/video. bundles libx264, libxvid and libmp3lame

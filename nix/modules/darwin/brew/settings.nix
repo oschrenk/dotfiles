@@ -43,7 +43,7 @@
       { name = "8ta4/extension"; trusted = true; } # extension (install browser extensions)
       { name = "darrylmorley/whatcable"; trusted = true; } # whatcable
       { name = "eddmann/tap"; trusted = true; } # whatsapp-cli
-      { name = "keith/formulae"; trusted = true; } # reminders-cli
+      { name = "keith/formulae"; trusted = true; } # zap
       { name = "oschrenk/made"; trusted = true; } # personal casks and formulae
       { name = "oschrenk/personal"; trusted = true; } # personal casks and fonts
       { name = "txn2/tap"; trusted = true; } # kubefwd
