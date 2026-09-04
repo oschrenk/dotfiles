@@ -1,4 +1,5 @@
 "1Password"=aeblfdkhhhdcdjpifhhbdiojplfjncoa
+"Claude"=fcoeoabgfenejglbffodgkkbkcdhcgfn
 "Completion Source Provider"=dgfnehmpeggdlmbblgjfbfioegibajlb
 "Dark Reader"=eimadpbcbfnmbkopoojfekhnkhdbieeh
 "DeArrow"=enamippconapkdmgfgjchkhakpfinmaj
