@@ -64,6 +64,22 @@
     "w /sys/class/leds/PWR/trigger - - - - none"
   ];
 
+  # Disable the two Ethernet jack LEDs.
+  #
+  # These belong to the BCM54213PE PHY, not the SoC, so they never appear under
+  # /sys/class/leds and the tmpfiles rules above cannot reach them. The only
+  # handle is the firmware dtparam, which writes the phy node's `led-modes`
+  # property: eth_led0 is byte 0, eth_led1 is byte 4. Mode 4 is off; the
+  # defaults are 0 (speed/activity) for led0 and 8 (link) for led1.
+  hardware.raspberry-pi.config.pi4.base-dt-params.eth_led0 = {
+    enable = true;
+    value = "4";
+  };
+  hardware.raspberry-pi.config.pi4.base-dt-params.eth_led1 = {
+    enable = true;
+    value = "4";
+  };
+
   # Disable HDMI + enable PCIe ASPM
   boot.kernelParams = [
     "video=HDMI-A-1:d" # HDMI off (saves ~25mA, takes effect after reboot)
