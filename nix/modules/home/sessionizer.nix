@@ -71,7 +71,10 @@ in
           panes = [
             { focus = false; }
             {
-              shell_command = [ "claude" "--continue" ];
+              # Joined with spaces and typed into the pane's shell, not exec'd
+              # as argv, so shell operators work here. The fallback covers a
+              # directory with no prior conversation.
+              shell_command = [ "claude --continue || claude" ];
               focus = true;
             }
           ];
