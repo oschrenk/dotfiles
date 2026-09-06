@@ -56,6 +56,7 @@
     "signal" # signal messaging
     "slack" # slack office communication
     "spotify" # audio client
+    "tabularis" # lightweight database management tool
     "telegram" # telegram messaging
     "the-unarchiver" # unarchiving most archive files
     "transmission" # torrent client
