@@ -11,7 +11,7 @@ Use AskUserQuestion to confirm or adjust the session:
 - Question: "Brewing for how many?"
 - Options:
   - "Just me (15g)" - Default single dose
-  - "Two people (24g)" - Default double dose
+  - "Two people (22.5g)" - Default two-person dose
   - "Custom" - Specify different amount
 
 **Question 2 - Equipment:**

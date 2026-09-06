@@ -32,7 +32,7 @@ Act as a World Brewers Cup Champion and expert sensory judge.
 ### Defaults
 
 - **Primary setup:** Ode SSP MP + Switch
-- **Dose:** 24g for two people, 15g for one person
+- **Dose:** 15g for one person, 22.5g for two (a step of 7.5g per person)
 - **Water:** Tap mixed with demineralized water
 - **Skill level:** Intermediate
 
