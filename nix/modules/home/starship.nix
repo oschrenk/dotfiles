@@ -8,12 +8,25 @@
       # insert a blank line between shell prompts
       add_newline = false;
 
-      format = "$kubernetes$directory$git_branch$git_commit$git_state$git_metrics$git_status$helm$custom$sudo$cmd_duration\n$jobs$time$status$character";
+      format = "$hostname$kubernetes$directory$git_branch$git_commit$git_state$git_metrics$git_status$helm$custom$sudo$cmd_duration\n$jobs$time$status$character";
 
       # set gruvbox as custom color palette
       palette = "gruvbox";
 
       directory.style = "bold green";
+
+      # only renders over SSH (ssh_only defaults to true), so a local prompt is
+      # unchanged and a remote one is obvious. The module is enabled by default,
+      # but an explicit `format` renders only the modules it names, so $hostname
+      # has to be listed there too.
+      hostname = {
+        ssh_only = true;
+        ssh_symbol = "🌐 ";
+        # Olivers-MaxBook.local -> Olivers-MaxBook
+        trim_at = ".";
+        format = "[$ssh_symbol$hostname]($style) ";
+        style = "bold orange";
+      };
 
       kubernetes = {
         disabled = false;
