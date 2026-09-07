@@ -34,12 +34,9 @@ in
     search = {
       directories = [ "$HOME/Projects" ];
       entries = [
-        (entry "config/arbol" "$HOME/.config/arbol")
         (entry "config/claude" "$HOME/.config/claude")
         (entry "config/nvim" "$HOME/.config/nvim")
-        (entry "config/sessionizer" "$HOME/.config/sessionizer")
         (entry "config/sketchybar" "$HOME/.config/sketchybar")
-        (entry "config/tmux" "$HOME/.config/tmux")
         (entry "claude/personal" "$HOME/.config/claude/personal")
         (entry "claude/work" "$HOME/.config/claude/work")
         (entry "interests/5parsecs" "$HOME/Obsidian/memex/20 Areas/5 Parsecs")
