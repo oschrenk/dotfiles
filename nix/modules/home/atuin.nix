@@ -1,6 +1,27 @@
-{ ... }:
-
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+
+let
+  socket = "${config.home.homeDirectory}/.local/share/atuin/daemon.sock";
+
+  # atuin binds daemon.sock without unlinking a socket left behind by a crash or
+  # a hard reboot, so it dies with EADDRINUSE and launchd's KeepAlive retries
+  # forever. The shell then records nothing, silently. Drop the socket first,
+  # but only when lsof proves no process holds it.
+  start = pkgs.writeShellScript "atuin-daemon-start" ''
+    if [ -S "${socket}" ] && ! ${lib.getExe pkgs.lsof} -- "${socket}" >/dev/null 2>&1; then
+      rm -f -- "${socket}"
+    fi
+    exec ${lib.getExe config.programs.atuin.package} daemon start
+  '';
+in
+{
+  launchd.agents.atuin-daemon.config.ProgramArguments = lib.mkForce [ "${start}" ];
+
   programs.atuin = {
     enable = true;
 
