@@ -16,6 +16,7 @@
         apps = [
           "git@github.com:oschrenk/ChangeMonitor.git"
           "git@github.com:oschrenk/Contacts.git"
+          "git@github.com:oschrenk/devil.git"
           "git@github.com:oschrenk/kessel.git"
         ];
 
