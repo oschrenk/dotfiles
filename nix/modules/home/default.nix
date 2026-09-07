@@ -8,6 +8,7 @@
     ./claude.nix
     ./cottage.nix
     ./direnv.nix
+    ./findbar.nix
     ./fish.nix
     ./fzf.nix
     ./gh.nix

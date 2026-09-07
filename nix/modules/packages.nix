@@ -37,6 +37,9 @@
       tmignore-rs = prev.callPackage ../pkgs/tmignore-rs.nix { };
       # ekctl not in nixpkgs; upstream ships a prebuilt universal darwin binary
       ekctl = prev.callPackage ../pkgs/ekctl.nix { };
+      # findbar not in nixpkgs; build from source. Upstream's own flake would
+      # pull crane, fenix and flake-utils in for a 55-crate binary.
+      findbar = prev.callPackage ../pkgs/findbar.nix { };
     })
   ];
 
