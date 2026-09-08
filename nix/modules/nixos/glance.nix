@@ -13,9 +13,11 @@ in
     description = "Write Glance environment file from opnix secrets";
     before = [ "glance.service" ];
     after = [ opnixUnit ];
-    requires = [ opnixUnit ];
+    wants = [ opnixUnit ];
     serviceConfig = {
       Type = "oneshot";
+      Restart = "on-failure";
+      RestartSec = 30;
       RemainAfterExit = true;
       ExecStart = pkgs.writeShellScript "glance-env" ''
         echo "WAQI_TOKEN=$(cat /var/lib/opnix/secrets/waqiToken)" > /run/glance.env

@@ -104,8 +104,10 @@ in
         "network-online.target"
         "opnix-secrets.service"
       ];
-      wants = [ "network-online.target" ];
-      requires = [ "opnix-secrets.service" ];
+      wants = [
+        "network-online.target"
+        "opnix-secrets.service"
+      ];
 
       serviceConfig = {
         ExecStart = start;

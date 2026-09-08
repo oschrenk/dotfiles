@@ -143,9 +143,11 @@ in
       description = "Write Traefik environment file from opnix secrets";
       before = [ "traefik.service" ];
       after = [ opnixUnit ];
-      requires = [ opnixUnit ];
+      wants = [ opnixUnit ];
       serviceConfig = {
         Type = "oneshot";
+        Restart = "on-failure";
+        RestartSec = 30;
         RemainAfterExit = true;
         ExecStart = pkgs.writeShellScript "traefik-env" ''
           echo "CLOUDFLARE_DNS_API_TOKEN=$(cat /var/lib/opnix/secrets/cloudflareDnsToken)" > ${envFile}
@@ -159,10 +161,11 @@ in
         opnixUnit
         "traefik-env.service"
       ];
-      requires = [
-        opnixUnit
-        "traefik-env.service"
-      ];
+      # traefik-env stays a hard requirement, since it writes the env file
+      # traefik reads. opnix is only wanted, so a boot with no WAN still starts
+      # traefik from the cached secret.
+      wants = [ opnixUnit ];
+      requires = [ "traefik-env.service" ];
     };
 
     # tailscale0 is a trustedInterface (base.nix), so Tailscale traffic bypasses

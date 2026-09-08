@@ -135,7 +135,7 @@ in
     # sed would mangle them. Python would pull in an unnecessary runtime dependency.
     systemd.services.adguardhome = {
       after = [ "opnix-secrets.service" ];
-      requires = [ "opnix-secrets.service" ];
+      wants = [ "opnix-secrets.service" ];
       # '+' prefix: run this script as root regardless of the service user.
       # Required because opnix secrets are owner=root mode=0600 — the adguardhome
       # service user cannot read them without privilege escalation.

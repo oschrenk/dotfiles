@@ -8,9 +8,11 @@ in
     description = "Write Gatus environment file from opnix secrets";
     before = [ "gatus.service" ];
     after = [ opnixUnit ];
-    requires = [ opnixUnit ];
+    wants = [ opnixUnit ];
     serviceConfig = {
       Type = "oneshot";
+      Restart = "on-failure";
+      RestartSec = 30;
       RemainAfterExit = true;
       ExecStart = pkgs.writeShellScript "gatus-env" ''
         echo "NTFY_URL=$(cat /var/lib/opnix/secrets/ntfyUrl)" > /run/gatus.env

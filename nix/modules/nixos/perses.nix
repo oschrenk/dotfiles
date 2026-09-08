@@ -150,7 +150,7 @@ in
       # as credentials, which systemd resolves before ExecStartPre — a missing file
       # is 243/CREDENTIALS, not a retryable error.
       after = [ "opnix-secrets.service" ];
-      requires = [ "opnix-secrets.service" ];
+      wants = [ "opnix-secrets.service" ];
 
       serviceConfig.LoadCredential = [ "persesAdminPassword:${adminPasswordFile}" ];
 

@@ -32,9 +32,11 @@ in
       description = "Write fusion environment file from opnix secrets";
       before = [ "fusion.service" ];
       after = [ opnixUnit ];
-      requires = [ opnixUnit ];
+      wants = [ opnixUnit ];
       serviceConfig = {
         Type = "oneshot";
+        Restart = "on-failure";
+        RestartSec = 30;
         RemainAfterExit = true;
         ExecStart = pkgs.writeShellScript "fusion-env" ''
           echo "FUSION_PASSWORD=$(cat /var/lib/opnix/secrets/fusionPassword)" > ${envFile}
