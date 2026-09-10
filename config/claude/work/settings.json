@@ -66,6 +66,17 @@
   },
   "model": "opus[1m]",
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_CONFIG_DIR/hooks/resolve-infuse-symlinks.sh"
+          }
+        ]
+      }
+    ],
     "Notification": [
       {
         "hooks": [

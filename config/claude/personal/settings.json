@@ -73,6 +73,15 @@
   "hooks": {
     "PreToolUse": [
       {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_CONFIG_DIR/hooks/resolve-infuse-symlinks.sh"
+          }
+        ]
+      },
+      {
         "matcher": "AskUserQuestion|Write|Edit|Bash",
         "hooks": [
           {

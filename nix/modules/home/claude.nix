@@ -39,7 +39,16 @@ in
       "remote-settings.json"
       "settings.json"
       "skills"
-    ];
+    ]
+    // {
+      # Hooks are shared between the profiles, so the source sits above them in
+      # config/claude/hooks and each profile links it as $CLAUDE_CONFIG_DIR/hooks,
+      # which is the path the settings.json hook commands use.
+      ".config/claude/personal/hooks".source =
+        config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/claude/hooks";
+      ".config/claude/work/hooks".source =
+        config.lib.file.mkOutOfStoreSymlink "${dotfiles}/config/claude/hooks";
+    };
 
   # Every tree deployed this way points at the working copy, so a wrong or
   # missing clone leaves dangling symlinks rather than an error: neovim would
