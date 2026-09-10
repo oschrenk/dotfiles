@@ -54,7 +54,6 @@
 
     # web (javascript, typescript, css, ...)
     "node" # javascript, language
-    "oschrenk/made/cutter" # web, extract cookies
     "typescript" # typescript, language
     "typescript-language-server" # typescript, lsp
 
