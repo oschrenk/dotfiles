@@ -1,7 +1,42 @@
-{ config, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 let
   shimPort = config.services.backup-healthcheck.checks.beszel.port;
   opnixUnit = "opnix-secrets.service";
+
+  # One check per pi, asked of prometheus on pi-2 over the tailnet. The query
+  # returns an EMPTY result while the host is healthy: `> 0` filters the
+  # failed-count away when it is zero, and the `or up == 0` arm adds a row
+  # when the exporter or its scrape is down, so a dead pipeline cannot look
+  # green. Emptiness is asserted with len(): gatus's JSONPath cannot index
+  # prometheus's mixed-type value array, so the condition never reads values.
+  exporterPort = toString config.services.prometheus.exporters.node.port;
+  prometheusApi = "http://${config.my.host."pi-2".tailscaleIp}:9090/api/v1/query";
+  unitCheck = host: {
+    name = "Units / ${host}";
+    url = "${prometheusApi}?query=${
+      lib.escapeURL ''sum(node_systemd_unit_state{state="failed",instance="${
+        config.my.host.${host}.tailscaleIp
+      }:${exporterPort}"}) > 0 or up{job="unit-health",instance="${
+        config.my.host.${host}.tailscaleIp
+      }:${exporterPort}"} == 0''
+    }";
+    interval = "5m";
+    conditions = [
+      "[STATUS] == 200"
+      "len([BODY].data.result) == 0"
+    ];
+    alerts = [
+      {
+        type = "custom";
+        description = "a systemd unit on ${host} is failed, or its exporter is down";
+      }
+    ];
+  };
 in
 {
   systemd.services.gatus-env = {
@@ -52,7 +87,11 @@ in
           "send-on-resolved" = true;
         };
       };
-      endpoints = [
+      endpoints = map unitCheck [
+        "pi-1"
+        "pi-2"
+        "pi-3"
+      ] ++ [
         {
           name = "Backup / beszel-hub";
           url = "http://127.0.0.1:${toString shimPort}/";

@@ -103,6 +103,7 @@
             ./modules/nixos/adguard.nix
             ./modules/nixos/fusion.nix
             ./modules/nixos/kula.nix
+            ./modules/nixos/node-exporter.nix
             ./modules/nixos/restic/adguard.nix
             ./modules/nixos/restic/fusion.nix
             ./modules/nixos/restic/offsite.nix
@@ -124,6 +125,7 @@
             ./modules/nixos/secrets.nix
             ./modules/nixos/beszel/agent.nix
             ./modules/nixos/kula.nix
+            ./modules/nixos/node-exporter.nix
             ./modules/nixos/prometheus.nix
             ./modules/nixos/perses.nix
             ./modules/nixos/unpoller.nix
@@ -150,6 +152,7 @@
             ./modules/nixos/secrets.nix
             ./modules/nixos/beszel/agent.nix
             ./modules/nixos/kula.nix
+            ./modules/nixos/node-exporter.nix
             ./modules/nixos/unifi-network-controller.nix
             ./modules/nixos/restic/healthcheck.nix
             ./modules/nixos/restic/mount.nix

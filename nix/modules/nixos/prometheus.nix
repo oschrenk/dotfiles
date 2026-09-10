@@ -17,6 +17,20 @@ let
     "pi-3"
   ];
 
+  # The systemd-only node_exporter, same three hosts, same tailnet reasoning
+  # as kula. One static_config per host so a host label rides every series:
+  # legends and alerts then read "pi-1", not a tailnet address and port. The
+  # port mirrors node-exporter.nix; this module cannot read the other hosts'
+  # config, so the value is repeated here.
+  unitHealthConfigs = map (host: {
+    targets = [ "${config.my.host.${host}.tailscaleIp}:9102" ];
+    labels.host = host;
+  }) [
+    "pi-1"
+    "pi-2"
+    "pi-3"
+  ];
+
   elec = config.my.electricity;
   currency = lib.toLower elec.currency;
 
@@ -36,9 +50,11 @@ in
     services.prometheus = {
       enable = true;
 
-      # localhost only. Nothing proxies Prometheus itself — Perses is the front
-      # end, and it queries over loopback.
-      listenAddress = "127.0.0.1";
+      # All interfaces, not loopback: gatus on pi-1 alerts by querying the
+      # prometheus API over the tailnet. The firewall keeps the LAN out and
+      # tailscale0 is trusted, the same exposure model as kula. Perses keeps
+      # querying over loopback.
+      listenAddress = "0.0.0.0";
       port = 9090;
 
       globalConfig = {
@@ -56,6 +72,10 @@ in
         {
           job_name = "kula";
           static_configs = [ { targets = kulaTargets; } ];
+        }
+        {
+          job_name = "unit-health";
+          static_configs = unitHealthConfigs;
         }
       ];
 

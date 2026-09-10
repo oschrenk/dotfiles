@@ -10,6 +10,23 @@ spec:
   display:
     name: Homelab
   panels:
+    unitFailures:
+      kind: Panel
+      spec:
+        display:
+          name: Failed units
+          description: Units in systemd state failed, per host, from the systemd-only node_exporter. An empty chart means every watched unit is up; the avahi-name watchdog also reports here when it has to reclaim a stolen mDNS name.
+        plugin:
+          kind: TimeSeriesChart
+          spec: {}
+        queries:
+          - kind: TimeSeriesQuery
+            spec:
+              plugin:
+                kind: PrometheusTimeSeriesQuery
+                spec:
+                  query: node_systemd_unit_state{state="failed"} > 0
+                  seriesNameFormat: '{{host}} {{name}}'
     cpu:
       kind: Panel
       spec:
@@ -365,5 +382,11 @@ spec:
             height: 10
             content:
               $ref: '#/spec/panels/fx'
+          - x: 8
+            "y": 30
+            width: 8
+            height: 10
+            content:
+              $ref: '#/spec/panels/unitFailures'
   duration: 1d
 

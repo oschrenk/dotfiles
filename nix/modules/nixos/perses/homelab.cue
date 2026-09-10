@@ -104,10 +104,46 @@ dashboard & {
 						height:  10
 						content: {"$ref": "#/spec/panels/fx"}
 					},
+					{
+						x:       8
+						y:       30
+						width:   8
+						height:  10
+						content: {"$ref": "#/spec/panels/unitFailures"}
+					},
 				]
 			}
 
 			panels: {
+				// Empty is the healthy state: the query filters to units currently in
+				// systemd's failed state, same `> 0` trick as the PoE panel, so a line
+				// only appears while something is broken and its width is the outage.
+				// Gatus alerts on the same series; this panel is the history.
+				unitFailures: {
+					kind: "Panel"
+					spec: {
+						display: {
+							name:        "Failed units"
+							description: "Units in systemd state failed, per host, from the systemd-only node_exporter. An empty chart means every watched unit is up; the avahi-name watchdog also reports here when it has to reclaim a stolen mDNS name."
+						}
+						plugin: {
+							kind: "TimeSeriesChart"
+							spec: {}
+						}
+						queries: [
+							{
+								kind: "TimeSeriesQuery"
+								spec: plugin: {
+									kind: "PrometheusTimeSeriesQuery"
+									spec: {
+										query:            "node_systemd_unit_state{state=\"failed\"} > 0"
+										seriesNameFormat: "{{host}} {{name}}"
+									}
+								}
+							},
+						]
+					}
+				}
 				// Percent on one axis for every source, so the fleet is comparable at a
 				// glance. The three pis come from kula, the UNAS and both switches from
 				// unpoller, which is the same split the temperature panel uses.
