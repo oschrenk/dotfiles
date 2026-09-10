@@ -168,9 +168,9 @@ in
       requires = [ "traefik-env.service" ];
     };
 
-    # tailscale0 is a trustedInterface (base.nix), so Tailscale traffic bypasses
-    # the firewall entirely. For LAN clients we open 443 explicitly. Port 80 is
-    # intentionally NOT in allowedTCPPorts — clients on LAN must use https://.
-    networking.firewall.allowedTCPPorts = [ 443 ];
+    # tailscale0 is a trustedInterface (base.nix), so Tailscale traffic reaches
+    # traefik without any firewall opening here. This module opens no LAN port:
+    # only a tailnet peer reaches the apex and its routes. DNS (53) belongs to
+    # adguard.nix and SSH (22) to services.openssh.
   };
 }
