@@ -45,6 +45,33 @@
     };
   };
 
+  # avahi renames itself on an mDNS name conflict (pi-1 -> pi-4) and never
+  # retries the original name, while the unit stays active — a silent loss of
+  # the .local name. Stale replays on the LAN trigger this at boot. Compare
+  # avahi's live name to the hostname every 5 minutes; on mismatch restart
+  # avahi, which re-probes and reclaims, and exit nonzero so the event reaches
+  # the unit-state metrics and gatus.
+  systemd.services.avahi-name = {
+    serviceConfig.Type = "oneshot";
+    script = ''
+      current=$(${pkgs.systemd}/bin/busctl --json=short call org.freedesktop.Avahi / org.freedesktop.Avahi.Server GetHostName | ${pkgs.jq}/bin/jq -r '.data[0]')
+      want=$(${pkgs.coreutils}/bin/uname -n)
+      if [ "$current" != "$want" ]; then
+        echo "avahi holds $current.local instead of $want.local, restarting avahi"
+        ${pkgs.systemd}/bin/systemctl restart avahi-daemon.service
+        exit 1
+      fi
+    '';
+  };
+
+  systemd.timers.avahi-name = {
+    wantedBy = [ "timers.target" ];
+    timerConfig = {
+      OnBootSec = "2min";
+      OnUnitActiveSec = "5min";
+    };
+  };
+
   # Use systemd-networkd instead of the default shell-script network stack —
   # more reliable, faster boot, better suited for headless servers
   networking.useNetworkd = true;
