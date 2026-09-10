@@ -7,6 +7,7 @@
     ./atuin.nix
     ./claude.nix
     ./cottage.nix
+    ./cutter.nix
     ./direnv.nix
     ./findbar.nix
     ./fish.nix

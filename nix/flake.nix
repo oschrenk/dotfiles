@@ -40,6 +40,7 @@
     # compile. Their home-manager modules still evaluate against our pkgs, since
     # home-manager is configured with useGlobalPkgs.
     arbol.url = "github:oschrenk/arbol";
+    cutter.url = "github:oschrenk/cutter";
     infuse.url = "github:oschrenk/infuse";
     meter.url = "github:oschrenk/meter";
     mission.url = "github:oschrenk/mission";
