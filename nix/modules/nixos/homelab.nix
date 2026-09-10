@@ -166,6 +166,16 @@ in
       # traefik from the cached secret.
       wants = [ opnixUnit ];
       requires = [ "traefik-env.service" ];
+      # The upstream module's StartLimitIntervalSec=1d with the default 100ms
+      # RestartSec lets five failures land inside half a second, and traefik
+      # then stays dead for a day. Retry forever instead, backing off to two
+      # minutes. mkForce because the upstream module sets the interval itself.
+      unitConfig.StartLimitIntervalSec = lib.mkForce 0;
+      serviceConfig = {
+        RestartSec = 5;
+        RestartSteps = 5;
+        RestartMaxDelaySec = "2min";
+      };
     };
 
     # tailscale0 is a trustedInterface (base.nix), so Tailscale traffic reaches

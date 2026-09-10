@@ -100,8 +100,20 @@
   services.journald.extraConfig = "RuntimeMaxUse=64M";
 
   # tailscaled logs continuously about peers that are powered down (on purpose).
-  systemd.services.tailscaled.serviceConfig = {
-    LogRateLimitIntervalSec = "5min";
-    LogRateLimitBurst = 20;
+  #
+  # Restart policy: the packaged unit's Restart=on-failure with the default
+  # 100ms RestartSec and 5-in-10s start limit means five quick crashes end the
+  # restarts for good, and a dead tailscaled severs the tailnet path to every
+  # service on the host. Same shape as opnix-secrets: retry forever, backing
+  # off to 10 minutes.
+  systemd.services.tailscaled = {
+    unitConfig.StartLimitIntervalSec = 0;
+    serviceConfig = {
+      LogRateLimitIntervalSec = "5min";
+      LogRateLimitBurst = 20;
+      RestartSec = 10;
+      RestartSteps = 8;
+      RestartMaxDelaySec = "10min";
+    };
   };
 }

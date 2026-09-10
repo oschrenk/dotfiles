@@ -35,4 +35,20 @@
       RestartMaxDelaySec = "10min";
     };
   };
+
+  # The authKeyFile above is what instantiates this unit. Upstream ships it
+  # with Restart=no, so one transient `tailscale up` failure on a first boot
+  # strands the host off the tailnet for good — and the pis are administered
+  # over the tailnet. On an authenticated node the unit reads nothing and
+  # exits 0, so retries on an expired key cost ~6 registration attempts an
+  # hour. Upstream sets no restart or limit values, hence no mkForce.
+  systemd.services.tailscaled-autoconnect = {
+    unitConfig.StartLimitIntervalSec = 0;
+    serviceConfig = {
+      Restart = "on-failure";
+      RestartSec = 10;
+      RestartSteps = 8;
+      RestartMaxDelaySec = "10min";
+    };
+  };
 }
