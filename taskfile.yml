@@ -95,7 +95,7 @@ tasks:
     #
     # Override for a narrower range: task homelab:prometheus-cost-backfill START=2026-08-24T00:00:00Z
     cmds:
-      - ssh -o ServerAliveInterval=15 -o ServerAliveCountMax=4 oliver@pi-2.local sudo bash -s -- '{{.START}}' '{{.END}}' < scripts/prometheus-cost-backfill.sh
+      - ssh -o ServerAliveInterval=15 -o ServerAliveCountMax=4 oliver@pi-2 sudo bash -s -- '{{.START}}' '{{.END}}' < scripts/prometheus-cost-backfill.sh
   homelab:fx-backfill:
     desc: Backfill GTQ-per-EUR daily history into Prometheus on pi-2
     # One sample per day, because that is how often the rate exists. Query it as
@@ -181,27 +181,37 @@ tasks:
   nix:rebuild:pi:
     desc: Apply NixOS configuration to all pis
     deps: [nix:rebuild:pi-1, nix:rebuild:pi-2, nix:rebuild:pi-3]
+  # The pis deploy over their tailnet names, not .local: mDNS only answers on
+  # the LAN, and a flaky avahi hangs the closure copy silently mid-deploy.
+  # HOST=pi-N.local overrides for the one rebuild a freshly imaged pi needs
+  # before it has a tailnet name, or when tailscaled itself is the broken thing.
   nix:rebuild:pi-1:
     desc: Apply NixOS configuration to pi-1
     dir: nix
+    vars:
+      HOST: '{{.HOST | default "pi-1"}}'
     cmds:
       - task: nix:builder:up
       - sudo chmod 644 /etc/nix/builder_ed25519
-      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-1 --target-host oliver@pi-1.local --build-host builder@linux-builder --sudo
+      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-1 --target-host oliver@{{.HOST}} --build-host builder@linux-builder --sudo
   nix:rebuild:pi-2:
     desc: Apply NixOS configuration to pi-2
     dir: nix
+    vars:
+      HOST: '{{.HOST | default "pi-2"}}'
     cmds:
       - task: nix:builder:up
       - sudo chmod 644 /etc/nix/builder_ed25519
-      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-2 --target-host oliver@pi-2.local --build-host builder@linux-builder --sudo
+      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-2 --target-host oliver@{{.HOST}} --build-host builder@linux-builder --sudo
   nix:rebuild:pi-3:
     desc: Apply NixOS configuration to pi-3
     dir: nix
+    vars:
+      HOST: '{{.HOST | default "pi-3"}}'
     cmds:
       - task: nix:builder:up
       - sudo chmod 644 /etc/nix/builder_ed25519
-      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-3 --target-host oliver@pi-3.local --build-host builder@linux-builder --sudo
+      - nix run nixpkgs#nixos-rebuild -- switch --option warn-dirty false --option extra-substituters "https://nixos-raspberrypi.cachix.org" --option extra-trusted-public-keys "nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=" --flake .#pi-3 --target-host oliver@{{.HOST}} --build-host builder@linux-builder --sudo
   nix:rebuild:hetzner-1:
     desc: Apply NixOS configuration to hetzner-1
     # Relies on a `Host hetzner-1` entry in ~/.ssh/config to resolve the public IP and user.
