@@ -16,6 +16,7 @@ let
       { name = "Documents"; path = "~/Documents"; }
       { name = "Watch"; path = "~/Library/Mobile Documents/com~apple~CloudDocs/Watch"; }
       { name = "Miniatures"; path = "~/Library/Mobile Documents/com~apple~CloudDocs/Resources/Miniatures"; }
+      { name = "Instagram"; path = "~/Library/Mobile Documents/com~apple~CloudDocs/Resources/Instagram"; }
       { name = "DIY"; path = "~/Library/Mobile Documents/com~apple~CloudDocs/Resources/Images/Raster/DIY"; }
       { name = "Interior"; path = "~/Library/Mobile Documents/com~apple~CloudDocs/Resources/Images/Raster/Interior"; }
     ];
