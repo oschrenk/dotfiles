@@ -118,6 +118,7 @@
   services.restic-beszel.backupSchedule = "*-*-* 01:00:00";
   services.restic-adguard.backupSchedule = "*-*-* 01:05:00";
   services.restic-fusion.backupSchedule = "*-*-* 01:10:00";
+  services.restic-gatus.backupSchedule = "*-*-* 01:15:00";
   services.restic-offsite.schedule = "*-*-* 01:25:00";
 
   # Prometheus on pi-2 scrapes this over the tailnet. The default 127.0.0.1 suits
@@ -138,6 +139,11 @@
 
   services.backup-healthcheck.checks.fusion = {
     port = 8102;
+  };
+
+  # port 8104: localhost-only HTTP shim for gatus backup freshness.
+  services.backup-healthcheck.checks.gatus = {
+    port = 8104;
   };
 
   # port 8103: offsite copy to R2. maxAge is the default 25h — the copy runs daily

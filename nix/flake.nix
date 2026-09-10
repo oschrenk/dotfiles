@@ -106,6 +106,7 @@
             ./modules/nixos/node-exporter.nix
             ./modules/nixos/restic/adguard.nix
             ./modules/nixos/restic/fusion.nix
+            ./modules/nixos/restic/gatus.nix
             ./modules/nixos/restic/offsite.nix
             ./sites/lab.oschrenk.gt.nix
             ./hosts/network.nix

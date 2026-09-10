@@ -71,6 +71,13 @@ in
     settings = {
       web.address = "127.0.0.1"; # localhost only — Traefik proxies externally
       web.port = 8080; # Gatus default — explicit so the port is easy to find
+      # Without this, gatus keeps results in memory and every restart wipes
+      # the history and the uptime percentages. The path sits in the state
+      # directory the module already provisions; restic/gatus.nix backs it up.
+      storage = {
+        type = "sqlite";
+        path = "/var/lib/gatus/data.db";
+      };
       alerting.custom = {
         url = "$NTFY_URL";
         method = "POST";
@@ -92,6 +99,18 @@ in
         "pi-2"
         "pi-3"
       ] ++ [
+        {
+          name = "Backup / gatus";
+          url = "http://127.0.0.1:${toString config.services.backup-healthcheck.checks.gatus.port}/";
+          interval = "1h";
+          conditions = [ "[STATUS] == 200" ];
+          alerts = [
+            {
+              type = "custom";
+              description = "backup stale or missing (>25h)";
+            }
+          ];
+        }
         {
           name = "Backup / beszel-hub";
           url = "http://127.0.0.1:${toString shimPort}/";
