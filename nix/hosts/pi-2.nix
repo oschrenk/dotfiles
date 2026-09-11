@@ -65,9 +65,9 @@
     mode = "0600";
   };
 
-  # Slots between pi-1's last local job (01:10) and the offsite copy (01:20), so
-  # the night's snapshot reaches R2 the same run.
-  services.restic-prometheus.backupSchedule = "*-*-* 01:15:00";
+  # pi-2 owns the 02:xx hour in the shared repo. Add jobs at 02:05, 02:10 and so
+  # on; the hour keeps them clear of pi-1 and pi-3 without any cross-host check.
+  services.restic-prometheus.backupSchedule = "*-*-* 02:00:00";
 
   # Nothing polls this yet — Gatus runs on pi-1 and the healthcheck socket binds
   # localhost. The stamp file is written regardless, and ntfy is the actual

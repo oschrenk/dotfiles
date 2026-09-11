@@ -41,9 +41,9 @@
     mode = "0600";
   };
 
-  # Last local job of the night, ahead of pi-1's offsite copy at 01:25, so the
-  # night's controller backup reaches R2 on the same run.
-  services.restic-unifi.backupSchedule = "*-*-* 01:20:00";
+  # pi-3 owns the 03:xx hour in the shared repo. Add jobs at 03:05, 03:10 and so
+  # on; the hour keeps them clear of pi-1 and pi-2 without any cross-host check.
+  services.restic-unifi.backupSchedule = "*-*-* 03:00:00";
 
   # port 8099: localhost-only HTTP shim for unifi backup freshness. Same port as
   # pi-2's check — the socket binds 127.0.0.1, so the numbering is per-host.

@@ -114,14 +114,17 @@
   # Stagger to avoid overlapping runs. All jobs share one repo, and `forget --prune`
   # takes an exclusive lock — two prunes at once means the second fails rather than
   # waits, since restic does not retry locks by default. Jobs finish in 10-60s, so
-  # 5-minute gaps leave ample headroom. The offsite copy trails the last local job.
-  # Slots are repo-wide, not per-host: pi-2 backs up at 01:15 and pi-3 at
-  # 01:20 into the same repository, so pi-1 must not reuse those times.
+  # 5-minute gaps leave ample headroom.
+  #
+  # One hour per host: pi-1 owns 01:xx, pi-2 owns 02:xx, pi-3 owns 03:xx. The hour
+  # is the collision guard, so a host can add jobs without checking the others.
   services.restic-beszel.backupSchedule = "*-*-* 01:00:00";
   services.restic-adguard.backupSchedule = "*-*-* 01:05:00";
   services.restic-fusion.backupSchedule = "*-*-* 01:10:00";
-  services.restic-gatus.backupSchedule = "*-*-* 01:25:00";
-  services.restic-offsite.schedule = "*-*-* 01:30:00";
+  services.restic-gatus.backupSchedule = "*-*-* 01:15:00";
+
+  # Runs after every host's hour, so one pass carries the whole night to R2.
+  services.restic-offsite.schedule = "*-*-* 04:00:00";
 
   # Prometheus on pi-2 scrapes this over the tailnet. The default 127.0.0.1 suits
   # hosts whose dashboard Traefik proxies locally, which pi-1 is — but that also
@@ -149,7 +152,7 @@
   };
 
   # port 8103: offsite copy to R2. maxAge is the default 25h — the copy runs daily
-  # at 01:25, after the last local backup.
+  # at 04:00, after the last host's hour.
   services.backup-healthcheck.checks.offsite = {
     port = 8103;
   };
