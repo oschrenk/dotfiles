@@ -115,11 +115,13 @@
   # takes an exclusive lock — two prunes at once means the second fails rather than
   # waits, since restic does not retry locks by default. Jobs finish in 10-60s, so
   # 5-minute gaps leave ample headroom. The offsite copy trails the last local job.
+  # Slots are repo-wide, not per-host: pi-2 backs up at 01:15 and pi-3 at
+  # 01:20 into the same repository, so pi-1 must not reuse those times.
   services.restic-beszel.backupSchedule = "*-*-* 01:00:00";
   services.restic-adguard.backupSchedule = "*-*-* 01:05:00";
   services.restic-fusion.backupSchedule = "*-*-* 01:10:00";
-  services.restic-gatus.backupSchedule = "*-*-* 01:15:00";
-  services.restic-offsite.schedule = "*-*-* 01:25:00";
+  services.restic-gatus.backupSchedule = "*-*-* 01:25:00";
+  services.restic-offsite.schedule = "*-*-* 01:30:00";
 
   # Prometheus on pi-2 scrapes this over the tailnet. The default 127.0.0.1 suits
   # hosts whose dashboard Traefik proxies locally, which pi-1 is — but that also
