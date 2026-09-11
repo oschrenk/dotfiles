@@ -37,6 +37,7 @@
     ./ripgrep.nix
     ./rumdl.nix
     ./rmpc.nix
+    ./secretspec.nix
     ./sessionizer.nix
     ./ssh.nix
     ./sketchybar.nix
