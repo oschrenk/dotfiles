@@ -44,7 +44,7 @@ tasks:
       - ./setup-identity.sh
   nix:rebuild:
     desc: Apply nix configuration to the Mac and all three pis
-    deps: [nix:rebuild:darwin, nix:rebuild:pi]
+    deps: ['nix:rebuild:darwin', 'nix:rebuild:pi']
   nix:rebuild:darwin:
     desc: Apply nix-darwin configuration to the current Mac (auto-selects host via hostname)
     # nix-daemon (running as root via sudo) refuses world-readable SSH keys, so
@@ -180,7 +180,7 @@ tasks:
       - sudo chmod 644 /etc/nix/builder_ed25519
   nix:rebuild:pi:
     desc: Apply NixOS configuration to all pis
-    deps: [nix:rebuild:pi-1, nix:rebuild:pi-2, nix:rebuild:pi-3]
+    deps: ['nix:rebuild:pi-1', 'nix:rebuild:pi-2', 'nix:rebuild:pi-3']
   # The pis deploy over their tailnet names, not .local: mDNS only answers on
   # the LAN, and a flaky avahi hangs the closure copy silently mid-deploy.
   # HOST=pi-N.local overrides for the one rebuild a freshly imaged pi needs
@@ -271,3 +271,22 @@ tasks:
       - sudo nix-collect-garbage -d
       - nix-collect-garbage -d
       - nix store optimise
+  ntfy:tail:
+    desc: Show recent homelab backup alerts from the ntfy topic
+    silent: true
+    vars:
+      SINCE: '{{.SINCE | default "48h"}}'
+      COUNT: '{{.COUNT | default 10}}'
+    cmds:
+      - |
+        nix run nixpkgs#secretspec -- run --scope ntfy \
+          --reason "list recent homelab backup alerts" -- \
+          sh -c 'curl -sS --max-time 20 "$NTFY_HOMELAB_BACKUPS_URL/json?poll=1&since={{.SINCE}}"' \
+        | jq -r '
+            # ntfy sends tags as shortcodes; its own clients render the emoji.
+            # Only these two are in use, and an unmapped tag shows verbatim
+            # rather than disappearing.
+            def emoji: {"white_check_mark": "✅", "x": "❌"}[.] // "[\(.)]";
+            select(.event == "message")
+            | "\((.tags // []) | map(emoji) | join(""))  \(.time | strflocaltime("%m-%d %H:%M"))  \(.title // "-")  \(.message)"' \
+        | tail -{{.COUNT}}
