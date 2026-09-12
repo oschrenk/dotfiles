@@ -18,7 +18,7 @@ in
 
   # Beszel
   services.onepassword-secrets.secrets.beszelAgentKey = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/pr3tmmcv6crtd36wqyqh3vdnmu/Public Key";
+    reference = secrets.ref "BESZEL_AGENT_PUBLIC_KEY";
     owner = "beszel-agent";
     mode = "0600";
   };
@@ -50,14 +50,14 @@ in
   # Backups
   # SMB credentials for the UNAS CIFS mount (username=, password=, domain= format)
   services.onepassword-secrets.secrets.unasCredentials = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/nlu6b76afi6kmgrjovrlw7bnrq/smb credentials";
+    reference = secrets.ref "UNAS_SMB_CREDENTIALS";
     owner = "root";
     mode = "0600";
   };
 
   # Same repository password as pi-1: one shared repo, one secret to lose.
   services.onepassword-secrets.secrets.resticPassword = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/mvunkul72kvdmvdkbycvsg7ogq/password";
+    reference = secrets.ref "RESTIC_REPOSITORY_PASSWORD";
     owner = "root";
     mode = "0600";
   };

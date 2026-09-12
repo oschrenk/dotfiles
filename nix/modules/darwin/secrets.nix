@@ -1,6 +1,8 @@
 { config, lib, ... }:
 
 let
+  secrets = (import ../../secrets.nix).read ../../../secretspec.toml;
+
   cfg = config.services.onepassword-secrets;
 
   # opnix only sets owner/group/mode on the secret file, never on its parent.
@@ -28,7 +30,7 @@ in
     tokenFile = "/etc/opnix-token";
 
     secrets.atuinKey = {
-      reference = "op://pfu2umtvmdm7k7aefhzrc4pkey/he5hrszuaoz2rwn6bc22obb3ui/password";
+      reference = secrets.ref "ATUIN_SYNC_KEY";
       path = "/Users/oliver/.local/share/atuin/key";
       owner = "oliver";
       group = "staff";
@@ -36,7 +38,7 @@ in
     };
 
     secrets.cottageIdentity = {
-      reference = "op://pfu2umtvmdm7k7aefhzrc4pkey/flw2qcdysxrzsbus7kkdgupncy/password";
+      reference = secrets.ref "COTTAGE_IDENTITY";
       path = "/Users/oliver/.config/cottage/identity";
       owner = "oliver";
       group = "staff";
@@ -47,7 +49,7 @@ in
     # vault (the one the opnix service account can read). jira reads it via
     # JIRA_CONFIG_FILE set in the wrapper.
     secrets.jiraConfig = {
-      reference = "op://pfu2umtvmdm7k7aefhzrc4pkey/sixufe2idosinhgbqbzuvvukyi/config";
+      reference = secrets.ref "JIRA_CONFIG";
       path = "/Users/oliver/.config/jira/config.yml";
       owner = "oliver";
       group = "staff";
