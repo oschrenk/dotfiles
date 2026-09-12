@@ -62,7 +62,7 @@
 
   # Traefik
   services.onepassword-secrets.secrets.cloudflareDnsToken = {
-    reference = "op://Homelab/pfm23ham47cqs5noxcxsvqf7ci/kazgl6vaqr4piwcubc33idnyum";
+    reference = "op://Homelab/cloudflare.com/Challenge/token";
     owner = "root";
     mode = "0600";
   };
@@ -93,13 +93,13 @@
   # Cloudflare R2 credentials for the offsite copy. Two fields rather than one env
   # file: opnix maps one reference to one file, and restic-offsite exports them itself.
   services.onepassword-secrets.secrets.resticR2KeyId = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/hnl4j5q3h43foayyjunhq4md5m/Access Key ID";
+    reference = "op://Homelab/cloudflare.com R2/Restic/Access Key ID";
     owner = "root";
     mode = "0600";
   };
 
   services.onepassword-secrets.secrets.resticR2Secret = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/hnl4j5q3h43foayyjunhq4md5m/Secret Access Key";
+    reference = "op://Homelab/cloudflare.com R2/Restic/Secret Access Key";
     owner = "root";
     mode = "0600";
   };
