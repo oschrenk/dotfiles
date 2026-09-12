@@ -7,6 +7,13 @@
   services.journald.storage = "volatile";
   services.journald.extraConfig = "RuntimeMaxUse=64M";
 
+  # opnix only reaches 1Password when its unit runs, so a rotated secret stays
+  # stale until a rebuild. Polling works against a quota of 1000 requests a day.
+  services.onepassword-secrets.systemdIntegration.polling = {
+    enable = true;
+    interval = "6h";
+  };
+
   # Disable WiFi and audio via kernel module blacklist
   boot.blacklistedKernelModules = [
     "brcmfmac"
