@@ -25,13 +25,13 @@ in
   ];
 
   services.onepassword-secrets.secrets.adguardUsername = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/x2e3npasfpczengdmzxxglby2a/username";
+    reference = secrets.ref "ADGUARD_USERNAME";
     owner = "root";
     mode = "0600";
   };
 
   services.onepassword-secrets.secrets.adguardPasswordHash = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/x2e3npasfpczengdmzxxglby2a/bcrypt password";
+    reference = secrets.ref "ADGUARD_PASSWORD_HASH";
     owner = "root";
     mode = "0600";
   };
@@ -44,13 +44,13 @@ in
   };
 
   services.onepassword-secrets.secrets.beszelHubAdmin = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/pr3tmmcv6crtd36wqyqh3vdnmu/notesPlain";
+    reference = secrets.ref "BESZEL_HUB_ADMIN";
     owner = "beszel-hub";
     mode = "0600";
   };
 
   services.onepassword-secrets.secrets.beszelHubKey = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/pr3tmmcv6crtd36wqyqh3vdnmu/Private Key";
+    reference = secrets.ref "BESZEL_HUB_PRIVATE_KEY";
     path = "/var/lib/beszel-hub/beszel_data/id_ed25519";
     owner = "beszel-hub";
     mode = "0600";
@@ -58,21 +58,21 @@ in
 
   # Fusion
   services.onepassword-secrets.secrets.fusionPassword = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/Fusion/password";
+    reference = secrets.ref "FUSION_PASSWORD";
     owner = "fusion";
     mode = "0600";
   };
 
   # Traefik
   services.onepassword-secrets.secrets.cloudflareDnsToken = {
-    reference = "op://Homelab/cloudflare.com/Challenge/token";
+    reference = secrets.ref "CLOUDFLARE_DNS_CHALLENGE_TOKEN";
     owner = "root";
     mode = "0600";
   };
 
   # Glance
   services.onepassword-secrets.secrets.waqiToken = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/Air Quality Open Data Platform/API token";
+    reference = secrets.ref "WAQI_API_TOKEN";
     owner = "root";
     mode = "0600";
   };
@@ -96,13 +96,13 @@ in
   # Cloudflare R2 credentials for the offsite copy. Two fields rather than one env
   # file: opnix maps one reference to one file, and restic-offsite exports them itself.
   services.onepassword-secrets.secrets.resticR2KeyId = {
-    reference = "op://Homelab/cloudflare.com R2/Restic/Access Key ID";
+    reference = secrets.ref "CLOUDFLARE_R2_ACCESS_KEY_ID";
     owner = "root";
     mode = "0600";
   };
 
   services.onepassword-secrets.secrets.resticR2Secret = {
-    reference = "op://Homelab/cloudflare.com R2/Restic/Secret Access Key";
+    reference = secrets.ref "CLOUDFLARE_R2_SECRET_ACCESS_KEY";
     owner = "root";
     mode = "0600";
   };
