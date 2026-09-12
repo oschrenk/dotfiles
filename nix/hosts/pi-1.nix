@@ -11,7 +11,7 @@ in
 
   # Tailscale
   services.onepassword-secrets.secrets.tailscaleAuthKey = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/2imqxgbvx6htswijyuswh72kye/pi-1";
+    reference = secrets.ref "TAILSCALE_AUTHKEY_PI_1";
     owner = "root";
     mode = "0600";
   };
