@@ -84,26 +84,26 @@ in
   # via its file:// reference, and the ExecStart wrapper reads the UNAS one as the
   # same user.
   services.onepassword-secrets.secrets.unpollerUnasPassword = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/4rysqwcs2u5st5xzoy22gfz7au/password";
+    reference = secrets.ref "UNAS_ACCOUNT_PASSWORD";
     owner = "unpoller";
     mode = "0400";
   };
 
   services.onepassword-secrets.secrets.unpollerUnifiPassword = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/spjanmeqbrmygc5e2ijapwzkhe/password";
+    reference = secrets.ref "UNIFI_ADMIN_PASSWORD";
     owner = "unpoller";
     mode = "0400";
   };
 
   # Perses
   services.onepassword-secrets.secrets.persesEncryptionKey = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/nnur4ctpce2l3dfoqettgcr3ay/encryption key";
+    reference = secrets.ref "PERSES_ENCRYPTION_KEY";
     owner = "root";
     mode = "0600";
   };
 
   services.onepassword-secrets.secrets.persesAdminPassword = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/nnur4ctpce2l3dfoqettgcr3ay/password";
+    reference = secrets.ref "PERSES_ADMIN_PASSWORD";
     owner = "root";
     mode = "0600";
   };
