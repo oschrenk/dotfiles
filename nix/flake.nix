@@ -69,6 +69,18 @@
       # Build: nix build .#packages.aarch64-linux.pi-image
       packages.aarch64-linux.pi-image = self.nixosConfigurations.pi.config.system.build.sdImage;
 
+      # Unit tests. Run with `task nix:test`, which builds this alone rather
+      # than `nix flake check`, since that evaluates all six host configs first.
+      checks.aarch64-darwin.secrets =
+        let
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+          failures = import ./tests/secrets.nix { inherit (pkgs) lib; };
+        in
+        if failures == [ ] then
+          pkgs.runCommand "secrets-tests-passed" { } "touch $out"
+        else
+          throw "secrets catalogue tests failed:\n${builtins.toJSON failures}";
+
       nixosConfigurations = {
         # Bootstrap image config — uses nvmd sd-image module for proper RPi4 firmware
         "pi" = nixos-raspberrypi.lib.nixosSystem {

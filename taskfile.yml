@@ -262,6 +262,13 @@ tasks:
     dir: nix
     cmds:
       - nix fmt --no-warn-dirty
+  nix:test:
+    desc: Run the nix unit tests
+    dir: nix
+    cmds:
+      - nix build --no-warn-dirty --no-link --print-build-logs .#checks.aarch64-darwin.secrets
+      - echo "tests passed"
+
   nix:gc:
     desc: Garbage-collect old generations and dedupe the nix store
     # sudo run cleans the system/darwin profile; the unprivileged run cleans
