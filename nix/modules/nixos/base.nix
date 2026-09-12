@@ -121,11 +121,6 @@
   services.tailscale.package = nixpkgs.legacyPackages.${pkgs.stdenv.hostPlatform.system}.tailscale;
   networking.firewall.trustedInterfaces = [ "tailscale0" ];
 
-  # journald can cause expensive writes. To increase lifespan move storage to RAM.
-  services.journald.storage = "volatile";
-  # Volatile journals live in RAM; 64M holds a few days at these pis' log volume.
-  services.journald.extraConfig = "RuntimeMaxUse=64M";
-
   # tailscaled logs continuously about peers that are powered down (on purpose).
   #
   # Restart policy: the packaged unit's Restart=on-failure with the default

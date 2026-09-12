@@ -1,5 +1,12 @@
 { lib, ... }:
 {
+  # The pis boot from flash, where journald's writes cost lifespan. Keep the
+  # journal in RAM, capped at 64M, which holds a few days at their log volume.
+  # Lives here rather than in base.nix because hetzner-1 has ordinary storage
+  # and shares that module.
+  services.journald.storage = "volatile";
+  services.journald.extraConfig = "RuntimeMaxUse=64M";
+
   # Disable WiFi and audio via kernel module blacklist
   boot.blacklistedKernelModules = [
     "brcmfmac"
