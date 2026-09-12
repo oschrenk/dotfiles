@@ -1,4 +1,7 @@
 { config, ... }:
+let
+  secrets = (import ../secrets.nix).read ../../secretspec.toml;
+in
 {
   # Networking
   networking.hostName = "pi-2";
@@ -60,7 +63,7 @@
   };
 
   services.onepassword-secrets.secrets.ntfyUrl = {
-    reference = "op://2udkjdngrnb6jlr62cd7iq33de/5gsl762zsgopnb7noenx44teey/homelab-backups";
+    reference = secrets.ref "NTFY_HOMELAB_BACKUPS_URL";
     owner = "root";
     mode = "0600";
   };
