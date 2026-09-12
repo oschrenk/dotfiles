@@ -102,7 +102,7 @@
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
             ./modules/nixos/base.nix
-            ./modules/nixos/pi4-hardware.nix
+            ./modules/nixos/pi4.nix
             ./modules/nixos/secrets.nix
             ./modules/nixos/homelab.nix
             ./modules/nixos/beszel/hub.nix
@@ -134,7 +134,7 @@
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
             ./modules/nixos/base.nix
-            ./modules/nixos/pi4-hardware.nix
+            ./modules/nixos/pi4.nix
             ./modules/nixos/secrets.nix
             ./modules/nixos/beszel/agent.nix
             ./modules/nixos/kula.nix
@@ -161,7 +161,7 @@
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
             ./modules/nixos/base.nix
-            ./modules/nixos/pi4-hardware.nix
+            ./modules/nixos/pi4.nix
             ./modules/nixos/secrets.nix
             ./modules/nixos/beszel/agent.nix
             ./modules/nixos/kula.nix

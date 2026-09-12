@@ -62,7 +62,7 @@ nix/
 
     nixos/               - NixOS modules for the pis and hetzner-1
       base.nix           - user settings, SSH, networking, timezone via my.personal.*
-      pi4-hardware.nix   - RPi4-specific hardware config
+      pi4.nix            - RPi4-specific hardware config
       hetzner-cloud-hardware.nix
       hetzner-cloud-disko.nix
       secrets.nix        - opnix secret management
