@@ -64,7 +64,7 @@
   };
 
   # Electricity tariff, used by the PoE cost recording rules in
-  # modules/nixos/prometheus.nix. Quetzales, not euros — the timezone is
+  # homelab/modules/prometheus.nix. Quetzales, not euros — the timezone is
   # America/Guatemala and these are EEGSA's published 2026 rates, not a figure
   # copied from a blog.
   #

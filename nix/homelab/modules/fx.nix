@@ -11,7 +11,7 @@ let
 in
 {
   config = {
-    # The exporter itself lives in modules/nixos/json-exporter.nix, which several
+    # The exporter itself lives in json-exporter.nix, which several
     # modules feed. Only the fx module and its scrape job are stated here.
     #
     # The metric identity must match the backfilled history exactly, or the live

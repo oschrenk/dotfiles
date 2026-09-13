@@ -69,7 +69,7 @@ tasks:
         sh: hostname -s
   homelab:perses-dashboards:
     desc: Rebuild the Perses dashboards from CUE and lint the output
-    dir: nix/modules/nixos/perses
+    dir: nix/homelab/modules/perses
     # Output is committed; nix reads it directly. percli needs cue on PATH and
     # network access to the CUE module registry to resolve dashboard deps.
     # -m stdout because percli only lets you choose the output *folder*, and names

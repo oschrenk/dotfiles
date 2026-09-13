@@ -27,7 +27,7 @@ let
 in
 {
   config = {
-    # The exporter itself lives in modules/nixos/json-exporter.nix, which several
+    # The exporter itself lives in json-exporter.nix, which several
     # modules feed. Only the weather module and its scrape job are stated here.
     my.jsonExporter.modules.weather = [
       {

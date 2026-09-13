@@ -93,7 +93,7 @@
             ./options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             nixos-raspberrypi.nixosModules.sd-image
-            ./modules/nixos/base.nix
+            ./homelab/modules/base.nix
           ];
         };
 
@@ -104,25 +104,25 @@
             ./options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
-            ./modules/nixos/base.nix
-            ./modules/nixos/pi4.nix
-            ./modules/nixos/secrets.nix
-            ./modules/nixos/homelab.nix
-            ./modules/nixos/beszel/hub.nix
-            ./modules/nixos/beszel/agent.nix
-            ./modules/nixos/restic/healthcheck.nix
-            ./modules/nixos/restic/mount.nix
-            ./modules/nixos/restic/beszel.nix
-            ./modules/nixos/gatus.nix
-            ./modules/nixos/glance.nix
-            ./modules/nixos/adguard.nix
-            ./modules/nixos/fusion.nix
-            ./modules/nixos/kula.nix
-            ./modules/nixos/node-exporter.nix
-            ./modules/nixos/restic/adguard.nix
-            ./modules/nixos/restic/fusion.nix
-            ./modules/nixos/restic/gatus.nix
-            ./modules/nixos/restic/offsite.nix
+            ./homelab/modules/base.nix
+            ./homelab/modules/pi4.nix
+            ./homelab/modules/secrets.nix
+            ./homelab/modules/homelab.nix
+            ./homelab/modules/beszel/hub.nix
+            ./homelab/modules/beszel/agent.nix
+            ./homelab/modules/restic/healthcheck.nix
+            ./homelab/modules/restic/mount.nix
+            ./homelab/modules/restic/beszel.nix
+            ./homelab/modules/gatus.nix
+            ./homelab/modules/glance.nix
+            ./homelab/modules/adguard.nix
+            ./homelab/modules/fusion.nix
+            ./homelab/modules/kula.nix
+            ./homelab/modules/node-exporter.nix
+            ./homelab/modules/restic/adguard.nix
+            ./homelab/modules/restic/fusion.nix
+            ./homelab/modules/restic/gatus.nix
+            ./homelab/modules/restic/offsite.nix
             ./homelab/sites/lab.oschrenk.gt.nix
             ./hosts/network.nix
             ./hosts/pi-1.nix
@@ -136,22 +136,22 @@
             ./options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
-            ./modules/nixos/base.nix
-            ./modules/nixos/pi4.nix
-            ./modules/nixos/secrets.nix
-            ./modules/nixos/beszel/agent.nix
-            ./modules/nixos/kula.nix
-            ./modules/nixos/node-exporter.nix
-            ./modules/nixos/prometheus.nix
-            ./modules/nixos/perses.nix
-            ./modules/nixos/unpoller.nix
-            ./modules/nixos/json-exporter.nix
-            ./modules/nixos/opnix-quota.nix
-            ./modules/nixos/fx.nix
-            ./modules/nixos/weather.nix
-            ./modules/nixos/restic/healthcheck.nix
-            ./modules/nixos/restic/mount.nix
-            ./modules/nixos/restic/prometheus.nix
+            ./homelab/modules/base.nix
+            ./homelab/modules/pi4.nix
+            ./homelab/modules/secrets.nix
+            ./homelab/modules/beszel/agent.nix
+            ./homelab/modules/kula.nix
+            ./homelab/modules/node-exporter.nix
+            ./homelab/modules/prometheus.nix
+            ./homelab/modules/perses.nix
+            ./homelab/modules/unpoller.nix
+            ./homelab/modules/json-exporter.nix
+            ./homelab/modules/opnix-quota.nix
+            ./homelab/modules/fx.nix
+            ./homelab/modules/weather.nix
+            ./homelab/modules/restic/healthcheck.nix
+            ./homelab/modules/restic/mount.nix
+            ./homelab/modules/restic/prometheus.nix
             ./hosts/network.nix
             ./hosts/pi-2.nix
           ];
@@ -164,16 +164,16 @@
             ./options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
-            ./modules/nixos/base.nix
-            ./modules/nixos/pi4.nix
-            ./modules/nixos/secrets.nix
-            ./modules/nixos/beszel/agent.nix
-            ./modules/nixos/kula.nix
-            ./modules/nixos/node-exporter.nix
-            ./modules/nixos/unifi-network-controller.nix
-            ./modules/nixos/restic/healthcheck.nix
-            ./modules/nixos/restic/mount.nix
-            ./modules/nixos/restic/unifi.nix
+            ./homelab/modules/base.nix
+            ./homelab/modules/pi4.nix
+            ./homelab/modules/secrets.nix
+            ./homelab/modules/beszel/agent.nix
+            ./homelab/modules/kula.nix
+            ./homelab/modules/node-exporter.nix
+            ./homelab/modules/unifi-network-controller.nix
+            ./homelab/modules/restic/healthcheck.nix
+            ./homelab/modules/restic/mount.nix
+            ./homelab/modules/restic/unifi.nix
             ./hosts/network.nix
             ./hosts/pi-3.nix
           ];
@@ -187,10 +187,10 @@
             ./options.nix
             disko.nixosModules.default
             opnix.nixosModules.default
-            ./modules/nixos/base.nix
-            ./modules/nixos/hetzner-cloud-hardware.nix
-            ./modules/nixos/hetzner-cloud-disko.nix
-            ./modules/nixos/secrets.nix
+            ./homelab/modules/base.nix
+            ./homelab/modules/hetzner-cloud-hardware.nix
+            ./homelab/modules/hetzner-cloud-disko.nix
+            ./homelab/modules/secrets.nix
             ./hosts/hetzner-1.nix
           ];
         };

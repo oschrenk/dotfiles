@@ -124,7 +124,7 @@ in
     # straight into the running TSDB. Used by scripts/prometheus-cost-backfill.sh.
     environment.systemPackages = [ pkgs.prometheus.cli ];
 
-    # Backed up by restic on this host; see modules/nixos/restic/. The directory
+    # Backed up by restic on this host; see restic/. The directory
     # is the single path that needs it — Perses is reproducible from definitions.
     systemd.services.prometheus.serviceConfig.StateDirectory = lib.mkDefault "prometheus2";
   };
