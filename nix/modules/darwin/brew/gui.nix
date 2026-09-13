@@ -27,6 +27,7 @@
     "discord" # discord client
     "docker-desktop" # container runtime
     "ghostty" # terminal
+    "google-chrome" # chromium based browser
     "handbrake-app" # video transcoder
     "heroic" # game launcher
     "hex-fiend" # hex editor
