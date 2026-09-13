@@ -143,6 +143,7 @@
             ./modules/nixos/perses.nix
             ./modules/nixos/unpoller.nix
             ./modules/nixos/json-exporter.nix
+            ./modules/nixos/opnix-quota.nix
             ./modules/nixos/fx.nix
             ./modules/nixos/weather.nix
             ./modules/nixos/restic/healthcheck.nix
