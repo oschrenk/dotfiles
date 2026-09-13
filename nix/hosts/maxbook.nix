@@ -38,8 +38,11 @@
     # Activation runs as root since nix-darwin dropped postUserActivation, so
     # `sudo -u $USER` is what reaches the user's cfprefsd.
     sudo -u ${config.my.personal.username} /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
-    # Accept Tailscale SSH, under a stable name so olivers-maxbook keeps resolving.
-    ${config.services.tailscale.package}/bin/tailscale set --ssh --hostname=olivers-maxbook || true
+    # Hold Tailscale SSH off, under a stable name so olivers-maxbook keeps
+    # resolving. `--ssh=false` rather than dropping the flag: the preference
+    # persists in tailscaled state, so removing it would leave SSH running.
+    # Incoming sessions use Apple's sshd instead, for the reason given below.
+    ${config.services.tailscale.package}/bin/tailscale set --ssh=false --hostname=olivers-maxbook || true
   '';
 
   # MaxBook-specific apps (MacBook Pro with extra peripherals)
@@ -49,6 +52,28 @@
     # "live-home-3d" # home designer
     "rode-central" # rode companion app (for AI-1)
     "steam" # games
+  ];
+
+  # Apple's sshd, not Tailscale SSH. A Tailscale SSH session is a child of
+  # tailscaled, which holds no Full Disk Access, so reading ~/Downloads blocks
+  # forever on a TCC dialog drawn at the console. Full Disk Access goes to
+  # /usr/libexec/sshd-keygen-wrapper instead, a fixed Apple-signed path that
+  # survives OS and tailscale updates where a nix store path would not.
+  # Do not re-enable `tailscale set --ssh` without reading that through.
+  services.openssh.enable = true;
+
+  # Refuse logins from off the tailnet. ListenAddress cannot do this, because
+  # launchd owns the socket under inetdCompatibility and SIP protects ssh.plist.
+  # `nobody` has /usr/bin/false as its shell, so it denies every real user.
+  services.openssh.extraConfig = ''
+    AllowUsers nobody
+    Match Address 100.64.0.0/10,fd7a:115c:a1e0::/48
+      AllowUsers ${config.my.personal.username}
+  '';
+
+  # Read by the AuthorizedKeysCommand that nix-darwin already installs.
+  users.users.${config.my.personal.username}.openssh.authorizedKeys.keys = [
+    config.my.personal.sshKey
   ];
 
   # CLI build, not the GUI cask: only this one can run a Tailscale SSH server.
