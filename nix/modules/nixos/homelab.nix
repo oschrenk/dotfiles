@@ -139,39 +139,26 @@ in
       };
     };
 
-    systemd.services.traefik-env = {
-      description = "Write Traefik environment file from opnix secrets";
-      before = [ "traefik.service" ];
+    systemd.services.traefik = {
+      # opnix is only wanted, so a boot with no WAN still starts traefik from
+      # the cached secret.
       after = [ opnixUnit ];
       wants = [ opnixUnit ];
-      serviceConfig = {
-        Type = "oneshot";
-        Restart = "on-failure";
-        RestartSec = 30;
-        RemainAfterExit = true;
-        ExecStart = pkgs.writeShellScript "traefik-env" ''
-          echo "CLOUDFLARE_DNS_API_TOKEN=$(cat /var/lib/opnix/secrets/cloudflareDnsToken)" > ${envFile}
-          chmod 600 ${envFile}
-        '';
-      };
-    };
-
-    systemd.services.traefik = {
-      after = [
-        opnixUnit
-        "traefik-env.service"
-      ];
-      # traefik-env stays a hard requirement, since it writes the env file
-      # traefik reads. opnix is only wanted, so a boot with no WAN still starts
-      # traefik from the cached secret.
-      wants = [ opnixUnit ];
-      requires = [ "traefik-env.service" ];
       # The upstream module's StartLimitIntervalSec=1d with the default 100ms
       # RestartSec lets five failures land inside half a second, and traefik
       # then stays dead for a day. Retry forever instead, backing off to two
       # minutes. mkForce because the upstream module sets the interval itself.
       unitConfig.StartLimitIntervalSec = lib.mkForce 0;
       serviceConfig = {
+        # "+" runs the pre-start as root, so the secret and the env file stay
+        # root-only while the daemon runs unprivileged. It runs on every start,
+        # so a restart always reads the current secret.
+        ExecStartPre = "+"
+          + pkgs.writeShellScript "traefik-env" ''
+            set -eu
+            umask 077
+            echo "CLOUDFLARE_DNS_API_TOKEN=$(cat /var/lib/opnix/secrets/cloudflareDnsToken)" > ${envFile}
+          '';
         RestartSec = 5;
         RestartSteps = 5;
         RestartMaxDelaySec = "2min";

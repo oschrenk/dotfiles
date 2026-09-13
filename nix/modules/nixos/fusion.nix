@@ -28,32 +28,19 @@ in
     };
     users.groups.fusion = { };
 
-    systemd.services.fusion-env = {
-      description = "Write fusion environment file from opnix secrets";
-      before = [ "fusion.service" ];
-      after = [ opnixUnit ];
-      wants = [ opnixUnit ];
-      serviceConfig = {
-        Type = "oneshot";
-        Restart = "on-failure";
-        RestartSec = 30;
-        RemainAfterExit = true;
-        ExecStart = pkgs.writeShellScript "fusion-env" ''
-          echo "FUSION_PASSWORD=$(cat /var/lib/opnix/secrets/fusionPassword)" > ${envFile}
-          chmod 600 ${envFile}
-        '';
-      };
-    };
-
     systemd.services.fusion = {
       description = "Fusion RSS reader";
       wantedBy = [ "multi-user.target" ];
+      # opnix is only wanted, so a boot with no WAN still starts fusion from
+      # the cached secret.
       after = [
         "network-online.target"
-        "fusion-env.service"
+        opnixUnit
       ];
-      wants = [ "network-online.target" ];
-      requires = [ "fusion-env.service" ];
+      wants = [
+        "network-online.target"
+        opnixUnit
+      ];
 
       environment = {
         FUSION_PORT = toString cfg.port;
@@ -63,6 +50,15 @@ in
       };
 
       serviceConfig = {
+        # "+" runs the pre-start as root, so the secret and the env file stay
+        # root-only while the daemon runs unprivileged. It runs on every start,
+        # so a restart always reads the current secret.
+        ExecStartPre = "+"
+          + pkgs.writeShellScript "fusion-env" ''
+            set -eu
+            umask 077
+            echo "FUSION_PASSWORD=$(cat /var/lib/opnix/secrets/fusionPassword)" > ${envFile}
+          '';
         ExecStart = lib.getExe fusion;
         EnvironmentFile = envFile;
         User = "fusion";

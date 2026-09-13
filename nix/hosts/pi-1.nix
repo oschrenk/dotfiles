@@ -66,6 +66,7 @@ in
     reference = secrets.ref "FUSION_PASSWORD";
     owner = "fusion";
     mode = "0600";
+    services = [ "fusion.service" ];
   };
 
   # Traefik
@@ -73,6 +74,7 @@ in
     reference = secrets.ref "CLOUDFLARE_DNS_CHALLENGE_TOKEN";
     owner = "root";
     mode = "0600";
+    services = [ "traefik.service" ];
   };
 
   # Glance
