@@ -123,7 +123,7 @@
             ./modules/nixos/restic/fusion.nix
             ./modules/nixos/restic/gatus.nix
             ./modules/nixos/restic/offsite.nix
-            ./sites/lab.oschrenk.gt.nix
+            ./homelab/sites/lab.oschrenk.gt.nix
             ./hosts/network.nix
             ./hosts/pi-1.nix
           ];
