@@ -91,6 +91,7 @@
           modules = [
             ./identity.nix
             ./options.nix
+            ./homelab/options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             nixos-raspberrypi.nixosModules.sd-image
             ./homelab/modules/base.nix
@@ -102,6 +103,7 @@
           modules = [
             ./identity.nix
             ./options.nix
+            ./homelab/options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
             ./homelab/modules/base.nix
@@ -134,6 +136,7 @@
           modules = [
             ./identity.nix
             ./options.nix
+            ./homelab/options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
             ./homelab/modules/base.nix
@@ -162,6 +165,7 @@
           modules = [
             ./identity.nix
             ./options.nix
+            ./homelab/options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
             ./homelab/modules/base.nix
@@ -185,6 +189,7 @@
           modules = [
             ./identity.nix
             ./options.nix
+            ./homelab/options.nix
             disko.nixosModules.default
             opnix.nixosModules.default
             ./homelab/modules/base.nix
