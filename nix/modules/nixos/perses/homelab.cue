@@ -23,30 +23,23 @@ dashboard & {
 					{
 						x:       0
 						y:       0
-						width:   6
+						width:   8
 						height:  10
 						content: {"$ref": "#/spec/panels/cpu"}
 					},
 					{
-						x:       6
+						x:       8
 						y:       0
-						width:   6
+						width:   8
 						height:  10
 						content: {"$ref": "#/spec/panels/memory"}
 					},
 					{
-						x:       12
+						x:       16
 						y:       0
-						width:   6
+						width:   8
 						height:  10
 						content: {"$ref": "#/spec/panels/temperature"}
-					},
-					{
-						x:       18
-						y:       0
-						width:   6
-						height:  10
-						content: {"$ref": "#/spec/panels/outsideTemperature"}
 					},
 					{
 						x:       0
@@ -284,7 +277,7 @@ dashboard & {
 				temperature: {
 					kind: "Panel"
 					spec: {
-						display: name: "Temperature by host"
+						display: name: "Temperature"
 						plugin: {
 							kind: "TimeSeriesChart"
 							spec: {}
@@ -325,9 +318,10 @@ dashboard & {
 								}
 							},
 							// The room the caddy stands in, so a warm cabinet can be told
-							// apart from a warm afternoon. Temperature only here — humidity
-							// belongs on the outside panel, not on an axis of hardware
-							// degrees.
+							// apart from a warm afternoon. Temperature only: humidity and
+							// apparent temperature are still scraped by weather.nix, but a
+							// percentage does not belong on an axis of hardware degrees, so
+							// they live in Prometheus rather than here.
 							{
 								kind: "TimeSeriesQuery"
 								spec: plugin: {
@@ -335,54 +329,6 @@ dashboard & {
 									spec: {
 										query:            "weather_temperature_celsius"
 										seriesNameFormat: "{{location}} outside"
-									}
-								}
-							},
-						]
-					}
-				}
-
-				outsideTemperature: {
-					kind: "Panel"
-					spec: {
-						display: {
-							name:        "Outside temperature"
-							description: "Open-Meteo, for the grid cell over Zona 14. Humidity shares the single axis with the two temperatures: here that reads, because Guatemala City sits around 15-30 C against 45-90% humidity, but it is a coincidence of this location rather than a scale that holds anywhere."
-						}
-						plugin: {
-							kind: "TimeSeriesChart"
-							spec: {}
-						}
-						queries: [
-							{
-								kind: "TimeSeriesQuery"
-								spec: plugin: {
-									kind: "PrometheusTimeSeriesQuery"
-									spec: {
-										query:            "weather_temperature_celsius"
-										seriesNameFormat: "temperature"
-									}
-								}
-							},
-							// Diverges from the line above by several degrees on a humid
-							// afternoon, which is the half that explains how the room feels.
-							{
-								kind: "TimeSeriesQuery"
-								spec: plugin: {
-									kind: "PrometheusTimeSeriesQuery"
-									spec: {
-										query:            "weather_apparent_temperature_celsius"
-										seriesNameFormat: "feels like"
-									}
-								}
-							},
-							{
-								kind: "TimeSeriesQuery"
-								spec: plugin: {
-									kind: "PrometheusTimeSeriesQuery"
-									spec: {
-										query:            "weather_relative_humidity_percent"
-										seriesNameFormat: "humidity %"
 									}
 								}
 							},
