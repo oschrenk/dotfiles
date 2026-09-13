@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.services.fusion;
-  fusion = pkgs.callPackage ../../pkgs/fusion.nix { };
+  fusion = pkgs.callPackage ../../homelab/pkgs/fusion.nix { };
   dataDir = "/var/lib/fusion";
   envFile = "/run/fusion.env";
   opnixUnit = "opnix-secrets.service";

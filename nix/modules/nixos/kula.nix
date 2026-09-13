@@ -1,7 +1,7 @@
 { config, lib, pkgs, ... }:
 let
   cfg = config.services.kula;
-  kula = pkgs.callPackage ../../pkgs/kula.nix { };
+  kula = pkgs.callPackage ../../homelab/pkgs/kula.nix { };
 
   # 100M budget: ~2 days at 1s, ~4 weeks at 1m, ~6 months at 5m. Resolutions are
   # upstream defaults — coarser ones raise RAM, since more samples buffer per window.

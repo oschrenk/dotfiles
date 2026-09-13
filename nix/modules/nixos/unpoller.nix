@@ -6,7 +6,7 @@
 }:
 let
   # 4.0.1, ahead of nixpkgs, for its UNAS input. See pkgs/unpoller.nix.
-  unpoller = pkgs.callPackage ../../pkgs/unpoller.nix { };
+  unpoller = pkgs.callPackage ../../homelab/pkgs/unpoller.nix { };
 
   port = 9130;
 
