@@ -1,4 +1,5 @@
 [extensions]
+avi = "IINA"
 md = "Neovide"
 mp4 = "IINA"
 svg = "Affinity Designer 2"
