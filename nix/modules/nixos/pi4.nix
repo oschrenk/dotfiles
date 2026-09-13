@@ -11,7 +11,8 @@
   # stale until a rebuild. Polling works against a quota of 1000 requests a day.
   services.onepassword-secrets.systemdIntegration.polling = {
     enable = true;
-    interval = "6h";
+    # 3 pis x 24 polls x ~2 requests = ~144/day, ~14% of the quota
+    interval = "1h";
   };
 
   # Disable WiFi and audio via kernel module blacklist
