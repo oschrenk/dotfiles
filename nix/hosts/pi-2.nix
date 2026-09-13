@@ -21,6 +21,7 @@ in
     reference = secrets.ref "BESZEL_AGENT_PUBLIC_KEY";
     owner = "beszel-agent";
     mode = "0600";
+    services = [ "beszel-agent.service" ];
   };
 
   # Storage
@@ -87,6 +88,7 @@ in
     reference = secrets.ref "UNAS_ACCOUNT_PASSWORD";
     owner = "unpoller";
     mode = "0400";
+    services = [ "unpoller.service" ];
   };
 
   services.onepassword-secrets.secrets.unpollerUnifiPassword = {
@@ -100,11 +102,13 @@ in
     reference = secrets.ref "PERSES_ENCRYPTION_KEY";
     owner = "root";
     mode = "0600";
+    services = [ "perses.service" ];
   };
 
   services.onepassword-secrets.secrets.persesAdminPassword = {
     reference = secrets.ref "PERSES_ADMIN_PASSWORD";
     owner = "root";
     mode = "0600";
+    services = [ "perses.service" ];
   };
 }

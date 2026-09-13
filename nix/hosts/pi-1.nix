@@ -28,12 +28,14 @@ in
     reference = secrets.ref "ADGUARD_USERNAME";
     owner = "root";
     mode = "0600";
+    services = [ "adguardhome.service" ];
   };
 
   services.onepassword-secrets.secrets.adguardPasswordHash = {
     reference = secrets.ref "ADGUARD_PASSWORD_HASH";
     owner = "root";
     mode = "0600";
+    services = [ "adguardhome.service" ];
   };
 
   # Beszel
@@ -41,12 +43,14 @@ in
     reference = secrets.ref "BESZEL_AGENT_PUBLIC_KEY";
     owner = "beszel-agent";
     mode = "0600";
+    services = [ "beszel-agent.service" ];
   };
 
   services.onepassword-secrets.secrets.beszelHubAdmin = {
     reference = secrets.ref "BESZEL_HUB_ADMIN";
     owner = "beszel-hub";
     mode = "0600";
+    services = [ "beszel-hub.service" ];
   };
 
   services.onepassword-secrets.secrets.beszelHubKey = {
@@ -54,6 +58,7 @@ in
     path = "/var/lib/beszel-hub/beszel_data/id_ed25519";
     owner = "beszel-hub";
     mode = "0600";
+    services = [ "beszel-hub.service" ];
   };
 
   # Fusion

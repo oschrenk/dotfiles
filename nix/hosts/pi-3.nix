@@ -21,6 +21,7 @@ in
     reference = secrets.ref "BESZEL_AGENT_PUBLIC_KEY";
     owner = "beszel-agent";
     mode = "0600";
+    services = [ "beszel-agent.service" ];
   };
 
   # Backups
