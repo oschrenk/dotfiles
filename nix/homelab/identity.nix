@@ -1,8 +1,8 @@
 # Identity values for the homelab hosts, duplicated from ../identity.nix on
-# purpose. DOTFILES-36 decided duplication over a shared flake or a dotfiles
-# input: neither string is secret, they change rarely, and both alternatives
-# couple the repositories the split exists to separate. A plain attrset rather
-# than a module, so readers take it with `import` and no option plumbing.
+# purpose. Duplication won over a shared flake or a dotfiles input: neither
+# string is secret, they change rarely, and both alternatives couple the
+# repositories this subtree exists to separate. A plain attrset rather than
+# a module, so readers take it with `import` and no option plumbing.
 {
   username = "oliver";
   email = "oliver.schrenk@gmail.com";
