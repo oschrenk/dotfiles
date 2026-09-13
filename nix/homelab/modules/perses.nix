@@ -5,7 +5,7 @@
   ...
 }:
 let
-  username = config.my.personal.username;
+  username = (import ../identity.nix).username;
 
   encryptionKeyFile = "/var/lib/opnix/secrets/persesEncryptionKey";
   adminPasswordFile = "/var/lib/opnix/secrets/persesAdminPassword";

@@ -97,7 +97,7 @@ in
         };
         entryPoints.${entrypointHttps}.address = ":443";
         certificatesResolvers.${certResolver}.acme = {
-          email = config.my.personal.email;
+          email = (import ../identity.nix).email;
           storage = acmeStorage;
           dnsChallenge = {
             provider = "cloudflare";

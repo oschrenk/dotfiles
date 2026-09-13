@@ -4,16 +4,19 @@
   nixpkgs,
   ...
 }:
+let
+  identity = import ../identity.nix;
+in
 {
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
   };
 
-  users.users.${config.my.personal.username} = {
+  users.users.${identity.username} = {
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    openssh.authorizedKeys.keys = [ config.my.personal.sshKey ];
+    openssh.authorizedKeys.keys = [ identity.sshKey ];
   };
 
   security.sudo.wheelNeedsPassword = false;
@@ -105,7 +108,7 @@
   boot.kernel.sysctl."net.ipv6.conf.all.addr_gen_mode" = 2;
   boot.kernel.sysctl."net.ipv6.conf.default.addr_gen_mode" = 2;
 
-  time.timeZone = config.my.personal.timezone;
+  time.timeZone = identity.timezone;
 
   system.stateVersion = "25.05";
 

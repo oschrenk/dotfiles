@@ -89,8 +89,6 @@
         "pi" = nixos-raspberrypi.lib.nixosSystem {
           specialArgs = inputs;
           modules = [
-            ./identity.nix
-            ./options.nix
             ./homelab/options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             nixos-raspberrypi.nixosModules.sd-image
@@ -101,8 +99,6 @@
         "pi-1" = nixos-raspberrypi.lib.nixosSystem {
           specialArgs = inputs;
           modules = [
-            ./identity.nix
-            ./options.nix
             ./homelab/options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
@@ -134,8 +130,6 @@
         "pi-2" = nixos-raspberrypi.lib.nixosSystem {
           specialArgs = inputs;
           modules = [
-            ./identity.nix
-            ./options.nix
             ./homelab/options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
@@ -163,8 +157,6 @@
         "pi-3" = nixos-raspberrypi.lib.nixosSystem {
           specialArgs = inputs;
           modules = [
-            ./identity.nix
-            ./options.nix
             ./homelab/options.nix
             nixos-raspberrypi.nixosModules.raspberry-pi-4.base
             opnix.nixosModules.default
@@ -187,8 +179,6 @@
           system = "aarch64-linux";
           specialArgs = inputs;
           modules = [
-            ./identity.nix
-            ./options.nix
             ./homelab/options.nix
             disko.nixosModules.default
             opnix.nixosModules.default
