@@ -95,7 +95,7 @@ tasks:
     #
     # Override for a narrower range: task homelab:prometheus-cost-backfill START=2026-08-24T00:00:00Z
     cmds:
-      - ssh -o ServerAliveInterval=15 -o ServerAliveCountMax=4 oliver@pi-2 sudo bash -s -- '{{.START}}' '{{.END}}' < scripts/prometheus-cost-backfill.sh
+      - ssh -o ServerAliveInterval=15 -o ServerAliveCountMax=4 oliver@pi-2 sudo bash -s -- '{{.START}}' '{{.END}}' < nix/homelab/scripts/prometheus-cost-backfill.sh
   homelab:fx-backfill:
     desc: Backfill GTQ-per-EUR daily history into Prometheus on pi-2
     # One sample per day, because that is how often the rate exists. Query it as
@@ -105,7 +105,7 @@ tasks:
     # Days defaults to 90 to match retention; more than that is written and then
     # swept on the next compaction. Override: task homelab:fx-backfill DAYS=30
     cmds:
-      - scripts/fx-backfill.sh {{.DAYS | default 90}}
+      - nix/homelab/scripts/fx-backfill.sh {{.DAYS | default 90}}
   homelab:weather-backfill:
     desc: Backfill outside-weather history for Zona 14 into Prometheus on pi-2
     # Open-Meteo is hourly; the script interpolates onto the live 5-minute grid so
@@ -119,7 +119,7 @@ tasks:
     # Safe to re-run: it stops at the first live sample rather than drawing over
     # observations it already has.
     cmds:
-      - scripts/weather-backfill.sh {{.DAYS | default 14}}
+      - nix/homelab/scripts/weather-backfill.sh {{.DAYS | default 14}}
   nix:builder:up:
     desc: Start the linux-builder VM if it is not already running, and wait for it
     # The daemon is RunAtLoad=false / KeepAlive=false, so it is not running unless
@@ -228,7 +228,7 @@ tasks:
       - |
         nix run nixpkgs#secretspec -- run --scope tailscale-unas \
           --reason "install tailscale on the UNAS" -- \
-          sh -c 'ssh root@unas.local env "TAILSCALE_AUTHKEY=$TAILSCALE_AUTHKEY_UNAS" sh -s < scripts/setup-tailscale-unas.sh'
+          sh -c 'ssh root@unas.local env "TAILSCALE_AUTHKEY=$TAILSCALE_AUTHKEY_UNAS" sh -s < nix/homelab/scripts/setup-tailscale-unas.sh'
   nix:update:preview:
     desc: Preview which of my declared packages would change if flake.lock were updated (read-only, does not write flake.lock)
     cmds:
