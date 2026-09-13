@@ -124,8 +124,8 @@
             ./homelab/modules/restic/gatus.nix
             ./homelab/modules/restic/offsite.nix
             ./homelab/sites/lab.oschrenk.gt.nix
-            ./hosts/network.nix
-            ./hosts/pi-1.nix
+            ./homelab/hosts/network.nix
+            ./homelab/hosts/pi-1.nix
           ];
         };
 
@@ -152,8 +152,8 @@
             ./homelab/modules/restic/healthcheck.nix
             ./homelab/modules/restic/mount.nix
             ./homelab/modules/restic/prometheus.nix
-            ./hosts/network.nix
-            ./hosts/pi-2.nix
+            ./homelab/hosts/network.nix
+            ./homelab/hosts/pi-2.nix
           ];
         };
 
@@ -174,8 +174,8 @@
             ./homelab/modules/restic/healthcheck.nix
             ./homelab/modules/restic/mount.nix
             ./homelab/modules/restic/unifi.nix
-            ./hosts/network.nix
-            ./hosts/pi-3.nix
+            ./homelab/hosts/network.nix
+            ./homelab/hosts/pi-3.nix
           ];
         };
 
@@ -191,7 +191,7 @@
             ./homelab/modules/hetzner-cloud-hardware.nix
             ./homelab/modules/hetzner-cloud-disko.nix
             ./homelab/modules/secrets.nix
-            ./hosts/hetzner-1.nix
+            ./homelab/hosts/hetzner-1.nix
           ];
         };
       };

@@ -1,5 +1,5 @@
 let
-  secrets = (import ../secrets.nix).read ../../secretspec.toml;
+  secrets = (import ../../secrets.nix).read ../../../secretspec.toml;
 in
 {
   networking.hostName = "hetzner-1";

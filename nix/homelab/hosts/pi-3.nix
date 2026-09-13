@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  secrets = (import ../secrets.nix).read ../../secretspec.toml;
+  secrets = (import ../../secrets.nix).read ../../../secretspec.toml;
 in
 {
   # Networking
