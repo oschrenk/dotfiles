@@ -5,8 +5,9 @@ let
   subdomains = config.my.domain.homelab.subdomains;
 in
 {
-  # subdomains (hosts/network.nix) is what the Macs pin in /etc/hosts, so a route
-  # missing from it would resolve here but nowhere else.
+  # subdomains (hosts/network.nix) is the shared list other configs read. The
+  # wildcard rewrite resolves a missing name anyway, so this guards the list
+  # staying in step with the routes rather than resolution.
   assertions = [
     {
       assertion = builtins.all (r: builtins.elem r.name subdomains) config.services.homelab.routes;
@@ -78,10 +79,4 @@ in
     { domain = domain; answer = host.tailscaleIp; enabled = true; }
     { domain = "*.${domain}"; answer = host.tailscaleIp; enabled = true; }
   ];
-
-  # AdGuard Home reads /etc/hosts before applying the rewrites, so this must
-  # match the rewrite IP — otherwise AdGuard returns this entry and the rewrite
-  # never fires for the apex / listed subdomains.
-  networking.hosts.${host.tailscaleIp} =
-    [ domain ] ++ map (s: "${s}.${domain}") subdomains;
 }
