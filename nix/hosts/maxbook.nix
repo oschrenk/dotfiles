@@ -65,7 +65,12 @@
   # Refuse logins from off the tailnet. ListenAddress cannot do this, because
   # launchd owns the socket under inetdCompatibility and SIP protects ssh.plist.
   # `nobody` has /usr/bin/false as its shell, so it denies every real user.
+  # Keys only. UsePAM is on and /etc/pam.d/sshd ends at pam_opendirectory, so
+  # keyboard-interactive is a second door to the same account password and has
+  # to be closed alongside PasswordAuthentication.
   services.openssh.extraConfig = ''
+    PasswordAuthentication no
+    KbdInteractiveAuthentication no
     AllowUsers nobody
     Match Address 100.64.0.0/10,fd7a:115c:a1e0::/48
       AllowUsers ${config.my.personal.username}
