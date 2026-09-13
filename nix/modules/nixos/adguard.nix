@@ -39,7 +39,7 @@ in
     #   - Workflow: edit this file → rebuild → UI reflects the change.
     #
     # The full AdGuard Home settings surface maps 1:1 to AdGuardHome.yaml via settings.*:
-    #   settings.dns.rewrites         — local hostname → IP (needed for Traefik later)
+    #   settings.filtering.rewrites   — local hostname → IP (needed for Traefik later)
     #   settings.user_rules           — per-domain allow/block overrides
     #   settings.clients.persistent   — named clients with per-client settings
     #   settings.querylog.interval    — query log retention period

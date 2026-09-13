@@ -69,14 +69,17 @@ in
 
   # Answers with the tailnet address so the name resolves the same at home and
   # on cellular. Two entries are required: AdGuard's adblock-style `||domain^`
-  # rule does not match the apex, so use dns.rewrites with explicit apex +
-  # wildcard.
-  services.adguardhome.settings.dns.rewrites = [
-    { domain = domain; answer = host.tailscaleIp; }
-    { domain = "*.${domain}"; answer = host.tailscaleIp; }
+  # rule does not match the apex, so use the rewrites list with explicit apex +
+  # wildcard. The key lives under `filtering`, not `dns`; AdGuard drops an
+  # unknown `dns.rewrites` on startup and leaves `filtering.rewrites` empty.
+  # `enabled` is not optional: AdGuard's schema 34 defaults a missing value to
+  # false, which writes the rewrite and then ignores it.
+  services.adguardhome.settings.filtering.rewrites = [
+    { domain = domain; answer = host.tailscaleIp; enabled = true; }
+    { domain = "*.${domain}"; answer = host.tailscaleIp; enabled = true; }
   ];
 
-  # AdGuard Home reads /etc/hosts before applying dns.rewrites, so this must
+  # AdGuard Home reads /etc/hosts before applying the rewrites, so this must
   # match the rewrite IP — otherwise AdGuard returns this entry and the rewrite
   # never fires for the apex / listed subdomains.
   networking.hosts.${host.tailscaleIp} =
