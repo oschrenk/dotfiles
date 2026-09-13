@@ -362,9 +362,9 @@ lib.runTests {
   };
 
   # The real manifest has to keep producing what the hosts already expect.
-  testRealManifestResolvesNtfy = {
-    expr = (secrets.read ../../secretspec.toml).ref "NTFY_HOMELAB_BACKUPS_URL";
-    expected = "op://Homelab/Ntfy/homelab-backups";
+  testRealManifestResolvesAtuin = {
+    expr = (secrets.read ../../secretspec.toml).ref "ATUIN_SYNC_KEY";
+    expected = "op://Bootstrap/Atuin Sync Key/password";
   };
 
   # The provider URI scheme and the reference scheme are different strings, and

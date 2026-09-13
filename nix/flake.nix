@@ -32,10 +32,7 @@
     home-manager.url = "github:nix-community/home-manager";
     # pin home-manager to the same nixpkgs to avoid a second copy on disk
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    nixos-raspberrypi.url = "github:nvmd/nixos-raspberrypi/main";
     opnix.url = "github:brizzbuzz/opnix";
-    disko.url = "github:nix-community/disko";
-    disko.inputs.nixpkgs.follows = "nixpkgs";
     # Own tools. Deliberately NOT following our nixpkgs: each builds against the
     # nixpkgs it locked, which is the build oschrenk.cachix.org actually holds
     # (trusted in modules/darwin/nix.nix). Adding `follows` rebases them onto our
@@ -57,9 +54,7 @@
       nix-darwin,
       nixpkgs,
       home-manager,
-      nixos-raspberrypi,
       opnix,
-      disko,
       ...
     }@inputs:
     {
@@ -67,10 +62,6 @@
       # nixfmt-rfc-style in nixpkgs is the same tool, just a confusing alias
       # Run with: nix fmt
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
-
-      # Bootstrap image — SSH key baked in, flash to USB, deploy pi-1 on first boot
-      # Build: nix build .#packages.aarch64-linux.pi-image
-      packages.aarch64-linux.pi-image = self.nixosConfigurations.pi.config.system.build.sdImage;
 
       # Unit tests. Run with `task nix:test`, which builds this alone rather
       # than `nix flake check`, since that evaluates all six host configs first.
@@ -84,112 +75,6 @@
         else
           throw "secrets catalogue tests failed:\n${builtins.toJSON failures}";
 
-      nixosConfigurations = {
-        # Bootstrap image config — uses nvmd sd-image module for proper RPi4 firmware
-        "pi" = nixos-raspberrypi.lib.nixosSystem {
-          specialArgs = inputs;
-          modules = [
-            ./homelab/options.nix
-            nixos-raspberrypi.nixosModules.raspberry-pi-4.base
-            nixos-raspberrypi.nixosModules.sd-image
-            ./homelab/modules/base.nix
-          ];
-        };
-
-        "pi-1" = nixos-raspberrypi.lib.nixosSystem {
-          specialArgs = inputs;
-          modules = [
-            ./homelab/options.nix
-            nixos-raspberrypi.nixosModules.raspberry-pi-4.base
-            opnix.nixosModules.default
-            ./homelab/modules/base.nix
-            ./homelab/modules/pi4.nix
-            ./homelab/modules/secrets.nix
-            ./homelab/modules/homelab.nix
-            ./homelab/modules/beszel/hub.nix
-            ./homelab/modules/beszel/agent.nix
-            ./homelab/modules/restic/healthcheck.nix
-            ./homelab/modules/restic/mount.nix
-            ./homelab/modules/restic/beszel.nix
-            ./homelab/modules/gatus.nix
-            ./homelab/modules/glance.nix
-            ./homelab/modules/adguard.nix
-            ./homelab/modules/fusion.nix
-            ./homelab/modules/kula.nix
-            ./homelab/modules/node-exporter.nix
-            ./homelab/modules/restic/adguard.nix
-            ./homelab/modules/restic/fusion.nix
-            ./homelab/modules/restic/gatus.nix
-            ./homelab/modules/restic/offsite.nix
-            ./homelab/sites/lab.oschrenk.gt.nix
-            ./homelab/hosts/network.nix
-            ./homelab/hosts/pi-1.nix
-          ];
-        };
-
-        "pi-2" = nixos-raspberrypi.lib.nixosSystem {
-          specialArgs = inputs;
-          modules = [
-            ./homelab/options.nix
-            nixos-raspberrypi.nixosModules.raspberry-pi-4.base
-            opnix.nixosModules.default
-            ./homelab/modules/base.nix
-            ./homelab/modules/pi4.nix
-            ./homelab/modules/secrets.nix
-            ./homelab/modules/beszel/agent.nix
-            ./homelab/modules/kula.nix
-            ./homelab/modules/node-exporter.nix
-            ./homelab/modules/prometheus.nix
-            ./homelab/modules/perses.nix
-            ./homelab/modules/unpoller.nix
-            ./homelab/modules/json-exporter.nix
-            ./homelab/modules/opnix-quota.nix
-            ./homelab/modules/fx.nix
-            ./homelab/modules/weather.nix
-            ./homelab/modules/restic/healthcheck.nix
-            ./homelab/modules/restic/mount.nix
-            ./homelab/modules/restic/prometheus.nix
-            ./homelab/hosts/network.nix
-            ./homelab/hosts/pi-2.nix
-          ];
-        };
-
-        "pi-3" = nixos-raspberrypi.lib.nixosSystem {
-          specialArgs = inputs;
-          modules = [
-            ./homelab/options.nix
-            nixos-raspberrypi.nixosModules.raspberry-pi-4.base
-            opnix.nixosModules.default
-            ./homelab/modules/base.nix
-            ./homelab/modules/pi4.nix
-            ./homelab/modules/secrets.nix
-            ./homelab/modules/beszel/agent.nix
-            ./homelab/modules/kula.nix
-            ./homelab/modules/node-exporter.nix
-            ./homelab/modules/unifi-network-controller.nix
-            ./homelab/modules/restic/healthcheck.nix
-            ./homelab/modules/restic/mount.nix
-            ./homelab/modules/restic/unifi.nix
-            ./homelab/hosts/network.nix
-            ./homelab/hosts/pi-3.nix
-          ];
-        };
-
-        "hetzner-1" = nixpkgs.lib.nixosSystem {
-          system = "aarch64-linux";
-          specialArgs = inputs;
-          modules = [
-            ./homelab/options.nix
-            disko.nixosModules.default
-            opnix.nixosModules.default
-            ./homelab/modules/base.nix
-            ./homelab/modules/hetzner-cloud-hardware.nix
-            ./homelab/modules/hetzner-cloud-disko.nix
-            ./homelab/modules/secrets.nix
-            ./homelab/hosts/hetzner-1.nix
-          ];
-        };
-      };
 
       darwinConfigurations = {
         "Olivers-MaxBook" = nix-darwin.lib.darwinSystem {
@@ -228,7 +113,6 @@
             ./modules/darwin/defaults/apps/com.apple.safari.nix
             ./modules/darwin/defaults/apps/com.henrikruscon.klack.nix
             ./modules/darwin/defaults/apps/io.tailscale.ipn.macsys.nix
-            ./modules/darwin/linux-builder.nix
             ./modules/darwin/java.nix
             ./hosts/maxbook.nix
             home-manager.darwinModules.home-manager
@@ -272,7 +156,6 @@
             ./modules/darwin/defaults/apps/com.apple.safari.nix
             ./modules/darwin/defaults/apps/com.henrikruscon.klack.nix
             ./modules/darwin/defaults/apps/io.tailscale.ipn.macsys.nix
-            ./modules/darwin/linux-builder.nix
             ./modules/darwin/java.nix
             ./hosts/airbook.nix
             home-manager.darwinModules.home-manager

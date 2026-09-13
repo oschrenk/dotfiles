@@ -24,7 +24,6 @@ NIXPKGS_REF="${NIXPKGS_REF:-github:NixOS/nixpkgs/nixpkgs-unstable}"
 HM_REF="${HM_REF:-github:nix-community/home-manager}"
 ND_REF="${ND_REF:-github:nix-darwin/nix-darwin/master}"
 OPNIX_REF="${OPNIX_REF:-github:brizzbuzz/opnix}"
-RPI_REF="${RPI_REF:-github:nvmd/nixos-raspberrypi/main}"
 
 # Colour only when stdout is a terminal, and honour NO_COLOR (https://no-color.org),
 # so piping into a file, a pager, or `task` stays free of escape sequences.
@@ -181,14 +180,6 @@ opnix_options() { # source path -> sorted option names
     sed -E 's/ = lib\..*//' | sort -u
 }
 
-# nixos-raspberrypi supplies the entire nixpkgs the pis evaluate against, so the
-# revision it pins matters more than anything in its own tree. A host built from
-# it can gain or lose an upstream option without this repo changing at all.
-rpi_nixpkgs_rev() { # -> rev of the nixpkgs nixos-raspberrypi pins
-  nix flake metadata "$1" --json 2>/dev/null |
-    jq -r '.locks.nodes | (.["nixos-raspberrypi"].inputs.nixpkgs // empty) as $r | .[$r].locked.rev // empty'
-}
-
 hm_news_files() { # source path -> news entry paths, oldest first
   (cd "$1" && find modules/misc/news -name '*.nix' 2>/dev/null |
     awk -F/ '{print $NF"\t"$0}' | sort | cut -f2-)
@@ -307,35 +298,4 @@ else
   echo
   hdr "REMOVED opnix OPTIONS" "$(count "$tmp2/op_rem")"
   list_or_none "$tmp2/op_rem" "$RED" "-"
-fi
-
-# ── nixos-raspberrypi ────────────────────────────────────────────────────────
-# The pis evaluate against the nixpkgs this input pins, not the one at the root
-# of this flake. When the two disagree, a host can meet an upstream removal
-# alone — which is how services.journald.extraConfig broke hetzner-1 while the
-# pis kept working.
-
-note "comparing the nixpkgs nixos-raspberrypi pins..."
-
-rpi_old_rev="$(locked_rev nixos-raspberrypi)"
-rpi_np_old="$(rpi_nixpkgs_rev "$FLAKE")"
-rpi_np_new="$(rpi_nixpkgs_rev "$RPI_REF")"
-
-echo
-if [ "$rpi_old_rev" = "$(nix flake metadata "$RPI_REF" --json 2>/dev/null | jq -r '.locked.rev')" ]; then
-  printf '%snixos-raspberrypi: already at %s HEAD (%s)%s\n' \
-    "$DIM" "$RPI_REF" "${rpi_old_rev:0:7}" "$RESET"
-elif [ "$rpi_np_old" = "$rpi_np_new" ]; then
-  printf '%snixos-raspberrypi would move, but its nixpkgs stays at %s%s\n' \
-    "$DIM" "${rpi_np_old:0:7}" "$RESET"
-else
-  rpi_new_rev="$(nix flake metadata "$RPI_REF" --json 2>/dev/null | jq -r '.locked.rev')"
-  printf '%snixos-raspberrypi%s  %s%s%s  →  %s%s%s\n' \
-    "$BOLD" "$RESET" "$DIM" "${rpi_old_rev:0:7}" "$RESET" "$GREEN" "${rpi_new_rev:0:7}" "$RESET"
-  echo
-  hdr "nixos-raspberrypi PINS A NEW nixpkgs" "1"
-  printf '  %s~%s the pis would move  %s%s%s  →  %s%s%s\n' \
-    "$YELLOW" "$RESET" "$DIM" "${rpi_np_old:0:7}" "$RESET" "$GREEN" "${rpi_np_new:0:7}" "$RESET"
-  printf '  %severy package and option on pi-1, pi-2 and pi-3 comes from that revision%s\n' \
-    "$DIM" "$RESET"
 fi

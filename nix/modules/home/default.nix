@@ -31,7 +31,6 @@
     ./neovide.nix
     ./nvim.nix
     ./op.nix
-    ./perses.nix
     ./plan.nix
     ./readline.nix
     ./ripgrep.nix

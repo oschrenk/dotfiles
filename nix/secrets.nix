@@ -17,8 +17,8 @@
 
     ```nix
     let catalogue = (import ./secrets.nix).read ./secretspec.toml;
-    in catalogue.ref "NTFY_HOMELAB_BACKUPS_URL"
-    => "op://Homelab/Ntfy/homelab-backups"
+    in catalogue.ref "ATUIN_SYNC_KEY"
+    => "op://Bootstrap/Atuin Sync Key/password"
     ```
 */
 let
