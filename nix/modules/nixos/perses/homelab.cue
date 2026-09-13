@@ -111,6 +111,13 @@ dashboard & {
 						height:  10
 						content: {"$ref": "#/spec/panels/unitFailures"}
 					},
+					{
+						x:       16
+						y:       30
+						width:   8
+						height:  10
+						content: {"$ref": "#/spec/panels/onepasswordQuota"}
+					},
 				]
 			}
 
@@ -605,6 +612,59 @@ dashboard & {
 									spec: {
 										query:            "homelab:poe_cost_gtq_per_month:by_port"
 										seriesNameFormat: "{{port_name}}"
+									}
+								}
+							},
+						]
+					}
+				}
+				// The ceiling is plotted from the data rather than drawn as a threshold,
+				// so a change of 1Password plan redraws it instead of leaving a stale
+				// number here. Exhausting the budget returns 429 to every host until the
+				// window resets, so the gap between the two lines is the thing to watch.
+				//
+				// Collected on pi-2 alone: the counter is per 1Password account, so one
+				// series per pi would be three copies of the same number. Reading it
+				// costs nothing against the budget it reports.
+				onepasswordQuota: {
+					kind: "Panel"
+					spec: {
+						display: {
+							name:        "1Password quota"
+							description: "Requests used against the daily cap for the whole 1Password account, pooled across every service account. `used` sawtooths because the 24h window resets on first request rather than at midnight, so `24h peak` is the figure to read for what a day actually costs. A poll by opnix costs one request and the three pis poll every 6h, so the floor is about 12 a day; the rest is rebuilds and interactive op. A flat line that stops moving is more likely a dead collector than a quiet day — node_textfile_mtime_seconds is the check."
+						}
+						plugin: {
+							kind: "TimeSeriesChart"
+							spec: {}
+						}
+						queries: [
+							{
+								kind: "TimeSeriesQuery"
+								spec: plugin: {
+									kind: "PrometheusTimeSeriesQuery"
+									spec: {
+										query:            "onepassword_ratelimit_used{type=\"account\"}"
+										seriesNameFormat: "used"
+									}
+								}
+							},
+							{
+								kind: "TimeSeriesQuery"
+								spec: plugin: {
+									kind: "PrometheusTimeSeriesQuery"
+									spec: {
+										query:            "max_over_time(onepassword_ratelimit_used{type=\"account\"}[24h])"
+										seriesNameFormat: "24h peak"
+									}
+								}
+							},
+							{
+								kind: "TimeSeriesQuery"
+								spec: plugin: {
+									kind: "PrometheusTimeSeriesQuery"
+									spec: {
+										query:            "onepassword_ratelimit_limit{type=\"account\"}"
+										seriesNameFormat: "cap"
 									}
 								}
 							},

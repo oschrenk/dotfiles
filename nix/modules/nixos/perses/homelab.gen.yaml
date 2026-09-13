@@ -306,6 +306,37 @@ spec:
                 spec:
                   query: homelab:poe_cost_gtq_per_month:by_port
                   seriesNameFormat: '{{port_name}}'
+    onepasswordQuota:
+      kind: Panel
+      spec:
+        display:
+          name: 1Password quota
+          description: Requests used against the daily cap for the whole 1Password account, pooled across every service account. `used` sawtooths because the 24h window resets on first request rather than at midnight, so `24h peak` is the figure to read for what a day actually costs. A poll by opnix costs one request and the three pis poll every 6h, so the floor is about 12 a day; the rest is rebuilds and interactive op. A flat line that stops moving is more likely a dead collector than a quiet day — node_textfile_mtime_seconds is the check.
+        plugin:
+          kind: TimeSeriesChart
+          spec: {}
+        queries:
+          - kind: TimeSeriesQuery
+            spec:
+              plugin:
+                kind: PrometheusTimeSeriesQuery
+                spec:
+                  query: onepassword_ratelimit_used{type="account"}
+                  seriesNameFormat: used
+          - kind: TimeSeriesQuery
+            spec:
+              plugin:
+                kind: PrometheusTimeSeriesQuery
+                spec:
+                  query: max_over_time(onepassword_ratelimit_used{type="account"}[24h])
+                  seriesNameFormat: 24h peak
+          - kind: TimeSeriesQuery
+            spec:
+              plugin:
+                kind: PrometheusTimeSeriesQuery
+                spec:
+                  query: onepassword_ratelimit_limit{type="account"}
+                  seriesNameFormat: cap
   layouts:
     - kind: Grid
       spec:
@@ -388,5 +419,11 @@ spec:
             height: 10
             content:
               $ref: '#/spec/panels/unitFailures'
+          - x: 16
+            "y": 30
+            width: 8
+            height: 10
+            content:
+              $ref: '#/spec/panels/onepasswordQuota'
   duration: 1d
 
