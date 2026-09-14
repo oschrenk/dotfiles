@@ -364,7 +364,7 @@ lib.runTests {
   # The real manifest has to keep producing what the hosts already expect.
   testRealManifestResolvesAtuin = {
     expr = (secrets.read ../../secretspec.toml).ref "ATUIN_SYNC_KEY";
-    expected = "op://Bootstrap/Atuin Sync Key/password";
+    expected = "op://Bootstrap/atuin/Sync/key";
   };
 
   # The provider URI scheme and the reference scheme are different strings, and
