@@ -7,13 +7,16 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
+  "edit_predictions": {
+    "provider": "none"
+  },
+  // Zed comes from the brew cask; updates arrive through `brew upgrade`,
+  // never through Zed's own updater.
+  "auto_update": false,
   "agent_servers": {
     "claude-acp": {
       "type": "registry"
     }
-  },
-  "features": {
-    "copilot": false
   },
   "theme": "Gruvbox Dark",
   "ui_font_size": 18,
@@ -21,7 +24,7 @@
     "button": false
   },
   "chat_panel": {
-    "button": false
+    "button": "never"
   },
   "notification_panel": {
     "button": false

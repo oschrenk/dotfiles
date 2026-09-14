@@ -5,27 +5,6 @@
     # unstable ensures nix-darwin modules and packages don't break on missing
     # nixpkgs features; switch to nixpkgs-stable if you prefer slower updates
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    # A second nixpkgs used ONLY for zed-editor (see the overlay in
-    # modules/packages.nix). zed is a huge Rust build, and a rev whose
-    # aarch64-darwin binary is not on the cache compiles for ~20 minutes.
-    #
-    # This tracks nixpkgs-unstable rather than a fixed rev. The branch only
-    # advances after Hydra builds it, and zed was cached on all four revs
-    # sampled between 2026-07-15 and 2026-09-10, so tracking it is safe and
-    # a fixed rev only goes stale. The input stays separate because the root
-    # nixpkgs lags far enough behind to land on an uncached zed.
-    #
-    # Drop this input once zed comes from the root nixpkgs cached. Check with:
-    #
-    #   ref=<rev-or-branch>   # e.g. nixpkgs-unstable, or a 40-char commit
-    #   out=$(nix eval --raw --no-write-lock-file \
-    #           "github:NixOS/nixpkgs/$ref#zed-editor.outPath")
-    #   echo "$out"                                    # shows the version
-    #   nix path-info --store https://cache.nixos.org "$out" \
-    #     && echo CACHED || echo "not cached (would compile)"
-    #
-    # A successful path-info => prebuilt binary exists => no local compile.
-    nixpkgs-zed.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     nix-darwin.url = "github:nix-darwin/nix-darwin/master";
     # pin nix-darwin to the same nixpkgs to avoid a second copy on disk
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";

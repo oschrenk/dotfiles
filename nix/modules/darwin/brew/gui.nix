@@ -66,6 +66,7 @@
     "whatcable" # cable identifier
     "whatsapp" # whatsapp messaging
     "yellowdot" # hide screen/audio indicator
+    "zed" # code editor; auto-update off in its settings, versions move with brew
   ];
 
   homebrew.masApps = {

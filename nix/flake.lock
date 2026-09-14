@@ -165,22 +165,6 @@
         "type": "github"
       }
     },
-    "nixpkgs-zed": {
-      "locked": {
-        "lastModified": 1789073787,
-        "narHash": "sha256-xfX/toC2QV707s06GbP4II/TxYF0fNQj7s5/LClNDKc=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "aff8a0b28396750446e5537a96461bc4facdb287",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1788894124,
@@ -356,7 +340,6 @@
         "mission": "mission",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_6",
-        "nixpkgs-zed": "nixpkgs-zed",
         "opnix": "opnix",
         "plan": "plan",
         "sessionizer": "sessionizer"

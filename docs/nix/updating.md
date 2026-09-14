@@ -9,7 +9,6 @@ All commands run from `nix/`.
 | Input | What it is |
 |-------|------------|
 | `nixpkgs` | The main package collection (nixpkgs-unstable). Source for most packages. |
-| `nixpkgs-zed` | A second nixpkgs tracking unstable, used only for `zed-editor`. The comment in `flake.nix` explains why and when to drop it. |
 | `nix-darwin` | macOS system configuration framework. |
 | `home-manager` | User environment configuration. |
 | `opnix` | 1Password secrets integration. |
