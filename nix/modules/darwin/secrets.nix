@@ -50,6 +50,7 @@ in
     # JIRA_CONFIG_FILE set in the wrapper.
     secrets.jiraConfig = {
       reference = secrets.ref "JIRA_CONFIG";
+      kind = "file";
       path = "/Users/oliver/.config/jira/config.yml";
       owner = "oliver";
       group = "staff";
