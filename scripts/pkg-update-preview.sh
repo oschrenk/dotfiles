@@ -71,11 +71,16 @@ eval_pkgs "$tmp/old.json"
 # eval; the alternative (one pass per input) costs one per input for no more
 # information, since nix-darwin and home-manager both follow this same nixpkgs.
 note "evaluating with updated nixpkgs only (for attribution)..."
-eval_pkgs "$tmp/np.json" --override-input nixpkgs "$NIXPKGS_REF"
+# nixpkgs-zed rides along: zed-editor comes from that input, and both track
+# nixpkgs-unstable, so bumping them together is what a real update does.
+eval_pkgs "$tmp/np.json" \
+  --override-input nixpkgs "$NIXPKGS_REF" \
+  --override-input nixpkgs-zed "$NIXPKGS_REF"
 
 note "evaluating with updated nixpkgs + home-manager (fetches upstream, slower)..."
 eval_pkgs "$tmp/new.json" \
   --override-input nixpkgs "$NIXPKGS_REF" \
+  --override-input nixpkgs-zed "$NIXPKGS_REF" \
   --override-input home-manager "$HM_REF"
 
 # Colours are passed in as jq args rather than post-processed, so each field can
