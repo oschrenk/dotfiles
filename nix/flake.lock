@@ -165,6 +165,22 @@
         "type": "github"
       }
     },
+    "nixpkgs_10": {
+      "locked": {
+        "lastModified": 1789264731,
+        "narHash": "sha256-llGJbC0CcU8DfROr6mZjRJgMLQd/SKwfpzxJH/2lHO4=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "02f5696b0e6097e589076d886b317b83ff0437d7",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
     "nixpkgs_2": {
       "locked": {
         "lastModified": 1788894124,
@@ -342,7 +358,8 @@
         "nixpkgs": "nixpkgs_6",
         "opnix": "opnix",
         "plan": "plan",
-        "sessionizer": "sessionizer"
+        "sessionizer": "sessionizer",
+        "thaw": "thaw"
       }
     },
     "sessionizer": {
@@ -375,6 +392,24 @@
       "original": {
         "owner": "nix-systems",
         "repo": "default",
+        "type": "github"
+      }
+    },
+    "thaw": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_10"
+      },
+      "locked": {
+        "lastModified": 1789438936,
+        "narHash": "sha256-bGDnjyXvE5zxeuSISzYQZN35NfKM8amLJE/l+5x8q78=",
+        "owner": "oschrenk",
+        "repo": "thaw",
+        "rev": "ce2bb552e5cfd2b29f5725ea553702a52ad02c7f",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oschrenk",
+        "repo": "thaw",
         "type": "github"
       }
     }

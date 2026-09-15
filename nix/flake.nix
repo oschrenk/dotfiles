@@ -25,6 +25,7 @@
     mission.url = "github:oschrenk/mission";
     plan.url = "github:oschrenk/plan.swift";
     sessionizer.url = "github:oschrenk/sessionizer";
+    thaw.url = "github:oschrenk/thaw";
   };
 
   outputs =

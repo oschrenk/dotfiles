@@ -56,12 +56,13 @@ tasks:
       HOSTNAME:
         sh: hostname -s
   nix:update:preview:
-    desc: Preview which of my declared packages would change if flake.lock were updated (read-only, does not write flake.lock)
+    desc: Preview what a flake input update changes — packages, home-manager news, and options (read-only)
+    # thaw covers packages and news; the script covers what thaw does not,
+    # the nix-darwin, home-manager and opnix option surfaces.
     cmds:
-      - HOST={{.HOSTNAME}} scripts/pkg-update-preview.sh
-    vars:
-      HOSTNAME:
-        sh: hostname -s
+      - cd nix && thaw packages
+      - cd nix && thaw news
+      - scripts/options-update-preview.sh
   nix:update:
     desc: Update all flake inputs (nixpkgs, nix-darwin, home-manager, etc.)
     dir: nix

@@ -38,6 +38,7 @@
     ./rmpc.nix
     ./secretspec.nix
     ./sessionizer.nix
+    ./thaw.nix
     ./ssh.nix
     ./sketchybar.nix
     ./starship.nix

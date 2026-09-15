@@ -107,6 +107,7 @@
           "git@github.com:oschrenk/pomodoro.git"
           "git@github.com:oschrenk/sessionizer.git"
           "git@github.com:oschrenk/team.git"
+          "git@github.com:oschrenk/thaw.git"
           "git@github.com:oschrenk/up.git"
           "git@github.com:oschrenk/usbi.git"
           "git@github.com:oschrenk/wallpaper.swift.git"
