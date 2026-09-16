@@ -27,26 +27,28 @@ task nvim:blink
 ```
 
 That runs `scripts/build-blink-fuzzy.sh`.
-The script takes `cargo` and `rustc` from a throwaway `nix shell`, then links against stable Xcode.
+The script builds inside a throwaway `nix develop` shell that supplies `cargo`, `rustc`, and the linker.
 It installs the dylib under the current commit hash and asks neovim whether the library loads.
 It prints `library_available() reports true` on success and exits non-zero otherwise.
 
 Check the state at any time with `:lua =require('blink.cmp').library_available()`.
 
-### Xcode 27 Beta Linker Breaks the Build
+### The Nix Toolchain and the Xcode 27 Linker
 
-Nix only provides `cargo` and `rustc`.
-The linker still comes from whatever `xcode-select -p` points at.
-The Xcode 27 beta linker (`ld-27034`) writes the `__LINKEDIT` string table at a 4-byte-aligned offset, but macOS 26/27's loader requires 8-byte alignment, so `dlopen` rejects the result:
+The Xcode 27 linker writes the `__LINKEDIT` string table at a 4-byte-aligned offset, but the macOS 26/27 loader requires 8-byte alignment, so `dlopen` rejects the result:
 
 ```text
 mis-aligned LINKEDIT string pool, fileOffset=0x001A38BC
 ```
 
-The build succeeds and the dylib then fails to load.
-So the script asks neovim rather than trusting the cargo exit code.
-`:Lazy build blink.cmp` cannot fix this, because it inherits the same active Xcode.
-The script points `DEVELOPER_DIR` and the cargo linker variable at stable Xcode (26.6, `ld-1267`) instead, and leaves the system-wide `xcode-select` choice alone.
+The build succeeds and the dylib then fails to load, so the script asks neovim rather than trusting the cargo exit code.
+Every installed Xcode is on the 27 train, so there is no stable Apple linker to fall back to. nix's `ld64` links a dylib that loads, so the linker comes from nix rather than `xcode-select`.
+
+`nix develop` matters over `nix shell` here: only `nix develop` runs the stdenv setup hook that puts the `libiconv` search path on `NIX_LDFLAGS`.
+Rust links against `-liconv`, so a `nix shell` build finds iconv only when the caller already sets those flags, which a `fish` or `task` shell does not.
+`mkShell` with `libiconv` in `buildInputs` is what supplies the path, so the build is self-sufficient and needs no linker override.
+
+`:Lazy build blink.cmp` cannot fix the alignment problem, because it inherits the active Xcode.
 
 ## Plugin Security (Supply Chain)
 

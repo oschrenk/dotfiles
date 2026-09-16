@@ -18,30 +18,35 @@ if ! command -v nix >/dev/null 2>&1; then
   exit 1
 fi
 
-# nix supplies the linker too, not just cargo and rustc. Xcode 27 writes the
-# __LINKEDIT string pool at a 4-byte offset and the loader demands 8, so a
-# dylib linked by Apple's toolchain builds fine and then refuses to load —
-# and with every installed Xcode on the 27 train there is no stable Apple
-# linker left to point at. nix's ld64 is versioned independently of Apple's
-# beta cycle, and a dylib it links loads. Verified 2026-09-16.
-
-# The linker override is keyed to the target triple, so the variable name
-# changes with the architecture.
-case "$(uname -m)" in
-  arm64) LINKER_VAR="CARGO_TARGET_AARCH64_APPLE_DARWIN_LINKER" ;;
-  x86_64) LINKER_VAR="CARGO_TARGET_X86_64_APPLE_DARWIN_LINKER" ;;
-  *) echo "unsupported architecture: $(uname -m)"; exit 1 ;;
-esac
+# Build inside a `nix develop` shell rather than `nix shell`. Two reasons the
+# toolchain must come from nix and be entered this way:
+#
+#   1. Xcode 27 writes the __LINKEDIT string pool at a 4-byte offset while the
+#      loader demands 8, so a dylib linked by Apple's toolchain builds fine and
+#      then refuses to load. Every installed Xcode is on the 27 train, so there
+#      is no stable Apple linker to fall back to. nix's ld64 links a dylib that
+#      loads.
+#   2. `nix shell` only puts binaries on PATH; it does not run the stdenv setup
+#      hook that fills NIX_LDFLAGS with the libiconv search path. Rust links
+#      against -liconv, so a `nix shell` build finds iconv only when the caller
+#      already has those flags ambiently, which fish and `task` shells do not.
+#      `nix develop` runs the hook, so the build is self-sufficient. mkShell
+#      with libiconv in buildInputs is what populates the search path.
+#
+# Verified 2026-09-16 in a stripped env (env -i, no NIX_LDFLAGS, no SDKROOT):
+# builds and the dylib loads, with no linker override needed.
+NIXPKGS_REF="${NIXPKGS_REF:-github:NixOS/nixpkgs/nixpkgs-unstable}"
 
 cd "$PLUGIN_DIR"
 SHA="$(git rev-parse HEAD | cut -c1-7)"
 echo "Building blink.cmp fuzzy matcher at $SHA with the nix toolchain"
 
-# cargo does not refingerprint when the linker changes, so an artifact linked
-# by a bad toolchain survives a rebuild verbatim. Clean first; the crate
-# rebuilds in seconds.
-nix shell nixpkgs#cargo nixpkgs#rustc nixpkgs#clang --command \
-  sh -c "cargo clean --release && env $LINKER_VAR=clang cargo build --release"
+# cargo does not refingerprint when the toolchain changes, so an artifact from
+# a bad linker survives a rebuild verbatim. Clean first; the crate rebuilds in
+# seconds.
+nix develop --impure --expr \
+  "let s = (builtins.getFlake \"$NIXPKGS_REF\").legacyPackages.\"$(nix eval --impure --raw --expr builtins.currentSystem)\"; in s.mkShell { packages = [ s.cargo s.rustc ]; buildInputs = [ s.libiconv ]; }" \
+  --command sh -c "cargo clean --release && cargo build --release"
 
 # blink.cmp loads lib/libblink_cmp_fuzzy.dylib.<sha>, so a build left under
 # target/ is invisible to it. Older hashes are dead weight once the new one
