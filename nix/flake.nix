@@ -21,6 +21,7 @@
     arbol.url = "github:oschrenk/arbol";
     cutter.url = "github:oschrenk/cutter";
     infuse.url = "github:oschrenk/infuse";
+    mark.url = "github:oschrenk/mark";
     meter.url = "github:oschrenk/meter";
     mission.url = "github:oschrenk/mission";
     plan.url = "github:oschrenk/plan.swift";
