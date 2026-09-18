@@ -24,6 +24,7 @@
     ./k9s.nix
     ./karabiner.nix
     ./lsd.nix
+    ./mark.nix
     ./meter.nix
     ./mission.nix
     ./mpd.nix
