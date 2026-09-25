@@ -25,6 +25,10 @@ in
     chown ${d.owner}:${d.group} '${d.dir}'
   '') secretDirs;
 
+  # Upstream respawns every 10s on failure; each respawn spends 1Password's
+  # pooled request budget. Run once per boot/activation instead.
+  launchd.daemons.opnix-secrets.serviceConfig.KeepAlive = lib.mkForce false;
+
   services.onepassword-secrets = {
     enable = true;
     tokenFile = "/etc/opnix-token";
