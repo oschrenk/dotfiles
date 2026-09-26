@@ -6,6 +6,7 @@
     ../darwin/defaults/user/finder.nix
     ../darwin/defaults/user/keyboard.nix
     ../darwin/defaults/user/keyboard-shortcuts.nix
+    ../darwin/defaults/user/menubar.nix
     ../darwin/defaults/user/spotlight.nix
     ./aerospace.nix
     ./arbol.nix
