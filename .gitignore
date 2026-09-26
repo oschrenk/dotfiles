@@ -5,3 +5,7 @@
 # rumdl's lint cache. Also in the global ignore, repeated here so a clone on
 # a machine without it stays clean.
 .rumdl_cache/
+
+# Claude Code syncs the account-level skills from claude.ai to disk. The
+# cache is machine-managed and re-downloaded on demand.
+config/claude/*/skills/synced/
