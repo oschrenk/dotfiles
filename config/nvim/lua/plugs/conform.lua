@@ -54,7 +54,7 @@ return {
       scala = { "scalafmt" },
       -- nixpkgs
       sh = { "shellcheck" },
-      -- brew install sqlfluff
+      -- project devshell
       sql = { "sqlfluff" },
       -- brew install swiftformat
       swift = { "swiftformat" },

@@ -6,7 +6,6 @@
   homebrew.brews = [
     "logcli" # o11y, query loki
     "sleek" # sql, formatter
-    "sqlfluff" # sql, formatter
     "stern" # k8s, log "aggregator"
     "websocat" # cli, websocket
   ];
