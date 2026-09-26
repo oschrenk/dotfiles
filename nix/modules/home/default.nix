@@ -3,6 +3,7 @@
 {
   imports = [
     ../darwin/defaults/user/accessibility.nix
+    ../darwin/defaults/user/appearance.nix
     ../darwin/defaults/user/desktop.nix
     ../darwin/defaults/user/finder.nix
     ../darwin/defaults/user/keyboard.nix
