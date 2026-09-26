@@ -77,6 +77,7 @@
             ./modules/shell.nix
             ./modules/darwin/defaults/system/dock.nix
             ./modules/darwin/defaults/system/finder.nix
+            ./modules/darwin/defaults/system/general.nix
             ./modules/darwin/defaults/system/loginwindow.nix
             ./modules/darwin/defaults/system/screenshots.nix
             ./modules/darwin/defaults/system/siri.nix
@@ -115,6 +116,7 @@
             ./modules/shell.nix
             ./modules/darwin/defaults/system/dock.nix
             ./modules/darwin/defaults/system/finder.nix
+            ./modules/darwin/defaults/system/general.nix
             ./modules/darwin/defaults/system/loginwindow.nix
             ./modules/darwin/defaults/system/screenshots.nix
             ./modules/darwin/defaults/system/siri.nix
