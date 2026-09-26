@@ -4,17 +4,17 @@
   programs.nix-plist-manager = {
     enable = true;
     options.applications.systemSettings.spotlight.searchResults = {
-      appStore = true;
+      appStore = false;
       apps = true;
       books = true;
       calculator = true;
       calendar = true;
       contacts = true;
-      dictionary = true;
+      dictionary = false;
       files = true;
       folders = true;
-      games = true;
-      iPhoneApps = true;
+      games = false;
+      iPhoneApps = false;
       mail = true;
       menuItems = true;
       messages = true;
@@ -24,10 +24,10 @@
       photos = true;
       podcasts = true;
       reminders = true;
-      safari = true;
+      safari = false;
       shortcuts = true;
       systemSettings = true;
-      tips = true;
+      tips = false;
       voiceMemos = true;
     };
   };
