@@ -38,7 +38,6 @@
     "prettier" # generic, code formatter
     "prettierd" # generic, code formatter
     "go-task" # generic, go-based task runner
-    "yamlfmt" # yaml, formatter
 
     # editor
     "tree-sitter-cli" # nvim, requirement

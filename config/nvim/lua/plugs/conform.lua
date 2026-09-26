@@ -65,7 +65,6 @@ return {
       typescript = { "prettierd", "prettier", stop_after_first = true },
       typescriptreact = { "prettierd", "prettier", stop_after_first = true },
       typst = { "typstyle" },
-      -- brew install yamlfmt
       yaml = { "yamlfmt" },
       -- nix run nixpkgs#nixfmt-rfc-style
       nix = { "nixfmt" },

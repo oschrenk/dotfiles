@@ -1,5 +1,13 @@
 { pkgs, lib, ... }:
 
+let
+  lint = with pkgs; [
+    nixfmt # nix, official formatter
+    shellcheck # sh, linter
+    taplo # toml, formatter and lsp
+    yamlfmt # yaml, formatter
+  ];
+in
 {
   # Unfree is denied by default. Allow it per package rather than wholesale, so
   # adding one never quietly permits the next.
@@ -39,7 +47,7 @@
     })
   ];
 
-  environment.systemPackages = with pkgs; [
+  environment.systemPackages = lint ++ (with pkgs; [
     _1password-cli
     aerospace
     blueutil
@@ -66,18 +74,15 @@
     minisign
     msgvault
     ngrep
-    nixfmt # nix, official formatter
     nmap # network, port scanning
     page
     rclone # system, sync files
     rsync # system, sync files
-    shellcheck
     smartmontools
     speedtest-cli
-    taplo
     tree
     witr
     yq-go # data, process YAML. provides `yq`
     yt-dlp
-  ];
+  ]);
 }
