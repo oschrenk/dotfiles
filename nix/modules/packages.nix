@@ -66,6 +66,7 @@
     minisign
     msgvault
     ngrep
+    nixfmt # nix, official formatter
     nmap # network, port scanning
     page
     rclone # system, sync files
