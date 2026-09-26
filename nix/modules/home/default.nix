@@ -23,6 +23,7 @@
     ./jira.nix
     ./k9s.nix
     ./karabiner.nix
+    ./keyboard-shortcuts.nix
     ./lsd.nix
     ./mark.nix
     ./meter.nix
