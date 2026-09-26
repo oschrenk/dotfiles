@@ -8,7 +8,14 @@
         showStatusBar = false;
       };
       settings = {
-        general.openFoldersInTabsInsteadOfNewWindows = false;
+        general = {
+          openFoldersInTabsInsteadOfNewWindows = false;
+          showTheseItemsOnTheDesktop = {
+            cdsDvdsAndiPods = false;
+            externalDisks = false;
+            hardDisks = false;
+          };
+        };
         advanced = {
           showAllFilenameExtensions = true;
           showWarningBeforeChangingAnExtension = false;
