@@ -79,6 +79,7 @@
             ./modules/darwin/defaults/system/finder.nix
             ./modules/darwin/defaults/system/general.nix
             ./modules/darwin/defaults/system/loginwindow.nix
+            ./modules/darwin/defaults/system/privacy-and-security.nix
             ./modules/darwin/defaults/system/screenshots.nix
             ./modules/darwin/defaults/system/siri.nix
             ./modules/darwin/defaults/system/timemachine.nix
@@ -118,6 +119,7 @@
             ./modules/darwin/defaults/system/finder.nix
             ./modules/darwin/defaults/system/general.nix
             ./modules/darwin/defaults/system/loginwindow.nix
+            ./modules/darwin/defaults/system/privacy-and-security.nix
             ./modules/darwin/defaults/system/screenshots.nix
             ./modules/darwin/defaults/system/siri.nix
             ./modules/darwin/defaults/system/timemachine.nix
