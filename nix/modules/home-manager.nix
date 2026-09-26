@@ -1,4 +1,4 @@
-{ config, arbol, cutter, infuse, mark, meter, mission, plan, sessionizer, thaw, ... }:
+{ config, arbol, cutter, infuse, mark, meter, mission, plan, sessionizer, thaw, nix-plist-manager, ... }:
 
 {
   home-manager = {
@@ -6,6 +6,7 @@
     useGlobalPkgs = true;
     # install home.packages into system profile, not ~/.nix-profile
     useUserPackages = true;
+    sharedModules = [ nix-plist-manager.homeManagerModules.default ];
     # pass username to all HM modules
     extraSpecialArgs = {
       username = config.system.primaryUser;

@@ -12,6 +12,9 @@
     # pin home-manager to the same nixpkgs to avoid a second copy on disk
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
     opnix.url = "github:brizzbuzz/opnix";
+    nix-plist-manager.url = "github:sushydev/nix-plist-manager";
+    # pin to the same nixpkgs to avoid a second copy on disk
+    nix-plist-manager.inputs.nixpkgs.follows = "nixpkgs";
     # Own tools. Deliberately NOT following our nixpkgs: each builds against the
     # nixpkgs it locked, which is the build oschrenk.cachix.org actually holds
     # (trusted in modules/darwin/nix.nix). Adding `follows` rebases them onto our
@@ -36,6 +39,7 @@
       nixpkgs,
       home-manager,
       opnix,
+      nix-plist-manager,
       ...
     }@inputs:
     {
@@ -67,6 +71,7 @@
             ./modules/darwin/nix.nix
             ./modules/packages.nix
             opnix.darwinModules.default
+            nix-plist-manager.darwinModules.default
             ./modules/darwin/secrets.nix
             ./modules/darwin/brew/settings.nix
             ./modules/shell.nix
@@ -110,6 +115,7 @@
             ./modules/darwin/nix.nix
             ./modules/packages.nix
             opnix.darwinModules.default
+            nix-plist-manager.darwinModules.default
             ./modules/darwin/secrets.nix
             ./modules/darwin/brew/settings.nix
             ./modules/shell.nix
