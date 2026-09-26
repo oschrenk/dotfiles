@@ -78,7 +78,6 @@
             ./modules/darwin/defaults/system/accessibility.nix
             ./modules/darwin/defaults/system/dock.nix
             ./modules/darwin/defaults/system/finder.nix
-            ./modules/darwin/defaults/system/keyboard.nix
             ./modules/darwin/defaults/system/loginwindow.nix
             ./modules/darwin/defaults/system/menubar.nix
             ./modules/darwin/defaults/system/screenshots.nix
@@ -119,7 +118,6 @@
             ./modules/darwin/defaults/system/accessibility.nix
             ./modules/darwin/defaults/system/dock.nix
             ./modules/darwin/defaults/system/finder.nix
-            ./modules/darwin/defaults/system/keyboard.nix
             ./modules/darwin/defaults/system/loginwindow.nix
             ./modules/darwin/defaults/system/menubar.nix
             ./modules/darwin/defaults/system/screenshots.nix
