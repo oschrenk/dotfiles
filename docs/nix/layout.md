@@ -36,7 +36,9 @@ nix/
         gui.nix          - general GUI apps
         work.nix         - work-specific apps
       defaults/          - macOS preferences
-        system/          - system-wide preferences
+        system/          - system-wide preferences (nix-darwin)
+          [...]
+        user/            - per-user System Settings (nix-plist-manager), one file per pane
           [...]
         apps/            - app settings, one file per bundle ID
           [...]

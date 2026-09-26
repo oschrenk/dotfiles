@@ -76,7 +76,6 @@
             ./modules/darwin/brew/settings.nix
             ./modules/shell.nix
             ./modules/darwin/defaults/system/accessibility.nix
-            ./modules/darwin/defaults/system/desktop.nix
             ./modules/darwin/defaults/system/dock.nix
             ./modules/darwin/defaults/system/finder.nix
             ./modules/darwin/defaults/system/keyboard.nix
@@ -118,7 +117,6 @@
             ./modules/darwin/brew/settings.nix
             ./modules/shell.nix
             ./modules/darwin/defaults/system/accessibility.nix
-            ./modules/darwin/defaults/system/desktop.nix
             ./modules/darwin/defaults/system/dock.nix
             ./modules/darwin/defaults/system/finder.nix
             ./modules/darwin/defaults/system/keyboard.nix

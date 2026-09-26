@@ -2,6 +2,9 @@
 
 {
   imports = [
+    ../darwin/defaults/user/desktop.nix
+    ../darwin/defaults/user/keyboard-shortcuts.nix
+    ../darwin/defaults/user/spotlight.nix
     ./aerospace.nix
     ./arbol.nix
     ./atuin.nix
@@ -23,7 +26,6 @@
     ./jira.nix
     ./k9s.nix
     ./karabiner.nix
-    ./keyboard-shortcuts.nix
     ./lsd.nix
     ./mark.nix
     ./meter.nix
@@ -41,7 +43,6 @@
     ./secretspec.nix
     ./sessionizer.nix
     ./thaw.nix
-    ./spotlight.nix
     ./ssh.nix
     ./sketchybar.nix
     ./starship.nix
