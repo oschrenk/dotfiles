@@ -37,7 +37,7 @@ return {
     formatters_by_ft = {
       fish = { "fish_indent" },
       go = { "gofmt" },
-      -- brew install prettierd prettier
+      -- project devshell
       javascript = { "prettierd", "prettier", stop_after_first = true },
       javascriptreact = { "prettierd", "prettier", stop_after_first = true },
       -- nixpkgs

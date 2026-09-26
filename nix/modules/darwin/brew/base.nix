@@ -35,8 +35,6 @@
     # database
 
     # development
-    "prettier" # generic, code formatter
-    "prettierd" # generic, code formatter
     "go-task" # generic, go-based task runner
 
     # editor
