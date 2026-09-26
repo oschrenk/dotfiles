@@ -37,12 +37,14 @@ echo "Keyboard: Set brightness lowest, automatic and turn off after 10s"
 # cfprefsd owns this domain and clobbers out-of-band file edits, so plutil
 # writes never took effect. activateSettings -u + the Dock restart below
 # make WindowServer re-read the grabs without a logout.
+# XML fragments, not "{enabled=0;}": old-style syntax stores the 0 as a
+# string, and readers that expect a boolean choke on it.
 echo "Keyboard shortcut: Disable ^→, and ^← to switch spaces"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 79 "{enabled=0;}"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 81 "{enabled=0;}"
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 79 '<dict><key>enabled</key><false/></dict>'
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 81 '<dict><key>enabled</key><false/></dict>'
 
 echo "Keyboard shortcut: Disable ^Space (select previous input source) so it's free for tmux"
-defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 "{enabled=0;}"
+defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 '<dict><key>enabled</key><false/></dict>'
 
 /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u
 
