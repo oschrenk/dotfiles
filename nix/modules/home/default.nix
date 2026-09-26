@@ -3,6 +3,7 @@
 {
   imports = [
     ../darwin/defaults/user/desktop.nix
+    ../darwin/defaults/user/finder.nix
     ../darwin/defaults/user/keyboard-shortcuts.nix
     ../darwin/defaults/user/spotlight.nix
     ./aerospace.nix
