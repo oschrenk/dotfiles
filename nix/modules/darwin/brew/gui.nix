@@ -23,7 +23,6 @@
     "arc" # chromium based browser
     "beeper" # universal chat client
     "betterdisplay" # display management
-    "calibre" # ebook manager
     "discord" # discord client
     "docker-desktop" # container runtime
     "ghostty" # terminal
