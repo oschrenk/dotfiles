@@ -85,7 +85,6 @@
             ./modules/darwin/defaults/system/menubar.nix
             ./modules/darwin/defaults/system/screenshots.nix
             ./modules/darwin/defaults/system/siri.nix
-            ./modules/darwin/defaults/system/spotlight.nix
             ./modules/darwin/defaults/system/timemachine.nix
             ./modules/darwin/defaults/apps/com.apple.ical.nix
             ./modules/darwin/defaults/apps/com.apple.maps.nix
@@ -129,7 +128,6 @@
             ./modules/darwin/defaults/system/menubar.nix
             ./modules/darwin/defaults/system/screenshots.nix
             ./modules/darwin/defaults/system/siri.nix
-            ./modules/darwin/defaults/system/spotlight.nix
             ./modules/darwin/defaults/system/timemachine.nix
             ./modules/darwin/defaults/apps/com.apple.ical.nix
             ./modules/darwin/defaults/apps/com.apple.maps.nix

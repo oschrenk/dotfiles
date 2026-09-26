@@ -40,6 +40,7 @@
     ./secretspec.nix
     ./sessionizer.nix
     ./thaw.nix
+    ./spotlight.nix
     ./ssh.nix
     ./sketchybar.nix
     ./starship.nix
