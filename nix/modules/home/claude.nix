@@ -1,6 +1,11 @@
 # Claude Code configuration, for both profiles.
 # Migrated from chezmoi (home/private_dot_config/claude/).
-{ config, osConfig, lib, ... }:
+{
+  config,
+  osConfig,
+  lib,
+  ...
+}:
 let
   dotfiles = osConfig.my.personal.dotfiles;
 

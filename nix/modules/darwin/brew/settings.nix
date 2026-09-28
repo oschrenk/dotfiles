@@ -40,15 +40,42 @@
     # Brewfile, so brew bundle records it in trust.json itself (Homebrew 6
     # requires tap trust by default). Replaces the old hand-rendered trust.json.
     taps = [
-      { name = "8ta4/extension"; trusted = true; } # extension (install browser extensions)
-      { name = "darrylmorley/whatcable"; trusted = true; } # whatcable
-      { name = "eddmann/tap"; trusted = true; } # whatsapp-cli
-      { name = "lightpanda-io/browser"; trusted = true; } # lightpanda
-      { name = "macos-fuse-t/cask"; trusted = true; } # fuse-t
-      { name = "oschrenk/made"; trusted = true; } # personal casks and formulae
-      { name = "oschrenk/personal"; trusted = true; } # personal casks and fonts
-      { name = "txn2/tap"; trusted = true; } # kubefwd
-      { name = "yapstudios/tap"; trusted = true; } # sfsym
+      {
+        name = "8ta4/extension";
+        trusted = true;
+      } # extension (install browser extensions)
+      {
+        name = "darrylmorley/whatcable";
+        trusted = true;
+      } # whatcable
+      {
+        name = "eddmann/tap";
+        trusted = true;
+      } # whatsapp-cli
+      {
+        name = "lightpanda-io/browser";
+        trusted = true;
+      } # lightpanda
+      {
+        name = "macos-fuse-t/cask";
+        trusted = true;
+      } # fuse-t
+      {
+        name = "oschrenk/made";
+        trusted = true;
+      } # personal casks and formulae
+      {
+        name = "oschrenk/personal";
+        trusted = true;
+      } # personal casks and fonts
+      {
+        name = "txn2/tap";
+        trusted = true;
+      } # kubefwd
+      {
+        name = "yapstudios/tap";
+        trusted = true;
+      } # sfsym
     ];
   };
 }

@@ -71,7 +71,6 @@
     # network
     "telnet" # network, telnet protocol
 
-
     # a/v + personal
     "flac" # a/v, flac codec. kept: libmp3splt needs it, and that has no nixpkgs equivalent
     "libmp3splt" # a/v, split mp3, ogg, flac files

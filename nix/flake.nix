@@ -48,6 +48,20 @@
       # Run with: nix fmt
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
 
+      # Entered through the root .envrc (`use flake ./nix`).
+      # Run with: task fmt, task lint
+      devShells.aarch64-darwin.default =
+        let
+          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
+        in
+        pkgs.mkShell {
+          packages = with pkgs; [
+            deadnix # nix, find dead code
+            nixfmt # nix, official formatter
+            statix # nix, lints and anti-patterns
+          ];
+        };
+
       # Unit tests. Run with `task nix:test`, which builds this alone rather
       # than `nix flake check`, since that evaluates all six host configs first.
       checks.aarch64-darwin.secrets =
@@ -59,7 +73,6 @@
           pkgs.runCommand "secrets-tests-passed" { } "touch $out"
         else
           throw "secrets catalogue tests failed:\n${builtins.toJSON failures}";
-
 
       darwinConfigurations = {
         "Olivers-MaxBook" = nix-darwin.lib.darwinSystem {

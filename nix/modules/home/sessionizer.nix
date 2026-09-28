@@ -59,7 +59,10 @@ in
       two-columns.windows = [
         {
           layout = "even-horizontal";
-          panes = [ { focus = true; } { focus = false; } ];
+          panes = [
+            { focus = true; }
+            { focus = false; }
+          ];
         }
       ];
       two-columns-claude.windows = [

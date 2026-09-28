@@ -1,9 +1,10 @@
-{ rustPlatform
-, fetchFromGitHub
-, lib
-, libgit2
-, openssl
-, pkg-config
+{
+  rustPlatform,
+  fetchFromGitHub,
+  lib,
+  libgit2,
+  openssl,
+  pkg-config,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -22,7 +23,10 @@ rustPlatform.buildRustPackage rec {
   cargoHash = "sha256-P4jcz+SUF+i6Fp95b0px+/1Fnh0l1IoyEaiiK1XDP9o=";
 
   nativeBuildInputs = [ pkg-config ];
-  buildInputs = [ openssl libgit2 ];
+  buildInputs = [
+    openssl
+    libgit2
+  ];
 
   # use system libs from buildInputs rather than vendored copies
   env = {

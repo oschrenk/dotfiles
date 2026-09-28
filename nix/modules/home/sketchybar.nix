@@ -1,4 +1,9 @@
-{ config, osConfig, pkgs, ... }:
+{
+  config,
+  osConfig,
+  pkgs,
+  ...
+}:
 
 {
   programs.sketchybar = {
@@ -9,10 +14,11 @@
       (ps.buildLuarocksPackage rec {
         pname = "lua-tz";
         version = "1.0.0-1";
-        knownRockspec = (pkgs.fetchurl {
-          url = "https://luarocks.org/manifests/anaef/lua-tz-1.0.0-1.rockspec";
-          hash = "sha256-JGvvv+gxVLIY2aWPzx4M4Q4OI4ri3I0/m8+1lUS775I=";
-        }).outPath;
+        knownRockspec =
+          (pkgs.fetchurl {
+            url = "https://luarocks.org/manifests/anaef/lua-tz-1.0.0-1.rockspec";
+            hash = "sha256-JGvvv+gxVLIY2aWPzx4M4Q4OI4ri3I0/m8+1lUS775I=";
+          }).outPath;
         src = pkgs.fetchFromGitHub {
           owner = "anaef";
           repo = "lua-tz";

@@ -12,7 +12,8 @@ in
   # Unfree is denied by default. Allow it per package rather than wholesale, so
   # adding one never quietly permits the next.
   nixpkgs.config.allowUnfreePredicate =
-    pkg: builtins.elem (lib.getName pkg) [
+    pkg:
+    builtins.elem (lib.getName pkg) [
       # official AgileBits universal .pkg, unpacked rather than rebuilt, so the
       # signature the 1Password desktop app checks for app integration is intact
       "1password-cli"
@@ -21,7 +22,9 @@ in
   nixpkgs.overlays = [
     (_final: prev: {
       # direnv's test suite hangs on macOS sandboxed builds
-      direnv = prev.direnv.overrideAttrs (_old: { doCheck = false; });
+      direnv = prev.direnv.overrideAttrs (_old: {
+        doCheck = false;
+      });
       # gitwatch-rs not in nixpkgs; build from source via our own derivation
       # (upstream flake's rust-flake/rust-overlay chain is broken on darwin)
       gitwatch-rs = prev.callPackage ../pkgs/gitwatch-rs.nix { };
@@ -47,42 +50,44 @@ in
     })
   ];
 
-  environment.systemPackages = lint ++ (with pkgs; [
-    _1password-cli
-    aerospace
-    blueutil
-    coursier # jvm, scala, artifact fetching
-    croc # cryptography, secure data transfer
-    doggo
-    ekctl # calendar and reminders via EventKit, JSON output
-    exiftool
-    fd # system, fast find alternative
-    ffmpeg # a/v, convert audio/video. bundles libx264, libxvid and libmp3lame
-    firemark
-    gallery-dl
-    gawk # system, GNU awk utility
-    git-stack
-    htop
-    httrack # network, copy websites offline
-    hurl
-    jd-diff-patch # data, diff JSON. provides `jd`
-    jq
-    jsongrep
-    kmp-lsp
-    lua-language-server # lua, lsp
-    mdq
-    minisign
-    msgvault
-    ngrep
-    nmap # network, port scanning
-    page
-    rclone # system, sync files
-    rsync # system, sync files
-    smartmontools
-    speedtest-cli
-    tree
-    witr
-    yq-go # data, process YAML. provides `yq`
-    yt-dlp
-  ]);
+  environment.systemPackages =
+    lint
+    ++ (with pkgs; [
+      _1password-cli
+      aerospace
+      blueutil
+      coursier # jvm, scala, artifact fetching
+      croc # cryptography, secure data transfer
+      doggo
+      ekctl # calendar and reminders via EventKit, JSON output
+      exiftool
+      fd # system, fast find alternative
+      ffmpeg # a/v, convert audio/video. bundles libx264, libxvid and libmp3lame
+      firemark
+      gallery-dl
+      gawk # system, GNU awk utility
+      git-stack
+      htop
+      httrack # network, copy websites offline
+      hurl
+      jd-diff-patch # data, diff JSON. provides `jd`
+      jq
+      jsongrep
+      kmp-lsp
+      lua-language-server # lua, lsp
+      mdq
+      minisign
+      msgvault
+      ngrep
+      nmap # network, port scanning
+      page
+      rclone # system, sync files
+      rsync # system, sync files
+      smartmontools
+      speedtest-cli
+      tree
+      witr
+      yq-go # data, process YAML. provides `yq`
+      yt-dlp
+    ]);
 }

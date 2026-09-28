@@ -103,7 +103,10 @@
         #   1497x 976          : 28
         #   1728x1117 (default): 32
         #   2056x1329          : 38
-        outer.top = [ { monitor."Built-in Retina Display" = 0; } 32 ];
+        outer.top = [
+          { monitor."Built-in Retina Display" = 0; }
+          32
+        ];
       };
 
       workspace-to-monitor-force-assignment = {
@@ -197,12 +200,30 @@
         # Move to workspace
         # Workspace can also be char eg `alt-shift-b = 'move-node-to-workspace b'`
         # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-        alt-shift-1 = [ "move-node-to-workspace 1" "workspace 1" ]; # primary
-        alt-shift-2 = [ "move-node-to-workspace 2" "workspace 2" ]; # secondary
-        alt-shift-3 = [ "move-node-to-workspace 3" "workspace 3" ];
-        alt-shift-b = [ "move-node-to-workspace b" "workspace b" ]; # browser
-        alt-shift-m = [ "move-node-to-workspace m" "workspace m" ]; # media
-        alt-shift-t = [ "move-node-to-workspace t1" "workspace t1" ]; # terminal (main)
+        alt-shift-1 = [
+          "move-node-to-workspace 1"
+          "workspace 1"
+        ]; # primary
+        alt-shift-2 = [
+          "move-node-to-workspace 2"
+          "workspace 2"
+        ]; # secondary
+        alt-shift-3 = [
+          "move-node-to-workspace 3"
+          "workspace 3"
+        ];
+        alt-shift-b = [
+          "move-node-to-workspace b"
+          "workspace b"
+        ]; # browser
+        alt-shift-m = [
+          "move-node-to-workspace m"
+          "workspace m"
+        ]; # media
+        alt-shift-t = [
+          "move-node-to-workspace t1"
+          "workspace t1"
+        ]; # terminal (main)
 
         # See: https://nikitabobko.github.io/AeroSpace/commands#workspace-back-and-forth
         alt-tab = "workspace-back-and-forth";
@@ -221,17 +242,41 @@
       # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
       mode.service.binding = {
         # reload config
-        esc = [ "reload-config" "mode main" ];
+        esc = [
+          "reload-config"
+          "mode main"
+        ];
         # reset layout
-        r = [ " flatten-workspace-tree" "mode main" ];
+        r = [
+          " flatten-workspace-tree"
+          "mode main"
+        ];
         # Toggle between floating and tiling layout
-        f = [ "layout floating tiling" "mode main" ];
-        backspace = [ "close-all-windows-but-current" "mode main" ];
+        f = [
+          "layout floating tiling"
+          "mode main"
+        ];
+        backspace = [
+          "close-all-windows-but-current"
+          "mode main"
+        ];
 
-        alt-shift-h = [ "join-with left" "mode main" ];
-        alt-shift-j = [ "join-with down" "mode main" ];
-        alt-shift-k = [ "join-with up" "mode main" ];
-        alt-shift-l = [ "join-with right" "mode main" ];
+        alt-shift-h = [
+          "join-with left"
+          "mode main"
+        ];
+        alt-shift-j = [
+          "join-with down"
+          "mode main"
+        ];
+        alt-shift-k = [
+          "join-with up"
+          "mode main"
+        ];
+        alt-shift-l = [
+          "join-with right"
+          "mode main"
+        ];
       };
 
       #######################################
@@ -253,35 +298,89 @@
 
         # workspace.1 (=Main)
         #--------------------------------------
-        { "if".app-id = "com.neovide.neovide"; run = "move-node-to-workspace 1"; }
-        { "if".app-id = "com.jetbrains.intellij.ce"; run = [ "move-node-to-workspace 1" ]; }
-        { "if".window-title-regex-substring = "Merge Revisions"; run = [ "move-node-to-workspace 1" ]; }
-        { "if".app-id = "org.jkiss.dbeaver.core.product"; run = [ "move-node-to-workspace 1" ]; }
-        { "if".app-id = "com.microsoft.VSCode"; run = [ "move-node-to-workspace 1" ]; }
-        { "if".app-id = "com.apple.dt.Xcode"; run = [ "move-node-to-workspace 1" ]; }
+        {
+          "if".app-id = "com.neovide.neovide";
+          run = "move-node-to-workspace 1";
+        }
+        {
+          "if".app-id = "com.jetbrains.intellij.ce";
+          run = [ "move-node-to-workspace 1" ];
+        }
+        {
+          "if".window-title-regex-substring = "Merge Revisions";
+          run = [ "move-node-to-workspace 1" ];
+        }
+        {
+          "if".app-id = "org.jkiss.dbeaver.core.product";
+          run = [ "move-node-to-workspace 1" ];
+        }
+        {
+          "if".app-id = "com.microsoft.VSCode";
+          run = [ "move-node-to-workspace 1" ];
+        }
+        {
+          "if".app-id = "com.apple.dt.Xcode";
+          run = [ "move-node-to-workspace 1" ];
+        }
 
         # workspace.2 (=secondary)
         #--------------------------------------
-        { "if".app-id = "com.docker.docker"; run = "move-node-to-workspace 2"; }
-        { "if".app-id = "com.utmapp.UTM"; run = "move-node-to-workspace 2"; }
-        { "if".app-id = "com.apple.iCal"; run = "move-node-to-workspace 2"; }
-        { "if".app-id = "com.apple.reminders"; run = "move-node-to-workspace 2"; }
-        { "if".app-id = "com.valvesoftware.steam"; run = "move-node-to-workspace 2"; }
-        { "if".app-id = "com.seriflabs.affinityphoto2"; run = "move-node-to-workspace 2"; }
-        { "if".app-id = "com.seriflabs.affinitydesigner2"; run = "move-node-to-workspace 2"; }
-        { "if".app-id = "com.seriflabs.affinitypublisher2"; run = "move-node-to-workspace 2"; }
-        { "if".app-id = "com.msteedman.mochi"; run = "move-node-to-workspace 2"; }
+        {
+          "if".app-id = "com.docker.docker";
+          run = "move-node-to-workspace 2";
+        }
+        {
+          "if".app-id = "com.utmapp.UTM";
+          run = "move-node-to-workspace 2";
+        }
+        {
+          "if".app-id = "com.apple.iCal";
+          run = "move-node-to-workspace 2";
+        }
+        {
+          "if".app-id = "com.apple.reminders";
+          run = "move-node-to-workspace 2";
+        }
+        {
+          "if".app-id = "com.valvesoftware.steam";
+          run = "move-node-to-workspace 2";
+        }
+        {
+          "if".app-id = "com.seriflabs.affinityphoto2";
+          run = "move-node-to-workspace 2";
+        }
+        {
+          "if".app-id = "com.seriflabs.affinitydesigner2";
+          run = "move-node-to-workspace 2";
+        }
+        {
+          "if".app-id = "com.seriflabs.affinitypublisher2";
+          run = "move-node-to-workspace 2";
+        }
+        {
+          "if".app-id = "com.msteedman.mochi";
+          run = "move-node-to-workspace 2";
+        }
 
         # workspace.T (=Terminal) — default all ghostty to t1; the wrapper moves the
         # secondary pool's window to t2 by window-id (aerospace reads the title
         # before it's set, so a declarative title rule can't win the detection race).
         #--------------------------------------
-        { "if".app-id = "com.mitchellh.ghostty"; run = "move-node-to-workspace t1"; }
+        {
+          "if".app-id = "com.mitchellh.ghostty";
+          run = "move-node-to-workspace t1";
+        }
 
         # workspace.B (=Browser)
         #--------------------------------------
-        { "if".app-id = "com.google.Chrome"; run = "move-node-to-workspace b"; }
-        { "if".app-id = "com.apple.Safari"; run = "move-node-to-workspace b"; }
+        {
+          "if".app-id = "com.google.Chrome";
+          run = "move-node-to-workspace b";
+        }
+        {
+          "if".app-id = "com.apple.Safari";
+          run = "move-node-to-workspace b";
+        }
         {
           # Arc
           "if".app-id = "company.thebrowser.Browser";
@@ -294,11 +393,26 @@
 
         # workspace.M (=Media and Messenger)
         #--------------------------------------
-        { "if".app-id = "com.tdesktop.Telegram"; run = "move-node-to-workspace m"; }
-        { "if".app-id = "com.spotify.client"; run = "move-node-to-workspace m"; }
-        { "if".app-id = "org.whispersystems.signal-desktop"; run = "move-node-to-workspace m"; }
-        { "if".app-id = "net.whatsapp.WhatsApp"; run = "move-node-to-workspace m"; }
-        { "if".app-id = "com.tinyspeck.slackmacgap"; run = "move-node-to-workspace m"; }
+        {
+          "if".app-id = "com.tdesktop.Telegram";
+          run = "move-node-to-workspace m";
+        }
+        {
+          "if".app-id = "com.spotify.client";
+          run = "move-node-to-workspace m";
+        }
+        {
+          "if".app-id = "org.whispersystems.signal-desktop";
+          run = "move-node-to-workspace m";
+        }
+        {
+          "if".app-id = "net.whatsapp.WhatsApp";
+          run = "move-node-to-workspace m";
+        }
+        {
+          "if".app-id = "com.tinyspeck.slackmacgap";
+          run = "move-node-to-workspace m";
+        }
         # Mail compose windows should float
         {
           "if".app-id = "com.apple.mail";
@@ -306,35 +420,93 @@
           check-further-callbacks = true;
           run = "layout floating";
         }
-        { "if".app-id = "com.apple.mail"; run = "move-node-to-workspace m"; }
-        { "if".app-id = "com.openai.chat"; run = "move-node-to-workspace m"; }
+        {
+          "if".app-id = "com.apple.mail";
+          run = "move-node-to-workspace m";
+        }
+        {
+          "if".app-id = "com.openai.chat";
+          run = "move-node-to-workspace m";
+        }
 
         #++++++++++++++++++++++++++++++++++++++
         # WINDOWS.floating
         #++++++++++++++++++++++++++++++++++++++
-        { "if".app-id = "md.obsidian"; check-further-callbacks = true; run = "layout floating"; }
-        { "if".app-id = "com.phocusllp.duemac"; run = "layout floating"; }
-        { "if".app-id = "com.1password.1password"; run = "layout floating"; }
-        { "if".app-id = "com.apple.finder"; run = "layout floating"; }
-        { "if".app-id = "com.apple.Preview"; run = "layout floating"; }
-        { "if".app-id = "com.apple.FaceTime"; run = "layout floating"; }
-        { "if".app-id = "com.apple.ScreenContinuity"; run = "layout floating"; }
-        { "if".app-id = "cx.c3.theunarchiver"; run = "layout floating"; }
-        { "if".app-id = "com.apple.AppStore"; run = "layout floating"; }
-        { "if".app-id = "org.videolan.vlc"; run = "layout floating"; }
-        { "if".app-id = "com.apple.ActivityMonitor"; run = "layout floating"; }
-        { "if".app-id = "com.colliderli.iina"; run = "layout floating"; }
-        { "if".app-id = "org.pqrs.Karabiner-Elements.Settings"; run = "layout floating"; }
-        { "if".app-id = "ru.starmel.OpenSuperWhisper"; run = "layout floating"; }
-        { "if".app-id = "com.typewhisper.mac"; run = "layout floating"; }
+        {
+          "if".app-id = "md.obsidian";
+          check-further-callbacks = true;
+          run = "layout floating";
+        }
+        {
+          "if".app-id = "com.phocusllp.duemac";
+          run = "layout floating";
+        }
+        {
+          "if".app-id = "com.1password.1password";
+          run = "layout floating";
+        }
+        {
+          "if".app-id = "com.apple.finder";
+          run = "layout floating";
+        }
+        {
+          "if".app-id = "com.apple.Preview";
+          run = "layout floating";
+        }
+        {
+          "if".app-id = "com.apple.FaceTime";
+          run = "layout floating";
+        }
+        {
+          "if".app-id = "com.apple.ScreenContinuity";
+          run = "layout floating";
+        }
+        {
+          "if".app-id = "cx.c3.theunarchiver";
+          run = "layout floating";
+        }
+        {
+          "if".app-id = "com.apple.AppStore";
+          run = "layout floating";
+        }
+        {
+          "if".app-id = "org.videolan.vlc";
+          run = "layout floating";
+        }
+        {
+          "if".app-id = "com.apple.ActivityMonitor";
+          run = "layout floating";
+        }
+        {
+          "if".app-id = "com.colliderli.iina";
+          run = "layout floating";
+        }
+        {
+          "if".app-id = "org.pqrs.Karabiner-Elements.Settings";
+          run = "layout floating";
+        }
+        {
+          "if".app-id = "ru.starmel.OpenSuperWhisper";
+          run = "layout floating";
+        }
+        {
+          "if".app-id = "com.typewhisper.mac";
+          run = "layout floating";
+        }
 
         #++++++++++++++++++++++++++++++++++++++
         # iOS Apps
         #++++++++++++++++++++++++++++++++++++++
         # Macrofactor (keeps flickering)
-        { "if".app-id = "com.sbs.diet"; run = "layout floating"; }
+        {
+          "if".app-id = "com.sbs.diet";
+          run = "layout floating";
+        }
         # Spirit Island
-        { "if".app-id = "com.handelabra.SpiritIsland"; run = "layout floating"; }
+        {
+          "if".app-id = "com.handelabra.SpiritIsland";
+          run = "layout floating";
+        }
       ];
     };
   };

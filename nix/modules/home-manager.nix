@@ -1,4 +1,17 @@
-{ config, arbol, cutter, infuse, mark, meter, mission, plan, sessionizer, thaw, nix-plist-manager, ... }:
+{
+  config,
+  arbol,
+  cutter,
+  infuse,
+  mark,
+  meter,
+  mission,
+  plan,
+  sessionizer,
+  thaw,
+  nix-plist-manager,
+  ...
+}:
 
 {
   home-manager = {
@@ -10,7 +23,17 @@
     # pass username to all HM modules
     extraSpecialArgs = {
       username = config.system.primaryUser;
-      inherit arbol cutter infuse mark meter mission plan sessionizer thaw;
+      inherit
+        arbol
+        cutter
+        infuse
+        mark
+        meter
+        mission
+        plan
+        sessionizer
+        thaw
+        ;
     };
     users.${config.system.primaryUser} = import ./home;
   };

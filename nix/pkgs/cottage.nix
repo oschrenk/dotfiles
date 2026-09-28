@@ -1,6 +1,7 @@
-{ rustPlatform
-, fetchFromGitHub
-, lib
+{
+  rustPlatform,
+  fetchFromGitHub,
+  lib,
 }:
 
 rustPlatform.buildRustPackage rec {
@@ -22,7 +23,10 @@ rustPlatform.buildRustPackage rec {
   meta = {
     description = "GitOps tool for managing age-encrypted secrets in git repos";
     homepage = "https://github.com/sayanarijit/cottage";
-    license = with lib.licenses; [ mit asl20 ];
+    license = with lib.licenses; [
+      mit
+      asl20
+    ];
     mainProgram = "ctg";
   };
 }

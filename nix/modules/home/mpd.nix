@@ -6,7 +6,12 @@
 # Caveat: the nixpkgs mpd 0.24.10 darwin build has no inotify. `auto_update yes`
 # below is therefore a no-op; manual nudge via `mpc update` happens in
 # ~/.config/fish/functions/music.fish.
-{ config, pkgs, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 let
   stateDir = "${config.xdg.stateHome}/mpd";
 in

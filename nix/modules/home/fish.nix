@@ -47,8 +47,14 @@
     };
 
     plugins = [
-      { name = "autopair"; src = pkgs.fishPlugins.autopair.src; }
-      { name = "nvm";      src = pkgs.fishPlugins.nvm.src; }
+      {
+        name = "autopair";
+        src = pkgs.fishPlugins.autopair.src;
+      }
+      {
+        name = "nvm";
+        src = pkgs.fishPlugins.nvm.src;
+      }
     ];
 
     loginShellInit = ''

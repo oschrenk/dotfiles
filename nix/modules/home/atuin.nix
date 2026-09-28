@@ -31,7 +31,7 @@ in
     enableFishIntegration = true;
 
     # Suppress atuin keybindings; don't hijack
-    # - up-arrow (history nav), 
+    # - up-arrow (history nav),
     # - ctrl-r, or
     # - `?`.
     #
