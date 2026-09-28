@@ -11,14 +11,42 @@ let
   # what the sidebar already holds, so the first sync is a no-op.
   configFile = jsonFormat.generate "findbar-config.json" {
     items = [
-      { name = "Desktop"; path = "~/Desktop"; }
-      { name = "Downloads"; path = "~/Downloads"; }
-      { name = "Documents"; path = "~/Documents"; }
-      { name = "Watch"; path = "~/Library/Mobile Documents/com~apple~CloudDocs/Watch"; }
-      { name = "Miniatures"; path = "~/Library/Mobile Documents/com~apple~CloudDocs/Resources/Miniatures"; }
-      { name = "Instagram"; path = "~/Library/Mobile Documents/com~apple~CloudDocs/Resources/Instagram"; }
-      { name = "DIY"; path = "~/Library/Mobile Documents/com~apple~CloudDocs/Resources/Images/Raster/DIY"; }
-      { name = "Interior"; path = "~/Library/Mobile Documents/com~apple~CloudDocs/Resources/Images/Raster/Interior"; }
+      {
+        name = "Desktop";
+        path = "~/Desktop";
+      }
+      {
+        name = "Downloads";
+        path = "~/Downloads";
+      }
+      {
+        name = "Projects";
+        path = "~/Projects";
+      }
+      {
+        name = "Documents";
+        path = "~/Documents";
+      }
+      {
+        name = "Watch";
+        path = "~/Library/Mobile Documents/com~apple~CloudDocs/Watch";
+      }
+      {
+        name = "Miniatures";
+        path = "~/Library/Mobile Documents/com~apple~CloudDocs/Resources/Miniatures";
+      }
+      {
+        name = "Instagram";
+        path = "~/Library/Mobile Documents/com~apple~CloudDocs/Resources/Instagram";
+      }
+      {
+        name = "DIY";
+        path = "~/Library/Mobile Documents/com~apple~CloudDocs/Resources/Images/Raster/DIY";
+      }
+      {
+        name = "Interior";
+        path = "~/Library/Mobile Documents/com~apple~CloudDocs/Resources/Images/Raster/Interior";
+      }
     ];
     # false means the list above is the whole sidebar: anything added by hand
     # in Finder is removed on the next rebuild. Set true to keep manual items.
