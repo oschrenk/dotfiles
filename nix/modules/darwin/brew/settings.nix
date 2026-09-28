@@ -44,6 +44,7 @@
       { name = "darrylmorley/whatcable"; trusted = true; } # whatcable
       { name = "eddmann/tap"; trusted = true; } # whatsapp-cli
       { name = "lightpanda-io/browser"; trusted = true; } # lightpanda
+      { name = "macos-fuse-t/cask"; trusted = true; } # fuse-t
       { name = "oschrenk/made"; trusted = true; } # personal casks and formulae
       { name = "oschrenk/personal"; trusted = true; } # personal casks and fonts
       { name = "txn2/tap"; trusted = true; } # kubefwd
