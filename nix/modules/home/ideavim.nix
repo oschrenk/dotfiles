@@ -1,7 +1,7 @@
 # IdeaVim — vim emulation inside the JetBrains IDEs. The IDE itself is a brew
 # cask, so only the rc file is managed here.
 # Migrated from chezmoi (home/private_dot_config/ideavim/).
-{ ... }:
+_:
 {
   # No package: the plugin ships with IntelliJ and is installed from inside it.
   #

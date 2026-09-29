@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 # IntelliJ IDEA preferences
 {

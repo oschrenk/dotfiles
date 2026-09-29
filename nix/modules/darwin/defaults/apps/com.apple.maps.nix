@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 # Maps preferences
 # NOTE: Maps uses the com.apple.GEO domain for these preferences, not com.apple.Maps

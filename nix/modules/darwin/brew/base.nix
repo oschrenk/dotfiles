@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 # Homebrew packages installed on every machine regardless of role.
 {

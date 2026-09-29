@@ -4,7 +4,7 @@
 # a secret that declared none.
 #
 # package = null: secretspec is pinned per project in that project's devShell.
-{ ... }:
+_:
 {
   programs.secretspec = {
     enable = true;

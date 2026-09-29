@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 # sketchybar draws the visible bar; the macOS menu bar stays hidden and only
 # appears on hover, so these settings shape that hover state.

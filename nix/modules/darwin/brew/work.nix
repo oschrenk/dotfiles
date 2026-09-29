@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 # Homebrew packages for work machines.
 # Import this module in the host file for any work machine.

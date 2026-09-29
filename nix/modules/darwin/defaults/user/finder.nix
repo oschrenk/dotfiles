@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   programs.nix-plist-manager.options.applications = {

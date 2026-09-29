@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 # Homebrew packages for machines with a GUI (display, window manager, apps).
 # Import this module in the host file for any GUI machine.

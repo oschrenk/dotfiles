@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 # The software update domains are root-owned, so the setting only exists in
 # the darwin module, not in home-manager.

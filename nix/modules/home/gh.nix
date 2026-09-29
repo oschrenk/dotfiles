@@ -1,5 +1,5 @@
 # GitHub CLI. Migrated from chezmoi (home/private_dot_config/gh/).
-{ ... }:
+_:
 {
   programs.gh = {
     enable = true;

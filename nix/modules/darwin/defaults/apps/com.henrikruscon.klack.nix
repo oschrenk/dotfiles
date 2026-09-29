@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 # Klack (mechanical keyboard sound) preferences
 {

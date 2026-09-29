@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 # com.apple.universalaccess is TCC-protected: without Full Disk Access for the
 # terminal the writes fail. The tool reports the failure and continues, unlike

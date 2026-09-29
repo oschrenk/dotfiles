@@ -1,4 +1,4 @@
-{ ... }:
+_:
 {
   # Baseline, written to ~/.config/stylua/stylua.toml.
   #

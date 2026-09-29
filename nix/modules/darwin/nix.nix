@@ -3,7 +3,7 @@
 # nix-darwin's `nix.settings` are inert. Custom nix.conf settings are written via
 # this drop-in, which Determinate includes. The option is a `lines` type, so
 # multiple modules may contribute to it.
-{ ... }:
+_:
 {
   environment.etc."nix/nix.custom.conf".text = ''
     trusted-users = oliver

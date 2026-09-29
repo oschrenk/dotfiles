@@ -7,7 +7,7 @@
 #
 # Two helper shell scripts are deployed alongside aerospace.toml via
 # xdg.configFile (the HM module doesn't have a script option).
-{ ... }:
+_:
 {
   programs.aerospace = {
     enable = true;

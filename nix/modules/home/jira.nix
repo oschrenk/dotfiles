@@ -1,7 +1,7 @@
 # jira-cli helpers. Config is rendered by opnix (modules/darwin/secrets.nix);
 # the token + JIRA_CONFIG_FILE are set per-project in .envrc.local — jira-cli-go
 # and the 1Password service account come from the project's devshell, not here.
-{ ... }:
+_:
 {
   # Helper: space-joined keys of your top-3 in-progress tickets.
   xdg.configFile."jira/mine.sh" = {

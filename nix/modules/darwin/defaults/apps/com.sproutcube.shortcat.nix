@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 # Shortcat preferences
 # NOTE: requires "Settings > Keyboard > Keyboard Shortcuts > Windows > General > Fill"

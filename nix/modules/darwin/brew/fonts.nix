@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 # Fonts installed via Homebrew casks.
 # Fonts are cheap — install all of them on any machine that has a display.

@@ -6,7 +6,7 @@
 #
 # The HM module doesn't have a `themes` option, so the theme file is deployed
 # alongside via xdg.configFile.
-{ ... }:
+_:
 {
   programs.rmpc = {
     enable = true;

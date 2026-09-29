@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 # Safari preferences
 {

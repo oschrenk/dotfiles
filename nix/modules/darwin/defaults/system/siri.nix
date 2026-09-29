@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 # nix-darwin has no native Siri voice options.
 # CustomUserPreferences supports nested dicts so we use that.

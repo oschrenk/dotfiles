@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 # Tailscale (standalone macsys build) preferences
 {

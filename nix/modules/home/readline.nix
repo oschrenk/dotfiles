@@ -1,7 +1,7 @@
 # readline — key bindings and completion behaviour for anything linked against
 # it (bash, python's REPL, psql).
 # Migrated from chezmoi (home/private_dot_config/readline/).
-{ ... }:
+_:
 {
   # Not programs.readline: that module writes ~/.inputrc or ~/.config/inputrc,
   # and fish exports INPUTRC pointing at this path instead. It would also mean

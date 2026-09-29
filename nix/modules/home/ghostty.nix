@@ -5,7 +5,7 @@
 # Deployed verbatim instead of via programs.ghostty.settings: the config is
 # ~70% comments, including the splits decision log, and the settings generator
 # renders structured data only and drops every comment.
-{ ... }:
+_:
 {
   xdg.configFile."ghostty/config".source = ./ghostty/config;
 }

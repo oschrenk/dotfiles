@@ -1,4 +1,4 @@
-{ ... }:
+_:
 
 {
   # shared configuration across all machines

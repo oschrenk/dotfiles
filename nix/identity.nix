@@ -1,4 +1,4 @@
-{ ... }:
+_:
 {
   my.personal.username = "oliver";
   my.personal.name = "Oliver Schrenk";
