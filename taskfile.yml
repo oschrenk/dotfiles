@@ -88,6 +88,14 @@ tasks:
     dir: nix
     cmds:
       - nix fmt --no-warn-dirty
+  fmt:
+    desc: Format all nix files
+    deps: ['nix:fmt']
+  lint:
+    desc: Lint nix files
+    cmds:
+      - statix check nix
+      - deadnix --fail nix
   nix:test:
     desc: Run the nix unit tests
     dir: nix
