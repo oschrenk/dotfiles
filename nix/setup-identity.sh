@@ -40,14 +40,15 @@ prompt "SSH public key (full ssh-ed25519 ... line)" "$_sshKey" sshKey
 prompt "dotfiles checkout" "$_dotfiles" dotfiles
 
 cat > "$OUT" <<EOF
-{ ... }:
-{
-  my.personal.username = "$username";
-  my.personal.name     = "$name";
-  my.personal.email    = "$email";
-  my.personal.timezone = "$timezone";
-  my.personal.sshKey   = "$sshKey";
-  my.personal.dotfiles = "$dotfiles";
+_: {
+  my.personal = {
+    username = "$username";
+    name = "$name";
+    email = "$email";
+    timezone = "$timezone";
+    sshKey = "$sshKey";
+    dotfiles = "$dotfiles";
+  };
 }
 EOF
 
