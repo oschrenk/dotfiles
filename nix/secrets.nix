@@ -139,7 +139,7 @@ rec {
           let
             r = entry.ref;
             # ref.vault overrides the vault the provider URI names.
-            vault = if r ? vault then r.vault else vaultOf (builtins.head entry.providers);
+            vault = r.vault or (vaultOf (builtins.head entry.providers));
             section = if r ? section then [ r.section ] else [ ];
             parts = [
               vault
