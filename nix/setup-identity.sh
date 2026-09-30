@@ -19,6 +19,7 @@ _name="$(id -F 2>/dev/null || echo "")"
 _email="$(git config --global user.email 2>/dev/null || echo "")"
 _timezone="$(readlink /etc/localtime 2>/dev/null | sed 's|.*zoneinfo/||' || echo "UTC")"
 _sshKey="$(cat "$HOME/.ssh/id_ed25519.pub" 2>/dev/null || echo "")"
+_dotfiles="$(dirname "$SCRIPT_DIR")"
 
 prompt() {
   local label="$1" default="$2" varname="$3"
@@ -36,6 +37,7 @@ prompt "name    " "$_name"     name
 prompt "email   " "$_email"    email
 prompt "timezone" "$_timezone" timezone
 prompt "SSH public key (full ssh-ed25519 ... line)" "$_sshKey" sshKey
+prompt "dotfiles checkout" "$_dotfiles" dotfiles
 
 cat > "$OUT" <<EOF
 { ... }:
@@ -45,6 +47,7 @@ cat > "$OUT" <<EOF
   my.personal.email    = "$email";
   my.personal.timezone = "$timezone";
   my.personal.sshKey   = "$sshKey";
+  my.personal.dotfiles = "$dotfiles";
 }
 EOF
 
