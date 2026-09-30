@@ -33,32 +33,34 @@ in
     enable = true;
     tokenFile = "/etc/opnix-token";
 
-    secrets.atuinKey = {
-      reference = secrets.ref "ATUIN_SYNC_KEY";
-      path = "/Users/oliver/.local/share/atuin/key";
-      owner = "oliver";
-      group = "staff";
-      mode = "0400";
-    };
+    secrets = {
+      atuinKey = {
+        reference = secrets.ref "ATUIN_SYNC_KEY";
+        path = "/Users/oliver/.local/share/atuin/key";
+        owner = "oliver";
+        group = "staff";
+        mode = "0400";
+      };
 
-    secrets.cottageIdentity = {
-      reference = secrets.ref "COTTAGE_IDENTITY";
-      path = "/Users/oliver/.config/cottage/identity";
-      owner = "oliver";
-      group = "staff";
-      mode = "0400";
-    };
+      cottageIdentity = {
+        reference = secrets.ref "COTTAGE_IDENTITY";
+        path = "/Users/oliver/.config/cottage/identity";
+        owner = "oliver";
+        group = "staff";
+        mode = "0400";
+      };
 
-    # Full jira config — kept out of this public repo, stored in the Bootstrap
-    # vault (the one the opnix service account can read). jira reads it via
-    # JIRA_CONFIG_FILE set in the wrapper.
-    secrets.jiraConfig = {
-      reference = secrets.ref "JIRA_CONFIG";
-      kind = "file";
-      path = "/Users/oliver/.config/jira/config.yml";
-      owner = "oliver";
-      group = "staff";
-      mode = "0400";
+      # Full jira config — kept out of this public repo, stored in the Bootstrap
+      # vault (the one the opnix service account can read). jira reads it via
+      # JIRA_CONFIG_FILE set in the wrapper.
+      jiraConfig = {
+        reference = secrets.ref "JIRA_CONFIG";
+        kind = "file";
+        path = "/Users/oliver/.config/jira/config.yml";
+        owner = "oliver";
+        group = "staff";
+        mode = "0400";
+      };
     };
   };
 }

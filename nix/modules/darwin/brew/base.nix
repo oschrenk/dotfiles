@@ -2,87 +2,89 @@ _:
 
 # Homebrew packages installed on every machine regardless of role.
 {
-  homebrew.brews = [
+  homebrew = {
+    brews = [
 
-    # core — essential tools, machine usable without anything else
-    "findutils" # system, GNU g-prefixed find, xargs
-    "mas" # cli, Mac App Store interface
-    "neovim" # editor
+      # core — essential tools, machine usable without anything else
+      "findutils" # system, GNU g-prefixed find, xargs
+      "mas" # cli, Mac App Store interface
+      "neovim" # editor
 
-    # core (cli)
-    "coreutils" # system, GNU core utilities
-    "watch" # system, issue commands at regular interval
+      # core (cli)
+      "coreutils" # system, GNU core utilities
+      "watch" # system, issue commands at regular interval
 
-    # crypto
+      # crypto
 
-    # productivity
-    "eddmann/tap/whatsapp-cli" # cli, WhatsApp from terminal
-    "oschrenk/personal/anydoc" # docs, convert documents to markdown
-    "pandoc" # docs, document converter
+      # productivity
+      "eddmann/tap/whatsapp-cli" # cli, WhatsApp from terminal
+      "oschrenk/personal/anydoc" # docs, convert documents to markdown
+      "pandoc" # docs, document converter
 
-    # macos
-    "tag" # terminal, interact with macOS file tags
+      # macos
+      "tag" # terminal, interact with macOS file tags
 
-    # ai
-    "llm" # ai, llm on cli
-    "oschrenk/personal/dora" # ai, navigate code with scip
-    "lightpanda-io/browser/lightpanda" # ai, headless browser
-    "oschrenk/made/team" # ai, claude, agent-to-agent messaging bus
+      # ai
+      "llm" # ai, llm on cli
+      "oschrenk/personal/dora" # ai, navigate code with scip
+      "lightpanda-io/browser/lightpanda" # ai, headless browser
+      "oschrenk/made/team" # ai, claude, agent-to-agent messaging bus
 
-    # data
-    "xq" # data, process xml
+      # data
+      "xq" # data, process xml
 
-    # database
+      # database
 
-    # development
-    "go-task" # generic, go-based task runner
+      # development
+      "go-task" # generic, go-based task runner
 
-    # editor
-    "tree-sitter-cli" # nvim, requirement
+      # editor
+      "tree-sitter-cli" # nvim, requirement
 
-    # git
-    "worktrunk" # git, worktree management
+      # git
+      "worktrunk" # git, worktree management
 
-    # container, k8s
-    "container" # cli, containerization from Apple
+      # container, k8s
+      "container" # cli, containerization from Apple
 
-    # lua
-    "lua" # lua, programming language
+      # lua
+      "lua" # lua, programming language
 
-    # web (javascript, typescript, css, ...)
-    "node" # javascript, language
-    "typescript" # typescript, language
-    "typescript-language-server" # typescript, lsp
+      # web (javascript, typescript, css, ...)
+      "node" # javascript, language
+      "typescript" # typescript, language
+      "typescript-language-server" # typescript, lsp
 
-    # jvm
-    "openjdk@21" # jvm, sdk
-    "openjdk" # jvm, sdk
-    "oschrenk/personal/scip" # cli, source indexer
-    "oschrenk/personal/scip-typescript" # cli, index ts
+      # jvm
+      "openjdk@21" # jvm, sdk
+      "openjdk" # jvm, sdk
+      "oschrenk/personal/scip" # cli, source indexer
+      "oschrenk/personal/scip-typescript" # cli, index ts
 
-    # python
-    "python@3.13" # python, language
-    "python@3.14" # python, language
-    "uv" # python package manager
+      # python
+      "python@3.13" # python, language
+      "python@3.14" # python, language
+      "uv" # python package manager
 
-    # swift
-    "yapstudios/tap/sfsym" # swift, SF Symbols cli
+      # swift
+      "yapstudios/tap/sfsym" # swift, SF Symbols cli
 
-    # network
-    "telnet" # network, telnet protocol
+      # network
+      "telnet" # network, telnet protocol
 
-    # a/v + personal
-    "flac" # a/v, flac codec. kept: libmp3splt needs it, and that has no nixpkgs equivalent
-    "libmp3splt" # a/v, split mp3, ogg, flac files
-  ];
+      # a/v + personal
+      "flac" # a/v, flac codec. kept: libmp3splt needs it, and that has no nixpkgs equivalent
+      "libmp3splt" # a/v, split mp3, ogg, flac files
+    ];
 
-  homebrew.casks = [
-    "claude-code" # ai, claude
-    "macos-fuse-t/cask/fuse-t" # filesystem, kext-free FUSE for mounts
-    "macos-fuse-t/cask/fuse-t-sshfs" # filesystem, sshfs built against fuse-t
-  ];
+    casks = [
+      "claude-code" # ai, claude
+      "macos-fuse-t/cask/fuse-t" # filesystem, kext-free FUSE for mounts
+      "macos-fuse-t/cask/fuse-t-sshfs" # filesystem, sshfs built against fuse-t
+    ];
 
-  homebrew.masApps = {
-    "Health Auto Export" = 1115567069; # export apple health data
+    masApps = {
+      "Health Auto Export" = 1115567069; # export apple health data
+    };
   };
 }

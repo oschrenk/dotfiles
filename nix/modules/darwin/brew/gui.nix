@@ -3,94 +3,96 @@ _:
 # Homebrew packages for machines with a GUI (display, window manager, apps).
 # Import this module in the host file for any GUI machine.
 {
-  homebrew.brews = [
-    "8ta4/extension/extension" # web, install browser extensions (used by chezmoi 01f_deps_extensions)
-    "chrome-cli" # cli, control chromium browsers; all-the-videos points it at Arc
-    "displayplacer" # macos, arrange monitors
-    "fileicon" # macos, manage icons
-    "iconsur" # macos, fetch icons
-    "m1ddc" # hardware, monitor control
-    "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
-    "oschrenk/made/nightshift" # hardware, control Night Shift
-    "oschrenk/made/wallpaper" # macos, set wallpaper
-    "xcodes" # xcode & runtimes manager
-  ];
+  homebrew = {
+    brews = [
+      "8ta4/extension/extension" # web, install browser extensions (used by chezmoi 01f_deps_extensions)
+      "chrome-cli" # cli, control chromium browsers; all-the-videos points it at Arc
+      "displayplacer" # macos, arrange monitors
+      "fileicon" # macos, manage icons
+      "iconsur" # macos, fetch icons
+      "m1ddc" # hardware, monitor control
+      "oschrenk/made/keyboard" # hardware, control keyboard brightness of macbooks
+      "oschrenk/made/nightshift" # hardware, control Night Shift
+      "oschrenk/made/wallpaper" # macos, set wallpaper
+      "xcodes" # xcode & runtimes manager
+    ];
 
-  homebrew.casks = [
-    "1password" # password manager
-    "alcove" # macos, notch helper
-    "antinote" # notes with SoulverCore
-    "arc" # chromium based browser
-    "beeper" # universal chat client
-    "betterdisplay" # display management
-    "discord" # discord client
-    "docker-desktop" # container runtime
-    "ghostty" # terminal
-    "google-chrome" # chromium based browser
-    "handbrake-app" # video transcoder
-    "heroic" # game launcher
-    "hex-fiend" # hex editor
-    "iina" # video client
-    "intellij-idea" # jetbrains ide
-    "jdk-mission-control" # monitor java applications
-    "karabiner-elements" # keyboard customiser (DriverKit); replaced kanata
-    "keyboardcleantool" # disables keyboard for cleaning
-    "keycastr" # shows key strokes on screen
-    "knockknock" # identify background tasks/processes
-    "little-snitch" # firewall, monitor and block outgoing connections
-    "mochi" # study notes and flashcards
-    "monodraw" # draw ascii diagrams
-    "neovide-app" # neovim desktop app
-    "numi" # calculator
-    "obsidian" # notes
-    "omnidisksweeper" # cleanup disk space
-    "onyx" # macos maintenance
-    "openoats" # meeting note-taker, transcribes calls
-    "oschrenk/personal/cadova-viewer" # cad model viewer
-    "oschrenk/personal/mud" # markdown viewer
-    "oschrenk/personal/readinglist" # browser for safari's reading list
-    "pika" # color picker
-    "raspberry-pi-imager" # flash raspberry pi images
-    "safari-technology-preview" # browser, safari preview builds
-    "shortcat" # macos, vim picker
-    "signal" # signal messaging
-    "slack" # slack office communication
-    "spotify" # audio client
-    "tabularis" # lightweight database management tool
-    "telegram" # telegram messaging
-    "the-unarchiver" # unarchiving most archive files
-    "transmission" # torrent client
-    "typewhisper" # ai, speech-to-text dictation
-    "vlc" # video client
-    "whatcable" # cable identifier
-    "whatsapp" # whatsapp messaging
-    "yellowdot" # hide screen/audio indicator
-    "zed" # code editor; auto-update off in its settings, versions move with brew
-  ];
+    casks = [
+      "1password" # password manager
+      "alcove" # macos, notch helper
+      "antinote" # notes with SoulverCore
+      "arc" # chromium based browser
+      "beeper" # universal chat client
+      "betterdisplay" # display management
+      "discord" # discord client
+      "docker-desktop" # container runtime
+      "ghostty" # terminal
+      "google-chrome" # chromium based browser
+      "handbrake-app" # video transcoder
+      "heroic" # game launcher
+      "hex-fiend" # hex editor
+      "iina" # video client
+      "intellij-idea" # jetbrains ide
+      "jdk-mission-control" # monitor java applications
+      "karabiner-elements" # keyboard customiser (DriverKit); replaced kanata
+      "keyboardcleantool" # disables keyboard for cleaning
+      "keycastr" # shows key strokes on screen
+      "knockknock" # identify background tasks/processes
+      "little-snitch" # firewall, monitor and block outgoing connections
+      "mochi" # study notes and flashcards
+      "monodraw" # draw ascii diagrams
+      "neovide-app" # neovim desktop app
+      "numi" # calculator
+      "obsidian" # notes
+      "omnidisksweeper" # cleanup disk space
+      "onyx" # macos maintenance
+      "openoats" # meeting note-taker, transcribes calls
+      "oschrenk/personal/cadova-viewer" # cad model viewer
+      "oschrenk/personal/mud" # markdown viewer
+      "oschrenk/personal/readinglist" # browser for safari's reading list
+      "pika" # color picker
+      "raspberry-pi-imager" # flash raspberry pi images
+      "safari-technology-preview" # browser, safari preview builds
+      "shortcat" # macos, vim picker
+      "signal" # signal messaging
+      "slack" # slack office communication
+      "spotify" # audio client
+      "tabularis" # lightweight database management tool
+      "telegram" # telegram messaging
+      "the-unarchiver" # unarchiving most archive files
+      "transmission" # torrent client
+      "typewhisper" # ai, speech-to-text dictation
+      "vlc" # video client
+      "whatcable" # cable identifier
+      "whatsapp" # whatsapp messaging
+      "yellowdot" # hide screen/audio indicator
+      "zed" # code editor; auto-update off in its settings, versions move with brew
+    ];
 
-  homebrew.masApps = {
-    # apple
-    "Apple Developer" = 640199958;
-    "TestFlight" = 899247664;
-    "XCode" = 497799835;
+    masApps = {
+      # apple
+      "Apple Developer" = 640199958;
+      "TestFlight" = 899247664;
+      "XCode" = 497799835;
 
-    # apps
-    "Bear" = 1091189122; # notes
-    "DeskRest" = 6751417411; # health
-    "Due" = 524373870; # reminders on steroids
-    "Klack" = 6446206067; # keyboard
-    "NordVPN" = 905953485;
-    "Parcel" = 375589283; # shipment tracking
-    "QuickLook Video" = 6759566961; # quick look video previews
-    "Reeder" = 1529448980; # rss
+      # apps
+      "Bear" = 1091189122; # notes
+      "DeskRest" = 6751417411; # health
+      "Due" = 524373870; # reminders on steroids
+      "Klack" = 6446206067; # keyboard
+      "NordVPN" = 905953485;
+      "Parcel" = 375589283; # shipment tracking
+      "QuickLook Video" = 6759566961; # quick look video previews
+      "Reeder" = 1529448980; # rss
 
-    # safari extensions
-    "1Password for Safari" = 1569813296;
-    "Dark Reader for Safari" = 1438243180;
-    "DeArrow" = 6451469297;
-    "Obsidian Web Clipper" = 6720708363;
-    "SponsorBlock" = 1573461917;
-    "Vimlike" = 1584519802;
-    "uBlock Origin Lite" = 6745342698;
+      # safari extensions
+      "1Password for Safari" = 1569813296;
+      "Dark Reader for Safari" = 1438243180;
+      "DeArrow" = 6451469297;
+      "Obsidian Web Clipper" = 6720708363;
+      "SponsorBlock" = 1573461917;
+      "Vimlike" = 1584519802;
+      "uBlock Origin Lite" = 6745342698;
+    };
   };
 }
