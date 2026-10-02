@@ -375,6 +375,72 @@ lib.runTests {
   };
 
   ###################
+  # Project default chain
+  ###################
+
+  # A secret that declares no chain of its own falls back to [defaults].
+  testDefaultChainResolvesBareSecret = {
+    expr = build2 {
+      defaults.providers = [ "main" ];
+      profiles.default.A = {
+        ref = {
+          item = "Item";
+          field = "a-field";
+        };
+      };
+    };
+    expected = {
+      A = "op://Vault/Item/a-field";
+    };
+  };
+
+  # A secret's own chain wins over [defaults].
+  testOwnChainWinsOverDefaultChain = {
+    expr = build2 {
+      defaults.providers = [ "main" ];
+      profiles.default.A = {
+        providers = [ "spaced" ];
+        ref = {
+          item = "Item";
+          field = "a-field";
+        };
+      };
+    };
+    expected = {
+      A = "op://Two Words/Item/a-field";
+    };
+  };
+
+  # The default chain supplies a vault, not coordinates. Without a ref there
+  # is still nothing to address.
+  testDefaultChainEntryWithoutRefIsNull = {
+    expr = build2 {
+      defaults.providers = [ "main" ];
+      profiles.default.A = {
+        description = "no ref";
+      };
+    };
+    expected = {
+      A = null;
+    };
+  };
+
+  # A default chain naming an undefined alias is a manifest error, and must
+  # not resolve to a vault that happens to work.
+  testDefaultChainUnknownAliasThrows = {
+    expr = throws (build2 {
+      defaults.providers = [ "typo" ];
+      profiles.default.A = {
+        ref = {
+          item = "Item";
+          field = "a-field";
+        };
+      };
+    });
+    expected = true;
+  };
+
+  ###################
   # Shapes the manifest format allows
   ###################
 

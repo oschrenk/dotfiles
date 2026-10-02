@@ -11,6 +11,8 @@
    - `refs` table,
    - provider-alias `ref` templates
    - profile inheritance from `default`.
+   - profile-level provider chains, which sit between a secret's own chain and
+     `[defaults]`.
    - scopes
 
     # Usage
@@ -130,16 +132,22 @@ rec {
         in
         if host == null then null else dropUserinfo host;
 
+      # Project-wide chain, used by secrets that declare none of their own.
+      defaultProviders = spec.defaults.providers or [ ];
+
       # Reference for one secret, or null when it has no 1Password address.
       addressOf =
         name: entry:
-        if !(entry ? ref) || !(entry ? providers) || entry.providers == [ ] then
+        let
+          providers = entry.providers or defaultProviders;
+        in
+        if !(entry ? ref) || providers == [ ] then
           null
         else
           let
             r = entry.ref;
             # ref.vault overrides the vault the provider URI names.
-            vault = r.vault or (vaultOf (builtins.head entry.providers));
+            vault = r.vault or (vaultOf (builtins.head providers));
             section = if r ? section then [ r.section ] else [ ];
             parts = [
               vault
