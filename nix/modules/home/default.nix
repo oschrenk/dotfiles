@@ -45,7 +45,6 @@
     ./ripgrep.nix
     ./rumdl.nix
     ./rmpc.nix
-    ./secretspec.nix
     ./sessionizer.nix
     ./thaw.nix
     ./ssh.nix

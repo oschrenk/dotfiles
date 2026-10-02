@@ -57,6 +57,7 @@
           packages = with pkgs; [
             deadnix # nix, find dead code
             nixfmt # nix, official formatter
+            secretspec # secrets, resolves secretspec.toml
             statix # nix, lints and anti-patterns
           ];
         };
