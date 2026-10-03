@@ -39,7 +39,7 @@ tail /var/log/opnix-secrets.log   # expect "Successfully processed N secrets"
 
 ## Declaring a Secret
 
-References come from `secretspec.toml` by name, through the reader in `nix/secrets.nix`:
+References come from `secretspec.toml` by name, through the reader from the `secretspec.nix` flake input:
 
 ```nix
 secrets.atuinKey = {

@@ -1,7 +1,12 @@
-{ config, lib, ... }:
+{
+  config,
+  lib,
+  secretspec,
+  ...
+}:
 
 let
-  secrets = (import ../../secrets.nix).read ../../../secretspec.toml;
+  secrets = secretspec.lib.read ../../../secretspec.toml;
 
   cfg = config.services.onepassword-secrets;
 

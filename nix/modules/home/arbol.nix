@@ -46,6 +46,7 @@
           "git@github.com:oschrenk/homebrew-personal.git"
           "git@github.com:oschrenk/homelab.git"
           "git@github.com:oschrenk/pi-gen.git"
+          "git@github.com:oschrenk/secretspec.nix.git"
         ];
 
         oschrenk = [

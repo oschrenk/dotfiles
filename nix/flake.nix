@@ -21,6 +21,10 @@
     # nixpkgs, changes the derivation hash and turns every rebuild into a Go
     # compile. Their home-manager modules still evaluate against our pkgs, since
     # home-manager is configured with useGlobalPkgs.
+    # Shared secretspec reader, consumed by modules/darwin/secrets.nix. Its
+    # nixpkgs only serves its own checks, so following ours costs nothing.
+    secretspec.url = "github:oschrenk/secretspec.nix";
+    secretspec.inputs.nixpkgs.follows = "nixpkgs";
     arbol.url = "github:oschrenk/arbol";
     cutter.url = "github:oschrenk/cutter";
     infuse.url = "github:oschrenk/infuse";
@@ -61,18 +65,6 @@
             statix # nix, lints and anti-patterns
           ];
         };
-
-      # Unit tests. Run with `task nix:test`, which builds this alone rather
-      # than `nix flake check`, since that evaluates all six host configs first.
-      checks.aarch64-darwin.secrets =
-        let
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin;
-          failures = import ./tests/secrets.nix { inherit (pkgs) lib; };
-        in
-        if failures == [ ] then
-          pkgs.runCommand "secrets-tests-passed" { } "touch $out"
-        else
-          throw "secrets catalogue tests failed:\n${builtins.toJSON failures}";
 
       darwinConfigurations = {
         "Olivers-MaxBook" = nix-darwin.lib.darwinSystem {

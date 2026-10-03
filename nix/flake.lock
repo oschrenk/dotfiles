@@ -414,8 +414,29 @@
         "nixpkgs": "nixpkgs_7",
         "opnix": "opnix",
         "plan": "plan",
+        "secretspec": "secretspec",
         "sessionizer": "sessionizer",
         "thaw": "thaw"
+      }
+    },
+    "secretspec": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1790992210,
+        "narHash": "sha256-XHT7tS2LYNH5+XvTEuRP9GG9qrRtIlsyDCRKx3qVMok=",
+        "owner": "oschrenk",
+        "repo": "secretspec.nix",
+        "rev": "f79861d5d81c92f517195ab5c3246e7caf8bb508",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oschrenk",
+        "repo": "secretspec.nix",
+        "type": "github"
       }
     },
     "sessionizer": {

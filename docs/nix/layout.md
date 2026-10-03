@@ -9,7 +9,6 @@ nix/
   flake.nix              - entry point; wires hosts to modules
   options.nix            - options.my.personal namespace
   identity.nix           - committed; sets my.personal.* values (Macs)
-  secrets.nix            - secretspec reader, resolves op:// addresses from secretspec.toml
   setup-identity.sh      - script: prompts for identity.nix values (only needed when forking or identity changes)
 
   hosts/
