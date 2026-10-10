@@ -11,7 +11,7 @@ in
 {
   home.packages = [ infuse.packages.${pkgs.stdenv.hostPlatform.system}.default ];
 
-  # Safe as a read-only store symlink: `add`, `dir`, `link` and `status` only read
+  # Safe as a read-only store symlink: `add`, `dir`, `link`, `rm` and `status` only read
   # this file. The one writer is `infuse init`, whose whole job is to create the
   # file that this now generates, so it has nothing left to do.
   #

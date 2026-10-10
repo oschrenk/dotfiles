@@ -79,11 +79,11 @@
         "nixpkgs": "nixpkgs_3"
       },
       "locked": {
-        "lastModified": 1787696960,
-        "narHash": "sha256-Pqiv0v+Ue3E22tQz3ap8AmBtuAzcXhdk18kYKn1b12I=",
+        "lastModified": 1791594428,
+        "narHash": "sha256-uWalF/wsswyymPxfU02o2IWLzR1GNMfuxn7LZdwk3jo=",
         "owner": "oschrenk",
         "repo": "infuse",
-        "rev": "41bde97ce9ba3186602b642450a723f08406d636",
+        "rev": "8041da77c175eafb9211874bef369ffc97694102",
         "type": "github"
       },
       "original": {
