@@ -48,27 +48,6 @@
                         ]
                     },
                     {
-                        "description": "Ctrl+- to Ctrl+Shift+- for Ghostty",
-                        "manipulators": [
-                            {
-                                "from": {
-                                    "key_code": "hyphen",
-                                    "modifiers": {
-                                        "mandatory": ["left_control"],
-                                        "optional": ["any"]
-                                    }
-                                },
-                                "to": [
-                                    {
-                                        "key_code": "hyphen",
-                                        "modifiers": ["left_control", "shift"]
-                                    }
-                                ],
-                                "type": "basic"
-                            }
-                        ]
-                    },
-                    {
                         "description": "DJI Mic Mini 2 button -> Wispr Flow hands-free (Fn+Space)",
                         "manipulators": [
                             {
