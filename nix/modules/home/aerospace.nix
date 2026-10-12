@@ -150,6 +150,7 @@ _:
         inherit-env-vars = true;
         env-vars = {
           XDG_CONFIG_HOME = "/Users/oliver/.config";
+          PATH = "/etc/profiles/per-user/oliver/bin:/run/current-system/sw/bin:\${PATH}";
         };
       };
 

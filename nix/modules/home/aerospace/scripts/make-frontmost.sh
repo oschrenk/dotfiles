@@ -3,7 +3,7 @@ set -o errexit
 set -o nounset
 set -o pipefail
 
-AEROSSPACE_BIN='/opt/homebrew/bin/aerospace'
+AEROSSPACE_BIN='/etc/profiles/per-user/oliver/bin/aerospace'
 
 BUNDLE_ID="${1:-com.apple.finder}"
 ws="$($AEROSSPACE_BIN list-workspaces --focused)"
