@@ -5,7 +5,7 @@
 # `start-at-login` / `after-login-command` and uses
 # `org.nix-community.home.aerospace` instead.
 #
-# Two helper shell scripts are deployed alongside aerospace.toml via
+# Three helper shell scripts are deployed alongside aerospace.toml via
 # xdg.configFile (the HM module doesn't have a script option).
 _:
 {
@@ -171,6 +171,8 @@ _:
           "exec-and-forget \${XDG_CONFIG_HOME}/aerospace/make-frontmost.sh md.obsidian"
           "exec-and-forget \${XDG_CONFIG_HOME}/aerospace/position-frontmost.sh center"
         ];
+        # Project picker: opens or focuses a project's Ghostty window
+        ctrl-space = "exec-and-forget \${XDG_CONFIG_HOME}/aerospace/sessionizer-picker.sh";
 
         # See: https://nikitabobko.github.io/AeroSpace/commands#layout
         alt-slash = "layout tiles horizontal vertical";
@@ -512,7 +514,7 @@ _:
     };
   };
 
-  # Helper scripts referenced from the cmd-ctrl-1 / cmd-ctrl-2 bindings.
+  # Helper scripts referenced from the cmd-ctrl-1 / cmd-ctrl-2 / ctrl-space bindings.
   # The HM aerospace module doesn't have a script option, so deploy these
   # via xdg.configFile.
   xdg.configFile = {
@@ -522,6 +524,10 @@ _:
     };
     "aerospace/position-frontmost.sh" = {
       source = ./aerospace/scripts/position-frontmost.sh;
+      executable = true;
+    };
+    "aerospace/sessionizer-picker.sh" = {
+      source = ./aerospace/scripts/sessionizer-picker.sh;
       executable = true;
     };
   };
