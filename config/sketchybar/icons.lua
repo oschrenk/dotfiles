@@ -82,6 +82,7 @@ return {
   },
   sessions = {
     tmux = nerdfont["nf-cod-terminal_tmux"],
+    ghostty = symbols["macwindow"],
   },
   windows = {
     dot = nerdfont["nf-oct-dot_fill"],
