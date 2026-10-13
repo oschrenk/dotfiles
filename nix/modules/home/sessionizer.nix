@@ -11,6 +11,8 @@ in
     enable = true;
 
     base = {
+      # Ghostty windows, tabs and splits instead of tmux sessions
+      backend = "ghostty";
       ignore = [
         ".build"
         "node_modules"

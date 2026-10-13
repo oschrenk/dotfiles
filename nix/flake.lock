@@ -444,11 +444,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1788726580,
-        "narHash": "sha256-NyyC2Fbzzzuml6Q/CljBWseFB10KAHioa+/LkYjdKHU=",
+        "lastModified": 1791866435,
+        "narHash": "sha256-EO7pv70crm0Fzelg1qUSgZTJTvWYS0dWbpdiP71ij1c=",
         "owner": "oschrenk",
         "repo": "sessionizer",
-        "rev": "8bc48c4c7278f86e8b7757c2d7b535453492b5b0",
+        "rev": "d249df2f49579418187b1010ffbe2d23f04dc1b7",
         "type": "github"
       },
       "original": {
