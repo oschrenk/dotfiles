@@ -89,26 +89,21 @@ macos-option-as-alt = true
 #   ghostty +list-keybinds
 #   [alt|ctrl|shift|super] + key
 #
-keybind = super+h=goto_split:left
-keybind = super+k=goto_split:up
-keybind = super+j=goto_split:down
-keybind = super+l=goto_split:right
+# tmux-style split keys; performable: passes the key through when no split is in that direction
+keybind = performable:ctrl+h=goto_split:left
+keybind = performable:ctrl+k=goto_split:up
+keybind = performable:ctrl+j=goto_split:down
+keybind = performable:ctrl+l=goto_split:right
+keybind = ctrl+minus=new_split:down
+keybind = ctrl+backslash=new_split:right
 keybind = super+n=new_window
 keybind = super+up=resize_split:up,10
 keybind = super+down=resize_split:down,10
 keybind = super+left=resize_split:left,10
 keybind = super+right=resize_split:right,10
-keybind = super+s=activate_key_table:splits
-keybind = splits/-=new_split:down
-keybind = chain=goto_split:down
-keybind = chain=deactivate_key_table
-keybind = splits/shift+\=new_split:right
-keybind = chain=goto_split:right
-keybind = chain=deactivate_key_table
-keybind = splits/escape=deactivate_key_table
 
-# vim copy mode; requires the oschrenk/ghostty fork, the official cask reports a config error for it
-keybind = super+[=toggle_copy_mode
+# vim copy mode; requires the oschrenk/ghostty fork
+keybind = ctrl+[=toggle_copy_mode
 
 # visible screen in nvim, opened at the last line (shell prompt only)
 keybind = super+shift+y=text:nvim +\x20
@@ -120,7 +115,3 @@ keybind = super+r=reload_config
 
 # open quick terminal
 keybind = global:super+grave_accent=toggle_quick_terminal
-
-# Send Ctrl+_ (0x1f) when Ctrl+- is pressed.
-# Replaces the deleted Karabiner rule that mapped Ctrl+- -> Ctrl+Shift+-.
-keybind = ctrl+minus=text:\x1f
