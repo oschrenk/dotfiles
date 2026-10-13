@@ -97,10 +97,10 @@ keybind = performable:ctrl+l=goto_split:right
 keybind = ctrl+minus=new_split:down
 keybind = ctrl+backslash=new_split:right
 keybind = super+n=new_window
-keybind = super+up=resize_split:up,10
-keybind = super+down=resize_split:down,10
-keybind = super+left=resize_split:left,10
-keybind = super+right=resize_split:right,10
+keybind = super+up=resize_split:up,25
+keybind = super+down=resize_split:down,25
+keybind = super+left=resize_split:left,25
+keybind = super+right=resize_split:right,25
 
 # vim copy mode; requires the oschrenk/ghostty fork
 keybind = ctrl+[=toggle_copy_mode
