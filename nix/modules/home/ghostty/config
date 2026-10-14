@@ -97,6 +97,12 @@ keybind = performable:ctrl+l=goto_split:right
 keybind = ctrl+minus=new_split:down
 keybind = ctrl+backslash=new_split:right
 keybind = super+n=new_window
+keybind = ctrl+left=goto_window:previous
+keybind = ctrl+right=goto_window:next
+keybind = shift+left=previous_tab
+keybind = shift+right=next_tab
+keybind = ctrl+shift+left=move_tab:-1
+keybind = ctrl+shift+right=move_tab:1
 keybind = super+up=resize_split:up,25
 keybind = super+down=resize_split:down,25
 keybind = super+left=resize_split:left,25
