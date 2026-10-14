@@ -53,13 +53,26 @@ function GhosttySessions.new(icons, style, tabIcons, tabStyle)
 
     local dots = {}
     for i = 1, 5, 1 do
-      dots[i] = sbar.add("item", {
+      local dot = sbar.add("item", {
         position = position,
         display = display,
         icon = { string = tabIcons.dot, color = tabStyle.inactive },
-        label = { drawing = false },
+        label = { width = 0 },
         drawing = false,
       })
+      dots[i] = dot
+
+      dot:subscribe("mouse.entered", function(_)
+        sbar.animate("tanh", 30, function()
+          dot:set({ label = { width = "dynamic" } })
+        end)
+      end)
+
+      dot:subscribe("mouse.exited", function(_)
+        sbar.animate("tanh", 30, function()
+          dot:set({ label = { width = 0 } })
+        end)
+      end)
     end
 
     items[1]:subscribe("ghostty_tabs_update", function(env)
@@ -115,8 +128,10 @@ function GhosttySessions.new(icons, style, tabIcons, tabStyle)
       for i, dot in ipairs(dots) do
         local t = tabs[i]
         if t ~= nil then
+          local color = t.selected and tabStyle.active or tabStyle.inactive
           dot:set({
-            icon = { color = t.selected and tabStyle.active or tabStyle.inactive },
+            icon = { color = color },
+            label = { string = t.title, color = color },
             drawing = true,
           })
         else
