@@ -6,16 +6,16 @@
 
 rustPlatform.buildRustPackage rec {
   pname = "firemark";
-  version = "0.1.3";
+  version = "0.1.4";
 
   src = fetchFromGitHub {
     owner = "Vitruves";
     repo = "firemark";
     tag = "v${version}";
-    hash = "sha256-rvczHSbyK8Xs9M0tq8cMgLH6l2RssdTZ7ovuKWyp9A0=";
+    hash = "sha256-JCml0SsicpatYQgLRonRtnCUVa08CEZhq7kUYl5irIg=";
   };
 
-  cargoHash = "sha256-uzoU5m7gPJlhVeeF2sH1bY3RaC2SAES1DzS61ML0bTI=";
+  cargoHash = "sha256-pEq4UfLUvGxTZZBfrodqe5VVSsxJn+UCAXX7brmpeXk=";
 
   # tests want fixtures we haven't set up
   doCheck = false;
