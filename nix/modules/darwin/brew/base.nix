@@ -79,6 +79,7 @@ _:
 
     casks = [
       "claude-code" # ai, claude
+      "codex" # ai, openai coding agent
       "macos-fuse-t/cask/fuse-t" # filesystem, kext-free FUSE for mounts
       "macos-fuse-t/cask/fuse-t-sshfs" # filesystem, sshfs built against fuse-t
     ];
