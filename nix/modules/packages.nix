@@ -1,4 +1,10 @@
-{ pkgs, lib, ... }:
+{
+  pkgs,
+  lib,
+  claude-code,
+  codex-cli,
+  ...
+}:
 
 let
   lint = with pkgs; [
@@ -89,5 +95,9 @@ in
       witr
       yq-go # data, process YAML. provides `yq`
       yt-dlp
-    ]);
+    ])
+    ++ [
+      claude-code.packages.${pkgs.stdenv.hostPlatform.system}.default
+      codex-cli.packages.${pkgs.stdenv.hostPlatform.system}.default
+    ];
 }

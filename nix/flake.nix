@@ -15,6 +15,10 @@
     nix-plist-manager.url = "github:sushydev/nix-plist-manager";
     # pin to the same nixpkgs to avoid a second copy on disk
     nix-plist-manager.inputs.nixpkgs.follows = "nixpkgs";
+    claude-code.url = "github:sadjow/claude-code-nix";
+    claude-code.inputs.nixpkgs.follows = "nixpkgs";
+    codex-cli.url = "github:sadjow/codex-cli-nix";
+    codex-cli.inputs.nixpkgs.follows = "nixpkgs";
     # Own tools. Deliberately NOT following our nixpkgs: each builds against the
     # nixpkgs it locked, which is the build oschrenk.cachix.org actually holds
     # (trusted in modules/darwin/nix.nix). Adding `follows` rebases them onto our
