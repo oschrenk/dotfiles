@@ -53,6 +53,8 @@ in
       # findbar not in nixpkgs; build from source. Upstream's own flake would
       # pull crane, fenix and flake-utils in for a 55-crate binary.
       findbar = prev.callPackage ../pkgs/findbar.nix { };
+      # nixpkgs atuin lags and can compile locally; upstream ships a darwin binary
+      atuin = prev.callPackage ../pkgs/atuin.nix { };
     })
   ];
 
