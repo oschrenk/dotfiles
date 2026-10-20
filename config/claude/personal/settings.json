@@ -69,7 +69,6 @@
     ]
   },
   "model": "opus[1m]",
-  "outputStyle": "adhd",
   "hooks": {
     "PreToolUse": [
       {
@@ -118,7 +117,16 @@
     "lua-lsp@claude-plugins-official": true,
     "swift-lsp@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": false,
-    "kotlin-lsp@claude-plugins-official": false
+    "kotlin-lsp@claude-plugins-official": false,
+    "ponytail@ponytail": true
+  },
+  "extraKnownMarketplaces": {
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    }
   },
   "alwaysThinkingEnabled": true,
   "tui": "fullscreen",
