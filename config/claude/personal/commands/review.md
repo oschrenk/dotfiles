@@ -37,27 +37,101 @@ Use **progressive disclosure**: start with a summary, then go deeper only where 
 
 #### Weekly Review
 
-**Purpose**: Quick pulse check. 5 minutes.
+**Purpose**: Close the week that ended and open the week ahead.
 
-1. **Show a dashboard** of this week's commitments across all areas. Pull from the current month's planned items in each goal file. Present as a compact checklist:
+The vault already defines this review. **Read `20 Areas/Plan/Routines/Weekly Review.md`
+first and follow its sections.** Do not invent a structure. It splits into two sittings,
+Saturday 05:30 looks back (sections 0 to 3), Sunday 05:30 looks forward (sections 0, 4 to 6).
+Say which sitting you are running; on any other day, or when asked for the whole review, run
+both back to back.
+
+**Also read, every time:**
+
+- `20 Areas/Plan/Routines/Daily Schedule.md` — fixed points, the four career blocks, the
+  weekend hobby blocks, the Sunday work block. **It describes the optimal week, not a real
+  one.** The macOS calendar holds the actual week. A difference between them is the design
+  meeting reality, not a mistake in either: never edit the file to match the calendar, and do
+  not list the gap as a finding. Sustained drift over several weeks is a monthly-review
+  question about whether the design still fits; a single week's difference is just that week
+- `20 Areas/Plan/Routines/Daily Non-Negotiables.md` — the three habits being counted
+- **Last week's weekly note**, `40 Journals/Personal/YYYY-Www.md` — this is the record of
+  what was planned. Open it and walk its `## Goals` and `## Tasks` line by line
+- The current month's section in each `20 Areas/Plan/Goals/<year>/*.md`
+
+**This review is a conversation, not a report.** Oliver disengages when handed tables to
+read. Every step ends in a question. Data exists to set up a question, never as the output.
+If you have written more than a short paragraph without asking something, cut it and ask.
+
+##### Saturday — close the week
+
+1. **Open last week's note.** Read its Goals and Tasks aloud, then ask item by item what
+   happened. An unchecked box is a question, never a verdict. If the note is empty or missing,
+   say so and ask the counts directly.
+
+2. **Count, do not estimate.** Section 2 of the routine is the only feedback loop the plan has.
+   Ask one item per question, at most four per AskUserQuestion call, with frequency options
+   ("Every day", "3 to 5 days", "1 to 2 days", "None"). The three habits, the five morning
+   movement sessions (full or floor), the four yoga classes, the four career blocks and whether
+   they ended on time, the days that cleared 8,000 steps, weight, and what slipped first.
+   Mobility, protein, steps and yoga are four questions, not one.
+
+3. **Say what you cannot verify, then ask.** There are usually no daily journal files, so the
+   habit checkboxes carry no data. Never infer that a habit held because nothing contradicts it.
+
+4. **Ask what got in the way** for whatever came back below target. Do not propose the reason.
+
+5. **Run the system checklist**, then ask rather than report:
 
 ```
-This week (March W1):
-Career:  [ ] CKA study: core concepts  [ ] Blog post
-Health:  [ ] Ran 3x  [ ] Yoga 2x
-Mental:  [ ] Weekly journal entry
-Spanish: [ ] Classes attended
-Reading: [ ] 15 pages/day
+arbol status --plain --state attention
 ```
 
-2. **Ask one question**: "How did this week go?" using AskUserQuestion with options:
-   - "On track" — acknowledge, done
-   - "Mixed" — ask which areas need attention, offer to adjust next week
-   - "Off track" — ask what got in the way, help reprioritize
+   Name only the repositories that are old — weeks, not hours — and ask which he wants on next
+   week's list.
 
-3. **If the user wants to go deeper** on any area, read that specific goal file and discuss. Otherwise, wrap up.
+6. **Money, section 3.** Ask whether anything unexpected showed up in the accounts.
 
----
+##### Sunday — open the week
+
+Ask about all four of these. They are separate conversations, not one planning question.
+
+7. **Career and Spanish.** Four blocks are fixed in the schedule: Mon CKA, Wed AI, Thu CKA,
+   Fri AI, plus Tuesday Spanish. Ask what goes in each one. Then ask about the Monday double,
+   yes or no now rather than on Monday, and confirm the four yoga bookings.
+
+8. **Work.** Ask what the week's work commitments are, and specifically what the Sunday 08:00
+   to 10:00 block has to prepare so Monday does not open cold for European time.
+
+9. **Personal.** Ask what the week holds outside work: appointments, people, Liza, travel,
+   anything already booked. Build the plan around these rather than on top of them.
+
+10. **Hobby blocks.** Four blocks across the weekend, assigned a week ahead. **One named
+    project per block, never a category.** Ask about each block separately — "what goes in
+    Saturday morning" is a different question from "what goes in Sunday afternoon", because
+    the lengths differ and so does what fits. Oliver stated the lengths on 2026-09-26 as
+    4h, 3.5h, 3.5h and 2h. Deciding at 08:00 on the day is how four hours becomes two hours
+    of deciding — that is why this is asked now.
+
+11. **How, not whether, per goal area.** For each area with something live this month, ask how
+    he will tackle it rather than whether he will. "Career wants one article this month — which
+    session writes it?" is the question shape. "Will you write the article?" is not.
+
+12. **Write.** Section 5 is the weekly journal entry. Read the plan back, get a yes, then write
+    the weekly note.
+
+##### The weekly note
+
+- Path: `40 Journals/Personal/YYYY-Www.md`, for example `2026-W40.md`
+- Template: `99 Templates/Journal/Personal/Weekly.md`
+- Frontmatter: `tags: ["#notes/weekly"]`, `journal: Personal weekly`, `journal-date: <first day of the week>`.
+  The plugin uses locale weeks, which start Sunday.
+- Body: a `calendar-nav` block, the `# <title>` heading, then `## Goals` and `## Tasks`
+- Sections, in order: `## Goals` for the recurring standards, `## Tasks` for one-off actions,
+  `## Career Blocks` for the five weekday sessions, `## Hobby Blocks` grouped under a dated
+  heading per weekend day with times, and `## Work` for the Sunday block
+- Write a constraint next to the block it constrains, not in a separate note
+- Cancelled items use `- [-]`, the vault's existing convention
+- The next week's review reads this file first, so write it to be read cold
 
 #### Monthly Review
 
