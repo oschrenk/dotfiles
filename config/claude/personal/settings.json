@@ -99,6 +99,16 @@
             "command": "/usr/bin/timeout 1 /bin/sh -c 'sketchybar --trigger ai_agent_done SESSION_ID=$(tmux display-message -p \"#{session_id}\") WINDOW_ID=$(tmux display-message -p \"#{window_id}\")' || true"
           }
         ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_CONFIG_DIR/hooks/warn-added-comments.sh",
+            "timeout": 10
+          }
+        ]
       }
     ],
     "Stop": [
