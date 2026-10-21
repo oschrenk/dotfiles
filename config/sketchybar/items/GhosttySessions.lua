@@ -17,7 +17,7 @@ function GhosttySessions.new(icons, style, tabIcons, tabStyle)
     local order = {} -- window ids in first-seen order
 
     -- support fixed amount of windows
-    for i = 1, 5, 1 do
+    for i = 1, 7, 1 do
       local item = sbar.add("item", {
         position = position,
         display = display,
@@ -52,7 +52,7 @@ function GhosttySessions.new(icons, style, tabIcons, tabStyle)
     end
 
     local dots = {}
-    for i = 1, 5, 1 do
+    for i = 1, 7, 1 do
       local dot = sbar.add("item", {
         position = position,
         display = display,
