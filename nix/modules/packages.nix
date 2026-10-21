@@ -34,14 +34,14 @@ in
       # gitwatch-rs not in nixpkgs; build from source via our own derivation
       # (upstream flake's rust-flake/rust-overlay chain is broken on darwin)
       gitwatch-rs = prev.callPackage ../pkgs/gitwatch-rs.nix { };
-      # cottage not in nixpkgs; build from source
+      # cottage not in nixpkgs; upstream ships a prebuilt darwin binary
       cottage = prev.callPackage ../pkgs/cottage.nix { };
-      # tlink not in nixpkgs; use upstream prebuilt darwin binary
+      # tlink not in nixpkgs; build our fork branch from source
       tlink = prev.callPackage ../pkgs/tlink.nix { };
-      # firemark not in nixpkgs; build from source
+      # firemark not in nixpkgs; upstream ships a prebuilt darwin binary
       firemark = prev.callPackage ../pkgs/firemark.nix { };
-      # kmp-lsp not in nixpkgs; build from source (was the cargo crate
-      # kotlin-lsp, since renamed by upstream to kmp-lsp)
+      # kmp-lsp not in nixpkgs; upstream ships a prebuilt darwin binary (was the
+      # cargo crate kotlin-lsp, since renamed by upstream to kmp-lsp)
       kmp-lsp = prev.callPackage ../pkgs/kmp-lsp.nix { };
       # msgvault not in nixpkgs; upstream ships prebuilt darwin archives, and
       # its own flake would build Go 1.27 from source

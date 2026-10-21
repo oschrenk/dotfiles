@@ -1,24 +1,23 @@
 {
-  rustPlatform,
-  fetchFromGitHub,
   lib,
+  stdenvNoCC,
+  fetchurl,
 }:
 
-rustPlatform.buildRustPackage rec {
+stdenvNoCC.mkDerivation rec {
   pname = "firemark";
   version = "0.1.4";
 
-  src = fetchFromGitHub {
-    owner = "Vitruves";
-    repo = "firemark";
-    tag = "v${version}";
-    hash = "sha256-JCml0SsicpatYQgLRonRtnCUVa08CEZhq7kUYl5irIg=";
+  src = fetchurl {
+    url = "https://github.com/Vitruves/firemark/releases/download/v${version}/firemark-v${version}-aarch64-apple-darwin.tar.gz";
+    hash = "sha256-uFgMTzgQDtUoUsspRGiQT9Hvhcwl41/8Lp6iH5x2ODo=";
   };
 
-  cargoHash = "sha256-pEq4UfLUvGxTZZBfrodqe5VVSsxJn+UCAXX7brmpeXk=";
-
-  # tests want fixtures we haven't set up
-  doCheck = false;
+  installPhase = ''
+    runHook preInstall
+    install -Dm755 firemark $out/bin/firemark
+    runHook postInstall
+  '';
 
   meta = {
     description = "Fast watermarking CLI for images and PDFs";
@@ -33,5 +32,6 @@ rustPlatform.buildRustPackage rec {
     homepage = "https://github.com/Vitruves/firemark";
     license = lib.licenses.mit;
     mainProgram = "firemark";
+    platforms = [ "aarch64-darwin" ];
   };
 }

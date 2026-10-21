@@ -1,30 +1,32 @@
 {
-  rustPlatform,
-  fetchFromGitHub,
   lib,
+  stdenvNoCC,
+  fetchurl,
 }:
 
-rustPlatform.buildRustPackage rec {
+stdenvNoCC.mkDerivation rec {
   pname = "kmp-lsp";
-  version = "0.24.0";
+  version = "0.27.0";
 
-  # Was the cargo crate "kotlin-lsp" (Hessesian/kotlin-lsp); upstream renamed
-  # the repo, crate, and binary to kmp-lsp (now Kotlin/Java/Swift).
-  src = fetchFromGitHub {
-    owner = "Hessesian";
-    repo = "kmp-lsp";
-    tag = "v${version}";
-    hash = "sha256-8ebuSTXQL2y7PZOJc23I2Pph0M2XuiWYx0YHT2730ds=";
+  src = fetchurl {
+    url = "https://github.com/Hessesian/kmp-lsp/releases/download/v${version}/kmp-lsp-darwin-aarch64.tar.gz";
+    hash = "sha256-6P0iDbZI+Sf+ytSodFOXwPyc5s0uweWsSEUflwBl/kA=";
   };
 
-  cargoHash = "sha256-22dTdeEg+IqW4QWKhRAdndx9UMo9tvHeUA17/EpseEM=";
+  sourceRoot = ".";
 
-  doCheck = false;
+  installPhase = ''
+    runHook preInstall
+    install -Dm755 kmp-lsp $out/bin/kmp-lsp
+    install -Dm755 kmp-jar-indexer $out/bin/kmp-jar-indexer
+    runHook postInstall
+  '';
 
   meta = {
     description = "Fast, low-memory LSP server for Kotlin, Java, and Swift (no JVM required)";
     homepage = "https://github.com/Hessesian/kmp-lsp";
     license = lib.licenses.mit;
     mainProgram = "kmp-lsp";
+    platforms = [ "aarch64-darwin" ];
   };
 }
