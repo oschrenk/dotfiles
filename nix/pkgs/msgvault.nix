@@ -5,7 +5,7 @@
 }:
 
 let
-  version = "0.19.3";
+  version = "0.21.0";
   # Upstream's own flake builds from source and pins Go 1.27.0 as a source
   # build, with no binary cache, so using it would compile Go itself on every
   # bump. These are upstream's release archives, hashes taken from the
@@ -13,11 +13,11 @@ let
   sources = {
     aarch64-darwin = {
       url = "https://github.com/kenn-io/msgvault/releases/download/v${version}/msgvault_${version}_darwin_arm64.tar.gz";
-      hash = "sha256-/WOdEr2RRl8K3IPZNGqCULli4vZRm5pDJaiWHTZBqHI=";
+      hash = "sha256-FU0Yd0B0rp0EPCruDf3X/pFmAortZKLfqBBGUNUP+gQ=";
     };
     x86_64-darwin = {
       url = "https://github.com/kenn-io/msgvault/releases/download/v${version}/msgvault_${version}_darwin_amd64.tar.gz";
-      hash = "sha256-Ez3h/Nfib+i0I+yL3LErvwz/BCJk77XDaJ1Z7A7wChg=";
+      hash = "sha256-6dVb/YQclwkTL7GiMGFajRR2xzV5+sfWt9Yy9giacTE=";
     };
   };
   source =
