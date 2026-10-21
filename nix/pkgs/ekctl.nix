@@ -6,14 +6,14 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "ekctl";
-  version = "1.8.0";
+  version = "1.9.0";
 
   # Upstream ships one prebuilt universal binary (arm64 + x86_64), so there is
   # no Swift build here and no per-architecture split. The hash is upstream's
   # own published .sha256 for the tarball, converted to SRI.
   src = fetchurl {
     url = "https://github.com/schappim/ekctl/releases/download/v${version}/ekctl-v${version}.tar.gz";
-    hash = "sha256-TjgxQVTn33nH4+qkj2MwaZrSpoCK4DPZvXUQdAeHFGo=";
+    hash = "sha256-b1t4NTybHkoG39s5pN4Wpj6EX1C+hxWKlaNqu1KXU+w=";
   };
 
   # The tarball holds the bare binary with no enclosing directory.
