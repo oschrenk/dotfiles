@@ -6,17 +6,17 @@
 }:
 
 let
-  version = "0.3.12";
+  version = "0.4.0";
   # Upstream publishes prebuilt per-architecture archives, so there is no Rust
   # build here. Hashes are upstream's own, carried over from the brew formula.
   sources = {
     aarch64-darwin = {
       url = "https://github.com/IohannRabeson/tmignore-rs/releases/download/${version}/tmignore-rs_${version}_aarch64.zip";
-      hash = "sha256-0RQdh/xQj479Ne/D7+hGyaaYg2ejeI3Ocs91c+Lb0ws=";
+      hash = "sha256-0oHBsxaBT1oGfNSvVikhuKOlWrcwI8u9oVSDnf4LXuA=";
     };
     x86_64-darwin = {
       url = "https://github.com/IohannRabeson/tmignore-rs/releases/download/${version}/tmignore-rs_${version}_x86-64.zip";
-      hash = "sha256-97qXhnCtP15/YJMqJURSIHrUInBXzIH1iyjIwNSvB4Y=";
+      hash = "sha256-V9TPPHcrYIY4zsUV8iBxe/SPt+yFq7OB8Q9c797ksnw=";
     };
   };
   source =
