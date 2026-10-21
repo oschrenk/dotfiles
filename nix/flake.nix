@@ -78,6 +78,7 @@
             ./options.nix
             ./modules/common.nix
             ./modules/darwin/nix.nix
+            ./modules/darwin/pki.nix
             ./modules/packages.nix
             opnix.darwinModules.default
             nix-plist-manager.darwinModules.default
@@ -119,6 +120,7 @@
             ./options.nix
             ./modules/common.nix
             ./modules/darwin/nix.nix
+            ./modules/darwin/pki.nix
             ./modules/packages.nix
             opnix.darwinModules.default
             nix-plist-manager.darwinModules.default
