@@ -1,5 +1,5 @@
 -o "~/Downloads/%(channel|)s%(channel& - |)s%(upload_date>%Y-%m-%d|)s%(upload_date>%Y-%m-%d& - |)s%(title)s.%(ext)s"
--f "bv*[vcodec^=avc]+ba[ext=m4a]/b[ext=mp4]/b"
+-f "bv*[vcodec^=avc]+ba[ext=m4a]/bv*+ba/b"
 --ignore-errors
 --continue
 --replace-in-metadata "title" "[^\w\s\-\.]" ""
