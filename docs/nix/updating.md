@@ -13,6 +13,7 @@ All commands run from `nix/`.
 | `home-manager` | User environment configuration. |
 | `opnix` | 1Password secrets integration. |
 | `arbol`, `cutter`, `infuse`, … | Own tools, each building against the nixpkgs it locked, so the cachix cache keeps matching. |
+| `oschrenk-pkgs` | Own builds of upstream tools that nixpkgs lacks, cached on `oschrenk.cachix.org`. |
 
 Each input is pinned to a specific commit in `flake.lock`.
 Nothing changes unless you explicitly update.
@@ -60,7 +61,8 @@ home-manager.inputs.nixpkgs.follows = "nixpkgs";
 ```
 
 The own-tool inputs deliberately do NOT follow.
-Each was built and cached on `oschrenk.cachix.org` against its own lock, and rebasing them onto our nixpkgs turns every rebuild into a Go compile.
+CI builds each one against its own lock and caches it on `oschrenk.cachix.org`.
+Rebasing them onto our nixpkgs turns every rebuild into a local compile.
 
 ## Checking Current Pins
 

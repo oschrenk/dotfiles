@@ -265,6 +265,22 @@
     },
     "nixpkgs_10": {
       "locked": {
+        "lastModified": 1787631388,
+        "narHash": "sha256-vMiXptXarfSdJb1Gkc+FYVOAibuBRj7qxGa8z68q1Uw=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "ac6b2166e7a9375683b8e98f860f273222337b16",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "nixpkgs_11": {
+      "locked": {
         "lastModified": 1784282293,
         "narHash": "sha256-IpX7tmVJi9seHg5M4Wuexy78bQDlbntVk1HcT9kFts4=",
         "owner": "NixOS",
@@ -279,7 +295,7 @@
         "type": "github"
       }
     },
-    "nixpkgs_11": {
+    "nixpkgs_12": {
       "locked": {
         "lastModified": 1789264731,
         "narHash": "sha256-llGJbC0CcU8DfROr6mZjRJgMLQd/SKwfpzxJH/2lHO4=",
@@ -409,11 +425,11 @@
     },
     "nixpkgs_9": {
       "locked": {
-        "lastModified": 1787631388,
-        "narHash": "sha256-vMiXptXarfSdJb1Gkc+FYVOAibuBRj7qxGa8z68q1Uw=",
+        "lastModified": 1792506237,
+        "narHash": "sha256-Q/8KLB6jNfpaUN1HAedE/u/Et9feE/zYSsutBLKrCFk=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "ac6b2166e7a9375683b8e98f860f273222337b16",
+        "rev": "5adc50831c259f87faeb09ddf930d43597197473",
         "type": "github"
       },
       "original": {
@@ -442,9 +458,27 @@
         "type": "github"
       }
     },
-    "plan": {
+    "oschrenk-pkgs": {
       "inputs": {
         "nixpkgs": "nixpkgs_9"
+      },
+      "locked": {
+        "lastModified": 1792708804,
+        "narHash": "sha256-Pg91yhO0+cTVO2rzVh8OVT/w0PY55JuGPisj1Y48HzY=",
+        "owner": "oschrenk",
+        "repo": "pkgs",
+        "rev": "2257c9faea3c73687cf7c5ce705beae8743c4db0",
+        "type": "github"
+      },
+      "original": {
+        "owner": "oschrenk",
+        "repo": "pkgs",
+        "type": "github"
+      }
+    },
+    "plan": {
+      "inputs": {
+        "nixpkgs": "nixpkgs_10"
       },
       "locked": {
         "lastModified": 1787771715,
@@ -475,6 +509,7 @@
         "nix-plist-manager": "nix-plist-manager",
         "nixpkgs": "nixpkgs_7",
         "opnix": "opnix",
+        "oschrenk-pkgs": "oschrenk-pkgs",
         "plan": "plan",
         "secretspec": "secretspec",
         "sessionizer": "sessionizer",
@@ -503,7 +538,7 @@
     },
     "sessionizer": {
       "inputs": {
-        "nixpkgs": "nixpkgs_10"
+        "nixpkgs": "nixpkgs_11"
       },
       "locked": {
         "lastModified": 1791866435,
@@ -566,7 +601,7 @@
     },
     "thaw": {
       "inputs": {
-        "nixpkgs": "nixpkgs_11"
+        "nixpkgs": "nixpkgs_12"
       },
       "locked": {
         "lastModified": 1789438936,
