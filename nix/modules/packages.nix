@@ -3,6 +3,7 @@
   lib,
   claude-code,
   codex-cli,
+  oschrenk-pkgs,
   ...
 }:
 
@@ -27,13 +28,9 @@ in
 
   nixpkgs.overlays = [
     (_final: prev: {
-      # gitwatch-rs not in nixpkgs; build from source via our own derivation
-      # (upstream flake's rust-flake/rust-overlay chain is broken on darwin)
-      gitwatch-rs = prev.callPackage ../pkgs/gitwatch-rs.nix { };
+      inherit (oschrenk-pkgs.packages.${prev.stdenv.hostPlatform.system}) gitwatch-rs tlink findbar;
       # cottage not in nixpkgs; upstream ships a prebuilt darwin binary
       cottage = prev.callPackage ../pkgs/cottage.nix { };
-      # tlink not in nixpkgs; build our fork branch from source
-      tlink = prev.callPackage ../pkgs/tlink.nix { };
       # firemark not in nixpkgs; upstream ships a prebuilt darwin binary
       firemark = prev.callPackage ../pkgs/firemark.nix { };
       # kmp-lsp not in nixpkgs; upstream ships a prebuilt darwin binary (was the
@@ -46,9 +43,6 @@ in
       tmignore-rs = prev.callPackage ../pkgs/tmignore-rs.nix { };
       # ekctl not in nixpkgs; upstream ships a prebuilt universal darwin binary
       ekctl = prev.callPackage ../pkgs/ekctl.nix { };
-      # findbar not in nixpkgs; build from source. Upstream's own flake would
-      # pull crane, fenix and flake-utils in for a 55-crate binary.
-      findbar = prev.callPackage ../pkgs/findbar.nix { };
       # nixpkgs atuin lags and can compile locally; upstream ships a darwin binary
       atuin = prev.callPackage ../pkgs/atuin.nix { };
       # nixpkgs yt-dlp lags YouTube fixes; upstream ships a darwin binary. A new

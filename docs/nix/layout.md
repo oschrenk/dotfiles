@@ -15,9 +15,10 @@ nix/
     airbook.nix          - darwin hosts
     maxbook.nix
 
-  pkgs/                  - Mac-side tools; packaged here because nixpkgs lacks them or lags
-    cottage.nix            - own tools: msgvault (mail archive), tlink (tmux://
-    msgvault.nix             deeplinks), gitwatch-rs, and others
+  pkgs/                  - Mac-side tools that download an upstream binary, because nixpkgs lacks them or lags;
+                           tools built from source come from github:oschrenk/pkgs
+    cottage.nix
+    msgvault.nix           - mail archive
     [...]
 
   modules/

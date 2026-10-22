@@ -60,7 +60,7 @@ in
 # `package` option defaults to `self.packages.*`, so consuming either one
 # requires taking upstream's flake as an input — and with it crane, fenix and
 # flake-utils. The module is fifteen lines, so it lives here instead, and
-# pkgs.findbar comes from nix/pkgs/findbar.nix.
+# pkgs.findbar comes from github:oschrenk/pkgs.
 #
 # The home-manager shape is used rather than the darwin one. The darwin module
 # runs in postActivation as root and needs `launchctl asuser` plus `sudo -u` to
