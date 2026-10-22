@@ -36,7 +36,6 @@ _:
       # database
 
       # development
-      "go-task" # generic, go-based task runner
 
       # editor
       "tree-sitter-cli" # nvim, requirement

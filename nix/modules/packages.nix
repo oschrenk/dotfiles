@@ -28,7 +28,7 @@ in
 
   nixpkgs.overlays = [
     (_final: prev: {
-      inherit (oschrenk-pkgs.packages.${prev.stdenv.hostPlatform.system}) gitwatch-rs tlink findbar;
+      inherit (oschrenk-pkgs.packages.${prev.stdenv.hostPlatform.system}) gitwatch-rs tlink findbar go-task;
       # cottage not in nixpkgs; upstream ships a prebuilt darwin binary
       cottage = prev.callPackage ../pkgs/cottage.nix { };
       # firemark not in nixpkgs; upstream ships a prebuilt darwin binary
@@ -68,6 +68,7 @@ in
       gallery-dl
       gawk # system, GNU awk utility
       git-stack
+      go-task
       htop
       httrack # network, copy websites offline
       hurl
