@@ -29,7 +29,7 @@
 
       # yt-dlp binary path. IINA needs an absolute one because a GUI app does
       # not inherit the login shell PATH.
-      ytdlSearchPath = "${pkgs.yt-dlp}/bin/yt-dlp";
+      ytdlSearchPath = "${pkgs.yt-dlp-bin}/bin/yt-dlp";
 
       # Don't autoplay next item in playlist
       playlistAutoPlayNext = 0;
