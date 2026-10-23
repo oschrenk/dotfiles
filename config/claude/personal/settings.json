@@ -81,6 +81,15 @@
         ]
       },
       {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_CONFIG_DIR/hooks/block-sed-in-place.sh"
+          }
+        ]
+      },
+      {
         "matcher": "AskUserQuestion|Write|Edit|Bash",
         "hooks": [
           {
