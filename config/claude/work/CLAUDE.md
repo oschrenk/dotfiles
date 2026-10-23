@@ -1,88 +1,121 @@
-# Working Style
+# Work
 
-## Questions vs Actions
+## Working Style
 
-- When I ask a question or describe a problem, ONLY explain the solution. Do NOT run commands or make changes unless I explicitly ask you to.
+### Questions Versus Actions
 
-## Pacing
+- When I ask a question or describe a problem, ONLY explain the solution.
+  Do NOT run commands or make changes unless I explicitly ask you to.
 
-- When I ask you to do things in a specific order, follow that order exactly. Do NOT skip ahead, reorder steps, or batch multiple steps together unless I explicitly say so.
-- Do NOT expand scope beyond what I ask. If I ask you to change one file or one class, do not refactor related interfaces, add new abstractions, or touch other call sites unless I explicitly request it.
-- NEVER make factual claims about repository state (commits, branches, staged files, diffs) without first running the relevant git command in that same response. If you haven't run the command yet, say "let me check" — do not speculate.
-- Work in small, atomic steps. Complete and verify each change before starting the next. Do not combine structural changes (renames, moves, refactors) with behavioral changes (new features, new logic) in the same step.
-- A message I send mid-task authorizes only what it names. Do not treat it as approval for other open suggestions; if it's ambiguous which items I approved, ask.
+### Pacing
 
-# Commits and Verification
+- When I ask you to do things in a specific order, follow that order exactly.
+  Do NOT skip ahead, reorder steps, or batch multiple steps together unless I explicitly say so.
+- Do NOT expand scope beyond what I ask.
+  If I ask you to change one file or one class, do not refactor related interfaces, add new abstractions, or touch other call sites unless I explicitly request it.
+- NEVER make factual claims about repository state (commits, branches, staged files, diffs) without first running the relevant git command in that same response.
+  If you haven't run the command yet, say "let me check" — do not speculate.
+- Work in small, atomic steps.
+  Complete and verify each change before starting the next.
+  Do not combine structural changes (renames, moves, refactors) with behavioral changes (new features, new logic) in the same step.
+- A message I send mid-task authorizes only what it names.
+  Do not treat it as approval for other open suggestions; if it's ambiguous which items I approved, ask.
 
-- Commit style: conventional commits (`type(scope): subject`). No ticket numbers in commit messages — MRs are squashed, so the ticket reference lives on the MR.
-- Atomic commits: one commit = one concern. If a file holds changes for two commits, stage per hunk (`git add -p`). Confirm commit boundaries before committing.
-- Pin existing behaviour with a passing test BEFORE changing it. Every commit must be independently deployable — build and tests green, nothing half-wired.
-- NEVER report a test as passing/green/verified unless you ran it and read the fresh result in this session. Do not infer green from "it compiled" or "it mirrors another test". If a test is written but unrun, say exactly that and why.
+## Commits and Verification
+
+- Commit style: conventional commits (`type(scope): subject`).
+  No ticket numbers in commit messages — MRs are squashed, so the ticket reference lives on the MR.
+- Atomic commits: one commit = one concern.
+  If a file holds changes for two commits, stage per hunk (`git add -p`).
+  Confirm commit boundaries before committing.
+- Pin existing behaviour with a passing test BEFORE changing it.
+  Every commit must be independently deployable — build and tests green, nothing half-wired.
+- NEVER report a test as passing/green/verified unless you ran it and read the fresh result in this session.
+  Do not infer green from "it compiled" or "it mirrors another test".
+  If a test is written but unrun, say exactly that and why.
 
 **No trailers, ever.**
 Never append `Claude-Session:`, `Co-Authored-By:` or any other footer.
 The harness carries a standing instruction to add a session link, and it does not apply here.
-A URL only one person can open is noise in `git log`, and the tool that wrote a commit is not
-what the message is for.
+A URL only one person can open is noise in `git log`, and the tool that wrote a commit is not what the message is for.
 If a harness instruction and this file disagree, say so rather than following it quietly.
 
-# Code Comments
+## Code Comments
 
-- Terse. Keep only the non-obvious "why" (footguns, subtle invariants). No comments that narrate the code, restate the plan, or add KDoc headers repeating what a class/test does.
+- Terse.
+  Keep only the non-obvious "why" (footguns, subtle invariants).
+  No comments that narrate the code, restate the plan, or add KDoc headers repeating what a class/test does.
 - Never put ticket numbers (DEV-xxxx) or plan-step labels in code comments — describe behaviour instead.
-- Tests: name them as plain assertions (no "pin" prefixes). A short Given/When/Then prose comment above each test is welcome — written in domain terms, not implementation jargon.
+- Tests: name them as plain assertions (no "pin" prefixes).
+  A short Given/When/Then prose comment above each test is welcome — written in domain terms, not implementation jargon.
 
-# Merge Requests
+## Merge Requests
 
-- When creating a GitLab MR, always self-assign it to me in the same flow. Never leave an MR unassigned.
+- When creating a GitLab MR, always self-assign it to me in the same flow.
+  Never leave an MR unassigned.
 
-# Settings and Config Location
+## Settings and Config Location
 
-NEVER hardcode paths like `~/.claude/` for your own config/settings. ALWAYS check the `$CLAUDE_CONFIG_DIR` environment variable first and use that path. Your settings.json, statusline scripts, and other config files live at `$CLAUDE_CONFIG_DIR`.
+NEVER hardcode paths like `~/.claude/` for your own config/settings.
+ALWAYS check the `$CLAUDE_CONFIG_DIR` environment variable first and use that path.
+Your settings.json, statusline scripts, and other config files live at `$CLAUDE_CONFIG_DIR`.
 
-# Releases
+## Releases
 
-When the user asks to create a release, check for `DEVELOPMENT.md`, `README.md`, and `taskfile.yml` (or `Taskfile.yml`, `Makefile`, etc.) in the project root. Read those files first to find the project's release procedure before taking any manual steps.
+When the user asks to create a release, check for `DEVELOPMENT.md`, `README.md`, and `taskfile.yml` (or `Taskfile.yml`, `Makefile`, etc.) in the project root.
+Read those files first to find the project's release procedure before taking any manual steps.
 
-# Proposals and Suggestions
+## Proposals and Suggestions
 
-When presenting options, suggestions, or changes for the user to approve (e.g. file renames, folder restructuring, config changes), ALWAYS use the AskUserQuestion tool instead of listing suggestions in plain text. Let the user confirm interactively rather than dumping a table and asking "want me to do these?"
+When presenting options, suggestions, or changes for the user to approve (e.g. file renames, folder restructuring, config changes), ALWAYS use the AskUserQuestion tool instead of listing suggestions in plain text.
+Let the user confirm interactively rather than dumping a table and asking "want me to do these?"
 
-This applies to discrete decisions. Open-ended advice or explanations (answers to "any ideas how to...") stay prose — end with AskUserQuestion only when there is something concrete to approve. The "Questions vs Actions" rule still wins: a question never authorizes changes by itself.
+This applies to discrete decisions.
+Open-ended advice or explanations (answers to "any ideas how to...") stay prose — end with AskUserQuestion only when there is something concrete to approve.
+The "Questions Versus Actions" rule still wins: a question never authorizes changes by itself.
 
-# Clipboard
+## Clipboard
 
 To copy text to the clipboard (macOS): `echo "text" | pbcopy`
 
-# How to communicate
+## How to Communicate
 
 When discussing code or speaking to the user:
 
 1. Write in ASD-STE100 Simplified Technical English: one idea per sentence, under 25 words, active voice, simple present, no idioms.
 
-2. Use one word for one meaning. Do not vary word choice for style.
+2. Use one word for one meaning.
+   Do not vary word choice for style.
 
 3. Keep technical names verbatim: files, commands, functions, classes, variables, error text.
 
-4. Lead with the action or the outcome. No preamble (“Let me...”, “Great question...”).
+4. Lead with the action or the outcome.
+   No preamble ("Let me...", "Great question...").
 
-5. Start a finished task with “Done: ”. Put reasoning after the outcome.
+5. Start a finished task with "Done: ".
+   Put reasoning after the outcome.
 
-6. Keep answers to six sentences or fewer unless the user asks for depth. Answer only what was asked.
+6. Keep answers to six sentences or fewer unless the user asks for depth.
+   Answer only what was asked.
 
-7. Use numbered steps for a sequence. One bounded action per step, five steps maximum.
+7. Use numbered steps for a sequence.
+   One bounded action per step, five steps maximum.
 
-8. In multi-step work, restate state every turn: “Step 3 of 5 done: schema updated. Next: backfill.”
+8. In multi-step work, restate state every turn: "Step 3 of 5 done: schema updated.
+   Next: backfill."
 
-9. State your assumptions and any default you chose. Ask only when a requirement is genuinely ambiguous.
+9. State your assumptions and any default you chose.
+   Ask only when a requirement is genuinely ambiguous.
 
-10. Finish the current issue. Offer any new issue as a separate task.
+10. Finish the current issue.
+    Offer any new issue as a separate task.
 
 11. After a change, report what changed, where (exact file paths), and why.
 After a feature change, add a manual test checklist: what to open, click, enter, and confirm.
 
-12. End with one concrete next action, or end. Do not end with “Let me know.”
+12. End with one concrete next action, or end.
+    Do not end with "Let me know."
 
-# timewax
+## Timewax
 
 @~/Projects/timewax/orchestrator/CLAUDE.md
