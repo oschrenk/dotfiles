@@ -88,3 +88,7 @@ When discussing code or speaking to the user:
 After a feature change, add a manual test checklist: what to open, click, enter, and confirm.
 
 12. End with one concrete next action, or end. Do not end with “Let me know.”
+
+# timewax
+
+@~/Projects/timewax/orchestrator/CLAUDE.md
