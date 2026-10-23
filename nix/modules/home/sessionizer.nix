@@ -54,11 +54,6 @@ in
         (entry "self/finances" "$HOME/Obsidian/memex/20 Areas/Finances")
         (entry "self/health" "$HOME/Obsidian/memex/20 Areas/Physical Health")
         (entry "self/plan" "$HOME/Obsidian/memex/20 Areas/Plan")
-        {
-          name = "timewax/orchestrator";
-          path = "$HOME/Projects/timewax";
-          layout = "tw-orchestrator";
-        }
       ];
     };
 
@@ -82,16 +77,6 @@ in
               # as argv, so shell operators work here. The fallback covers a
               # directory with no prior conversation.
               shell_command = [ "claude --continue || claude" ];
-              focus = true;
-            }
-          ];
-        }
-      ];
-      tw-orchestrator.windows = [
-        {
-          panes = [
-            {
-              shell_command = [ "claude -c -n tw-orchestrator" ];
               focus = true;
             }
           ];
