@@ -34,25 +34,24 @@
 
 ## Workflow
 
-1. Plan First: write the plan into the task file as checkable items
+1. Plan First: write the plan into the lific issue as checkable items
 2. Verify Plan: check in before you start building
 3. Track Progress: mark items complete as you go
 4. Explain Changes: high-level summary at each step
-5. Document Results: add a review section to the task file
+5. Document Results: close the issue with the checks as evidence
 6. Capture Lessons: save the pattern to memory after corrections
 
-## Task Files
+## Issues
 
-Tasks are one file per task in `tasks/` at the repo root, as `PREFIX-NN-kebab-slug.md`.
-Every task has frontmatter starting at line 1, a Definition of Ready, and a Definition of Done.
+Tickets and work items live in lific, through the `mcp__lific__*` tools.
+Each project there is one repository.
+Every issue has a Definition of Ready and a Definition of Done.
 
-Load the `tasks` skill before creating, editing, or closing a task file.
-The skill holds the rules that are expensive to get wrong: numbering is permanent once a task leaves `todo`, numbers are never reused, `rank` is spaced 1000 apart, and subtasks are ordinary tasks with a `parent` key.
-Do not write a task file from memory of this paragraph.
+Load the `lific` skill before creating, editing, or closing an issue.
+Do not write an issue from memory of this paragraph.
 
-`tasks/` is often symlinked into a shared store and shows as untracked.
-That is expected.
-Never `git add` it.
+The old `tasks/` files are migrated.
+Do not create new task files.
 
 
 # Core Principles
