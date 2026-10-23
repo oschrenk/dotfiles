@@ -37,6 +37,7 @@
     mission.url = "github:oschrenk/mission";
     oschrenk-pkgs.url = "github:oschrenk/pkgs";
     plan.url = "github:oschrenk/plan.swift";
+    private.url = "git+ssh://git@github.com/oschrenk/private.nix";
     sessionizer.url = "github:oschrenk/sessionizer";
     thaw.url = "github:oschrenk/thaw";
   };
@@ -76,6 +77,7 @@
           specialArgs = inputs;
           modules = [
             ./identity.nix
+            ./private.nix
             ./options.nix
             ./modules/common.nix
             ./modules/darwin/nix.nix
@@ -117,6 +119,7 @@
           specialArgs = inputs;
           modules = [
             ./identity.nix
+            ./private.nix
             ./options.nix
             ./modules/common.nix
             ./modules/darwin/nix.nix

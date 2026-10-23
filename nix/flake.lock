@@ -494,6 +494,21 @@
         "type": "github"
       }
     },
+    "private": {
+      "locked": {
+        "lastModified": 1792799267,
+        "narHash": "sha256-Ux+/xILoUFRnfAJj4bdlarmRKeuXA9VLeSzzLlGtEzE=",
+        "ref": "refs/heads/main",
+        "rev": "345e3ca46cf2aaafb8c420d3e96b12c84296da30",
+        "revCount": 1,
+        "type": "git",
+        "url": "ssh://git@github.com/oschrenk/private.nix"
+      },
+      "original": {
+        "type": "git",
+        "url": "ssh://git@github.com/oschrenk/private.nix"
+      }
+    },
     "root": {
       "inputs": {
         "arbol": "arbol",
@@ -511,6 +526,7 @@
         "opnix": "opnix",
         "oschrenk-pkgs": "oschrenk-pkgs",
         "plan": "plan",
+        "private": "private",
         "secretspec": "secretspec",
         "sessionizer": "sessionizer",
         "thaw": "thaw"
