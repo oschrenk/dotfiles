@@ -496,11 +496,11 @@
     },
     "private": {
       "locked": {
-        "lastModified": 1792799267,
-        "narHash": "sha256-Ux+/xILoUFRnfAJj4bdlarmRKeuXA9VLeSzzLlGtEzE=",
+        "lastModified": 1792802109,
+        "narHash": "sha256-m0+EJNF49zOs8vDzSjErOxnqzrCscqanpQnvaDUUW9I=",
         "ref": "refs/heads/main",
-        "rev": "345e3ca46cf2aaafb8c420d3e96b12c84296da30",
-        "revCount": 1,
+        "rev": "da2fc0cde0b0bb7d9591190832aee6a7bcafeaf2",
+        "revCount": 2,
         "type": "git",
         "url": "ssh://git@github.com/oschrenk/private.nix"
       },

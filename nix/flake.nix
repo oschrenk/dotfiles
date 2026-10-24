@@ -76,7 +76,7 @@
         "Olivers-MaxBook" = nix-darwin.lib.darwinSystem {
           specialArgs = inputs;
           modules = [
-            ./identity.nix
+            inputs.private.modules.identity
             ./host.nix
             ./options.nix
             ./modules/common.nix
@@ -118,7 +118,7 @@
         "Olivers-AirBook" = nix-darwin.lib.darwinSystem {
           specialArgs = inputs;
           modules = [
-            ./identity.nix
+            inputs.private.modules.identity
             ./host.nix
             ./options.nix
             ./modules/common.nix

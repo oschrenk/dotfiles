@@ -52,7 +52,7 @@ fi
 # 3. Repo-local identity. git.nix sets user.name globally but deliberately never
 #    user.email (user.useConfigOnly = true), so each repo supplies its own or
 #    commits fail. The gitwatch agent commits here unattended, so it needs one.
-EMAIL="$(nix eval --raw --impure --expr "(import $REPO_ROOT/nix/identity.nix {}).my.personal.email")"
+EMAIL="$(nix eval --raw "$REPO_ROOT/nix#darwinConfigurations.$(hostname -s).config.my.personal.email")"
 CURRENT_EMAIL="$(git -C "$INFUSE_DIR" config --local --get user.email || true)"
 
 if [[ "$CURRENT_EMAIL" == "$EMAIL" ]]; then
