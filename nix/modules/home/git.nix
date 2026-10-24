@@ -163,6 +163,8 @@ in
         colorMoved = "default";
       };
 
+      gpg.ssh.allowedSignersFile = "${config.xdg.configHome}/git/allowed_signers";
+
       init.defaultBranch = "main";
 
       merge = {
@@ -514,6 +516,11 @@ in
       "*.dll binary"
     ];
   };
+
+  xdg.configFile."git/allowed_signers".text = ''
+    ${osConfig.my.personal.email} ${osConfig.my.personal.sshKey}
+    ${osConfig.my.work.email} ${osConfig.my.personal.sshKey}
+  '';
 
   # Global hooks directory. core.hooksPath makes git look here and nowhere else,
   # so every hook in it must hand control back to the repo's own .git/hooks or
