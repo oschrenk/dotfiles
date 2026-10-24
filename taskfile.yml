@@ -30,11 +30,6 @@ tasks:
     desc: Clone the infuse data repo and give it a commit identity (run once, after 1Password is set up)
     cmds:
       - scripts/bootstrap-infuse.sh
-  nix:setup:identity:
-    desc: Create nix/identity.nix interactively (run once when forking or when identity changes)
-    dir: nix
-    cmds:
-      - ./setup-identity.sh
   nix:rebuild:
     desc: Apply nix configuration to the Mac
     deps: ['nix:rebuild:darwin']
