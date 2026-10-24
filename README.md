@@ -4,11 +4,10 @@ These are my dotfiles.
 
 ## Bootstrap
 
-The `nix/` flake and `scripts/` live in this repo, so clone it first. The repo
-is public, so clone over HTTPS (the 1Password agent supplies the SSH key later).
-Clone it anywhere, as long as it matches `my.personal.dotfiles` in
-`nix/identity.nix`. home-manager symlinks the config trees for neovim, sketchybar and
-Claude Code out of the checkout, so that path is what they resolve through:
+The `nix/` flake and `scripts/` live in this repo, so clone it first.
+The repo is public, so clone over HTTPS (the 1Password agent supplies the SSH key later).
+Clone it to the path `my.host.dotfiles` in `nix/host.nix` names, `/Users/<username>/Projects/ops/dotfiles`.
+home-manager symlinks the config trees for neovim, sketchybar and Claude Code out of the checkout, so that path is what they resolve through:
 
 ```sh
 # git ships with the Xcode Command Line Tools; this triggers their install
@@ -24,7 +23,7 @@ Name the machine next, which `nix-darwin` uses to pick the host configuration:
 ./scripts/hostname.sh
 ```
 
-Then install Nix and Homebrew:
+Then install Nix, Homebrew and 1Password:
 
 ```sh
 ./scripts/bootstrap.sh
@@ -41,10 +40,10 @@ echo 'extra-trusted-public-keys = nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+R
 sudo launchctl kickstart -k system/systems.determinate.nix-daemon
 ```
 
-Identity values (name, email, SSH key, timezone) live in the committed
-`nix/identity.nix`, so nothing is needed here on your own machines. When forking
-or changing them, edit `nix/identity.nix` directly, or run `task nix:setup:identity`
-(available after the first apply below, since nix-darwin installs `task`).
+Identity values (username, name, email, timezone, SSH key, work email) live in the private flake `oschrenk/private.nix` as `modules.identity`, and the flake fetches it over SSH.
+**Before the first apply, open 1Password, sign in, let it sync, and enable Settings > Developer > "Use the SSH agent".**
+Without the agent the flake cannot evaluate.
+`./scripts/bootstrap.sh` installed the app.
 
 **Before the first apply, grant Terminal Full Disk Access.** Without it,
 activation cannot write the TCC-protected `com.apple.universalaccess` domain, the

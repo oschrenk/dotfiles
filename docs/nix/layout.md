@@ -7,9 +7,8 @@ This repository builds the two Macs.
 ```text
 nix/
   flake.nix              - entry point; wires hosts to modules
-  options.nix            - options.my.personal namespace
-  identity.nix           - committed; sets my.personal.* values (Macs)
-  setup-identity.sh      - script: prompts for identity.nix values (only needed when forking or identity changes)
+  options.nix            - options.my.host namespace
+  host.nix               - sets my.host.dotfiles, the working-copy path both Macs share
 
   hosts/
     airbook.nix          - darwin hosts
@@ -68,28 +67,31 @@ docs/
     cleanup.md           - reclaiming disk space
 ```
 
-## Identity Namespace: `options.my.personal.*`
+## Identity and Host Namespaces
 
-Mac-side identity values flow through a single namespace declared in `options.nix` and set in `identity.nix`:
+Identity values live in the private flake `oschrenk/private.nix`.
+Its `modules.identity` both declares and sets `my.personal.*` and `my.work.*`, and both hosts import it as `inputs.private.modules.identity`.
+`options.nix` declares only `my.host.*`, and `host.nix` sets it.
 
-| Option | Type | Used by |
-|--------|------|---------|
-| `my.personal.username` | str | `shell.nix`, `home-manager.nix`, `home/default.nix` |
-| `my.personal.name` | str | `home/git.nix` |
-| `my.personal.email` | str | `home/git.nix` |
+| Option | Type | Set in | Used by |
+|--------|------|--------|---------|
+| `my.personal.username` | str | `modules.identity` | many modules; `rg 'my\.personal\.username' nix` lists them |
+| `my.personal.name` | str | `modules.identity` | `home/git.nix` |
+| `my.personal.email` | str | `modules.identity` | `scripts/bootstrap-infuse.sh` |
+| `my.work.email` | str | `modules.identity` | nothing yet |
+| `my.host.dotfiles` | str | `host.nix` | `home/claude.nix`, `home/fish.nix`, `home/nvim.nix`, `home/sketchybar.nix` |
 
-## `identity.nix`
+## The Private Flake
 
-`identity.nix` holds personal identity values (name, email, SSH public key, timezone, username) for the Macs.
-It is:
+`oschrenk/private.nix` holds values that are private but not secret, and the flake fetches it as `git+ssh://git@github.com/oschrenk/private.nix`.
 
-- Committed to the repo.
-  None of these values are secret.
-  They already appear in the author line of every commit and on `github.com/<user>.keys`.
-- The only file that needs editing on identity changes (job change, key rotation)
-- Optionally regenerated via `task nix:setup:identity` (interactive prompts with sensible defaults)
-
-If you fork this repo, edit `identity.nix` directly or run `task nix:setup:identity` to fill in your values.
+- Its values are world-readable in the local Nix store once fetched.
+  Secrets stay in 1Password and reach the hosts through opnix.
+- The fetch runs as root during `task nix:rebuild:darwin` and goes through the 1Password SSH agent.
+  `programs.ssh.knownHosts` in `modules/common.nix` declares GitHub's host key, so the fetch never stops at a prompt.
+- A fresh Mac needs 1Password signed in with its SSH agent on before the first rebuild, because the flake cannot evaluate without the private input.
+- This repo does not support forks.
+  A checkout without access to `oschrenk/private.nix` does not evaluate.
 
 ## Pattern
 
