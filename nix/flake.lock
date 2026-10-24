@@ -463,11 +463,11 @@
         "nixpkgs": "nixpkgs_9"
       },
       "locked": {
-        "lastModified": 1792708804,
-        "narHash": "sha256-Pg91yhO0+cTVO2rzVh8OVT/w0PY55JuGPisj1Y48HzY=",
+        "lastModified": 1792805423,
+        "narHash": "sha256-TWbzb9IOk2/CJ4++pt82bWb0kNdudeMCZYJHH3RRSmg=",
         "owner": "oschrenk",
         "repo": "pkgs",
-        "rev": "2257c9faea3c73687cf7c5ce705beae8743c4db0",
+        "rev": "2b08758bb5d0e3b542ce3801ffde2c0c212b5851",
         "type": "github"
       },
       "original": {

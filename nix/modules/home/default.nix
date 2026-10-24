@@ -16,6 +16,7 @@
     ./claude.nix
     ./cottage.nix
     ./cutter.nix
+    ./despacer.nix
     ./direnv.nix
     ./findbar.nix
     ./fish.nix

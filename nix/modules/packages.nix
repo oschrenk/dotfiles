@@ -28,7 +28,13 @@ in
 
   nixpkgs.overlays = [
     (_final: prev: {
-      inherit (oschrenk-pkgs.packages.${prev.stdenv.hostPlatform.system}) gitwatch-rs tlink findbar go-task;
+      inherit (oschrenk-pkgs.packages.${prev.stdenv.hostPlatform.system})
+        gitwatch-rs
+        tlink
+        findbar
+        go-task
+        despacer
+        ;
       # cottage not in nixpkgs; upstream ships a prebuilt darwin binary
       cottage = prev.callPackage ../pkgs/cottage.nix { };
       # firemark not in nixpkgs; upstream ships a prebuilt darwin binary
@@ -59,6 +65,7 @@ in
       blueutil
       coursier # jvm, scala, artifact fetching
       croc # cryptography, secure data transfer
+      despacer # rejoins terminal copies that Claude Code wrapped
       doggo
       ekctl # calendar and reminders via EventKit, JSON output
       exiftool
