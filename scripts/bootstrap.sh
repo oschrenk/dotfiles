@@ -27,6 +27,14 @@ fi
 # ensure brew is on PATH in this session
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+# Install 1Password: the first switch needs its SSH agent to fetch the private flake
+if [[ ! -d /Applications/1Password.app ]]; then
+  step "Installing 1Password..."
+  brew install --cask 1password
+else
+  step "1Password already installed, skipping."
+fi
+
 echo
 echo "Done. Nix is installed but NOT on this shell's PATH yet."
 echo
@@ -40,6 +48,10 @@ echo
 echo "Get nix on PATH (a fresh terminal does this automatically, or run):"
 echo
 echo "     export PATH=\"/nix/var/nix/profiles/default/bin:\$PATH\""
+echo
+echo "Before the first switch, open 1Password, sign in, wait for the sync, then"
+echo "enable Settings > Developer > 'Use the SSH agent'. The switch fetches the"
+echo "private flake (identity) over SSH and fails without it."
 echo
 echo "Then, from the repo root (~/Projects/ops/dotfiles):"
 echo
