@@ -213,6 +213,10 @@
 
       set fish_greeting
 
+      if set -q REX_BIN_DIR
+          fish_add_path --path --prepend --move $REX_BIN_DIR
+      end
+
       #############################
       # theme (from fish 4.3 migration)
       #############################
