@@ -15,5 +15,5 @@
   # `zg` could not add a word. It would also mean a rebuild before any lua edit
   # could be tested.
   home.file.".config/nvim".source =
-    config.lib.file.mkOutOfStoreSymlink "${osConfig.my.personal.dotfiles}/config/nvim";
+    config.lib.file.mkOutOfStoreSymlink "${osConfig.my.host.dotfiles}/config/nvim";
 }

@@ -40,7 +40,7 @@
   # rather than being applied at deploy time the way chezmoi's executable_
   # prefix did.
   home.file.".config/sketchybar".source =
-    config.lib.file.mkOutOfStoreSymlink "${osConfig.my.personal.dotfiles}/config/sketchybar";
+    config.lib.file.mkOutOfStoreSymlink "${osConfig.my.host.dotfiles}/config/sketchybar";
 
   # launchd's default PATH is /usr/bin:/bin:/usr/sbin:/sbin, which excludes the
   # nix profiles. sketchybar's lua shells out to binaries that live there, so

@@ -29,7 +29,7 @@
       "," = "cd (git rev-parse --show-toplevel)";
 
       # dotfiles
-      dot = "cd ${osConfig.my.personal.dotfiles}";
+      dot = "cd ${osConfig.my.host.dotfiles}";
 
       # Make user executable
       cux = "chmod u+x";

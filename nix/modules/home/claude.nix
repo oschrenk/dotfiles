@@ -7,7 +7,7 @@
   ...
 }:
 let
-  dotfiles = osConfig.my.personal.dotfiles;
+  dotfiles = osConfig.my.host.dotfiles;
 
   # One symlink per managed entry, never one for the profile directory. Claude
   # Code keeps its state in the same directory: sessions, projects, plans,
@@ -61,8 +61,8 @@ in
   # activation instead.
   home.activation.checkDotfilesPath = lib.hm.dag.entryBefore [ "writeBoundary" ] ''
     if [ ! -d "${dotfiles}/config" ]; then
-      echo "my.personal.dotfiles is ${dotfiles}, which has no config/ directory." >&2
-      echo "Clone the repository there, or correct the value in nix/identity.nix." >&2
+      echo "my.host.dotfiles is ${dotfiles}, which has no config/ directory." >&2
+      echo "Clone the repository there, or correct the value in nix/host.nix." >&2
       exit 1
     fi
   '';

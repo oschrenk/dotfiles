@@ -77,7 +77,7 @@
           specialArgs = inputs;
           modules = [
             ./identity.nix
-            ./private.nix
+            ./host.nix
             ./options.nix
             ./modules/common.nix
             ./modules/darwin/nix.nix
@@ -119,7 +119,7 @@
           specialArgs = inputs;
           modules = [
             ./identity.nix
-            ./private.nix
+            ./host.nix
             ./options.nix
             ./modules/common.nix
             ./modules/darwin/nix.nix
