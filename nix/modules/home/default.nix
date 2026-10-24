@@ -43,6 +43,7 @@
     ./op.nix
     ./plan.nix
     ./readline.nix
+    ./rex.nix
     ./ripgrep.nix
     ./rumdl.nix
     ./rmpc.nix
