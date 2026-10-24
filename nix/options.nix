@@ -1,20 +1,5 @@
 { lib, ... }:
 {
-  options.my.personal = {
-    username = lib.mkOption { type = lib.types.str; };
-    name = lib.mkOption { type = lib.types.str; };
-    email = lib.mkOption { type = lib.types.str; };
-    timezone = lib.mkOption {
-      type = lib.types.str;
-      default = "UTC";
-    };
-    sshKey = lib.mkOption { type = lib.types.str; };
-  };
-
-  options.my.work = {
-    email = lib.mkOption { type = lib.types.str; };
-  };
-
   options.my.host = {
     # Where the working copy lives. The config trees that are edited daily are
     # symlinked out of the nix store into this path, so a rename is a change
