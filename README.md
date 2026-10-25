@@ -186,21 +186,3 @@ echo 'extra-substituters = https://example.cachix.org' | sudo tee -a /etc/nix/ni
 echo 'extra-trusted-public-keys = example.cachix.org-1:...' | sudo tee -a /etc/nix/nix.custom.conf
 sudo launchctl kickstart -k system/systems.determinate.nix-daemon
 ```
-
----
-
-## Steam & Rosetta
-
-`brew install steam`
-
-Steam is the last application (I use) not offering a native arm variant for macOS
-
-```
-# install rosetta 2
-# system_profiler SPApplicationsDataType -json | jq -r '.SPApplicationsDataType[] | select (.arch_kind == "arch_i64") | ._name ' | sort
-#
-# needed for
-#   Steam
-#   Steam Helper
-softwareupdate --install-rosetta --agree-to-license
-```
