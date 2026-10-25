@@ -51,6 +51,8 @@ in
       ekctl = prev.callPackage ../pkgs/ekctl.nix { };
       # nixpkgs atuin lags and can compile locally; upstream ships a darwin binary
       atuin = prev.callPackage ../pkgs/atuin.nix { };
+      # AeroSpace Alpha fork; ships pending upstream fixes before upstream merges them
+      aerospace = prev.callPackage ../pkgs/aerospace.nix { };
       # nixpkgs yt-dlp lags YouTube fixes; upstream ships a darwin binary. A new
       # name, because gallery-dl uses the nixpkgs yt-dlp as a Python library.
       yt-dlp-bin = prev.callPackage ../pkgs/yt-dlp.nix { };
