@@ -45,7 +45,7 @@ function Claude.new(claude)
     })
 
     self.output:subscribe(
-      { "routine", "forced", "system_woke", "tmux_sessions_update", "ai_agent_done", "ai_agent_waiting" },
+      { "routine", "forced", "system_woke", "tmux_sessions_update", "ghostty_tabs_update", "ai_agent_done", "ai_agent_waiting" },
       function(_)
         claude.usage(callback)
       end

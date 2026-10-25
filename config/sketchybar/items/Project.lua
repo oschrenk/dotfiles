@@ -52,7 +52,7 @@ function Project.new(icons, sessionizer)
       end
     end
 
-    project:subscribe({ "forced", "routine", "system_woke", "tmux_sessions_update" }, function(_)
+    project:subscribe({ "forced", "routine", "system_woke", "tmux_sessions_update", "ghostty_tabs_update" }, function(_)
       sessionizer.currentSession(onComplete)
     end)
   end
