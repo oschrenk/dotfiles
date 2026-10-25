@@ -3,3 +3,6 @@ client_secrets = "/Users/oliver/.config/msgvault/client_secret.json"
 
 [sync]
 rate_limit_qps = 5
+
+[telemetry]
+enabled = false
