@@ -22,6 +22,7 @@
 
         documents = [
           "git@github.com:oschrenk/routines.git"
+          "git@github.com:oschrenk/espanol.git"
         ];
 
         forks = [
