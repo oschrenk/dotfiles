@@ -24,8 +24,8 @@
       # Don't store hostnames and IPs in known_hosts in cleartext
       HashKnownHosts = true;
 
-      ServerAliveCountMax = 30;
-      ServerAliveInterval = 10;
+      ServerAliveCountMax = 5;
+      ServerAliveInterval = 5;
 
       # Share one channel per host rather than opening a new one each time,
       # which makes repeat connections much quicker.
