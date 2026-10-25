@@ -39,6 +39,7 @@ in
     tokenFile = "/etc/opnix-token";
 
     secrets = {
+      # The atuin daemon is a launchd agent and cannot answer a biometric prompt.
       atuinKey = {
         reference = secrets.ref "ATUIN_SYNC_KEY";
         path = "/Users/oliver/.local/share/atuin/key";
@@ -55,7 +56,7 @@ in
         mode = "0400";
       };
 
-      # Full jira config — kept out of this public repo, stored in the Bootstrap
+      # Full jira config — kept out of this public repo, stored in the Dotfiles
       # vault (the one the opnix service account can read). jira reads it via
       # JIRA_CONFIG_FILE set in the wrapper.
       jiraConfig = {

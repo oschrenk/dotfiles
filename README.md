@@ -121,7 +121,7 @@ After Homebrew installs the casks you can already start important apps and confi
 - Arc
   - open profiles, and log into services
 - Atuin
-  - opnix provisions the sync key from 1Password (`Bootstrap` vault),
+  - opnix provisions the sync key from 1Password (`Dotfiles` vault),
     so no key transfer between machines is needed. Run `atuin login` and
     enter username + password.
 - Karabiner Elements.

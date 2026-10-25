@@ -19,7 +19,7 @@ INFUSE_REMOTE="git@github.com:oschrenk/infuse-data.git"
 OP_AGENT_SOCK="$HOME/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"
 AGENT_LABEL="org.nix-community.home.gitwatch-infuse"
 DEPLOY_KEY="$HOME/.ssh/gitwatch_infuse_ed25519"
-DEPLOY_KEY_ITEM="op://Bootstrap/sqeyxpqmfpopo2slbsr5gmklky"
+DEPLOY_KEY_ITEM="op://Dotfiles/sqeyxpqmfpopo2slbsr5gmklky"
 
 step() { echo; echo "==> $*"; }
 

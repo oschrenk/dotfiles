@@ -13,7 +13,7 @@ opnix authenticates with a 1Password **service-account token** at `/etc/opnix-to
 - **Per machine, and never managed by Nix.**
   A rebuild will not create it
 - **One service account per context, scoped read-only to one vault.**
-  The Macs' token reads the `Bootstrap` vault alone
+  The Macs' token reads the `Dotfiles` vault alone
 - Rotate it on a schedule and give it an expiry
 
 **A missing token fails silently.** opnix logs a warning and exits 0, so the rebuild succeeds and the secrets simply never appear.

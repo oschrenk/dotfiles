@@ -5,7 +5,7 @@ Shell-history sync.
 Configuration is owned by Nix Home Manager (`programs.atuin` in
 `nix/modules/home/atuin.nix`). The sync key is owned by opnix
 (`services.onepassword-secrets.secrets.atuinKey` in
-`nix/modules/darwin/secrets.nix`, sourced from 1Password vault `Bootstrap`).
+`nix/modules/darwin/secrets.nix`, sourced from 1Password vault `Dotfiles`).
 
 ## Restart the daemon
 
