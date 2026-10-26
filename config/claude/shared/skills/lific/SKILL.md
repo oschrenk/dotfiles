@@ -61,6 +61,11 @@ It will guess, and the guess will look confident.
 - **Undo** how to get back, and anything that cannot be undone
 ```
 
+An issue is ready only when it has both a Definition of Ready and a Definition of Done.
+The Definition of Ready must also hold the result of every research and verification step it needs.
+Record each fact you checked, each command you ran with its output, and each answer to an open question.
+A step that says "find out" or "check" without a result keeps the issue in `backlog`.
+
 ### Plan
 
 A checklist of bounded steps, in order.
