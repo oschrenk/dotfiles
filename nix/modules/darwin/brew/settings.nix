@@ -1,7 +1,7 @@
 { config, ... }:
 
 # Homebrew global settings and taps.
-# Homebrew itself must be installed first (scripts/bootstrap.sh handles this).
+# Homebrew itself must be installed first (scripts/stage-01-install.sh handles this).
 # darwin-rebuild switch then manages packages declaratively.
 {
   homebrew = {

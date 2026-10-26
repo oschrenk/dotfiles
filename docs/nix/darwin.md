@@ -36,7 +36,7 @@ darwin-rebuild switch --flake (dirname (chezmoi source-path))"/nix#"(hostname -s
 ## Secrets
 
 Secrets come from 1Password at activation, via opnix.
-`/etc/opnix-token` is a per-machine manual step, and a missing token fails silently.
+`scripts/stage-02-switch.sh` writes `/etc/opnix-token` from 1Password on a new Mac, and a missing token fails silently.
 
 See [secrets.md](secrets.md).
 

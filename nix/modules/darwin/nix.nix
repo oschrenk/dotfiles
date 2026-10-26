@@ -8,7 +8,7 @@ _:
   environment.etc."nix/nix.custom.conf".text = ''
     trusted-users = oliver
 
-    extra-substituters = https://oschrenk.cachix.org
-    extra-trusted-public-keys = oschrenk.cachix.org-1:3JOMfkq2vFiLw4UsCVwzu8kWFBkuS/3DD5AojcO9pks=
+    extra-substituters = https://oschrenk.cachix.org https://nixos-raspberrypi.cachix.org
+    extra-trusted-public-keys = oschrenk.cachix.org-1:3JOMfkq2vFiLw4UsCVwzu8kWFBkuS/3DD5AojcO9pks= nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=
   '';
 }

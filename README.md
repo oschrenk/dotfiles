@@ -4,182 +4,55 @@ These are my dotfiles.
 
 ## Bootstrap
 
-The `nix/` flake and `scripts/` live in this repo, so clone it first.
-The repo is public, so clone over HTTPS (the 1Password agent supplies the SSH key later).
-Clone it to the path `my.host.dotfiles` in `nix/host.nix` names, `/Users/<username>/Projects/ops/dotfiles`.
-home-manager symlinks the config trees for neovim, sketchybar and Claude Code out of the checkout, so that path is what they resolve through:
+Clone the repo to `/Users/<username>/Projects/ops/dotfiles`, the path that `my.host.dotfiles` in `nix/host.nix` names.
+home-manager links the config trees out of that checkout.
+Each stage script checks that the Mac is ready for it.
+When the Mac is not ready, the script prints what is missing and stops, so you fix that and run it again.
 
-```sh
-# git ships with the Xcode Command Line Tools; this triggers their install
-xcode-select --install
+1. Install the Xcode Command Line Tools, which include git: `xcode-select --install`
+2. Clone the repo over HTTPS and enter it: `git clone https://github.com/oschrenk/dotfiles.git ~/Projects/ops/dotfiles && cd ~/Projects/ops/dotfiles`
+3. Name the Mac and install Nix, Homebrew and 1Password: `./scripts/stage-01-install.sh`
+4. Run the first switch after the preparation below: `./scripts/stage-02-switch.sh`
+   - In 1Password, sign in and let it sync.
+     Then enable Settings > Developer > "Use the SSH agent" and "Integrate with 1Password CLI".
+   - In System Settings > Privacy & Security > Full Disk Access, enable Terminal.
+     Then quit Terminal and open it again.
+   - The first switch downloads and builds everything, which takes about an hour.
+   - If the switch stops at `universalaccess` and the shell no longer opens, set Terminal > Settings > General > "Shells open with" to `/bin/zsh`.
+     Then grant Full Disk Access and run the script again.
+5. In a new terminal, fetch the LFS files and the infuse data: `./scripts/stage-03-finish.sh`
 
-git clone https://github.com/oschrenk/dotfiles.git ~/Projects/ops/dotfiles
-cd ~/Projects/ops/dotfiles
-```
+Then set up the apps by hand, with the checklist in [docs/first-run.md](docs/first-run.md).
+Later changes apply with `task nix:rebuild:darwin`.
 
-Name the machine next, which `nix-darwin` uses to pick the host configuration:
-
-```sh
-./scripts/hostname.sh
-```
-
-Then install Nix, Homebrew and 1Password:
-
-```sh
-./scripts/bootstrap.sh
-```
-
-## nix-darwin
-
-Configure `/etc/nix/nix.custom.conf` (Determinate Nix preserves this across upgrades):
-
-```sh
-echo 'trusted-users = oliver' | sudo tee -a /etc/nix/nix.custom.conf
-echo 'extra-substituters = https://nixos-raspberrypi.cachix.org' | sudo tee -a /etc/nix/nix.custom.conf
-echo 'extra-trusted-public-keys = nixos-raspberrypi.cachix.org-1:4iMO9LXa8BqhU+Rpg6LQKiGa2lsNh/j2oiYLNOQ5sPI=' | sudo tee -a /etc/nix/nix.custom.conf
-sudo launchctl kickstart -k system/systems.determinate.nix-daemon
-```
-
-Identity values (username, name, email, timezone, SSH key, work email) live in the private flake `oschrenk/private.nix` as `modules.identity`, and the flake fetches it over SSH.
-**Before the first apply, open 1Password, sign in, let it sync, and enable Settings > Developer > "Use the SSH agent".**
-Without the agent the flake cannot evaluate.
-`./scripts/bootstrap.sh` installed the app.
-
-**Before the first apply, grant Terminal Full Disk Access.** Without it,
-activation cannot write the TCC-protected `com.apple.universalaccess` domain, the
-switch aborts and leaves your login shell pointing at a fish that is not
-installed yet (a dead terminal). On a fresh machine the switch runs in
-Terminal.app (Ghostty is not installed yet), so:
-
-- System Settings > Privacy & Security > Full Disk Access > enable Terminal
-- Quit Terminal (Cmd-Q) and reopen
-
-Apply the flake. `task` is not on PATH yet (go-task comes from nix-darwin), and
-the flake is in the `nix/` subdirectory, so run it directly from the repo root:
-
-```sh
-sudo nix run nix-darwin -- switch --flake "./nix#$(hostname -s)"
-```
-
-If the switch ever does abort on `universalaccess` and breaks your shell, set
-Terminal to open `/bin/zsh` directly (Settings > General > "Shells open with")
-to recover, grant Full Disk Access, then re-run the switch.
-
-Subsequent runs use the task wrapper:
-
-```sh
-task nix:rebuild:darwin
-```
-
-## opnix bootstrap
-
-Some secrets (currently the atuin sync key) come from 1Password via
-[opnix](https://github.com/brizzbuzz/opnix).
-The bootstrap is per-machine and the
-token stays out of git.
-
-Service account is "Service Account / opnix-bootstrap"
-
-Place the token at `/etc/opnix-token`:
-
-```sh
-sudo install -m 0600 -o root -g wheel /dev/null /etc/opnix-token
-sudo $EDITOR /etc/opnix-token
-```
-
-kickstart service manually:
-
-```sh
-sudo launchctl kickstart -k system/org.nixos.opnix-secrets
-```
-
-Pull the binary assets. nix-darwin installs `git-lfs`, so this comes after
-the first switch. A fresh clone holds pointer files rather than the real ones, so
-app icons and the Spanish spell files stay broken until this runs:
-
-```sh
-git lfs install
-git lfs pull
-```
-
-## First run
-
-Follow the on-screen instructions. Enter your password when a step asks for it.
-Downloading and compiling all the applications and packages will take roughly 1 hour.
-
-After Homebrew installs the casks you can already start important apps and configure them
-
-- App Store
-  - log into iCloud if needed
-- 1Password
-  - Security > Touch Id
-  - Security > Apple Watch.
-  - Developer > Use the SSH Agent
-  - Developer > Enable Biometric Unlock
-- Ghostty
-  - SystemSettings > "Privacy & Security > Full disk access..." Allow for ...
-- Arc
-  - open profiles, and log into services
-- Atuin
-  - opnix provisions the sync key from 1Password (`Dotfiles` vault),
-    so no key transfer between machines is needed. Run `atuin login` and
-    enter username + password.
-- Karabiner Elements.
-  - Open. Read "System Extensions Blocked" popup. Click on "Open Security Preferences" and press "Allow".
-- IntelliJ.
-  - Configure plugins.
-    - AutoDarkMode
-    - Harpooner
-    - Hocon
-    - Ideavim
-    - Key Promoter
-    - Kotlin
-    - Scala
-  - Change settings
-    - Don't send statistics
-- Photos
-  - Open to synchronize data
-- Spotify
-  - download "Liked Songs"
-- sketchybar
-  - Managed by Nix Home Manager as a launchd user agent (not brew). Restart with `launchctl kickstart -k gui/$(id -u)/org.nix-community.home.sketchybar`
-
-Login:
-- Discord
-- Slack
-
-Link device:
-- Signal
-- Telegram
-- Whatsapp
-
-## Setup git projects
+## Setup Git Projects
 
 Setup all git projects
 
-* requires ssh key (via 1Password)
-* requires `arbol`
+- requires ssh key (via 1Password)
+- requires `arbol`
 
-```
+```text
 mkdir ~/Projects
 arbol sync
 ```
 
-## Scoped runs
+## Scoped Runs
 
-- `task brew` Install taps, brews and apps
-- `task cargo` Install crates
-- `task customize:extensions` Install Arc Browser extensions
-- `task go` Install go apps
-- `task icons` Install icons
-- `task node` Install node tools
-- `task ollama` Install ollama models
+- `task brew` Install the taps, brews and apps
+- `task cargo` Install the crates
+- `task customize:extensions` Install the Arc Browser extensions
+- `task go` Install the go apps
+- `task icons` Install the icons
+- `task node` Install the node tools
+- `task ollama` Install the ollama models
 
 ## Troubleshooting
 
-### Nix binary cache warnings ("ignoring untrusted substituter")
+### Nix Binary Cache Warnings ("Ignoring Untrusted Substituter")
 
-Nix ignores binary caches defined in a flake's `nixConfig` unless the invoking user is trusted and `accept-flake-config` is set. The fix is to add the cache directly to `/etc/nix/nix.custom.conf` (which Determinate Nix preserves across upgrades) and restart the daemon:
+Nix ignores the binary caches in a flake's `nixConfig` unless the invoking user is a trusted user and `accept-flake-config` is on.
+The fix is to add the cache directly to `/etc/nix/nix.custom.conf` (which Determinate Nix preserves across upgrades) and restart the daemon:
 
 ```sh
 echo 'extra-substituters = https://example.cachix.org' | sudo tee -a /etc/nix/nix.custom.conf
