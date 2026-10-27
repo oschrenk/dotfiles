@@ -103,10 +103,10 @@ keybind = shift+left=previous_tab
 keybind = shift+right=next_tab
 keybind = ctrl+shift+left=move_tab:-1
 keybind = ctrl+shift+right=move_tab:1
-keybind = super+up=resize_split:up,25
-keybind = super+down=resize_split:down,25
-keybind = super+left=resize_split:left,25
-keybind = super+right=resize_split:right,25
+keybind = alt+shift+up=resize_split:up,25
+keybind = alt+shift+down=resize_split:down,25
+keybind = alt+shift+left=resize_split:left,25
+keybind = alt+shift+right=resize_split:right,25
 
 # vim copy mode; requires the oschrenk/ghostty fork
 keybind = ctrl+[=toggle_copy_mode
