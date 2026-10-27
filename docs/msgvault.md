@@ -61,3 +61,30 @@ These warnings appear, and none of them blocks use:
 - Remove a token: `MSGVAULT_ACCOUNT=<address> msgvault-token delete`
 - Remove the client secret: `security delete-generic-password -s msgvault-client-secret -a google`
 - Revoke the grant: <https://myaccount.google.com/permissions>
+
+## Moving the Archive to Another Mac
+
+Use msgvault's backup, not a raw copy of `~/.config/msgvault`.
+Upstream `docs/usage/backup.md` names a new Mac as the use case.
+A snapshot holds `msgvault.db`, every attachment and `deletions/`, captured at one consistent point.
+It holds no Keychain records, so the credentials move separately.
+
+1. On the source Mac, create and check a snapshot: `msgvault backup init --repo <repo> && msgvault backup create --repo <repo> && msgvault backup verify --repo <repo>`
+2. Copy the repository to the target Mac: `rsync -a <repo>/ <target>:<repo>/`
+3. On the target Mac, restore into an empty directory: `msgvault backup restore --repo <repo> --target <empty-dir>`
+4. Move the restored files into `~/.config/msgvault`, next to the `config.toml` symlink: `mv <empty-dir>/* ~/.config/msgvault/`
+5. Store the client secret on the target Mac: `op read "op://msgvault/Google OAuth/client_secret.json" | msgvault-token set-client-secret`
+6. Store the token on the target Mac, either from the source Mac's record over a secure channel or with a new grant: `msgvault add-account <address> --readonly`
+7. Check the archive and sync: `msgvault stats && msgvault sync`
+
+Notes:
+
+- `restore` needs an empty or absent target.
+  With `--overwrite` it merges into the target and does not replace it.
+- The Gmail sync cursor (`historyId`) lives in the database, so incremental `msgvault sync` keeps working after the move.
+- Do not restore with `--include-config`, because `config.toml` comes from Nix.
+- The lock files and the record of the running daemon belong to one Mac, and `analytics/` is a cache that msgvault rebuilds.
+- A backup repository has no encryption.
+- After the move, sync from one Mac only, or the two archives drift apart.
+- Instead of a copy, `[remote].url` with an `api_key` sends the CLI to another Mac's daemon.
+- Not confirmed: what `add-account` does for an account that already exists, and whether a raw copy is safe while SQLite's `-wal` and `-shm` files exist.
