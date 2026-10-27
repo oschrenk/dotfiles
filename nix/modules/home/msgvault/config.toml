@@ -1,5 +1,11 @@
 [oauth]
-client_secrets = "/Users/oliver/.config/msgvault/client_secret.json"
+client_secrets_command = ["/run/current-system/sw/bin/msgvault-token", "client-secret"]
+
+[oauth.tokens]
+read_command = ["/run/current-system/sw/bin/msgvault-token", "read"]
+write_command = ["/run/current-system/sw/bin/msgvault-token", "write"]
+delete_command = ["/run/current-system/sw/bin/msgvault-token", "delete"]
+list_command = ["/run/current-system/sw/bin/msgvault-token", "list"]
 
 [sync]
 rate_limit_qps = 5
