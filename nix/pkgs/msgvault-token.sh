@@ -12,7 +12,10 @@ store() { # service account; value on stdin
   local hex
   hex="$("$xxd" -p | tr -d '\n')"
   [[ -n "$hex" ]] || { echo "msgvault-token: empty value on stdin" >&2; return 1; }
-  printf 'add-generic-password -U -s %s -a %s -T %s -w %s\n' "$1" "$2" "$security" "$hex" |
+  # -T on an existing item rewrites its access list, which always prompts
+  local trust="-T $security"
+  "$security" find-generic-password -s "$1" -a "$2" >/dev/null 2>&1 && trust=""
+  printf 'add-generic-password -U -s %s -a %s %s -w %s\n' "$1" "$2" "$trust" "$hex" |
     "$security" -i >/dev/null
   [[ "$("$security" find-generic-password -s "$1" -a "$2" -w 2>/dev/null)" == "$hex" ]] ||
     { echo "msgvault-token: Keychain write for $2 did not stick" >&2; return 1; }
