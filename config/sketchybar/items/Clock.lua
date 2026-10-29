@@ -35,13 +35,26 @@ function Clock.new(icons)
       },
     })
 
+    local hovered = false
+    local enter = function(_)
+      hovered = true
+    end
+    -- moving between popup rows fires exit then enter; wait so it does not close
+    local leave = function(_)
+      hovered = false
+      sbar.delay(0.1, function()
+        if not hovered then
+          clock:set({ popup = { drawing = false } })
+        end
+      end)
+    end
+
     clock:subscribe("mouse.entered", function(_)
+      hovered = true
       updateClocks()
       clock:set({ popup = { drawing = true } })
     end)
-    clock:subscribe("mouse.exited", function(_)
-      clock:set({ popup = { drawing = false } })
-    end)
+    clock:subscribe("mouse.exited", leave)
 
     clocks[GT] = sbar.add("item", {
       icon = icons.guatemala,
@@ -55,6 +68,10 @@ function Clock.new(icons)
       icon = icons.vietnam,
       position = "popup." .. clock.name,
     })
+    for _, row in pairs(clocks) do
+      row:subscribe("mouse.entered", enter)
+      row:subscribe("mouse.exited", leave)
+    end
 
     clock:subscribe({ "forced", "routine", "system_woke" }, function(_)
       clock:set({ label = os.date("%a %d %b %H:%M") })
