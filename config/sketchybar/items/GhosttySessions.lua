@@ -2,6 +2,9 @@ local sbar = require("sketchybar")
 
 local GhosttySessions = {}
 
+-- running() check: addressing a closed Ghostty would launch it
+local POLL <const> = [[osascript -l JavaScript -e 'const g = Application("Ghostty"); if (!g.running()) JSON.stringify({windows: []}); else { const f = g.frontWindow.id(); JSON.stringify({windows: g.windows().map(w => ({id: w.id(), title: w.name(), focused: g.frontmost() && w.id() === f, tabs: w.tabs().map(t => ({id: t.id(), index: t.index(), title: t.name(), selected: t.selected()}))}))}) }']]
+
 -- One item per Ghostty window, then one dot per tab of the focused window,
 -- fed by the ghostty_tabs_update event payload.
 -- @param icons Plugin specific icons
@@ -78,8 +81,7 @@ function GhosttySessions.new(icons, style, tabIcons, tabStyle)
       end)
     end
 
-    items[1]:subscribe("ghostty_tabs_update", function(env)
-      local list = type(env.INFO) == "table" and env.INFO.windows or {}
+    local render = function(list)
       local byId = {}
       for _, w in ipairs(list) do
         byId[w.id] = w
@@ -143,6 +145,17 @@ function GhosttySessions.new(icons, style, tabIcons, tabStyle)
           dot:set({ drawing = false })
         end
       end
+    end
+
+    items[1]:subscribe("ghostty_tabs_update", function(env)
+      render(type(env.INFO) == "table" and env.INFO.windows or {})
+    end)
+
+    items[1]:set({ update_freq = 60 })
+    items[1]:subscribe({ "forced", "routine", "system_woke" }, function(_)
+      sbar.exec(POLL, function(result)
+        render(type(result) == "table" and result.windows or {})
+      end)
     end)
   end
 
