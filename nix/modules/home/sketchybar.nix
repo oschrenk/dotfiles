@@ -1,6 +1,7 @@
 {
   config,
   osConfig,
+  lib,
   pkgs,
   ...
 }:
@@ -52,5 +53,20 @@
   # Sessionizer.lua and its tlink call use absolute paths and don't need this.
   launchd.agents.sketchybar.config.EnvironmentVariables = {
     PATH = "/etc/profiles/per-user/${config.home.username}/bin:/run/current-system/sw/bin:/nix/var/nix/profiles/default/bin:/opt/homebrew/bin:/usr/bin:/bin:/usr/sbin:/sbin";
+  };
+
+  launchd.agents.sketchybar-toggle = {
+    enable = true;
+    config = {
+      ProgramArguments = [
+        (lib.getExe pkgs.sketchybar-toggle)
+        "--trigger-zone"
+        "5"
+      ];
+      EnvironmentVariables.PATH = "/etc/profiles/per-user/${config.home.username}/bin:/usr/bin:/bin";
+      RunAtLoad = true;
+      KeepAlive = true;
+      ProcessType = "Interactive";
+    };
   };
 }

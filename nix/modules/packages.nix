@@ -34,6 +34,7 @@ in
         findbar
         go-task
         despacer
+        sketchybar-toggle
         ;
       # cottage not in nixpkgs; upstream ships a prebuilt darwin binary
       cottage = prev.callPackage ../pkgs/cottage.nix { };

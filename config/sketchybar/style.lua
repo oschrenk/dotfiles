@@ -34,7 +34,7 @@ return {
     notch_width = 188,
     font_smoothing = true,
     shadow = false,
-    topmost = "window",
+    topmost = true,
     -- main, all, <positive_integer list>
     display = "all",
   },
