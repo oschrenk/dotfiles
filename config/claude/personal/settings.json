@@ -65,7 +65,11 @@
       "Bash(uniq *)",
       "Bash(wc *)",
       "Bash(which *)",
+      "Bash(gh *)",
       "WebSearch"
+    ],
+    "deny": [
+      "Bash(gh extension *)"
     ]
   },
   "model": "opus[1m]",
@@ -139,6 +143,11 @@
           {
             "type": "command",
             "command": "/bin/sh -c 'rex __internal session-start --agent claude 2>/dev/null || true'",
+            "timeout": 5
+          },
+          {
+            "type": "command",
+            "command": "[ -n \"$CLAUDE_ENV_FILE\" ] && [ -r ~/.config/gh/claude-token ] && echo 'export GH_TOKEN=\"$(cat ~/.config/gh/claude-token)\"' >> \"$CLAUDE_ENV_FILE\" || true",
             "timeout": 5
           }
         ]

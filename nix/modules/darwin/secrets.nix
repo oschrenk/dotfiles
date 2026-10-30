@@ -56,6 +56,14 @@ in
         mode = "0400";
       };
 
+      ghClaudeToken = {
+        reference = secrets.ref "GITHUB_TOKEN_CLAUDE";
+        path = "/Users/${config.system.primaryUser}/.config/gh/claude-token";
+        owner = config.system.primaryUser;
+        group = "staff";
+        mode = "0400";
+      };
+
       # Full jira config — kept out of this public repo, stored in the Dotfiles
       # vault (the one the opnix service account can read). jira reads it via
       # JIRA_CONFIG_FILE set in the wrapper.
