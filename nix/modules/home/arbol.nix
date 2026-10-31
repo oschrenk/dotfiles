@@ -39,6 +39,10 @@
           "git@github.com:oschrenk/vacar.i25a.gt.git"
         ];
 
+        meta = [
+          "git@github.com:oschrenk/life.git"
+        ];
+
         ops = [
           "git@github.com:oschrenk/bramble.git"
           "git@github.com:oschrenk/dotfiles.git"
