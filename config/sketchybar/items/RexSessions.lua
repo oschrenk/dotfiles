@@ -30,7 +30,7 @@ function RexSessions.new(icons, style, tabIcons, tabStyle)
       local item = sbar.add("item", {
         position = position,
         display = display,
-        icon = { string = icons.tmux, color = style.inactive },
+        icon = { string = icons.ghostty, color = style.inactive },
         label = { width = 0 },
         drawing = false,
       })
