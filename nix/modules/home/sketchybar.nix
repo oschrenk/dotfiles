@@ -62,6 +62,10 @@
         (lib.getExe pkgs.sketchybar-toggle)
         "--trigger-zone"
         "5"
+        "--debounce"
+        "0"
+        "--menu-bar-height"
+        "40"
       ];
       EnvironmentVariables.PATH = "/etc/profiles/per-user/${config.home.username}/bin:/usr/bin:/bin";
       RunAtLoad = true;
