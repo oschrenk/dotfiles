@@ -11,8 +11,8 @@ in
     enable = true;
 
     base = {
-      # Ghostty windows, tabs and splits instead of tmux sessions
-      backend = "ghostty";
+      # Rex sessions instead of tmux sessions
+      backend = "rex";
       ignore = [
         ".build"
         "node_modules"

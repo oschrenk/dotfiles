@@ -557,11 +557,11 @@
         "nixpkgs": "nixpkgs_11"
       },
       "locked": {
-        "lastModified": 1791866435,
-        "narHash": "sha256-EO7pv70crm0Fzelg1qUSgZTJTvWYS0dWbpdiP71ij1c=",
+        "lastModified": 1793468218,
+        "narHash": "sha256-IUUjQCYUWgboqKytV39eTS9UAmRBCFfCFYxJI5MFl3c=",
         "owner": "oschrenk",
         "repo": "sessionizer",
-        "rev": "d249df2f49579418187b1010ffbe2d23f04dc1b7",
+        "rev": "7d99fd3c68e9bc6da8968fe70141b9a0d8398958",
         "type": "github"
       },
       "original": {

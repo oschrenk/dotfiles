@@ -171,7 +171,7 @@ _:
           "exec-and-forget \${XDG_CONFIG_HOME}/aerospace/make-frontmost.sh md.obsidian"
           "exec-and-forget \${XDG_CONFIG_HOME}/aerospace/position-frontmost.sh center"
         ];
-        # Project picker: Sessionizer.app opens or focuses a project's Ghostty window.
+        # Project picker: Sessionizer.app opens or focuses a project's Rex session.
         # `open` keeps the app its own responsible process, so the Automation
         # permission for Ghostty is granted to Sessionizer, not to AeroSpace.
         ctrl-space = "exec-and-forget open -a Sessionizer";
