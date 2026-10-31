@@ -8,11 +8,11 @@
 
 stdenvNoCC.mkDerivation rec {
   pname = "aerospace";
-  version = "0.5";
+  version = "0.7";
 
   src = fetchurl {
     url = "https://github.com/JasonBates/AeroSpace-Alpha/releases/download/v${version}/AeroSpace-Alpha-v${version}.zip";
-    hash = "sha256-mdvOdV6dG+hcbwJ0KKbUnHiZkSqcQjs6J3mOkC95tZ0=";
+    hash = "sha256-HDJ9RMsEG7J0VWsh1NwbL/u0pUiMwMNPsq3Lg+9/WmY=";
   };
 
   nativeBuildInputs = [
