@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   claude-code,
@@ -53,8 +54,16 @@ in
       ekctl = prev.callPackage ../pkgs/ekctl.nix { };
       # nixpkgs atuin lags and can compile locally; upstream ships a darwin binary
       atuin = prev.callPackage ../pkgs/atuin.nix { };
-      # AeroSpace Alpha fork; ships pending upstream fixes before upstream merges them
-      aerospace = prev.callPackage ../pkgs/aerospace.nix { };
+      # Upstream main built by ~/Projects/forks/aerospace/build-local.sh; it needs Swift 6.4, which nixpkgs lacks
+      aerospace =
+        let
+          app = "/Users/${config.my.personal.username}/Applications/AeroSpace.app";
+        in
+        prev.runCommand "aerospace-local" { meta.mainProgram = "aerospace"; } ''
+          mkdir -p $out/Applications $out/bin
+          ln -s ${app} $out/Applications/AeroSpace.app
+          ln -s ${app}/Contents/Resources/aerospace $out/bin/aerospace
+        '';
       # nixpkgs yt-dlp lags YouTube fixes; upstream ships a darwin binary. A new
       # name, because gallery-dl uses the nixpkgs yt-dlp as a Python library.
       yt-dlp-bin = prev.callPackage ../pkgs/yt-dlp.nix { };
