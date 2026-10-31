@@ -1,3 +1,6 @@
+local PUBLISH_DELAY_SECONDS = 0.1
+local PUBLISH_INTERVAL_SECONDS = 15
+
 local visible
 local attached = {}
 local pending
@@ -34,10 +37,10 @@ local function schedule()
   if pending then
     pending:cancel()
   end
-  pending = rex.after(0.1, publish)
+  pending = rex.after(PUBLISH_DELAY_SECONDS, publish)
 end
 
--- ponytail: no API reports the session on screen, so the last resized one counts, and none does until the first switch
+-- no API reports the session on screen, so the last resized one counts, and none does until the first switch
 rex.on("terminal.size_changed", function(ctx, _)
   visible = ctx.session_id
   schedule()
@@ -52,4 +55,4 @@ for _, name in ipairs({
   rex.on(name, schedule)
 end
 
-rex.every(15, publish)
+rex.every(PUBLISH_INTERVAL_SECONDS, publish)
