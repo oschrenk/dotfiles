@@ -27,12 +27,14 @@ sbar.bar(style.bar)
 sbar.default(style.default)
 
 sbar.add("event", "ghostty_tabs_update", "com.mitchellh.ghostty.tabsChanged")
+sbar.add("event", "rex_update")
 
 -- left
 -- primary pool switcher on the main display (1), secondary pool on the second (2)
 require("items.sessions").new(icons.sessions, style.sessions, sessionizerPrimary).add("left", 1)
 require("items.windows").new(icons.windows, style.windows, sessionizerPrimary).add("left", 1)
 require("items.ghosttysessions").new(icons.sessions, style.sessions, icons.windows, style.windows).add("left", 1)
+require("items.rexsessions").new(icons.sessions, style.sessions, icons.windows, style.windows).add("left", 1)
 require("items.sessions").new(icons.sessions, style.sessions, sessionizerSecondary).add("left", 2)
 require("items.windows").new(icons.windows, style.windows, sessionizerSecondary).add("left", 2)
 require("items.mission").new(mission, focus, icons.mission).add("left")
