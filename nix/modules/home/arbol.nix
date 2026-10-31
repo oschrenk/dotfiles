@@ -110,6 +110,7 @@
           "git@github.com:oschrenk/plan.swift.git"
           "git@github.com:oschrenk/pomodoro.git"
           "git@github.com:oschrenk/sessionizer.git"
+          "git@github.com:oschrenk/sessionizer.swift.git"
           "git@github.com:oschrenk/team.git"
           "git@github.com:oschrenk/thaw.git"
           "git@github.com:oschrenk/up.git"
