@@ -6,7 +6,7 @@ set -euo pipefail
 
 command=$(jq -r '.tool_input.command // empty')
 
-# ponytail: only flags before the script are checked, so `sed -e s/a/b/ -i f` slips through.
+# Only flags before the script are checked, so `sed -e s/a/b/ -i f` slips through.
 if ! printf '%s' "$command" | grep -Eq '(^|[;&|(`[:space:]])g?sed([[:space:]]+-[a-zA-Z]+|[[:space:]]+--[a-z-]+(=[^[:space:]]*)?)*[[:space:]]+(-[a-zA-Z]*i|--in-place)'; then
   exit 0
 fi

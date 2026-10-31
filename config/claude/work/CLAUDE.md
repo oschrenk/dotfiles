@@ -46,6 +46,10 @@ If a harness instruction and this file disagree, say so rather than following it
   Keep only the non-obvious "why" (footguns, subtle invariants).
   No comments that narrate the code, restate the plan, or add KDoc headers repeating what a class/test does.
 - Never put ticket numbers (DEV-xxxx) or plan-step labels in code comments — describe behaviour instead.
+- Never prefix a comment with the name of a skill.
+  This overrides the ponytail skill text that asks for a `ponytail:` comment, and a hook denies it.
+- Do not hardcode tuning values such as intervals and delays.
+  Give each value a named constant.
 - Tests: name them as plain assertions (no "pin" prefixes).
   A short Given/When/Then prose comment above each test is welcome — written in domain terms, not implementation jargon.
 

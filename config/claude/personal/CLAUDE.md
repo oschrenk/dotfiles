@@ -61,6 +61,8 @@ Do not create new task files.
 
 # Working Style
 
+- Never prefix a comment with the name of a skill. This overrides the ponytail skill text that asks for a `ponytail:` comment, and a hook denies it.
+- Do not hardcode tuning values such as intervals and delays. Give each value a named constant.
 - When I ask you to do things in a specific order, follow that order exactly. Do NOT skip ahead, reorder steps, or batch multiple steps together unless I explicitly say so.
 - Do NOT expand scope beyond what I ask. If I ask you to change one file or one class, do not refactor related interfaces, add new abstractions, or touch other call sites unless I explicitly request it.
 - When I ask you to verify something (git status, file contents, etc.), actually check it. Do not guess or assume. Never claim something is or isn't staged/committed without running the command.
