@@ -1,1 +1,5 @@
 rex.unbind("cmd+n", "client.window.new")
+rex.bind("alt+shift+left", "pane.resize", { direction = "left" })
+rex.bind("alt+shift+right", "pane.resize", { direction = "right" })
+rex.bind("alt+shift+up", "pane.resize", { direction = "up" })
+rex.bind("alt+shift+down", "pane.resize", { direction = "down" })
