@@ -106,6 +106,12 @@ jq -r --arg q danny '.[]
 - Use the match only when exactly one person matches; otherwise ask.
 - An empty `slack.id` or `slack.url` means it was never filled in. Ask the user for it, and
   never guess an id. The token cannot look people up (`users:read` is missing).
+- `slack.url` is the browser URL of the DM with that person.
+- `slack.id` (the member id, `U…`) takes two profile views; the first menu has no copy item:
+  1. In the DM window, click ⋮.
+  2. Click **View full profile**.
+  3. In that full profile view, click the second ⋮.
+  4. Click **Copy member ID**.
 
 ## Scheduled messages are invisible in the Slack app
 
