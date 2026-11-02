@@ -46,7 +46,6 @@ in
       # msgvault not in nixpkgs; upstream ships prebuilt darwin archives, and
       # its own flake would build Go 1.27 from source
       msgvault = prev.callPackage ../pkgs/msgvault.nix { };
-      msgvault-token = prev.callPackage ../pkgs/msgvault-token.nix { };
       # tmignore-rs not in nixpkgs; upstream ships prebuilt darwin archives
       tmignore-rs = prev.callPackage ../pkgs/tmignore-rs.nix { };
       # upstream plistwatch prints no int or float values; the grazij fork does
@@ -93,7 +92,6 @@ in
       mdq
       minisign
       msgvault
-      msgvault-token
       ngrep
       nmap # network, port scanning
       page

@@ -2,6 +2,8 @@
   lib,
   stdenvNoCC,
   fetchurl,
+  jq,
+  writeShellApplication,
 }:
 
 let
@@ -23,6 +25,12 @@ let
   source =
     sources.${stdenvNoCC.hostPlatform.system}
       or (throw "msgvault: no prebuilt archive for ${stdenvNoCC.hostPlatform.system}");
+  # The Keychain wrapper the config's client_secrets_command and [oauth.tokens] call.
+  token = writeShellApplication {
+    name = "msgvault-token";
+    runtimeInputs = [ jq ];
+    text = builtins.readFile ./msgvault-token.sh;
+  };
 in
 stdenvNoCC.mkDerivation {
   pname = "msgvault";
@@ -36,6 +44,7 @@ stdenvNoCC.mkDerivation {
   installPhase = ''
     runHook preInstall
     install -Dm755 msgvault $out/bin/msgvault
+    install -Dm755 ${token}/bin/msgvault-token $out/bin/msgvault-token
     runHook postInstall
   '';
 
