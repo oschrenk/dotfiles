@@ -75,6 +75,8 @@ in
         "^git l$"
         "^git s$"
         "^cd$"
+        # ignore lific API keys, which secrets_filter does not know
+        "lific_sk-"
       ];
 
       # filter out secrets from history (AWS keys, GitHub PATs, Slack tokens, Stripe keys, etc.)
