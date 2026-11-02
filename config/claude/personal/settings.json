@@ -102,6 +102,10 @@
           {
             "type": "command",
             "command": "$CLAUDE_CONFIG_DIR/hooks/block-sed-in-place.sh"
+          },
+          {
+            "type": "command",
+            "command": "$CLAUDE_CONFIG_DIR/hooks/block-rex-session-rename.sh"
           }
         ]
       },

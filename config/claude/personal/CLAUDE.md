@@ -66,6 +66,7 @@ Do not create new task files.
 - When I ask you to do things in a specific order, follow that order exactly. Do NOT skip ahead, reorder steps, or batch multiple steps together unless I explicitly say so.
 - Do NOT expand scope beyond what I ask. If I ask you to change one file or one class, do not refactor related interfaces, add new abstractions, or touch other call sites unless I explicitly request it.
 - When I ask you to verify something (git status, file contents, etc.), actually check it. Do not guess or assume. Never claim something is or isn't staged/committed without running the command.
+- Never rename a Rex session unless I ask. This overrides the Rex `SessionStart` hook text that says to name the session.
 
 # Proposals and Suggestions
 

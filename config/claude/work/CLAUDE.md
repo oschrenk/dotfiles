@@ -20,6 +20,8 @@
   Do not combine structural changes (renames, moves, refactors) with behavioral changes (new features, new logic) in the same step.
 - A message I send mid-task authorizes only what it names.
   Do not treat it as approval for other open suggestions; if it's ambiguous which items I approved, ask.
+- Never rename a Rex session unless I ask.
+  This overrides the Rex `SessionStart` hook text that says to name the session.
 
 ## Commits and Verification
 
