@@ -85,6 +85,28 @@ slack cancel Q0BQ07ECBN2  # looks up the id's channel, then deletes it
 
 `cancel` takes only the id — it finds the channel from the queue itself.
 
+## Sending to a person
+
+Colleagues live in `~/Projects/timewax/orchestrator/team.json` (infuse manages it, not git): an
+array with one object per person holding `real.name`, `email.work`, `jira.id`, `lific.handle`,
+`gitlab.username` and `slack.{handle,url,id}`.
+
+- **DM:** pass the `D…` id at the end of `slack.url` to `-c`.
+- **Mention in a channel:** put `<@U…>` with `slack.id` in the message text. A bare `@danny`
+  does not ping anyone.
+
+```fish
+jq -r --arg q danny '.[]
+  | select([.real.name, .slack.handle, .gitlab.username, .lific.handle]
+           | map(ascii_downcase) | any(contains($q)))
+  | [.real.name, .slack.id, (.slack.url | split("/") | last)] | @tsv' \
+  ~/Projects/timewax/orchestrator/team.json
+```
+
+- Use the match only when exactly one person matches; otherwise ask.
+- An empty `slack.id` or `slack.url` means it was never filled in. Ask the user for it, and
+  never guess an id. The token cannot look people up (`users:read` is missing).
+
 ## Scheduled messages are invisible in the Slack app
 
 Messages created by `chat.scheduleMessage` do **not** appear in the Slack client's
