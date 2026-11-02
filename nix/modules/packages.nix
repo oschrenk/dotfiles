@@ -49,6 +49,8 @@ in
       msgvault-token = prev.callPackage ../pkgs/msgvault-token.nix { };
       # tmignore-rs not in nixpkgs; upstream ships prebuilt darwin archives
       tmignore-rs = prev.callPackage ../pkgs/tmignore-rs.nix { };
+      # upstream plistwatch prints no int or float values; the grazij fork does
+      plistwatch = prev.callPackage ../pkgs/plistwatch.nix { };
       # ekctl not in nixpkgs; upstream ships a prebuilt universal darwin binary
       ekctl = prev.callPackage ../pkgs/ekctl.nix { };
       # nixpkgs atuin lags and can compile locally; upstream ships a darwin binary
@@ -95,6 +97,7 @@ in
       ngrep
       nmap # network, port scanning
       page
+      plistwatch # prints plist changes as defaults commands
       rclone # system, sync files
       rsync # system, sync files
       smartmontools
