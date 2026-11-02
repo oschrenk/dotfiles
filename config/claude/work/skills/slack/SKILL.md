@@ -113,6 +113,19 @@ jq -r --arg q danny '.[]
   3. In that full profile view, click the second ⋮.
   4. Click **Copy member ID**.
 
+## Sending to a channel
+
+Channels live in `~/Projects/timewax/orchestrator/channels.json` (infuse, not git): an array with
+one object per channel holding `name` (`#prod-status`), `slack.{id,url}` and `purpose`. Look a
+channel up there before posting, and pass `slack.id` to `-c`; never guess a channel name, because
+a wrong one fails with `channel_not_found`. An empty `slack.id` means it was never filled in: ask
+the user, and add it once known.
+
+```fish
+jq -r --arg q prod '.[] | select(.name | contains($q)) | [.name, .slack.id, .purpose] | @tsv' \
+  ~/Projects/timewax/orchestrator/channels.json
+```
+
 ## Scheduled messages are invisible in the Slack app
 
 Messages created by `chat.scheduleMessage` do **not** appear in the Slack client's
