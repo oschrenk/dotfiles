@@ -117,6 +117,15 @@
             "command": "/usr/bin/timeout 1 /bin/sh -c 'sketchybar --trigger ai_agent_waiting SESSION_ID=$(tmux display-message -p \"#{session_id}\") WINDOW_ID=$(tmux display-message -p \"#{window_id}\")' || true"
           }
         ]
+      },
+      {
+        "matcher": "AskUserQuestion",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "$CLAUDE_CONFIG_DIR/hooks/block-question-previews.sh"
+          }
+        ]
       }
     ],
     "PostToolUse": [
