@@ -19,6 +19,10 @@ tasks:
     desc: Set keyboard brightness
     cmds:
       - scripts/configure-keyboard.sh
+  claude:lific:
+    desc: Register the lific MCP server for both Claude profiles, with the server address after --
+    cmds:
+      - scripts/setup-lific-mcp.sh {{.CLI_ARGS}}
   nvim:blink:
     desc: Rebuild the blink.cmp Rust fuzzy matcher after a plugin update
     # The dylib filename is keyed to the checked-out commit, so every

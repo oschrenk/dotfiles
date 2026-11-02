@@ -64,6 +64,15 @@ in
         mode = "0400";
       };
 
+      # A file, not the login Keychain, which refuses reads from an SSH session.
+      lificToken = {
+        reference = secrets.ref "LIFIC_BEARER_TOKEN";
+        path = "/Users/${config.system.primaryUser}/.config/lific/token";
+        owner = config.system.primaryUser;
+        group = "staff";
+        mode = "0400";
+      };
+
       # Full jira config — kept out of this public repo, stored in the Dotfiles
       # vault (the one the opnix service account can read). jira reads it via
       # JIRA_CONFIG_FILE set in the wrapper.

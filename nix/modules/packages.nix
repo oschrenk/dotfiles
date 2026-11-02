@@ -46,6 +46,8 @@ in
       # msgvault not in nixpkgs; upstream ships prebuilt darwin archives, and
       # its own flake would build Go 1.27 from source
       msgvault = prev.callPackage ../pkgs/msgvault.nix { };
+      # lific's server runs elsewhere; this is only the MCP headersHelper
+      lific = prev.callPackage ../pkgs/lific.nix { };
       # tmignore-rs not in nixpkgs; upstream ships prebuilt darwin archives
       tmignore-rs = prev.callPackage ../pkgs/tmignore-rs.nix { };
       # upstream plistwatch prints no int or float values; the grazij fork does
@@ -89,6 +91,7 @@ in
       jsongrep
       kmp-lsp
       lua-language-server # lua, lsp
+      lific
       mdq
       minisign
       msgvault
