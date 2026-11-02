@@ -24,6 +24,7 @@ _:
       "arc" # chromium based browser
       "beeper" # universal chat client
       "betterdisplay" # display management
+      "crest-browser" # open-source web browser
       "discord" # discord client
       "docker-desktop" # container runtime
       "google-chrome" # chromium based browser
