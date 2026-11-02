@@ -12,6 +12,12 @@ After Homebrew installs the casks you can already start important apps and confi
 - Ghostty
   - SystemSettings > "Privacy & Security > Full disk access..."
     Allow for ...
+- Rex
+  - SystemSettings > "Privacy & Security > Full disk access..."
+    Allow for `Rex Server`, in `~/Library/Application Support/com.superlogical.rex/RexServer/Versions/Current/`
+  - Settings > Rex Server > Remote Control
+    Turn on.
+    Without it, `rex do` client actions fail with `Rex.app is not accepting actions`.
 - Arc
   - open profiles, and log into services
 - Atuin
