@@ -1,0 +1,3 @@
+# infuse symlinks are hidden from git via .git/info/exclude;
+# re-expose them to ripgrep, which reads .ignore at higher precedence.
+!CLAUDE.md
