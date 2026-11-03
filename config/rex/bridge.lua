@@ -5,6 +5,26 @@ local visible
 local attached = {}
 local pending
 
+local function is_waiting(session_id, window)
+  for _, layer in ipairs(window.layers) do
+    for _, block in ipairs(layer.blocks) do
+      if block.creator_name == "com.superlogical.terminal" then
+        local ok, status = pcall(rex.call, "block.method", {
+          session_id = session_id,
+          block_id = block.block_id,
+          method = "program_status",
+        })
+        for _, record in ipairs(ok and status.records or {}) do
+          if record.state == "blocked" then
+            return true
+          end
+        end
+      end
+    end
+  end
+  return false
+end
+
 local function publish()
   pending = nil
   local sessions = {}
@@ -15,13 +35,17 @@ local function publish()
     end
     local view = rex.call("session.view", { session_id = session.session_id })
     local tabs = {}
+    local waiting = false
     for _, window in ipairs(view.windows) do
-      tabs[#tabs + 1] = { id = window.window_id, label = window.label }
+      local tab_waiting = is_waiting(session.session_id, window)
+      waiting = waiting or tab_waiting
+      tabs[#tabs + 1] = { id = window.window_id, label = window.label, waiting = tab_waiting }
     end
     sessions[#sessions + 1] = {
       id = session.session_id,
       label = session.label,
       active_tab = view.active_window_id,
+      waiting = waiting,
       tabs = tabs,
     }
   end
@@ -51,6 +75,7 @@ for _, name in ipairs({
   "session_created",
   "session_destroyed",
   "session_label_changed",
+  "terminal.program_status_changed",
 }) do
   rex.on(name, schedule)
 end

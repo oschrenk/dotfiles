@@ -100,7 +100,7 @@ function RexSessions.new(icons, style, tabIcons, tabStyle)
           if visible[i] then
             shown = s
           end
-          local color = visible[i] and style.active or style.inactive
+          local color = s.waiting and style.waiting or visible[i] and style.active or style.inactive
           item:set({
             icon = { color = color },
             label = { string = s.label, color = color, width = visible[i] and "dynamic" or 0 },
@@ -118,7 +118,9 @@ function RexSessions.new(icons, style, tabIcons, tabStyle)
         local t = tabs[i]
         tabIds[i] = t and t.id
         if t ~= nil then
-          local color = t.id == shown.active_tab and tabStyle.active or tabStyle.inactive
+          local color = t.waiting and tabStyle.waiting
+            or t.id == shown.active_tab and tabStyle.active
+            or tabStyle.inactive
           dot:set({
             icon = { color = color },
             label = { string = t.label, color = color },

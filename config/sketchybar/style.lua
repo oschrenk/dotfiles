@@ -7,6 +7,7 @@ local palette = {
   green = 0xffb9bb46,
   red = 0xffe85841,
   yellow = 0xfff1bf4f,
+  orange = 0xffff9500,
 }
 
 return {
@@ -79,10 +80,12 @@ return {
   sessions = {
     active = palette.white,
     inactive = palette.grey,
+    waiting = palette.orange,
   },
   windows = {
     active = palette.white,
     inactive = palette.grey,
+    waiting = palette.orange,
   },
   workspaces = {
     active = palette.white,
