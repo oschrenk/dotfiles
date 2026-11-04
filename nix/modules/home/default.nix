@@ -58,6 +58,7 @@
     ./tmignore.nix
     ./tmux.nix
     ./vale.nix
+    ./worktrunk.nix
     ./yt-dlp.nix
     ./zed.nix
   ];
