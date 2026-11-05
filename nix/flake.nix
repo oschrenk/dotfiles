@@ -19,6 +19,8 @@
     claude-code.inputs.nixpkgs.follows = "nixpkgs";
     codex-cli.url = "github:sadjow/codex-cli-nix";
     codex-cli.inputs.nixpkgs.follows = "nixpkgs";
+    nix-apple-container.url = "github:halfwhey/nix-apple-container";
+    nix-apple-container.inputs.nixpkgs.follows = "nixpkgs";
     # Own tools. Deliberately NOT following our nixpkgs: each builds against the
     # nixpkgs it locked, which is the build oschrenk.cachix.org actually holds
     # (trusted in modules/darwin/nix.nix). Adding `follows` rebases them onto our
@@ -110,6 +112,8 @@
             ./modules/darwin/defaults/apps/com.pauldavis.crest.nix
             ./modules/darwin/defaults/apps/io.tailscale.ipn.macsys.nix
             ./modules/darwin/java.nix
+            inputs.nix-apple-container.darwinModules.default
+            ./modules/darwin/container.nix
             ./hosts/maxbook.nix
             home-manager.darwinModules.home-manager
             ./modules/home-manager.nix
@@ -153,6 +157,8 @@
             ./modules/darwin/defaults/apps/com.pauldavis.crest.nix
             ./modules/darwin/defaults/apps/io.tailscale.ipn.macsys.nix
             ./modules/darwin/java.nix
+            inputs.nix-apple-container.darwinModules.default
+            ./modules/darwin/container.nix
             ./hosts/airbook.nix
             home-manager.darwinModules.home-manager
             ./modules/home-manager.nix

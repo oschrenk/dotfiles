@@ -206,6 +206,26 @@
         "type": "github"
       }
     },
+    "nix-apple-container": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1793198415,
+        "narHash": "sha256-WL65SBHUhV3qCA8Tv5LsEYt+3opXP0jhyIa3iVscZkI=",
+        "owner": "halfwhey",
+        "repo": "nix-apple-container",
+        "rev": "9b6e8d9042054a1c1a54c9cb292bb40e02f4d918",
+        "type": "github"
+      },
+      "original": {
+        "owner": "halfwhey",
+        "repo": "nix-apple-container",
+        "type": "github"
+      }
+    },
     "nix-darwin": {
       "inputs": {
         "nixpkgs": [
@@ -481,11 +501,11 @@
         "nixpkgs": "nixpkgs_10"
       },
       "locked": {
-        "lastModified": 1787771715,
-        "narHash": "sha256-ZuBoq1mCdFXQQZDi6LfFe675CsHY/SD9QOtA9C5BY9k=",
+        "lastModified": 1793667095,
+        "narHash": "sha256-kYSO2y8BlTTlex+vSR6YY7vStY3k7jA3DrGFQRFKPjI=",
         "owner": "oschrenk",
         "repo": "plan.swift",
-        "rev": "f9efcd83aac3d16a32873610bc9ea14d9ffc838f",
+        "rev": "af17493d8cf6361c34c1610223db2032c0b9ae5e",
         "type": "github"
       },
       "original": {
@@ -520,6 +540,7 @@
         "mark": "mark",
         "meter": "meter",
         "mission": "mission",
+        "nix-apple-container": "nix-apple-container",
         "nix-darwin": "nix-darwin",
         "nix-plist-manager": "nix-plist-manager",
         "nixpkgs": "nixpkgs_7",

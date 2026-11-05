@@ -61,6 +61,8 @@ in
       # nixpkgs yt-dlp lags YouTube fixes; upstream ships a darwin binary. A new
       # name, because gallery-dl uses the nixpkgs yt-dlp as a Python library.
       yt-dlp-bin = prev.callPackage ../pkgs/yt-dlp.nix { };
+      # socktainer not in nixpkgs; upstream ships a signed darwin binary
+      socktainer = prev.callPackage ../pkgs/socktainer.nix { };
     })
   ];
 

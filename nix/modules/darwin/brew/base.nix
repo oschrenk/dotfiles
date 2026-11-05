@@ -43,9 +43,6 @@ _:
       # git
       "worktrunk" # git, worktree management
 
-      # container, k8s
-      "container" # cli, containerization from Apple
-
       # lua
       "lua" # lua, programming language
 
