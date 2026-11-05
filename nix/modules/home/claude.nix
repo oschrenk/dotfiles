@@ -40,8 +40,6 @@ in
       "CLAUDE.md"
       "keybindings.json"
       "output-styles"
-      "policy-limits.json"
-      "remote-settings.json"
       "settings.json"
       "skills"
     ]
