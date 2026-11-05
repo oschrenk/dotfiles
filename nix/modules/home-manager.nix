@@ -1,6 +1,7 @@
 {
   config,
   arbol,
+  arto,
   cutter,
   infuse,
   mark,
@@ -25,6 +26,7 @@
       username = config.system.primaryUser;
       inherit
         arbol
+        arto
         cutter
         infuse
         mark

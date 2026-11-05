@@ -32,6 +32,7 @@
     secretspec.url = "github:oschrenk/secretspec.nix";
     secretspec.inputs.nixpkgs.follows = "nixpkgs";
     arbol.url = "github:oschrenk/arbol";
+    arto.url = "github:oschrenk/arto";
     cutter.url = "github:oschrenk/cutter";
     infuse.url = "github:oschrenk/infuse";
     mark.url = "github:oschrenk/mark";

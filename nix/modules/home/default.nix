@@ -12,6 +12,7 @@
     ../darwin/defaults/user/spotlight.nix
     ./aerospace.nix
     ./arbol.nix
+    ./arto.nix
     ./atuin.nix
     ./claude.nix
     ./cottage.nix

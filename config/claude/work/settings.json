@@ -123,7 +123,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "/Users/oliver/Frameworks/go/bin/arto notify hook"
+            "command": "arto notify hook"
           }
         ]
       }
