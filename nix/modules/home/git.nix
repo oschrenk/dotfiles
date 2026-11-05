@@ -48,6 +48,14 @@ in
       signer = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
     };
 
+    # timewax release tags are lightweight; a signed tag needs a message, so `git tag vX` fails.
+    includes = [
+      {
+        condition = "gitdir:~/Projects/timewax/";
+        contents.tag.gpgsign = false;
+      }
+    ];
+
     settings = {
       user.name = osConfig.my.personal.name;
 
