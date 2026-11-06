@@ -89,7 +89,7 @@ slack cancel Q0BQ07ECBN2  # looks up the id's channel, then deletes it
 
 Colleagues live in `~/Projects/timewax/orchestrator/team.json` (infuse manages it, not git): an
 array with one object per person holding `real.name`, `email.work`, `jira.id`, `lific.handle`,
-`gitlab.username` and `slack.{handle,url,id}`.
+`gitlab.username`, `slack.{handle,url,id}` and, when known, `real.pronouns`.
 
 - **DM:** pass the `D…` id at the end of `slack.url` to `-c`.
 - **Mention in a channel:** put `<@U…>` with `slack.id` in the message text. A bare `@danny`
