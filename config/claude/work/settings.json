@@ -95,6 +95,11 @@
           {
             "type": "command",
             "command": "$CLAUDE_CONFIG_DIR/hooks/block-rex-session-rename.sh"
+          },
+          {
+            "type": "command",
+            "command": "$CLAUDE_CONFIG_DIR/hooks/gate-mr-merge-procedure.sh",
+            "timeout": 20
           }
         ]
       },
