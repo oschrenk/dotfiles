@@ -64,6 +64,7 @@ _:
       "transmission" # torrent client
       "typewhisper" # ai, speech-to-text dictation
       "vlc" # video client
+      "vorssaint" # menu bar, keep-awake, system monitor and volume mixer
       "whatcable" # cable identifier
       "whatsapp" # whatsapp messaging
       "yellowdot" # hide screen/audio indicator
