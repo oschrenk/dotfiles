@@ -48,6 +48,7 @@ _:
       "onyx" # macos maintenance
       "openoats" # meeting note-taker, transcribes calls
       "oschrenk/personal/cadova-viewer" # cad model viewer
+      "oschrenk/personal/diffity" # code review with claude code
       "oschrenk/personal/mud" # markdown viewer
       "oschrenk/personal/readinglist" # browser for safari's reading list
       "pika" # color picker

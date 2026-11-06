@@ -27,6 +27,10 @@ tasks:
     desc: Register the lific MCP server for both Claude profiles, with the server address after --
     cmds:
       - scripts/setup-lific-mcp.sh {{.CLI_ARGS}}
+  claude:diffity:
+    desc: Register the Diffity MCP server for both Claude profiles
+    cmds:
+      - scripts/setup-diffity-mcp.sh
   nvim:blink:
     desc: Rebuild the blink.cmp Rust fuzzy matcher after a plugin update
     # The dylib filename is keyed to the checked-out commit, so every
