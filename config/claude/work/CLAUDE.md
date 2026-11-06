@@ -84,6 +84,10 @@ The "Questions Versus Actions" rule still wins: a question never authorizes chan
 
 To copy text to the clipboard (macOS): `echo "text" | pbcopy`
 
+## Editing Files
+
+Never use `sed -i`: `sed` here is GNU sed from nix, and a hook blocks it. Change files with Edit or Write.
+
 ## How to Communicate
 
 When discussing code or speaking to the user:
