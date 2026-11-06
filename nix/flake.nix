@@ -111,6 +111,7 @@
             ./modules/darwin/defaults/apps/com.apple.safari.nix
             ./modules/darwin/defaults/apps/com.henrikruscon.klack.nix
             ./modules/darwin/defaults/apps/com.pauldavis.crest.nix
+            ./modules/darwin/defaults/apps/com.superlogical.rex.nix
             ./modules/darwin/defaults/apps/io.tailscale.ipn.macsys.nix
             ./modules/darwin/java.nix
             inputs.nix-apple-container.darwinModules.default
@@ -156,6 +157,7 @@
             ./modules/darwin/defaults/apps/com.apple.safari.nix
             ./modules/darwin/defaults/apps/com.henrikruscon.klack.nix
             ./modules/darwin/defaults/apps/com.pauldavis.crest.nix
+            ./modules/darwin/defaults/apps/com.superlogical.rex.nix
             ./modules/darwin/defaults/apps/io.tailscale.ipn.macsys.nix
             ./modules/darwin/java.nix
             inputs.nix-apple-container.darwinModules.default

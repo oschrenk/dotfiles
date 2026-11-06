@@ -1,7 +1,18 @@
-{ config, osConfig, ... }:
+{
+  config,
+  lib,
+  osConfig,
+  ...
+}:
 {
   home.file.".config/rex".source =
     config.lib.file.mkOutOfStoreSymlink "${osConfig.my.host.dotfiles}/config/rex";
+
+  # CustomUserPreferences cannot write data values.
+  home.activation.rexCustomThemes = lib.hm.dag.entryAfter [ "writeBoundary" ] ''
+    run /usr/bin/defaults write com.superlogical.rex Workspace.customThemes \
+      -data "$(/usr/bin/xxd -p ${../../../config/rex/custom-themes.json} | tr -d '\n')"
+  '';
 
   launchd.agents.rex-bridge = {
     enable = true;

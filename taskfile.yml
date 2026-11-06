@@ -19,10 +19,6 @@ tasks:
     desc: Set keyboard brightness
     cmds:
       - scripts/configure-keyboard.sh
-  customize:rex:
-    desc: Write Rex's settings with defaults; they apply the next time Rex starts
-    cmds:
-      - scripts/configure-rex.sh
   claude:lific:
     desc: Register the lific MCP server for both Claude profiles, with the server address after --
     cmds:
