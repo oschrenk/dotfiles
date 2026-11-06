@@ -109,6 +109,10 @@
           {
             "type": "command",
             "command": "$CLAUDE_CONFIG_DIR/hooks/block-question-previews.sh"
+          },
+          {
+            "type": "command",
+            "command": "$CLAUDE_CONFIG_DIR/hooks/block-question-after-text.sh"
           }
         ]
       }
