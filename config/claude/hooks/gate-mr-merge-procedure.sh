@@ -1,10 +1,9 @@
 #!/bin/bash
 # PreToolUse hook for Bash.
-# Denies the first merge call per session and MR, and puts the repo's procedure in the deny reason:
-# deployment.md without the section for the other target (## Staging or ## Production),
-# or else the older per-target file (staging.md or production.md, also under docs/).
+# Denies the first merge call per session and MR, and puts the repo's deployment.md in the deny
+# reason, without the section for the other target (## Staging or ## Production).
 # A second identical merge call passes. A memory note did not stop a production merge
-# without production.md; this does not depend on remembering.
+# without its procedure; this does not depend on remembering.
 set -euo pipefail
 
 input=$(cat)
@@ -36,10 +35,10 @@ elif [[ -n "$project" ]]; then
 fi
 
 case "$target" in
-  staging) procedure=staging.md; other_section=Production ;;
-  production) procedure=production.md; other_section=Staging ;;
+  staging) other_section=Production ;;
+  production) other_section=Staging ;;
   # e.g. devops merges to master; its deployment.md has no Staging/Production split
-  *) procedure=production.md; other_section="" ;;
+  *) other_section="" ;;
 esac
 
 marker_dir="${TMPDIR:-/tmp}/claude-merge-gate"
@@ -53,8 +52,7 @@ touch "$marker"
 decoded_project=${project//\%2F//}
 overlay="$HOME/.local/share/infuse/git.timewax.com/${decoded_project}"
 file=""
-for candidate in "$repo_root/deployment.md" "$overlay/deployment.md" \
-                 "$repo_root/$procedure" "$repo_root/docs/$procedure" "$overlay/$procedure" "$overlay/docs/$procedure"; do
+for candidate in "$repo_root/deployment.md" "$overlay/deployment.md"; do
   if [[ -f "$candidate" ]]; then
     file=$candidate
     break
@@ -62,7 +60,7 @@ for candidate in "$repo_root/deployment.md" "$overlay/deployment.md" \
 done
 
 if [[ -n "$file" ]]; then
-  if [[ "$file" == */deployment.md && -n "$other_section" ]]; then
+  if [[ -n "$other_section" ]]; then
     # drop the other target's section so the agent cannot follow the wrong steps
     body=$(awk -v drop="## $other_section" '/^## / { skip = ($0 == drop) } !skip' "$file")
   else
@@ -72,7 +70,7 @@ if [[ -n "$file" ]]; then
 
 $body"
 else
-  reason="Merge of MR !$iid into '${target:-unknown target}' is held once. No deployment.md or $procedure was found in $repo_root or the infuse overlay for $decoded_project. Find this repo's merge procedure (DEVELOPMENT.md, README.md, staging.md, production.md) and follow it, then repeat the same merge command."
+  reason="Merge of MR !$iid into '${target:-unknown target}' is held once. No deployment.md was found in $repo_root or the infuse overlay for $decoded_project. Find this repo's merge procedure (DEVELOPMENT.md, README.md) and follow it, then repeat the same merge command."
 fi
 
 jq -n --arg reason "$reason" '{hookSpecificOutput: {
