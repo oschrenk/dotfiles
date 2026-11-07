@@ -54,6 +54,14 @@ in
         condition = "gitdir:~/Projects/timewax/";
         contents.tag.gpgsign = false;
       }
+      {
+        condition = "gitdir:~/.local/share/infuse/";
+        contents = {
+          user.email = osConfig.my.personal.email;
+          commit.gpgsign = false;
+          tag.gpgsign = false;
+        };
+      }
     ];
 
     settings = {

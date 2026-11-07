@@ -101,8 +101,8 @@ in
       # below. libgit2 has no ssh_config parser, so IdentityFile in ~/.ssh/config
       # would not have worked; the flag is the only way to choose a key here.
       #
-      # scripts/bootstrap-infuse.sh writes the key from 1Password on a fresh
-      # machine. It stays out of the nix store, which is world-readable.
+      # opnix writes the key (nix/modules/darwin/secrets.nix), so it stays out
+      # of the nix store, which is world-readable.
       args = [
         "--debounce-seconds=3"
         "--network-timeout-seconds=60"

@@ -64,6 +64,22 @@ in
         mode = "0400";
       };
 
+      infuseDeployKey = {
+        reference = secrets.ref "INFUSE_DEPLOY_KEY";
+        path = "/Users/${config.system.primaryUser}/.ssh/gitwatch_infuse_ed25519";
+        owner = config.system.primaryUser;
+        group = "staff";
+        mode = "0400";
+      };
+
+      infuseDeployKeyPub = {
+        reference = secrets.ref "INFUSE_DEPLOY_KEY_PUB";
+        path = "/Users/${config.system.primaryUser}/.ssh/gitwatch_infuse_ed25519.pub";
+        owner = config.system.primaryUser;
+        group = "staff";
+        mode = "0444";
+      };
+
       # A file, not the login Keychain, which refuses reads from an SSH session.
       lificToken = {
         reference = secrets.ref "LIFIC_BEARER_TOKEN";

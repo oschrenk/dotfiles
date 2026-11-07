@@ -35,7 +35,7 @@ tasks:
     cmds:
       - scripts/build-blink-fuzzy.sh
   bootstrap:infuse:
-    desc: Clone the infuse data repo and give it a commit identity (run once, after 1Password is set up)
+    desc: Clone the infuse data repo (run once, after 1Password is set up)
     cmds:
       - scripts/bootstrap-infuse.sh
   nix:rebuild:

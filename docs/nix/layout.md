@@ -77,7 +77,7 @@ Its `modules.identity` both declares and sets `my.personal.*` and `my.work.*`, a
 |--------|------|--------|---------|
 | `my.personal.username` | str | `modules.identity` | many modules; `rg 'my\.personal\.username' nix` lists them |
 | `my.personal.name` | str | `modules.identity` | `home/git.nix` |
-| `my.personal.email` | str | `modules.identity` | `scripts/bootstrap-infuse.sh` |
+| `my.personal.email` | str | `modules.identity` | `home/git.nix` |
 | `my.work.email` | str | `modules.identity` | nothing yet |
 | `my.host.dotfiles` | str | `host.nix` | `home/claude.nix`, `home/fish.nix`, `home/nvim.nix`, `home/sketchybar.nix` |
 
