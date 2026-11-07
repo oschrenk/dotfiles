@@ -12,6 +12,5 @@ _:
 
   homebrew.casks = [
     "dbeaver-community" # sql client
-    "openvpn-connect" # vpn
   ];
 }

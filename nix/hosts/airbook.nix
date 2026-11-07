@@ -44,6 +44,7 @@
   # AirBook-specific apps go here.
   homebrew.casks = [
     "affinity" # design (v3, free)
+    "openvpn-connect" # work vpn; the MaxBook uses the openvpn daemon instead
     "tailscale-app" # vpn, mesh network
   ];
 
