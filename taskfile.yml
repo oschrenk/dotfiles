@@ -61,6 +61,18 @@ tasks:
       - >-
         ssh -A -t -o ControlPath=none olivers-maxbook
         'cd ~/Projects/ops/dotfiles && GIT_SSH_COMMAND="ssh -o IdentityAgent=$SSH_AUTH_SOCK" git pull --ff-only && task nix:rebuild:darwin'
+  vpn:maxbook:connect:
+    desc: Connect the MaxBook's work VPN and open the login in this Mac's browser if asked
+    cmds:
+      - scripts/vpn-maxbook.sh connect
+  vpn:maxbook:disconnect:
+    desc: Disconnect the MaxBook's work VPN and keep it down until connect
+    cmds:
+      - scripts/vpn-maxbook.sh disconnect
+  vpn:maxbook:state:
+    desc: Show the MaxBook's work VPN state and the route to git.timewax.com
+    cmds:
+      - scripts/vpn-maxbook.sh state
   nix:update:preview:
     desc: Preview what a flake input update changes — packages, home-manager news, and options (read-only)
     # thaw covers packages and news; the script covers what thaw does not,

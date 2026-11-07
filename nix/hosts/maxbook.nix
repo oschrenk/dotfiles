@@ -1,4 +1,15 @@
-{ config, secretspec, ... }:
+{
+  config,
+  pkgs,
+  secretspec,
+  ...
+}:
+
+let
+  openvpnSocket = "/var/run/openvpn-timewax.sock";
+  # openvpn requires client auth; the server ignores it and signs in via WEB_AUTH.
+  openvpnDummyAuth = pkgs.writeText "openvpn-timewax-auth" "sso\nsso\n";
+in
 
 {
   imports = [
@@ -108,6 +119,31 @@
     owner = "root";
     group = "wheel";
     mode = "0400";
+  };
+
+  # Held at start: the tunnel stays down until `task vpn:maxbook:connect`.
+  launchd.daemons.openvpn-timewax = {
+    script = ''
+      exec ${pkgs.openvpn}/bin/openvpn \
+        --config ${config.services.onepassword-secrets.secrets.openvpnProfile.path} \
+        --ignore-unknown-option max-routes \
+        --auth-user-pass ${openvpnDummyAuth} \
+        --auth-retry nointeract \
+        --setenv IV_SSO webauth \
+        --push-peer-info \
+        --management ${openvpnSocket} unix \
+        --management-client-user ${config.my.personal.username} \
+        --management-hold \
+        --verb 4
+    '';
+
+    serviceConfig = {
+      RunAtLoad = true;
+      KeepAlive = true;
+      ThrottleInterval = 10;
+      StandardOutPath = "/var/log/openvpn-timewax.log";
+      StandardErrorPath = "/var/log/openvpn-timewax.log";
+    };
   };
 
   # Read by the AuthorizedKeysCommand that nix-darwin already installs.
