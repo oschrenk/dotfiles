@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, secretspec, ... }:
 
 {
   imports = [
@@ -100,6 +100,15 @@
         };
       };
     };
+
+  services.onepassword-secrets.secrets.openvpnProfile = {
+    reference = (secretspec.lib.read ../../secretspec.toml).ref "OPENVPN_PROFILE";
+    kind = "file";
+    path = "/etc/openvpn/timewax.ovpn";
+    owner = "root";
+    group = "wheel";
+    mode = "0400";
+  };
 
   # Read by the AuthorizedKeysCommand that nix-darwin already installs.
   users.users.${config.my.personal.username}.openssh.authorizedKeys.keys = [
