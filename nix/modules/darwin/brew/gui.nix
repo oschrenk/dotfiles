@@ -38,7 +38,6 @@ _:
       "keyboardcleantool" # disables keyboard for cleaning
       "keycastr" # shows key strokes on screen
       "knockknock" # identify background tasks/processes
-      "little-snitch" # firewall, monitor and block outgoing connections
       "mochi" # study notes and flashcards
       "monodraw" # draw ascii diagrams
       "neovide-app" # neovim desktop app
