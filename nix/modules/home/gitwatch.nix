@@ -91,8 +91,13 @@ in
 
     services.gitwatch.infuse = {
       repo_path = "${config.home.homeDirectory}/.local/share/infuse";
-      # --network-timeout-seconds bounds fetch and push, so an SSH agent that
-      # never answers ends in a logged error instead of a wedged daemon.
+      # gitwatch bounds every fetch and push to a fixed 60 seconds, so an SSH
+      # agent that never answers ends in a logged error instead of a wedged
+      # daemon.
+      #
+      # --pull-interval-seconds pulls while no local edit is pending, so this
+      # clone receives commits pushed by other machines without first making a
+      # commit of its own.
       #
       # --ssh-key is what keeps it from reaching an agent at all. It names a
       # deploy key registered on infuse-data alone, so the daemon authenticates
@@ -105,10 +110,10 @@ in
       # of the nix store, which is world-readable.
       args = [
         "--debounce-seconds=3"
-        "--network-timeout-seconds=60"
         "--ssh-key=${config.home.homeDirectory}/.ssh/gitwatch_infuse_ed25519"
         "--remote=origin"
         "--pull-before-push"
+        "--pull-interval-seconds=300"
         "--skip-if-merging"
       ];
       extraPackages = [ pkgs.git ];
