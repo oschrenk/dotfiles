@@ -14,6 +14,8 @@ let
     types
     ;
 
+  pullIntervalSeconds = 60 * 60;
+
   defaultCommitScript = pkgs.writeShellApplication {
     name = "gitwatch-commit-message";
     runtimeInputs = [ pkgs.git ];
@@ -99,6 +101,8 @@ in
       # clone receives commits pushed by other machines without first making a
       # commit of its own.
       #
+      # --ntfy-url-file listens for the push webhook on infuse-data.
+      #
       # --ssh-key is what keeps it from reaching an agent at all. It names a
       # deploy key registered on infuse-data alone, so the daemon authenticates
       # without a person there to unlock anything. Passing it also disables the
@@ -113,7 +117,8 @@ in
         "--ssh-key=${config.home.homeDirectory}/.ssh/gitwatch_infuse_ed25519"
         "--remote=origin"
         "--pull-before-push"
-        "--pull-interval-seconds=300"
+        "--pull-interval-seconds=${toString pullIntervalSeconds}"
+        "--ntfy-url-file=${config.home.homeDirectory}/.config/gitwatch/ntfy-url"
         "--skip-if-merging"
       ];
       extraPackages = [ pkgs.git ];

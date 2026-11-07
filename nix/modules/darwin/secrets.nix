@@ -64,6 +64,14 @@ in
         mode = "0400";
       };
 
+      gitwatchNtfyUrl = {
+        reference = secrets.ref "GITWATCH_NTFY_URL";
+        path = "/Users/${config.system.primaryUser}/.config/gitwatch/ntfy-url";
+        owner = config.system.primaryUser;
+        group = "staff";
+        mode = "0400";
+      };
+
       infuseDeployKey = {
         reference = secrets.ref "INFUSE_DEPLOY_KEY";
         path = "/Users/${config.system.primaryUser}/.ssh/gitwatch_infuse_ed25519";
