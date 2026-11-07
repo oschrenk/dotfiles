@@ -55,6 +55,12 @@ tasks:
     vars:
       HOSTNAME:
         sh: hostname -s
+  nix:rebuild:maxbook:
+    desc: Pull and apply nix-darwin on the MaxBook over SSH, with this Mac's 1Password agent
+    cmds:
+      - >-
+        ssh -A -t -o ControlPath=none olivers-maxbook
+        'cd ~/Projects/ops/dotfiles && GIT_SSH_COMMAND="ssh -o IdentityAgent=$SSH_AUTH_SOCK" git pull --ff-only && task nix:rebuild:darwin'
   nix:update:preview:
     desc: Preview what a flake input update changes — packages, home-manager news, and options (read-only)
     # thaw covers packages and news; the script covers what thaw does not,
