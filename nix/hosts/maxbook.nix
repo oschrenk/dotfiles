@@ -74,6 +74,33 @@
     '';
   };
 
+  # The binary is the app's Sparkle install; an app update needs an agent restart.
+  home-manager.users.${config.my.personal.username} =
+    { config, ... }:
+    {
+      launchd.agents.rex-server = {
+        enable = true;
+        config = {
+          ProgramArguments = [
+            "${config.home.homeDirectory}/Library/Application Support/com.superlogical.rex/RexServer/Versions/Current/Rex Server.app/Contents/MacOS/rex"
+            "server"
+            "run"
+            "--tailscale"
+            "--tailscale-hostname"
+            "olivers-maxbook-rex"
+          ];
+          EnvironmentVariables = {
+            PATH = "/etc/profiles/per-user/${config.home.username}/bin:/usr/bin:/bin";
+            SHELL = "/run/current-system/sw/bin/fish";
+          };
+          RunAtLoad = true;
+          KeepAlive = true;
+          StandardOutPath = "${config.home.homeDirectory}/Library/Logs/rex-server.log";
+          StandardErrorPath = "${config.home.homeDirectory}/Library/Logs/rex-server.log";
+        };
+      };
+    };
+
   # Read by the AuthorizedKeysCommand that nix-darwin already installs.
   users.users.${config.my.personal.username}.openssh.authorizedKeys.keys = [
     config.my.personal.sshKey
