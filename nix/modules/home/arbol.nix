@@ -82,6 +82,7 @@
 
         timewax = [
           "git@git.timewax.com:nodejs/all-node-apps.git"
+          "git@git.timewax.com:oliver.schrenk/orchestrator.git"
           "git@git.timewax.com:python/all-python2-apps.git"
           "git@git.timewax.com:python/all-python3-apps.git"
           "git@git.timewax.com:timewax/backend.git"
