@@ -19,18 +19,21 @@ mgmt() {
 
 connect() {
   local start line url opened="" deadline
-  start=$(ssh "$HOST" "wc -l < $LOG" | tr -d ' ')
   # hold off, so openvpn's own reconnects do not stop and wait for a release.
   mgmt "hold off" "hold release" >/dev/null
+  # From the current attempt's start, so a login URL that is already waiting is seen.
+  start=$(ssh "$HOST" "grep -n -E 'process restarting|Need hold release' $LOG | tail -1 | cut -d: -f1")
+  start=${start:-0}
   deadline=$((SECONDS + AUTH_WINDOW_SECONDS))
   while ((SECONDS < deadline)); do
-    line=$(ssh "$HOST" "tail -n +$((start + 1)) $LOG | grep -E -o \"WEB_AUTH::[^']+|Initialization Sequence Completed|AUTH_FAILED\" | tail -1") || true
+    # "auth-failure (auth-token)" is a stale token that falls back to WEB_AUTH, not a failure.
+    line=$(ssh "$HOST" "tail -n +$((start + 1)) $LOG | grep -E -o \"WEB_AUTH::[^']+|Initialization Sequence Completed|auth-failure\\]\" | tail -1") || true
     case "$line" in
       "Initialization Sequence Completed")
         echo "connected"
         return 0
         ;;
-      AUTH_FAILED)
+      "auth-failure]")
         echo "authentication failed" >&2
         return 1
         ;;
