@@ -154,6 +154,7 @@ in
         --auth-retry nointeract \
         --setenv IV_SSO webauth \
         --push-peer-info \
+        --pull-filter ignore auth-token-user \
         --management ${openvpnSocket} unix \
         --management-client-user ${config.my.personal.username} \
         --management-hold \
