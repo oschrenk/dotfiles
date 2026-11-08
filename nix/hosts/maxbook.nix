@@ -144,7 +144,7 @@ in
     mode = "0400";
   };
 
-  # Held at start: the tunnel stays down until `task vpn:maxbook:connect`.
+  # Held at start: the tunnel stays down until the orchestrator's `task vpn:maxbook:connect`.
   launchd.daemons.openvpn-timewax = {
     script = ''
       exec ${pkgs.openvpn}/bin/openvpn \
