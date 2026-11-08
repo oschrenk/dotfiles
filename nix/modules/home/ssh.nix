@@ -33,6 +33,8 @@
       ControlPath = "~/.ssh/sockets/%C";
       ControlPersist = "1m";
     };
+
+    settings."olivers-maxbook".ForwardAgent = true;
   };
 
   # ControlPath writes into sockets/, and the Include above reads config.d/.

@@ -6,6 +6,7 @@
 }:
 
 let
+  airbookAgent = ".ssh/airbook-agent.sock";
   openvpnSocket = "/var/run/openvpn-timewax.sock";
   # openvpn requires client auth; the server ignores it and signs in via WEB_AUTH.
   openvpnDummyAuth = pkgs.writeText "openvpn-timewax-auth" "sso\nsso\n";
@@ -85,10 +86,32 @@ in
     '';
   };
 
-  # The binary is the app's Sparkle install; an app update needs an agent restart.
   home-manager.users.${config.my.personal.username} =
-    { config, ... }:
+    { config, lib, ... }:
     {
+      # shellInit runs before loginShellInit points SSH_AUTH_SOCK at the local 1Password.
+      programs.fish.shellInit = ''
+        if set -q SSH_TTY; and set -q SSH_AUTH_SOCK; and not test -S ~/${airbookAgent}
+            ln -sf $SSH_AUTH_SOCK ~/${airbookAgent}
+        end
+      '';
+
+      # Before Host *: ssh keeps the first IdentityAgent it reads.
+      programs.ssh.settings.airbook-agent = lib.hm.dag.entryBefore [ "*" ] {
+        header = ''Match exec "SSH_AUTH_SOCK=%d/${airbookAgent} /usr/bin/ssh-add -l >/dev/null 2>&1"'';
+        IdentityAgent = "~/${airbookAgent}";
+      };
+
+      # op-ssh-sign only uses a forwarded agent when SSH_TTY is set, which Rex sessions lack.
+      programs.git.signing.signer = lib.mkForce "${pkgs.writeShellScript "git-ssh-sign" ''
+        sock="$HOME/${airbookAgent}"
+        if SSH_AUTH_SOCK="$sock" /usr/bin/ssh-add -l >/dev/null 2>&1; then
+          SSH_AUTH_SOCK="$sock" exec /usr/bin/ssh-keygen "$@"
+        fi
+        exec /Applications/1Password.app/Contents/MacOS/op-ssh-sign "$@"
+      ''}";
+
+      # The binary is the app's Sparkle install; an app update needs an agent restart.
       launchd.agents.rex-server = {
         enable = true;
         config = {
