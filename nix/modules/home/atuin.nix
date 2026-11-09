@@ -20,7 +20,11 @@ let
   '';
 in
 {
-  launchd.agents.atuin-daemon.config.ProgramArguments = lib.mkForce [ "${start}" ];
+  launchd.agents.atuin-daemon.config = {
+    ProgramArguments = lib.mkForce [ "${start}" ];
+    # thread capture watches one Claude config, read from the daemon's own environment
+    EnvironmentVariables.CLAUDE_CONFIG_DIR = "${config.home.homeDirectory}/.config/claude/work";
+  };
 
   programs.atuin = {
     enable = true;
@@ -97,6 +101,17 @@ in
       # enable sync v2
       # see https://docs.atuin.sh/configuration/config/#sync
       sync.records = true;
+
+      # capture and sync AI agent sessions
+      # see https://docs.atuin.sh/18.24/ai/threads/
+      threads.capture = true;
+
+      # files whose contents a captured session never keeps, on top of the built-in ones
+      # see https://docs.atuin.sh/18.24/configuration/config/#sensitive_files
+      security.sensitive_files = [
+        ".envrc"
+        ".envrc.local"
+      ];
     };
   };
 }
