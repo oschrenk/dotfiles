@@ -32,6 +32,9 @@ sudo launchctl kickstart -k system/org.nixos.opnix-secrets
 tail /var/log/opnix-secrets.log   # expect "Successfully processed N secrets"
 ```
 
+A service account must not hold the token of another service account.
+So opnix never writes a service account token: an interactive `op read` writes it, as the bootstrap above does.
+
 ## Declaring a Secret
 
 References come from `secretspec.toml` by name, through the reader from the `secretspec.nix` flake input:
