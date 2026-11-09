@@ -50,11 +50,5 @@ function music --description "Download audio from a URL into ~/Music"
         test $status -ne 0; and set overall_status $status
     end
 
-    # Refresh mpd's library so rmpc sees the new files. brew's mpd build has
-    # FS-watch disabled, so `auto_update yes` is a no-op; manual nudge needed.
-    if command -q mpc
-        mpc update >/dev/null 2>&1
-    end
-
     return $overall_status
 end

@@ -37,7 +37,6 @@
     ./mark.nix
     ./meter.nix
     ./mission.nix
-    ./mpd.nix
     ./msgvault.nix
     ./neovide.nix
     ./nvim.nix
@@ -47,7 +46,6 @@
     ./rex.nix
     ./ripgrep.nix
     ./rumdl.nix
-    ./rmpc.nix
     ./sessionizer.nix
     ./thaw.nix
     ./ssh.nix
