@@ -17,7 +17,7 @@ opnix authenticates with a 1Password **service-account token** at `/etc/opnix-to
 - Rotate it on a schedule and give it an expiry
 
 **A missing token fails silently.** opnix logs a warning and exits 0, so the rebuild succeeds and the secrets simply never appear.
-`task nix:rebuild:darwin` aborts early on an empty token file for exactly this reason.
+`task nix:switch:local` aborts early on an empty token file for exactly this reason.
 
 ## Bootstrap
 

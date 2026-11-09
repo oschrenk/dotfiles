@@ -21,7 +21,7 @@ not_ready() {
 }
 
 if [[ -x /run/current-system/sw/bin/darwin-rebuild ]]; then
-  step "nix-darwin already active, skipping. Later runs: task nix:rebuild:darwin"
+  step "nix-darwin already active, skipping. Later runs: task nix:switch:local"
   exit 0
 fi
 

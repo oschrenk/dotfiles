@@ -42,10 +42,10 @@ tasks:
     desc: Write the Timewax 1Password service account token file on this Mac and the MaxBook (run after a rotation)
     cmds:
       - scripts/bootstrap-timewax-token.sh
-  nix:rebuild:
+  nix:switch:
     desc: Apply nix configuration to the Mac
-    deps: ['nix:rebuild:darwin']
-  nix:rebuild:darwin:
+    deps: ['nix:switch:local']
+  nix:switch:local:
     desc: Apply nix-darwin configuration to the current Mac (auto-selects host via hostname)
     cmds:
       # opnix exits 0 when the token is missing, silently provisioning nothing.
@@ -59,12 +59,12 @@ tasks:
     vars:
       HOSTNAME:
         sh: hostname -s
-  nix:rebuild:maxbook:
+  nix:switch:remote:maxbook:
     desc: Pull and apply nix-darwin on the MaxBook over SSH, with this Mac's 1Password agent
     cmds:
       - >-
         ssh -A -t -o ControlPath=none olivers-maxbook
-        'cd ~/Projects/ops/dotfiles && GIT_SSH_COMMAND="ssh -o IdentityAgent=$SSH_AUTH_SOCK" git pull --ff-only && task nix:rebuild:darwin'
+        'cd ~/Projects/ops/dotfiles && GIT_SSH_COMMAND="ssh -o IdentityAgent=$SSH_AUTH_SOCK" git pull --ff-only && task nix:switch:local'
   nix:update:preview:
     desc: Preview what a flake input update changes — packages, home-manager news, and options (read-only)
     # thaw covers packages and news; the script covers what thaw does not,

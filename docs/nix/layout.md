@@ -87,7 +87,7 @@ Its `modules.identity` both declares and sets `my.personal.*` and `my.work.*`, a
 
 - Its values are world-readable in the local Nix store once fetched.
   Secrets stay in 1Password and reach the hosts through opnix.
-- The fetch runs as root during `task nix:rebuild:darwin` and goes through the 1Password SSH agent.
+- The fetch runs as root during `task nix:switch:local` and goes through the 1Password SSH agent.
   `programs.ssh.knownHosts` in `modules/common.nix` declares GitHub's host key, so the fetch never stops at a prompt.
 - A fresh Mac needs 1Password signed in with its SSH agent on before the first rebuild, because the flake cannot evaluate without the private input.
 - This repo does not support forks.

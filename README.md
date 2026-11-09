@@ -23,7 +23,7 @@ When the Mac is not ready, the script prints what is missing and stops, so you f
 5. In a new terminal, fetch the LFS files and the infuse data: `./scripts/stage-03-finish.sh`
 
 Then set up the apps by hand, with the checklist in [docs/first-run.md](docs/first-run.md).
-Later changes apply with `task nix:rebuild:darwin`.
+Later changes apply with `task nix:switch:local`.
 
 ## Setup Git Projects
 

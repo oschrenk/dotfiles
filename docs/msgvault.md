@@ -15,7 +15,7 @@ Its Google credentials live in the login Keychain, never as files in `~/.config/
 
 ## Setup on a New Mac
 
-Run these after `task nix:rebuild:darwin`, so that `msgvault-token` is on the `PATH`.
+Run these after `task nix:switch:local`, so that `msgvault-token` is on the `PATH`.
 
 1. Copy the client secret into the Keychain: `op read "op://msgvault/Google OAuth/client_secret.json" | msgvault-token set-client-secret`
 2. Check it: `msgvault-token client-secret | jq -e .installed >/dev/null && echo ok`
