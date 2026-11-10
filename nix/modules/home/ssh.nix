@@ -38,6 +38,8 @@
       "olivers-maxbook" = {
         ForwardAgent = true;
         ServerAliveCountMax = 24;
+        ControlMaster = "no";
+        ControlPath = "none";
       };
 
       # nix speaks a binary protocol over ssh-ng, and a multiplexed channel
