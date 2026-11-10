@@ -16,25 +16,34 @@
     # settings rather than matchBlocks: the latter is deprecated and warns on
     # every rebuild. Keys here are the ssh directive names as written in the
     # config file.
-    settings."*" = {
-      # Route all key auth through 1Password's SSH agent. Quoted because the
-      # path contains spaces, and ssh wants the quotes in the file.
-      IdentityAgent = ''"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"'';
+    settings = {
+      "*" = {
+        # Route all key auth through 1Password's SSH agent. Quoted because the
+        # path contains spaces, and ssh wants the quotes in the file.
+        IdentityAgent = ''"~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"'';
 
-      # Don't store hostnames and IPs in known_hosts in cleartext
-      HashKnownHosts = true;
+        # Don't store hostnames and IPs in known_hosts in cleartext
+        HashKnownHosts = true;
 
-      ServerAliveCountMax = 5;
-      ServerAliveInterval = 5;
+        ServerAliveCountMax = 5;
+        ServerAliveInterval = 5;
 
-      # Share one channel per host rather than opening a new one each time,
-      # which makes repeat connections much quicker.
-      ControlMaster = "auto";
-      ControlPath = "~/.ssh/sockets/%C";
-      ControlPersist = "1m";
+        # Share one channel per host rather than opening a new one each time,
+        # which makes repeat connections much quicker.
+        ControlMaster = "auto";
+        ControlPath = "~/.ssh/sockets/%C";
+        ControlPersist = "1m";
+      };
+
+      "olivers-maxbook".ForwardAgent = true;
+
+      # nix speaks a binary protocol over ssh-ng, and a multiplexed channel
+      # corrupts it, so the linux builder gets its own connection.
+      "nix-builder-aarch64" = {
+        ControlMaster = "no";
+        ControlPath = "none";
+      };
     };
-
-    settings."olivers-maxbook".ForwardAgent = true;
   };
 
   # ControlPath writes into sockets/, and the Include above reads config.d/.

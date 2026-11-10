@@ -57,11 +57,82 @@ task nix:fmt
 2. Add an entry to `darwinConfigurations` in `flake.nix`
 3. Run the first apply command above on that machine
 
+## Linux Builder
+
+`aarch64-linux` builds, including the homelab Pi closures, run in an Apple `container` configured in `modules/darwin/container.nix`.
+
+The repo declares three things:
+
+- `services.containerization.linux-builder.aarch64.enable = true`, which installs the SSH key to `~/.ssh/nix-builder_ed25519` and stops activation deleting it
+- the system-wide SSH alias `/etc/ssh/ssh_config.d/100-nix-builder-aarch64.conf`, pointing `nix-builder-aarch64` at `localhost:31022`
+- the `builders` line in `nix.custom.conf`, because `nix.buildMachines` is inert under Determinate Nix
+
+It does not declare the container.
+This repo forces `autoStart` off, so no launchd agent exists and nothing creates the container.
+
+Every `darwin-rebuild switch` destroys it.
+Activation restarts the container runtime, which stops the container.
+Activation then runs `container prune`, which removes every stopped container.
+Volumes carry the builder's store across that, so a recreate downloads nothing.
+
+Create the volumes once:
+
+```bash
+container volume create nix-builder-store
+container volume create nix-builder-var
+```
+
+Seed them from the image before the first use, and again after the image changes.
+Apple's runtime never copies image content into a fresh volume.
+An unseeded volume hides `/nix/store`, and the container then lacks even `sh`.
+Stop the builder first, because a volume attaches to one container at a time:
+
+```bash
+container run --rm \
+  --volume nix-builder-store:/mnt/store --volume nix-builder-var:/mnt/var \
+  --entrypoint sh ghcr.io/halfwhey/nix-builder:v2-nix2.35.4 \
+  -c 'cp -an /nix/store/. /mnt/store/ && cp -an /nix/var/. /mnt/var/'
+```
+
+Then create the container, taking the image from `services.containerization.linux-builder.image`:
+
+```bash
+container run -d --name nix-builder-aarch64 \
+  --volume nix-builder-store:/nix/store --volume nix-builder-var:/nix/var \
+  --publish 127.0.0.1:31022:22 \
+  --cpus 4 --memory 8g \
+  ghcr.io/halfwhey/nix-builder:v2-nix2.35.4
+```
+
+Nothing reconciles that command against the option.
+A module update that bumps the image leaves the container on the old one, so re-read the option before a recreate.
+
+Use `container stop nix-builder-aarch64` when idle and `container start nix-builder-aarch64` before a build.
+A stop leaves no process and no bound port.
+
+Neither flag is a preference:
+
+- `--publish 127.0.0.1:` bounds the exposure.
+  Without the host IP the port binds every interface, and the public `nix-apple-container` repository holds the matching private key.
+- `--memory 8g` sets a ceiling rather than a reservation, so an idle container costs nothing.
+  Perses needs that ceiling.
+  3072 kills its frontend build.
+
+The module's launchd agent would otherwise hand the builder an empty store.
+It runs `container stop` and `container rm` before every `container run`.
+The runtime keeps `/nix/store` in the container's writable layer, so that `rm` discards it.
+
+The homelab repo's `docs/builder.md` and its `nix:builder:*` tasks still describe the retired QEMU VM.
+LAB-156 tracks the rewiring.
+
 ## Known Warnings
 
 - `$HOME is not owned by you`.
   Expected under `sudo`, where nix-darwin switches to `/var/root` as home.
   Safe to ignore.
+- `nix-apple-container: linux-builder is enabled but neither nix.enable nor the determinateNix module is available`.
+  Expected: `nix.enable = false` under Determinate Nix, and Determinate's own nix-darwin module is not an input.
+  The builder list goes into `nix.custom.conf` instead, so nothing is missing.
 
 ## Notes
 
