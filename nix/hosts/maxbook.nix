@@ -91,7 +91,7 @@ in
     {
       # shellInit runs before loginShellInit points SSH_AUTH_SOCK at the local 1Password.
       programs.fish.shellInit = ''
-        if set -q SSH_TTY; and set -q SSH_AUTH_SOCK; and not test -S ~/${airbookAgent}
+        if string match -q "$HOME/.ssh/agent/*.sshd.*" -- $SSH_AUTH_SOCK
             ln -sf $SSH_AUTH_SOCK ~/${airbookAgent}
         end
       '';
