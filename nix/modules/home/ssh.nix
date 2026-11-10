@@ -35,7 +35,10 @@
         ControlPersist = "1m";
       };
 
-      "olivers-maxbook".ForwardAgent = true;
+      "olivers-maxbook" = {
+        ForwardAgent = true;
+        ServerAliveCountMax = 24;
+      };
 
       # nix speaks a binary protocol over ssh-ng, and a multiplexed channel
       # corrupts it, so the linux builder gets its own connection.
