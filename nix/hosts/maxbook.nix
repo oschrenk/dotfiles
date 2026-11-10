@@ -90,6 +90,7 @@ in
     { config, lib, ... }:
     {
       home.file.".ssh/rc".text = ''
+        [ -n "$SSH_TTY" ] || exit 0
         case "$SSH_AUTH_SOCK" in
           "$HOME"/.ssh/agent/*.sshd.*) ln -sf "$SSH_AUTH_SOCK" ~/${airbookAgent} ;;
         esac
