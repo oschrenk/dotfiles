@@ -90,6 +90,19 @@ o.smartcase = true -- Ignore case if pattern lowercase, case-sensitive otherwise
 o.autoread = true -- Set to auto read when a file is changed from the outside
 o.clipboard = "unnamed,unnamedplus" -- cross platform clipboard access
 
+local function copy(reg)
+  local osc52 = require("vim.ui.clipboard.osc52").copy(reg)
+  return function(lines, regtype)
+    osc52(lines, regtype)
+    vim.fn.system("pbcopy", lines)
+  end
+end
+vim.g.clipboard = {
+  name = "osc52+pbcopy",
+  copy = { ["+"] = copy("+"), ["*"] = copy("*") },
+  paste = { ["+"] = { "pbpaste" }, ["*"] = { "pbpaste" } },
+}
+
 -- disable backups/swap files
 o.backup = false
 o.writebackup = false
