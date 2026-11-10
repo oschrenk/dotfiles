@@ -70,7 +70,9 @@ Do not create new task files.
 
 # Proposals and Suggestions
 
-When presenting options, suggestions, or changes for the user to approve (e.g. file renames, folder restructuring, config changes), ALWAYS use the AskUserQuestion tool instead of listing suggestions in plain text. Let the user confirm interactively rather than dumping a table and asking "want me to do these?"
+Use AskUserQuestion only for a discrete choice, in a turn with no other text and no `preview`.
+If the choice needs an explanation, write the explanation and a plain-text question, then end the turn.
+A clarifying question from the user gets a text answer only.
 
 # Git
 

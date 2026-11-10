@@ -73,11 +73,10 @@ Read those files first to find the project's release procedure before taking any
 
 ## Proposals and Suggestions
 
-When presenting options, suggestions, or changes for the user to approve (e.g. file renames, folder restructuring, config changes), ALWAYS use the AskUserQuestion tool instead of listing suggestions in plain text.
-Let the user confirm interactively rather than dumping a table and asking "want me to do these?"
-
-This applies to discrete decisions.
-Open-ended advice or explanations (answers to "any ideas how to...") stay prose — end with AskUserQuestion only when there is something concrete to approve.
+Use AskUserQuestion only for a discrete choice, in a turn with no other text and no `preview`.
+If the choice needs an explanation, write the explanation and a plain-text question, then end the turn.
+A clarifying question from Oliver gets a text answer only.
+Open-ended advice or explanations (answers to "any ideas how to...") stay prose.
 The "Questions Versus Actions" rule still wins: a question never authorizes changes by itself.
 
 ## Clipboard
