@@ -89,11 +89,10 @@ in
   home-manager.users.${config.my.personal.username} =
     { config, lib, ... }:
     {
-      # shellInit runs before loginShellInit points SSH_AUTH_SOCK at the local 1Password.
-      programs.fish.shellInit = ''
-        if string match -q "$HOME/.ssh/agent/*.sshd.*" -- $SSH_AUTH_SOCK
-            ln -sf $SSH_AUTH_SOCK ~/${airbookAgent}
-        end
+      home.file.".ssh/rc".text = ''
+        case "$SSH_AUTH_SOCK" in
+          "$HOME"/.ssh/agent/*.sshd.*) ln -sf "$SSH_AUTH_SOCK" ~/${airbookAgent} ;;
+        esac
       '';
 
       # Before Host *: ssh keeps the first IdentityAgent it reads.
