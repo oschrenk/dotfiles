@@ -32,6 +32,9 @@ in
   # /etc/ssh/ssh_config.d, which the root daemon reads.
   environment.etc."nix/nix.custom.conf".text = ''
     builders = ssh-ng://root@${builderName} aarch64-linux ${builderHome}/.ssh/nix-builder_ed25519 ${toString builderMaxJobs} ${toString builderSpeedFactor} big-parallel -
+    # Off by default, which would make this Mac fetch every input and copy it
+    # over ssh instead of letting the builder substitute its own.
+    builders-use-substitutes = true
   '';
 
   environment.systemPackages = [ pkgs.socktainer ];
