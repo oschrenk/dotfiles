@@ -115,15 +115,15 @@ jq -r --arg q danny '.[]
 
 ## Sending to a channel
 
-Channels live in `~/Projects/timewax/orchestrator/channels.json` (infuse, not git): an array with
-one object per channel holding `name` (`#prod-status`), `slack.{id,url}` and `purpose`. Look a
+Channels live in `~/Projects/timewax/orchestrator/company.json` (infuse, not git) under
+`.slack.channels`: an array with one object per channel holding `name` (`#production-deployments`), `slack.{id,url}` and `purpose`. Look a
 channel up there before posting, and pass `slack.id` to `-c`; never guess a channel name, because
 a wrong one fails with `channel_not_found`. An empty `slack.id` means it was never filled in: ask
 the user, and add it once known.
 
 ```fish
-jq -r --arg q prod '.[] | select(.name | contains($q)) | [.name, .slack.id, .purpose] | @tsv' \
-  ~/Projects/timewax/orchestrator/channels.json
+jq -r --arg q prod '.slack.channels[] | select(.name | contains($q)) | [.name, .slack.id, .purpose] | @tsv' \
+  ~/Projects/timewax/orchestrator/company.json
 ```
 
 ## Scheduled messages are invisible in the Slack app
