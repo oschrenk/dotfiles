@@ -40,9 +40,6 @@ _:
       # editor
       "tree-sitter-cli" # nvim, requirement
 
-      # git
-      "worktrunk" # git, worktree management
-
       # lua
       "lua" # lua, programming language
 
