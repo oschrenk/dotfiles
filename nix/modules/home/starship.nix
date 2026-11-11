@@ -15,17 +15,17 @@ _:
 
       directory.style = "bold green";
 
-      # only renders over SSH (ssh_only defaults to true), so a local prompt is
-      # unchanged and a remote one is obvious. The module is enabled by default,
-      # but an explicit `format` renders only the modules it names, so $hostname
-      # has to be listed there too.
+      # The module is enabled by default, but an explicit `format` renders only
+      # the modules it names, so $hostname has to be listed there too.
       hostname = {
-        ssh_only = true;
-        ssh_symbol = "🌐 ";
+        ssh_only = false;
         # Olivers-MaxBook.local -> Olivers-MaxBook
         trim_at = ".";
-        format = "[$ssh_symbol$hostname]($style) ";
-        style = "bold orange";
+        aliases = {
+          "Olivers-AirBook" = "🪶";
+          "Olivers-MaxBook" = "🐘";
+        };
+        format = "$hostname ";
       };
 
       kubernetes = {
