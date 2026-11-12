@@ -108,6 +108,14 @@ in
         if SSH_AUTH_SOCK="$sock" /usr/bin/ssh-add -l >/dev/null 2>&1; then
           SSH_AUTH_SOCK="$sock" exec /usr/bin/ssh-keygen "$@"
         fi
+        # ~/.ssh/rc relinks only on a TTY login, so after a reconnect the link can point at a dead
+        # socket while a live forwarded one sits next to it; relink instead of prompting on this screen
+        for s in $(ls -t "$HOME"/.ssh/agent/s.*.sshd.* 2>/dev/null); do
+          if SSH_AUTH_SOCK="$s" /usr/bin/ssh-add -l >/dev/null 2>&1; then
+            ln -sfn "$s" "$sock"
+            SSH_AUTH_SOCK="$s" exec /usr/bin/ssh-keygen "$@"
+          fi
+        done
         exec /Applications/1Password.app/Contents/MacOS/op-ssh-sign "$@"
       ''}";
 
