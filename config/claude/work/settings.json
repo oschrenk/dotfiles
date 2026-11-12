@@ -57,8 +57,7 @@
       "Bash(stat *)",
       "Bash(tail *)",
       "Bash(tree *)",
-      "Bash(tw-resolve *)",
-      "Bash(~/.local/bin/tw-resolve *)",
+      "Bash(tw review resolve *)",
       "Bash(uniq *)",
       "Bash(wc *)",
       "Bash(which *)"
