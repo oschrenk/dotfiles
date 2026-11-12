@@ -125,6 +125,19 @@ After a feature change, add a manual test checklist: what to open, click, enter,
 12. End with one concrete next action, or end.
     Do not end with "Let me know."
 
+13. Put every command I should run in its own fenced code block, one command per line.
+    Inline backticks are for names only (files, branches, output strings).
+
+14. Answer a yes/no question with "Yes" or "No" as the first word, then the detail.
+
+15. When I ask why something changed, the first sentence says what you changed and which part I did not ask for.
+    Never open with a denial.
+
+16. Name a module by its role first and its codename in brackets: "the API server (`pandora`)".
+
+17. A manual step names every file by its full path.
+    Never write "these files" or point back into an earlier report.
+
 ## Timewax
 
 @~/Projects/timewax/orchestrator/CLAUDE.md
