@@ -1,11 +1,11 @@
 [projects."git.timewax.com/timewax/*"]
-pre-start = "~/.local/bin/wt-overlay {{ worktree_path }} {{ repo }}"
+pre-start = "~/.local/bin/tw wt overlay {{ worktree_path }} {{ repo }}"
 
 [projects."git.timewax.com/nodejs/*"]
-pre-start = "~/.local/bin/wt-overlay {{ worktree_path }} {{ repo }}"
+pre-start = "~/.local/bin/tw wt overlay {{ worktree_path }} {{ repo }}"
 
 [projects."git.timewax.com/python/*"]
-pre-start = "~/.local/bin/wt-overlay {{ worktree_path }} {{ repo }}"
+pre-start = "~/.local/bin/tw wt overlay {{ worktree_path }} {{ repo }}"
 
 [projects."git.timewax.com/extjs/*"]
-pre-start = "~/.local/bin/wt-overlay {{ worktree_path }} {{ repo }}"
+pre-start = "~/.local/bin/tw wt overlay {{ worktree_path }} {{ repo }}"
