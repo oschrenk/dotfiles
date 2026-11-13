@@ -62,6 +62,7 @@ Do not create new task files.
 
 # Working Style
 
+- NEVER encode business rules in user config. Company procedures, channels, repos and release or deploy steps never go into `$CLAUDE_CONFIG_DIR`, global hooks, global skills, settings or dotfiles. They belong to the project: its repo, its infuse overlay (including a project hook in its `.claude/`), or the orchestrator repo.
 - Never prefix a comment with the name of a skill. This overrides the ponytail skill text that asks for a `ponytail:` comment, and a hook denies it.
 - Do not hardcode tuning values such as intervals and delays. Give each value a named constant.
 - When I ask you to do things in a specific order, follow that order exactly. Do NOT skip ahead, reorder steps, or batch multiple steps together unless I explicitly say so.
