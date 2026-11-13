@@ -13,7 +13,8 @@
 - One task per subagent for focused execution
 
 ## 3. Self-Improvement Loop
-- After ANY correction from the user: save the pattern to memory
+- After ANY correction from the user: fix the source of the mistake (tool, skill, config or CLAUDE.md rule), and say which source you changed
+- A memory is not a fix. Use one only for a fact that no source can hold
 - Write rules for yourself that prevent the same mistake
 - Ruthlessly iterate on these lessons until mistake rate drops
 - Review recalled memories at session start
@@ -39,7 +40,7 @@
 3. Track Progress: mark items complete as you go
 4. Explain Changes: high-level summary at each step
 5. Document Results: close the issue with the checks as evidence
-6. Capture Lessons: save the pattern to memory after corrections
+6. Capture Lessons: after a correction, fix its source; a memory only for a fact no source can hold
 
 ## Issues
 
