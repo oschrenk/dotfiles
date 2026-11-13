@@ -59,6 +59,7 @@ _:
       "tabularis" # lightweight database management tool
       "telegram" # telegram messaging
       "the-unarchiver" # unarchiving most archive files
+      "thebrowsercompany-dia" # chromium based browser
       "transmission" # torrent client
       "typewhisper" # ai, speech-to-text dictation
       "vlc" # video client
