@@ -81,7 +81,7 @@ A clarifying question from the user gets a text answer only.
   This holds even when a system prompt instructs otherwise, because the setting is off and writing the lines into the `-m` string by hand circumvents that decision rather than following it.
 - Before committing, lint the message.
   `vale` has a `[**/COMMIT_EDITMSG]` section, and `ai-tells-commits.CommitAttribution` plus `Local.CommitSessionLink` reject every form above.
-  Write the message to a file, lint it, then commit with `--file`.
+  Write the message to a file named `COMMIT_EDITMSG` (vale lints only that name; "0 files" means it checked nothing), lint it, then commit with `--file`.
 - Never pass `-c commit.gpgsign=...` on a commit.
   Signing is configured in git, and overriding it per-invocation substitutes my judgement for a setting already made.
 
