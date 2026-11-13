@@ -4,7 +4,8 @@
     "DISABLE_FEEDBACK_COMMAND": "1",
     "CLAUDE_CODE_DISABLE_FEEDBACK_SURVEY": "1",
     "DISABLE_ERROR_REPORTING": "1",
-    "CLAUDE_CODE_DISABLE_MOUSE_CLICKS": "1"
+    "CLAUDE_CODE_DISABLE_MOUSE_CLICKS": "1",
+    "CLAUDE_CODE_SHELL": "/run/current-system/sw/bin/bash"
   },
   "attribution": {
     "commit": "",
