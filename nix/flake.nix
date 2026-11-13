@@ -105,7 +105,6 @@
             ./modules/darwin/defaults/apps/com.jetbrains.intellij.nix
             ./modules/darwin/defaults/apps/com.nordvpn.nordvpn.nix
             ./modules/darwin/defaults/apps/com.sproutcube.shortcat.nix
-            ./modules/darwin/defaults/apps/company.thebrowser.browser.nix
             ./modules/darwin/defaults/apps/com.colliderli.iina.nix
             ./modules/darwin/defaults/apps/com.apple.mail.nix
             ./modules/darwin/defaults/apps/com.apple.safari.nix
@@ -151,7 +150,6 @@
             ./modules/darwin/defaults/apps/com.jetbrains.intellij.nix
             ./modules/darwin/defaults/apps/com.nordvpn.nordvpn.nix
             ./modules/darwin/defaults/apps/com.sproutcube.shortcat.nix
-            ./modules/darwin/defaults/apps/company.thebrowser.browser.nix
             ./modules/darwin/defaults/apps/com.colliderli.iina.nix
             ./modules/darwin/defaults/apps/com.apple.mail.nix
             ./modules/darwin/defaults/apps/com.apple.safari.nix

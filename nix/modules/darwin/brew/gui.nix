@@ -6,7 +6,7 @@ _:
   homebrew = {
     brews = [
       "8ta4/extension/extension" # web, install browser extensions (used by chezmoi 01f_deps_extensions)
-      "chrome-cli" # cli, control chromium browsers; all-the-videos points it at Arc
+      "chrome-cli" # cli, control chromium browsers
       "displayplacer" # macos, arrange monitors
       "fileicon" # macos, manage icons
       "iconsur" # macos, fetch icons
@@ -21,7 +21,6 @@ _:
       "1password" # password manager
       "alcove" # macos, notch helper
       "antinote" # notes with SoulverCore
-      "arc" # chromium based browser
       "beeper" # universal chat client
       "betterdisplay" # display management
       "crest-browser" # open-source web browser

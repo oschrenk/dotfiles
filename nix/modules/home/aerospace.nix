@@ -292,7 +292,7 @@ _:
       # https://nikitabobko.github.io/AeroSpace/goodness#popular-apps-ids
       #
       # Find bundle ids and windows names
-      # $ osascript -e 'id of app "Arc"'
+      # $ osascript -e 'id of app "Crest"'
       # $ aerospace list-apps
       # $ aerospace list-windows --all
 
@@ -385,15 +385,6 @@ _:
         {
           "if".app-id = "com.apple.Safari";
           run = "move-node-to-workspace b";
-        }
-        {
-          # Arc
-          "if".app-id = "company.thebrowser.Browser";
-          # arc gets it's own workspace onyl because
-          # it has wrong corner radius for macOS 26,
-          # will probably never be re-compiled to match
-          # and it's ugly when being behind another browser
-          run = "move-node-to-workspace a";
         }
 
         # workspace.M (=Media and Messenger)
