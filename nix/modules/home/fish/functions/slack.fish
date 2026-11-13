@@ -2,13 +2,13 @@
 # slack-cli binary that used to own this name; nothing here shells out to it.
 
 function __slack_usage
-    echo 'Usage: slack send [-c CHANNEL] [-k KIND] [-a WHEN] [-n] MESSAGE'
-    echo '       slack review [MR] [-c CHANNEL] [-a WHEN] [-n]'
+    echo 'Usage: slack send -c CHANNEL [-k KIND] [-a WHEN] [-n] MESSAGE'
+    echo '       slack review [MR] -c CHANNEL [-a WHEN] [-n]'
     echo '       slack list'
     echo '       slack cancel ID'
     echo ''
     echo 'Common flags'
-    echo '  -c, --channel  Slack channel (default: #backend)'
+    echo '  -c, --channel  Slack channel, required for send and review'
     echo '  -a, --at       when to post, e.g. "09:00", "tomorrow 09:00",'
     echo '                 "2026-08-20 14:30" (default: post now)'
     echo '  -n, --dry-run  print what would be sent, call nothing'
@@ -24,11 +24,11 @@ function __slack_usage
     echo 'cancel — delete a queued message by the id that list shows'
     echo ''
     echo 'Examples:'
-    echo '  slack send "deploy is done"'
-    echo '  slack send -c "#dev" -a "tomorrow 08:00" "standup in 15"'
-    echo '  slack send (printf \'one\\n\\nthree\' | string collect)'
-    echo '  slack review --dry-run'
-    echo '  slack review --at "tomorrow 09:00"'
+    echo '  slack send -c "#channel" "deploy is done"'
+    echo '  slack send -c "#channel" -a "tomorrow 08:00" "standup in 15"'
+    echo '  slack send -c "#channel" (printf \'one\\n\\nthree\' | string collect)'
+    echo '  slack review -c "#channel" --dry-run'
+    echo '  slack review -c "#channel" --at "tomorrow 09:00"'
     echo '  slack list'
     echo '  slack cancel Q0BQ07ECBN2'
 end
@@ -38,6 +38,14 @@ function __slack_api --description 'POST to a Slack API method, echo the raw res
         -H "Authorization: Bearer $SLACK_TOKEN" \
         -H 'Content-Type: application/json; charset=utf-8' \
         -d "$argv[2]"
+end
+
+# Channel choice is the caller's decision, so there is no default to fall back on.
+function __slack_channel_check
+    if not set -q argv[1]; or test -z "$argv[1]"
+        echo 'slack: -c CHANNEL is required' >&2
+        return 1
+    end
 end
 
 function __slack_token_check
@@ -114,10 +122,10 @@ function __slack_send
     argparse 'c/channel=' 'k/kind=' 'a/at=' 'n/dry-run' -- $argv
     or return 1
 
+    __slack_channel_check $_flag_channel; or return 1
     __slack_token_check; or return 1
 
-    set -l channel '#backend'
-    set -q _flag_channel; and set channel $_flag_channel
+    set -l channel $_flag_channel
 
     set -l kind text
     set -q _flag_kind; and set kind $_flag_kind
@@ -161,10 +169,10 @@ function __slack_review
     argparse 'c/channel=' 'a/at=' 'n/dry-run' -- $argv
     or return 1
 
+    __slack_channel_check $_flag_channel; or return 1
     __slack_token_check; or return 1
 
-    set -l channel '#backend'
-    set -q _flag_channel; and set channel $_flag_channel
+    set -l channel $_flag_channel
 
     # glab comes from the work project's devshell, not from brew or nix — the
     # same arrangement as jira-cli-go (see nix/modules/home/jira.nix). Outside

@@ -1,6 +1,6 @@
 ---
 name: slack
-description: Send Slack messages from the terminal via the `slack` fish function — post text now or scheduled for a specific time, ping a channel with an MR review request, list and cancel queued messages. Triggers on "post this to #channel", "ask backend to review my MR", "send that at 9am tomorrow", "what Slack messages are scheduled", "cancel that scheduled message".
+description: Send Slack messages from the terminal via the `slack` fish function — post text now or scheduled for a specific time, ping a channel with an MR review request, list and cancel queued messages. Triggers on "post this to #channel", "ask for a review of my MR", "send that at 9am tomorrow", "what Slack messages are scheduled", "cancel that scheduled message".
 user-invocable: true
 ---
 
@@ -20,10 +20,12 @@ file and run `fish script.fish` to avoid nested-quoting pain.
 
 | User Query | Command |
 |------------|---------|
-| "post this to #backend" | `slack send "..."` |
-| "send it at 9am tomorrow" | `slack send -a "tomorrow 09:00" "..."` |
-| "ask for review on my MR" | `slack review` |
-| "ping backend about it tomorrow morning" | `slack review -a "tomorrow 09:00"` |
+| "post this to #channel" | `slack send -c <channel> "..."` |
+| "send it at 9am tomorrow" | `slack send -c <channel> -a "tomorrow 09:00" "..."` |
+| "ask for review on my MR" | `slack review -c <channel>` |
+| "ping them about it tomorrow morning" | `slack review -c <channel> -a "tomorrow 09:00"` |
+
+`<channel>` is never chosen here. Take it from the user, or from `company.json` by `purpose` (see "Sending to a channel").
 | "what's scheduled?" / "did that send?" | `slack list` |
 | "cancel that scheduled message" | `slack cancel <ID>` |
 
@@ -34,21 +36,22 @@ file and run `fish script.fish` to avoid nested-quoting pain.
 - **Dry-run first.** `--dry-run` / `-n` prints the exact JSON payload and calls nothing. Use
   it to confirm channel, time, and body, then run for real.
 - **Confirm the resolved time.** `--at` accepts vague input like `"tomorrow 01:00"`, and a
-  wrong day is easy. The function echoes the absolute time it resolved (`→ #backend at Fri 14
+  wrong day is easy. The function echoes the absolute time it resolved (`→ #channel at Fri 14
   Aug 01:00`) — repeat that back to the user before or right after sending.
-- **The default channel is `#backend`.** Every subcommand that posts falls back to it when
-  `-c` is omitted. Never rely on that default when the user named a different channel.
+- **There is no default channel.** `send` and `review` exit 1 with `slack: -c CHANNEL is
+  required` before any HTTP call when `-c` is missing. Choosing a channel is a business
+  decision, so neither the function nor this skill makes it.
 
 ## Subcommands
 
 Bare `slack` and `slack help` print usage and post nothing — safe to run.
 
-### `slack send [-c CHANNEL] [-k KIND] [-a WHEN] [-n] MESSAGE`
+### `slack send -c CHANNEL [-k KIND] [-a WHEN] [-n] MESSAGE`
 
 ```fish
-slack send "deploy is done"
-slack send -c '#dev' -a "tomorrow 08:00" "standup in 15"
-slack send -k block '[{"type":"section","text":{"type":"mrkdwn","text":"hi"}}]'
+slack send -c '#channel' "deploy is done"
+slack send -c '#channel' -a "tomorrow 08:00" "standup in 15"
+slack send -c '#channel' -k block '[{"type":"section","text":{"type":"mrkdwn","text":"hi"}}]'
 ```
 
 - `-k/--kind` is `text` (default), `block`, or `attachment`. For `block` and `attachment` the
@@ -56,7 +59,7 @@ slack send -k block '[{"type":"section","text":{"type":"mrkdwn","text":"hi"}}]'
 - Invalid JSON, an unknown kind, and a missing message each fail with exit 1 before any HTTP
   call happens.
 
-### `slack review [MR] [-c CHANNEL] [-a WHEN] [-n]`
+### `slack review [MR] -c CHANNEL [-a WHEN] [-n]`
 
 Posts exactly this, built from a GitLab MR:
 
@@ -68,9 +71,9 @@ Please review
 ```
 
 ```fish
-slack review                          # current branch's MR → #backend, now
-slack review --at "tomorrow 09:00"    # Slack holds it, posts at 09:00
-slack review 2899 -c '#dev' -a 14:30  # explicit MR iid, channel, today 14:30
+slack review -c '#channel'                       # current branch's MR, now
+slack review -c '#channel' --at "tomorrow 09:00" # Slack holds it, posts at 09:00
+slack review 2899 -c '#channel' -a 14:30         # explicit MR iid, today 14:30
 ```
 
 The MR argument is optional and goes to `glab mr view`, so with no argument it resolves the
@@ -121,6 +124,9 @@ channel up there before posting, and pass `slack.id` to `-c`; never guess a chan
 a wrong one fails with `channel_not_found`. An empty `slack.id` means it was never filled in: ask
 the user, and add it once known.
 
+When the user names no channel, pick it only by its `purpose` in `company.json`. If no purpose
+fits, or more than one does, ask.
+
 ```fish
 jq -r --arg q prod '.slack.channels[] | select(.name | contains($q)) | [.name, .slack.id, .purpose] | @tsv' \
   ~/Projects/timewax/orchestrator/company.json
@@ -154,8 +160,8 @@ UI to view, edit, or cancel them. Consequences to honour:
 - **`SLACK_TOKEN` must be exported.** A `xoxp-` user token, so messages post as the user and
   not as a bot. Every subcommand fails fast with a clear message if it's unset.
 - **Channel names cannot be resolved to ids.** The token lacks the scope for
-  `conversations.info`, so `slack list` shows raw channel ids like `C059T3QQR5W`. Passing
-  `#backend` *to* a send works fine — Slack resolves names server-side.
+  `conversations.info`, so `slack list` shows raw channel ids like `C059T3QQR5W`. Passing a
+  `#name` *to* a send works fine — Slack resolves names server-side.
 - **`\n` is literal inside fish double quotes.** `slack send "a\nb"` posts a literal
   backslash-n. Fish only expands `$var`, `\"`, `\$`, `\\` in double quotes. Build multi-line
   bodies with `printf`.
