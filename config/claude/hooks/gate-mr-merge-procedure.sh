@@ -11,33 +11,6 @@ command=$(jq -r '.tool_input.command // empty' <<<"$input")
 session=$(jq -r '.session_id // "none"' <<<"$input")
 cwd=$(jq -r '.cwd // empty' <<<"$input")
 
-# release.sh tags production; hold it once with the Releasing steps, so the previous tag's
-# deploy check comes first
-# only as a command (start, or after ; & | or a bash prefix), not as text in a message
-if [[ "$command" =~ (^|[\;\&\|][[:space:]]*|bash[[:space:]]+)([^[:space:]\;\&\|]*/)?release\.sh([[:space:]]|$) ]]; then
-  marker_dir="${TMPDIR:-/tmp}/claude-merge-gate"
-  repo_root=$(git -C "${cwd:-.}" rev-parse --show-toplevel 2>/dev/null || true)
-  marker="$marker_dir/${session}-release-${repo_root//\//_}"
-  [[ -f "$marker" ]] && exit 0
-  mkdir -p "$marker_dir"
-  touch "$marker"
-  file="$repo_root/deployment.md"
-  if [[ -f "$file" ]]; then
-    body=$(awk '/^### / { keep = ($0 == "### Releasing") } keep' "$file")
-  else
-    body="No deployment.md in ${repo_root:-the current directory}. Find this repo's release procedure first."
-  fi
-  reason="release.sh is held once. Read the Releasing steps below ($file). In your reply, list each step and say done or not done, BEFORE release.sh. Oliver's explicit OK for this release, given in this session, is one of them. Then repeat the same command; it passes on the second call.
-
-$body"
-  jq -n --arg reason "$reason" '{hookSpecificOutput: {
-    hookEventName: "PreToolUse",
-    permissionDecision: "deny",
-    permissionDecisionReason: $reason
-  }}'
-  exit 0
-fi
-
 iid=""
 project=""
 if [[ "$command" =~ merge_requests/([0-9]+)/merge([^a-z_]|$) ]] && grep -Eq -- '-X[[:space:]]*PUT|--method[[:space:]]+PUT' <<<"$command"; then
