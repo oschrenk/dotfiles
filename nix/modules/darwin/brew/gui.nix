@@ -49,6 +49,7 @@ _:
       "oschrenk/personal/diffity" # code review with claude code
       "oschrenk/personal/mud" # markdown viewer
       "oschrenk/personal/readinglist" # browser for safari's reading list
+      "oschrenk/personal/tinyhand" # screen pointer, hand on a stick
       "pika" # color picker
       "raspberry-pi-imager" # flash raspberry pi images
       "safari-technology-preview" # browser, safari preview builds
