@@ -26,6 +26,7 @@
         ];
 
         forks = [
+          "git@github.com:oschrenk/atuin.git"
           "git@github.com:oschrenk/gitwatch-rs.git"
           "git@github.com:oschrenk/mcp-server-macos-use.git"
           "git@github.com:oschrenk/nvim-md-todo-toggle.git"
