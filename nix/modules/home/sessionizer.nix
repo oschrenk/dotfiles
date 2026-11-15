@@ -31,7 +31,7 @@ in
     };
 
     # reaches the manual entries and the walked $HOME/Projects alike
-    default.layout = "two-columns-claude";
+    default.layout = "one-column-claude";
 
     search = {
       directories = [ "$HOME/Projects" ];
@@ -58,6 +58,16 @@ in
     };
 
     layouts = {
+      one-column-claude.windows = [
+        {
+          panes = [
+            {
+              shell_command = [ "claude --continue || claude" ];
+              focus = true;
+            }
+          ];
+        }
+      ];
       two-columns.windows = [
         {
           layout = "even-horizontal";
