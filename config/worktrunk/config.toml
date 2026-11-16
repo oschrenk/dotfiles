@@ -1,3 +1,7 @@
+# Without --remote, so each submodule stays at the commit the repo pins.
+[projects."git.timewax.com/*"]
+pre-start = "git -C {{ worktree_path }} submodule update --init --recursive"
+
 [projects."git.timewax.com/timewax/*"]
 pre-start = "~/.local/bin/tw wt overlay {{ worktree_path }} {{ repo }}"
 
