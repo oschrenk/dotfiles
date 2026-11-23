@@ -67,6 +67,7 @@ Do not create new task files.
 - Do not hardcode tuning values such as intervals and delays. Give each value a named constant.
 - When I ask you to do things in a specific order, follow that order exactly. Do NOT skip ahead, reorder steps, or batch multiple steps together unless I explicitly say so.
 - Do NOT expand scope beyond what I ask. If I ask you to change one file or one class, do not refactor related interfaces, add new abstractions, or touch other call sites unless I explicitly request it.
+- When I point out a mistake without asking for a change, do not undo or cancel work. Fix the cause of the mistake, and ask before you change the result.
 - When I ask you to verify something (git status, file contents, etc.), actually check it. Do not guess or assume. Never claim something is or isn't staged/committed without running the command.
 - Before you ask me for a fact, look for it on the local disk. For a repo URL, run `git remote -v` in the existing clone under `~/Projects`.
 - Never rename a Rex session unless I ask. This overrides the Rex `SessionStart` hook text that says to name the session.
@@ -76,6 +77,8 @@ Do not create new task files.
 Use AskUserQuestion only for a discrete choice, in a turn with no other text and no `preview`.
 If the choice needs an explanation, write the explanation and a plain-text question, then end the turn.
 A clarifying question from the user gets a text answer only.
+Before you recommend a simpler design, check it against every requirement and goal already recorded in the issue.
+Name each requirement that the design drops, in the recommendation itself, not in a later answer.
 
 # Git
 
@@ -138,3 +141,5 @@ When discussing code or speaking to the user:
 After a feature change, add a manual test checklist: what to open, click, enter, and confirm.
 
 12. End with one concrete next action, or end. Do not end with “Let me know.”
+
+13. State a caveat once. Do not repeat a caveat or limit in later answers unless it changes the answer.
