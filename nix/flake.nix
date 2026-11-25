@@ -11,7 +11,6 @@
     home-manager.url = "github:nix-community/home-manager";
     # pin home-manager to the same nixpkgs to avoid a second copy on disk
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-    opnix.url = "github:brizzbuzz/opnix";
     nix-plist-manager.url = "github:sushydev/nix-plist-manager";
     # pin to the same nixpkgs to avoid a second copy on disk
     nix-plist-manager.inputs.nixpkgs.follows = "nixpkgs";
@@ -50,7 +49,6 @@
       nix-darwin,
       nixpkgs,
       home-manager,
-      opnix,
       nix-plist-manager,
       ...
     }@inputs:
@@ -85,7 +83,7 @@
             ./modules/common.nix
             ./modules/darwin/nix.nix
             ./modules/packages.nix
-            opnix.darwinModules.default
+            inputs.oschrenk-pkgs.darwinModules.opnix
             nix-plist-manager.darwinModules.default
             ./modules/darwin/secrets.nix
             ./modules/darwin/brew/settings.nix
@@ -130,7 +128,7 @@
             ./modules/common.nix
             ./modules/darwin/nix.nix
             ./modules/packages.nix
-            opnix.darwinModules.default
+            inputs.oschrenk-pkgs.darwinModules.opnix
             nix-plist-manager.darwinModules.default
             ./modules/darwin/secrets.nix
             ./modules/darwin/brew/settings.nix

@@ -154,7 +154,8 @@ fi
 
 note "fetching opnix sources for option diff..."
 
-opnix_old_rev="$(locked_rev opnix)"
+opnix_old_rev="$(nix flake metadata "$FLAKE" --json 2>/dev/null |
+  jq -r '.locks.nodes as $n | $n[$n["oschrenk-pkgs"].inputs.opnix].locked.rev // empty')"
 opnix_old="$(src_of "github:brizzbuzz/opnix/${opnix_old_rev}")"
 opnix_new="$(src_of "$OPNIX_REF")"
 
