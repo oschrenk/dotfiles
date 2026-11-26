@@ -90,7 +90,7 @@ Stop the builder first, because a volume attaches to one container at a time:
 ```bash
 container run --rm \
   --volume nix-builder-store:/mnt/store --volume nix-builder-var:/mnt/var \
-  --entrypoint sh ghcr.io/halfwhey/nix-builder:v2-nix2.35.4 \
+  --entrypoint sh ghcr.io/halfwhey/nix-builder:v2-nix2.36.0 \
   -c 'cp -an /nix/store/. /mnt/store/ && cp -an /nix/var/. /mnt/var/'
 ```
 
@@ -101,7 +101,7 @@ container run -d --name nix-builder-aarch64 \
   --volume nix-builder-store:/nix/store --volume nix-builder-var:/nix/var \
   --publish 127.0.0.1:31022:22 \
   --cpus 4 --memory 8g \
-  ghcr.io/halfwhey/nix-builder:v2-nix2.35.4
+  ghcr.io/halfwhey/nix-builder:v2-nix2.36.0
 ```
 
 Nothing reconciles that command against the option.

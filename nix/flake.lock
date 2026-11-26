@@ -213,11 +213,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1793198415,
-        "narHash": "sha256-WL65SBHUhV3qCA8Tv5LsEYt+3opXP0jhyIa3iVscZkI=",
+        "lastModified": 1795463830,
+        "narHash": "sha256-nkjfCEriGUherOrzseILQ3BqUmDNIn6j6Gna8zLmSn4=",
         "owner": "halfwhey",
         "repo": "nix-apple-container",
-        "rev": "9b6e8d9042054a1c1a54c9cb292bb40e02f4d918",
+        "rev": "0724b5d33ce570704d5435e080b71957827be1f4",
         "type": "github"
       },
       "original": {
