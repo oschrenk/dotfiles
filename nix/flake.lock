@@ -558,11 +558,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1790992210,
-        "narHash": "sha256-XHT7tS2LYNH5+XvTEuRP9GG9qrRtIlsyDCRKx3qVMok=",
+        "lastModified": 1793144342,
+        "narHash": "sha256-CT9G9FNKzzBnQGk1zcyKCAW47/t0OkFoLaRXn1rVTh4=",
         "owner": "oschrenk",
         "repo": "secretspec.nix",
-        "rev": "f79861d5d81c92f517195ab5c3246e7caf8bb508",
+        "rev": "f222e61f5ef75eb57cbbbb1f657488f5d6be879c",
         "type": "github"
       },
       "original": {
